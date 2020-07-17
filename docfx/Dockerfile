@@ -17,7 +17,7 @@ from ubuntu:20.04
 ENV DEBIAN_FRONTEND noninteractive
 ENV PATH ${PATH}:/opt/docfx
 
-RUN apt-get update && apt-get -y install gnupg ca-certificates wget zip
+RUN apt-get update && apt-get -y install gnupg ca-certificates wget zip python3
 
 # Install mono with the instructions at:
 # https://www.mono-project.com/download/stable/#download-lin
