@@ -110,3 +110,4 @@ venv.bak/
 docsets
 archives
 **/*.sponge_log.xml
+.vscode
