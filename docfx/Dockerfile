@@ -12,12 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from ubuntu:20.04
+FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV PATH ${PATH}:/opt/docfx
 
-RUN apt-get update && apt-get -y install gnupg ca-certificates wget zip python3
+RUN apt-get update && \
+    apt-get -y install gnupg ca-certificates wget zip python3 python3-pip
 
 # Install mono with the instructions at:
 # https://www.mono-project.com/download/stable/#download-lin

@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,19 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# TODO:
-# * If FORCE_GENERATE_ALL env var is set to true, regenerate all.
-# * If SOURCE_FILE_NAME is set, force regeneration for that file.
+# Add required env vars here.
+required_envvars+=(
+)
 
-set -e
+# Add env vars which are passed down into the container here.
+pass_down_envvars+=(
+    "SOURCE_BUCKET"
+)
 
-if [ -z "$SOURCE_BUCKET" ]; then
-    echo "Must set SOURCE_BUCKET"
-    exit 1
+# Prevent unintentional override on the default image.
+if [[ "${TRAMPOLINE_IMAGE_UPLOAD:-false}" == "true" ]] && \
+   [[ -z "${TRAMPOLINE_IMAGE:-}" ]]; then
+   echo "Please set TRAMPOLINE_IMAGE if you want to upload the Docker image."
+   exit 1
 fi
-
-# Add the path where docuploader gets installed to PATH.
-export PATH=$PATH:${HOME}/.local/bin
-
-python3 -m pip install -r requirements.txt
-python3 docpipeline/__main__.py build-new-docs $SOURCE_BUCKET
