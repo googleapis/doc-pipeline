@@ -12,24 +12,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import logging
+import pathlib
+import sys
+import shutil
+
 import click
+from docuploader import credentials, log, shell
 from google.cloud import storage
 from google.oauth2 import service_account
-import pathlib
 
-import log
-import shell
-import shutil
-import sys
 import tar
 
-from docuploader import credentials
 
+# The docuploader logger is initialized as "docuploader"; change it to docpipeline.
+log.logger = logging.getLogger("docpipeline")
 
-REQUIRED_CMDS = [
-    'docfx',
-    "docuploader"
-]
+REQUIRED_CMDS = ["docfx", "docuploader"]
 
 VERSION = "0.0.0-dev"
 

@@ -16,7 +16,7 @@
 
 import subprocess
 
-import shell
+from docuploader import shell
 
 
 def decompress(archive: str, destination: str) -> subprocess.CompletedProcess:

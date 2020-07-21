@@ -14,7 +14,6 @@
 
 # Add required env vars here.
 required_envvars+=(
-    "SOURCE_BUCKET"
 )
 
 # Add env vars which are passed down into the container here.
