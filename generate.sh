@@ -25,7 +25,7 @@ if [ -z "$SOURCE_BUCKET" ]; then
 fi
 
 # Add the path where docuploader gets installed to PATH.
-export PATH=$PATH:/h/.local/bin
+export PATH=$PATH:${HOME}/.local/bin
 
 python3 -m pip install -r requirements.txt
 python3 docpipeline/__main__.py build-new-docs $SOURCE_BUCKET
