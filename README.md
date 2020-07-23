@@ -4,17 +4,15 @@
 
 Formatting is done with `black` and style is verified with `flake8`.
 
-You'll need to install [`nox`](https://nox.thea.codes/) to run them for this
-project.
-
 You can check everything is correct by running:
 ```
-nox -s lint
+black --check docpipeline tests
+flake8 docpipeline tests
 ```
 
 If a file is not properly formatted, you can fix it with:
 ```
-nox -s blacken
+black docpipeline tests
 ```
 
 ## Testing
