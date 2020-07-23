@@ -1,0 +1,12 @@
+### YamlMime:UniversalReference
+items:
+  - uid: '@google-cloud/scheduler!google.api.CustomHttpPattern:class'
+    summary: Represents a CustomHttpPattern.
+    name: google.api.CustomHttpPattern
+    fullName: google.api.CustomHttpPattern
+    langs:
+      - typeScript
+    type: class
+    implements:
+      - '@google-cloud/scheduler!google.api.ICustomHttpPattern:interface'
+    package: '@google-cloud/scheduler!'
