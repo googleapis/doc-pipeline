@@ -27,5 +27,13 @@ export PYTHONUNBUFFERED=1
 # /dev/shm/73713_docuploader_service_account before calling ci/trampoline_v2.sh.
 export GOOGLE_APPLICATION_CREDENTIALS=$KOKORO_KEYSTORE_DIR/73713_docuploader_service_account
 
-# Run tests
-nox -s lint test
+# Add the path where pip installs commands to PATH.
+export PATH=$PATH:${HOME}/.local/bin
+
+python3 -m pip install -e .
+python3 -m pip install flake8 black pytest pytest-cov
+
+black --check docpipeline tests
+flake8 docpipeline tests
+
+pytest --cov-report term-missing --cov docpipeline tests

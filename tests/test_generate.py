@@ -33,12 +33,11 @@ def test_generate(yaml_dir, tmpdir):
     test_bucket = os.environ.get("TEST_BUCKET")
     if not test_bucket:
         pytest.skip("Must set TEST_BUCKET")
-    return test_bucket
 
     credentials = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
     if not credentials:
         pytest.skip("Must set GOOGLE_APPLICATION_CREDENTIALS")
-    return credentials
+
     parsed_credentials = service_account.Credentials.from_service_account_file(
         credentials
     )
