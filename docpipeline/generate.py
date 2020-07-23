@@ -58,7 +58,21 @@ DOCFX_JSON_TEMPLATE = """
 """
 
 
-def process_blob(blob, credentials):
+def clone_templates(dir):
+    shell.run(
+        [
+            "git",
+            "clone",
+            "--depth=1",
+            "https://github.com/googleapis/doc-templates.git",
+            ".",
+        ],
+        cwd=dir,
+        hide_output=True,
+    )
+
+
+def process_blob(blob, credentials, devsite_template):
     log.info(f"Processing {blob.name}...")
 
     tmp_path = pathlib.Path("tmp")
@@ -89,13 +103,7 @@ def process_blob(blob, credentials):
 
     log.info(f"Running `docfx build` for {blob.name}...")
     shell.run(
-        [
-            "docfx",
-            "build",
-            "-t",
-            # TODO: include the doc-templates template and fix this path.
-            "default,../../doc-templates/third_party/docfx/templates/devsite/",
-        ],
+        ["docfx", "build", "-t", f"default,{devsite_template.absolute()}"],
         cwd=tmp_path,
         hide_output=False,
     )
@@ -131,6 +139,15 @@ def process_blob(blob, credentials):
 def build_new_docs(bucket_name, credentials):
     log.info("Let's build some docs!")
 
+    templates_dir = pathlib.Path("doc-templates")
+    if templates_dir.is_dir():
+        shutil.rmtree(templates_dir)
+    templates_dir.mkdir(parents=True, exist_ok=True)
+    log.info(f"Cloning templates into {templates_dir.absolute()}")
+    clone_templates(templates_dir)
+    log.info(f"Got the templates ({templates_dir.absolute()})!")
+    devsite_template = templates_dir.joinpath("third_party/docfx/templates/devsite")
+
     parsed_credentials = service_account.Credentials.from_service_account_file(
         credentials
     )
@@ -153,11 +170,13 @@ def build_new_docs(bucket_name, credentials):
         if new_name in other_names:
             continue
         try:
-            process_blob(blob, credentials)
+            process_blob(blob, credentials, devsite_template)
         except Exception as e:
             # Keep processing the other files if an error occurs.
             log.error(f"Error processing {blob.name}:\n\n{e}")
             failures.append(blob.name)
+
+    shutil.rmtree(templates_dir)
 
     if len(failures) > 0:
         failure_str = "\n".join(failures)

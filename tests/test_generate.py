@@ -92,4 +92,8 @@ def test_generate(yaml_dir, tmpdir):
     tar.decompress(tar_path, tmpdir)
     assert tmpdir.join("docs.metadata").isfile()
     assert tmpdir.join("_toc.yaml").isfile()
-    assert tmpdir.join("google.api.customhttppattern.html").isfile()
+
+    html_file_path = tmpdir.join("google.api.customhttppattern.html")
+    assert html_file_path.isfile()
+    got_text = html_file_path.read_text("utf-8")
+    assert "devsite" in got_text
