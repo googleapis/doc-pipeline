@@ -15,5 +15,17 @@
 
 set -e
 
-# Now it's only making sure `docfx --help` works
-docfx --help
+if [ -z "$TEST_BUCKET" ]; then
+    echo "Must set TEST_BUCKET"
+    exit 1
+fi
+
+# Disable buffering, so that the logs stream through.
+export PYTHONUNBUFFERED=1
+
+# If running locally, copy a service account file to
+# /dev/shm/73713_docuploader_service_account before calling ci/trampoline_v2.sh.
+export GOOGLE_APPLICATION_CREDENTIALS=$KOKORO_KEYSTORE_DIR/73713_docuploader_service_account
+
+# Run tests
+nox -s lint test

@@ -20,6 +20,8 @@ ENV PATH ${PATH}:/opt/docfx
 RUN apt-get update && \
     apt-get -y install gnupg ca-certificates wget zip python3 python3-pip
 
+RUN python3 -m pip install nox
+
 # Install mono with the instructions at:
 # https://www.mono-project.com/download/stable/#download-lin
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 \
