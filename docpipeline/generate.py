@@ -15,11 +15,9 @@
 import pathlib
 import shutil
 
-from docuploader import log, shell
+from docuploader import log, shell, tar
 from google.cloud import storage
 from google.oauth2 import service_account
-
-from docpipeline import tar
 
 
 DOCFX_PREFIX = "docfx-"

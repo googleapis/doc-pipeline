@@ -15,12 +15,12 @@
 import os
 import shutil
 
-from docuploader import shell
+from docuploader import shell, tar
 from google.cloud import storage
 from google.oauth2 import service_account
 import pytest
 
-from docpipeline import generate, tar
+from docpipeline import generate
 
 
 @pytest.fixture
