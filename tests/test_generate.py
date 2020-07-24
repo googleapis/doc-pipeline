@@ -91,8 +91,15 @@ def test_generate(yaml_dir, tmpdir):
     html_blob.download_to_filename(tar_path)
     tar.decompress(tar_path, tmpdir)
     assert tmpdir.join("docs.metadata").isfile()
-    assert tmpdir.join("_toc.yaml").isfile()
 
+    # Check _rootPath and docs.metadata parsing worked.
+    toc_file_path = tmpdir.join("_toc.yaml")
+    assert toc_file_path.isfile()
+    got_text = toc_file_path.read_text("utf-8")
+    # See testdata/docs.metadata.
+    assert "/python/docs/reference/docs/docs-pipeline-test/latest" in got_text
+
+    # Check the template worked.
     html_file_path = tmpdir.join("google.api.customhttppattern.html")
     assert html_file_path.isfile()
     got_text = html_file_path.read_text("utf-8")

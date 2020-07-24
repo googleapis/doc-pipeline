@@ -16,8 +16,10 @@ import pathlib
 import shutil
 
 from docuploader import log, shell, tar
+from docuploader.protos import metadata_pb2
 from google.cloud import storage
 from google.oauth2 import service_account
+from google.protobuf import text_format
 
 
 DOCFX_PREFIX = "docfx-"
@@ -88,13 +90,25 @@ def process_blob(blob, credentials, devsite_template):
     tar.decompress(tar_filename, api_path)
     log.info(f"Decompressed {blob.name} in {api_path}")
 
-    # TODO: parse docs.metadata to get package and path.
-    with open(tmp_path.joinpath("docfx.json"), "w") as f:
-        f.write(
-            DOCFX_JSON_TEMPLATE.format(
-                **{"package": "todo.package", "path": "todo/path"}
+    metadata_path = api_path.joinpath("docs.metadata")
+    metadata = metadata_pb2.Metadata()
+    text_format.Merge(metadata_path.read_text(), metadata)
+    pkg = metadata.name
+    path = metadata.serving_path
+    prefix = f"/{metadata.language}/docs/reference"
+    if path == "":
+        raise Exception(f"The serving path for {blob.name} is not set! Cannot build.")
+    if not path.startswith(prefix):
+        raise Exception(
+            (
+                f"The serving path for {blob.name} ({path}) does not start with",
+                f"{prefix}! Double check the --serving-path argument to docuploader",
+                "create-metadata.",
             )
         )
+
+    with open(tmp_path.joinpath("docfx.json"), "w") as f:
+        f.write(DOCFX_JSON_TEMPLATE.format(**{"package": pkg, "path": path}))
     log.info("Wrote docfx.json")
 
     # TODO: remove this once _toc.yaml is no longer created.
@@ -170,7 +184,9 @@ def build_blobs(blobs, credentials):
 
     if len(failures) > 0:
         failure_str = "\n".join(failures)
-        raise (f"Got errors while processing the following archives:\n{failure_str}")
+        raise Exception(
+            f"Got errors while processing the following archives:\n{failure_str}"
+        )
 
     log.success("Done!")
 
