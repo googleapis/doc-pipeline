@@ -136,8 +136,16 @@ def process_blob(blob, credentials, devsite_template):
     log.success(f"Done with {blob.name}!")
 
 
-def build_new_docs(bucket_name, credentials):
+def build_blobs(blobs, credentials):
+    num = len(blobs)
+    if num == 0:
+        log.success("No blobs to process!")
+        return
+
     log.info("Let's build some docs!")
+
+    blobs_str = "\n".join(map(lambda blob: blob.name, blobs))
+    log.info(f"Processing {num} blob{'' if num == 1 else 's'}:\n{blobs_str}")
 
     templates_dir = pathlib.Path("doc-templates")
     if templates_dir.is_dir():
@@ -148,27 +156,9 @@ def build_new_docs(bucket_name, credentials):
     log.info(f"Got the templates ({templates_dir.absolute()})!")
     devsite_template = templates_dir.joinpath("third_party/docfx/templates/devsite")
 
-    parsed_credentials = service_account.Credentials.from_service_account_file(
-        credentials
-    )
-    storage_client = storage.Client(
-        project=parsed_credentials.project_id, credentials=parsed_credentials
-    )
-    blobs = {blob.name: blob for blob in storage_client.list_blobs(bucket_name)}
-    docfx_blobs = [
-        blob for (name, blob) in blobs.items() if name.startswith(DOCFX_PREFIX)
-    ]
-    other_blobs = [
-        blob for (name, blob) in blobs.items() if not name.startswith(DOCFX_PREFIX)
-    ]
-    other_names = set(map(lambda b: b.name, other_blobs))
-
     failures = []
 
-    for blob in docfx_blobs:
-        new_name = blob.name[len(DOCFX_PREFIX) :]
-        if new_name in other_names:
-            continue
+    for blob in blobs:
         try:
             process_blob(blob, credentials, devsite_template)
         except Exception as e:
@@ -183,3 +173,39 @@ def build_new_docs(bucket_name, credentials):
         raise (f"Got errors while processing the following archives:\n{failure_str}")
 
     log.success("Done!")
+
+
+def storage_client(credentials):
+    parsed_credentials = service_account.Credentials.from_service_account_file(
+        credentials
+    )
+    return storage.Client(
+        project=parsed_credentials.project_id, credentials=parsed_credentials
+    )
+
+
+def build_all_docs(bucket_name, credentials):
+    all_blobs = storage_client(credentials).list_blobs(bucket_name)
+    docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX)]
+    build_blobs(docfx_blobs, credentials)
+
+
+def build_one_doc(bucket_name, object_name, credentials):
+    blob = storage_client(credentials).bucket(bucket_name).get_blob(object_name)
+    if blob is None:
+        raise Exception(f"Could not find gs://{bucket_name}/{object_name}!")
+    build_blobs([blob], credentials)
+
+
+def build_new_docs(bucket_name, credentials):
+    all_blobs = list(storage_client(credentials).list_blobs(bucket_name))
+    docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX)]
+    other_blobs = [blob for blob in all_blobs if not blob.name.startswith(DOCFX_PREFIX)]
+    other_names = set(map(lambda b: b.name, other_blobs))
+
+    new_blobs = []
+    for blob in docfx_blobs:
+        new_name = blob.name[len(DOCFX_PREFIX) :]
+        if new_name not in other_names:
+            new_blobs.append(blob)
+    build_blobs(new_blobs, credentials)
