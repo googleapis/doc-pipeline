@@ -97,3 +97,17 @@ def test_generate(yaml_dir, tmpdir):
     assert html_file_path.isfile()
     got_text = html_file_path.read_text("utf-8")
     assert "devsite" in got_text
+
+    # Force regeneration and verify the timestamp is different.
+    html_blob = bucket.get_blob(html_blob_name)
+    t1 = html_blob.updated
+    generate.build_all_docs(test_bucket, credentials)
+    html_blob = bucket.get_blob(html_blob_name)
+    t2 = html_blob.updated
+    assert t1 != t2
+
+    # Force regeneration of a single doc and verify timestamp.
+    generate.build_one_doc(test_bucket, yaml_blob_name, credentials)
+    html_blob = bucket.get_blob(html_blob_name)
+    t3 = html_blob.updated
+    assert t2 != t3

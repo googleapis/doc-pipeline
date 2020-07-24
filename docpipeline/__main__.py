@@ -30,20 +30,7 @@ REQUIRED_CMDS = ["docfx", "docuploader"]
 VERSION = "0.0.0-dev"
 
 
-@click.group()
-@click.version_option(message="%(version)s", version=VERSION)
-def main():
-    pass
-
-
-@main.command()
-@click.argument("bucket_name")
-@click.option(
-    "--credentials",
-    default=credentials.find(),
-    help="Path to the credentials file to use for Google Cloud Storage.",
-)
-def build_new_docs(bucket_name, credentials):
+def verify(credentials):
     if not credentials:
         log.error(
             (
@@ -58,8 +45,60 @@ def build_new_docs(bucket_name, credentials):
             log.error(f"Could not find {cmd} command!")
             return sys.exit(1)
 
+
+@click.group()
+@click.version_option(message="%(version)s", version=VERSION)
+def main():
+    pass
+
+
+@main.command()
+@click.argument("bucket_name")
+@click.option(
+    "--credentials",
+    default=credentials.find(),
+    help="Path to the credentials file to use for Google Cloud Storage.",
+)
+def build_new_docs(bucket_name, credentials):
+    verify(credentials)
+
     try:
         generate.build_new_docs(bucket_name, credentials)
+    except Exception as e:
+        log.error(e)
+        sys.exit(1)
+
+
+@main.command()
+@click.argument("bucket_name")
+@click.option(
+    "--credentials",
+    default=credentials.find(),
+    help="Path to the credentials file to use for Google Cloud Storage.",
+)
+def build_all_docs(bucket_name, credentials):
+    verify(credentials)
+
+    try:
+        generate.build_all_docs(bucket_name, credentials)
+    except Exception as e:
+        log.error(e)
+        sys.exit(1)
+
+
+@main.command()
+@click.argument("bucket_name")
+@click.argument("object_name")
+@click.option(
+    "--credentials",
+    default=credentials.find(),
+    help="Path to the credentials file to use for Google Cloud Storage.",
+)
+def build_one_doc(bucket_name, object_name, credentials):
+    verify(credentials)
+
+    try:
+        generate.build_one_doc(bucket_name, object_name, credentials)
     except Exception as e:
         log.error(e)
         sys.exit(1)

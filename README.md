@@ -1,5 +1,15 @@
 # Google Cloud Platform document pipeline
 
+## Environment variables
+
+See `.trampolinerc` for the canonical list of relevant environment variables.
+
+* `TESTING_BUCKET`: Set when running tests. See the Testing section.
+* `SOURCE_BUCKET`: The bucket to use for regeneration. See Running locally.
+* `SOURCE_BLOB`: A single blob to regenerate. Only the blob name - do not
+  include `gs://` or the bucket.
+* `FORCE_GENERATE_ALL`: Set to `true` to regenerate all docs.
+
 ## Formatting and style
 
 Formatting is done with `black` and style is verified with `flake8`.
