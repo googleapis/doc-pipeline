@@ -97,7 +97,7 @@ def test_generate(yaml_dir, tmpdir):
     assert toc_file_path.isfile()
     got_text = toc_file_path.read_text("utf-8")
     # See testdata/docs.metadata.
-    assert "/python/docs/reference/docs/docs-pipeline-test/latest" in got_text
+    assert "/python/docs/reference/doc-pipeline-test/latest" in got_text
 
     # Check the template worked.
     html_file_path = tmpdir.join("google.api.customhttppattern.html")

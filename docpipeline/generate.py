@@ -94,21 +94,16 @@ def process_blob(blob, credentials, devsite_template):
     metadata = metadata_pb2.Metadata()
     text_format.Merge(metadata_path.read_text(), metadata)
     pkg = metadata.name
-    path = metadata.serving_path
-    prefix = f"/{metadata.language}/docs/reference"
-    if path == "":
-        raise Exception(f"The serving path for {blob.name} is not set! Cannot build.")
-    if not path.startswith(prefix):
-        raise Exception(
-            (
-                f"The serving path for {blob.name} ({path}) does not start with",
-                f"{prefix}! Double check the --serving-path argument to docuploader",
-                "create-metadata.",
-            )
-        )
 
     with open(tmp_path.joinpath("docfx.json"), "w") as f:
-        f.write(DOCFX_JSON_TEMPLATE.format(**{"package": pkg, "path": path}))
+        f.write(
+            DOCFX_JSON_TEMPLATE.format(
+                **{
+                    "package": pkg,
+                    "path": f"/{metadata.language}/docs/reference/{pkg}/latest",
+                }
+            )
+        )
     log.info("Wrote docfx.json")
 
     # TODO: remove this once _toc.yaml is no longer created.
