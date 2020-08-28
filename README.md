@@ -46,12 +46,10 @@ should be automated/scripted as part of the release process.
 1. Change to the directory that contains all of the `.yml` files.
 1. Create a `docs.metadata` file in the same directory as the YAML:
    ```
-   docuploader create-metadata --serving-path=/$LANG/docs/reference/$PRODUCT/$PACKAGE/latest
+   docuploader create-metadata
    ```
    
-   Add additional flags specifying the package, etc. **`--serving-path` is
-   required** and should be set to the API shortname (e.g. `foo` of
-   `foo.googleapis.com`). See
+   Add flags to specify the language, package, version etc. See
    [`docuploader`](https://pypi.org/project/gcp-docuploader).
 1. Upload the YAML with the `docfx` prefix:
    ```
