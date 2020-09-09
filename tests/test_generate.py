@@ -104,6 +104,7 @@ def test_generate(yaml_dir, tmpdir):
     assert html_file_path.isfile()
     got_text = html_file_path.read_text("utf-8")
     assert "devsite" in got_text
+    assert "/python/_book.yaml" in got_text
 
     # Force regeneration and verify the timestamp is different.
     html_blob = bucket.get_blob(html_blob_name)
