@@ -45,7 +45,8 @@ DOCFX_JSON_TEMPLATE = """
       "_disableSideFilter": true,
       "_disableAffix": true,
       "_disableFooter": true,
-      "_rootPath": "{path}"
+      "_rootPath": "{path}",
+      "_projectPath": "{project_path}"
     }},
     "template": [
       "default",
@@ -101,6 +102,7 @@ def process_blob(blob, credentials, devsite_template):
                 **{
                     "package": pkg,
                     "path": f"/{metadata.language}/docs/reference/{pkg}/latest",
+                    "project_path": f"/{metadata.language}/",
                 }
             )
         )
