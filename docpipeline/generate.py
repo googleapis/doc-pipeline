@@ -84,6 +84,7 @@ def process_blob(blob, credentials, devsite_template):
 
     api_path.mkdir(parents=True, exist_ok=True)
     tar_filename = tmp_path.joinpath(blob.name)
+    tar_filename.parent.mkdir(parents=True, exist_ok=True)
 
     blob.download_to_filename(tar_filename)
     log.info(f"Downloaded gs://{blob.bucket.name}/{blob.name} to {tar_filename}")
