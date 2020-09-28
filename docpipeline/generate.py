@@ -29,7 +29,7 @@ DOCFX_JSON_TEMPLATE = """
   "build": {{
     "content": [
       {{
-        "files": "**/*.yml",
+        "files": ["**/*.yml", "**/*.md"],
         "src": "obj/api",
         "dest": "api"
       }}
