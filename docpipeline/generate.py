@@ -223,3 +223,8 @@ def build_new_docs(bucket_name, credentials):
         if new_name not in other_names:
             new_blobs.append(blob)
     build_blobs(new_blobs, credentials)
+
+def build_language_docs(bucket_name, language, credentials):
+    all_blobs = storage_client(credentials).list_blobs(bucket_name)
+    docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX+language+"-")]
+    build_blobs(docfx_blobs, credentials)
