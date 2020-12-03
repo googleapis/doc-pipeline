@@ -103,6 +103,7 @@ def build_one_doc(bucket_name, object_name, credentials):
         log.error(e)
         sys.exit(1)
 
+
 @main.command()
 @click.argument("bucket_name")
 @click.argument("language")
@@ -115,10 +116,11 @@ def build_language_docs(bucket_name, language, credentials):
     verify(credentials)
 
     try:
-      generate.build_language_docs(bucket_name, language, credentials)
+        generate.build_language_docs(bucket_name, language, credentials)
     except Exception as e:
-      log.error(e)
-      sys.exit(1)
+        log.error(e)
+        sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
