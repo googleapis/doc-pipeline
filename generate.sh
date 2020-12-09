@@ -27,6 +27,8 @@ python3 -m pip install .
 
 if [ "$FORCE_GENERATE_ALL" == "true" ]; then
     python3 docpipeline/__main__.py build-all-docs $SOURCE_BUCKET
+elif [ -n "$LANGUAGE" ]; then
+    python3 docpipeline/__main__.py build-language-docs $SOURCE_BUCKET $LANGUAGE
 elif [ -n "$SOURCE_BLOB" ]; then
     python3 docpipeline/__main__.py build-one-doc $SOURCE_BUCKET $SOURCE_BLOB
 else

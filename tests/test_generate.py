@@ -119,3 +119,17 @@ def test_generate(yaml_dir, tmpdir):
     html_blob = bucket.get_blob(html_blob_name)
     t3 = html_blob.updated
     assert t2 != t3
+
+    # Force generation of Python docs and verify timestamp
+    language = "python"
+    generate.build_language_docs(test_bucket, language, credentials)
+    html_blob = bucket.get_blob(html_blob_name)
+    t4 = html_blob.updated
+    assert t3 != t4
+
+    # Force generation of Go docs, verify timestamp does not change
+    language = "go"
+    generate.build_language_docs(test_bucket, language, credentials)
+    html_blob = bucket.get_blob(html_blob_name)
+    t5 = html_blob.updated
+    assert t4 == t5

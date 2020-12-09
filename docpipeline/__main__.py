@@ -104,5 +104,23 @@ def build_one_doc(bucket_name, object_name, credentials):
         sys.exit(1)
 
 
+@main.command()
+@click.argument("bucket_name")
+@click.argument("language")
+@click.option(
+    "--credentials",
+    default=credentials.find(),
+    help="Path to the credentials file to use for Google Cloud Storage.",
+)
+def build_language_docs(bucket_name, language, credentials):
+    verify(credentials)
+
+    try:
+        generate.build_language_docs(bucket_name, language, credentials)
+    except Exception as e:
+        log.error(e)
+        sys.exit(1)
+
+
 if __name__ == "__main__":
     main()
