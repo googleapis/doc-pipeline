@@ -14,6 +14,7 @@
 
 import pathlib
 import shutil
+import tempfile
 
 from docuploader import log, shell, tar
 from docuploader.protos import metadata_pb2
@@ -78,7 +79,7 @@ def clone_templates(dir):
 def process_blob(blob, credentials, devsite_template):
     log.info(f"Processing {blob.name}...")
 
-    tmp_path = pathlib.Path("tmp")
+    tmp_path = pathlib.Path(tempfile.TemporaryDirectory().name)
     api_path = tmp_path.joinpath("obj/api")
     output_path = tmp_path.joinpath("site/api")
 
