@@ -49,10 +49,6 @@ DOCFX_JSON_TEMPLATE = """
       "_rootPath": "{path}",
       "_projectPath": "{project_path}"
     }},
-    "template": [
-      "default",
-      "devsite_template"
-    ],
     "overwrite": [
       "obj/snippets/*.md"
     ],
@@ -116,7 +112,7 @@ def process_blob(blob, credentials, devsite_template):
 
     log.info(f"Running `docfx build` for {blob.name}...")
     shell.run(
-        ["docfx", "build", "-t", f"default,{devsite_template.absolute()}"],
+        ["docfx", "build", "-t", f"{devsite_template.absolute()}"],
         cwd=tmp_path,
         hide_output=False,
     )
