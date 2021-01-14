@@ -120,9 +120,9 @@ def process_blob(blob, credentials, devsite_template):
     # Rename the output TOC file to be _toc.yaml to match the expected
     # format. As well, support both toc.html and toc.yaml
     try:
-        shutil.move(output_path.joinpath("toc.html"), output_path.joinpath("_toc.yaml"))
-    except FileNotFoundError:
         shutil.move(output_path.joinpath("toc.yaml"), output_path.joinpath("_toc.yaml"))
+    except FileNotFoundError:
+        shutil.move(output_path.joinpath("toc.html"), output_path.joinpath("_toc.yaml"))
 
     log.success(f"Done building HTML for {blob.name}. Starting upload...")
 
