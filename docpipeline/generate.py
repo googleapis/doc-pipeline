@@ -50,7 +50,6 @@ DOCFX_JSON_TEMPLATE = """
       "_projectPath": "{project_path}"
     }},
     "template": [
-      "default",
       "devsite_template"
     ],
     "overwrite": [
