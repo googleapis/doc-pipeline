@@ -95,7 +95,7 @@ def process_blob(blob, credentials, devsite_template):
 
     metadata_path = api_path.joinpath(metadata_file)
     metadata = metadata_pb2.Metadata()
-    if metadata_file == "docs.metadata.json":
+    if metadata_file.endswith(".json"):
         json_format.Parse(metadata_path.read_text(), metadata)
     else:
         text_format.Merge(metadata_path.read_text(), metadata)
