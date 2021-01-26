@@ -20,7 +20,7 @@ from docuploader import log, shell, tar
 from docuploader.protos import metadata_pb2
 from google.cloud import storage
 from google.oauth2 import service_account
-from google.protobuf import text_format
+from google.protobuf import text_format, json_format
 
 
 DOCFX_PREFIX = "docfx-"
@@ -95,7 +95,10 @@ def process_blob(blob, credentials, devsite_template):
 
     metadata_path = api_path.joinpath(metadata_file)
     metadata = metadata_pb2.Metadata()
-    text_format.Merge(metadata_path.read_text(), metadata)
+    if metadata_file == "docs.metadata.json":
+        json_format.Parse(metadata_path.read_text(), metadata)
+    else:
+        text_format.Merge(metadata_path.read_text(), metadata)
     pkg = metadata.name
 
     with open(tmp_path.joinpath("docfx.json"), "w") as f:
