@@ -89,7 +89,11 @@ def process_blob(blob, credentials, devsite_template):
     tar.decompress(tar_filename, api_path)
     log.info(f"Decompressed {blob.name} in {api_path}")
 
-    metadata_path = api_path.joinpath("docs.metadata")
+    metadata_file = "docs.metadata"
+    if api_path.joinpath("docs.metadata.json").exists():
+        metadata_file = "docs.metadata.json"
+
+    metadata_path = api_path.joinpath(metadata_file)
     metadata = metadata_pb2.Metadata()
     text_format.Merge(metadata_path.read_text(), metadata)
     pkg = metadata.name
@@ -129,7 +133,7 @@ def process_blob(blob, credentials, devsite_template):
     # Reuse the same docs.metadata file. The original docfx- prefix is an
     # command line option when uploading, not part of docs.metadata.
     shutil.copyfile(
-        api_path.joinpath("docs.metadata"), output_path.joinpath("docs.metadata")
+        api_path.joinpath(metadata_file), output_path.joinpath(metadata_file)
     )
 
     shell.run(
