@@ -135,9 +135,7 @@ def process_blob(blob, credentials, devsite_template):
 
     # Reuse the same docs.metadata file. The original docfx- prefix is an
     # command line option when uploading, not part of docs.metadata.
-    shutil.copyfile(
-        metadata_path, output_path.joinpath(metadata_file)
-    )
+    shutil.copyfile(metadata_path, output_path.joinpath(metadata_file))
 
     shell.run(
         [
