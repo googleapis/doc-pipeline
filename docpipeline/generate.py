@@ -15,6 +15,7 @@
 import pathlib
 import shutil
 import tempfile
+import tarfile
 
 from docuploader import log, shell, tar
 from docuploader.protos import metadata_pb2
@@ -85,6 +86,14 @@ def process_blob(blob, credentials, devsite_template):
 
     blob.download_to_filename(tar_filename)
     log.info(f"Downloaded gs://{blob.bucket.name}/{blob.name} to {tar_filename}")
+
+    # Check to see if api directory exists in the tarball.
+    # If so, only compress things into obj/*
+    tar_file = tarfile.open(tar_filename)
+    for tarinfo in tar_file:
+        if tarinfo.isdir() and "api" in tarinfo.name:
+            api_path = tmp_path.joinpath("obj")
+            break
 
     tar.decompress(tar_filename, api_path)
     log.info(f"Decompressed {blob.name} in {api_path}")
