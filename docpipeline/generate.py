@@ -52,7 +52,9 @@ DOCFX_JSON_TEMPLATE = """
     "overwrite": [
       "obj/snippets/*.md"
     ],
-    "dest": "site"
+    "dest": "site",
+    "xref": [{xrefs}],
+    "xrefService": [{xref_services}],
   }}
 }}
 """
@@ -72,10 +74,24 @@ def clone_templates(dir):
     )
 
 
-def process_blob(blob, credentials, devsite_template):
-    log.info(f"Processing {blob.name}...")
+def format_docfx_json(metadata):
+    pkg = metadata.name
+    xrefs = ", ".join([f'"{xref}"' for xref in metadata.xrefs])
+    xref_services = ", ".join([f'"{xref}"' for xref in metadata.xref_services])
 
-    tmp_path = pathlib.Path(tempfile.TemporaryDirectory().name)
+    return DOCFX_JSON_TEMPLATE.format(
+        **{
+            "package": pkg,
+            "path": f"/{metadata.language}/docs/reference/{pkg}/latest",
+            "project_path": f"/{metadata.language}/",
+            "xrefs": xrefs,
+            "xref_services": xref_services,
+        }
+    )
+
+
+def process_blob(blob, credentials, devsite_template):
+    tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
     api_path = tmp_path.joinpath("obj/api")
     output_path = tmp_path.joinpath("site/api")
 
@@ -99,18 +115,9 @@ def process_blob(blob, credentials, devsite_template):
         json_format.Parse(metadata_path.read_text(), metadata)
     else:
         text_format.Merge(metadata_path.read_text(), metadata)
-    pkg = metadata.name
 
     with open(tmp_path.joinpath("docfx.json"), "w") as f:
-        f.write(
-            DOCFX_JSON_TEMPLATE.format(
-                **{
-                    "package": pkg,
-                    "path": f"/{metadata.language}/docs/reference/{pkg}/latest",
-                    "project_path": f"/{metadata.language}/",
-                }
-            )
-        )
+        f.write(format_docfx_json(metadata))
     log.info("Wrote docfx.json")
 
     # TODO: remove this once _toc.yaml is no longer created.
@@ -175,8 +182,9 @@ def build_blobs(blobs, credentials):
 
     failures = []
 
-    for blob in blobs:
+    for i, blob in enumerate(blobs):
         try:
+            log.info(f"Processing {i+1} of {len(blobs)}: {blob.name}...")
             process_blob(blob, credentials, devsite_template)
         except Exception as e:
             # Keep processing the other files if an error occurs.
