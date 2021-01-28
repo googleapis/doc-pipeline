@@ -142,7 +142,7 @@ class TestGenerate(unittest.TestCase):
         self.maxDiff = None
         metadata = metadata_pb2.Metadata()
         metadata.name = "doc-pipeline"
-        metadata.xrefs.extend(["one.xml", "two.xml"])
+        metadata.xrefs.extend(["one.yml", "two.yml"])
         metadata.xref_services.extend(["one.google.com", "two.google.com"])
         metadata.language = "python"
 
@@ -174,7 +174,7 @@ class TestGenerate(unittest.TestCase):
       "obj/snippets/*.md"
     ],
     "dest": "site",
-    "xref": ["one.xml", "two.xml"],
+    "xref": ["one.yml", "two.yml"],
     "xrefService": ["one.google.com", "two.google.com"],
   }
 }
