@@ -80,13 +80,11 @@ def format_docfx_json(metadata):
     xref_services = ", ".join([f'"{xref}"' for xref in metadata.xref_services])
 
     return DOCFX_JSON_TEMPLATE.format(
-        **{
-            "package": pkg,
-            "path": f"/{metadata.language}/docs/reference/{pkg}/latest",
-            "project_path": f"/{metadata.language}/",
-            "xrefs": xrefs,
-            "xref_services": xref_services,
-        }
+        package=pkg,
+        path=f"/{metadata.language}/docs/reference/{pkg}/latest",
+        project_path=f"/{metadata.language}/",
+        xrefs=xrefs,
+        xref_services=xref_services,
     )
 
 
