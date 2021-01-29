@@ -101,6 +101,10 @@ def test_generate(yaml_dir, tmpdir):
     # See testdata/docs.metadata.
     assert "/python/docs/reference/doc-pipeline-test/latest" in got_text
 
+    # Check xrefmap.yml was created.
+    xref_path = tmpdir.join("xrefmap.yml")
+    assert xref_path.isfile()
+
     # Check the template worked.
     html_file_path = tmpdir.join("google.api.customhttppattern.html")
     assert html_file_path.isfile()
