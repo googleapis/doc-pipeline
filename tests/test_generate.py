@@ -14,8 +14,10 @@
 
 import os
 import shutil
+import unittest
 
 from docuploader import shell, tar
+from docuploader.protos import metadata_pb2
 from google.cloud import storage
 from google.oauth2 import service_account
 import pytest
@@ -133,3 +135,50 @@ def test_generate(yaml_dir, tmpdir):
     html_blob = bucket.get_blob(html_blob_name)
     t5 = html_blob.updated
     assert t4 == t5
+
+
+class TestGenerate(unittest.TestCase):
+    def test_format_docfx_json(self):
+        self.maxDiff = None
+        metadata = metadata_pb2.Metadata()
+        metadata.name = "doc-pipeline"
+        metadata.xrefs.extend(["one.yml", "two.yml"])
+        metadata.xref_services.extend(["one.google.com", "two.google.com"])
+        metadata.language = "python"
+
+        want = """
+{
+  "build": {
+    "content": [
+      {
+        "files": ["**/*.yml", "**/*.md"],
+        "src": "obj/api",
+        "dest": "api"
+      }
+    ],
+    "globalMetadata": {
+      "_appTitle": "doc-pipeline",
+      "_disableContribution": true,
+      "_appFooter": " ",
+      "_disableNavbar": true,
+      "_disableBreadcrumb": true,
+      "_enableSearch": false,
+      "_disableToc": true,
+      "_disableSideFilter": true,
+      "_disableAffix": true,
+      "_disableFooter": true,
+      "_rootPath": "/python/docs/reference/doc-pipeline/latest",
+      "_projectPath": "/python/"
+    },
+    "overwrite": [
+      "obj/snippets/*.md"
+    ],
+    "dest": "site",
+    "xref": ["one.yml", "two.yml"],
+    "xrefService": ["one.google.com", "two.google.com"],
+  }
+}
+"""
+        got = generate.format_docfx_json(metadata)
+
+        self.assertMultiLineEqual(got, want)
