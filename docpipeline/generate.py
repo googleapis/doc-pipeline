@@ -106,7 +106,7 @@ def process_blob(blob, credentials, devsite_template):
     # If so, only compress things into obj/*
     tar_file = tarfile.open(tar_filename)
     for tarinfo in tar_file:
-        if tarinfo.isdir() and "api" in tarinfo.name:
+        if tarinfo.isdir() and tarinfo.name == "./api":
             api_path = tmp_path.joinpath("obj")
             break
 
