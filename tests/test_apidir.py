@@ -25,8 +25,8 @@ from docpipeline import generate
 
 @pytest.fixture
 def api_dir(tmpdir):
-    tmpdir = tmpdir / "api"
-    shutil.copytree("testdata", tmpdir, dirs_exist_ok=True)
+    shutil.copytree("testdata", tmpdir / "api", dirs_exist_ok=True)
+    shutil.copy("testdata/docs.metadata", tmpdir)
     return tmpdir
 
 

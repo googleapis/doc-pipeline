@@ -92,6 +92,7 @@ def format_docfx_json(metadata):
 def process_blob(blob, credentials, devsite_template):
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
     api_path = tmp_path.joinpath("obj/api")
+    decompress_path = api_path
     output_path = tmp_path.joinpath("site")
     output_api_path = output_path.joinpath("api")
 
@@ -103,15 +104,15 @@ def process_blob(blob, credentials, devsite_template):
     log.info(f"Downloaded gs://{blob.bucket.name}/{blob.name} to {tar_filename}")
 
     # Check to see if api directory exists in the tarball.
-    # If so, only compress things into obj/*
+    # If so, only decompress things into obj/*
     tar_file = tarfile.open(tar_filename)
     for tarinfo in tar_file:
         if tarinfo.isdir() and tarinfo.name == "./api":
-            api_path = tmp_path.joinpath("obj")
+            decompress_path = tmp_path.joinpath("obj")
             break
 
-    tar.decompress(tar_filename, api_path)
-    log.info(f"Decompressed {blob.name} in {api_path}")
+    tar.decompress(tar_filename, decompress_path)
+    log.info(f"Decompressed {blob.name} in {decompress_path}")
 
     metadata_file = "docs.metadata"
     if api_path.joinpath("docs.metadata.json").exists():
