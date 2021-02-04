@@ -31,14 +31,22 @@ def yaml_dir(tmpdir):
     return tmpdir
 
 
-def test_generate(yaml_dir, tmpdir):
+@pytest.fixture
+def api_dir(tmpdir):
+    shutil.copytree("testdata", tmpdir / "api", dirs_exist_ok=True)
+    shutil.copy("testdata/docs.metadata", tmpdir)
+    return tmpdir
+
+
+# Initializes key variables needed for the test
+def test_init():
     test_bucket = os.environ.get("TEST_BUCKET")
     if not test_bucket:
-        pytest.skip("Must set TEST_BUCKET")
+        pytest.skip("must set TEST_BUCKET")
 
     credentials = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
     if not credentials:
-        pytest.skip("Must set GOOGLE_APPLICATION_CREDENTIALS")
+        pytest.skip("must set GOOGLE_APPLICATION_CREDENTIALS")
 
     parsed_credentials = service_account.Credentials.from_service_account_file(
         credentials
@@ -47,17 +55,28 @@ def test_generate(yaml_dir, tmpdir):
         project=parsed_credentials.project_id, credentials=parsed_credentials
     )
 
-    # Clean up any previous test data.
+    return test_bucket, credentials, storage_client
+
+
+# Fetches the pages used for testing
+def setup_testdata(storage_client, test_bucket):
     yaml_blob_name = "docfx-python-doc-pipeline-test-2.1.1.tar.gz"
     html_blob_name = "python-doc-pipeline-test-2.1.1.tar.gz"
     bucket = storage_client.get_bucket(test_bucket)
     yaml_blob = bucket.blob(yaml_blob_name)
     html_blob = bucket.blob(html_blob_name)
+
+    # Clean up any previous test data in the bucket.
     if yaml_blob.exists():
         yaml_blob.delete()
     if html_blob.exists():
         html_blob.delete()
 
+    return bucket, yaml_blob, html_blob
+
+
+# Upload the tarball and verify, then builds docs
+def generate_and_upload(cwd, storage_client, credentials, test_bucket):
     start_blobs = list(storage_client.list_blobs(test_bucket))
 
     # Upload DocFX YAML to test with.
@@ -70,7 +89,7 @@ def test_generate(yaml_dir, tmpdir):
             f"--staging-bucket={test_bucket}",
             "--destination-prefix=docfx",
         ],
-        cwd=yaml_dir,
+        cwd=cwd,
         hide_output=False,
     )
 
@@ -87,6 +106,9 @@ def test_generate(yaml_dir, tmpdir):
     blobs = list(storage_client.list_blobs(test_bucket))
     assert len(blobs) == len(start_blobs) + 2
 
+
+# Simple verification of the content
+def verify_content(html_blob, tmpdir):
     assert html_blob.exists()
 
     tar_path = tmpdir.join("out.tgz")
@@ -112,31 +134,53 @@ def test_generate(yaml_dir, tmpdir):
     assert "devsite" in got_text
     assert "/python/_book.yaml" in got_text
 
+
+def test_apidir(api_dir, tmpdir):
+    test_bucket, credentials, storage_client = test_init()
+
+    bucket, yaml_blob, html_blob = setup_testdata(storage_client, test_bucket)
+
+    # Test for api directory content
+    generate_and_upload(api_dir, storage_client, credentials, test_bucket)
+
+    verify_content(html_blob, tmpdir)
+
+
+def test_generate(yaml_dir, tmpdir):
+    test_bucket, credentials, storage_client = test_init()
+
+    bucket, yaml_blob, html_blob = setup_testdata(storage_client, test_bucket)
+
+    # Test for non-api directory content
+    generate_and_upload(yaml_dir, storage_client, credentials, test_bucket)
+
+    verify_content(html_blob, tmpdir)
+
     # Force regeneration and verify the timestamp is different.
-    html_blob = bucket.get_blob(html_blob_name)
+    html_blob = bucket.get_blob(html_blob.name)
     t1 = html_blob.updated
     generate.build_all_docs(test_bucket, credentials)
-    html_blob = bucket.get_blob(html_blob_name)
+    html_blob = bucket.get_blob(html_blob.name)
     t2 = html_blob.updated
     assert t1 != t2
 
     # Force regeneration of a single doc and verify timestamp.
-    generate.build_one_doc(test_bucket, yaml_blob_name, credentials)
-    html_blob = bucket.get_blob(html_blob_name)
+    generate.build_one_doc(test_bucket, yaml_blob.name, credentials)
+    html_blob = bucket.get_blob(html_blob.name)
     t3 = html_blob.updated
     assert t2 != t3
 
     # Force generation of Python docs and verify timestamp
     language = "python"
     generate.build_language_docs(test_bucket, language, credentials)
-    html_blob = bucket.get_blob(html_blob_name)
+    html_blob = bucket.get_blob(html_blob.name)
     t4 = html_blob.updated
     assert t3 != t4
 
     # Force generation of Go docs, verify timestamp does not change
     language = "go"
     generate.build_language_docs(test_bucket, language, credentials)
-    html_blob = bucket.get_blob(html_blob_name)
+    html_blob = bucket.get_blob(html_blob.name)
     t5 = html_blob.updated
     assert t4 == t5
 

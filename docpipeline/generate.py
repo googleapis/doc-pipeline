@@ -15,6 +15,7 @@
 import pathlib
 import shutil
 import tempfile
+import tarfile
 
 from docuploader import log, shell, tar
 from docuploader.protos import metadata_pb2
@@ -90,7 +91,7 @@ def format_docfx_json(metadata):
 
 def process_blob(blob, credentials, devsite_template):
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
-    api_path = tmp_path.joinpath("obj/api")
+    api_path = decompress_path = tmp_path.joinpath("obj/api")
     output_path = tmp_path.joinpath("site")
     output_api_path = output_path.joinpath("api")
 
@@ -101,8 +102,16 @@ def process_blob(blob, credentials, devsite_template):
     blob.download_to_filename(tar_filename)
     log.info(f"Downloaded gs://{blob.bucket.name}/{blob.name} to {tar_filename}")
 
-    tar.decompress(tar_filename, api_path)
-    log.info(f"Decompressed {blob.name} in {api_path}")
+    # Check to see if api directory exists in the tarball.
+    # If so, only decompress things into obj/*
+    tar_file = tarfile.open(tar_filename)
+    for tarinfo in tar_file:
+        if tarinfo.isdir() and tarinfo.name == "./api":
+            decompress_path = tmp_path.joinpath("obj")
+            break
+
+    tar.decompress(tar_filename, decompress_path)
+    log.info(f"Decompressed {blob.name} in {decompress_path}")
 
     metadata_file = "docs.metadata"
     if api_path.joinpath("docs.metadata.json").exists():
