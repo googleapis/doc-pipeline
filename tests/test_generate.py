@@ -59,26 +59,24 @@ def test_init():
 
 
 # Fetches the pages used for testing
-def fetch_pagedata(storage_client, test_bucket):
+def setup_testdata(storage_client, test_bucket):
     yaml_blob_name = "docfx-python-doc-pipeline-test-2.1.1.tar.gz"
     html_blob_name = "python-doc-pipeline-test-2.1.1.tar.gz"
     bucket = storage_client.get_bucket(test_bucket)
     yaml_blob = bucket.blob(yaml_blob_name)
     html_blob = bucket.blob(html_blob_name)
 
-    return yaml_blob_name, html_blob_name, bucket, yaml_blob, html_blob
-
-
-# Clean up any previous test data in the bucket.
-def cleanup_data(storage_client, test_bucket, yaml_blob, html_blob, bucket, tmpdir):
+    # Clean up any previous test data in the bucket.
     if yaml_blob.exists():
         yaml_blob.delete()
     if html_blob.exists():
         html_blob.delete()
 
+    return bucket, yaml_blob, html_blob
 
-# Upload the tarball and verify, then run docfx
-def generate_and_upload(target_dir, storage_client, credentials, test_bucket):
+
+# Upload the tarball and verify, then builds docs
+def generate_and_upload(cwd, storage_client, credentials, test_bucket):
     start_blobs = list(storage_client.list_blobs(test_bucket))
 
     # Upload DocFX YAML to test with.
@@ -91,7 +89,7 @@ def generate_and_upload(target_dir, storage_client, credentials, test_bucket):
             f"--staging-bucket={test_bucket}",
             "--destination-prefix=docfx",
         ],
-        cwd=target_dir,
+        cwd=cwd,
         hide_output=False,
     )
 
@@ -140,13 +138,9 @@ def verify_content(html_blob, tmpdir):
 def test_apidir(api_dir, tmpdir):
     test_bucket, credentials, storage_client = test_init()
 
-    yaml_blob_name, html_blob_name, bucket, yaml_blob, html_blob = fetch_pagedata(
-        storage_client, test_bucket
-    )
+    bucket, yaml_blob, html_blob = setup_testdata(storage_client, test_bucket)
 
     # Test for api directory content
-    cleanup_data(storage_client, test_bucket, yaml_blob, html_blob, bucket, tmpdir)
-
     generate_and_upload(api_dir, storage_client, credentials, test_bucket)
 
     verify_content(html_blob, tmpdir)
@@ -155,42 +149,38 @@ def test_apidir(api_dir, tmpdir):
 def test_generate(yaml_dir, tmpdir):
     test_bucket, credentials, storage_client = test_init()
 
-    yaml_blob_name, html_blob_name, bucket, yaml_blob, html_blob = fetch_pagedata(
-        storage_client, test_bucket
-    )
+    bucket, yaml_blob, html_blob = setup_testdata(storage_client, test_bucket)
 
     # Test for non-api directory content
-    cleanup_data(storage_client, test_bucket, yaml_blob, html_blob, bucket, tmpdir)
-
     generate_and_upload(yaml_dir, storage_client, credentials, test_bucket)
 
     verify_content(html_blob, tmpdir)
 
     # Force regeneration and verify the timestamp is different.
-    html_blob = bucket.get_blob(html_blob_name)
+    html_blob = bucket.get_blob(html_blob.name)
     t1 = html_blob.updated
     generate.build_all_docs(test_bucket, credentials)
-    html_blob = bucket.get_blob(html_blob_name)
+    html_blob = bucket.get_blob(html_blob.name)
     t2 = html_blob.updated
     assert t1 != t2
 
     # Force regeneration of a single doc and verify timestamp.
-    generate.build_one_doc(test_bucket, yaml_blob_name, credentials)
-    html_blob = bucket.get_blob(html_blob_name)
+    generate.build_one_doc(test_bucket, yaml_blob.name, credentials)
+    html_blob = bucket.get_blob(html_blob.name)
     t3 = html_blob.updated
     assert t2 != t3
 
     # Force generation of Python docs and verify timestamp
     language = "python"
     generate.build_language_docs(test_bucket, language, credentials)
-    html_blob = bucket.get_blob(html_blob_name)
+    html_blob = bucket.get_blob(html_blob.name)
     t4 = html_blob.updated
     assert t3 != t4
 
     # Force generation of Go docs, verify timestamp does not change
     language = "go"
     generate.build_language_docs(test_bucket, language, credentials)
-    html_blob = bucket.get_blob(html_blob_name)
+    html_blob = bucket.get_blob(html_blob.name)
     t5 = html_blob.updated
     assert t4 == t5
 
