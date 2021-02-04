@@ -91,8 +91,7 @@ def format_docfx_json(metadata):
 
 def process_blob(blob, credentials, devsite_template):
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
-    api_path = tmp_path.joinpath("obj/api")
-    decompress_path = api_path
+    api_path = decompress_path = tmp_path.joinpath("obj/api")
     output_path = tmp_path.joinpath("site")
     output_api_path = output_path.joinpath("api")
 
