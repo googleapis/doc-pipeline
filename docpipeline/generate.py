@@ -114,10 +114,10 @@ def process_blob(blob, credentials, devsite_template):
     log.info(f"Decompressed {blob.name} in {decompress_path}")
 
     metadata_file = "docs.metadata"
-    if api_path.joinpath("docs.metadata.json").exists():
+    if decompress_path.joinpath("docs.metadata.json").exists():
         metadata_file = "docs.metadata.json"
 
-    metadata_path = api_path.joinpath(metadata_file)
+    metadata_path = decompress_path.joinpath(metadata_file)
     metadata = metadata_pb2.Metadata()
     if metadata_file.endswith(".json"):
         json_format.Parse(metadata_path.read_text(), metadata)
