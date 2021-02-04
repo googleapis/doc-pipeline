@@ -31,14 +31,22 @@ def yaml_dir(tmpdir):
     return tmpdir
 
 
-def test_generate(yaml_dir, tmpdir):
+@pytest.fixture
+def api_dir(tmpdir):
+    shutil.copytree("testdata", tmpdir / "api", dirs_exist_ok=True)
+    shutil.copy("testdata/docs.metadata", tmpdir)
+    return tmpdir
+
+
+# Initializes key variables needed for the test
+def test_init():
     test_bucket = os.environ.get("TEST_BUCKET")
     if not test_bucket:
-        pytest.skip("Must set TEST_BUCKET")
+        pytest.skip("must set TEST_BUCKET")
 
     credentials = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS")
     if not credentials:
-        pytest.skip("Must set GOOGLE_APPLICATION_CREDENTIALS")
+        pytest.skip("must set GOOGLE_APPLICATION_CREDENTIALS")
 
     parsed_credentials = service_account.Credentials.from_service_account_file(
         credentials
@@ -47,17 +55,30 @@ def test_generate(yaml_dir, tmpdir):
         project=parsed_credentials.project_id, credentials=parsed_credentials
     )
 
-    # Clean up any previous test data.
+    return test_bucket, credentials, storage_client
+
+
+# Fetches the pages used for testing
+def fetch_pagedata(storage_client, test_bucket):
     yaml_blob_name = "docfx-python-doc-pipeline-test-2.1.1.tar.gz"
     html_blob_name = "python-doc-pipeline-test-2.1.1.tar.gz"
     bucket = storage_client.get_bucket(test_bucket)
     yaml_blob = bucket.blob(yaml_blob_name)
     html_blob = bucket.blob(html_blob_name)
+
+    return yaml_blob_name, html_blob_name, bucket, yaml_blob, html_blob
+
+
+# Clean up any previous test data in the bucket.
+def cleanup_data(storage_client, test_bucket, yaml_blob, html_blob, bucket, tmpdir):
     if yaml_blob.exists():
         yaml_blob.delete()
     if html_blob.exists():
         html_blob.delete()
 
+
+# Upload the tarball and verify, then run docfx
+def generate_and_upload(target_dir, storage_client, credentials, test_bucket):
     start_blobs = list(storage_client.list_blobs(test_bucket))
 
     # Upload DocFX YAML to test with.
@@ -70,7 +91,7 @@ def test_generate(yaml_dir, tmpdir):
             f"--staging-bucket={test_bucket}",
             "--destination-prefix=docfx",
         ],
-        cwd=yaml_dir,
+        cwd=target_dir,
         hide_output=False,
     )
 
@@ -87,6 +108,9 @@ def test_generate(yaml_dir, tmpdir):
     blobs = list(storage_client.list_blobs(test_bucket))
     assert len(blobs) == len(start_blobs) + 2
 
+
+# Simple verification of the content
+def verify_content(html_blob, tmpdir):
     assert html_blob.exists()
 
     tar_path = tmpdir.join("out.tgz")
@@ -111,6 +135,36 @@ def test_generate(yaml_dir, tmpdir):
     got_text = html_file_path.read_text("utf-8")
     assert "devsite" in got_text
     assert "/python/_book.yaml" in got_text
+
+
+def test_apidir(api_dir, tmpdir):
+    test_bucket, credentials, storage_client = test_init()
+
+    yaml_blob_name, html_blob_name, bucket, yaml_blob, html_blob = fetch_pagedata(
+        storage_client, test_bucket
+    )
+
+    # Test for api directory content
+    cleanup_data(storage_client, test_bucket, yaml_blob, html_blob, bucket, tmpdir)
+
+    generate_and_upload(api_dir, storage_client, credentials, test_bucket)
+
+    verify_content(html_blob, tmpdir)
+
+
+def test_generate(yaml_dir, tmpdir):
+    test_bucket, credentials, storage_client = test_init()
+
+    yaml_blob_name, html_blob_name, bucket, yaml_blob, html_blob = fetch_pagedata(
+        storage_client, test_bucket
+    )
+
+    # Test for non-api directory content
+    cleanup_data(storage_client, test_bucket, yaml_blob, html_blob, bucket, tmpdir)
+
+    generate_and_upload(yaml_dir, storage_client, credentials, test_bucket)
+
+    verify_content(html_blob, tmpdir)
 
     # Force regeneration and verify the timestamp is different.
     html_blob = bucket.get_blob(html_blob_name)
