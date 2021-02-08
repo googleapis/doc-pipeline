@@ -53,7 +53,7 @@ should be automated/scripted as part of the release process.
    [`docuploader`](https://pypi.org/project/gcp-docuploader).
 1. Upload the YAML with the `docfx` prefix:
    ```
-   docuploader upload --staging-bucket docs-staging-v2-staging --destination-prefix docfx- .
+   docuploader upload --staging-bucket docs-staging-v2-staging --destination-prefix docfx .
    ```
 
    There is also `docs-staging-v2` (production) and `docs-staging-v2-dev`
