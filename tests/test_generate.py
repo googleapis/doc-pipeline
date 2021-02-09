@@ -219,7 +219,7 @@ class TestGenerate(unittest.TestCase):
       "_projectPath": "/python/"
     },
     "overwrite": [
-      "obj/snippets/*.md"
+      "obj/examples/*.md"
     ],
     "dest": "site",
     "xref": ["one.yml", "two.yml"],

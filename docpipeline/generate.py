@@ -51,7 +51,7 @@ DOCFX_JSON_TEMPLATE = """
       "_projectPath": "{project_path}"
     }},
     "overwrite": [
-      "obj/snippets/*.md"
+      "obj/examples/*.md"
     ],
     "dest": "site",
     "xref": [{xrefs}],
