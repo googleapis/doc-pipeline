@@ -89,11 +89,8 @@ def format_docfx_json(metadata):
     )
 
 
-def process_blob(blob, credentials, devsite_template):
-    tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
+def setup_docfx(tmp_path, blob):
     api_path = decompress_path = tmp_path.joinpath("obj/api")
-    output_path = tmp_path.joinpath("site")
-    output_api_path = output_path.joinpath("api")
 
     api_path.mkdir(parents=True, exist_ok=True)
     tar_filename = tmp_path.joinpath(blob.name)
@@ -132,6 +129,17 @@ def process_blob(blob, credentials, devsite_template):
     if pathlib.Path(api_path.joinpath("_toc.yaml")).is_file():
         shutil.move(api_path.joinpath("_toc.yaml"), api_path.joinpath("toc.yml"))
 
+    return metadata_path
+
+
+def process_blob(blob, credentials, devsite_template):
+    tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
+
+    metadata_path = setup_docfx(tmp_path, blob)
+
+    site_path = tmp_path.joinpath("site")
+    site_api_path = site_path.joinpath("api")
+
     log.info(f"Running `docfx build` for {blob.name}...")
     shell.run(
         ["docfx", "build", "-t", f"{devsite_template.absolute()}"],
@@ -143,23 +151,21 @@ def process_blob(blob, credentials, devsite_template):
     # format. As well, support both toc.html and toc.yaml
     try:
         shutil.move(
-            output_api_path.joinpath("toc.yaml"), output_api_path.joinpath("_toc.yaml")
+            site_api_path.joinpath("toc.yaml"), site_api_path.joinpath("_toc.yaml")
         )
     except FileNotFoundError:
         shutil.move(
-            output_api_path.joinpath("toc.html"), output_api_path.joinpath("_toc.yaml")
+            site_api_path.joinpath("toc.html"), site_api_path.joinpath("_toc.yaml")
         )
 
-    # Move the xrefmap file to the output directory.
-    shutil.move(
-        output_path.joinpath("xrefmap.yml"), output_api_path.joinpath("xrefmap.yml")
-    )
+    # Copy the xrefmap file to the output directory.
+    shutil.copy(site_path.joinpath("xrefmap.yml"), site_api_path)
 
     log.success(f"Done building HTML for {blob.name}. Starting upload...")
 
     # Reuse the same docs.metadata file. The original docfx- prefix is an
     # command line option when uploading, not part of docs.metadata.
-    shutil.copyfile(metadata_path, output_api_path.joinpath(metadata_file))
+    shutil.copy(metadata_path, site_api_path)
 
     shell.run(
         [
@@ -169,7 +175,7 @@ def process_blob(blob, credentials, devsite_template):
             f"--credentials={credentials}",
             f"--staging-bucket={blob.bucket.name}",
         ],
-        cwd=output_api_path,
+        cwd=site_api_path,
         hide_output=False,
     )
     shutil.rmtree(tmp_path)

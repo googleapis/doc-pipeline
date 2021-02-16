@@ -13,7 +13,9 @@
 # limitations under the License.
 
 import os
+import pathlib
 import shutil
+import tempfile
 import unittest
 
 from docuploader import shell, tar
@@ -58,8 +60,8 @@ def test_init():
     return test_bucket, credentials, storage_client
 
 
-# Fetches the pages used for testing
-def setup_testdata(storage_client, test_bucket):
+# Fetches and uploads the blobs used for testing.
+def setup_testdata(cwd, storage_client, credentials, test_bucket):
     yaml_blob_name = "docfx-python-doc-pipeline-test-2.1.1.tar.gz"
     html_blob_name = "python-doc-pipeline-test-2.1.1.tar.gz"
     bucket = storage_client.get_bucket(test_bucket)
@@ -72,11 +74,6 @@ def setup_testdata(storage_client, test_bucket):
     if html_blob.exists():
         html_blob.delete()
 
-    return bucket, yaml_blob, html_blob
-
-
-# Upload the tarball and verify, then builds docs
-def generate_and_upload(cwd, storage_client, credentials, test_bucket):
     start_blobs = list(storage_client.list_blobs(test_bucket))
 
     # Upload DocFX YAML to test with.
@@ -94,7 +91,16 @@ def generate_and_upload(cwd, storage_client, credentials, test_bucket):
     )
 
     # Make sure docuploader succeeded.
-    assert len(list(storage_client.list_blobs(test_bucket))) == len(start_blobs) + 1
+    assert (
+        len(list(storage_client.list_blobs(test_bucket))) == len(start_blobs) + 1
+    ), "should create 1 new YAML blob"
+
+    return bucket, yaml_blob, html_blob
+
+
+# Call generate.build_new_docs and assert a new tarball is uploaded.
+def run_generate(storage_client, credentials, test_bucket):
+    start_blobs = list(storage_client.list_blobs(test_bucket))
 
     # Generate!
     try:
@@ -104,7 +110,7 @@ def generate_and_upload(cwd, storage_client, credentials, test_bucket):
 
     # Verify the results.
     blobs = list(storage_client.list_blobs(test_bucket))
-    assert len(blobs) == len(start_blobs) + 2
+    assert len(blobs) == len(start_blobs) + 1, "should create 1 new HTML blob"
 
 
 # Simple verification of the content
@@ -138,21 +144,44 @@ def verify_content(html_blob, tmpdir):
 def test_apidir(api_dir, tmpdir):
     test_bucket, credentials, storage_client = test_init()
 
-    bucket, yaml_blob, html_blob = setup_testdata(storage_client, test_bucket)
+    bucket, yaml_blob, html_blob = setup_testdata(
+        api_dir, storage_client, credentials, test_bucket
+    )
 
     # Test for api directory content
-    generate_and_upload(api_dir, storage_client, credentials, test_bucket)
+    run_generate(storage_client, credentials, test_bucket)
 
     verify_content(html_blob, tmpdir)
+
+
+def test_setup_docfx(yaml_dir):
+    test_bucket, credentials, storage_client = test_init()
+
+    bucket, yaml_blob, html_blob = setup_testdata(
+        yaml_dir, storage_client, credentials, test_bucket
+    )
+
+    tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
+    metadata_path = generate.setup_docfx(tmp_path, yaml_blob)
+
+    docfx_json_file = tmp_path.joinpath("docfx.json")
+    assert docfx_json_file.exists()
+    with open(docfx_json_file) as w:
+        got_text = w.read()
+        assert "/python/docs/reference/doc-pipeline-test/latest" in got_text
+
+    assert metadata_path.exists()
 
 
 def test_generate(yaml_dir, tmpdir):
     test_bucket, credentials, storage_client = test_init()
 
-    bucket, yaml_blob, html_blob = setup_testdata(storage_client, test_bucket)
+    bucket, yaml_blob, html_blob = setup_testdata(
+        yaml_dir, storage_client, credentials, test_bucket
+    )
 
     # Test for non-api directory content
-    generate_and_upload(yaml_dir, storage_client, credentials, test_bucket)
+    run_generate(storage_client, credentials, test_bucket)
 
     verify_content(html_blob, tmpdir)
 
