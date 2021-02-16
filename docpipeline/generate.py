@@ -26,6 +26,8 @@ from google.protobuf import text_format, json_format
 
 DOCFX_PREFIX = "docfx-"
 
+XREFS_DIR_NAME = "xrefs"
+
 DOCFX_JSON_TEMPLATE = """
 {{
   "build": {{
@@ -89,7 +91,7 @@ def format_docfx_json(metadata):
     )
 
 
-def setup_docfx(tmp_path, blob):
+def setup_docfx(tmp_path, blob, xrefs):
     api_path = decompress_path = tmp_path.joinpath("obj/api")
 
     api_path.mkdir(parents=True, exist_ok=True)
@@ -121,6 +123,8 @@ def setup_docfx(tmp_path, blob):
     else:
         text_format.Merge(metadata_path.read_text(), metadata)
 
+    metadata.xrefs.extend(xrefs)
+
     with open(tmp_path.joinpath("docfx.json"), "w") as f:
         f.write(format_docfx_json(metadata))
     log.info("Wrote docfx.json")
@@ -132,10 +136,10 @@ def setup_docfx(tmp_path, blob):
     return metadata_path
 
 
-def process_blob(blob, credentials, devsite_template):
+def process_blob(blob, credentials, devsite_template, xrefs):
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
 
-    metadata_path = setup_docfx(tmp_path, blob)
+    metadata_path = setup_docfx(tmp_path, blob, xrefs)
 
     site_path = tmp_path.joinpath("site")
     site_api_path = site_path.joinpath("api")
@@ -167,6 +171,12 @@ def process_blob(blob, credentials, devsite_template):
     # command line option when uploading, not part of docs.metadata.
     shutil.copy(metadata_path, site_api_path)
 
+    # Use the input blob name as the name of the xref file to avoid collisions.
+    # The input blob has a "docfx-" prefix; make sure to remove it.
+    xref_blob_name_base = blob.name[len("docfx-") :]
+    xref_blob = blob.bucket.blob(f"{XREFS_DIR_NAME}/{xref_blob_name_base}.yml")
+    xref_blob.upload_from_filename(filename=site_api_path.joinpath("xrefmap.yml"))
+
     shell.run(
         [
             "docuploader",
@@ -183,7 +193,21 @@ def process_blob(blob, credentials, devsite_template):
     log.success(f"Done with {blob.name}!")
 
 
-def build_blobs(blobs, credentials):
+def download_xrefs(client, bucket):
+    xrefs_dir = pathlib.Path(XREFS_DIR_NAME)
+    if xrefs_dir.is_dir():
+        shutil.rmtree(xrefs_dir)
+    xrefs_dir.mkdir(parents=True, exist_ok=True)
+    xrefs = []
+    for xref_blob in client.list_blobs(bucket, prefix=XREFS_DIR_NAME):
+        xref_path = str(pathlib.Path(xref_blob.name).absolute())
+        xref_blob.download_to_filename(xref_path)
+        xrefs.append(xref_path)
+    log.info(f"Downloaded the xref files to {xrefs_dir.absolute()}")
+    return xrefs, xrefs_dir
+
+
+def build_blobs(client, blobs, credentials):
     num = len(blobs)
     if num == 0:
         log.success("No blobs to process!")
@@ -194,6 +218,7 @@ def build_blobs(blobs, credentials):
     blobs_str = "\n".join(map(lambda blob: blob.name, blobs))
     log.info(f"Processing {num} blob{'' if num == 1 else 's'}:\n{blobs_str}")
 
+    # Clone doc-templates.
     templates_dir = pathlib.Path("doc-templates")
     if templates_dir.is_dir():
         shutil.rmtree(templates_dir)
@@ -203,18 +228,22 @@ def build_blobs(blobs, credentials):
     log.info(f"Got the templates ({templates_dir.absolute()})!")
     devsite_template = templates_dir.joinpath("third_party/docfx/templates/devsite")
 
-    failures = []
+    # Download all xref files.
+    xrefs, xrefs_dir = download_xrefs(client, blobs[0].bucket)
 
+    # Process every blob.
+    failures = []
     for i, blob in enumerate(blobs):
         try:
             log.info(f"Processing {i+1} of {len(blobs)}: {blob.name}...")
-            process_blob(blob, credentials, devsite_template)
+            process_blob(blob, credentials, devsite_template, xrefs)
         except Exception as e:
             # Keep processing the other files if an error occurs.
             log.error(f"Error processing {blob.name}:\n\n{e}")
             failures.append(blob.name)
 
     shutil.rmtree(templates_dir)
+    shutil.rmtree(xrefs_dir)
 
     if len(failures) > 0:
         failure_str = "\n".join(failures)
@@ -235,20 +264,23 @@ def storage_client(credentials):
 
 
 def build_all_docs(bucket_name, credentials):
-    all_blobs = storage_client(credentials).list_blobs(bucket_name)
+    client = storage_client(credentials)
+    all_blobs = client.list_blobs(bucket_name)
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX)]
-    build_blobs(docfx_blobs, credentials)
+    build_blobs(client, docfx_blobs, credentials)
 
 
 def build_one_doc(bucket_name, object_name, credentials):
-    blob = storage_client(credentials).bucket(bucket_name).get_blob(object_name)
+    client = storage_client(credentials)
+    blob = client.bucket(bucket_name).get_blob(object_name)
     if blob is None:
         raise Exception(f"Could not find gs://{bucket_name}/{object_name}!")
-    build_blobs([blob], credentials)
+    build_blobs(client, [blob], credentials)
 
 
 def build_new_docs(bucket_name, credentials):
-    all_blobs = list(storage_client(credentials).list_blobs(bucket_name))
+    client = storage_client(credentials)
+    all_blobs = list(client.list_blobs(bucket_name))
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX)]
     other_blobs = [blob for blob in all_blobs if not blob.name.startswith(DOCFX_PREFIX)]
     other_names = set(map(lambda b: b.name, other_blobs))
@@ -258,11 +290,12 @@ def build_new_docs(bucket_name, credentials):
         new_name = blob.name[len(DOCFX_PREFIX) :]
         if new_name not in other_names:
             new_blobs.append(blob)
-    build_blobs(new_blobs, credentials)
+    build_blobs(client, new_blobs, credentials)
 
 
 def build_language_docs(bucket_name, language, credentials):
-    all_blobs = storage_client(credentials).list_blobs(bucket_name)
+    client = storage_client(credentials)
+    all_blobs = client.list_blobs(bucket_name)
     language_prefix = DOCFX_PREFIX + language + "-"
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(language_prefix)]
-    build_blobs(docfx_blobs, credentials)
+    build_blobs(client, docfx_blobs, credentials)
