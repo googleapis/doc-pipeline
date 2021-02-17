@@ -177,7 +177,8 @@ def process_blob(blob, credentials, devsite_template, xrefs):
         )
 
     # Copy the xrefmap file to the output directory.
-    shutil.copy(site_path.joinpath("xrefmap.yml"), site_api_path)
+    xrefmap = site_path.joinpath("xrefmap.yml")
+    shutil.copy(xrefmap, site_api_path)
 
     # Add the prettyprint class to code snippets
     add_prettyprint(site_api_path)
@@ -192,7 +193,7 @@ def process_blob(blob, credentials, devsite_template, xrefs):
     # The input blob has a "docfx-" prefix; make sure to remove it.
     xref_blob_name_base = blob.name[len("docfx-") :]
     xref_blob = blob.bucket.blob(f"{XREFS_DIR_NAME}/{xref_blob_name_base}.yml")
-    xref_blob.upload_from_filename(filename=site_api_path.joinpath("xrefmap.yml"))
+    xref_blob.upload_from_filename(filename=xrefmap)
 
     shell.run(
         [
