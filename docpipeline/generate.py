@@ -34,8 +34,7 @@ DOCFX_JSON_TEMPLATE = """
     "content": [
       {{
         "files": ["**/*.yml", "**/*.md"],
-        "src": "obj/api",
-        "dest": "api"
+        "src": "obj/api"
       }}
     ],
     "globalMetadata": {{
@@ -126,15 +125,12 @@ def setup_docfx(tmp_path, blob, xrefs):
     tar.decompress(tar_filename, decompress_path)
     log.info(f"Decompressed {blob.name} in {decompress_path}")
 
-    metadata_file = "docs.metadata"
-    if decompress_path.joinpath("docs.metadata.json").exists():
-        metadata_file = "docs.metadata.json"
-
-    metadata_path = decompress_path.joinpath(metadata_file)
     metadata = metadata_pb2.Metadata()
-    if metadata_file.endswith(".json"):
+    metadata_path = decompress_path.joinpath("docs.metadata.json")
+    if metadata_path.exists():
         json_format.Parse(metadata_path.read_text(), metadata)
     else:
+        metadata_path = decompress_path.joinpath("docs.metadata")
         text_format.Merge(metadata_path.read_text(), metadata)
 
     metadata.xrefs.extend(xrefs)
@@ -147,16 +143,15 @@ def setup_docfx(tmp_path, blob, xrefs):
     if pathlib.Path(api_path.joinpath("_toc.yaml")).is_file():
         shutil.move(api_path.joinpath("_toc.yaml"), api_path.joinpath("toc.yml"))
 
-    return metadata_path
+    return metadata_path, metadata
 
 
 def process_blob(blob, credentials, devsite_template, xrefs):
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
 
-    metadata_path = setup_docfx(tmp_path, blob, xrefs)
+    metadata_path, metadata = setup_docfx(tmp_path, blob, xrefs)
 
     site_path = tmp_path.joinpath("site")
-    site_api_path = site_path.joinpath("api")
 
     log.info(f"Running `docfx build` for {blob.name}...")
     shell.run(
@@ -168,29 +163,33 @@ def process_blob(blob, credentials, devsite_template, xrefs):
     # Rename the output TOC file to be _toc.yaml to match the expected
     # format. As well, support both toc.html and toc.yaml
     try:
-        shutil.move(
-            site_api_path.joinpath("toc.yaml"), site_api_path.joinpath("_toc.yaml")
-        )
+        shutil.move(site_path.joinpath("toc.yaml"), site_path.joinpath("_toc.yaml"))
     except FileNotFoundError:
-        shutil.move(
-            site_api_path.joinpath("toc.html"), site_api_path.joinpath("_toc.yaml")
-        )
-
-    # Copy the xrefmap file to the output directory.
-    xrefmap = site_path.joinpath("xrefmap.yml")
-    shutil.copy(xrefmap, site_api_path)
+        shutil.move(site_path.joinpath("toc.html"), site_path.joinpath("_toc.yaml"))
 
     # Add the prettyprint class to code snippets
-    add_prettyprint(site_api_path)
+    add_prettyprint(site_path)
 
     log.success(f"Done building HTML for {blob.name}. Starting upload...")
 
     # Reuse the same docs.metadata file. The original docfx- prefix is an
     # command line option when uploading, not part of docs.metadata.
-    shutil.copy(metadata_path, site_api_path)
+    shutil.copy(metadata_path, site_path)
 
     # Use the input blob name as the name of the xref file to avoid collisions.
     # The input blob has a "docfx-" prefix; make sure to remove it.
+    xrefmap = site_path.joinpath("xrefmap.yml")
+    xrefmap_lines = xrefmap.read_text().splitlines()
+    # The baseUrl must start with a scheme and domain. With no scheme, docfx
+    # assumes it's a file:// link.
+    base_url = (
+        f"baseUrl: https://cloud.google.com/{metadata.language}/docs/reference/"
+        + f"{metadata.name}/latest/"
+    )
+    # Insert base_url after the YamlMime first line.
+    xrefmap_lines.insert(1, base_url)
+    xrefmap.write_text("\n".join(xrefmap_lines))
+
     xref_blob_name_base = blob.name[len("docfx-") :]
     xref_blob = blob.bucket.blob(f"{XREFS_DIR_NAME}/{xref_blob_name_base}.yml")
     xref_blob.upload_from_filename(filename=xrefmap)
@@ -203,7 +202,7 @@ def process_blob(blob, credentials, devsite_template, xrefs):
             f"--credentials={credentials}",
             f"--staging-bucket={blob.bucket.name}",
         ],
-        cwd=site_api_path,
+        cwd=site_path,
         hide_output=False,
     )
     shutil.rmtree(tmp_path)
