@@ -67,12 +67,15 @@ def setup_testdata(cwd, storage_client, credentials, test_bucket):
     bucket = storage_client.get_bucket(test_bucket)
     yaml_blob = bucket.blob(yaml_blob_name)
     html_blob = bucket.blob(html_blob_name)
+    xref_blob = bucket.blob(f"{generate.XREFS_DIR_NAME}/{html_blob_name}.yml")
 
     # Clean up any previous test data in the bucket.
     if yaml_blob.exists():
         yaml_blob.delete()
     if html_blob.exists():
         html_blob.delete()
+    if xref_blob.exists():
+        xref_blob.delete()
 
     start_blobs = list(storage_client.list_blobs(test_bucket))
 
@@ -109,8 +112,9 @@ def run_generate(storage_client, credentials, test_bucket):
         pytest.fail(f"build_new_docs raised an exception: {e}")
 
     # Verify the results.
+    # Expect 2 more files: an output blob and an output xref file.
     blobs = list(storage_client.list_blobs(test_bucket))
-    assert len(blobs) == len(start_blobs) + 1, "should create 1 new HTML blob"
+    assert len(blobs) == len(start_blobs) + 2
 
 
 # Simple verification of the content
@@ -161,14 +165,17 @@ def test_setup_docfx(yaml_dir):
         yaml_dir, storage_client, credentials, test_bucket
     )
 
+    xrefs = ["xrefs/test.yml"]
+
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
-    metadata_path = generate.setup_docfx(tmp_path, yaml_blob)
+    metadata_path = generate.setup_docfx(tmp_path, yaml_blob, xrefs)
 
     docfx_json_file = tmp_path.joinpath("docfx.json")
     assert docfx_json_file.exists()
     with open(docfx_json_file) as w:
         got_text = w.read()
         assert "/python/docs/reference/doc-pipeline-test/latest" in got_text
+        assert xrefs[0] in got_text
 
     assert metadata_path.exists()
 
@@ -184,6 +191,13 @@ def test_generate(yaml_dir, tmpdir):
     run_generate(storage_client, credentials, test_bucket)
 
     verify_content(html_blob, tmpdir)
+
+    # Ensure xref file was properly uploaded. Also ensure download_xrefs gets
+    # the right content.
+    xrefs, xref_dir = generate.download_xrefs(storage_client, test_bucket)
+    assert len(xrefs) == 1
+    assert xrefs[0].endswith("python-doc-pipeline-test-2.1.1.tar.gz.yml")
+    assert xref_dir.name == generate.XREFS_DIR_NAME
 
     # Force regeneration and verify the timestamp is different.
     html_blob = bucket.get_blob(html_blob.name)
