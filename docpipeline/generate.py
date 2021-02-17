@@ -91,6 +91,20 @@ def format_docfx_json(metadata):
     )
 
 
+def add_prettyprint(output_path):
+    files = output_path.glob("**/*.html")
+    # Handle files in binary to avoid line endings
+    # being changed when running on Windows.
+    for file in files:
+        with open(file, "rb") as file_handle:
+            html = file_handle.read()
+        html = html.replace(
+            '<code class="lang-'.encode(), '<code class="prettyprint lang-'.encode()
+        )
+        with open(file, "wb") as file_handle:
+            file_handle.write(html)
+
+
 def setup_docfx(tmp_path, blob, xrefs):
     api_path = decompress_path = tmp_path.joinpath("obj/api")
 
@@ -164,6 +178,9 @@ def process_blob(blob, credentials, devsite_template, xrefs):
 
     # Copy the xrefmap file to the output directory.
     shutil.copy(site_path.joinpath("xrefmap.yml"), site_api_path)
+
+    # Add the prettyprint class to code snippets
+    add_prettyprint(site_api_path)
 
     log.success(f"Done building HTML for {blob.name}. Starting upload...")
 
