@@ -148,6 +148,10 @@ def verify_content(html_blob, tmpdir):
     assert "devsite" in got_text
     assert "/python/_book.yaml" in got_text
 
+    # Check the manifest.json was not included.
+    manifest_path = tmpdir.join("manifest.json")
+    assert not manifest_path.exists(), "manifest.json should not be included"
+
 
 def test_apidir(api_dir, tmpdir):
     test_bucket, credentials, storage_client = test_init()

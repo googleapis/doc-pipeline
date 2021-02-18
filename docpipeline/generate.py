@@ -167,6 +167,9 @@ def process_blob(blob, credentials, devsite_template, xrefs):
     except FileNotFoundError:
         shutil.move(site_path.joinpath("toc.html"), site_path.joinpath("_toc.yaml"))
 
+    # Remove the manifest.json file.
+    site_path.joinpath("manifest.json").unlink()
+
     # Add the prettyprint class to code snippets
     add_prettyprint(site_path)
 
