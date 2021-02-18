@@ -136,6 +136,10 @@ def verify_content(html_blob, tmpdir):
     # Check xrefmap.yml was created.
     xref_path = tmpdir.join("xrefmap.yml")
     assert xref_path.isfile()
+    got_text = xref_path.read_text("utf-8")
+    assert got_text.startswith(
+        "### YamlMime:XRefMap\nbaseUrl: https://cloud.google.com"
+    )
 
     # Check the template worked.
     html_file_path = tmpdir.join("google.api.customhttppattern.html")
@@ -143,6 +147,10 @@ def verify_content(html_blob, tmpdir):
     got_text = html_file_path.read_text("utf-8")
     assert "devsite" in got_text
     assert "/python/_book.yaml" in got_text
+
+    # Check the manifest.json was not included.
+    manifest_path = tmpdir.join("manifest.json")
+    assert not manifest_path.exists(), "manifest.json should not be included"
 
 
 def test_apidir(api_dir, tmpdir):
@@ -168,7 +176,7 @@ def test_setup_docfx(yaml_dir):
     xrefs = ["xrefs/test.yml"]
 
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
-    metadata_path = generate.setup_docfx(tmp_path, yaml_blob, xrefs)
+    metadata_path, metadata = generate.setup_docfx(tmp_path, yaml_blob, xrefs)
 
     docfx_json_file = tmp_path.joinpath("docfx.json")
     assert docfx_json_file.exists()
@@ -178,6 +186,7 @@ def test_setup_docfx(yaml_dir):
         assert xrefs[0] in got_text
 
     assert metadata_path.exists()
+    assert metadata.name == "doc-pipeline-test"
 
 
 def test_generate(yaml_dir, tmpdir):
@@ -275,8 +284,7 @@ class TestGenerate(unittest.TestCase):
     "content": [
       {
         "files": ["**/*.yml", "**/*.md"],
-        "src": "obj/api",
-        "dest": "api"
+        "src": "obj/api"
       }
     ],
     "globalMetadata": {
