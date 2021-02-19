@@ -15,12 +15,9 @@
 import pathlib
 import shutil
 import tempfile
-import tarfile
 
-from docuploader import log, shell, tar
+from docuploader import log, shell
 from docuploader.protos import metadata_pb2
-from google.cloud import storage
-from google.oauth2 import service_account
 from google.protobuf import text_format, json_format
 
 
