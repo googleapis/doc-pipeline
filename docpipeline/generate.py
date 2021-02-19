@@ -220,9 +220,10 @@ def download_xrefs(client, bucket):
     xrefs_dir.mkdir(parents=True, exist_ok=True)
     xrefs = []
     for xref_blob in client.list_blobs(bucket, prefix=XREFS_DIR_NAME):
-        xref_path = str(pathlib.Path(xref_blob.name).absolute())
+        xref_path = pathlib.Path(xref_blob.name).absolute()
+        xref_path.parents[0].mkdir(parents=True, exist_ok=True)
         xref_blob.download_to_filename(xref_path)
-        xrefs.append(xref_path)
+        xrefs.append(str(xref_path))
     log.info(f"Downloaded the xref files to {xrefs_dir.absolute()}")
     return xrefs, xrefs_dir
 
