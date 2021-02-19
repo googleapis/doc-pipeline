@@ -206,7 +206,9 @@ def test_generate(yaml_dir, tmpdir):
     xrefs, xref_dir = generate.download_xrefs(storage_client, test_bucket)
     assert len(xrefs) == 1
     assert xrefs[0].endswith("python-doc-pipeline-test-2.1.1.tar.gz.yml")
+    assert pathlib.Path(xrefs[0]).exists()
     assert xref_dir.name == generate.XREFS_DIR_NAME
+    shutil.rmtree(xref_dir)
 
     # Force regeneration and verify the timestamp is different.
     html_blob = bucket.get_blob(html_blob.name)
@@ -235,6 +237,26 @@ def test_generate(yaml_dir, tmpdir):
     html_blob = bucket.get_blob(html_blob.name)
     t5 = html_blob.updated
     assert t4 == t5
+
+
+def test_download_xrefs():
+    test_file = generate.XREFS_DIR_NAME + "/test/xrefmap.yml"
+    test_bucket, credentials, storage_client = test_init()
+    bucket = storage_client.get_bucket(test_bucket)
+    test_blob = bucket.blob(test_file)
+    if test_blob.exists():
+        test_blob.delete()
+    test_blob.upload_from_string("unused")
+
+    xrefs, xref_dir = generate.download_xrefs(storage_client, test_bucket)
+
+    test_blob.delete()
+
+    downloaded_file = xref_dir.joinpath("test/xrefmap.yml")
+    assert downloaded_file.exists()
+    assert len(xrefs) > 0
+
+    shutil.rmtree(xref_dir)
 
 
 def test_add_prettyprint():
