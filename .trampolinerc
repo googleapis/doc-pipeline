@@ -23,6 +23,7 @@ pass_down_envvars+=(
     "FORCE_GENERATE_ALL" # Set to force regeneration of all blobs.
     "TEST_BUCKET"        # Must set when running tests.
     "LANGUAGE"           # For specifying specific language builds.
+    "INPUT"              # For specifying local input source.
 )
 
 # Prevent unintentional override on the default image.

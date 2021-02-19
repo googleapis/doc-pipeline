@@ -15,22 +15,26 @@
 
 set -e
 
-if [ -z "$SOURCE_BUCKET" ]; then
-    echo "Must set SOURCE_BUCKET"
-    exit 1
-fi
-
 # Add the path where docuploader gets installed to PATH.
 export PATH=$PATH:${HOME}/.local/bin
 
 python3 -m pip install .
 
-if [ "$FORCE_GENERATE_ALL" == "true" ]; then
-    python3 docpipeline/__main__.py build-all-docs $SOURCE_BUCKET
-elif [ -n "$LANGUAGE" ]; then
-    python3 docpipeline/__main__.py build-language-docs $SOURCE_BUCKET $LANGUAGE
-elif [ -n "$SOURCE_BLOB" ]; then
-    python3 docpipeline/__main__.py build-one-doc $SOURCE_BUCKET $SOURCE_BLOB
+if [ -n "$INPUT" ]; then
+  python3 docpipeline/__main__.py build-local-doc $INPUT
 else
-    python3 docpipeline/__main__.py build-new-docs $SOURCE_BUCKET
+  if [ -z "$SOURCE_BUCKET" ]; then
+      echo "Must set SOURCE_BUCKET"
+      exit 1
+  fi
+
+  if [ "$FORCE_GENERATE_ALL" == "true" ]; then
+      python3 docpipeline/__main__.py build-all-docs $SOURCE_BUCKET
+  elif [ -n "$LANGUAGE" ]; then
+      python3 docpipeline/__main__.py build-language-docs $SOURCE_BUCKET $LANGUAGE
+  elif [ -n "$SOURCE_BLOB" ]; then
+      python3 docpipeline/__main__.py build-one-doc $SOURCE_BUCKET $SOURCE_BLOB
+  else
+      python3 docpipeline/__main__.py build-new-docs $SOURCE_BUCKET
+  fi
 fi
