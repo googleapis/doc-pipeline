@@ -237,8 +237,8 @@ def get_xref(xref, bucket, dir):
             # Be sure to trim the suffix extension.
             version = blob.name[len(prefix) : -len(".tar.gz.yml")]
             # Skip if version doesn't look like a version, like when some other package
-            # name has this one as a prefix (""...foo" and "...foo-beta1").
-            if version[0].isnumeric():
+            # has prefix as a prefix (""...foo-1.0.0" and "...foo-beta1-1.0.0").
+            if version[0].isnumeric() or (version[0] == "v" and version[1].isnumeric()):
                 versions.append(version)
         if len(versions) == 0:
             # There are no versions, so there is no latest version.
