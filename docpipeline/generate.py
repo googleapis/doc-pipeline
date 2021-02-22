@@ -236,10 +236,13 @@ def get_xref(xref, bucket, dir):
         for blob in blobs:
             # Be sure to trim the suffix extension.
             version = blob.name[len(prefix) : -len(".tar.gz.yml")]
-            # Skip if version doesn't look like a version, like when some other package
-            # has prefix as a prefix (""...foo-1.0.0" and "...foo-beta1-1.0.0").
-            if version[0].isnumeric() or (version[0] == "v" and version[1].isnumeric()):
+            # Skip if version is not a valid version, like when some other package
+            # has prefix as a prefix (...foo-1.0.0" and "...foo-beta1-1.0.0").
+            try:
+                version_sort(version)
                 versions.append(version)
+            except ValueError:
+                pass  # Ignore.
         if len(versions) == 0:
             # There are no versions, so there is no latest version.
             log.error(f"Could not find {xref} in gs://{bucket.name}. Skipping.")
