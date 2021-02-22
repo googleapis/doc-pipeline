@@ -251,6 +251,7 @@ def xref_test_blobs():
         "xrefs/dotnet-my-pkg-v1.1.0.tar.gz.yml",
         "xrefs/dotnet-my-pkg-2.0.0-SNAPSHOT.tar.gz.yml",
         "xrefs/dotnet-my-pkg-2.0.0.tar.gz.yml",
+        "xrefs/dotnet-my-pkg-unused-3.0.0.tar.gz.yml",
     ]
     for b in blobs_to_create:
         blob = bucket.blob(b)
