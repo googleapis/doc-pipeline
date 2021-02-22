@@ -23,10 +23,14 @@ from google.cloud import storage
 from google.oauth2 import service_account
 from google.protobuf import text_format, json_format
 
+import semver
+
 
 DOCFX_PREFIX = "docfx-"
 
 XREFS_DIR_NAME = "xrefs"
+
+DEVSITE_SCHEME = "devsite://"
 
 DOCFX_JSON_TEMPLATE = """
 {{
@@ -78,7 +82,7 @@ def clone_templates(dir):
 
 def format_docfx_json(metadata):
     pkg = metadata.name
-    xrefs = ", ".join([f'"{xref}"' for xref in metadata.xrefs])
+    xrefs = ", ".join([f'"{xref}"' for xref in metadata.xrefs if xref != ""])
     xref_services = ", ".join([f'"{xref}"' for xref in metadata.xref_services])
 
     return DOCFX_JSON_TEMPLATE.format(
@@ -104,7 +108,7 @@ def add_prettyprint(output_path):
             file_handle.write(html)
 
 
-def setup_docfx(tmp_path, blob, xrefs):
+def setup_docfx(tmp_path, blob):
     api_path = decompress_path = tmp_path.joinpath("obj/api")
 
     api_path.mkdir(parents=True, exist_ok=True)
@@ -133,7 +137,9 @@ def setup_docfx(tmp_path, blob, xrefs):
         metadata_path = decompress_path.joinpath("docs.metadata")
         text_format.Merge(metadata_path.read_text(), metadata)
 
-    metadata.xrefs.extend(xrefs)
+    metadata.xrefs[:] = [
+        get_xref(xref, blob.bucket, tmp_path) for xref in metadata.xrefs
+    ]
 
     with open(tmp_path.joinpath("docfx.json"), "w") as f:
         f.write(format_docfx_json(metadata))
@@ -146,10 +152,10 @@ def setup_docfx(tmp_path, blob, xrefs):
     return metadata_path, metadata
 
 
-def process_blob(blob, credentials, devsite_template, xrefs):
+def process_blob(blob, credentials, devsite_template):
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
 
-    metadata_path, metadata = setup_docfx(tmp_path, blob, xrefs)
+    metadata_path, metadata = setup_docfx(tmp_path, blob)
 
     site_path = tmp_path.joinpath("site")
 
@@ -213,19 +219,48 @@ def process_blob(blob, credentials, devsite_template, xrefs):
     log.success(f"Done with {blob.name}!")
 
 
-def download_xrefs(client, bucket):
-    xrefs_dir = pathlib.Path(XREFS_DIR_NAME)
-    if xrefs_dir.is_dir():
-        shutil.rmtree(xrefs_dir)
-    xrefs_dir.mkdir(parents=True, exist_ok=True)
-    xrefs = []
-    for xref_blob in client.list_blobs(bucket, prefix=XREFS_DIR_NAME):
-        xref_path = pathlib.Path(xref_blob.name).absolute()
-        xref_path.parent.mkdir(parents=True, exist_ok=True)
-        xref_blob.download_to_filename(xref_path)
-        xrefs.append(str(xref_path))
-    log.info(f"Downloaded the xref files to {xrefs_dir.absolute()}")
-    return xrefs, xrefs_dir
+def get_xref(xref, bucket, dir):
+    if not xref.startswith(DEVSITE_SCHEME):
+        return xref
+
+    d_xref = xref[len(DEVSITE_SCHEME) :]
+    lang, pkg = d_xref.split("/", 1)
+    version = "latest"
+    if "@" in pkg:
+        pkg, version = pkg.rsplit("@", 1)
+    if version == "latest":
+        # List all blobs, sort by semver, and pick the latest.
+        prefix = f"{XREFS_DIR_NAME}/{lang}-{pkg}"
+        blobs = bucket.list_blobs(prefix=prefix)
+        versions = []
+        for blob in blobs:
+            # Be sure to trim the prefix - and suffix extension.
+            version = blob.name[len(prefix) + 1 : -len(".tar.gz.yml")]
+            versions.append(version)
+        if len(versions) == 0:
+            # There are no versions, so there is no latest version.
+            log.error(f"Could not find {xref} in gs://{bucket.name}. Skipping.")
+            return ""
+        versions = sorted(versions, key=version_sort)
+        version = versions[-1]
+
+    d_xref = f"{XREFS_DIR_NAME}/{lang}-{pkg}-{version}.tar.gz.yml"
+
+    blob = bucket.blob(d_xref)
+    if not blob.exists():
+        # Log warning. Dependency may not be generated yet.
+        log.error(f"Could not find gs://{bucket.name}/{d_xref}. Skipping.")
+        return ""
+    d_xref_path = dir.joinpath(d_xref).absolute()
+    d_xref_path.parent.mkdir(parents=True, exist_ok=True)
+    blob.download_to_filename(d_xref_path)
+    return str(d_xref_path)
+
+
+def version_sort(v):
+    if v[0] == "v":  # Remove v prefix, if any.
+        v = v[1:]
+    return semver.VersionInfo.parse(v)
 
 
 def build_blobs(client, blobs, credentials):
@@ -249,22 +284,18 @@ def build_blobs(client, blobs, credentials):
     log.info(f"Got the templates ({templates_dir.absolute()})!")
     devsite_template = templates_dir.joinpath("third_party/docfx/templates/devsite")
 
-    # Download all xref files.
-    xrefs, xrefs_dir = download_xrefs(client, blobs[0].bucket)
-
     # Process every blob.
     failures = []
     for i, blob in enumerate(blobs):
         try:
             log.info(f"Processing {i+1} of {len(blobs)}: {blob.name}...")
-            process_blob(blob, credentials, devsite_template, xrefs)
+            process_blob(blob, credentials, devsite_template)
         except Exception as e:
             # Keep processing the other files if an error occurs.
             log.error(f"Error processing {blob.name}:\n\n{e}")
             failures.append(blob.name)
 
     shutil.rmtree(templates_dir)
-    shutil.rmtree(xrefs_dir)
 
     if len(failures) > 0:
         failure_str = "\n".join(failures)
