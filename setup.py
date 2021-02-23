@@ -19,6 +19,7 @@ dependencies = [
     "click",
     "google-cloud-storage<2.0.0dev",
     "gcp-docuploader",
+    "semver",
 ]
 
 packages = setuptools.find_packages()
