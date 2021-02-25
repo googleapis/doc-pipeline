@@ -173,17 +173,14 @@ def test_setup_docfx(yaml_dir):
         yaml_dir, storage_client, credentials, test_bucket
     )
 
-    xrefs = ["xrefs/test.yml"]
-
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
-    metadata_path, metadata = generate.setup_docfx(tmp_path, yaml_blob, xrefs)
+    metadata_path, metadata = generate.setup_docfx(tmp_path, yaml_blob)
 
     docfx_json_file = tmp_path.joinpath("docfx.json")
     assert docfx_json_file.exists()
     with open(docfx_json_file) as w:
         got_text = w.read()
         assert "/python/docs/reference/doc-pipeline-test/latest" in got_text
-        assert xrefs[0] in got_text
 
     assert metadata_path.exists()
     assert metadata.name == "doc-pipeline-test"
@@ -203,12 +200,11 @@ def test_generate(yaml_dir, tmpdir):
 
     # Ensure xref file was properly uploaded. Also ensure download_xrefs gets
     # the right content.
-    xrefs, xref_dir = generate.download_xrefs(storage_client, test_bucket)
-    assert len(xrefs) == 1
-    assert xrefs[0].endswith("python-doc-pipeline-test-2.1.1.tar.gz.yml")
-    assert pathlib.Path(xrefs[0]).exists()
-    assert xref_dir.name == generate.XREFS_DIR_NAME
-    shutil.rmtree(xref_dir)
+    path = generate.get_xref(
+        "devsite://python/doc-pipeline-test", bucket, pathlib.Path(tmpdir)
+    )
+    assert path != ""
+    assert pathlib.Path(path).exists()
 
     # Force regeneration and verify the timestamp is different.
     html_blob = bucket.get_blob(html_blob.name)
@@ -239,24 +235,60 @@ def test_generate(yaml_dir, tmpdir):
     assert t4 == t5
 
 
-def test_download_xrefs():
-    test_file = generate.XREFS_DIR_NAME + "/test/xrefmap.yml"
+@pytest.fixture(scope="module")
+def xref_test_blobs():
     test_bucket, credentials, storage_client = test_init()
     bucket = storage_client.get_bucket(test_bucket)
-    test_blob = bucket.blob(test_file)
-    if test_blob.exists():
-        test_blob.delete()
-    test_blob.upload_from_string("unused")
 
-    xrefs, xref_dir = generate.download_xrefs(storage_client, test_bucket)
+    # Remove all existing test xref blobs.
+    blobs_to_delete = bucket.list_blobs(prefix="xrefs/")
+    for blob in blobs_to_delete:
+        blob.delete()
 
-    test_blob.delete()
+    blobs_to_create = [
+        "xrefs/go-unused-v0.0.1.tar.gz.yml",
+        "xrefs/dotnet-my-pkg-1.0.0.tar.gz.yml",
+        "xrefs/dotnet-my-pkg-v1.1.0.tar.gz.yml",
+        "xrefs/dotnet-my-pkg-2.0.0-SNAPSHOT.tar.gz.yml",
+        "xrefs/dotnet-my-pkg-2.0.0.tar.gz.yml",
+        "xrefs/dotnet-my-pkg-unused-3.0.0.tar.gz.yml",
+        "xrefs/dotnet-v-pkg-v3.0.0.tar.gz.yml",
+        "xrefs/dotnet-v-pkg-v4.0.0.tar.gz.yml",
+    ]
+    for b in blobs_to_create:
+        blob = bucket.blob(b)
+        if not blob.exists():
+            blob.upload_from_string("unused")
 
-    downloaded_file = xref_dir.joinpath("test/xrefmap.yml")
-    assert downloaded_file.exists()
-    assert len(xrefs) > 0
 
-    shutil.rmtree(xref_dir)
+@pytest.mark.parametrize(
+    "test_input,expected",
+    [
+        ("http://google.com", "http://google.com"),
+        ("devsite://does/not/exist", ""),
+        ("devsite://does/not/exist@latest", ""),
+        ("devsite://dotnet/my-pkg@1.0.0", "xrefs/dotnet-my-pkg-1.0.0.tar.gz.yml"),
+        ("devsite://dotnet/my-pkg", "xrefs/dotnet-my-pkg-2.0.0.tar.gz.yml"),
+        ("devsite://dotnet/my-pkg@latest", "xrefs/dotnet-my-pkg-2.0.0.tar.gz.yml"),
+        ("devsite://dotnet/v-pkg@latest", "xrefs/dotnet-v-pkg-v4.0.0.tar.gz.yml"),
+    ],
+)
+def test_get_xref(test_input, expected, tmpdir, xref_test_blobs):
+    test_bucket, credentials, storage_client = test_init()
+    bucket = storage_client.get_bucket(test_bucket)
+
+    tmpdir = pathlib.Path(tmpdir)
+    got = generate.get_xref(test_input, bucket, tmpdir)
+
+    if ":" in expected:
+        assert got == expected
+        return
+    if expected == "":
+        assert got == expected
+        return
+    expected_path = tmpdir.joinpath(expected)
+    assert str(expected_path) == got
+    assert expected_path.exists(), f"expected {expected_path} to exist"
 
 
 def test_add_prettyprint():
