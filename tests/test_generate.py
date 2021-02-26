@@ -118,6 +118,15 @@ def run_generate(storage_client, credentials, test_bucket):
 
 
 def run_local_generate(local_path):
+
+    # Test with invalid path given, must throw exception
+    try:
+        local_generate.build_local_doc(local_path.basename[1:])
+    except Exception:
+        pass
+    else:
+        pytest.fail("build_local_doc is attempting to generate on invalid input path")
+
     # Generate!
     try:
         local_generate.build_local_doc(local_path)
