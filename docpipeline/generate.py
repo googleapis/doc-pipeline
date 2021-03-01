@@ -121,42 +121,39 @@ def add_prettyprint(output_path):
             file_handle.write(html)
 
 
-def is_blob(blob):
-    return type(blob) == storage.blob.Blob
+def setup_local_docfx(tmp_path, api_path, decompress_path, blob):
+    for item in blob.iterdir():
+        if item.is_dir() and item.name == "api":
+            decompress_path = tmp_path.joinpath("obj")
+            break
+
+    shutil.copytree(blob, decompress_path, dirs_exist_ok=True)
+    log.info(f"Decompressed in {decompress_path}")
+
+    return setup_metadata(tmp_path, api_path, decompress_path, blob)
 
 
-def setup_docfx(tmp_path, blob):
-    api_path = decompress_path = tmp_path.joinpath("obj/api")
+def setup_bucket_docfx(tmp_path, api_path, decompress_path, blob):
+    tar_filename = tmp_path.joinpath(blob.name)
+    tar_filename.parent.mkdir(parents=True, exist_ok=True)
 
-    api_path.mkdir(parents=True, exist_ok=True)
+    blob.download_to_filename(tar_filename)
+    log.info(f"Downloaded gs://{blob.bucket.name}/{blob.name} to {tar_filename}")
 
-    if is_blob(blob):
-        tar_filename = tmp_path.joinpath(blob.name)
-        tar_filename.parent.mkdir(parents=True, exist_ok=True)
+    # Check to see if api directory exists in the tarball.
+    # If so, only decompress things into obj/*
+    tar_file = tarfile.open(tar_filename)
+    for tarinfo in tar_file:
+        if tarinfo.isdir() and tarinfo.name == "./api":
+            decompress_path = tmp_path.joinpath("obj")
+            break
+    tar.decompress(tar_filename, decompress_path)
+    log.info(f"Decompressed {blob.name} in {decompress_path}")
 
-        blob.download_to_filename(tar_filename)
-        log.info(f"Downloaded gs://{blob.bucket.name}/{blob.name} to {tar_filename}")
+    return setup_metadata(tmp_path, api_path, decompress_path, blob)
 
-        # Check to see if api directory exists in the tarball.
-        # If so, only decompress things into obj/*
-        tar_file = tarfile.open(tar_filename)
-        for tarinfo in tar_file:
-            if tarinfo.isdir() and tarinfo.name == "./api":
-                decompress_path = tmp_path.joinpath("obj")
-                break
-        tar.decompress(tar_filename, decompress_path)
-        log.info(f"Decompressed {blob.name} in {decompress_path}")
 
-    # for local generation
-    else:
-        for item in blob.iterdir():
-            if item.is_dir() and item.name == "api":
-                decompress_path = tmp_path.joinpath("obj")
-                break
-
-        shutil.copytree(blob, decompress_path, dirs_exist_ok=True)
-        log.info(f"Decompressed in {decompress_path}")
-
+def setup_metadata(tmp_path, api_path, decompress_path, blob):
     metadata = metadata_pb2.Metadata()
     metadata_path = decompress_path.joinpath("docs.metadata.json")
     if metadata_path.exists():
@@ -165,11 +162,12 @@ def setup_docfx(tmp_path, blob):
         metadata_path = decompress_path.joinpath("docs.metadata")
         text_format.Merge(metadata_path.read_text(), metadata)
 
-    # TODO: Consider xrefs for local deployment
-    if is_blob(blob):
+    try:
         metadata.xrefs[:] = [
             get_xref(xref, blob.bucket, tmp_path) for xref in metadata.xrefs
         ]
+    except AttributeError:
+        log.warning("Building locally will ignore xrefs in the metadata.")
 
     with open(tmp_path.joinpath("docfx.json"), "w") as f:
         f.write(format_docfx_json(metadata))
@@ -182,11 +180,25 @@ def setup_docfx(tmp_path, blob):
     return metadata_path, metadata
 
 
-def process_blob(blob, credentials, devsite_template):
+def build_and_format(blob, is_bucket, devsite_template):
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
 
-    metadata_path, metadata = setup_docfx(tmp_path, blob)
-    blob_name = blob.name if is_blob(blob) else metadata.name
+    api_path = decompress_path = tmp_path.joinpath("obj/api")
+
+    api_path.mkdir(parents=True, exist_ok=True)
+
+    # If building blobs on a bucket, use setup_bucket_docfx
+    # Else, use setup_local_docfx
+    if is_bucket:
+        metadata_path, metadata = setup_bucket_docfx(
+            tmp_path, api_path, decompress_path, blob
+        )
+        blob_name = blob.name
+    else:
+        metadata_path, metadata = setup_local_docfx(
+            tmp_path, api_path, decompress_path, blob
+        )
+        blob_name = metadata.name
 
     site_path = tmp_path.joinpath("site")
 
@@ -216,49 +228,46 @@ def process_blob(blob, credentials, devsite_template):
     # command line option when uploading, not part of docs.metadata.
     shutil.copy(metadata_path, site_path)
 
-    if is_blob(blob):
+    return tmp_path, metadata, site_path
 
-        # Use the input blob name as the name of the xref file to avoid collisions.
-        # The input blob has a "docfx-" prefix; make sure to remove it.
-        xrefmap = site_path.joinpath("xrefmap.yml")
-        xrefmap_lines = xrefmap.read_text().splitlines()
-        # The baseUrl must start with a scheme and domain. With no scheme, docfx
-        # assumes it's a file:// link.
-        base_url = (
-            f"baseUrl: https://cloud.google.com/{metadata.language}/docs/reference/"
-            + f"{metadata.name}/latest/"
-        )
-        # Insert base_url after the YamlMime first line.
-        xrefmap_lines.insert(1, base_url)
-        xrefmap.write_text("\n".join(xrefmap_lines))
 
-        xref_blob_name_base = blob.name[len("docfx-") :]
-        xref_blob = blob.bucket.blob(f"{XREFS_DIR_NAME}/{xref_blob_name_base}.yml")
-        xref_blob.upload_from_filename(filename=xrefmap)
+def process_blob(blob, credentials, devsite_template):
+    is_bucket = True
+    tmp_path, metadata, site_path = build_and_format(blob, is_bucket, devsite_template)
 
-        shell.run(
-            [
-                "docuploader",
-                "upload",
-                ".",
-                f"--credentials={credentials}",
-                f"--staging-bucket={blob.bucket.name}",
-            ],
-            cwd=site_path,
-            hide_output=False,
-        )
+    # Use the input blob name as the name of the xref file to avoid collisions.
+    # The input blob has a "docfx-" prefix; make sure to remove it.
+    xrefmap = site_path.joinpath("xrefmap.yml")
+    xrefmap_lines = xrefmap.read_text().splitlines()
+    # The baseUrl must start with a scheme and domain. With no scheme, docfx
+    # assumes it's a file:// link.
+    base_url = (
+        f"baseUrl: https://cloud.google.com/{metadata.language}/docs/reference/"
+        + f"{metadata.name}/latest/"
+    )
+    # Insert base_url after the YamlMime first line.
+    xrefmap_lines.insert(1, base_url)
+    xrefmap.write_text("\n".join(xrefmap_lines))
 
-    else:
-        # For local generation
-        output_path = blob.joinpath(metadata.name)
-        if output_path.exists():
-            log.info(f"deleting existing directory: {output_path}")
-            shutil.rmtree(output_path)
-        shutil.copytree(site_path, output_path, dirs_exist_ok=True)
+    xref_blob_name_base = blob.name[len("docfx-") :]
+    xref_blob = blob.bucket.blob(f"{XREFS_DIR_NAME}/{xref_blob_name_base}.yml")
+    xref_blob.upload_from_filename(filename=xrefmap)
+
+    shell.run(
+        [
+            "docuploader",
+            "upload",
+            ".",
+            f"--credentials={credentials}",
+            f"--staging-bucket={blob.bucket.name}",
+        ],
+        cwd=site_path,
+        hide_output=False,
+    )
 
     shutil.rmtree(tmp_path)
 
-    log.success(f"Done with {blob_name}!")
+    log.success(f"Done with {blob.name}!")
 
 
 def get_xref(xref, bucket, dir):

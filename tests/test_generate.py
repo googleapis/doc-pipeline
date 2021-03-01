@@ -205,7 +205,14 @@ def test_setup_docfx(yaml_dir):
     )
 
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
-    metadata_path, metadata = generate.setup_docfx(tmp_path, yaml_blob)
+
+    api_path = decompress_path = tmp_path.joinpath("obj/api")
+
+    api_path.mkdir(parents=True, exist_ok=True)
+
+    metadata_path, metadata = generate.setup_bucket_docfx(
+        tmp_path, api_path, decompress_path, yaml_blob
+    )
 
     docfx_json_file = tmp_path.joinpath("docfx.json")
     assert docfx_json_file.exists()

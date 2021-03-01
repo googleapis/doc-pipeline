@@ -22,19 +22,20 @@ python3 -m pip install .
 
 if [ -n "$INPUT" ]; then
   python3 docpipeline/__main__.py build-local-doc $INPUT
-else
-  if [ -z "$SOURCE_BUCKET" ]; then
-      echo "Must set SOURCE_BUCKET"
-      exit 1
-  fi
+  exit
+fi
 
-  if [ "$FORCE_GENERATE_ALL" == "true" ]; then
-      python3 docpipeline/__main__.py build-all-docs $SOURCE_BUCKET
-  elif [ -n "$LANGUAGE" ]; then
-      python3 docpipeline/__main__.py build-language-docs $SOURCE_BUCKET $LANGUAGE
-  elif [ -n "$SOURCE_BLOB" ]; then
-      python3 docpipeline/__main__.py build-one-doc $SOURCE_BUCKET $SOURCE_BLOB
-  else
-      python3 docpipeline/__main__.py build-new-docs $SOURCE_BUCKET
-  fi
+if [ -z "$SOURCE_BUCKET" ]; then
+  echo "Must set SOURCE_BUCKET"
+  exit 1
+fi
+
+if [ "$FORCE_GENERATE_ALL" == "true" ]; then
+    python3 docpipeline/__main__.py build-all-docs $SOURCE_BUCKET
+elif [ -n "$LANGUAGE" ]; then
+    python3 docpipeline/__main__.py build-language-docs $SOURCE_BUCKET $LANGUAGE
+elif [ -n "$SOURCE_BLOB" ]; then
+    python3 docpipeline/__main__.py build-one-doc $SOURCE_BUCKET $SOURCE_BLOB
+else
+    python3 docpipeline/__main__.py build-new-docs $SOURCE_BUCKET
 fi
