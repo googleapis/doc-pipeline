@@ -22,6 +22,7 @@ from docuploader.protos import metadata_pb2
 from google.cloud import storage
 from google.oauth2 import service_account
 from google.protobuf import text_format, json_format
+from docpipeline.prepare_java import prepare_java_toc
 
 import semver
 
@@ -165,6 +166,9 @@ def process_blob(blob, credentials, devsite_template):
         cwd=tmp_path,
         hide_output=False,
     )
+
+    if metadata.language.lower() == "java":
+        prepare_java_toc(site_path.joinpath("toc.yaml"), metadata.name)
 
     # Rename the output TOC file to be _toc.yaml to match the expected
     # format. As well, support both toc.html and toc.yaml
