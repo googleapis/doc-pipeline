@@ -16,6 +16,20 @@ import yaml
 from docuploader import log
 
 
+def add_prettyprint(output_path):
+    files = output_path.glob("**/*.html")
+    # Handle files in binary to avoid line endings
+    # being changed when running on Windows.
+    for file in files:
+        with open(file, "rb") as file_handle:
+            html = file_handle.read()
+        html = html.replace(
+            '<code class="lang-'.encode(), '<code class="prettyprint lang-'.encode()
+        )
+        with open(file, "wb") as file_handle:
+            file_handle.write(html)
+
+
 def prepare_java_toc(toc_file, product_name):
     with open(toc_file, "r") as yml_input:
         try:

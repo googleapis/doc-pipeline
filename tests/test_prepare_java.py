@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from docpipeline.prepare_java import prepare_java_toc
+from docpipeline.prepare import prepare_java_toc
 import unittest
 import shutil
 import filecmp

@@ -22,7 +22,7 @@ from docuploader.protos import metadata_pb2
 from google.cloud import storage
 from google.oauth2 import service_account
 from google.protobuf import text_format, json_format
-from docpipeline.prepare_java import prepare_java_toc
+from docpipeline.prepare import prepare_java_toc, add_prettyprint
 
 import semver
 
@@ -95,20 +95,6 @@ def format_docfx_json(metadata):
     )
 
 
-def add_prettyprint(output_path):
-    files = output_path.glob("**/*.html")
-    # Handle files in binary to avoid line endings
-    # being changed when running on Windows.
-    for file in files:
-        with open(file, "rb") as file_handle:
-            html = file_handle.read()
-        html = html.replace(
-            '<code class="lang-'.encode(), '<code class="prettyprint lang-'.encode()
-        )
-        with open(file, "wb") as file_handle:
-            file_handle.write(html)
-
-
 def setup_docfx(tmp_path, blob):
     api_path = decompress_path = tmp_path.joinpath("obj/api")
 
@@ -167,6 +153,7 @@ def process_blob(blob, credentials, devsite_template):
         hide_output=False,
     )
 
+    # make final adjustments to java toc
     if metadata.language.lower() == "java":
         prepare_java_toc(site_path.joinpath("toc.yaml"), metadata.name)
 
