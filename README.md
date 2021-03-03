@@ -117,7 +117,8 @@ black docpipeline tests
 ### Running locally for one package
 
 1. Create a directory inside `doc-pipeline` (for example, `my-dir`).
-1. Move the files necessary to build for one pacakage over to `my-dir`.
+1. Create a `docs.metadata` file in `my-dir`. You can copy one from [here](https://github.com/googleapis/doc-pipeline/blob/master/testdata/docs.metadata).
+1. Move or copy the `.yml` files for one package to `my-dir`.
 1. Run the following command, replacing `my-dir` with your directory name:
    ```
    INPUT=my-dir TRAMPOLINE_BUILD_FILE=./generate.sh TRAMPOLINE_IMAGE=gcr.io/cloud-devrel-kokoro-resources/docfx TRAMPOLINE_DOCKERFILE=docfx/Dockerfile ci/trampoline_v2.sh
