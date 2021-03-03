@@ -392,6 +392,17 @@ def build_new_docs(bucket_name, credentials):
         new_name = blob.name[len(DOCFX_PREFIX) :]
         if new_name not in other_names:
             new_blobs.append(blob)
+        else:
+            # For existing blobs, re-build the docs if the YAML blob is newer
+            # than the existing HTML blob
+            yaml_last_updated = blob.updated
+
+            html_blob = client.bucket(bucket_name).get_blob(new_name)
+            html_last_updated = html_blob.updated
+
+            if yaml_last_updated > html_last_updated:
+                new_blobs.append(blob)
+
     build_blobs(client, new_blobs, credentials)
 
 
