@@ -126,8 +126,7 @@ black docpipeline tests
 1. The script runs `docfx build` over the package in my-dir, and places the
    resulting HTML inside a subdirectory in `my-dir`. The subdirectory is
    named after the package name found in the metadata.
-1. Note: running through this method will skip on processing xrefs other than
-   the ones found in the metadata.
+1. Note: running through this method will skip on processing xrefs.
 
 ### Running locally with Cloud Storage bucket
 
