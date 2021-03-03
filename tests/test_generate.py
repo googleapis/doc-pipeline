@@ -24,7 +24,7 @@ from google.cloud import storage
 from google.oauth2 import service_account
 import pytest
 
-from docpipeline import generate
+from docpipeline import generate, local_generate
 
 
 @pytest.fixture
@@ -117,13 +117,33 @@ def run_generate(storage_client, credentials, test_bucket):
     assert len(blobs) == len(start_blobs) + 2
 
 
-# Simple verification of the content
-def verify_content(html_blob, tmpdir):
-    assert html_blob.exists()
+def run_local_generate(local_path):
 
-    tar_path = tmpdir.join("out.tgz")
-    html_blob.download_to_filename(tar_path)
-    tar.decompress(tar_path, tmpdir)
+    # Test with invalid path given, must throw exception
+    try:
+        local_generate.build_local_doc(local_path.basename[1:])
+    except Exception:
+        pass
+    else:
+        pytest.fail("build_local_doc is attempting to generate on invalid input path")
+
+    # Generate!
+    try:
+        local_generate.build_local_doc(local_path)
+    except Exception as e:
+        pytest.fail(f"build_local_doc raised an exception: {e}")
+
+    # Verify the results.
+    # Expect a local directory of pages to be made from building locally
+    output_path = local_path.join("doc-pipeline-test")
+    assert output_path.isdir()
+
+    # Return the directory containing locally generated docs
+    return output_path
+
+
+def verify_template_content(tmpdir):
+
     assert tmpdir.join("docs.metadata").isfile()
 
     # Check _rootPath and docs.metadata parsing worked.
@@ -132,14 +152,6 @@ def verify_content(html_blob, tmpdir):
     got_text = toc_file_path.read_text("utf-8")
     # See testdata/docs.metadata.
     assert "/python/docs/reference/doc-pipeline-test/latest" in got_text
-
-    # Check xrefmap.yml was created.
-    xref_path = tmpdir.join("xrefmap.yml")
-    assert xref_path.isfile()
-    got_text = xref_path.read_text("utf-8")
-    assert got_text.startswith(
-        "### YamlMime:XRefMap\nbaseUrl: https://cloud.google.com"
-    )
 
     # Check the template worked.
     html_file_path = tmpdir.join("google.api.customhttppattern.html")
@@ -151,6 +163,25 @@ def verify_content(html_blob, tmpdir):
     # Check the manifest.json was not included.
     manifest_path = tmpdir.join("manifest.json")
     assert not manifest_path.exists(), "manifest.json should not be included"
+
+
+# Simple verification of the content
+def verify_content(html_blob, tmpdir):
+    assert html_blob.exists()
+
+    tar_path = tmpdir.join("out.tgz")
+    html_blob.download_to_filename(tar_path)
+    tar.decompress(tar_path, tmpdir)
+
+    verify_template_content(tmpdir)
+
+    # Check xrefmap.yml was created.
+    xref_path = tmpdir.join("xrefmap.yml")
+    assert xref_path.isfile()
+    got_text = xref_path.read_text("utf-8")
+    assert got_text.startswith(
+        "### YamlMime:XRefMap\nbaseUrl: https://cloud.google.com"
+    )
 
 
 def test_apidir(api_dir, tmpdir):
@@ -174,7 +205,14 @@ def test_setup_docfx(yaml_dir):
     )
 
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
-    metadata_path, metadata = generate.setup_docfx(tmp_path, yaml_blob)
+
+    api_path = decompress_path = tmp_path.joinpath("obj/api")
+
+    api_path.mkdir(parents=True, exist_ok=True)
+
+    metadata_path, metadata = generate.setup_bucket_docfx(
+        tmp_path, api_path, decompress_path, yaml_blob
+    )
 
     docfx_json_file = tmp_path.joinpath("docfx.json")
     assert docfx_json_file.exists()
@@ -233,6 +271,13 @@ def test_generate(yaml_dir, tmpdir):
     html_blob = bucket.get_blob(html_blob.name)
     t5 = html_blob.updated
     assert t4 == t5
+
+
+def test_local_generate(yaml_dir, tmpdir):
+    # Test for local generation content
+    output_path = run_local_generate(yaml_dir)
+
+    verify_template_content(output_path)
 
 
 @pytest.fixture(scope="module")
