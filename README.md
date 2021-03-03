@@ -116,7 +116,7 @@ black docpipeline tests
 
 ### Running locally for one package
 
-1. Create a directory on doc-pipeline (`my-dir`).
+1. Create a directory inside `doc-pipeline` (for example, `my-dir`).
 1. Move the files necessary to build for one pacakage over to `my-dir`.
 1. Run the following command, replacing `my-dir` with your directory name:
    ```
