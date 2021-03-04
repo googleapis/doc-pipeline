@@ -384,8 +384,8 @@ def build_new_docs(bucket_name, credentials):
     client = storage_client(credentials)
     all_blobs = list(client.list_blobs(bucket_name))
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX)]
-    other_blobs = [blob for blob in all_blobs if not blob.name.startswith(DOCFX_PREFIX)]
-    other_names = set(map(lambda b: b.name, other_blobs))
+    other_blobs = {b.name: b for b in all_blobs if not b.name.startswith(DOCFX_PREFIX)}
+    other_names = set(other_blobs.keys())
 
     new_blobs = []
     for blob in docfx_blobs:
@@ -397,7 +397,7 @@ def build_new_docs(bucket_name, credentials):
             # than the existing HTML blob
             yaml_last_updated = blob.updated
 
-            html_blob = client.bucket(bucket_name).get_blob(new_name)
+            html_blob = other_blobs[new_name]
             html_last_updated = html_blob.updated
 
             if yaml_last_updated > html_last_updated:
