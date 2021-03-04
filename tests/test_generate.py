@@ -60,6 +60,22 @@ def test_init():
     return test_bucket, credentials, storage_client
 
 
+def upload_yaml(cwd, credentials, test_bucket):
+    # Upload DocFX YAML to test with.
+    shell.run(
+        [
+            "docuploader",
+            "upload",
+            ".",
+            f"--credentials={credentials}",
+            f"--staging-bucket={test_bucket}",
+            "--destination-prefix=docfx",
+        ],
+        cwd=cwd,
+        hide_output=False,
+    )
+
+
 # Fetches and uploads the blobs used for testing.
 def setup_testdata(cwd, storage_client, credentials, test_bucket):
     yaml_blob_name = "docfx-python-doc-pipeline-test-2.1.1.tar.gz"
@@ -79,19 +95,7 @@ def setup_testdata(cwd, storage_client, credentials, test_bucket):
 
     start_blobs = list(storage_client.list_blobs(test_bucket))
 
-    # Upload DocFX YAML to test with.
-    shell.run(
-        [
-            "docuploader",
-            "upload",
-            ".",
-            f"--credentials={credentials}",
-            f"--staging-bucket={test_bucket}",
-            "--destination-prefix=docfx",
-        ],
-        cwd=cwd,
-        hide_output=False,
-    )
+    upload_yaml(cwd, credentials, test_bucket)
 
     # Make sure docuploader succeeded.
     assert (
@@ -258,19 +262,33 @@ def test_generate(yaml_dir, tmpdir):
     t3 = html_blob.updated
     assert t2 != t3
 
-    # Force generation of Python docs and verify timestamp
+    # Force generation of Python docs and verify timestamp.
     language = "python"
     generate.build_language_docs(test_bucket, language, credentials)
     html_blob = bucket.get_blob(html_blob.name)
     t4 = html_blob.updated
     assert t3 != t4
 
-    # Force generation of Go docs, verify timestamp does not change
+    # Force generation of Go docs, verify Python HTML timestamp does not change.
     language = "go"
     generate.build_language_docs(test_bucket, language, credentials)
     html_blob = bucket.get_blob(html_blob.name)
     t5 = html_blob.updated
     assert t4 == t5
+
+    # Force regeneration of a single doc with old YAML and verify
+    # timestamp does not change.
+    generate.build_new_docs(test_bucket, credentials)
+    html_blob = bucket.get_blob(html_blob.name)
+    t6 = html_blob.updated
+    assert t5 == t6
+
+    # Update the YAML, build new docs, and verify the HTML was updated.
+    upload_yaml(yaml_dir, credentials, test_bucket)
+    generate.build_new_docs(test_bucket, credentials)
+    html_blob = bucket.get_blob(html_blob.name)
+    t7 = html_blob.updated
+    assert t6 != t7
 
 
 def test_local_generate(yaml_dir, tmpdir):

@@ -375,14 +375,24 @@ def build_new_docs(bucket_name, credentials):
     client = storage_client(credentials)
     all_blobs = list(client.list_blobs(bucket_name))
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX)]
-    other_blobs = [blob for blob in all_blobs if not blob.name.startswith(DOCFX_PREFIX)]
-    other_names = set(map(lambda b: b.name, other_blobs))
+    other_blobs = {b.name: b for b in all_blobs if not b.name.startswith(DOCFX_PREFIX)}
 
     new_blobs = []
     for blob in docfx_blobs:
         new_name = blob.name[len(DOCFX_PREFIX) :]
-        if new_name not in other_names:
+        if new_name not in other_blobs:
             new_blobs.append(blob)
+        else:
+            # For existing blobs, re-build the docs if the YAML blob is newer
+            # than the existing HTML blob
+            yaml_last_updated = blob.updated
+
+            html_blob = other_blobs[new_name]
+            html_last_updated = html_blob.updated
+
+            if yaml_last_updated > html_last_updated:
+                new_blobs.append(blob)
+
     build_blobs(client, new_blobs, credentials)
 
 
