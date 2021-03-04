@@ -22,6 +22,7 @@ from docuploader.protos import metadata_pb2
 from google.cloud import storage
 from google.oauth2 import service_account
 from google.protobuf import text_format, json_format
+from docpipeline import prepare
 
 import semver
 
@@ -105,20 +106,6 @@ def format_docfx_json(metadata):
         xrefs=xrefs,
         xref_services=xref_services,
     )
-
-
-def add_prettyprint(output_path):
-    files = output_path.glob("**/*.html")
-    # Handle files in binary to avoid line endings
-    # being changed when running on Windows.
-    for file in files:
-        with open(file, "rb") as file_handle:
-            html = file_handle.read()
-        html = html.replace(
-            '<code class="lang-'.encode(), '<code class="prettyprint lang-'.encode()
-        )
-        with open(file, "wb") as file_handle:
-            file_handle.write(html)
 
 
 def setup_local_docfx(tmp_path, api_path, decompress_path, blob):
@@ -219,8 +206,12 @@ def build_and_format(blob, is_bucket, devsite_template):
     # Remove the manifest.json file.
     site_path.joinpath("manifest.json").unlink()
 
+    # make final adjustments to java toc
+    if metadata.language.lower() == "java":
+        prepare.prepare_java_toc(site_path.joinpath("_toc.yaml"), metadata.name)
+
     # Add the prettyprint class to code snippets
-    add_prettyprint(site_path)
+    prepare.add_prettyprint(site_path)
 
     log.success(f"Done building HTML for {blob_name}. Starting upload...")
 

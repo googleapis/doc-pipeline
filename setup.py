@@ -20,6 +20,7 @@ dependencies = [
     "google-cloud-storage<2.0.0dev",
     "gcp-docuploader",
     "semver",
+    "PyYAML",
 ]
 
 packages = setuptools.find_packages()
