@@ -269,7 +269,7 @@ def test_generate(yaml_dir, tmpdir):
     t4 = html_blob.updated
     assert t3 != t4
 
-    # Force generation of Go docs, verify timestamp does not change.
+    # Force generation of Go docs, verify Python HTML timestamp does not change.
     language = "go"
     generate.build_language_docs(test_bucket, language, credentials)
     html_blob = bucket.get_blob(html_blob.name)
@@ -283,8 +283,7 @@ def test_generate(yaml_dir, tmpdir):
     t6 = html_blob.updated
     assert t5 == t6
 
-    # Force regeneration of a single doc with updated YAML and verify
-    # timestamp does not change.
+    # Update the YAML, build new docs, and verify the HTML was updated.
     upload_yaml(yaml_dir, credentials, test_bucket)
     generate.build_new_docs(test_bucket, credentials)
     html_blob = bucket.get_blob(html_blob.name)
@@ -353,38 +352,6 @@ def test_get_xref(test_input, expected, tmpdir, xref_test_blobs):
     expected_path = tmpdir.joinpath(expected)
     assert str(expected_path) == got
     assert expected_path.exists(), f"expected {expected_path} to exist"
-
-
-def test_add_prettyprint():
-    tmp_dir = tempfile.TemporaryDirectory(prefix="doc-pipeline.prettyprint.")
-    tmp_path = pathlib.Path(tmp_dir.name)
-
-    files = [
-        {
-            "name": "one.html",
-            "input": '<code class="lang-cs">hello</code>',
-            "want": '<code class="prettyprint lang-cs">hello</code>',
-        },
-        {
-            "name": "two.html",
-            "input": '<code class="prettyprint">hello</code>',
-            "want": '<code class="prettyprint">hello</code>',
-        },
-        {
-            "name": "three.yml",
-            "input": "nothing to do",
-            "want": "nothing to do",
-        },
-    ]
-
-    for file in files:
-        with open(tmp_path.joinpath(file["name"]), "w") as f:
-            f.write(file["input"])
-    generate.add_prettyprint(tmp_path)
-    for file in files:
-        with open(tmp_path.joinpath(file["name"])) as f:
-            got = f.read()
-            assert got == file["want"]
 
 
 class TestGenerate(unittest.TestCase):
