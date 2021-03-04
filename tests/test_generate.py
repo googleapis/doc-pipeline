@@ -336,38 +336,6 @@ def test_get_xref(test_input, expected, tmpdir, xref_test_blobs):
     assert expected_path.exists(), f"expected {expected_path} to exist"
 
 
-def test_add_prettyprint():
-    tmp_dir = tempfile.TemporaryDirectory(prefix="doc-pipeline.prettyprint.")
-    tmp_path = pathlib.Path(tmp_dir.name)
-
-    files = [
-        {
-            "name": "one.html",
-            "input": '<code class="lang-cs">hello</code>',
-            "want": '<code class="prettyprint lang-cs">hello</code>',
-        },
-        {
-            "name": "two.html",
-            "input": '<code class="prettyprint">hello</code>',
-            "want": '<code class="prettyprint">hello</code>',
-        },
-        {
-            "name": "three.yml",
-            "input": "nothing to do",
-            "want": "nothing to do",
-        },
-    ]
-
-    for file in files:
-        with open(tmp_path.joinpath(file["name"]), "w") as f:
-            f.write(file["input"])
-    generate.add_prettyprint(tmp_path)
-    for file in files:
-        with open(tmp_path.joinpath(file["name"])) as f:
-            got = f.read()
-            assert got == file["want"]
-
-
 class TestGenerate(unittest.TestCase):
     def test_format_docfx_json(self):
         self.maxDiff = None
