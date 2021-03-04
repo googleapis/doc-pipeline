@@ -107,6 +107,7 @@ def format_docfx_json(metadata):
         xref_services=xref_services,
     )
 
+
 def setup_local_docfx(tmp_path, api_path, decompress_path, blob):
     for item in blob.iterdir():
         if item.is_dir() and item.name == "api":
