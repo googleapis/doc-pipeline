@@ -283,8 +283,7 @@ def test_generate(yaml_dir, tmpdir):
     t6 = html_blob.updated
     assert t5 == t6
 
-    # Force regeneration of a single doc with updated YAML and verify
-    # timestamp does not change.
+    # Update the YAML, build new docs, and verify the HTML was updated.
     upload_yaml(yaml_dir, credentials, test_bucket)
     generate.build_new_docs(test_bucket, credentials)
     html_blob = bucket.get_blob(html_blob.name)
