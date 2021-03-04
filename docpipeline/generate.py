@@ -376,12 +376,11 @@ def build_new_docs(bucket_name, credentials):
     all_blobs = list(client.list_blobs(bucket_name))
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX)]
     other_blobs = {b.name: b for b in all_blobs if not b.name.startswith(DOCFX_PREFIX)}
-    other_names = set(other_blobs.keys())
 
     new_blobs = []
     for blob in docfx_blobs:
         new_name = blob.name[len(DOCFX_PREFIX) :]
-        if new_name not in other_names:
+        if new_name not in other_blobs:
             new_blobs.append(blob)
         else:
             # For existing blobs, re-build the docs if the YAML blob is newer
