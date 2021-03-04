@@ -37,7 +37,7 @@ def test_prepare_java_toc(tmpdir_setup):
     # files should be different before
     assert (filecmp.cmp(original_toc, updated_toc, shallow=False)) is False
 
-    prepare.prepare_java_toc(original_toc, "google-cloud-testing")
+    prepare.prepare_java_toc(original_toc, "google-cloud-library")
 
     # files should be the same after
     assert (filecmp.cmp(original_toc, updated_toc, shallow=False)) is True
