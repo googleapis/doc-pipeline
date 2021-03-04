@@ -16,7 +16,7 @@
     - uid: com.google.cloud.library.v1.stub.ThingA
       name: ThingA
     - uid: com.google.cloud.library.v1.stub.ThingB
-      name: ThingA
+      name: ThingB
   - uid: com.google.cloud.library.v1beta2
     name: com.google.cloud.library.v1beta2
     items:

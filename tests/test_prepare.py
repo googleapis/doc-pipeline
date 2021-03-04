@@ -22,15 +22,15 @@ import tempfile
 
 
 @pytest.fixture
-def tmpdir_setup(tmpdir):
+def testdata(tmpdir):
     shutil.copytree("testdata", tmpdir, dirs_exist_ok=True)
     shutil.copy("testdata/mock-java-original-toc.yml", tmpdir)
     shutil.copy("testdata/mock-java-updated-toc.yml", tmpdir)
     return tmpdir
 
 
-def test_prepare_java_toc(tmpdir_setup):
-    tmp_path = pathlib.Path(tmpdir_setup)
+def test_prepare_java_toc(testdata):
+    tmp_path = pathlib.Path(testdata)
     original_toc = tmp_path.joinpath("mock-java-original-toc.yml")
     updated_toc = tmp_path.joinpath("mock-java-updated-toc.yml")
 
