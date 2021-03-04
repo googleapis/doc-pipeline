@@ -81,6 +81,19 @@ def clone_templates(dir):
     )
 
 
+def setup_templates():
+    templates_dir = pathlib.Path("doc-templates")
+    if templates_dir.is_dir():
+        shutil.rmtree(templates_dir)
+    templates_dir.mkdir(parents=True, exist_ok=True)
+    log.info(f"Cloning templates into {templates_dir.absolute()}")
+    clone_templates(templates_dir)
+    log.info(f"Got the templates ({templates_dir.absolute()})!")
+    devsite_template = templates_dir.joinpath("third_party/docfx/templates/devsite")
+
+    return templates_dir, devsite_template
+
+
 def format_docfx_json(metadata):
     pkg = metadata.name
     xrefs = ", ".join([f'"{xref}"' for xref in metadata.xrefs if xref != ""])
@@ -94,11 +107,19 @@ def format_docfx_json(metadata):
         xref_services=xref_services,
     )
 
+def setup_local_docfx(tmp_path, api_path, decompress_path, blob):
+    for item in blob.iterdir():
+        if item.is_dir() and item.name == "api":
+            decompress_path = tmp_path.joinpath("obj")
+            break
 
-def setup_docfx(tmp_path, blob):
-    api_path = decompress_path = tmp_path.joinpath("obj/api")
+    shutil.copytree(blob, decompress_path, dirs_exist_ok=True)
+    log.info(f"Decompressed in {decompress_path}")
 
-    api_path.mkdir(parents=True, exist_ok=True)
+    return setup_metadata(tmp_path, api_path, decompress_path, blob)
+
+
+def setup_bucket_docfx(tmp_path, api_path, decompress_path, blob):
     tar_filename = tmp_path.joinpath(blob.name)
     tar_filename.parent.mkdir(parents=True, exist_ok=True)
 
@@ -112,10 +133,13 @@ def setup_docfx(tmp_path, blob):
         if tarinfo.isdir() and tarinfo.name == "./api":
             decompress_path = tmp_path.joinpath("obj")
             break
-
     tar.decompress(tar_filename, decompress_path)
     log.info(f"Decompressed {blob.name} in {decompress_path}")
 
+    return setup_metadata(tmp_path, api_path, decompress_path, blob)
+
+
+def setup_metadata(tmp_path, api_path, decompress_path, blob):
     metadata = metadata_pb2.Metadata()
     metadata_path = decompress_path.joinpath("docs.metadata.json")
     if metadata_path.exists():
@@ -124,9 +148,12 @@ def setup_docfx(tmp_path, blob):
         metadata_path = decompress_path.joinpath("docs.metadata")
         text_format.Merge(metadata_path.read_text(), metadata)
 
-    metadata.xrefs[:] = [
-        get_xref(xref, blob.bucket, tmp_path) for xref in metadata.xrefs
-    ]
+    try:
+        metadata.xrefs[:] = [
+            get_xref(xref, blob.bucket, tmp_path) for xref in metadata.xrefs
+        ]
+    except AttributeError:
+        log.warning("Building locally will ignore xrefs in the metadata.")
 
     with open(tmp_path.joinpath("docfx.json"), "w") as f:
         f.write(format_docfx_json(metadata))
@@ -139,14 +166,29 @@ def setup_docfx(tmp_path, blob):
     return metadata_path, metadata
 
 
-def process_blob(blob, credentials, devsite_template):
+def build_and_format(blob, is_bucket, devsite_template):
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
 
-    metadata_path, metadata = setup_docfx(tmp_path, blob)
+    api_path = decompress_path = tmp_path.joinpath("obj/api")
+
+    api_path.mkdir(parents=True, exist_ok=True)
+
+    # If building blobs on a bucket, use setup_bucket_docfx
+    # Else, use setup_local_docfx
+    if is_bucket:
+        metadata_path, metadata = setup_bucket_docfx(
+            tmp_path, api_path, decompress_path, blob
+        )
+        blob_name = blob.name
+    else:
+        metadata_path, metadata = setup_local_docfx(
+            tmp_path, api_path, decompress_path, blob
+        )
+        blob_name = metadata.name
 
     site_path = tmp_path.joinpath("site")
 
-    log.info(f"Running `docfx build` for {blob.name}...")
+    log.info(f"Running `docfx build` for {blob_name}...")
     shell.run(
         ["docfx", "build", "-t", f"{devsite_template.absolute()}"],
         cwd=tmp_path,
@@ -170,11 +212,18 @@ def process_blob(blob, credentials, devsite_template):
     # Add the prettyprint class to code snippets
     prepare.add_prettyprint(site_path)
 
-    log.success(f"Done building HTML for {blob.name}. Starting upload...")
+    log.success(f"Done building HTML for {blob_name}. Starting upload...")
 
     # Reuse the same docs.metadata file. The original docfx- prefix is an
     # command line option when uploading, not part of docs.metadata.
     shutil.copy(metadata_path, site_path)
+
+    return tmp_path, metadata, site_path
+
+
+def process_blob(blob, credentials, devsite_template):
+    is_bucket = True
+    tmp_path, metadata, site_path = build_and_format(blob, is_bucket, devsite_template)
 
     # Use the input blob name as the name of the xref file to avoid collisions.
     # The input blob has a "docfx-" prefix; make sure to remove it.
@@ -205,6 +254,7 @@ def process_blob(blob, credentials, devsite_template):
         cwd=site_path,
         hide_output=False,
     )
+
     shutil.rmtree(tmp_path)
 
     log.success(f"Done with {blob.name}!")
@@ -272,14 +322,7 @@ def build_blobs(client, blobs, credentials):
     log.info(f"Processing {num} blob{'' if num == 1 else 's'}:\n{blobs_str}")
 
     # Clone doc-templates.
-    templates_dir = pathlib.Path("doc-templates")
-    if templates_dir.is_dir():
-        shutil.rmtree(templates_dir)
-    templates_dir.mkdir(parents=True, exist_ok=True)
-    log.info(f"Cloning templates into {templates_dir.absolute()}")
-    clone_templates(templates_dir)
-    log.info(f"Got the templates ({templates_dir.absolute()})!")
-    devsite_template = templates_dir.joinpath("third_party/docfx/templates/devsite")
+    templates_dir, devsite_template = setup_templates()
 
     # Process every blob.
     failures = []

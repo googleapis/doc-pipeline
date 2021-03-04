@@ -114,7 +114,21 @@ black docpipeline tests
 1. The tests upload a test DocFX YAML tarball, call the generator, and verify
    the content.
 
-### Running locally
+### Running locally for one package
+
+1. Create a directory inside `doc-pipeline` (for example, `my-dir`).
+1. Create a `docs.metadata` file in `my-dir`. You can copy one from [here](https://github.com/googleapis/doc-pipeline/blob/master/testdata/docs.metadata).
+1. Move or copy the `.yml` files for one package to `my-dir`.
+1. Run the following command, replacing `my-dir` with your directory name:
+   ```
+   INPUT=my-dir TRAMPOLINE_BUILD_FILE=./generate.sh TRAMPOLINE_IMAGE=gcr.io/cloud-devrel-kokoro-resources/docfx TRAMPOLINE_DOCKERFILE=docfx/Dockerfile ci/trampoline_v2.sh
+   ```
+1. The script runs `docfx build` over the package in my-dir, and places the
+   resulting HTML inside a subdirectory in `my-dir`. The subdirectory is
+   named after the package name found in the metadata.
+1. Note: running through this method will skip on processing xrefs.
+
+### Running locally with Cloud Storage bucket
 
 1. Create a Cloud Storage bucket and add a `docfx-*.tgz` file. For example:
    ```

@@ -19,7 +19,7 @@ import sys
 import click
 from docuploader import credentials, log
 
-from docpipeline import generate
+from docpipeline import generate, local_generate
 
 
 # The docuploader logger is initialized as "docuploader"; change it to docpipeline.
@@ -117,6 +117,16 @@ def build_language_docs(bucket_name, language, credentials):
 
     try:
         generate.build_language_docs(bucket_name, language, credentials)
+    except Exception as e:
+        log.error(e)
+        sys.exit(1)
+
+
+@main.command()
+@click.argument("input_path")
+def build_local_doc(input_path):
+    try:
+        local_generate.build_local_doc(input_path)
     except Exception as e:
         log.error(e)
         sys.exit(1)
