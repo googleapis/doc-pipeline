@@ -22,7 +22,7 @@ from docuploader.protos import metadata_pb2
 from google.cloud import storage
 from google.oauth2 import service_account
 from google.protobuf import text_format, json_format
-from docpipeline.prepare import prepare_java_toc, add_prettyprint
+from docpipeline import prepare
 
 import semver
 
@@ -155,7 +155,7 @@ def process_blob(blob, credentials, devsite_template):
 
     # make final adjustments to java toc
     if metadata.language.lower() == "java":
-        prepare_java_toc(site_path.joinpath("toc.yaml"), metadata.name)
+        prepare.prepare_java_toc(site_path.joinpath("toc.yaml"), metadata.name)
 
     # Rename the output TOC file to be _toc.yaml to match the expected
     # format. As well, support both toc.html and toc.yaml
@@ -168,7 +168,7 @@ def process_blob(blob, credentials, devsite_template):
     site_path.joinpath("manifest.json").unlink()
 
     # Add the prettyprint class to code snippets
-    add_prettyprint(site_path)
+    prepare.add_prettyprint(site_path)
 
     log.success(f"Done building HTML for {blob.name}. Starting upload...")
 
