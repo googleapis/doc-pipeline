@@ -269,7 +269,7 @@ def test_generate(yaml_dir, tmpdir):
     t4 = html_blob.updated
     assert t3 != t4
 
-    # Force generation of Go docs, verify timestamp does not change.
+    # Force generation of Go docs, verify Python HTML timestamp does not change.
     language = "go"
     generate.build_language_docs(test_bucket, language, credentials)
     html_blob = bucket.get_blob(html_blob.name)
