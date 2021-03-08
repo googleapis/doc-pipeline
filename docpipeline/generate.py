@@ -189,6 +189,10 @@ def build_and_format(blob, is_bucket, devsite_template):
 
     site_path = tmp_path.joinpath("site")
 
+    # Adjust Java TOC before generating.
+    if metadata.language.lower() == "java":
+        prepare.prepare_java_toc(api_path.joinpath("toc.yml"), metadata.name)
+
     log.info(f"Running `docfx build` for {blob_name}...")
     shell.run(
         ["docfx", "build", "-t", f"{devsite_template.absolute()}"],
@@ -205,10 +209,6 @@ def build_and_format(blob, is_bucket, devsite_template):
 
     # Remove the manifest.json file.
     site_path.joinpath("manifest.json").unlink()
-
-    # make final adjustments to java toc
-    if metadata.language.lower() == "java":
-        prepare.prepare_java_toc(site_path.joinpath("_toc.yaml"), metadata.name)
 
     # Add the prettyprint class to code snippets
     prepare.add_prettyprint(site_path)
