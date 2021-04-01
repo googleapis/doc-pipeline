@@ -84,7 +84,7 @@ See `.trampolinerc` for the canonical list of relevant environment variables.
 * `SOURCE_BUCKET`: The bucket to use for regeneration. See Running locally.
 * `SOURCE_BLOB`: A single blob to regenerate. Only the blob name - do not
   include `gs://` or the bucket.
-* `LANGUAGE`: Regenerates all docs under specified language. For example: `LANGUAGE:dotnet`
+* `LANGUAGE`: Regenerates all docs under specified language. For example: `LANGUAGE=dotnet`
 * `FORCE_GENERATE_ALL`: Set to `true` to regenerate all docs.
 
 ### Formatting and style
