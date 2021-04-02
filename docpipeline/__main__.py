@@ -47,11 +47,11 @@ def main():
 @main.command()
 @click.argument("bucket_name")
 def build_new_docs(bucket_name):
-    credentials = docuploader.credentials.find(credentials_file="")[0]
+    credentials, project_id = docuploader.credentials.find(credentials_file="")
     verify()
 
     try:
-        generate.build_new_docs(bucket_name, credentials)
+        generate.build_new_docs(bucket_name, credentials, project_id)
     except Exception as e:
         log.error(e)
         sys.exit(1)
@@ -60,11 +60,11 @@ def build_new_docs(bucket_name):
 @main.command()
 @click.argument("bucket_name")
 def build_all_docs(bucket_name):
-    credentials = docuploader.credentials.find(credentials_file="")[0]
+    credentials, project_id = docuploader.credentials.find(credentials_file="")
     verify()
 
     try:
-        generate.build_all_docs(bucket_name, credentials)
+        generate.build_all_docs(bucket_name, credentials, project_id)
     except Exception as e:
         log.error(e)
         sys.exit(1)
@@ -74,11 +74,11 @@ def build_all_docs(bucket_name):
 @click.argument("bucket_name")
 @click.argument("object_name")
 def build_one_doc(bucket_name, object_name):
-    credentials = docuploader.credentials.find(credentials_file="")[0]
+    credentials, project_id = docuploader.credentials.find(credentials_file="")
     verify()
 
     try:
-        generate.build_one_doc(bucket_name, object_name, credentials)
+        generate.build_one_doc(bucket_name, object_name, credentials, project_id)
     except Exception as e:
         log.error(e)
         sys.exit(1)
@@ -88,11 +88,11 @@ def build_one_doc(bucket_name, object_name):
 @click.argument("bucket_name")
 @click.argument("language")
 def build_language_docs(bucket_name, language):
-    credentials = docuploader.credentials.find(credentials_file="")[0]
+    credentials, project_id = docuploader.credentials.find(credentials_file="")
     verify()
 
     try:
-        generate.build_language_docs(bucket_name, language, credentials)
+        generate.build_language_docs(bucket_name, language, credentials, project_id)
     except Exception as e:
         log.error(e)
         sys.exit(1)
