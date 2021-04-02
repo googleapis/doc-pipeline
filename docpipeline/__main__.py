@@ -46,8 +46,13 @@ def main():
 
 @main.command()
 @click.argument("bucket_name")
-def build_new_docs(bucket_name):
-    credentials, project_id = docuploader.credentials.find(credentials_file="")
+@click.option(
+    "--credentials",
+    default="",
+    help="Path to the credentials file to use for Google Cloud Storage.",
+)
+def build_new_docs(bucket_name, credentials):
+    credentials, project_id = docuploader.credentials.find(credentials_file=credentials)
     verify()
 
     try:
@@ -59,8 +64,13 @@ def build_new_docs(bucket_name):
 
 @main.command()
 @click.argument("bucket_name")
-def build_all_docs(bucket_name):
-    credentials, project_id = docuploader.credentials.find(credentials_file="")
+@click.option(
+    "--credentials",
+    default="",
+    help="Path to the credentials file to use for Google Cloud Storage.",
+)
+def build_all_docs(bucket_name, credentials):
+    credentials, project_id = docuploader.credentials.find(credentials_file=credentials)
     verify()
 
     try:
@@ -73,8 +83,13 @@ def build_all_docs(bucket_name):
 @main.command()
 @click.argument("bucket_name")
 @click.argument("object_name")
-def build_one_doc(bucket_name, object_name):
-    credentials, project_id = docuploader.credentials.find(credentials_file="")
+@click.option(
+    "--credentials",
+    default="",
+    help="Path to the credentials file to use for Google Cloud Storage.",
+)
+def build_one_doc(bucket_name, object_name, credentials):
+    credentials, project_id = docuploader.credentials.find(credentials_file=credentials)
     verify()
 
     try:
@@ -87,8 +102,13 @@ def build_one_doc(bucket_name, object_name):
 @main.command()
 @click.argument("bucket_name")
 @click.argument("language")
-def build_language_docs(bucket_name, language):
-    credentials, project_id = docuploader.credentials.find(credentials_file="")
+@click.option(
+    "--credentials",
+    default="",
+    help="Path to the credentials file to use for Google Cloud Storage.",
+)
+def build_language_docs(bucket_name, language, credentials):
+    credentials, project_id = docuploader.credentials.find(credentials_file=credentials)
     verify()
 
     try:
