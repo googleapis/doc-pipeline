@@ -249,7 +249,6 @@ def process_blob(blob, credentials, devsite_template):
             "docuploader",
             "upload",
             ".",
-            f"--credentials={credentials}",
             f"--staging-bucket={blob.bucket.name}",
         ],
         cwd=site_path,
@@ -348,11 +347,8 @@ def build_blobs(client, blobs, credentials):
 
 
 def storage_client(credentials):
-    parsed_credentials = service_account.Credentials.from_service_account_file(
-        credentials
-    )
     return storage.Client(
-        project=parsed_credentials.project_id, credentials=parsed_credentials
+        project=credentials.project_id, credentials=credentials
     )
 
 

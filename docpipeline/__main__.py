@@ -31,16 +31,7 @@ REQUIRED_CMDS = ["docfx", "docuploader"]
 VERSION = "0.0.0-dev"
 
 
-def verify(credentials):
-    if not credentials:
-        log.error(
-            (
-                "You need credentials to run this! Specify --credentials on",
-                "the command line.",
-            )
-        )
-        return sys.exit(1)
-
+def verify():
     for cmd in REQUIRED_CMDS:
         if shutil.which(cmd) is None:
             log.error(f"Could not find {cmd} command!")
@@ -55,14 +46,9 @@ def main():
 
 @main.command()
 @click.argument("bucket_name")
-@click.option(
-    "--credentials",
-    default="",
-    help="Path to the credentials file to use for Google Cloud Storage.",
-)
-def build_new_docs(bucket_name, credentials):
-    credentials = docuploader.credentials.find(credentials_file=credentials)[0]
-    verify(credentials)
+def build_new_docs(bucket_name):
+    credentials = docuploader.credentials.find(credentials_file="")[0]
+    verify()
 
     try:
         generate.build_new_docs(bucket_name, credentials)
@@ -73,14 +59,9 @@ def build_new_docs(bucket_name, credentials):
 
 @main.command()
 @click.argument("bucket_name")
-@click.option(
-    "--credentials",
-    default="",
-    help="Path to the credentials file to use for Google Cloud Storage.",
-)
-def build_all_docs(bucket_name, credentials):
-    credentials = docuploader.credentials.find(credentials_file=credentials)[0]
-    verify(credentials)
+def build_all_docs(bucket_name):
+    credentials = docuploader.credentials.find(credentials_file="")[0]
+    verify()
 
     try:
         generate.build_all_docs(bucket_name, credentials)
@@ -92,14 +73,9 @@ def build_all_docs(bucket_name, credentials):
 @main.command()
 @click.argument("bucket_name")
 @click.argument("object_name")
-@click.option(
-    "--credentials",
-    default="",
-    help="Path to the credentials file to use for Google Cloud Storage.",
-)
-def build_one_doc(bucket_name, object_name, credentials):
-    credentials = docuploader.credentials.find(credentials_file=credentials)[0]
-    verify(credentials)
+def build_one_doc(bucket_name, object_name):
+    credentials = docuploader.credentials.find(credentials_file="")[0]
+    verify()
 
     try:
         generate.build_one_doc(bucket_name, object_name, credentials)
@@ -111,14 +87,9 @@ def build_one_doc(bucket_name, object_name, credentials):
 @main.command()
 @click.argument("bucket_name")
 @click.argument("language")
-@click.option(
-    "--credentials",
-    default="",
-    help="Path to the credentials file to use for Google Cloud Storage.",
-)
-def build_language_docs(bucket_name, language, credentials):
-    credentials = docuploader.credentials.find(credentials_file=credentials)[0]
-    verify(credentials)
+def build_language_docs(bucket_name, language):
+    credentials = docuploader.credentials.find(credentials_file="")[0]
+    verify()
 
     try:
         generate.build_language_docs(bucket_name, language, credentials)
