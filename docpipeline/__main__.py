@@ -17,7 +17,8 @@ import shutil
 import sys
 
 import click
-from docuploader import credentials, log
+import docuploader.credentials
+from docuploader import log
 
 from docpipeline import generate, local_generate
 
@@ -56,10 +57,11 @@ def main():
 @click.argument("bucket_name")
 @click.option(
     "--credentials",
-    default=credentials.find(),
+    default="",
     help="Path to the credentials file to use for Google Cloud Storage.",
 )
 def build_new_docs(bucket_name, credentials):
+    credentials = docuploader.credentials.find(credentials_file=credentials)[0]
     verify(credentials)
 
     try:
@@ -73,10 +75,11 @@ def build_new_docs(bucket_name, credentials):
 @click.argument("bucket_name")
 @click.option(
     "--credentials",
-    default=credentials.find(),
+    default="",
     help="Path to the credentials file to use for Google Cloud Storage.",
 )
 def build_all_docs(bucket_name, credentials):
+    credentials = docuploader.credentials.find(credentials_file=credentials)[0]
     verify(credentials)
 
     try:
@@ -91,10 +94,11 @@ def build_all_docs(bucket_name, credentials):
 @click.argument("object_name")
 @click.option(
     "--credentials",
-    default=credentials.find(),
+    default="",
     help="Path to the credentials file to use for Google Cloud Storage.",
 )
 def build_one_doc(bucket_name, object_name, credentials):
+    credentials = docuploader.credentials.find(credentials_file=credentials)[0]
     verify(credentials)
 
     try:
@@ -109,10 +113,11 @@ def build_one_doc(bucket_name, object_name, credentials):
 @click.argument("language")
 @click.option(
     "--credentials",
-    default=credentials.find(),
+    default="",
     help="Path to the credentials file to use for Google Cloud Storage.",
 )
 def build_language_docs(bucket_name, language, credentials):
+    credentials = docuploader.credentials.find(credentials_file=credentials)[0]
     verify(credentials)
 
     try:
