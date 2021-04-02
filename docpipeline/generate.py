@@ -19,7 +19,6 @@ import tarfile
 
 from docuploader import log, shell, tar
 from docuploader.protos import metadata_pb2
-from google.cloud import storage
 from google.protobuf import text_format, json_format
 from docpipeline import prepare
 
@@ -309,7 +308,7 @@ def version_sort(v):
     return semver.VersionInfo.parse(v)
 
 
-def build_blobs(client, blobs):
+def build_blobs(blobs):
     num = len(blobs)
     if num == 0:
         log.success("No blobs to process!")
@@ -345,24 +344,21 @@ def build_blobs(client, blobs):
     log.success("Done!")
 
 
-def build_all_docs(bucket_name, credentials, project_id):
-    client = storage.Client(project=project_id, credentials=credentials)
-    all_blobs = client.list_blobs(bucket_name)
+def build_all_docs(bucket_name, storage_client):
+    all_blobs = storage_client.list_blobs(bucket_name)
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX)]
-    build_blobs(client, docfx_blobs)
+    build_blobs(docfx_blobs)
 
 
-def build_one_doc(bucket_name, object_name, credentials, project_id):
-    client = storage.Client(project=project_id, credentials=credentials)
-    blob = client.bucket(bucket_name).get_blob(object_name)
+def build_one_doc(bucket_name, object_name, storage_client):
+    blob = storage_client.bucket(bucket_name).get_blob(object_name)
     if blob is None:
         raise Exception(f"Could not find gs://{bucket_name}/{object_name}!")
-    build_blobs(client, [blob])
+    build_blobs([blob])
 
 
-def build_new_docs(bucket_name, credentials, project_id):
-    client = storage.Client(project=project_id, credentials=credentials)
-    all_blobs = list(client.list_blobs(bucket_name))
+def build_new_docs(bucket_name, storage_client):
+    all_blobs = list(storage_client.list_blobs(bucket_name))
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX)]
     other_blobs = {b.name: b for b in all_blobs if not b.name.startswith(DOCFX_PREFIX)}
 
@@ -382,12 +378,11 @@ def build_new_docs(bucket_name, credentials, project_id):
             if yaml_last_updated > html_last_updated:
                 new_blobs.append(blob)
 
-    build_blobs(client, new_blobs)
+    build_blobs(new_blobs)
 
 
-def build_language_docs(bucket_name, language, credentials, project_id):
-    client = storage.Client(project=project_id, credentials=credentials)
-    all_blobs = client.list_blobs(bucket_name)
+def build_language_docs(bucket_name, language, storage_client):
+    all_blobs = storage_client.list_blobs(bucket_name)
     language_prefix = DOCFX_PREFIX + language + "-"
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(language_prefix)]
-    build_blobs(client, docfx_blobs)
+    build_blobs(docfx_blobs)

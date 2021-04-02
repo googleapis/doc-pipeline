@@ -19,6 +19,7 @@ import sys
 import click
 import docuploader.credentials
 from docuploader import log
+from google.cloud import storage
 
 from docpipeline import generate, local_generate
 
@@ -47,11 +48,12 @@ def main():
 @main.command()
 @click.argument("bucket_name")
 def build_new_docs(bucket_name):
-    credentials, project_id = docuploader.credentials.find(credentials_file="")
     verify()
+    credentials, project_id = docuploader.credentials.find(credentials_file="")
+    storage_client = storage.Client(project=project_id, credentials=credentials)
 
     try:
-        generate.build_new_docs(bucket_name, credentials, project_id)
+        generate.build_new_docs(bucket_name, storage_client)
     except Exception as e:
         log.error(e)
         sys.exit(1)
@@ -60,11 +62,12 @@ def build_new_docs(bucket_name):
 @main.command()
 @click.argument("bucket_name")
 def build_all_docs(bucket_name):
-    credentials, project_id = docuploader.credentials.find(credentials_file="")
     verify()
+    credentials, project_id = docuploader.credentials.find(credentials_file="")
+    storage_client = storage.Client(project=project_id, credentials=credentials)
 
     try:
-        generate.build_all_docs(bucket_name, credentials, project_id)
+        generate.build_all_docs(bucket_name, storage_client)
     except Exception as e:
         log.error(e)
         sys.exit(1)
@@ -74,11 +77,12 @@ def build_all_docs(bucket_name):
 @click.argument("bucket_name")
 @click.argument("object_name")
 def build_one_doc(bucket_name, object_name):
-    credentials, project_id = docuploader.credentials.find(credentials_file="")
     verify()
+    credentials, project_id = docuploader.credentials.find(credentials_file="")
+    storage_client = storage.Client(project=project_id, credentials=credentials)
 
     try:
-        generate.build_one_doc(bucket_name, object_name, credentials, project_id)
+        generate.build_one_doc(bucket_name, object_name, storage_client)
     except Exception as e:
         log.error(e)
         sys.exit(1)
@@ -88,11 +92,12 @@ def build_one_doc(bucket_name, object_name):
 @click.argument("bucket_name")
 @click.argument("language")
 def build_language_docs(bucket_name, language):
-    credentials, project_id = docuploader.credentials.find(credentials_file="")
     verify()
+    credentials, project_id = docuploader.credentials.find(credentials_file="")
+    storage_client = storage.Client(project=project_id, credentials=credentials)
 
     try:
-        generate.build_language_docs(bucket_name, language, credentials, project_id)
+        generate.build_language_docs(bucket_name, language, storage_client)
     except Exception as e:
         log.error(e)
         sys.exit(1)
