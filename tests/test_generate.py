@@ -183,9 +183,7 @@ def verify_content(html_blob, tmpdir):
 def test_apidir(api_dir, tmpdir):
     test_bucket, storage_client = test_init()
 
-    bucket, yaml_blob, html_blob = setup_testdata(
-        api_dir, storage_client, test_bucket
-    )
+    bucket, yaml_blob, html_blob = setup_testdata(api_dir, storage_client, test_bucket)
 
     # Test for api directory content
     run_generate(storage_client, test_bucket)
@@ -196,9 +194,7 @@ def test_apidir(api_dir, tmpdir):
 def test_setup_docfx(yaml_dir):
     test_bucket, storage_client = test_init()
 
-    bucket, yaml_blob, html_blob = setup_testdata(
-        yaml_dir, storage_client, test_bucket
-    )
+    bucket, yaml_blob, html_blob = setup_testdata(yaml_dir, storage_client, test_bucket)
 
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
 
@@ -223,9 +219,7 @@ def test_setup_docfx(yaml_dir):
 def test_generate(yaml_dir, tmpdir):
     test_bucket, storage_client = test_init()
 
-    bucket, yaml_blob, html_blob = setup_testdata(
-        yaml_dir, storage_client, test_bucket
-    )
+    bucket, yaml_blob, html_blob = setup_testdata(yaml_dir, storage_client, test_bucket)
 
     # Test for non-api directory content
     run_generate(storage_client, test_bucket)
