@@ -208,8 +208,8 @@ def build_and_format(blob, is_bucket, devsite_template):
     # Remove the manifest.json file.
     site_path.joinpath("manifest.json").unlink()
 
-    # Add the prettyprint class to code snippets
-    prepare.add_prettyprint(site_path)
+    # Adds prettyprint to code snippets + dropdown to 'inheritedMembers
+    prepare.prepare_html(site_path)
 
     log.success(f"Done building HTML for {blob_name}. Starting upload...")
 

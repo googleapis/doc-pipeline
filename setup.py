@@ -21,20 +21,21 @@ dependencies = [
     "gcp-docuploader",
     "semver",
     "PyYAML",
+    "beautifulsoup4",
 ]
 
 packages = setuptools.find_packages()
-scripts = [
-    'docuploader=docuploader.__main__:main'
-]
+scripts = ["docuploader=docuploader.__main__:main"]
 
-setuptools.setup(name='gcp-doc-pipeline',
-                 version='0.0.1',
-                 description='DocFX YAML to HTML pipeline',
-                 url='http://github.com/googleapis/doc-pipeline',
-                 author='Google LLC',
-                 author_email='noreply@google.com',
-                 license='Apache 2',
-                 packages=packages,
-                 install_requires=dependencies,
-                 zip_safe=False)
+setuptools.setup(
+    name="gcp-doc-pipeline",
+    version="0.0.1",
+    description="DocFX YAML to HTML pipeline",
+    url="http://github.com/googleapis/doc-pipeline",
+    author="Google LLC",
+    author_email="noreply@google.com",
+    license="Apache 2",
+    packages=packages,
+    install_requires=dependencies,
+    zip_safe=False,
+)

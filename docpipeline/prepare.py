@@ -14,20 +14,7 @@
 
 import yaml
 from docuploader import log
-
-
-def add_prettyprint(output_path):
-    files = output_path.glob("**/*.html")
-    # Handle files in binary to avoid line endings
-    # being changed when running on Windows.
-    for file in files:
-        with open(file, "rb") as file_handle:
-            html = file_handle.read()
-        html = html.replace(
-            '<code class="lang-'.encode(), '<code class="prettyprint lang-'.encode()
-        )
-        with open(file, "wb") as file_handle:
-            file_handle.write(html)
+from bs4 import BeautifulSoup
 
 
 def prepare_java_toc(toc_file, product_name):
@@ -54,3 +41,34 @@ def prepare_java_toc(toc_file, product_name):
         except yaml.YAMLError as e:
             log.error("Error parsing java toc file")
             raise e
+
+
+def prepare_html(output_path):
+    files = output_path.glob("**/*.html")
+    # Handle files in binary to avoid line endings
+    # being changed when running on Windows.
+
+    for file in files:
+        soup = BeautifulSoup(open(file), "html.parser")
+        add_prettyprint(soup)
+        add_inherited_members_drowdown(soup)
+
+        with open(file, "w") as f:
+            f.write(str(soup.prettify(formatter=None)))
+
+
+def add_prettyprint(soup):
+    # adds 'prettyprint' class to <code class="lang-*"></code>
+    for code in soup.select('code[class*="lang-"]'):
+        code["class"] = code.get("class", []) + ["prettyprint"]
+
+
+def add_inherited_members_drowdown(soup):
+    # https://developers.google.com/devsite/reference/widgets/expandable
+    # wraps 'inheritedMembers' in devsite-expandable tag
+    for div in soup.find_all("div", {"class": "inheritedMembers"}, limit=1):
+        div.wrap(soup.new_tag("devsite-expandable"))
+
+    # adds 'showalways' class to Inherited Members h5
+    for h5 in soup.find_all("h5", string="Inherited Members"):
+        h5["class"] = "showalways"
