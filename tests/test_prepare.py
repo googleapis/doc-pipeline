@@ -97,19 +97,39 @@ def test_add_prettyprint():
 
 
 def test_addadd_inherited_members_drowdown():
-    tmp_dir = tempfile.TemporaryDirectory(prefix="doc-pipeline.prettyprint.")
+    tmp_dir = tempfile.TemporaryDirectory(prefix="doc-pipeline.dropdown.")
     tmp_path = pathlib.Path(tmp_dir.name)
 
     files = [
         {
             "name": "should_update.html",
-            "input": '<div class="inheritedMembers">\n  <h5>Inherited Members</h5>\n  <div>\n    <span class="xref">System.Object.ToString()</span>\n  </div>\n</div>',
-            "want": '<devsite-expandable><div class="inheritedMembers">\n<h5 class="showalways">Inherited Members</h5>\n<div>\n<span class="xref">System.Object.ToString()</span>\n</div>\n</div></devsite-expandable>',
+            "input": '<div class="inheritedMembers">'
+            "\n  <h5>Inherited Members</h5>"
+            "\n  <div>"
+            '\n    <span class="xref">System.Object.ToString()</span>'
+            "\n  </div>"
+            "\n</div>",
+            "want": '<devsite-expandable><div class="inheritedMembers">'
+            '\n<h5 class="showalways">Inherited Members</h5>'
+            "\n<div>"
+            '\n<span class="xref">System.Object.ToString()</span>'
+            "\n</div>"
+            "\n</div></devsite-expandable>",
         },
         {
             "name": "should_not_update.html",
-            "input": '<div class="Inheritance">\n  <h5>inheritance</h5>\n  <span><span class="xref">Google.Protobuf.IMessage</span></span>\n</div>',
-            "want": '<div class="Inheritance">\n<h5>inheritance</h5>\n<span><span class="xref">Google.Protobuf.IMessage</span></span>\n</div>',
+            "input": '<div class="Inheritance">'
+            "\n  <h5>inheritance</h5>"
+            "\n  <span>"
+            '<span class="xref">Google.Protobuf.IMessage</span>'
+            "</span>"
+            "\n</div>",
+            "want": '<div class="Inheritance">'
+            "\n<h5>inheritance</h5>"
+            "\n<span>"
+            '<span class="xref">Google.Protobuf.IMessage</span>'
+            "</span>"
+            "\n</div>",
         },
         {
             "name": "nothing.yml",
