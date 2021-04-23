@@ -220,6 +220,16 @@ def build_and_format(blob, is_bucket, devsite_template):
     return tmp_path, metadata, site_path
 
 
+def get_base_url(language, name):
+    # The baseUrl must start with a scheme and domain. With no scheme, docfx
+    # assumes it's a file:// link.
+    base_url = f"https://cloud.google.com/{language}/docs/reference/" + f"{name}/"
+    # Help packages should not include the version in the URL.
+    if name != "help":
+        base_url += "latest/"
+    return base_url
+
+
 def process_blob(blob, devsite_template):
     is_bucket = True
     tmp_path, metadata, site_path = build_and_format(blob, is_bucket, devsite_template)
@@ -228,12 +238,8 @@ def process_blob(blob, devsite_template):
     # The input blob has a "docfx-" prefix; make sure to remove it.
     xrefmap = site_path.joinpath("xrefmap.yml")
     xrefmap_lines = xrefmap.read_text().splitlines()
-    # The baseUrl must start with a scheme and domain. With no scheme, docfx
-    # assumes it's a file:// link.
-    base_url = (
-        f"baseUrl: https://cloud.google.com/{metadata.language}/docs/reference/"
-        + f"{metadata.name}/latest/"
-    )
+    base_url = f"baseUrl: {get_base_url(metadata.language, metadata.name)}"
+
     # Insert base_url after the YamlMime first line.
     xrefmap_lines.insert(1, base_url)
     xrefmap.write_text("\n".join(xrefmap_lines))

@@ -384,3 +384,20 @@ class TestGenerate(unittest.TestCase):
         got = generate.format_docfx_json(metadata)
 
         self.assertMultiLineEqual(got, want)
+
+
+@pytest.mark.parametrize(
+    "lang,name,expected",
+    [
+        ("go", "help", "https://cloud.google.com/go/docs/reference/help/"),
+        ("go", "other", "https://cloud.google.com/go/docs/reference/other/latest/"),
+        (
+            "python",
+            "other2",
+            "https://cloud.google.com/python/docs/reference/other2/latest/",
+        ),
+    ],
+)
+def test_get_base_url(lang, name, expected):
+    got = generate.get_base_url(lang, name)
+    assert got == expected
