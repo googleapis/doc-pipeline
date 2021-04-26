@@ -385,6 +385,48 @@ class TestGenerate(unittest.TestCase):
 
         self.assertMultiLineEqual(got, want)
 
+    def test_format_docfx_json_help(self):
+        self.maxDiff = None
+        metadata = metadata_pb2.Metadata()
+        metadata.name = "help"
+        metadata.language = "dotnet"
+
+        want = """
+{
+  "build": {
+    "content": [
+      {
+        "files": ["**/*.yml", "**/*.md"],
+        "src": "obj/api"
+      }
+    ],
+    "globalMetadata": {
+      "_appTitle": "help",
+      "_disableContribution": true,
+      "_appFooter": " ",
+      "_disableNavbar": true,
+      "_disableBreadcrumb": true,
+      "_enableSearch": false,
+      "_disableToc": true,
+      "_disableSideFilter": true,
+      "_disableAffix": true,
+      "_disableFooter": true,
+      "_rootPath": "/dotnet/docs/reference/help",
+      "_projectPath": "/dotnet/"
+    },
+    "overwrite": [
+      "obj/examples/*.md"
+    ],
+    "dest": "site",
+    "xref": [],
+    "xrefService": [],
+  }
+}
+"""
+        got = generate.format_docfx_json(metadata)
+
+        self.assertMultiLineEqual(got, want)
+
 
 @pytest.mark.parametrize(
     "lang,name,expected",
