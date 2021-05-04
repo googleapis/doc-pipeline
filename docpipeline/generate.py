@@ -208,6 +208,10 @@ def build_and_format(blob, is_bucket, devsite_template):
     except FileNotFoundError:
         shutil.move(site_path.joinpath("toc.html"), site_path.joinpath("_toc.yaml"))
 
+    html_files = list(site_path.glob("**/*.html"))
+    if len(html_files) == 0:
+        raise ValueError("Did not generate any HTML files.")
+
     # Remove the manifest.json file.
     site_path.joinpath("manifest.json").unlink()
 
@@ -336,6 +340,13 @@ def build_blobs(blobs):
     for i, blob in enumerate(blobs):
         try:
             log.info(f"Processing {i+1} of {len(blobs)}: {blob.name}...")
+            if not blob.name.startswith("docfx"):
+                raise ValueError(
+                    (
+                        f"{blob.name} does not start with docfx,"
+                        f"did you mean docfx-{blob.name}?"
+                    )
+                )
             process_blob(blob, devsite_template)
         except Exception as e:
             # Keep processing the other files if an error occurs.
