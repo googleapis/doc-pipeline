@@ -77,18 +77,21 @@ Here's how it works in `doc-pipeline`:
    1. The resulting HTML content (in a tarball).
    1. The xref map file to the `xrefs` directory of the bucket. You can see them
       all using `gsutil ls gs://docs-staging-v2/xrefs`.
-1. If one package wants to use the xref map from another package, you need to
-   configure it.
-   1. When you generate the `docs.metadata` using `docuploader`, use the `xrefs`
-      argument to specify the xref map files you need. Use the following format:
-      * `devsite://library[@version]`: use the xref from `library`. If no version
-        is given, the SemVer latest is used.
-   1. You can also use the `xref-services` to refer to
-      [cross reference services](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html#cross-reference-services).
-   1. `doc-pipeline` will then download the specified xref maps. If an xref map cannot
-      be found, a warning is logged, but the build does not fail. Because of this,
-      you can generate docs that depend on each other in any order. If the dependency
-      doesn't exist yet, that's OK, the next regen will pick it up.
+1. You can use the `xref-services` argument for `docuploader create-metadata`
+   to refer to
+   [cross reference services](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html#cross-reference-services).
+1. If one package wants to use the xref map from another `doc-pipeline` package,
+   you need to configure it. Use the `xrefs` argument of `docuploader create-metadata`
+   to specify the xref map files you need. Use the following format:
+      * `devsite://lang/library[@version]`: If no version
+        is given, the SemVer latest is used. For example,
+        `devsite://dotnet/my-pkg@1.0.0` would lead to the xref
+        map at `gs://docs-staging-v2/xrefs/dotnet-my-pkg-1.0.0.tar.gz.yml`.
+        `devsite://dotnet/my-pkg` would get the latest version of `my-pkg`.
+1. `doc-pipeline` will then download and use the specified xref maps. If an xref map cannot
+   be found, a warning is logged, but the build does not fail. Because of this,
+   you can generate docs that depend on each other in any order. If the dependency
+   doesn't exist yet, that's OK, the next regen will pick it up.
 
 ### How to regenerate the HTML
 
