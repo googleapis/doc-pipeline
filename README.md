@@ -1,20 +1,20 @@
 # Google Cloud Platform document pipeline
 
-doc-pipeline converts DocFX YAML to HTML. You can run it locally, but it is set
+`doc-pipeline` converts DocFX YAML to HTML. You can run it locally, but it is set
 up to run periodically to generate new docs in production/staging/dev.
 
-doc-pipeline uses
+`doc-pipeline` uses
 [docker-ci-helper](https://github.com/GoogleCloudPlatform/docker-ci-helper) to
 facilitate running Docker. See the [instructions below](#running-locally) for
 how to test and run locally.
 
-doc-pipeline also depends on
+`doc-pipeline` also depends on
 [`docuploader`](https://github.com/googleapis/docuploader) to compress and
 upload a directory to Google Cloud Storage.
 
 ## Using doc-pipeline
 
-doc-pipeline is only for converting DocFX YAML to HTML suitable for
+`doc-pipeline` is only for converting DocFX YAML to HTML suitable for
 cloud.google.com.
 
 You can generate DocFX YAML using language-specific generators.
@@ -59,10 +59,36 @@ should be automated/scripted as part of the release process.
    There is also `docs-staging-v2` (production) and `docs-staging-v2-dev`
    (development). Use `-staging` until your HTML format is confirmed to be
    correct.
-1. That's it! doc-pipeline periodically runs, generates the HTML for new
+1. That's it! `doc-pipeline` periodically runs, generates the HTML for new
    `docfx-*` tarballs, and uploads the resulting HTML to the same bucket. The
    HTML has the same name as the DocFX tarball, except it doesn't have the
    `docfx` prefix.
+
+### Cross references
+
+DocFX supports [cross references using xrefmap files](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html#using-cross-reference).
+Each file maps a UID to the URL for that object. The xref map files are
+automatically generated when DocFX generates docs. One generation job can refer
+to other xref map files to be able to link to those objects.
+
+Here's how it works in `doc-pipeline`:
+
+1. When we convert the YAML to HTML, we upload two things:
+   1. The resulting HTML content (in a tarball).
+   1. The xref map file to the `xrefs` directory of the bucket. You can see them
+      all using `gsutil ls gs://docs-staging-v2/xrefs`.
+1. If one package wants to use the xref map from another package, you need to
+   configure it.
+   1. When you generate the `docs.metadata` using `docuploader`, use the `xrefs`
+      argument to specify the xref map files you need. Use the following format:
+      * `devsite://library[@version]`: use the xref from `library`. If no version
+        is given, the SemVer latest is used.
+   1. You can also use the `xref-services` to refer to
+      [cross reference services](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html#cross-reference-services).
+   1. `doc-pipeline` will then download the specified xref maps. If an xref map cannot
+      be found, a warning is logged, but the build does not fail. Because of this,
+      you can generate docs that depend on each other in any order. If the dependency
+      doesn't exist yet, that's OK, the next regen will pick it up.
 
 ### How to regenerate the HTML
 
