@@ -20,4 +20,12 @@ if ! [[ "$BLOB_TO_DELETE" =~ ^gs:\/\/[^/]+\/.+$ ]]; then
   exit 1
 fi
 
-gsutil rm $BLOB_TO_DELETE
+MATCHING_BLOBS=$(gsutil ls "$BLOB_TO_DELETE")
+NUM_BLOBS=$(echo "$MATCHING_BLOBS" | wc -l)
+
+if [ $NUM_BLOBS -gt 1 ]; then
+  echo "$BLOB_TO_DELETE matched $NUM_BLOBS blobs, expected to match only 1"
+  exit 2
+fi
+
+gsutil rm "$BLOB_TO_DELETE"
