@@ -24,6 +24,7 @@ pass_down_envvars+=(
     "TEST_BUCKET"        # Must set when running tests.
     "LANGUAGE"           # For specifying specific language builds.
     "INPUT"              # For specifying local input source.
+    "BLOB_TO_DELETE"     # For delete-blob.
 )
 
 # Prevent unintentional override on the default image.
