@@ -31,7 +31,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 \
 
 ARG DOCFX_VERSION=v2.56.1
 
-# Install docfx
+# Install docfx.
 RUN mkdir -p /opt/docfx
 RUN wget \
     https://github.com/dotnet/docfx/releases/download/${DOCFX_VERSION}/docfx.zip \
@@ -39,7 +39,15 @@ RUN wget \
     cd /opt/docfx && \
     unzip docfx.zip
 
-# A shell wrapper
+# A shell wrapper.
 RUN echo '#!/usr/bin/bash' >> /opt/docfx/docfx && \
     echo 'exec mono /opt/docfx/docfx.exe $@' >> /opt/docfx/docfx && \
     chmod 0755 /opt/docfx/docfx
+
+# Install gcloud and gsutil.
+RUN mkdir -p /usr/local/gcloud
+RUN wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz \
+    -O /tmp/google-cloud-sdk.tar.gz && \
+    tar -xvf /tmp/google-cloud-sdk.tar.gz -C /usr/local/gcloud && \
+    /usr/local/gcloud/google-cloud-sdk/install.sh --quiet
+ENV PATH $PATH:/usr/local/gcloud/google-cloud-sdk/bin
