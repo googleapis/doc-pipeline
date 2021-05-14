@@ -14,40 +14,9 @@
 
 from docpipeline import prepare
 import shutil
-import filecmp
-import yaml
 import pytest
 import pathlib
 import tempfile
-
-
-@pytest.fixture
-def testdata(tmpdir):
-    shutil.copytree("testdata", tmpdir, dirs_exist_ok=True)
-    shutil.copy("testdata/mock-java-original-toc.yml", tmpdir)
-    shutil.copy("testdata/mock-java-updated-toc.yml", tmpdir)
-    return tmpdir
-
-
-def test_prepare_java_toc(testdata):
-    tmp_path = pathlib.Path(testdata)
-    original_toc = tmp_path.joinpath("mock-java-original-toc.yml")
-    updated_toc = tmp_path.joinpath("mock-java-updated-toc.yml")
-
-    # files should be different before
-    assert (filecmp.cmp(original_toc, updated_toc, shallow=False)) is False
-
-    prepare.prepare_java_toc(original_toc, "google-cloud-library")
-
-    # files should be the same after
-    assert (filecmp.cmp(original_toc, updated_toc, shallow=False)) is True
-
-    with open(original_toc, "r") as stream:
-        try:
-            yaml.safe_load(stream)
-        except yaml.YAMLError:
-            pytest.fail(f"Unable to parse YAML: {original_toc}")
-
 
 def test_add_prettyprint():
     tmp_dir = tempfile.TemporaryDirectory(prefix="doc-pipeline.prettyprint.")

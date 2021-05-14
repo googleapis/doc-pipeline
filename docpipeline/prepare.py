@@ -28,29 +28,3 @@ def add_prettyprint(output_path):
         )
         with open(file, "wb") as file_handle:
             file_handle.write(html)
-
-
-def prepare_java_toc(toc_file, product_name):
-    with open(toc_file, "r") as yml_input:
-        try:
-            toc = yaml.safe_load(yml_input)
-
-            # sort list of dict on dict key 'uid' value
-            toc.sort(key=lambda x: x.get("uid"))
-
-            # include index.md overview page
-            overview = [{"name": "Overview", "href": "index.md"}]
-            toc = overview + toc
-
-            # include product level hierarchy
-            toc = [{"name": product_name, "items": toc}]
-
-            with open(toc_file, "w") as f:
-                # Add back necessary docfx comment YamlMime
-                f.write("### YamlMime:TableOfContent\n")
-
-                yaml.dump(toc, f, default_flow_style=False, sort_keys=False)
-
-        except yaml.YAMLError as e:
-            log.error("Error parsing java toc file")
-            raise e
