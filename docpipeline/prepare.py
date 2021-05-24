@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import yaml
-from docuploader import log
-
 
 def add_prettyprint(output_path):
     files = output_path.glob("**/*.html")

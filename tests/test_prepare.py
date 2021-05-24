@@ -13,8 +13,6 @@
 # limitations under the License.
 
 from docpipeline import prepare
-import shutil
-import pytest
 import pathlib
 import tempfile
 
