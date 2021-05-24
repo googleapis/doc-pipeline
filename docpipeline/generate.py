@@ -190,10 +190,6 @@ def build_and_format(blob, is_bucket, devsite_template):
 
     site_path = tmp_path.joinpath("site")
 
-    # Adjust Java TOC before generating.
-    if metadata.language.lower() == "java":
-        prepare.prepare_java_toc(api_path.joinpath("toc.yml"), metadata.name)
-
     log.info(f"Running `docfx build` for {blob_name}...")
     shell.run(
         ["docfx", "build", "-t", f"{devsite_template.absolute()}"],
