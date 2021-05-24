@@ -18,6 +18,7 @@ import pytest
 import pathlib
 import tempfile
 
+
 def test_add_prettyprint():
     tmp_dir = tempfile.TemporaryDirectory(prefix="doc-pipeline.prettyprint.")
     tmp_path = pathlib.Path(tmp_dir.name)
