@@ -13,6 +13,7 @@
 // limitations under the License.
 
 // The canonical command processes buckets to add canonical links.
+// For now, canonical only processes .NET objects.
 package main
 
 import (
@@ -43,7 +44,10 @@ import (
 	"google.golang.org/api/iterator"
 )
 
-const dotnetPrefix = "dotnet-"
+const (
+	dotnetPrefix  = "dotnet-"
+	cloudFunction = "https://us-central1-jonskeet-integration-tests.cloudfunctions.net/canonicalize-link"
+)
 
 var (
 	startHead = []byte("<head>")
@@ -302,7 +306,7 @@ func processTarball(ctx context.Context, inBucket, outBucket *storage.BucketHand
 		}
 
 		atomic.AddInt64(&numFiles, 1)
-		bar.Set("prefix", fmt.Sprintf("Canonicalizing... %d files | ", numFiles))
+		bar.Set("prefix", fmt.Sprintf("Canonicalizing... %d files |", numFiles))
 	}
 
 	if err := tw.Close(); err != nil {
@@ -331,7 +335,7 @@ func canonicalLink(ctx context.Context, pkg, page string) (string, error) {
 		"package": []string{pkg},
 		"page":    []string{page},
 	}
-	u, err := url.Parse("https://us-central1-jonskeet-integration-tests.cloudfunctions.net/canonicalize-link")
+	u, err := url.Parse(cloudFunction)
 	if err != nil {
 		return "", err
 	}
@@ -362,7 +366,11 @@ func newRequestWithContext(ctx context.Context, method, url string) *http.Reques
 // objects returns a map of object names in the bucket.
 func objects(ctx context.Context, bucket *storage.BucketHandle) (map[string]bool, error) {
 	objs := map[string]bool{}
-	it := bucket.Objects(ctx, &storage.Query{Prefix: dotnetPrefix})
+	q := &storage.Query{Prefix: dotnetPrefix}
+	if err := q.SetAttrSelection([]string{"Name"}); err != nil {
+		return nil, err
+	}
+	it := bucket.Objects(ctx, q)
 	for {
 		attrs, err := it.Next()
 		if err == iterator.Done {
