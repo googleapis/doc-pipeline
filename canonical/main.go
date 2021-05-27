@@ -33,7 +33,6 @@ import (
 	"runtime"
 	"runtime/pprof"
 	"strings"
-	"sync"
 	"sync/atomic"
 	"time"
 
@@ -146,7 +145,7 @@ func processBucket(ctx context.Context, inBucketName, outBucketName string, proc
 		return err
 	}
 
-	inputs := []string{}
+	var inputs []string
 	for name := range allInputs {
 		if processEverything || !existingOutputs[name] {
 			inputs = append(inputs, name)
@@ -154,44 +153,40 @@ func processBucket(ctx context.Context, inBucketName, outBucketName string, proc
 	}
 
 	if len(inputs) == 0 {
-		fmt.Println("Nothing to do. Add -f flag?")
+		log.Println("Nothing to do. Add -f flag?")
 		return nil
 	}
 
 	bar := pbTemplate.Start(len(inputs)).Set("prefix", "Canonicalizing... ").SetRefreshRate(time.Second)
+	defer bar.Finish()
 
 	g, ctx := errgroup.WithContext(ctx)
 	sem := semaphore.NewWeighted(500)
 
 	for _, name := range inputs {
 		if err := ctx.Err(); ctx.Err() != nil {
-			bar.Finish()
 			log.Println(err)
 			break
 		}
 
 		if err := sem.Acquire(ctx, 1); err != nil {
-			bar.Finish()
 			log.Println(err)
 			break
 		}
-		releaseOnce := &sync.Once{}
 
 		// Capture for loop variable.
 		name := name
 
 		g.Go(func() error {
 			defer bar.Increment()
-			defer releaseOnce.Do(func() { sem.Release(1) })
+			defer sem.Release(1)
 
 			return processTarball(ctx, inBucket, outBucket, name, bar)
 		})
 	}
 	if err := g.Wait(); err != nil {
-		bar.Finish()
 		return err
 	}
-	bar.Finish()
 
 	return nil
 }
@@ -212,17 +207,22 @@ func processTarball(ctx context.Context, inBucket, outBucket *storage.BucketHand
 	if err != nil {
 		return fmt.Errorf("unable to read from gs://%s/%s: %v", obj.BucketName(), name, err)
 	}
+	defer r.Close()
 
 	gr, err := gzip.NewReader(r)
 	if err != nil {
 		log.Fatal(err)
 	}
+	defer gr.Close()
 	tr := tar.NewReader(gr)
 
 	outObj := outBucket.Object(name)
 	ow := outObj.NewWriter(ctx)
+	defer ow.Close()
 	gw := gzip.NewWriter(ow)
+	defer gw.Close()
 	tw := tar.NewWriter(gw)
+	defer tw.Close()
 
 	// Loop over every header in the tarball.
 	for {
@@ -307,16 +307,6 @@ func processTarball(ctx context.Context, inBucket, outBucket *storage.BucketHand
 
 		atomic.AddInt64(&numFiles, 1)
 		bar.Set("prefix", fmt.Sprintf("Canonicalizing... %d files |", numFiles))
-	}
-
-	if err := tw.Close(); err != nil {
-		return fmt.Errorf("error closing tar %v: %v", name, err)
-	}
-	if err := gw.Close(); err != nil {
-		return fmt.Errorf("error closing gzip %v: %v", name, err)
-	}
-	if err := ow.Close(); err != nil {
-		return fmt.Errorf("error closing obj %q writer: %v", name, err)
 	}
 
 	return nil
