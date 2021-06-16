@@ -111,3 +111,6 @@ docsets
 archives
 **/*.sponge_log.xml
 .vscode
+
+canonical/canonical
+canonical/*prof
