@@ -285,8 +285,11 @@ func processTarball(ctx context.Context, inBucket, outBucket *storage.BucketHand
 					if err != nil {
 						return fmt.Errorf("canonicalLink: %v", err)
 					}
-					fmt.Fprintf(out, "    <link rel=\"canonical\" href=%q/>\n", link)
-					foundCanonical = true
+					// Skip files without a canonical link.
+					if link != "" {
+						fmt.Fprintf(out, "    <link rel=\"canonical\" href=%q/>\n", link)
+						foundCanonical = true
+					}
 				}
 				inHead = false
 			}
