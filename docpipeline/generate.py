@@ -97,6 +97,8 @@ def format_docfx_json(metadata):
     xrefs = ", ".join([f'"{xref}"' for xref in metadata.xrefs if xref != ""])
     xref_services = ", ".join([f'"{xref}"' for xref in metadata.xref_services])
     path = f"/{metadata.language}/docs/reference/{pkg}"
+    if metadata.stem != "":
+        path = metadata.stem
     if pkg != "help":
         path += "/latest"
 

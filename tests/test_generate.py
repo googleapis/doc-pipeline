@@ -390,6 +390,7 @@ class TestGenerate(unittest.TestCase):
         metadata = metadata_pb2.Metadata()
         metadata.name = "help"
         metadata.language = "dotnet"
+        metadata.stem = "/dotnet/is/awesome"
 
         want = """
 {
@@ -411,7 +412,7 @@ class TestGenerate(unittest.TestCase):
       "_disableSideFilter": true,
       "_disableAffix": true,
       "_disableFooter": true,
-      "_rootPath": "/dotnet/docs/reference/help",
+      "_rootPath": "/dotnet/is/awesome",
       "_projectPath": "/dotnet/"
     },
     "overwrite": [
