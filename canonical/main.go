@@ -22,6 +22,7 @@ import (
 	"bytes"
 	"compress/gzip"
 	"context"
+	"errors"
 	"flag"
 	"fmt"
 	"io"
@@ -195,14 +196,23 @@ var numFiles int64
 
 // processTarball processes the given tarball in the given bucket.
 // The progress bar is updated with the number of files processed as a prefix.
-func processTarball(ctx context.Context, inBucket, outBucket *storage.BucketHandle, name string, bar *pb.ProgressBar) error {
+func processTarball(ctx context.Context, inBucket, outBucket *storage.BucketHandle, name string, bar *pb.ProgressBar) (outErr error) {
+	// cancelWrite can be used to abort the operation.
+	// For example, in case there are no updates to make to the tarball.
+	ctx, cancelWrite := context.WithCancel(ctx)
+	defer cancelWrite()
+
 	pkg := parsePkg(name)
 
 	obj := inBucket.Object(name)
 
-	// Storage reader -> un-gzip -> un-tar
-	// -> process
-	// -> tar -> gzip -> Storage writer.
+	// Storage reader
+	//   -> un-gzip
+	//     -> un-tar
+	//       -> process
+	//     -> tar
+	//   -> gzip
+	// -> Storage writer.
 	r, err := obj.NewReader(ctx)
 	if err != nil {
 		return fmt.Errorf("unable to read from gs://%s/%s: %v", obj.BucketName(), name, err)
@@ -218,11 +228,21 @@ func processTarball(ctx context.Context, inBucket, outBucket *storage.BucketHand
 
 	outObj := outBucket.Object(name)
 	ow := outObj.NewWriter(ctx)
-	defer ow.Close()
+	defer func() {
+		if err := ow.Close(); err != nil && !errors.Is(err, context.Canceled) {
+			outErr = fmt.Errorf("ow.Close: %w", err)
+		}
+	}()
+
 	gw := gzip.NewWriter(ow)
 	defer gw.Close()
 	tw := tar.NewWriter(gw)
 	defer tw.Close()
+
+	// tarballModified keeps track of if we've actually inserted a canonical
+	// link somewhere in the tarball. If not, no need to write the result back
+	// to Cloud Storage.
+	tarballModified := false
 
 	// Loop over every header in the tarball.
 	for {
@@ -289,6 +309,7 @@ func processTarball(ctx context.Context, inBucket, outBucket *storage.BucketHand
 					if link != "" {
 						fmt.Fprintf(out, "    <link rel=\"canonical\" href=%q/>\n", link)
 						foundCanonical = true
+						tarballModified = true
 					}
 				}
 				inHead = false
@@ -310,6 +331,11 @@ func processTarball(ctx context.Context, inBucket, outBucket *storage.BucketHand
 
 		atomic.AddInt64(&numFiles, 1)
 		bar.Set("prefix", fmt.Sprintf("Canonicalizing... %d files |", numFiles))
+	}
+
+	if !tarballModified {
+		// We didn't modify anything, so don't write anything.
+		cancelWrite()
 	}
 
 	return nil
