@@ -44,10 +44,10 @@ import (
 	"google.golang.org/api/iterator"
 )
 
-const (
-	dotnetPrefix  = "dotnet-"
-	cloudFunction = "https://us-central1-jonskeet-integration-tests.cloudfunctions.net/canonicalize-link"
-)
+var langFunctions = map[string]string{
+	"dotnet": "https://us-central1-jonskeet-integration-tests.cloudfunctions.net/canonicalize-link",
+	"nodejs": "https://us-central1-cloud-rad-canonical.cloudfunctions.net/canonicalizeLink",
+}
 
 var (
 	startHead = []byte("<head>")
@@ -65,6 +65,7 @@ var httpClient = &http.Client{
 var pbTemplate pb.ProgressBarTemplate = `{{string . "prefix"}} {{counters . }} {{ bar . "[" "-" (cycle . "←" "↖" "↑" "↗" "→" "↘" "↓" "↙" ) "_" "]" }} {{percent . }} {{etime . }}`
 
 func main() {
+	lang := flag.String("lang", "", "the language to process")
 	inBucket := flag.String("inbucket", "", "the input bucket")
 	outBucket := flag.String("outbucket", "", "the output bucket")
 	processEverything := flag.Bool("f", false, "process every tarball")
@@ -74,6 +75,13 @@ func main() {
 
 	flag.Parse()
 
+	if _, ok := langFunctions[*lang]; !ok {
+		langs := []string{}
+		for l := range langFunctions {
+			langs = append(langs, l)
+		}
+		log.Fatalf("Must set supported -lang: one of %q", langs)
+	}
 	if *inBucket == "" {
 		log.Fatal("Must provide -inbucket")
 	}
@@ -98,7 +106,7 @@ func main() {
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
 	defer cancel()
 
-	err := processBucket(ctx, *inBucket, *outBucket, *processEverything)
+	err := processBucket(ctx, *lang, *inBucket, *outBucket, *processEverything)
 
 	if *memprofile != "" {
 		f, err := os.Create(*memprofile)
@@ -120,7 +128,7 @@ func main() {
 // processBucket processes all tarballs in the given bucket
 // and stores the output in the output bucket.
 // If processEverything is false, only new tarballs will be processed.
-func processBucket(ctx context.Context, inBucketName, outBucketName string, processEverything bool) error {
+func processBucket(ctx context.Context, lang, inBucketName, outBucketName string, processEverything bool) error {
 	client, err := storage.NewClient(ctx)
 	if err != nil {
 		return fmt.Errorf("storage.NewClient: %v", err)
@@ -136,12 +144,12 @@ func processBucket(ctx context.Context, inBucketName, outBucketName string, proc
 		return fmt.Errorf("could not get bucket %q: %v", outBucketName, err)
 	}
 
-	allInputs, err := objects(ctx, inBucket)
+	allInputs, err := objects(ctx, inBucket, lang)
 	if err != nil {
 		return err
 	}
 
-	existingOutputs, err := objects(ctx, outBucket)
+	existingOutputs, err := objects(ctx, outBucket, lang)
 	if err != nil {
 		return err
 	}
@@ -182,7 +190,7 @@ func processBucket(ctx context.Context, inBucketName, outBucketName string, proc
 			defer bar.Increment()
 			defer sem.Release(1)
 
-			return processTarball(ctx, inBucket, outBucket, name, bar)
+			return processTarball(ctx, inBucket, outBucket, lang, name, bar)
 		})
 	}
 	if err := g.Wait(); err != nil {
@@ -196,12 +204,11 @@ var numFiles int64
 
 // processTarball processes the given tarball in the given bucket.
 // The progress bar is updated with the number of files processed as a prefix.
-func processTarball(ctx context.Context, inBucket, outBucket *storage.BucketHandle, name string, bar *pb.ProgressBar) (outErr error) {
+func processTarball(ctx context.Context, inBucket, outBucket *storage.BucketHandle, lang, name string, bar *pb.ProgressBar) (outErr error) {
 	// cancelWrite can be used to abort the operation.
 	// For example, in case there are no updates to make to the tarball.
 	ctx, cancelWrite := context.WithCancel(ctx)
 	defer cancelWrite()
-
 	pkg := parsePkg(name)
 
 	obj := inBucket.Object(name)
@@ -301,7 +308,7 @@ func processTarball(ctx context.Context, inBucket, outBucket *storage.BucketHand
 
 			if inHead && bytes.Equal(trimmed, endHead) {
 				if !foundCanonical {
-					link, err := canonicalLink(ctx, pkg, filename)
+					link, err := canonicalLink(ctx, lang, pkg, filename)
 					if err != nil {
 						return fmt.Errorf("canonicalLink: %v", err)
 					}
@@ -343,18 +350,18 @@ func processTarball(ctx context.Context, inBucket, outBucket *storage.BucketHand
 
 // parsePkg gets the package name from the tarball name.
 func parsePkg(tarballName string) string {
-	name := tarballName[len(dotnetPrefix):] // Trim docfx- prefix.
-	name = name[:strings.Index(name, "-")]  // Discard after first remaining -.
+	name := tarballName[strings.Index(tarballName, "-")+1:] // Discard lang prefix.
+	name = name[:strings.Index(name, "-")]                  // Discard after first remaining -.
 	return name
 }
 
 // canonicalLink returns the canonical link for the given package and page.
-func canonicalLink(ctx context.Context, pkg, page string) (string, error) {
+func canonicalLink(ctx context.Context, lang, pkg, page string) (string, error) {
 	q := url.Values{
 		"package": []string{pkg},
 		"page":    []string{page},
 	}
-	u, err := url.Parse(cloudFunction)
+	u, err := url.Parse(langFunctions[lang])
 	if err != nil {
 		return "", err
 	}
@@ -383,9 +390,9 @@ func newRequestWithContext(ctx context.Context, method, url string) *http.Reques
 }
 
 // objects returns a map of object names in the bucket.
-func objects(ctx context.Context, bucket *storage.BucketHandle) (map[string]bool, error) {
+func objects(ctx context.Context, bucket *storage.BucketHandle, lang string) (map[string]bool, error) {
 	objs := map[string]bool{}
-	q := &storage.Query{Prefix: dotnetPrefix}
+	q := &storage.Query{Prefix: lang + "-"}
 	if err := q.SetAttrSelection([]string{"Name"}); err != nil {
 		return nil, err
 	}
