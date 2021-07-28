@@ -116,7 +116,6 @@ func main() {
 		runtime.GC() // get up-to-date statistics
 		pprof.WriteHeapProfile(f)
 		f.Close()
-		return
 	}
 
 	if err != nil {
@@ -228,7 +227,7 @@ func processTarball(ctx context.Context, inBucket, outBucket *storage.BucketHand
 
 	gr, err := gzip.NewReader(r)
 	if err != nil {
-		log.Fatal(err)
+		return fmt.Errorf("gzip.NewReader: %v", err)
 	}
 	defer gr.Close()
 	tr := tar.NewReader(gr)
@@ -277,8 +276,8 @@ func processTarball(ctx context.Context, inBucket, outBucket *storage.BucketHand
 			continue
 		}
 
-		// Scanner to read every line.
-		scanner := bufio.NewScanner(tr)
+		// Don't use a bufio.Scanner due to large lines.
+		br := bufio.NewReader(tr)
 		// Write to a buffer so we can get the new number of bytes for the record.
 		out := &bytes.Buffer{}
 
@@ -289,12 +288,22 @@ func processTarball(ctx context.Context, inBucket, outBucket *storage.BucketHand
 
 		filename := hdr.Name[len("./"):]
 
+		// Copy the start of the file, until </head>. If needed,
+		// a canonical link is inserted.
+		//
 		// Note: this does not preserve line endings.
 		// You can `diff --ignore-space-change` to verify there
 		// are no changes to content.
-		for scanner.Scan() {
+		for {
 			// Read as bytes to avoid an unnecessary string allocation.
-			text := scanner.Bytes()
+			text, err := br.ReadBytes('\n')
+			if errors.Is(err, io.EOF) {
+				out.Write(text)
+				break
+			}
+			if err != nil {
+				return fmt.Errorf("unable to ReadBytes: %v", err)
+			}
 
 			// Trim space rather than use regex.
 			trimmed := bytes.TrimSpace(text)
@@ -320,13 +329,20 @@ func processTarball(ctx context.Context, inBucket, outBucket *storage.BucketHand
 					}
 				}
 				inHead = false
+
+				out.Write(text)
+				fmt.Fprintln(out) // Text does not have a newline. Add one.
+				break             // Nothing left to do.
 			}
 
+			// Have not seen </head> yet.
 			out.Write(text)
 			fmt.Fprintln(out) // Text does not have a newline. Add one.
 		}
-		if err := scanner.Err(); err != nil {
-			return fmt.Errorf("error scanning %q %q: %v", name, hdr.Name, err)
+
+		// Copy the rest of the file.
+		if _, err := io.Copy(out, br); err != nil {
+			return fmt.Errorf("io.Copy: %v", err)
 		}
 
 		// Update the header to have the right size. Otherwise, leave hdr unchanged.
@@ -376,6 +392,9 @@ func canonicalLink(ctx context.Context, lang, pkg, page string) (string, error) 
 	b, err := io.ReadAll(resp.Body)
 	if err != nil {
 		return "", err
+	}
+	if resp.StatusCode != 200 {
+		return "", fmt.Errorf("%v: status: %v", u.String(), resp.Status)
 	}
 
 	return string(b), nil
