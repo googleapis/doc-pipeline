@@ -47,6 +47,7 @@ import (
 var langFunctions = map[string]string{
 	"dotnet": "https://us-central1-jonskeet-integration-tests.cloudfunctions.net/canonicalize-link",
 	"nodejs": "https://us-central1-cloud-rad-canonical.cloudfunctions.net/canonicalizeLink",
+	"java":   "https://us-west2-tbp-samples.cloudfunctions.net/canonicalize-java-link",
 }
 
 var (
