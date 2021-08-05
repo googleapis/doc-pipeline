@@ -430,17 +430,23 @@ class TestGenerate(unittest.TestCase):
 
 
 @pytest.mark.parametrize(
-    "lang,name,expected",
+    "lang,name,stem,expected",
     [
-        ("go", "help", "https://cloud.google.com/go/docs/reference/help/"),
-        ("go", "other", "https://cloud.google.com/go/docs/reference/other/latest/"),
+        ("go", "help", "", "/go/docs/reference/help"),
+        ("go", "other", "", "/go/docs/reference/other/latest"),
         (
             "python",
             "other2",
-            "https://cloud.google.com/python/docs/reference/other2/latest/",
+            "",
+            "/python/docs/reference/other2/latest",
         ),
+        ("go", "other", "/foo/bar", "/foo/bar/latest"),
     ],
 )
-def test_get_base_url(lang, name, expected):
-    got = generate.get_base_url(lang, name)
+def test_get_path(lang, name, stem, expected):
+    metadata = metadata_pb2.Metadata()
+    metadata.language = lang
+    metadata.name = name
+    metadata.stem = stem
+    got = generate.get_path(metadata)
     assert got == expected
