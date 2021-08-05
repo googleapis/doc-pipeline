@@ -240,7 +240,7 @@ def process_blob(blob, devsite_template):
     xrefmap_lines = xrefmap.read_text().splitlines()
     # The baseUrl must start with a scheme and domain. With no scheme, docfx
     # assumes it's a file:// link.
-    base_url = f"https://cloud.google.com{get_path(metadata)}/"
+    base_url = f"baseUrl: https://cloud.google.com{get_path(metadata)}/"
 
     # Insert base_url after the YamlMime first line.
     xrefmap_lines.insert(1, base_url)
