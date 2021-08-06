@@ -34,5 +34,3 @@ if [[ "${TRAMPOLINE_IMAGE_UPLOAD:-false}" == "true" ]] && \
    echo "Please set TRAMPOLINE_IMAGE if you want to upload the Docker image."
    exit 1
 fi
-
-
