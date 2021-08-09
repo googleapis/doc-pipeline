@@ -114,3 +114,5 @@ archives
 
 canonical/canonical
 canonical/*prof
+
+**/*sponge_log.xml

@@ -30,12 +30,27 @@ if [ -z "$SOURCE_BUCKET" ]; then
   exit 1
 fi
 
+# Don't exit immediately so we can send logs to flakybot.
+set +e
+exit_code=0
+
 if [ "$FORCE_GENERATE_ALL" == "true" ]; then
     python3 docpipeline/__main__.py build-all-docs $SOURCE_BUCKET
+    exit_code=$?
 elif [ -n "$LANGUAGE" ]; then
     python3 docpipeline/__main__.py build-language-docs $SOURCE_BUCKET $LANGUAGE
+    exit_code=$?
 elif [ -n "$SOURCE_BLOB" ]; then
     python3 docpipeline/__main__.py build-one-doc $SOURCE_BUCKET $SOURCE_BLOB
+    exit_code=$?
 else
     python3 docpipeline/__main__.py build-new-docs $SOURCE_BUCKET
+    exit_code=$?
 fi
+
+if [[ $KOKORO_BUILD_ARTIFACTS_SUBDIR = *"prod"* ]]; then
+  chmod +x $KOKORO_GFILE_DIR/linux_amd64/flakybot
+  $KOKORO_GFILE_DIR/linux_amd64/flakybot
+fi
+
+exit $exit_code
