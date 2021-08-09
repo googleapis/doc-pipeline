@@ -25,6 +25,7 @@ pass_down_envvars+=(
     "LANGUAGE"           # For specifying specific language builds.
     "INPUT"              # For specifying local input source.
     "BLOB_TO_DELETE"     # For delete-blob.
+    "KOKORO_BUILD_ARTIFACTS_SUBDIR" # For job type detection.
 )
 
 # Prevent unintentional override on the default image.

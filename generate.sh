@@ -14,6 +14,7 @@
 # limitations under the License.
 
 set -e
+set -x
 
 # Add the path where docuploader gets installed to PATH.
 export PATH=$PATH:${HOME}/.local/bin
