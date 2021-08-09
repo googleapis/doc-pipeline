@@ -12,24 +12,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM ubuntu:20.10
+FROM python:3.9-buster
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV PATH ${PATH}:/opt/docfx
 
-RUN apt-get update && \
-    apt-get -y install gnupg ca-certificates wget zip python3 python3-pip git
+RUN apt update && \
+    apt -y install gnupg ca-certificates wget zip git apt-transport-https dirmngr
 
 # Install mono with the instructions at:
 # https://www.mono-project.com/download/stable/#download-lin
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 \
     --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF && \
-    echo "deb https://download.mono-project.com/repo/ubuntu stable-focal main" \
+    echo "deb https://download.mono-project.com/repo/debian stable-buster main" \
     | tee /etc/apt/sources.list.d/mono-official-stable.list && \
-    apt-get update && \
-    apt-get install -y mono-complete ca-certificates-mono
+    apt update && \
+    apt install -y mono-complete ca-certificates-mono
 
-ARG DOCFX_VERSION=v2.56.1
+ARG DOCFX_VERSION=v2.58
 
 # Install docfx.
 RUN mkdir -p /opt/docfx
@@ -40,9 +40,10 @@ RUN wget \
     unzip docfx.zip
 
 # A shell wrapper.
-RUN echo '#!/usr/bin/bash' >> /opt/docfx/docfx && \
+RUN echo '#!/bin/bash' >> /opt/docfx/docfx && \
     echo 'exec mono /opt/docfx/docfx.exe $@' >> /opt/docfx/docfx && \
     chmod 0755 /opt/docfx/docfx
+ENV PATH $PATH:/opt/docfx
 
 # Install gcloud and gsutil.
 RUN mkdir -p /usr/local/gcloud
