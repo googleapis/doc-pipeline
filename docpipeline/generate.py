@@ -417,7 +417,7 @@ def write_xunit(f, successes, failures):
         attrib={
             "tests": str(len(successes) + len(failures)),
             "failures": str(len(failures)),
-            "name": "github.com/googleapis/doc-pipeline",
+            "name": "github.com/googleapis/doc-pipeline/generate",
         },
     )
     for success in successes:
