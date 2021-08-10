@@ -431,7 +431,7 @@ class TestGenerate(unittest.TestCase):
 
     def test_write_xunit(self):
         want = """<testsuites>
-  <testsuite tests="2" failures="1" name="github.com/googleapis/doc-pipeline">
+  <testsuite tests="2" failures="1" name="github.com/googleapis/doc-pipeline/generate">
     <testcase classname="build" name="hello" />
     <testcase classname="build" name="goodbye">
       <failure message="Failed" />
