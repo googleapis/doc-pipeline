@@ -61,14 +61,28 @@ def build_new_docs(bucket_name):
 
 @main.command()
 @click.argument("bucket_name")
-@click.argument("build_latest")
-def build_all_docs(bucket_name, build_latest):
+def build_all_docs(bucket_name):
     verify()
     credentials, project_id = docuploader.credentials.find(credentials_file="")
     storage_client = storage.Client(project=project_id, credentials=credentials)
 
     try:
-        generate.build_all_docs(bucket_name, storage_client, build_latest)
+        generate.build_all_docs(bucket_name, storage_client)
+    except Exception as e:
+        log.error(e)
+        sys.exit(1)
+
+
+@main.command()
+@click.argument("bucket_name")
+def build_latest_docs(bucket_name):
+    verify()
+    credentials, project_id = docuploader.credentials.find(credentials_file="")
+    storage_client = storage.Client(project=project_id, credentials=credentials)
+    only_latest = True
+
+    try:
+        generate.build_all_docs(bucket_name, storage_client, only_latest)
     except Exception as e:
         log.error(e)
         sys.exit(1)
@@ -92,16 +106,29 @@ def build_one_doc(bucket_name, object_name):
 @main.command()
 @click.argument("bucket_name")
 @click.argument("language")
-@click.argument("build_latest")
-def build_language_docs(bucket_name, language, build_latest):
+def build_language_docs(bucket_name, language):
     verify()
     credentials, project_id = docuploader.credentials.find(credentials_file="")
     storage_client = storage.Client(project=project_id, credentials=credentials)
 
     try:
-        generate.build_language_docs(
-            bucket_name, language, storage_client, build_latest
-        )
+        generate.build_language_docs(bucket_name, language, storage_client)
+    except Exception as e:
+        log.error(e)
+        sys.exit(1)
+
+
+@main.command()
+@click.argument("bucket_name")
+@click.argument("language")
+def build_latest_language_docs(bucket_name, language):
+    verify()
+    credentials, project_id = docuploader.credentials.find(credentials_file="")
+    storage_client = storage.Client(project=project_id, credentials=credentials)
+    only_latest = True
+
+    try:
+        generate.build_language_docs(bucket_name, language, storage_client, only_latest)
     except Exception as e:
         log.error(e)
         sys.exit(1)

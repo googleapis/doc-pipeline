@@ -21,11 +21,11 @@ pass_down_envvars+=(
     "SOURCE_BUCKET"      # Must set to generate any docs.
     "SOURCE_BLOB"        # Set to force regeneration of a single source blob.
     "FORCE_GENERATE_ALL" # Set to force regeneration of all blobs.
+    "FORCE_GENERATE_LATEST" # Set to force regenerate latest versions of all blobs.
     "TEST_BUCKET"        # Must set when running tests.
     "LANGUAGE"           # For specifying specific language builds.
     "INPUT"              # For specifying local input source.
     "BLOB_TO_DELETE"     # For delete-blob.
-    "BUILD_LATEST"       # For building only the latest version of each package.
 )
 
 # Prevent unintentional override on the default image.

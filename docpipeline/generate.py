@@ -273,20 +273,21 @@ def get_xref(xref, bucket, dir):
     d_xref = xref[len(DEVSITE_SCHEME) :]
     lang, pkg = d_xref.split("/", 1)
     version = "latest"
+    extension = ".tar.gz.yml"
     if "@" in pkg:
         pkg, version = pkg.rsplit("@", 1)
     if version == "latest":
         # List all blobs, sort by semver, and pick the latest.
         prefix = f"{XREFS_DIR_NAME}/{lang}-{pkg}-"
         blobs = bucket.list_blobs(prefix=prefix)
-        version = find_latest_version(blobs, prefix)
+        version = find_latest_version(blobs, prefix, extension)
 
         if version == "":
             # There are no versions, so there is no latest version.
             log.error(f"Could not find {xref} in gs://{bucket.name}. Skipping.")
             return ""
 
-    d_xref = f"{XREFS_DIR_NAME}/{lang}-{pkg}-{version}.tar.gz.yml"
+    d_xref = f"{XREFS_DIR_NAME}/{lang}-{pkg}-{version}{extension}"
 
     blob = bucket.blob(d_xref)
     if not blob.exists():
@@ -306,11 +307,12 @@ def version_sort(v):
 
 
 # Finds the latest version from blobs with specified prefix.
-def find_latest_version(blobs, prefix):
+def find_latest_version(blobs, prefix, extension=None):
+    tarball_extension = extension if extension else ".tar.gz"
     versions = []
     for blob in blobs:
         # Be sure to trim the suffix extension.
-        version = blob.name[len(prefix) : -len(".tar.gz.yml")]
+        version = blob.name[len(prefix) : -len(tarball_extension)]
         # Skip if version is not a valid version, like when some other package
         # has prefix as a prefix (...foo-1.0.0" and "...foo-beta1-1.0.0").
         try:
@@ -331,7 +333,9 @@ def find_latest_blobs(bucket, blobs):
     latest_blobs = []
     packages = {}
     for blob in blobs:
-        language, pkg = blob.name.split("-")[1:3]
+        splitted_name = blob.name.split("-")
+        language = splitted_name[1]
+        pkg = "-".join(splitted_name[2:-1])
         if pkg in packages:
             if language not in packages[pkg]:
                 packages[pkg].append(language)
@@ -341,14 +345,14 @@ def find_latest_blobs(bucket, blobs):
     # For each unique package, find latest version for its language
     for pkg in packages:
         for language in packages[pkg]:
-            prefix = f"{DOCFX_PREFIX}-{language}-{pkg}"
+            prefix = f"{DOCFX_PREFIX}{language}-{pkg}-"
             blobs = bucket.list_blobs(prefix=prefix)
             version = find_latest_version(blobs, prefix)
             if version == "":
                 log.error(f"Found no versions for {prefix}, skipping.")
                 continue
 
-            latest_blob_name = f"{prefix}-{version}.tar.gz.yml"
+            latest_blob_name = f"{prefix}{version}.tar.gz"
             latest_blobs.append(bucket.blob(latest_blob_name))
 
     return latest_blobs
@@ -397,12 +401,13 @@ def build_blobs(blobs):
     log.success("Done!")
 
 
-def build_all_docs(bucket_name, storage_client, build_latest=None):
+def build_all_docs(bucket_name, storage_client, only_latest=None):
     all_blobs = storage_client.list_blobs(bucket_name)
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX)]
-    if build_latest:
+    if only_latest:
         bucket = storage_client.get_bucket(bucket_name)
-        docfx_blobs = find_latest_blobs(docfx_blobs, bucket)
+        docfx_blobs = find_latest_blobs(bucket, docfx_blobs)
+
     build_blobs(docfx_blobs)
 
 
@@ -437,12 +442,12 @@ def build_new_docs(bucket_name, storage_client):
     build_blobs(new_blobs)
 
 
-def build_language_docs(bucket_name, language, storage_client, build_latest=None):
+def build_language_docs(bucket_name, language, storage_client, only_latest=None):
     all_blobs = storage_client.list_blobs(bucket_name)
     language_prefix = DOCFX_PREFIX + language + "-"
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(language_prefix)]
-    if build_latest:
+    if only_latest:
         bucket = storage_client.get_bucket(bucket_name)
-        docfx_blobs = find_latest_blobs(docfx_blobs, bucket)
+        docfx_blobs = find_latest_blobs(bucket, docfx_blobs)
 
     build_blobs(docfx_blobs)
