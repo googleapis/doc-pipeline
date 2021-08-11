@@ -63,8 +63,6 @@ def test_init():
 
 
 def upload_yaml(cwd, test_bucket):
-    # metadata_file = new_metadata if new_metadata else "docs.metadata"
-
     # Upload DocFX YAML to test with.
     shell.run(
         [
@@ -73,7 +71,6 @@ def upload_yaml(cwd, test_bucket):
             ".",
             f"--staging-bucket={test_bucket}",
             "--destination-prefix=docfx",
-            # f"--metadata-file={metadata_file}",
         ],
         cwd=cwd,
         hide_output=False,
@@ -330,15 +327,6 @@ def test_generate(yaml_dir, tmpdir):
     assert t1_latest != t2_latest
 
     swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)
-
-    """
-    # Force generation of Python docs and verify timestamp.
-    language = "python"
-    generate.build_language_docs(test_bucket, language, storage_client)
-    html_blob = bucket.get_blob(html_blob.name)
-    t4 = html_blob.updated
-    assert t3 != t4
-    """
 
 
 def test_local_generate(yaml_dir, tmpdir):
