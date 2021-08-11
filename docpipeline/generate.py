@@ -329,25 +329,34 @@ def find_latest_version(blobs, prefix, extension=None):
     return versions[-1]
 
 
+# Parses the blob's name and returns its language and package.
+def parse_blob_name(blob_name):
+    split_name = blob_name.split("-")
+    language = split_name[1]
+    pkg = "-".join(split_name[2:-1])
+    return language, pkg
+
+
 # Returns a list of blobs of their latest versions.
 def find_latest_blobs(bucket, blobs):
     latest_blobs = []
     packages = {}
     for blob in blobs:
-        splitted_name = blob.name.split("-")
-        language = splitted_name[1]
-        pkg = "-".join(splitted_name[2:-1])
+        language, pkg = parse_blob_name(blob.name)
         if pkg in packages:
             if language not in packages[pkg]:
-                packages[pkg].append(language)
+                packages[pkg][language] = []
         else:
-            packages[pkg] = [language]
+            packages[pkg] = {}
+            packages[pkg][language] = []
+        packages[pkg][language].append(blob)
 
     # For each unique package, find latest version for its language
     for pkg in packages:
         for language in packages[pkg]:
             prefix = f"{DOCFX_PREFIX}{language}-{pkg}-"
-            blobs = [blob for blob in blobs if blob.name.startswith(prefix)]
+            blobs = packages[pkg][language]
+            # blobs = [blob for blob in blobs if blob.name.startswith(prefix)]
             version = find_latest_version(blobs, prefix)
             if version == "":
                 log.error(f"Found no versions for {prefix}, skipping.")

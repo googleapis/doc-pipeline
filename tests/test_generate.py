@@ -499,6 +499,12 @@ class TestGenerate(unittest.TestCase):
         got = f.getvalue()
         self.assertMultiLineEqual(want, got)
 
+    def test_parse_blob_name(self):
+        want = ["python", "spanner"]
+        blob_name = "docfx-python-spanner-3.7.0.tar.gz"
+        got = list(generate.parse_blob_name(blob_name))
+        self.assertCountEqual(want, got)
+
 
 @pytest.mark.parametrize(
     "lang,name,stem,expected",
