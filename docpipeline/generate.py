@@ -16,6 +16,7 @@ import pathlib
 import shutil
 import tempfile
 import tarfile
+import xml.etree.ElementTree as ET
 
 from docuploader import log, shell, tar
 from docuploader.protos import metadata_pb2
@@ -374,6 +375,7 @@ def build_blobs(blobs):
 
     # Process every blob.
     failures = []
+    successes = []
     for i, blob in enumerate(blobs):
         try:
             log.info(f"Processing {i+1} of {len(blobs)}: {blob.name}...")
@@ -385,12 +387,16 @@ def build_blobs(blobs):
                     )
                 )
             process_blob(blob, devsite_template)
+            successes.append(blob.name)
         except Exception as e:
             # Keep processing the other files if an error occurs.
             log.error(f"Error processing {blob.name}:\n\n{e}")
             failures.append(blob.name)
 
     shutil.rmtree(templates_dir)
+
+    with open("sponge_log.xml", "w") as f:
+        write_xunit(f, successes, failures)
 
     if len(failures) > 0:
         failure_str = "\n".join(failures)
@@ -451,3 +457,29 @@ def build_language_docs(bucket_name, language, storage_client, only_latest=None)
         docfx_blobs = find_latest_blobs(bucket, docfx_blobs)
 
     build_blobs(docfx_blobs)
+
+
+def write_xunit(f, successes, failures):
+    testsuites = ET.Element("testsuites")
+    testsuite = ET.SubElement(
+        testsuites,
+        "testsuite",
+        attrib={
+            "tests": str(len(successes) + len(failures)),
+            "failures": str(len(failures)),
+            "name": "github.com/googleapis/doc-pipeline/generate",
+        },
+    )
+    for success in successes:
+        ET.SubElement(
+            testsuite, "testcase", attrib={"classname": "build", "name": success}
+        )
+    for failure in failures:
+        testcase = ET.SubElement(
+            testsuite, "testcase", attrib={"classname": "build", "name": failure}
+        )
+        ET.SubElement(testcase, "failure", attrib={"message": "Failed"})
+
+    tree = ET.ElementTree(element=testsuites)
+    ET.indent(tree)
+    tree.write(f, encoding="unicode")

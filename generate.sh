@@ -14,6 +14,7 @@
 # limitations under the License.
 
 set -e
+set -x
 
 # Add the path where docuploader gets installed to PATH.
 export PATH=$PATH:${HOME}/.local/bin
@@ -30,20 +31,37 @@ if [ -z "$SOURCE_BUCKET" ]; then
   exit 1
 fi
 
+# Don't exit immediately so we can send logs to flakybot.
+set +e
+exit_code=0
+
 if [ "$FORCE_GENERATE_ALL" == "true" ]; then
     if [ -n "$LANGUAGE" ]; then
         python3 docpipeline/__main__.py build-language-docs $SOURCE_BUCKET $LANGUAGE
+        exit_code=$?
     else
         python3 docpipeline/__main__.py build-all-docs $SOURCE_BUCKET
+        exit_code=$?
     fi
 elif [ "$FORCE_GENERATE_LATEST" == "true" ]; then
     if [ -n "$LANGUAGE" ]; then
         python3 docpipeline/__main__.py build-latest-language-docs $SOURCE_BUCKET $LANGUAGE
+        exit_code=$?
     else
         python3 docpipeline/__main__.py build-latest-docs $SOURCE_BUCKET
+        exit_code=$?
     fi
 elif [ -n "$SOURCE_BLOB" ]; then
     python3 docpipeline/__main__.py build-one-doc $SOURCE_BUCKET $SOURCE_BLOB
+    exit_code=$?
 else
     python3 docpipeline/__main__.py build-new-docs $SOURCE_BUCKET
+    exit_code=$?
 fi
+
+if [[ $KOKORO_BUILD_ARTIFACTS_SUBDIR = *"generate-prod"* ]]; then
+  chmod +x $KOKORO_GFILE_DIR/linux_amd64/flakybot
+  $KOKORO_GFILE_DIR/linux_amd64/flakybot
+fi
+
+exit $exit_code

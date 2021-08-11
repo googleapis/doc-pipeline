@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import io
 import os
 import pathlib
 import shutil
@@ -490,6 +491,22 @@ class TestGenerate(unittest.TestCase):
         got = generate.format_docfx_json(metadata)
 
         self.assertMultiLineEqual(got, want)
+
+    def test_write_xunit(self):
+        want = """<testsuites>
+  <testsuite tests="2" failures="1" name="github.com/googleapis/doc-pipeline/generate">
+    <testcase classname="build" name="hello" />
+    <testcase classname="build" name="goodbye">
+      <failure message="Failed" />
+    </testcase>
+  </testsuite>
+</testsuites>"""
+        f = io.StringIO()
+        successes = ["hello"]
+        failures = ["goodbye"]
+        generate.write_xunit(f, successes, failures)
+        got = f.getvalue()
+        self.assertMultiLineEqual(want, got)
 
 
 @pytest.mark.parametrize(
