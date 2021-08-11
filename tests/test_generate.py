@@ -294,13 +294,16 @@ def test_generate(yaml_dir, tmpdir):
     assert t6 != t7
 
     # Upload new blob, build only latest, and verify only latest is updated.
-    only_latest = True
     new_metadata = "docs.metadata.newer"
+    # Swap to newer metadata to upload newer version of tarball.
     swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)
     latest_html_blob_name = "python-doc-pipeline-test-2.1.2.tar.gz"
 
+    # Upload newer version of tarball, then switch the metadata back.
     upload_yaml(yaml_dir, test_bucket)
-    generate.build_all_docs(test_bucket, storage_client, only_latest)
+    swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)
+
+    generate.build_all_docs(test_bucket, storage_client, only_latest=True)
 
     # Verify old version HTML is not updated.
     html_blob = bucket.get_blob(html_blob.name)
@@ -314,7 +317,9 @@ def test_generate(yaml_dir, tmpdir):
 
     # Force generation of latest Python docs
     language = "python"
-    generate.build_language_docs(test_bucket, language, storage_client, only_latest)
+    generate.build_language_docs(
+        test_bucket, language, storage_client, only_latest=True
+    )
 
     # Verify old version HTML is not updated.
     html_blob = bucket.get_blob(html_blob.name)
@@ -325,8 +330,6 @@ def test_generate(yaml_dir, tmpdir):
     latest_html_blob = bucket.get_blob(latest_html_blob_name)
     t2_latest = latest_html_blob.updated
     assert t1_latest != t2_latest
-
-    swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)
 
 
 def test_local_generate(yaml_dir, tmpdir):

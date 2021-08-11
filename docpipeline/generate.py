@@ -347,7 +347,7 @@ def find_latest_blobs(bucket, blobs):
     for pkg in packages:
         for language in packages[pkg]:
             prefix = f"{DOCFX_PREFIX}{language}-{pkg}-"
-            blobs = bucket.list_blobs(prefix=prefix)
+            blobs = [blob for blob in blobs if blob.name.startswith(prefix)]
             version = find_latest_version(blobs, prefix)
             if version == "":
                 log.error(f"Found no versions for {prefix}, skipping.")
@@ -407,7 +407,7 @@ def build_blobs(blobs):
     log.success("Done!")
 
 
-def build_all_docs(bucket_name, storage_client, only_latest=None):
+def build_all_docs(bucket_name, storage_client, only_latest=False):
     all_blobs = storage_client.list_blobs(bucket_name)
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX)]
     if only_latest:
@@ -448,7 +448,7 @@ def build_new_docs(bucket_name, storage_client):
     build_blobs(new_blobs)
 
 
-def build_language_docs(bucket_name, language, storage_client, only_latest=None):
+def build_language_docs(bucket_name, language, storage_client, only_latest=False):
     all_blobs = storage_client.list_blobs(bucket_name)
     language_prefix = DOCFX_PREFIX + language + "-"
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(language_prefix)]
