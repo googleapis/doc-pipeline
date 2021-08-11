@@ -356,7 +356,6 @@ def find_latest_blobs(bucket, blobs):
         for language in packages[pkg]:
             prefix = f"{DOCFX_PREFIX}{language}-{pkg}-"
             blobs = packages[pkg][language]
-            # blobs = [blob for blob in blobs if blob.name.startswith(prefix)]
             version = find_latest_version(blobs, prefix)
             if version == "":
                 log.error(f"Found no versions for {prefix}, skipping.")
