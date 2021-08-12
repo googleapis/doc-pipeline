@@ -41,6 +41,14 @@ def api_dir(tmpdir):
     return tmpdir
 
 
+def swap_file(parent_dir, file1, file2):
+    temp_file = parent_dir / (file1.basename + "_temp")
+    shutil.copy(file1, temp_file)
+    shutil.copy(file2, file1)
+    shutil.copy(temp_file, file2)
+    os.remove(temp_file)
+
+
 # Initializes key variables needed for the test
 def test_init():
     test_bucket = os.environ.get("TEST_BUCKET")
@@ -71,14 +79,22 @@ def upload_yaml(cwd, test_bucket):
 
 # Fetches and uploads the blobs used for testing.
 def setup_testdata(cwd, storage_client, test_bucket):
+    latest_yaml_blob_name = "docfx-python-doc-pipeline-test-2.1.2.tar.gz"
+    latest_html_blob_name = "python-doc-pipeline-test-2.1.2.tar.gz"
     yaml_blob_name = "docfx-python-doc-pipeline-test-2.1.1.tar.gz"
     html_blob_name = "python-doc-pipeline-test-2.1.1.tar.gz"
     bucket = storage_client.get_bucket(test_bucket)
+    latest_yaml_blob = bucket.blob(latest_yaml_blob_name)
+    latest_html_blob = bucket.blob(latest_html_blob_name)
     yaml_blob = bucket.blob(yaml_blob_name)
     html_blob = bucket.blob(html_blob_name)
     xref_blob = bucket.blob(f"{generate.XREFS_DIR_NAME}/{html_blob_name}.yml")
 
     # Clean up any previous test data in the bucket.
+    if latest_yaml_blob.exists():
+        latest_yaml_blob.delete()
+    if latest_html_blob.exists():
+        latest_html_blob.delete()
     if yaml_blob.exists():
         yaml_blob.delete()
     if html_blob.exists():
@@ -277,6 +293,44 @@ def test_generate(yaml_dir, tmpdir):
     t7 = html_blob.updated
     assert t6 != t7
 
+    # Upload new blob, build only latest, and verify only latest is updated.
+    new_metadata = "docs.metadata.newer"
+    latest_html_blob_name = "python-doc-pipeline-test-2.1.2.tar.gz"
+
+    # Swap to newer metadata to upload newer version of tarball.
+    swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)
+    # Upload newer version of tarball, then switch the metadata back.
+    upload_yaml(yaml_dir, test_bucket)
+    swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)
+
+    generate.build_all_docs(test_bucket, storage_client, only_latest=True)
+
+    # Verify old version HTML is not updated.
+    html_blob = bucket.get_blob(html_blob.name)
+    t8 = html_blob.updated
+    assert t7 == t8
+
+    # Verify latest version HTML is updated.
+    latest_html_blob = bucket.get_blob(latest_html_blob_name)
+    t1_latest = latest_html_blob.updated
+    assert t7 != t1_latest
+
+    # Force generation of latest Python docs
+    language = "python"
+    generate.build_language_docs(
+        test_bucket, language, storage_client, only_latest=True
+    )
+
+    # Verify old version HTML is not updated.
+    html_blob = bucket.get_blob(html_blob.name)
+    t9 = html_blob.updated
+    assert t8 == t9
+
+    # Verify latest version HTML is updated.
+    latest_html_blob = bucket.get_blob(latest_html_blob_name)
+    t2_latest = latest_html_blob.updated
+    assert t1_latest != t2_latest
+
 
 def test_local_generate(yaml_dir, tmpdir):
     # Test for local generation content
@@ -444,6 +498,12 @@ class TestGenerate(unittest.TestCase):
         generate.write_xunit(f, successes, failures)
         got = f.getvalue()
         self.assertMultiLineEqual(want, got)
+
+    def test_parse_blob_name(self):
+        want = ["python", "spanner"]
+        blob_name = "docfx-python-spanner-3.7.0.tar.gz"
+        got = list(generate.parse_blob_name(blob_name))
+        self.assertCountEqual(want, got)
 
 
 @pytest.mark.parametrize(

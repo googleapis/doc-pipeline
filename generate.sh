@@ -36,11 +36,21 @@ set +e
 exit_code=0
 
 if [ "$FORCE_GENERATE_ALL" == "true" ]; then
-    python3 docpipeline/__main__.py build-all-docs $SOURCE_BUCKET
-    exit_code=$?
-elif [ -n "$LANGUAGE" ]; then
-    python3 docpipeline/__main__.py build-language-docs $SOURCE_BUCKET $LANGUAGE
-    exit_code=$?
+    if [ -n "$LANGUAGE" ]; then
+        python3 docpipeline/__main__.py build-language-docs $SOURCE_BUCKET $LANGUAGE
+        exit_code=$?
+    else
+        python3 docpipeline/__main__.py build-all-docs $SOURCE_BUCKET
+        exit_code=$?
+    fi
+elif [ "$FORCE_GENERATE_LATEST" == "true" ]; then
+    if [ -n "$LANGUAGE" ]; then
+        python3 docpipeline/__main__.py build-latest-language-docs $SOURCE_BUCKET $LANGUAGE
+        exit_code=$?
+    else
+        python3 docpipeline/__main__.py build-latest-docs $SOURCE_BUCKET
+        exit_code=$?
+    fi
 elif [ -n "$SOURCE_BLOB" ]; then
     python3 docpipeline/__main__.py build-one-doc $SOURCE_BUCKET $SOURCE_BLOB
     exit_code=$?

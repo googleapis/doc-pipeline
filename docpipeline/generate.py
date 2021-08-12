@@ -274,31 +274,21 @@ def get_xref(xref, bucket, dir):
     d_xref = xref[len(DEVSITE_SCHEME) :]
     lang, pkg = d_xref.split("/", 1)
     version = "latest"
+    extension = ".tar.gz.yml"
     if "@" in pkg:
         pkg, version = pkg.rsplit("@", 1)
     if version == "latest":
         # List all blobs, sort by semver, and pick the latest.
         prefix = f"{XREFS_DIR_NAME}/{lang}-{pkg}-"
         blobs = bucket.list_blobs(prefix=prefix)
-        versions = []
-        for blob in blobs:
-            # Be sure to trim the suffix extension.
-            version = blob.name[len(prefix) : -len(".tar.gz.yml")]
-            # Skip if version is not a valid version, like when some other package
-            # has prefix as a prefix (...foo-1.0.0" and "...foo-beta1-1.0.0").
-            try:
-                version_sort(version)
-                versions.append(version)
-            except ValueError:
-                pass  # Ignore.
-        if len(versions) == 0:
+        version = find_latest_version(blobs, prefix, extension)
+
+        if version == "":
             # There are no versions, so there is no latest version.
             log.error(f"Could not find {xref} in gs://{bucket.name}. Skipping.")
             return ""
-        versions = sorted(versions, key=version_sort)
-        version = versions[-1]
 
-    d_xref = f"{XREFS_DIR_NAME}/{lang}-{pkg}-{version}.tar.gz.yml"
+    d_xref = f"{XREFS_DIR_NAME}/{lang}-{pkg}-{version}{extension}"
 
     blob = bucket.blob(d_xref)
     if not blob.exists():
@@ -315,6 +305,66 @@ def version_sort(v):
     if v[0] == "v":  # Remove v prefix, if any.
         v = v[1:]
     return semver.VersionInfo.parse(v)
+
+
+# Finds the latest version from blobs with specified prefix.
+def find_latest_version(blobs, prefix, extension=None):
+    tarball_extension = extension if extension else ".tar.gz"
+    versions = []
+    for blob in blobs:
+        # Be sure to trim the suffix extension.
+        version = blob.name[len(prefix) : -len(tarball_extension)]
+        # Skip if version is not a valid version, like when some other package
+        # has prefix as a prefix (...foo-1.0.0" and "...foo-beta1-1.0.0").
+        try:
+            version_sort(version)
+            versions.append(version)
+        except ValueError:
+            pass  # Ignore.
+
+    if len(versions) == 0:
+        return ""
+
+    versions = sorted(versions, key=version_sort)
+    return versions[-1]
+
+
+# Parses the blob's name and returns its language and package.
+def parse_blob_name(blob_name):
+    split_name = blob_name.split("-")
+    language = split_name[1]
+    pkg = "-".join(split_name[2:-1])
+    return language, pkg
+
+
+# Returns a list of blobs of their latest versions.
+def find_latest_blobs(bucket, blobs):
+    latest_blobs = []
+    packages = {}
+    for blob in blobs:
+        language, pkg = parse_blob_name(blob.name)
+        if language in packages:
+            if pkg not in packages[language]:
+                packages[language][pkg] = []
+        else:
+            packages[language] = {}
+            packages[language][pkg] = []
+        packages[language][pkg].append(blob)
+
+    # For each unique package, find latest version for its language
+    for language in packages:
+        for pkg in packages[language]:
+            prefix = f"{DOCFX_PREFIX}{language}-{pkg}-"
+            blobs = packages[language][pkg]
+            version = find_latest_version(blobs, prefix)
+            if version == "":
+                log.error(f"Found no versions for {prefix}, skipping.")
+                continue
+
+            latest_blob_name = f"{prefix}{version}.tar.gz"
+            latest_blobs.append(bucket.blob(latest_blob_name))
+
+    return latest_blobs
 
 
 def build_blobs(blobs):
@@ -365,9 +415,13 @@ def build_blobs(blobs):
     log.success("Done!")
 
 
-def build_all_docs(bucket_name, storage_client):
+def build_all_docs(bucket_name, storage_client, only_latest=False):
     all_blobs = storage_client.list_blobs(bucket_name)
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX)]
+    if only_latest:
+        bucket = storage_client.get_bucket(bucket_name)
+        docfx_blobs = find_latest_blobs(bucket, docfx_blobs)
+
     build_blobs(docfx_blobs)
 
 
@@ -402,10 +456,14 @@ def build_new_docs(bucket_name, storage_client):
     build_blobs(new_blobs)
 
 
-def build_language_docs(bucket_name, language, storage_client):
+def build_language_docs(bucket_name, language, storage_client, only_latest=False):
     all_blobs = storage_client.list_blobs(bucket_name)
     language_prefix = DOCFX_PREFIX + language + "-"
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(language_prefix)]
+    if only_latest:
+        bucket = storage_client.get_bucket(bucket_name)
+        docfx_blobs = find_latest_blobs(bucket, docfx_blobs)
+
     build_blobs(docfx_blobs)
 
 

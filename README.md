@@ -125,6 +125,10 @@ See `.trampolinerc` for the canonical list of relevant environment variables.
   include `gs://` or the bucket.
 * `LANGUAGE`: Regenerates all docs under specified language. For example: `LANGUAGE=dotnet`
 * `FORCE_GENERATE_ALL`: Set to `true` to regenerate all docs.
+* `FORCE_GENERATE_LATEST`: Set to `true` to regenerate all latest versions of
+  docs.
+* `BLOB_TO_DELETE`: Blob to delete from storage. Include full bucket and object name. For
+  example: `gs://my-bucket/docfx-python-test-tarball.tar.gz`
 
 ### Formatting and style
 
