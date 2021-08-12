@@ -295,10 +295,10 @@ def test_generate(yaml_dir, tmpdir):
 
     # Upload new blob, build only latest, and verify only latest is updated.
     new_metadata = "docs.metadata.newer"
-    # Swap to newer metadata to upload newer version of tarball.
-    swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)
     latest_html_blob_name = "python-doc-pipeline-test-2.1.2.tar.gz"
 
+    # Swap to newer metadata to upload newer version of tarball.
+    swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)
     # Upload newer version of tarball, then switch the metadata back.
     upload_yaml(yaml_dir, test_bucket)
     swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)

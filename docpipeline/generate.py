@@ -343,19 +343,19 @@ def find_latest_blobs(bucket, blobs):
     packages = {}
     for blob in blobs:
         language, pkg = parse_blob_name(blob.name)
-        if pkg in packages:
-            if language not in packages[pkg]:
-                packages[pkg][language] = []
+        if language in packages:
+            if pkg not in packages[language]:
+                packages[language][pkg] = []
         else:
-            packages[pkg] = {}
-            packages[pkg][language] = []
-        packages[pkg][language].append(blob)
+            packages[language] = {}
+            packages[language][pkg] = []
+        packages[language][pkg].append(blob)
 
     # For each unique package, find latest version for its language
-    for pkg in packages:
-        for language in packages[pkg]:
+    for language in packages:
+        for pkg in packages[language]:
             prefix = f"{DOCFX_PREFIX}{language}-{pkg}-"
-            blobs = packages[pkg][language]
+            blobs = packages[language][pkg]
             version = find_latest_version(blobs, prefix)
             if version == "":
                 log.error(f"Found no versions for {prefix}, skipping.")
