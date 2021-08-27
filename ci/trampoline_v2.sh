@@ -418,8 +418,7 @@ docker_flags=(
     "--env" "TRAMPOLINE_SECRET_DIR=/secrets"
     "--volume" "${KOKORO_GFILE_DIR:-/dev/shm}:/secrets/gfile"
     "--env" "KOKORO_GFILE_DIR=/secrets/gfile"
-    #"--volume" "${KOKORO_KEYSTORE_DIR:-/dev/shm}:/secrets/keystore"
-    "--volume" "${KOKORO_KEYSTORE_DIR:-/usr/local/google/home/dandhlee/workspace}:/secrets/keystore"
+    "--volume" "${KOKORO_KEYSTORE_DIR:-/dev/shm}:/secrets/keystore"
     "--env" "KOKORO_KEYSTORE_DIR=/secrets/keystore"
 )
 
