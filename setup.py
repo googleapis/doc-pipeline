@@ -15,7 +15,7 @@
 import setuptools
 
 
-dependencies = ["click", "google-cloud-storage<2.0.0dev", "gcp-docuploader", "semver"]
+dependencies = ["click", "google-cloud-storage<2.0.0dev", "gcp-docuploader", "semver", "six"]
 
 packages = setuptools.find_packages()
 scripts = ["docuploader=docuploader.__main__:main"]
