@@ -30,9 +30,12 @@ import (
 	"google.golang.org/api/iterator"
 )
 
-var (
-	versionRE = regexp.MustCompile(`(rev\d+-)?v?(\d+\.\d+\.\d+|HEAD)`)
-)
+// versionRE matches versions of libraries. Examples:
+//    rev1234-2.3.4
+//    v1.0.0
+//    0.1.2
+//    HEAD
+var versionRE = regexp.MustCompile(`(rev\d+-)?v?(\d+\.\d+\.\d+|HEAD)`)
 
 func main() {
 	googleapisBucketName := flag.String("gbucket", "", "googleapis.dev bucket name")
@@ -42,21 +45,19 @@ func main() {
 	flag.Parse()
 
 	if *googleapisBucketName == "" {
-		fmt.Fprintf(os.Stderr, "must set -gbucket")
-		os.Exit(1)
+		log.Fatal("must set -gbucket")
 	}
 	if *cgcBucketName == "" {
-		fmt.Fprintf(os.Stderr, "must set -cgcbucket")
-		os.Exit(1)
-	}
-
-	client, err := storage.NewClient(context.Background())
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "failed to create storage client: %v", err)
-		os.Exit(1)
+		log.Fatal("must set -cgcbucket")
 	}
 
 	ctx := context.Background()
+
+	client, err := storage.NewClient(ctx)
+	if err != nil {
+		log.Fatalf("failed to create storage client: %v", err)
+	}
+	defer client.Close()
 
 	googleapisBucket := client.Bucket(*googleapisBucketName)
 	googleapisPkgs, err := names(ctx, googleapisBucket)
