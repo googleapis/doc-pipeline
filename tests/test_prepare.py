@@ -40,7 +40,8 @@ def test_add_prettyprint():
         {
             "name": "four.html",
             "input": '<code translate="no" dir="ltr">Node.js example code</code>',
-            "want": '<code class="prettyprint" translate="no" dir="ltr">Node.js example code</code>',
+            "want": '<code class="prettyprint" translate="no" '
+            'dir="ltr">Node.js example code</code>',
         },
     ]
 
