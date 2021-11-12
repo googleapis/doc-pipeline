@@ -24,8 +24,7 @@ def add_prettyprint(output_path):
             '<code class="lang-'.encode(), '<code class="prettyprint lang-'.encode()
         )
         html = html.replace(  # Add prettyprint to Nodejs examples
-            '<code translate="no" dir="ltr">'.encode(),
-            '<code class="prettyprint" translate="no" dir="ltr">'.encode(),
+            "<pre><code>".encode(), '<pre class="prettyprint"><code>'.encode()
         )
         with open(file, "wb") as file_handle:
             file_handle.write(html)

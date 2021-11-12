@@ -39,9 +39,13 @@ def test_add_prettyprint():
         },
         {
             "name": "four.html",
-            "input": '<code translate="no" dir="ltr">Node.js example code</code>',
-            "want": '<code class="prettyprint" translate="no" '
-            'dir="ltr">Node.js example code</code>',
+            "input": "<pre><code>Node.js example code</code>",
+            "want": '<pre class="prettyprint"><code>Node.js example code</code>',
+        },
+        {
+            "name": "five.html",
+            "input": '<pre><code class="specific class">nothing to do</code>',
+            "want": '<pre><code class="specific class">nothing to do</code>',
         },
     ]
 
