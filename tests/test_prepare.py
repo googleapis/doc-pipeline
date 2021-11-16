@@ -37,12 +37,6 @@ def test_add_prettyprint():
             "input": "nothing to do",
             "want": "nothing to do",
         },
-        {
-            "name": "four.html",
-            "input": '<code translate="no" dir="ltr">Node.js example code</code>',
-            "want": '<code class="prettyprint" translate="no" '
-            'dir="ltr">Node.js example code</code>',
-        },
     ]
 
     for file in files:
