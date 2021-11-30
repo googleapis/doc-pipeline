@@ -103,6 +103,7 @@ func names(ctx context.Context, bucket *storage.BucketHandle) (map[string]struct
 		}
 		if !strings.HasPrefix(obj.Name, "dotnet") &&
 			!strings.HasPrefix(obj.Name, "go") &&
+			!strings.HasPrefix(obj.Name, "java") &&
 			!strings.HasPrefix(obj.Name, "nodejs") &&
 			!strings.HasPrefix(obj.Name, "python") {
 			continue
