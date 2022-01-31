@@ -105,7 +105,8 @@ func names(ctx context.Context, bucket *storage.BucketHandle) (map[string]struct
 			!strings.HasPrefix(obj.Name, "go") &&
 			!strings.HasPrefix(obj.Name, "java") &&
 			!strings.HasPrefix(obj.Name, "nodejs") &&
-			!strings.HasPrefix(obj.Name, "python") {
+			!strings.HasPrefix(obj.Name, "python") &&
+			!strings.HasPrefix(obj.Name, "ruby") {
 			continue
 		}
 		name, err := trimVersion(obj.Name)
