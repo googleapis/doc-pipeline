@@ -36,4 +36,10 @@ python3 -m pip install flake8 black pytest pytest-cov
 black --check docpipeline tests
 flake8 docpipeline tests
 
-pytest --cov-report term-missing --cov docpipeline tests
+pytest --junitxml="sponge_log.xml" --cov-report term-missing --cov docpipeline tests
+
+if [[ $KOKORO_BUILD_ARTIFACTS_SUBDIR = *"continuous"* ]] || \
+   [[ $KOKORO_BUILD_ARTIFACTS_SUBDIR = *"periodic"* ]]; then
+  chmod +x $KOKORO_GFILE_DIR/linux_amd64/flakybot
+  $KOKORO_GFILE_DIR/linux_amd64/flakybot
+fi
