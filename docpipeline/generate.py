@@ -71,6 +71,8 @@ def clone_templates(dir):
         [
             "git",
             "clone",
+            "-b",
+            "update-summary-api-name"
             "--depth=1",
             "https://github.com/googleapis/doc-templates.git",
             ".",
