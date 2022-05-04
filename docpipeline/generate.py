@@ -43,6 +43,7 @@ DOCFX_JSON_TEMPLATE = """
     ],
     "globalMetadata": {{
       "_appTitle": "{package}",
+      "_version": "2.1.1",
       "_disableContribution": true,
       "_appFooter": " ",
       "_disableNavbar": true,
