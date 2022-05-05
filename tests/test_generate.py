@@ -403,6 +403,7 @@ class TestGenerate(unittest.TestCase):
         metadata.xrefs.extend(["one.yml", "two.yml"])
         metadata.xref_services.extend(["one.google.com", "two.google.com"])
         metadata.language = "python"
+        metadata.version = "2.1.1"
 
         want = """
 {
@@ -415,6 +416,7 @@ class TestGenerate(unittest.TestCase):
     ],
     "globalMetadata": {
       "_appTitle": "doc-pipeline",
+      "_packageVersion": "2.1.1",
       "_disableContribution": true,
       "_appFooter": " ",
       "_disableNavbar": true,
@@ -458,6 +460,7 @@ class TestGenerate(unittest.TestCase):
     ],
     "globalMetadata": {
       "_appTitle": "help",
+      "_packageVersion": "",
       "_disableContribution": true,
       "_appFooter": " ",
       "_disableNavbar": true,
