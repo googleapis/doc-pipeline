@@ -416,7 +416,7 @@ class TestGenerate(unittest.TestCase):
     ],
     "globalMetadata": {
       "_appTitle": "doc-pipeline",
-      "_version": "2.1.1",
+      "_packageVersion": "2.1.1",
       "_disableContribution": true,
       "_appFooter": " ",
       "_disableNavbar": true,
@@ -460,7 +460,7 @@ class TestGenerate(unittest.TestCase):
     ],
     "globalMetadata": {
       "_appTitle": "help",
-      "_version": "",
+      "_packageVersion": "",
       "_disableContribution": true,
       "_appFooter": " ",
       "_disableNavbar": true,

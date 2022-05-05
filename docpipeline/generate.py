@@ -43,7 +43,7 @@ DOCFX_JSON_TEMPLATE = """
     ],
     "globalMetadata": {{
       "_appTitle": "{package}",
-      "_version": "{version}",
+      "_packageVersion": "{package_version}",
       "_disableContribution": true,
       "_appFooter": " ",
       "_disableNavbar": true,
@@ -103,7 +103,7 @@ def format_docfx_json(metadata):
 
     return DOCFX_JSON_TEMPLATE.format(
         package=pkg,
-        version=version,
+        package_version=version,
         path=path,
         project_path=f"/{metadata.language}/",
         xrefs=xrefs,
