@@ -427,7 +427,7 @@ class TestGenerate(unittest.TestCase):
       "_disableAffix": true,
       "_disableFooter": true,
       "_rootPath": "/python/docs/reference/doc-pipeline/latest",
-      "_projectPath": "/python/"
+      "_projectPath": "/python/docs/reference/"
     },
     "overwrite": [
       "obj/examples/*.md"
@@ -471,7 +471,7 @@ class TestGenerate(unittest.TestCase):
       "_disableAffix": true,
       "_disableFooter": true,
       "_rootPath": "/dotnet/is/awesome",
-      "_projectPath": "/dotnet/"
+      "_projectPath": "/dotnet/docs/reference/"
     },
     "overwrite": [
       "obj/examples/*.md"
