@@ -171,7 +171,7 @@ def verify_template_content(tmpdir):
     assert html_file_path.isfile()
     got_text = html_file_path.read_text("utf-8")
     assert "devsite" in got_text
-    assert "/python/_book.yaml" in got_text
+    assert "/python/docs/reference/doc-pipeline-test/latest/_book.yaml" in got_text
 
     # Check the manifest.json was not included.
     manifest_path = tmpdir.join("manifest.json")
@@ -427,7 +427,7 @@ class TestGenerate(unittest.TestCase):
       "_disableAffix": true,
       "_disableFooter": true,
       "_rootPath": "/python/docs/reference/doc-pipeline/latest",
-      "_projectPath": "/python/"
+      "_projectPath": "/python/docs/reference/"
     },
     "overwrite": [
       "obj/examples/*.md"
@@ -471,7 +471,7 @@ class TestGenerate(unittest.TestCase):
       "_disableAffix": true,
       "_disableFooter": true,
       "_rootPath": "/dotnet/is/awesome",
-      "_projectPath": "/dotnet/"
+      "_projectPath": "/dotnet/docs/reference/"
     },
     "overwrite": [
       "obj/examples/*.md"
