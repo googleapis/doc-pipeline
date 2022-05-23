@@ -17,7 +17,7 @@ import pathlib
 import shutil
 import tempfile
 import tarfile
-from typing import Dict, List, Tuple
+from typing import Dict, List, Optional, Tuple
 import xml.etree.ElementTree as ET
 
 from docuploader import log, shell, tar
@@ -314,8 +314,10 @@ def version_sort(v):
     return semver.VersionInfo.parse(v)
 
 
-# Finds the latest version from blobs with specified prefix.
-def find_latest_version(blobs, prefix, extension=None):
+def find_latest_version(
+    blobs: List[storage.Blob], prefix: str, extension: Optional[str] = None
+) -> str:
+    """Finds the latest version from blobs with specified prefix."""
     tarball_extension = extension if extension else ".tar.gz"
     versions = []
     for blob in blobs:
@@ -336,18 +338,20 @@ def find_latest_version(blobs, prefix, extension=None):
     return versions[-1]
 
 
-# Parses the blob's name and returns its language and package.
-def parse_blob_name(blob_name):
+def parse_blob_name(blob_name: str) -> Tuple[str, str]:
+    """Parses the blob's name and returns its language and package."""
     split_name = blob_name.split("-")
     language = split_name[1]
     pkg = "-".join(split_name[2:-1])
     return language, pkg
 
 
-# Returns a list of blobs of their latest versions.
-def find_latest_blobs(bucket: storage.Bucket, blobs: List[storage.Blob]):
+def find_latest_blobs(
+    bucket: storage.Bucket, blobs: List[storage.Blob]
+) -> List[storage.Blob]:
+    """Gets a list of the latest blob for each package."""
     latest_blobs = []
-    packages = blobs_by_pkg(blobs)
+    packages = blobs_by_language_and_pkg(blobs)
 
     # For each unique package, find latest version for its language
     for language, pkgs in packages.items():
@@ -364,7 +368,10 @@ def find_latest_blobs(bucket: storage.Bucket, blobs: List[storage.Blob]):
     return latest_blobs
 
 
-def blobs_by_pkg(blobs: List[storage.Blob]) -> Dict[str, Dict[str, List]]:
+def blobs_by_language_and_pkg(
+    blobs: List[storage.Blob],
+) -> Dict[str, Dict[str, List[storage.Blob]]]:
+    """Gets a map from language to package name to a list of blobs."""
     packages = collections.defaultdict(lambda: collections.defaultdict(list))
     for blob in blobs:
         language, pkg = parse_blob_name(blob.name)
@@ -372,7 +379,8 @@ def blobs_by_pkg(blobs: List[storage.Blob]) -> Dict[str, Dict[str, List]]:
     return packages
 
 
-def build_blobs(blobs):
+def build_blobs(blobs: List[storage.Blob]):
+    """Builds the HTML for the given blobs."""
     num = len(blobs)
     if num == 0:
         log.success("No blobs to process!")
@@ -423,6 +431,7 @@ def build_blobs(blobs):
 def build_all_docs(
     bucket_name: str, storage_client: storage.Client, only_latest: bool = False
 ):
+    """Builds all of the blobs in the bucket."""
     all_blobs = storage_client.list_blobs(bucket_name)
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX)]
     if only_latest:
@@ -433,6 +442,7 @@ def build_all_docs(
 
 
 def build_one_doc(bucket_name, object_name, storage_client):
+    """Builds a single blob."""
     blob = storage_client.bucket(bucket_name).get_blob(object_name)
     if blob is None:
         raise Exception(f"Could not find gs://{bucket_name}/{object_name}!")
@@ -440,6 +450,7 @@ def build_one_doc(bucket_name, object_name, storage_client):
 
 
 def build_new_docs(bucket_name, storage_client):
+    """Lazily builds just the new blobs in the bucket."""
     all_blobs = list(storage_client.list_blobs(bucket_name))
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX)]
     other_blobs = {b.name: b for b in all_blobs if not b.name.startswith(DOCFX_PREFIX)}
@@ -464,6 +475,7 @@ def build_new_docs(bucket_name, storage_client):
 
 
 def build_language_docs(bucket_name, language, storage_client, only_latest=False):
+    """Builds all of the blobs for the given language."""
     all_blobs = storage_client.list_blobs(bucket_name)
     language_prefix = DOCFX_PREFIX + language + "-"
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(language_prefix)]
