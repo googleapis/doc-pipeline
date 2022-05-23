@@ -12,14 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import collections
 import pathlib
 import shutil
 import tempfile
 import tarfile
+from typing import Dict, List, Tuple
 import xml.etree.ElementTree as ET
 
 from docuploader import log, shell, tar
 from docuploader.protos import metadata_pb2
+from google.cloud import storage
 from google.protobuf import text_format, json_format
 from docpipeline import prepare
 
@@ -67,7 +70,7 @@ DOCFX_JSON_TEMPLATE = """
 """
 
 
-def clone_templates(dir):
+def clone_templates(dir: pathlib.Path) -> None:
     shell.run(
         [
             "git",
@@ -81,7 +84,7 @@ def clone_templates(dir):
     )
 
 
-def setup_templates():
+def setup_templates() -> Tuple[pathlib.Path, pathlib.Path]:
     templates_dir = pathlib.Path("doc-templates")
     if templates_dir.is_dir():
         shutil.rmtree(templates_dir)
@@ -94,7 +97,7 @@ def setup_templates():
     return templates_dir, devsite_template
 
 
-def format_docfx_json(metadata):
+def format_docfx_json(metadata: metadata_pb2.Metadata) -> str:
     pkg = metadata.name
     xrefs = ", ".join([f'"{xref}"' for xref in metadata.xrefs if xref != ""])
     xref_services = ", ".join([f'"{xref}"' for xref in metadata.xref_services])
@@ -342,24 +345,14 @@ def parse_blob_name(blob_name):
 
 
 # Returns a list of blobs of their latest versions.
-def find_latest_blobs(bucket, blobs):
+def find_latest_blobs(bucket: storage.Bucket, blobs: List[storage.Blob]):
     latest_blobs = []
-    packages = {}
-    for blob in blobs:
-        language, pkg = parse_blob_name(blob.name)
-        if language in packages:
-            if pkg not in packages[language]:
-                packages[language][pkg] = []
-        else:
-            packages[language] = {}
-            packages[language][pkg] = []
-        packages[language][pkg].append(blob)
+    packages = blobs_by_pkg(blobs)
 
     # For each unique package, find latest version for its language
-    for language in packages:
-        for pkg in packages[language]:
+    for language, pkgs in packages.items():
+        for pkg, blobs in pkgs.items():
             prefix = f"{DOCFX_PREFIX}{language}-{pkg}-"
-            blobs = packages[language][pkg]
             version = find_latest_version(blobs, prefix)
             if version == "":
                 log.error(f"Found no versions for {prefix}, skipping.")
@@ -371,6 +364,14 @@ def find_latest_blobs(bucket, blobs):
     return latest_blobs
 
 
+def blobs_by_pkg(blobs: List[storage.Blob]) -> Dict[str, Dict[str, List]]:
+    packages = collections.defaultdict(lambda: collections.defaultdict(list))
+    for blob in blobs:
+        language, pkg = parse_blob_name(blob.name)
+        packages[language][pkg].append(blob)
+    return packages
+
+
 def build_blobs(blobs):
     num = len(blobs)
     if num == 0:
@@ -379,8 +380,8 @@ def build_blobs(blobs):
 
     log.info("Let's build some docs!")
 
-    blobs_str = "\n".join(map(lambda blob: blob.name, blobs))
-    log.info(f"Processing {num} blob{'' if num == 1 else 's'}:\n{blobs_str}")
+    blob_names = "\n".join(map(lambda blob: blob.name, blobs))
+    log.info(f"Processing {num} blob{'' if num == 1 else 's'}:\n{blob_names}")
 
     # Clone doc-templates.
     templates_dir, devsite_template = setup_templates()
@@ -419,7 +420,9 @@ def build_blobs(blobs):
     log.success("Done!")
 
 
-def build_all_docs(bucket_name, storage_client, only_latest=False):
+def build_all_docs(
+    bucket_name: str, storage_client: storage.Client, only_latest: bool = False
+):
     all_blobs = storage_client.list_blobs(bucket_name)
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX)]
     if only_latest:
