@@ -17,7 +17,7 @@ import pathlib
 import shutil
 import tempfile
 import tarfile
-from typing import Dict, List, Optional, Tuple
+from typing import DefaultDict, Dict, List, Optional, Tuple
 import xml.etree.ElementTree as ET
 
 from docuploader import log, shell, tar
@@ -370,9 +370,11 @@ def find_latest_blobs(
 
 def group_blobs_by_language_and_pkg(
     blobs: List[storage.Blob],
-) -> Dict[str, Dict[str, List[storage.Blob]]]:
+) -> DefaultDict[str, DefaultDict[str, List[storage.Blob]]]:
     """Gets a map from language to package name to a list of blobs."""
-    packages = collections.defaultdict(lambda: collections.defaultdict(list))
+    packages: DefaultDict[
+        str, DefaultDict[str, List[storage.Blob]]
+    ] = collections.defaultdict(lambda: collections.defaultdict(list))
     for blob in blobs:
         language, pkg = parse_blob_name(blob.name)
         packages[language][pkg].append(blob)
@@ -450,7 +452,7 @@ def build_one_doc(bucket_name, object_name, storage_client):
 
 
 def has_new_blob(
-    docfx_blobs: List[storage.Blob], html_blobs: List[storage.Blob]
+    docfx_blobs: List[storage.Blob], html_blobs: Dict[str, storage.Blob]
 ) -> bool:
     for blob in docfx_blobs:
         html_name = blob.name[len(DOCFX_PREFIX) :]
@@ -469,7 +471,7 @@ def has_new_blob(
     return False
 
 
-def build_new_docs(bucket_name, storage_client):
+def build_new_docs(bucket_name: str, storage_client: storage.Client):
     """Lazily builds just the new blobs in the bucket.
 
     If the DocFX blob of a package is uploaded for the first time or is newer
