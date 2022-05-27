@@ -279,7 +279,7 @@ def test_generate(yaml_dir, tmpdir):
     t5 = html_blob.updated
     assert t4 == t5
 
-    # Force regeneration of a single doc with old YAML and verify
+    # Build new docs with unchanged YAML and verify the HTML
     # timestamp does not change.
     generate.build_new_docs(test_bucket, storage_client)
     html_blob = bucket.get_blob(html_blob.name)
@@ -330,6 +330,18 @@ def test_generate(yaml_dir, tmpdir):
     latest_html_blob = bucket.get_blob(latest_html_blob_name)
     t2_latest = latest_html_blob.updated
     assert t1_latest != t2_latest
+
+    # Update the YAML, build new docs, and verify the old HTML is updated.
+    upload_yaml(yaml_dir, test_bucket)
+    generate.build_new_docs(test_bucket, storage_client)
+    html_blob = bucket.get_blob(html_blob.name)
+    t10 = html_blob.updated
+    assert t9 != t10
+
+    # Also verify the latest HTML is updated.
+    latest_html_blob = bucket.get_blob(latest_html_blob_name)
+    t3_latest = latest_html_blob.updated
+    assert t2_latest != t3_latest
 
 
 def test_local_generate(yaml_dir, tmpdir):

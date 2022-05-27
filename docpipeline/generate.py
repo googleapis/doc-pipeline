@@ -351,10 +351,10 @@ def find_latest_blobs(
 ) -> List[storage.Blob]:
     """Gets a list of the latest blob for each package."""
     latest_blobs = []
-    packages = blobs_by_language_and_pkg(blobs)
+    blobs_by_language_and_pkg = group_blobs_by_language_and_pkg(blobs)
 
     # For each unique package, find latest version for its language
-    for language, pkgs in packages.items():
+    for language, pkgs in blobs_by_language_and_pkg.items():
         for pkg, blobs in pkgs.items():
             prefix = f"{DOCFX_PREFIX}{language}-{pkg}-"
             version = find_latest_version(blobs, prefix)
@@ -368,7 +368,7 @@ def find_latest_blobs(
     return latest_blobs
 
 
-def blobs_by_language_and_pkg(
+def group_blobs_by_language_and_pkg(
     blobs: List[storage.Blob],
 ) -> Dict[str, Dict[str, List[storage.Blob]]]:
     """Gets a map from language to package name to a list of blobs."""
@@ -449,35 +449,53 @@ def build_one_doc(bucket_name, object_name, storage_client):
     build_blobs([blob])
 
 
+def has_new_blob(
+    docfx_blobs: List[storage.Blob], html_blobs: List[storage.Blob]
+) -> bool:
+    for blob in docfx_blobs:
+        html_name = blob.name[len(DOCFX_PREFIX) :]
+        if html_name not in html_blobs:
+            return True
+
+        # For existing blobs, check if the YAML is newer than the HTML.
+        yaml_last_updated = blob.updated
+        html_last_updated = html_blobs[html_name].updated
+
+        if yaml_last_updated > html_last_updated:
+            return True
+
+    # If no YAML is newer than its corresponding HTML, there are no updates
+    # required.
+    return False
+
+
 def build_new_docs(bucket_name, storage_client):
-    """Lazily builds just the new blobs in the bucket."""
+    """Lazily builds just the new blobs in the bucket.
+
+    If the DocFX blob of a package is uploaded for the first time or is newer
+    than the corresponding HTML blob, the docs for all versions of the package
+    are updated. The new version may or may not be the latest SemVer.
+    """
     all_blobs = list(storage_client.list_blobs(bucket_name))
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX)]
-    other_blobs = {b.name: b for b in all_blobs if not b.name.startswith(DOCFX_PREFIX)}
+    html_blobs = {b.name: b for b in all_blobs if not b.name.startswith(DOCFX_PREFIX)}
 
-    new_blobs = []
-    for blob in docfx_blobs:
-        new_name = blob.name[len(DOCFX_PREFIX) :]
-        if new_name not in other_blobs:
-            new_blobs.append(blob)
-        else:
-            # For existing blobs, re-build the docs if the YAML blob is newer
-            # than the existing HTML blob
-            yaml_last_updated = blob.updated
+    docfx_blobs_to_process = []
+    blobs_by_language_and_pkg = group_blobs_by_language_and_pkg(docfx_blobs)
 
-            html_blob = other_blobs[new_name]
-            html_last_updated = html_blob.updated
+    for lang, pkgs in blobs_by_language_and_pkg.items():
+        for pkg, pkg_blobs in pkgs.items():
+            if has_new_blob(pkg_blobs, html_blobs):
+                log.info(f"found new blobs for {lang}-{pkg}")
+                docfx_blobs_to_process.extend(pkg_blobs)
 
-            if yaml_last_updated > html_last_updated:
-                new_blobs.append(blob)
-
-    build_blobs(new_blobs)
+    build_blobs(docfx_blobs_to_process)
 
 
 def build_language_docs(bucket_name, language, storage_client, only_latest=False):
     """Builds all of the blobs for the given language."""
     all_blobs = storage_client.list_blobs(bucket_name)
-    language_prefix = DOCFX_PREFIX + language + "-"
+    language_prefix = f"{DOCFX_PREFIX}{language}-"
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(language_prefix)]
     if only_latest:
         bucket = storage_client.get_bucket(bucket_name)
