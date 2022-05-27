@@ -31,10 +31,12 @@ export GOOGLE_APPLICATION_CREDENTIALS=$KOKORO_KEYSTORE_DIR/73713_docuploader_ser
 export PATH=$PATH:${HOME}/.local/bin
 
 python3 -m pip install -e .
-python3 -m pip install flake8 black pytest pytest-cov
+# Install lint dependencies. types-protobuf is needed for mypy.
+python3 -m pip install flake8 black pytest pytest-cov mypy types-protobuf
 
 black --check docpipeline tests
 flake8 docpipeline tests
+mypy docpipeline tests
 
 pytest --junitxml="sponge_log.xml" --cov-report term-missing --cov docpipeline tests
 
