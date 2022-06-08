@@ -17,7 +17,7 @@ import setuptools
 
 dependencies = [
     "click",
-    "google-cloud-storage<2.3.1",
+    "google-cloud-storage<2.4.1",
     "gcp-docuploader",
     "semver",
     "six",
