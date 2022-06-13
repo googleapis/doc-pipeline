@@ -13,7 +13,10 @@
 # limitations under the License.
 
 
-def add_prettyprint(output_path):
+import pathlib
+
+
+def add_prettyprint(output_path: pathlib.Path):
     files = output_path.glob("**/*.html")
     # Handle files in binary to avoid line endings
     # being changed when running on Windows.

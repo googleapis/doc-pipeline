@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import collections
+from io import TextIOWrapper
 import pathlib
 import shutil
 import tempfile
@@ -115,7 +116,12 @@ def format_docfx_json(metadata: metadata_pb2.Metadata) -> str:
     )
 
 
-def setup_local_docfx(tmp_path, api_path, decompress_path, blob):
+def setup_local_docfx(
+    tmp_path: pathlib.Path,
+    api_path: pathlib.Path,
+    decompress_path: pathlib.Path,
+    blob: storage.Blob,
+) -> Tuple[pathlib.Path, metadata_pb2.Metadata]:
     for item in blob.iterdir():
         if item.is_dir() and item.name == "api":
             decompress_path = tmp_path.joinpath("obj")
@@ -124,10 +130,15 @@ def setup_local_docfx(tmp_path, api_path, decompress_path, blob):
     shutil.copytree(blob, decompress_path, dirs_exist_ok=True)
     log.info(f"Decompressed in {decompress_path}")
 
-    return setup_metadata(tmp_path, api_path, decompress_path, blob)
+    return write_docfx_json(tmp_path, api_path, decompress_path, blob)
 
 
-def setup_bucket_docfx(tmp_path, api_path, decompress_path, blob):
+def setup_bucket_docfx(
+    tmp_path: pathlib.Path,
+    api_path: pathlib.Path,
+    decompress_path: pathlib.Path,
+    blob: storage.Blob,
+) -> Tuple[pathlib.Path, metadata_pb2.Metadata]:
     tar_filename = tmp_path.joinpath(blob.name)
     tar_filename.parent.mkdir(parents=True, exist_ok=True)
 
@@ -144,10 +155,15 @@ def setup_bucket_docfx(tmp_path, api_path, decompress_path, blob):
     tar.decompress(tar_filename, decompress_path)
     log.info(f"Decompressed {blob.name} in {decompress_path}")
 
-    return setup_metadata(tmp_path, api_path, decompress_path, blob)
+    return write_docfx_json(tmp_path, api_path, decompress_path, blob)
 
 
-def setup_metadata(tmp_path, api_path, decompress_path, blob):
+def write_docfx_json(
+    tmp_path: pathlib.Path,
+    api_path: pathlib.Path,
+    decompress_path: pathlib.Path,
+    blob: storage.Blob,
+) -> Tuple[pathlib.Path, metadata_pb2.Metadata]:
     metadata = metadata_pb2.Metadata()
     metadata_path = decompress_path.joinpath("docs.metadata.json")
     if metadata_path.exists():
@@ -174,7 +190,9 @@ def setup_metadata(tmp_path, api_path, decompress_path, blob):
     return metadata_path, metadata
 
 
-def build_and_format(blob, is_bucket, devsite_template):
+def build_and_format(
+    blob: storage.Blob, is_bucket: bool, devsite_template: pathlib.Path
+) -> Tuple[pathlib.Path, metadata_pb2.Metadata, pathlib.Path]:
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
 
     api_path = decompress_path = tmp_path.joinpath("obj/api")
@@ -229,7 +247,7 @@ def build_and_format(blob, is_bucket, devsite_template):
     return tmp_path, metadata, site_path
 
 
-def get_path(metadata):
+def get_path(metadata: metadata_pb2.Metadata) -> str:
     path = f"/{metadata.language}/docs/reference/{metadata.name}"
     if metadata.stem != "":
         path = metadata.stem
@@ -238,7 +256,7 @@ def get_path(metadata):
     return path
 
 
-def process_blob(blob, devsite_template):
+def process_blob(blob: storage.Blob, devsite_template: pathlib.Path) -> None:
     is_bucket = True
     tmp_path, metadata, site_path = build_and_format(blob, is_bucket, devsite_template)
 
@@ -274,7 +292,7 @@ def process_blob(blob, devsite_template):
     log.success(f"Done with {blob.name}!")
 
 
-def get_xref(xref, bucket, dir):
+def get_xref(xref: str, bucket: storage.Bucket, dir: pathlib.Path) -> str:
     if not xref.startswith(DEVSITE_SCHEME):
         return xref
 
@@ -308,7 +326,7 @@ def get_xref(xref, bucket, dir):
     return str(d_xref_path)
 
 
-def version_sort(v):
+def version_sort(v: str) -> semver.VersionInfo:
     if v[0] == "v":  # Remove v prefix, if any.
         v = v[1:]
     return semver.VersionInfo.parse(v)
@@ -443,7 +461,7 @@ def build_all_docs(
     build_blobs(docfx_blobs)
 
 
-def build_one_doc(bucket_name, object_name, storage_client):
+def build_one_doc(bucket_name: str, object_name: str, storage_client: storage.Client):
     """Builds a single blob."""
     blob = storage_client.bucket(bucket_name).get_blob(object_name)
     if blob is None:
@@ -494,7 +512,12 @@ def build_new_docs(bucket_name: str, storage_client: storage.Client):
     build_blobs(docfx_blobs_to_process)
 
 
-def build_language_docs(bucket_name, language, storage_client, only_latest=False):
+def build_language_docs(
+    bucket_name: str,
+    language: str,
+    storage_client: storage.Client,
+    only_latest: bool = False,
+):
     """Builds all of the blobs for the given language."""
     all_blobs = storage_client.list_blobs(bucket_name)
     language_prefix = f"{DOCFX_PREFIX}{language}-"
@@ -506,7 +529,7 @@ def build_language_docs(bucket_name, language, storage_client, only_latest=False
     build_blobs(docfx_blobs)
 
 
-def write_xunit(f, successes, failures):
+def write_xunit(f: TextIOWrapper, successes: List[str], failures: List[str]):
     testsuites = ET.Element("testsuites")
     testsuite = ET.SubElement(
         testsuites,
