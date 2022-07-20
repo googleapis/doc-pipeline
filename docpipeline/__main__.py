@@ -47,7 +47,7 @@ def main():
 
 @main.command()
 @click.argument("bucket_name")
-def build_new_docs(bucket_name):
+def build_new_docs(bucket_name: str) -> None:
     verify()
     credentials, project_id = docuploader.credentials.find(credentials_file="")
     storage_client = storage.Client(project=project_id, credentials=credentials)
@@ -61,7 +61,7 @@ def build_new_docs(bucket_name):
 
 @main.command()
 @click.argument("bucket_name")
-def build_all_docs(bucket_name):
+def build_all_docs(bucket_name: str) -> None:
     verify()
     credentials, project_id = docuploader.credentials.find(credentials_file="")
     storage_client = storage.Client(project=project_id, credentials=credentials)
@@ -75,7 +75,7 @@ def build_all_docs(bucket_name):
 
 @main.command()
 @click.argument("bucket_name")
-def build_latest_docs(bucket_name):
+def build_latest_docs(bucket_name: str) -> None:
     verify()
     credentials, project_id = docuploader.credentials.find(credentials_file="")
     storage_client = storage.Client(project=project_id, credentials=credentials)
@@ -91,7 +91,7 @@ def build_latest_docs(bucket_name):
 @main.command()
 @click.argument("bucket_name")
 @click.argument("object_name")
-def build_one_doc(bucket_name, object_name):
+def build_one_doc(bucket_name: str, object_name: str) -> None:
     verify()
     credentials, project_id = docuploader.credentials.find(credentials_file="")
     storage_client = storage.Client(project=project_id, credentials=credentials)
@@ -106,7 +106,7 @@ def build_one_doc(bucket_name, object_name):
 @main.command()
 @click.argument("bucket_name")
 @click.argument("language")
-def build_language_docs(bucket_name, language):
+def build_language_docs(bucket_name: str, language: str) -> None:
     verify()
     credentials, project_id = docuploader.credentials.find(credentials_file="")
     storage_client = storage.Client(project=project_id, credentials=credentials)
@@ -121,7 +121,7 @@ def build_language_docs(bucket_name, language):
 @main.command()
 @click.argument("bucket_name")
 @click.argument("language")
-def build_latest_language_docs(bucket_name, language):
+def build_latest_language_docs(bucket_name: str, language: str) -> None:
     verify()
     credentials, project_id = docuploader.credentials.find(credentials_file="")
     storage_client = storage.Client(project=project_id, credentials=credentials)
@@ -136,7 +136,7 @@ def build_latest_language_docs(bucket_name, language):
 
 @main.command()
 @click.argument("input_path")
-def build_local_doc(input_path):
+def build_local_doc(input_path: str) -> None:
     try:
         local_generate.build_local_doc(input_path)
     except Exception as e:
