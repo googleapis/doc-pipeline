@@ -142,6 +142,15 @@ def setup_bucket_docfx(
     tar_filename = tmp_path.joinpath(blob.name)
     tar_filename.parent.mkdir(parents=True, exist_ok=True)
 
+    # Reinstantiate the blob in case it changed between listing and downloading.
+    blob = blob.bucket.blob(blob.name)
+    if not blob.exists():
+        raise ValueError(
+            (
+                f"Blob gs://{blob.bucket.name}/{blob.name} does"
+                "not exist (maybe it was deleted?)"
+            )
+        )
     blob.download_to_filename(tar_filename)
     log.info(f"Downloaded gs://{blob.bucket.name}/{blob.name} to {tar_filename}")
 
