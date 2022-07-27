@@ -233,6 +233,19 @@ def test_setup_docfx(yaml_dir):
     assert metadata.name == "doc-pipeline-test"
 
 
+def test_setup_docfx_not_found():
+    test_bucket, storage_client = test_init()
+    tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
+    fake_blob = storage_client.bucket(test_bucket).blob("fake_blob_name")
+    with pytest.raises(ValueError):
+        generate.setup_bucket_docfx(
+            tmp_path,
+            pathlib.Path("/unused"),
+            pathlib.Path("/unused"),
+            fake_blob,
+        )
+
+
 def test_generate(yaml_dir, tmpdir):
     test_bucket, storage_client = test_init()
 
