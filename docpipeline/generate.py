@@ -408,7 +408,7 @@ def group_blobs_by_language_and_pkg(
     return packages
 
 
-def build_blobs(blobs: List[storage.Blob]):
+def build_blobs(blobs: List[storage.Blob], bucket_name: str):
     """Builds the HTML for the given blobs."""
     num = len(blobs)
     if num == 0:
@@ -446,7 +446,7 @@ def build_blobs(blobs: List[storage.Blob]):
     shutil.rmtree(templates_dir)
 
     with open("sponge_log.xml", "w") as f:
-        write_xunit(f, successes, failures)
+        write_xunit(f, successes, failures, bucket_name)
 
     if len(failures) > 0:
         failure_str = "\n".join(failures)
@@ -467,7 +467,7 @@ def build_all_docs(
         bucket = storage_client.get_bucket(bucket_name)
         docfx_blobs = find_latest_blobs(bucket, docfx_blobs)
 
-    build_blobs(docfx_blobs)
+    build_blobs(docfx_blobs, bucket_name)
 
 
 def build_one_doc(bucket_name: str, object_name: str, storage_client: storage.Client):
@@ -475,7 +475,7 @@ def build_one_doc(bucket_name: str, object_name: str, storage_client: storage.Cl
     blob = storage_client.bucket(bucket_name).get_blob(object_name)
     if blob is None:
         raise Exception(f"Could not find gs://{bucket_name}/{object_name}!")
-    build_blobs([blob])
+    build_blobs([blob], bucket_name)
 
 
 def has_new_blob(
@@ -518,7 +518,7 @@ def build_new_docs(bucket_name: str, storage_client: storage.Client):
                 log.info(f"found new blobs for {lang}-{pkg}")
                 docfx_blobs_to_process.extend(pkg_blobs)
 
-    build_blobs(docfx_blobs_to_process)
+    build_blobs(docfx_blobs_to_process, bucket_name)
 
 
 def build_language_docs(
@@ -535,10 +535,18 @@ def build_language_docs(
         bucket = storage_client.get_bucket(bucket_name)
         docfx_blobs = find_latest_blobs(bucket, docfx_blobs)
 
-    build_blobs(docfx_blobs)
+    build_blobs(docfx_blobs, bucket_name)
 
 
-def write_xunit(f: TextIOWrapper, successes: List[str], failures: List[str]):
+def write_xunit(
+    f: TextIOWrapper, successes: List[str], failures: List[str], bucket_name: str
+):
+    name = "generate-prod"
+    if bucket_name.endswith("-dev"):
+        name = "generate-dev"
+    if bucket_name.endswith("-staging"):
+        name = "generate-staging"
+
     testsuites = ET.Element("testsuites")
     testsuite = ET.SubElement(
         testsuites,
@@ -546,7 +554,7 @@ def write_xunit(f: TextIOWrapper, successes: List[str], failures: List[str]):
         attrib={
             "tests": str(len(successes) + len(failures)),
             "failures": str(len(failures)),
-            "name": "github.com/googleapis/doc-pipeline/generate",
+            "name": name,
         },
     )
     for success in successes:

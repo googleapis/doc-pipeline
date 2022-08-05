@@ -511,27 +511,37 @@ class TestGenerate(unittest.TestCase):
 
         self.assertMultiLineEqual(got, want)
 
-    def test_write_xunit(self):
-        want = """<testsuites>
-  <testsuite tests="2" failures="1" name="github.com/googleapis/doc-pipeline/generate">
-    <testcase classname="build" name="hello" />
-    <testcase classname="build" name="goodbye">
-      <failure message="Failed" />
-    </testcase>
-  </testsuite>
-</testsuites>"""
-        f = io.StringIO()
-        successes = ["hello"]
-        failures = ["goodbye"]
-        generate.write_xunit(f, successes, failures)
-        got = f.getvalue()
-        self.assertMultiLineEqual(want, got)
 
-    def test_parse_blob_name(self):
-        want = ["python", "spanner"]
-        blob_name = "docfx-python-spanner-3.7.0.tar.gz"
-        got = list(generate.parse_blob_name(blob_name))
-        self.assertCountEqual(want, got)
+@pytest.mark.parametrize(
+    "bucket_name, name",
+    [
+        ("docs-staging-v2", "generate-prod"),
+        ("docs-staging-v2-dev", "generate-dev"),
+        ("docs-staging-v2-staging", "generate-staging"),
+    ],
+)
+def test_write_xunit(self, bucket_name, name):
+    want = """<testsuites>
+<testsuite tests="2" failures="1" name="{name}">
+<testcase classname="build" name="hello" />
+<testcase classname="build" name="goodbye">
+    <failure message="Failed" />
+</testcase>
+</testsuite>
+</testsuites>"""
+    f = io.StringIO()
+    successes = ["hello"]
+    failures = ["goodbye"]
+    generate.write_xunit(f, successes, failures, bucket_name)
+    got = f.getvalue()
+    self.assertMultiLineEqual(want, got)
+
+
+def test_parse_blob_name(self):
+    want = ["python", "spanner"]
+    blob_name = "docfx-python-spanner-3.7.0.tar.gz"
+    got = list(generate.parse_blob_name(blob_name))
+    self.assertCountEqual(want, got)
 
 
 @pytest.mark.parametrize(
