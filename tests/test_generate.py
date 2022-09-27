@@ -164,14 +164,14 @@ def verify_template_content(tmpdir):
     assert toc_file_path.isfile()
     got_text = toc_file_path.read_text("utf-8")
     # See testdata/docs.metadata.
-    assert "/python/docs/reference/doc-pipeline-test/latest" in got_text
+    assert "/python/docs/reference/doc-pipeline-test/2.1.1" in got_text
 
     # Check the template worked.
     html_file_path = tmpdir.join("google.api.customhttppattern.html")
     assert html_file_path.isfile()
     got_text = html_file_path.read_text("utf-8")
     assert "devsite" in got_text
-    assert "/python/docs/reference/doc-pipeline-test/latest/_book.yaml" in got_text
+    assert "/python/docs/reference/doc-pipeline-test/2.1.1/_book.yaml" in got_text
 
     # Check the manifest.json was not included.
     manifest_path = tmpdir.join("manifest.json")
@@ -227,7 +227,7 @@ def test_setup_docfx(yaml_dir):
     assert docfx_json_file.exists()
     with open(docfx_json_file) as w:
         got_text = w.read()
-        assert "/python/docs/reference/doc-pipeline-test/latest" in got_text
+        assert "/python/docs/reference/doc-pipeline-test/2.1.1" in got_text
 
     assert metadata_path.exists()
     assert metadata.name == "doc-pipeline-test"
@@ -451,7 +451,7 @@ class TestGenerate(unittest.TestCase):
       "_disableSideFilter": true,
       "_disableAffix": true,
       "_disableFooter": true,
-      "_rootPath": "/python/docs/reference/doc-pipeline/latest",
+      "_rootPath": "/python/docs/reference/doc-pipeline/2.1.1",
       "_projectPath": "/python/docs/reference/"
     },
     "overwrite": [
@@ -535,23 +535,33 @@ class TestGenerate(unittest.TestCase):
 
 
 @pytest.mark.parametrize(
-    "lang,name,stem,expected",
+    "lang,name,stem,version,expected",
     [
-        ("go", "help", "", "/go/docs/reference/help"),
-        ("go", "other", "", "/go/docs/reference/other/latest"),
+        ("go", "help", "", "1.0.0", "/go/docs/reference/help"),
+        ("go", "other", "", "2.0.0", "/go/docs/reference/other/2.0.0"),
         (
             "python",
             "other2",
             "",
-            "/python/docs/reference/other2/latest",
+            "3.0.0",
+            "/python/docs/reference/other2/3.0.0",
         ),
-        ("go", "other", "/foo/bar", "/foo/bar/latest"),
+        ("go", "other", "/foo/bar", "4.0.0", "/foo/bar/4.0.0"),
+        ("go", "no-version", "", "", "/go/docs/reference/no-version/latest"),
+        (
+            "non-multi",
+            "other",
+            "",
+            "1.2.3",
+            "/non-multi/docs/reference/other/latest",
+        ),
     ],
 )
-def test_get_path(lang, name, stem, expected):
+def test_get_path(lang, name, stem, version, expected):
     metadata = metadata_pb2.Metadata()
     metadata.language = lang
     metadata.name = name
     metadata.stem = stem
+    metadata.version = version
     got = generate.get_path(metadata)
     assert got == expected
