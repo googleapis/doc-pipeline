@@ -36,8 +36,6 @@ XREFS_DIR_NAME = "xrefs"
 
 DEVSITE_SCHEME = "devsite://"
 
-MULTI_VERSION_LANGUAGES = ["go", "java", "python", "ruby"]
-
 DOCFX_JSON_TEMPLATE = """
 {{
   "build": {{
@@ -263,10 +261,7 @@ def get_path(metadata: metadata_pb2.Metadata) -> str:
     if metadata.stem != "":
         path = metadata.stem
     if metadata.name != "help":
-        if metadata.language in MULTI_VERSION_LANGUAGES and metadata.version:
-            path += f"/{metadata.version}"
-        else:
-            path += "/latest"
+        path += "/latest"
     return path
 
 
