@@ -18,7 +18,7 @@ import pathlib
 import shutil
 import tempfile
 import tarfile
-from typing import DefaultDict, Dict, List, Optional, Tuple
+from typing import DefaultDict, List, Optional, Tuple
 import xml.etree.ElementTree as ET
 
 from docuploader import log, shell, tar
@@ -478,45 +478,27 @@ def build_one_doc(bucket_name: str, object_name: str, storage_client: storage.Cl
     build_blobs([blob])
 
 
-def has_new_blob(
-    docfx_blobs: List[storage.Blob], html_blobs: Dict[str, storage.Blob]
-) -> bool:
-    for blob in docfx_blobs:
-        html_name = blob.name[len(DOCFX_PREFIX) :]
-        if html_name not in html_blobs:
-            return True
-
-        # For existing blobs, check if the YAML is newer than the HTML.
-        yaml_last_updated = blob.updated
-        html_last_updated = html_blobs[html_name].updated
-
-        if yaml_last_updated > html_last_updated:
-            return True
-
-    # If no YAML is newer than its corresponding HTML, there are no updates
-    # required.
-    return False
-
-
 def build_new_docs(bucket_name: str, storage_client: storage.Client):
     """Lazily builds just the new blobs in the bucket.
 
     If the DocFX blob of a package is uploaded for the first time or is newer
-    than the corresponding HTML blob, the docs for all versions of the package
-    are updated. The new version may or may not be the latest SemVer.
+    than the corresponding HTML blob, it is generated.
+
+    The new version may or may not be the latest SemVer.
     """
     all_blobs = list(storage_client.list_blobs(bucket_name))
     docfx_blobs = [blob for blob in all_blobs if blob.name.startswith(DOCFX_PREFIX)]
     html_blobs = {b.name: b for b in all_blobs if not b.name.startswith(DOCFX_PREFIX)}
 
     docfx_blobs_to_process = []
-    blobs_by_language_and_pkg = group_blobs_by_language_and_pkg(docfx_blobs)
 
-    for lang, pkgs in blobs_by_language_and_pkg.items():
-        for pkg, pkg_blobs in pkgs.items():
-            if has_new_blob(pkg_blobs, html_blobs):
-                log.info(f"found new blobs for {lang}-{pkg}")
-                docfx_blobs_to_process.extend(pkg_blobs)
+    for docfx_blob in docfx_blobs:
+        html_name = docfx_blob.name[len(DOCFX_PREFIX) :]
+        if (
+            html_name not in html_blobs
+            or docfx_blob.updated > html_blobs[html_name].updated
+        ):
+            docfx_blobs_to_process.append(docfx_blob)
 
     build_blobs(docfx_blobs_to_process)
 

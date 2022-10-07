@@ -270,41 +270,41 @@ def test_generate(yaml_dir, tmpdir):
     generate.build_all_docs(test_bucket, storage_client)
     html_blob = bucket.get_blob(html_blob.name)
     t2 = html_blob.updated
-    assert t1 != t2
+    assert t1 != t2, "HTML is updated"
 
     # Force regeneration of a single doc and verify timestamp.
     generate.build_one_doc(test_bucket, yaml_blob.name, storage_client)
     html_blob = bucket.get_blob(html_blob.name)
     t3 = html_blob.updated
-    assert t2 != t3
+    assert t2 != t3, "single doc gets updated"
 
     # Force generation of Python docs and verify timestamp.
     language = "python"
     generate.build_language_docs(test_bucket, language, storage_client)
     html_blob = bucket.get_blob(html_blob.name)
     t4 = html_blob.updated
-    assert t3 != t4
+    assert t3 != t4, "Python docs get updated"
 
     # Force generation of Go docs, verify Python HTML timestamp does not change.
     language = "go"
     generate.build_language_docs(test_bucket, language, storage_client)
     html_blob = bucket.get_blob(html_blob.name)
     t5 = html_blob.updated
-    assert t4 == t5
+    assert t4 == t5, "Go docs get udpated"
 
     # Build new docs with unchanged YAML and verify the HTML
     # timestamp does not change.
     generate.build_new_docs(test_bucket, storage_client)
     html_blob = bucket.get_blob(html_blob.name)
     t6 = html_blob.updated
-    assert t5 == t6
+    assert t5 == t6, "same YAML, no updates"
 
     # Update the YAML, build new docs, and verify the HTML was updated.
     upload_yaml(yaml_dir, test_bucket)
     generate.build_new_docs(test_bucket, storage_client)
     html_blob = bucket.get_blob(html_blob.name)
     t7 = html_blob.updated
-    assert t6 != t7
+    assert t6 != t7, "new YAML, HTML gets updated"
 
     # Upload new blob, build only latest, and verify only latest is updated.
     new_metadata = "docs.metadata.newer"
@@ -321,12 +321,12 @@ def test_generate(yaml_dir, tmpdir):
     # Verify old version HTML is not updated.
     html_blob = bucket.get_blob(html_blob.name)
     t8 = html_blob.updated
-    assert t7 == t8
+    assert t7 == t8, "old version not updated"
 
     # Verify latest version HTML is updated.
     latest_html_blob = bucket.get_blob(latest_html_blob_name)
     t1_latest = latest_html_blob.updated
-    assert t7 != t1_latest
+    assert t7 != t1_latest, "latest is updated"
 
     # Force generation of latest Python docs
     language = "python"
@@ -337,24 +337,19 @@ def test_generate(yaml_dir, tmpdir):
     # Verify old version HTML is not updated.
     html_blob = bucket.get_blob(html_blob.name)
     t9 = html_blob.updated
-    assert t8 == t9
+    assert t8 == t9, "old version not updated"
 
     # Verify latest version HTML is updated.
     latest_html_blob = bucket.get_blob(latest_html_blob_name)
     t2_latest = latest_html_blob.updated
-    assert t1_latest != t2_latest
+    assert t1_latest != t2_latest, "latest is updated"
 
     # Update the YAML, build new docs, and verify the old HTML is updated.
     upload_yaml(yaml_dir, test_bucket)
     generate.build_new_docs(test_bucket, storage_client)
     html_blob = bucket.get_blob(html_blob.name)
     t10 = html_blob.updated
-    assert t9 != t10
-
-    # Also verify the latest HTML is updated.
-    latest_html_blob = bucket.get_blob(latest_html_blob_name)
-    t3_latest = latest_html_blob.updated
-    assert t2_latest != t3_latest
+    assert t9 != t10, "old version is updated"
 
 
 def test_local_generate(yaml_dir, tmpdir):
