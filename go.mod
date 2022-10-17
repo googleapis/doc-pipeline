@@ -5,7 +5,7 @@ go 1.19
 require (
 	cloud.google.com/go/storage v1.27.0
 	github.com/cheggaaa/pb/v3 v3.1.0
-	golang.org/x/sync v0.0.0-20220929204114-8fcdb60fdcc0
+	golang.org/x/sync v0.1.0
 	google.golang.org/api v0.99.0
 )
 
