@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM python:3.10-buster
+FROM python:3.11-buster
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV PATH ${PATH}:/opt/docfx
