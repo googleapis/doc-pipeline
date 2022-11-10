@@ -38,10 +38,15 @@ black --check docpipeline tests
 flake8 docpipeline tests
 mypy docpipeline tests
 
+set +e # Don't exit if tests fail so we can notify flakybot.
+
 pytest --junitxml="sponge_log.xml" --cov-report term-missing --cov docpipeline tests
+exit_code = $?
 
 if [[ $KOKORO_BUILD_ARTIFACTS_SUBDIR = *"continuous"* ]] || \
    [[ $KOKORO_BUILD_ARTIFACTS_SUBDIR = *"periodic"* ]]; then
   chmod +x $KOKORO_GFILE_DIR/linux_amd64/flakybot
   $KOKORO_GFILE_DIR/linux_amd64/flakybot
 fi
+
+exit $exit_code
