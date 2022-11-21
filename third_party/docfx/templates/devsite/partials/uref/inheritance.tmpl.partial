@@ -1,0 +1,5 @@
+{{#inheritance}}
+    {{>partials/uref/inheritance}}
+{{/inheritance}}
+<span>{{{type.specName.0.value}}}</span>
+<span> &gt; </span>

@@ -36,6 +36,8 @@ XREFS_DIR_NAME = "xrefs"
 
 DEVSITE_SCHEME = "devsite://"
 
+TEMPLATE_DIR = pathlib.Path("third_party/docfx/templates/devsite")
+
 DOCFX_JSON_TEMPLATE = """
 {{
   "build": {{
@@ -69,33 +71,6 @@ DOCFX_JSON_TEMPLATE = """
   }}
 }}
 """
-
-
-def clone_templates(dir: pathlib.Path) -> None:
-    shell.run(
-        [
-            "git",
-            "clone",
-            "--depth=1",
-            "https://github.com/googleapis/doc-templates.git",
-            ".",
-        ],
-        cwd=dir,
-        hide_output=True,
-    )
-
-
-def setup_templates() -> Tuple[pathlib.Path, pathlib.Path]:
-    templates_dir = pathlib.Path("doc-templates")
-    if templates_dir.is_dir():
-        shutil.rmtree(templates_dir)
-    templates_dir.mkdir(parents=True, exist_ok=True)
-    log.info(f"Cloning templates into {templates_dir.absolute()}")
-    clone_templates(templates_dir)
-    log.info(f"Got the templates ({templates_dir.absolute()})!")
-    devsite_template = templates_dir.joinpath("third_party/docfx/templates/devsite")
-
-    return templates_dir, devsite_template
 
 
 def format_docfx_json(metadata: metadata_pb2.Metadata) -> str:
@@ -200,7 +175,7 @@ def write_docfx_json(
 
 
 def build_and_format(
-    blob: storage.Blob, is_bucket: bool, devsite_template: pathlib.Path
+    blob: storage.Blob, is_bucket: bool, template_dir: pathlib.Path
 ) -> Tuple[pathlib.Path, metadata_pb2.Metadata, pathlib.Path]:
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
 
@@ -223,9 +198,9 @@ def build_and_format(
 
     site_path = tmp_path.joinpath("site")
 
-    log.info(f"Running `docfx build` for {blob_name}...")
+    log.info(f"Running `docfx build` for {blob_name} in {tmp_path}...")
     shell.run(
-        ["docfx", "build", "-t", f"{devsite_template.absolute()}"],
+        ["docfx", "build", "-t", f"{template_dir.absolute()}"],
         cwd=tmp_path,
         hide_output=False,
     )
@@ -265,9 +240,9 @@ def get_path(metadata: metadata_pb2.Metadata) -> str:
     return path
 
 
-def process_blob(blob: storage.Blob, devsite_template: pathlib.Path) -> None:
+def process_blob(blob: storage.Blob, template_dir: pathlib.Path) -> None:
     is_bucket = True
-    tmp_path, metadata, site_path = build_and_format(blob, is_bucket, devsite_template)
+    tmp_path, metadata, site_path = build_and_format(blob, is_bucket, template_dir)
 
     # Use the input blob name as the name of the xref file to avoid collisions.
     # The input blob has a "docfx-" prefix; make sure to remove it.
@@ -420,9 +395,6 @@ def build_blobs(blobs: List[storage.Blob]):
     blob_names = "\n".join(map(lambda blob: blob.name, blobs))
     log.info(f"Processing {num} blob{'' if num == 1 else 's'}:\n{blob_names}")
 
-    # Clone doc-templates.
-    templates_dir, devsite_template = setup_templates()
-
     # Process every blob.
     failures = []
     successes = []
@@ -436,14 +408,12 @@ def build_blobs(blobs: List[storage.Blob]):
                         f"did you mean docfx-{blob.name}?"
                     )
                 )
-            process_blob(blob, devsite_template)
+            process_blob(blob, TEMPLATE_DIR)
             successes.append(blob.name)
         except Exception as e:
             # Keep processing the other files if an error occurs.
             log.error(f"Error processing {blob.name}:\n\n{e}")
             failures.append(blob.name)
-
-    shutil.rmtree(templates_dir)
 
     with open("sponge_log.xml", "w") as f:
         write_xunit(f, successes, failures)
