@@ -175,7 +175,7 @@ def write_docfx_json(
 
 
 def build_and_format(
-    blob: storage.Blob, is_bucket: bool, template_dir: pathlib.Path
+    blob: storage.Blob, is_bucket: bool
 ) -> Tuple[pathlib.Path, metadata_pb2.Metadata, pathlib.Path]:
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
 
@@ -200,7 +200,7 @@ def build_and_format(
 
     log.info(f"Running `docfx build` for {blob_name} in {tmp_path}...")
     shell.run(
-        ["docfx", "build", "-t", f"{template_dir.absolute()}"],
+        ["docfx", "build", "-t", f"{TEMPLATE_DIR.absolute()}"],
         cwd=tmp_path,
         hide_output=False,
     )
@@ -240,9 +240,9 @@ def get_path(metadata: metadata_pb2.Metadata) -> str:
     return path
 
 
-def process_blob(blob: storage.Blob, template_dir: pathlib.Path) -> None:
+def process_blob(blob: storage.Blob) -> None:
     is_bucket = True
-    tmp_path, metadata, site_path = build_and_format(blob, is_bucket, template_dir)
+    tmp_path, metadata, site_path = build_and_format(blob, is_bucket)
 
     # Use the input blob name as the name of the xref file to avoid collisions.
     # The input blob has a "docfx-" prefix; make sure to remove it.
@@ -408,7 +408,7 @@ def build_blobs(blobs: List[storage.Blob]):
                         f"did you mean docfx-{blob.name}?"
                     )
                 )
-            process_blob(blob, TEMPLATE_DIR)
+            process_blob(blob)
             successes.append(blob.name)
         except Exception as e:
             # Keep processing the other files if an error occurs.
