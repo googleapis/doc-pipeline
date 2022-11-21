@@ -19,11 +19,9 @@ from docuploader import log
 from docpipeline import generate
 
 
-def process_local_blob(blob, devsite_template):
+def process_local_blob(blob):
     is_bucket = False
-    tmp_path, metadata, site_path = generate.build_and_format(
-        blob, is_bucket, devsite_template
-    )
+    tmp_path, metadata, site_path = generate.build_and_format(blob, is_bucket)
 
     # For local generation
     output_path = blob.joinpath(metadata.name)
@@ -40,13 +38,8 @@ def build_local_doc(input_path):
     log.info("Building docs locally...")
     log.info("Let's build some docs!")
 
-    # Clone doc-templates
-    templates_dir, devsite_template = generate.setup_templates()
-
     input_path = pathlib.Path(input_path)
     if not input_path.exists():
         raise Exception(f"{input_path} is not a valid directory path!")
 
-    process_local_blob(input_path, devsite_template)
-
-    shutil.rmtree(templates_dir)
+    process_local_blob(input_path)

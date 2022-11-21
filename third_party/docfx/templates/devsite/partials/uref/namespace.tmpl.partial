@@ -1,0 +1,228 @@
+{{!Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.}}
+
+{{>partials/disclaimer}}
+{{#alt_link}}
+<aside class="note">
+  <strong>Note:</strong> To get more information about this package, such as access to older versions, view <a href="{{alt_link}}" class="external">this package on pkg.go.dev</a>.
+</aside>
+{{/alt_link}}
+<div class="markdown level0 summary">{{{summary}}}</div>
+<div class="markdown level0 conceptual">{{{conceptual}}}</div>
+{{#package.0}}
+<h2>{{__global.package}}</h2>
+{{{value.specName.0.value}}}
+{{/package.0}}
+<div class="markdown level0 remarks">{{{remarks}}}</div>
+{{#children}}
+  {{^inTypes}}
+  <h2 id="{{id}}">{{>partials/namespaceSubtitle}}</h2>
+  {{/inTypes}}
+  {{^isEmbedded}}
+    {{#children}}
+      <h3><xref uid="{{uid}}" altProperty="fullName" displayProperty="name"/></h3>
+      {{#summary}}
+      <section>{{{summary}}}</section>
+      {{/summary}}
+    {{/children}}
+  {{/isEmbedded}}
+  {{#isEmbedded}}
+    {{#children}}
+      {{^_disableContribution}}
+      {{#docurl}}
+      <span class="small pull-right mobile-hide">
+        <span class="divider">|</span>
+        <a href="{{docurl}}">{{__global.improveThisDoc}}</a>
+      </span>{{/docurl}}
+      {{#sourceurl}}
+      <span class="small pull-right mobile-hide">
+        <a href="{{sourceurl}}">{{__global.viewSource}}</a>
+      </span>{{/sourceurl}}
+      {{/_disableContribution}}
+      {{#overload}}
+      <a id="{{id}}" data-uid="{{uid}}"></a>
+      {{/overload}}
+      {{#inTypes}}
+      <h2 id="{{id}}" data-uid="{{uid}}" class="notranslate">{{name.0.value}}{{#deprecated}} (deprecated){{/deprecated}}</h2>
+      {{/inTypes}}
+      {{^inTypes}}
+      <h3 id="{{id}}" data-uid="{{uid}}" class="notranslate">{{name.0.value}}{{#deprecated}} (deprecated){{/deprecated}}</h3>
+      {{/inTypes}}
+      {{#syntax.content.0}}
+      <div class="codewrapper">
+        <pre class="prettyprint{{#wrapdeclarationcode}} wrap-code{{/wrapdeclarationcode}}"><code>{{{syntax.content.0.value}}}</code></pre>
+      </div>
+      {{/syntax.content.0}}
+      <div class="markdown level1 summary">{{{summary}}}</div>
+      <div class="markdown level1 conceptual">{{{conceptual}}}</div>
+      {{#syntax}}
+      {{#parameters.0}}
+      <strong>{{__global.parameter}}{{#parameters.1}}s{{/parameters.1}}</strong>
+      <table class="responsive">
+        <tbody>
+          <tr>
+            <td><strong>{{__global.name}}</strong></td>
+            <td><strong>{{__global.description}}</strong></td>
+          </tr>
+      {{/parameters.0}}
+      {{#parameters}}
+          <tr>
+            <td>{{{id}}}</td>
+            <td><code>{{{type.specName.0.value}}}</code><br>{{{description}}}{{>partials/uref/parameters}}</td>
+          </tr>
+      {{/parameters}}
+      {{#parameters.0}}
+        </tbody>
+      </table>
+      {{/parameters.0}}
+      {{#return}}
+      <strong>{{__global.returns}}</strong>
+      <table class="responsive">
+        <tbody>
+          <tr>
+            <td><strong>{{__global.type}}</strong></td>
+            <td><strong>{{__global.description}}</strong></td>
+          </tr>
+          <tr>
+            <td>{{{value.type.0.specName.0.value}}}</td>
+            <td>{{{value.description}}}</td>
+          </tr>
+        </tbody>
+      </table>
+      {{/return}}
+      {{#typeParameters.0}}
+      <strong>{{__global.typeParameter}}{{#typeParameters.1}}s{{/typeParameters.1}}</strong>
+      <table class="responsive">
+        <tbody>
+          <tr>
+            <td><strong>{{__global.type}}</strong></td>
+            <td><strong>{{__global.description}}</strong></td>
+          </tr>
+      {{/typeParameters.0}}
+      {{#typeParameters}}
+          <tr>
+            <td>{{{id}}}</td>
+            <td>{{{description}}}</td>
+          </tr>
+      {{/typeParameters}}
+      {{#typeParameters.0}}
+        </tbody>
+      </table>
+      {{/typeParameters.0}}
+      {{#fieldValue}}
+      <strong>{{__global.fieldValue}}</strong>
+      <table class="responsive">
+        <tbody>
+          <tr>
+            <td><strong>{{__global.type}}</strong></td>
+            <td><strong>{{__global.description}}</strong></td>
+          </tr>
+          <tr>
+            <td>{{{value.type.0.specName.0.value}}}</td>
+            <td>{{{value.description}}}</td>
+          </tr>
+        </tbody>
+      </table>
+      {{/fieldValue}}
+      {{#propertyValue}}
+      <strong>{{__global.propertyValue}}</strong>
+      <table class="responsive">
+        <tbody>
+          <tr>
+            <td><strong>{{__global.type}}</strong></td>
+            <td><strong>{{__global.description}}</strong></td>
+          </tr>
+          <tr>
+            <td>{{{value.type.0.specName.0.value}}}</td>
+            <td>{{{value.description}}}</td>
+          </tr>
+        </tbody>
+      </table>
+      {{/propertyValue}}
+      {{#eventType}}
+      <strong>{{__global.eventType}}</strong>
+      <table class="responsive">
+        <tbody>
+          <tr>
+            <td><strong>{{__global.type}}</strong></td>
+            <td><strong>{{__global.description}}</strong></td>
+          </tr>
+          <tr>
+            <td>{{{type.specName.0.value}}}</td>
+            <td>{{{description}}}</td>
+          </tr>
+        </tbody>
+      </table>
+      {{/eventType}}
+      {{/syntax}}
+      {{#overridden}}
+      <strong>{{__global.overrides}}</strong>
+      <div><xref href="{{uid}}" altProperty="fullName" displayProperty="nameWithType"/></div>
+      {{/overridden}}
+      {{#implements.0}}
+      <strong>{{__global.implements}}</strong>
+      {{/implements.0}}
+      {{#implements}}
+        {{#definition}}
+          <div><xref href="{{definition}}" altProperty="fullName" displayProperty="nameWithType"/></div>
+        {{/definition}}
+        {{^definition}}
+          <div><xref href="{{uid}}" altProperty="fullName" displayProperty="nameWithType"/></div>
+        {{/definition}}
+      {{/implements}}
+      {{#remarks}}
+      <strong>{{__global.remarks}}</strong>
+      <div class="markdown level1 remarks">{{{remarks}}}</div>
+      {{/remarks}}
+      {{>partials/uref/namespace.examples}}
+      {{#exceptions.0}}
+      <strong>{{__global.exceptions}}</strong>
+      <table class="responsive">
+        <tbody>
+          <tr>
+            <td><strong>{{__global.type}}</strong></td>
+            <td><strong>{{__global.description}}</strong></td>
+          </tr>
+      {{/exceptions.0}}
+      {{#exceptions.0.value}}
+          <tr>
+            <td>{{{type.specName.0.value}}}</td>
+            <td>{{{description}}}</td>
+          </tr>
+      {{/exceptions.0.value}}
+      {{#exceptions.0}}
+        </tbody>
+      </table>
+      {{/exceptions.0}}
+      {{#seealso.0}}
+      <strong>{{__global.seealso}}</strong>
+      <div class="seealso">
+      {{/seealso.0}}
+      {{#seealso}}
+        {{#isCref}}
+          <div>{{{type.specName.0.value}}}</div>
+        {{/isCref}}
+        {{^isCref}}
+          <div>{{{url}}}</div>
+        {{/isCref}}
+      {{/seealso}}
+      {{#seealso.0}}
+      </div>
+      {{/seealso.0}}
+
+      {{#children}}
+        {{! Note: don't print the Functions/Methods headers for children of children.}}
+        {{#children}}
+          <h3 id="{{id}}" data-uid="{{uid}}" class="notranslate">{{name.0.value}}{{#deprecated}} (deprecated){{/deprecated}}</h3>
+          {{#syntax}}
+          <div class="codewrapper">	
+            <pre class="prettyprint{{#wrapdeclarationcode}} wrap-code{{/wrapdeclarationcode}}"><code>{{{syntax.content.0.value}}}</code></pre>	
+          </div>
+          {{/syntax}}
+          <div class="markdown level1 summary">{{{summary}}}</div>
+          <div class="markdown level1 conceptual">{{{conceptual}}}</div>
+          {{>partials/uref/namespace.examples}}  
+        {{/children}}
+      {{/children}}
+    {{/children}}
+  {{/isEmbedded}}
+{{/children}}
