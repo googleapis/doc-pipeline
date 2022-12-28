@@ -40,7 +40,11 @@ mypy docpipeline tests
 
 set +e # Don't exit if tests fail so we can notify flakybot.
 
-pytest --junitxml="sponge_log.xml" --cov-report term-missing --cov docpipeline tests
+if [ -n "$UPDATE_GOLDENS" ]; then
+    pytest --junitxml="sponge_log.xml" --update-goldens True tests/test_goldens.py
+else
+    pytest --junitxml="sponge_log.xml" --cov-report term-missing --cov docpipeline tests
+fi
 exit_code=$?
 
 if [[ $KOKORO_BUILD_ARTIFACTS_SUBDIR = *"continuous"* ]] || \

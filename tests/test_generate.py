@@ -30,14 +30,14 @@ from docpipeline import generate, local_generate
 
 @pytest.fixture
 def yaml_dir(tmpdir):
-    shutil.copytree("testdata", tmpdir, dirs_exist_ok=True)
+    shutil.copytree("testdata/go/obj/api", tmpdir, dirs_exist_ok=True)
     return tmpdir
 
 
 @pytest.fixture
 def api_dir(tmpdir):
-    shutil.copytree("testdata", tmpdir / "api", dirs_exist_ok=True)
-    shutil.copy("testdata/docs.metadata", tmpdir)
+    shutil.copytree("testdata/go/obj/api", tmpdir / "api", dirs_exist_ok=True)
+    shutil.copy("testdata/go/obj/api/docs.metadata", tmpdir)
     return tmpdir
 
 
@@ -50,7 +50,7 @@ def swap_file(parent_dir, file1, file2):
 
 
 # Initializes key variables needed for the test
-def test_init():
+def init_test():
     test_bucket = os.environ.get("TEST_BUCKET")
     if not test_bucket:
         pytest.skip("must set TEST_BUCKET")
@@ -79,10 +79,10 @@ def upload_yaml(cwd, test_bucket):
 
 # Fetches and uploads the blobs used for testing.
 def setup_testdata(cwd, storage_client, test_bucket):
-    latest_yaml_blob_name = "docfx-python-doc-pipeline-test-2.1.2.tar.gz"
-    latest_html_blob_name = "python-doc-pipeline-test-2.1.2.tar.gz"
-    yaml_blob_name = "docfx-python-doc-pipeline-test-2.1.1.tar.gz"
-    html_blob_name = "python-doc-pipeline-test-2.1.1.tar.gz"
+    latest_yaml_blob_name = "docfx-go-cloud.google.com/go/storage-v1.16.1.tar.gz"
+    latest_html_blob_name = "go-cloud.google.com/go/storage-v1.16.1.tar.gz"
+    yaml_blob_name = "docfx-go-cloud.google.com/go/storage-v1.16.0.tar.gz"
+    html_blob_name = "go-cloud.google.com/go/storage-v1.16.0.tar.gz"
     bucket = storage_client.get_bucket(test_bucket)
     latest_yaml_blob = bucket.blob(latest_yaml_blob_name)
     latest_html_blob = bucket.blob(latest_html_blob_name)
@@ -148,7 +148,7 @@ def run_local_generate(local_path):
 
     # Verify the results.
     # Expect a local directory of pages to be made from building locally
-    output_path = local_path.join("doc-pipeline-test")
+    output_path = local_path.join("cloud.google.com/go/storage")
     assert output_path.isdir()
 
     # Return the directory containing locally generated docs
@@ -163,15 +163,17 @@ def verify_template_content(tmpdir):
     toc_file_path = tmpdir.join("_toc.yaml")
     assert toc_file_path.isfile()
     got_text = toc_file_path.read_text("utf-8")
-    # See testdata/docs.metadata.
-    assert "/python/docs/reference/doc-pipeline-test/latest" in got_text
+    # See testdata/go/obj/api/docs.metadata.
+    assert "/go/docs/reference/cloud.google.com/go/storage/latest" in got_text
 
     # Check the template worked.
-    html_file_path = tmpdir.join("google.api.customhttppattern.html")
+    html_file_path = tmpdir.join("index.html")
     assert html_file_path.isfile()
     got_text = html_file_path.read_text("utf-8")
     assert "devsite" in got_text
-    assert "/python/docs/reference/doc-pipeline-test/latest/_book.yaml" in got_text
+    assert (
+        "/go/docs/reference/cloud.google.com/go/storage/latest/_book.yaml" in got_text
+    )
 
     # Check the manifest.json was not included.
     manifest_path = tmpdir.join("manifest.json")
@@ -198,7 +200,7 @@ def verify_content(html_blob, tmpdir):
 
 
 def test_apidir(api_dir, tmpdir):
-    test_bucket, storage_client = test_init()
+    test_bucket, storage_client = init_test()
 
     bucket, yaml_blob, html_blob = setup_testdata(api_dir, storage_client, test_bucket)
 
@@ -209,7 +211,7 @@ def test_apidir(api_dir, tmpdir):
 
 
 def test_setup_docfx(yaml_dir):
-    test_bucket, storage_client = test_init()
+    test_bucket, storage_client = init_test()
 
     bucket, yaml_blob, html_blob = setup_testdata(yaml_dir, storage_client, test_bucket)
 
@@ -227,14 +229,14 @@ def test_setup_docfx(yaml_dir):
     assert docfx_json_file.exists()
     with open(docfx_json_file) as w:
         got_text = w.read()
-        assert "/python/docs/reference/doc-pipeline-test/latest" in got_text
+        assert "/go/docs/reference/cloud.google.com/go/storage/latest" in got_text
 
     assert metadata_path.exists()
-    assert metadata.name == "doc-pipeline-test"
+    assert metadata.name == "cloud.google.com/go/storage"
 
 
 def test_setup_docfx_not_found():
-    test_bucket, storage_client = test_init()
+    test_bucket, storage_client = init_test()
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
     fake_blob = storage_client.bucket(test_bucket).blob("fake_blob_name")
     with pytest.raises(ValueError):
@@ -247,7 +249,7 @@ def test_setup_docfx_not_found():
 
 
 def test_generate(yaml_dir, tmpdir):
-    test_bucket, storage_client = test_init()
+    test_bucket, storage_client = init_test()
 
     bucket, yaml_blob, html_blob = setup_testdata(yaml_dir, storage_client, test_bucket)
 
@@ -259,7 +261,7 @@ def test_generate(yaml_dir, tmpdir):
     # Ensure xref file was properly uploaded. Also ensure download_xrefs gets
     # the right content.
     path = generate.get_xref(
-        "devsite://python/doc-pipeline-test", bucket, pathlib.Path(tmpdir)
+        "devsite://go/cloud.google.com/go/storage", bucket, pathlib.Path(tmpdir)
     )
     assert path != ""
     assert pathlib.Path(path).exists()
@@ -278,19 +280,19 @@ def test_generate(yaml_dir, tmpdir):
     t3 = html_blob.updated
     assert t2 != t3, "single doc gets updated"
 
-    # Force generation of Python docs and verify timestamp.
-    language = "python"
-    generate.build_language_docs(test_bucket, language, storage_client)
-    html_blob = bucket.get_blob(html_blob.name)
-    t4 = html_blob.updated
-    assert t3 != t4, "Python docs get updated"
-
-    # Force generation of Go docs, verify Python HTML timestamp does not change.
+    # Force generation of Go docs and verify timestamp.
     language = "go"
     generate.build_language_docs(test_bucket, language, storage_client)
     html_blob = bucket.get_blob(html_blob.name)
+    t4 = html_blob.updated
+    assert t3 != t4, "Go docs get updated"
+
+    # Force generation of Python docs, verify Go HTML timestamp does not change.
+    language = "python"
+    generate.build_language_docs(test_bucket, language, storage_client)
+    html_blob = bucket.get_blob(html_blob.name)
     t5 = html_blob.updated
-    assert t4 == t5, "Go docs get udpated"
+    assert t4 == t5, "Go timestamp doesn't change"
 
     # Build new docs with unchanged YAML and verify the HTML
     # timestamp does not change.
@@ -308,7 +310,7 @@ def test_generate(yaml_dir, tmpdir):
 
     # Upload new blob, build only latest, and verify only latest is updated.
     new_metadata = "docs.metadata.newer"
-    latest_html_blob_name = "python-doc-pipeline-test-2.1.2.tar.gz"
+    latest_html_blob_name = "go-cloud.google.com/go/storage-v1.16.1.tar.gz"
 
     # Swap to newer metadata to upload newer version of tarball.
     swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)
@@ -328,8 +330,8 @@ def test_generate(yaml_dir, tmpdir):
     t1_latest = latest_html_blob.updated
     assert t7 != t1_latest, "latest is updated"
 
-    # Force generation of latest Python docs
-    language = "python"
+    # Force generation of latest Go docs
+    language = "go"
     generate.build_language_docs(
         test_bucket, language, storage_client, only_latest=True
     )
@@ -361,7 +363,7 @@ def test_local_generate(yaml_dir, tmpdir):
 
 @pytest.fixture(scope="module")
 def xref_test_blobs():
-    test_bucket, storage_client = test_init()
+    test_bucket, storage_client = init_test()
     bucket = storage_client.get_bucket(test_bucket)
 
     # Remove all existing test xref blobs.
@@ -398,7 +400,7 @@ def xref_test_blobs():
     ],
 )
 def test_get_xref(test_input, expected, tmpdir, xref_test_blobs):
-    test_bucket, storage_client = test_init()
+    test_bucket, storage_client = init_test()
     bucket = storage_client.get_bucket(test_bucket)
 
     tmpdir = pathlib.Path(tmpdir)

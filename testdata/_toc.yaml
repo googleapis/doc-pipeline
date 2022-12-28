@@ -1,6 +1,0 @@
-﻿items:
-  - name: scheduler
-    uid: '@google-cloud/scheduler!'
-    items:
-      - name: CustomHttpPattern
-        uid: '@google-cloud/scheduler!google.api.CustomHttpPattern:class'

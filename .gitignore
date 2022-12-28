@@ -116,3 +116,9 @@ canonical/canonical
 canonical/*prof
 
 **/*sponge_log.xml
+
+# Default template
+third_party/docfx/templates/default/
+
+# Test output
+testdata/*/site
