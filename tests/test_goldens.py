@@ -19,7 +19,6 @@ import os
 import shutil
 
 from docpipeline import local_generate
-from docuploader import shell
 
 import pytest
 
