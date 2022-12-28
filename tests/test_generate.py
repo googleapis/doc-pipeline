@@ -30,19 +30,19 @@ from docpipeline import generate, local_generate
 
 @pytest.fixture
 def yaml_dir(tmpdir):
-    shutil.copytree("testdata/go/obj/api", tmpdir, dirs_exist_ok=True)
-    return tmpdir
+    shutil.copytree("testdata/go", tmpdir, dirs_exist_ok=True)
+    return pathlib.Path(tmpdir)
 
 
 @pytest.fixture
 def api_dir(tmpdir):
-    shutil.copytree("testdata/go/obj/api", tmpdir / "api", dirs_exist_ok=True)
-    shutil.copy("testdata/go/obj/api/docs.metadata", tmpdir)
-    return tmpdir
+    shutil.copytree("testdata/go", tmpdir / "api", dirs_exist_ok=True)
+    shutil.copy("testdata/go/docs.metadata", tmpdir)
+    return pathlib.Path(tmpdir)
 
 
 def swap_file(parent_dir, file1, file2):
-    temp_file = parent_dir / (file1.basename + "_temp")
+    temp_file = parent_dir / (file1.name + "_temp")
     shutil.copy(file1, temp_file)
     shutil.copy(file2, file1)
     shutil.copy(temp_file, file2)
@@ -148,8 +148,8 @@ def run_local_generate(local_path):
 
     # Verify the results.
     # Expect a local directory of pages to be made from building locally
-    output_path = local_path.join("cloud.google.com/go/storage")
-    assert output_path.isdir()
+    output_path = local_path / "cloud.google.com/go/storage"
+    assert output_path.is_dir()
 
     # Return the directory containing locally generated docs
     return output_path
@@ -157,18 +157,18 @@ def run_local_generate(local_path):
 
 def verify_template_content(tmpdir):
 
-    assert tmpdir.join("docs.metadata").isfile()
+    assert tmpdir.joinpath("docs.metadata").is_file()
 
     # Check _rootPath and docs.metadata parsing worked.
-    toc_file_path = tmpdir.join("_toc.yaml")
-    assert toc_file_path.isfile()
+    toc_file_path = tmpdir / "_toc.yaml"
+    assert toc_file_path.is_file()
     got_text = toc_file_path.read_text("utf-8")
-    # See testdata/go/obj/api/docs.metadata.
+    # See testdata/go/docs.metadata.
     assert "/go/docs/reference/cloud.google.com/go/storage/latest" in got_text
 
     # Check the template worked.
-    html_file_path = tmpdir.join("index.html")
-    assert html_file_path.isfile()
+    html_file_path = tmpdir / "index.html"
+    assert html_file_path.is_file()
     got_text = html_file_path.read_text("utf-8")
     assert "devsite" in got_text
     assert (
@@ -176,7 +176,7 @@ def verify_template_content(tmpdir):
     )
 
     # Check the manifest.json was not included.
-    manifest_path = tmpdir.join("manifest.json")
+    manifest_path = tmpdir / "manifest.json"
     assert not manifest_path.exists(), "manifest.json should not be included"
 
 
@@ -184,15 +184,15 @@ def verify_template_content(tmpdir):
 def verify_content(html_blob, tmpdir):
     assert html_blob.exists()
 
-    tar_path = tmpdir.join("out.tgz")
+    tar_path = tmpdir / "out.tgz"
     html_blob.download_to_filename(tar_path)
     tar.decompress(tar_path, tmpdir)
 
     verify_template_content(tmpdir)
 
     # Check xrefmap.yml was created.
-    xref_path = tmpdir.join("xrefmap.yml")
-    assert xref_path.isfile()
+    xref_path = tmpdir / "xrefmap.yml"
+    assert xref_path.is_file()
     got_text = xref_path.read_text("utf-8")
     assert got_text.startswith(
         "### YamlMime:XRefMap\nbaseUrl: https://cloud.google.com"
@@ -207,7 +207,7 @@ def test_apidir(api_dir, tmpdir):
     # Test for api directory content
     run_generate(storage_client, test_bucket)
 
-    verify_content(html_blob, tmpdir)
+    verify_content(html_blob, pathlib.Path(tmpdir))
 
 
 def test_setup_docfx(yaml_dir):
@@ -217,7 +217,7 @@ def test_setup_docfx(yaml_dir):
 
     tmp_path = pathlib.Path(tempfile.TemporaryDirectory(prefix="doc-pipeline.").name)
 
-    api_path = decompress_path = tmp_path.joinpath("obj/api")
+    api_path = decompress_path = tmp_path / "obj/api"
 
     api_path.mkdir(parents=True, exist_ok=True)
 
@@ -225,7 +225,7 @@ def test_setup_docfx(yaml_dir):
         tmp_path, api_path, decompress_path, yaml_blob
     )
 
-    docfx_json_file = tmp_path.joinpath("docfx.json")
+    docfx_json_file = tmp_path / "docfx.json"
     assert docfx_json_file.exists()
     with open(docfx_json_file) as w:
         got_text = w.read()
@@ -249,6 +249,7 @@ def test_setup_docfx_not_found():
 
 
 def test_generate(yaml_dir, tmpdir):
+    tmpdir = pathlib.Path(tmpdir)
     test_bucket, storage_client = init_test()
 
     bucket, yaml_blob, html_blob = setup_testdata(yaml_dir, storage_client, test_bucket)
@@ -260,9 +261,7 @@ def test_generate(yaml_dir, tmpdir):
 
     # Ensure xref file was properly uploaded. Also ensure download_xrefs gets
     # the right content.
-    path = generate.get_xref(
-        "devsite://go/cloud.google.com/go/storage", bucket, pathlib.Path(tmpdir)
-    )
+    path = generate.get_xref("devsite://go/cloud.google.com/go/storage", bucket, tmpdir)
     assert path != ""
     assert pathlib.Path(path).exists()
 
@@ -412,7 +411,7 @@ def test_get_xref(test_input, expected, tmpdir, xref_test_blobs):
     if expected == "":
         assert got == expected
         return
-    expected_path = tmpdir.joinpath(expected)
+    expected_path = tmpdir / expected
     assert str(expected_path) == got
     assert expected_path.exists(), f"expected {expected_path} to exist"
 

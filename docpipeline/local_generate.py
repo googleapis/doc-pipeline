@@ -19,27 +19,23 @@ from docuploader import log
 from docpipeline import generate
 
 
-def process_local_blob(blob):
-    is_bucket = False
-    tmp_path, metadata, site_path = generate.build_and_format(blob, is_bucket)
-
-    # For local generation
-    output_path = blob.joinpath(metadata.name)
-    if output_path.exists():
-        log.info(f"deleting existing directory: {output_path}")
-        shutil.rmtree(output_path)
-    shutil.copytree(site_path, output_path, dirs_exist_ok=True)
-    shutil.rmtree(tmp_path)
-
-    log.success(f"Done with {metadata.name}!")
-
-
-def build_local_doc(input_path):
+def build_local_doc(input_path: pathlib.Path, output_dir: pathlib.Path = None):
     log.info("Building docs locally...")
     log.info("Let's build some docs!")
 
-    input_path = pathlib.Path(input_path)
     if not input_path.exists():
         raise Exception(f"{input_path} is not a valid directory path!")
 
-    process_local_blob(input_path)
+    is_bucket = False
+    tmp_path, metadata, site_path = generate.build_and_format(input_path, is_bucket)
+
+    if not output_dir:
+        output_dir = input_path / metadata.name
+
+    if output_dir.exists():
+        log.info(f"deleting existing directory: {output_dir}")
+        shutil.rmtree(output_dir)
+    shutil.copytree(site_path, output_dir, dirs_exist_ok=True)
+    shutil.rmtree(tmp_path)
+
+    log.success(f"Done with {metadata.name}!")

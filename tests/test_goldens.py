@@ -18,48 +18,29 @@ import filecmp
 import os
 import shutil
 
+from docpipeline import local_generate
 from docuploader import shell
 
 import pytest
 
 
 @pytest.mark.parametrize("test_dir", ["go"])
-def test_goldens(update_goldens, test_dir):
-    build_dir = Path("testdata") / test_dir
+def test_goldens(update_goldens, tmpdir, test_dir):
+    input_dir = Path("testdata") / test_dir
+    output_dir = Path(tmpdir)
     golden_dir = Path("testdata/goldens") / test_dir
-    site_dir = build_dir / "site"
-    cache_dir = build_dir / "obj/.cache"
 
-    if site_dir.exists():
-        shutil.rmtree(site_dir)
-    if cache_dir.exists():
-        shutil.rmtree(cache_dir)
-
-    out_dir = site_dir / "api"
-    # Generate!
-    try:
-        shell.run(
-            [
-                "docfx",
-                "build",
-                "-t",
-                "../../third_party/docfx/templates/devsite",
-            ],
-            cwd=build_dir,
-            hide_output=False,
-        )
-    except Exception as e:
-        pytest.fail(f"build raised an exception: {e}")
+    local_generate.build_local_doc(input_dir, output_dir=output_dir)
 
     if update_goldens:
         shutil.rmtree(golden_dir, ignore_errors=True)
-        shutil.copytree(out_dir, golden_dir, dirs_exist_ok=True)
+        shutil.copytree(output_dir, golden_dir, dirs_exist_ok=True)
         pytest.skip(
             "Updated goldens! Re-run the test without the --update-goldens flag."
         )
 
-    got_files = [os.path.relpath(f, out_dir) for f in out_dir.rglob("*")]
-    golden_files = [os.path.relpath(f, golden_dir) for f in golden_dir.rglob("*")]
+    got_files = [os.path.relpath(f, output_dir) for f in output_dir.glob("**/*")]
+    golden_files = [os.path.relpath(f, golden_dir) for f in golden_dir.glob("**/*")]
 
     nl = "\n"
     extra = "Extra:\n" + "\n+ ".join([f for f in got_files if f not in golden_files])
@@ -71,15 +52,17 @@ def test_goldens(update_goldens, test_dir):
         golden_files
     ), f"got {len(got_files)} files, want {len(golden_files)}:{nl}{extra}{nl}{missing}"
 
-    (eq, neq, other) = filecmp.cmpfiles(out_dir, golden_dir, got_files, shallow=False)
-    other = [(out_dir / f).as_posix() for f in other]
+    (eq, neq, other) = filecmp.cmpfiles(
+        output_dir, golden_dir, got_files, shallow=False
+    )
+    other = [(output_dir / f).as_posix() for f in other]
 
     if other:
         pytest.fail(f"found unknown files (should never happen): {other}")
     if neq:
         diff = ""
         for f in neq:
-            with open(out_dir / f) as out:
+            with open(output_dir / f) as out:
                 with open(golden_dir / f) as gold:
                     out_lines = out.readlines()
                     gold_lines = gold.readlines()
@@ -88,7 +71,7 @@ def test_goldens(update_goldens, test_dir):
                             gold_lines,
                             out_lines,
                             fromfile=str(golden_dir / f),
-                            tofile=str(out_dir / f),
+                            tofile=str(output_dir / f),
                         )
                     )
 

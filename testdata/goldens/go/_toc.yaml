@@ -4,4 +4,4 @@ toc:
   section:
   - title: 'cloud.google.com/go/storage'
     status: deprecated
-    path: /go/docs/reference/cloud.google.com/go/latest/index.html
+    path: /go/docs/reference/cloud.google.com/go/storage/latest/index.html
