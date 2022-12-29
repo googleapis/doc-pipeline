@@ -19,18 +19,17 @@ from docuploader import log
 from docpipeline import generate
 
 
-def build_local_doc(input_path: pathlib.Path, output_dir: pathlib.Path = None):
+def build_local_doc(input_dir: pathlib.Path, output_dir: pathlib.Path):
+    """Builds the YAML in input_path and stores the result in output_path."""
+
     log.info("Building docs locally...")
     log.info("Let's build some docs!")
 
-    if not input_path.exists():
-        raise Exception(f"{input_path} is not a valid directory path!")
+    if not input_dir.exists():
+        raise Exception(f"{input_dir} is not a valid directory path!")
 
     is_bucket = False
-    tmp_path, metadata, site_path = generate.build_and_format(input_path, is_bucket)
-
-    if not output_dir:
-        output_dir = input_path / metadata.name
+    tmp_path, metadata, site_path = generate.build_and_format(input_dir, is_bucket)
 
     if output_dir.exists():
         log.info(f"deleting existing directory: {output_dir}")

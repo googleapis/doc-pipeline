@@ -29,13 +29,13 @@ from docpipeline import generate, local_generate
 
 
 @pytest.fixture
-def yaml_dir(tmpdir):
+def yaml_dir(tmpdir) -> pathlib.Path:
     shutil.copytree("testdata/go", tmpdir, dirs_exist_ok=True)
     return pathlib.Path(tmpdir)
 
 
 @pytest.fixture
-def api_dir(tmpdir):
+def api_dir(tmpdir) -> pathlib.Path:
     shutil.copytree("testdata/go", tmpdir / "api", dirs_exist_ok=True)
     shutil.copy("testdata/go/docs.metadata", tmpdir)
     return pathlib.Path(tmpdir)
@@ -134,25 +134,25 @@ def run_local_generate(local_path):
 
     # Test with invalid path given, must throw exception
     try:
-        local_generate.build_local_doc(local_path.basename[1:])
+        local_generate.build_local_doc(local_path.basename[1:], pathlib.Path("unused"))
     except Exception:
         pass
     else:
         pytest.fail("build_local_doc is attempting to generate on invalid input path")
 
     # Generate!
+    output_dir = local_path / "cloud.google.com/go/storage"
     try:
-        local_generate.build_local_doc(local_path)
+        local_generate.build_local_doc(local_path, output_dir=output_dir)
     except Exception as e:
         pytest.fail(f"build_local_doc raised an exception: {e}")
 
     # Verify the results.
     # Expect a local directory of pages to be made from building locally
-    output_path = local_path / "cloud.google.com/go/storage"
-    assert output_path.is_dir()
+    assert output_dir.is_dir()
 
     # Return the directory containing locally generated docs
-    return output_path
+    return output_dir
 
 
 def verify_template_content(tmpdir):

@@ -12,10 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from pathlib import Path
 import difflib
 import filecmp
 import os
+import pathlib
 import shutil
 
 from docpipeline import local_generate
@@ -25,9 +25,9 @@ import pytest
 
 @pytest.mark.parametrize("test_dir", ["go"])
 def test_goldens(update_goldens, tmpdir, test_dir):
-    input_dir = Path("testdata") / test_dir
-    output_dir = Path(tmpdir)
-    golden_dir = Path("testdata/goldens") / test_dir
+    input_dir = pathlib.Path("testdata") / test_dir
+    output_dir = pathlib.Path(tmpdir)
+    golden_dir = pathlib.Path("testdata/goldens") / test_dir
 
     local_generate.build_local_doc(input_dir, output_dir=output_dir)
 
@@ -38,21 +38,20 @@ def test_goldens(update_goldens, tmpdir, test_dir):
             "Updated goldens! Re-run the test without the --update-goldens flag."
         )
 
-    got_files = [os.path.relpath(f, output_dir) for f in output_dir.glob("**/*")]
+    output_files = [os.path.relpath(f, output_dir) for f in output_dir.glob("**/*")]
     golden_files = [os.path.relpath(f, golden_dir) for f in golden_dir.glob("**/*")]
 
-    nl = "\n"
-    extra = "Extra:\n" + "\n+ ".join([f for f in got_files if f not in golden_files])
+    extra = "Extra:\n" + "\n+ ".join([f for f in output_files if f not in golden_files])
     missing = "Missing:\n" + "\n- ".join(
-        [f for f in golden_files if f not in got_files]
+        [f for f in golden_files if f not in output_files]
     )
 
-    assert len(got_files) == len(
+    assert len(output_files) == len(
         golden_files
-    ), f"got {len(got_files)} files, want {len(golden_files)}:{nl}{extra}{nl}{missing}"
+    ), f"got {len(output_files)} files, want {len(golden_files)}:\n{extra}\n{missing}"
 
     (eq, neq, other) = filecmp.cmpfiles(
-        output_dir, golden_dir, got_files, shallow=False
+        output_dir, golden_dir, output_files, shallow=False
     )
     other = [(output_dir / f).as_posix() for f in other]
 

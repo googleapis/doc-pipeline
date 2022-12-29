@@ -13,6 +13,7 @@
 # limitations under the License.
 
 import logging
+import pathlib
 import shutil
 import sys
 
@@ -138,7 +139,7 @@ def build_latest_language_docs(bucket_name: str, language: str) -> None:
 @click.argument("input_path")
 def build_local_doc(input_path: str) -> None:
     try:
-        local_generate.build_local_doc(input_path)
+        local_generate.build_local_doc(pathlib.Path(input_path), pathlib.Path("site"))
     except Exception as e:
         log.error(e)
         sys.exit(1)
