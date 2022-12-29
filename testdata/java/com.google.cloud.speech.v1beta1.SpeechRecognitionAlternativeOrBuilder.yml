@@ -1,0 +1,111 @@
+### YamlMime:ManagedReference
+items:
+- uid: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder"
+  id: "SpeechRecognitionAlternativeOrBuilder"
+  parent: "com.google.cloud.speech.v1beta1"
+  children:
+  - "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getConfidence()"
+  - "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getTranscript()"
+  - "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getTranscriptBytes()"
+  langs:
+  - "java"
+  name: "SpeechRecognitionAlternativeOrBuilder"
+  nameWithType: "SpeechRecognitionAlternativeOrBuilder"
+  fullName: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder"
+  type: "Interface"
+  package: "com.google.cloud.speech.v1beta1"
+  syntax:
+    content: "public interface SpeechRecognitionAlternativeOrBuilder extends MessageOrBuilder"
+  implements:
+  - "com.google.protobuf.MessageOrBuilder"
+- uid: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getConfidence()"
+  id: "getConfidence()"
+  parent: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder"
+  langs:
+  - "java"
+  name: "getConfidence()"
+  nameWithType: "SpeechRecognitionAlternativeOrBuilder.getConfidence()"
+  fullName: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getConfidence()"
+  overload: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getConfidence*"
+  type: "Method"
+  package: "com.google.cloud.speech.v1beta1"
+  summary: "\n *Output-only* The confidence estimate between 0.0 and 1.0. A higher number\n indicates an estimated greater likelihood that the recognized words are\n correct. This field is typically provided only for the top hypothesis, and\n only for <code>is_final=true</code> results. Clients should not rely on the\n <code>confidence</code> field as it is not guaranteed to be accurate, or even set, in\n any of the results.\n The default of 0.0 is a sentinel value indicating <code>confidence</code> was not set.\n \n\n <code>float confidence = 2;</code>"
+  syntax:
+    content: "public abstract float getConfidence()"
+    return:
+      type: "float"
+- uid: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getTranscript()"
+  id: "getTranscript()"
+  parent: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder"
+  langs:
+  - "java"
+  name: "getTranscript()"
+  nameWithType: "SpeechRecognitionAlternativeOrBuilder.getTranscript()"
+  fullName: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getTranscript()"
+  overload: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getTranscript*"
+  type: "Method"
+  package: "com.google.cloud.speech.v1beta1"
+  summary: "\n *Output-only* Transcript text representing the words that the user spoke.\n \n\n <code>string transcript = 1;</code>"
+  syntax:
+    content: "public abstract String getTranscript()"
+    return:
+      type: "java.lang.String"
+- uid: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getTranscriptBytes()"
+  id: "getTranscriptBytes()"
+  parent: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder"
+  langs:
+  - "java"
+  name: "getTranscriptBytes()"
+  nameWithType: "SpeechRecognitionAlternativeOrBuilder.getTranscriptBytes()"
+  fullName: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getTranscriptBytes()"
+  overload: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getTranscriptBytes*"
+  type: "Method"
+  package: "com.google.cloud.speech.v1beta1"
+  summary: "\n *Output-only* Transcript text representing the words that the user spoke.\n \n\n <code>string transcript = 1;</code>"
+  syntax:
+    content: "public abstract ByteString getTranscriptBytes()"
+    return:
+      type: "com.google.protobuf.ByteString"
+references:
+- uid: "java.lang.String"
+  href: "https://docs.oracle.com/javase/8/docs/api/java/lang/String.html"
+  spec.java:
+  - uid: "java.lang.String"
+    name: "String"
+    fullName: "java.lang.String"
+    isExternal: false
+    href: "https://docs.oracle.com/javase/8/docs/api/java/lang/String.html"
+- uid: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getTranscript*"
+  name: "getTranscript"
+  nameWithType: "SpeechRecognitionAlternativeOrBuilder.getTranscript"
+  fullName: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getTranscript"
+  package: "com.google.cloud.speech.v1beta1"
+- uid: "com.google.protobuf.ByteString"
+  isExternal: true
+  spec.java:
+  - uid: "com.google.protobuf.ByteString"
+    name: "ByteString"
+    fullName: "com.google.protobuf.ByteString"
+    isExternal: true
+- uid: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getTranscriptBytes*"
+  name: "getTranscriptBytes"
+  nameWithType: "SpeechRecognitionAlternativeOrBuilder.getTranscriptBytes"
+  fullName: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getTranscriptBytes"
+  package: "com.google.cloud.speech.v1beta1"
+- uid: "float"
+  href: "https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html"
+  spec.java:
+  - uid: "float"
+    name: "float"
+    fullName: "float"
+    isExternal: false
+- uid: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getConfidence*"
+  name: "getConfidence"
+  nameWithType: "SpeechRecognitionAlternativeOrBuilder.getConfidence"
+  fullName: "com.google.cloud.speech.v1beta1.SpeechRecognitionAlternativeOrBuilder.getConfidence"
+  package: "com.google.cloud.speech.v1beta1"
+- uid: "com.google.protobuf.MessageOrBuilder"
+  isExternal: true
+  name: "MessageOrBuilder"
+  nameWithType: "MessageOrBuilder"
+  fullName: "com.google.protobuf.MessageOrBuilder"

@@ -1,0 +1,111 @@
+### YamlMime:UniversalReference
+items:
+- uid: Google::Longrunning::WaitOperationRequest
+  children: 
+  - Google::Longrunning::WaitOperationRequest#name(instance)
+  - Google::Longrunning::WaitOperationRequest#name=(instance)
+  - Google::Longrunning::WaitOperationRequest#timeout(instance)
+  - Google::Longrunning::WaitOperationRequest#timeout=(instance)
+  fullName: Google::Longrunning::WaitOperationRequest
+  langs:
+  - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: WaitOperationRequest
+  summary: "The request message for Operations.WaitOperation."
+  type: "class"
+  name: Google::Longrunning::WaitOperationRequest
+  example: []
+  inherits:
+  - "Object"
+  extendedBy:
+  - "Google::Protobuf::MessageExts::ClassMethods"
+  includes:
+  - "Google::Protobuf::MessageExts"
+- uid: Google::Longrunning::WaitOperationRequest#name(instance)
+  fullName: Google::Longrunning::WaitOperationRequest#name
+  name: "#name"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#name"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def name() -> ::String"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — The name of the operation resource to wait on."
+    raises: []
+- uid: Google::Longrunning::WaitOperationRequest#name=(instance)
+  fullName: Google::Longrunning::WaitOperationRequest#name=
+  name: "#name="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#name="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def name=(value) -> ::String"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (::String) — The name of the operation resource to wait on."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — The name of the operation resource to wait on."
+    raises: []
+- uid: Google::Longrunning::WaitOperationRequest#timeout(instance)
+  fullName: Google::Longrunning::WaitOperationRequest#timeout
+  name: "#timeout"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#timeout"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def timeout() -> ::Google::Protobuf::Duration"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(<a href=\"./Google-Protobuf-Duration\">::Google::Protobuf::Duration</a>) — The maximum duration to wait before timing out. If left blank, the wait\nwill be at most the time permitted by the underlying HTTP/RPC protocol.\nIf RPC context deadline is also specified, the shorter one will be used."
+    raises: []
+- uid: Google::Longrunning::WaitOperationRequest#timeout=(instance)
+  fullName: Google::Longrunning::WaitOperationRequest#timeout=
+  name: "#timeout="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#timeout="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def timeout=(value) -> ::Google::Protobuf::Duration"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (<a href=\"./Google-Protobuf-Duration\">::Google::Protobuf::Duration</a>) — The maximum duration to wait before timing out. If left blank, the wait\nwill be at most the time permitted by the underlying HTTP/RPC protocol.\nIf RPC context deadline is also specified, the shorter one will be used."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(<a href=\"./Google-Protobuf-Duration\">::Google::Protobuf::Duration</a>) — The maximum duration to wait before timing out. If left blank, the wait\nwill be at most the time permitted by the underlying HTTP/RPC protocol.\nIf RPC context deadline is also specified, the shorter one will be used."
+    raises: []
+references: []

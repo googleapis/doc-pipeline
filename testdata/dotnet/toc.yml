@@ -1,0 +1,187 @@
+- uid: Google.Cloud.Asset.V1
+  name: Google.Cloud.Asset.V1
+  items:
+  - name: Overview
+    items:
+    - name: Getting started
+      href: index.md
+    - name: Version history
+      href: history.md
+  - uid: Google.Cloud.Asset.V1
+    name: All types
+  - uid: Google.Cloud.Asset.V1.AnalyzeIamPolicyLongrunningRequest
+    name: AnalyzeIamPolicyLongrunningRequest
+  - uid: Google.Cloud.Asset.V1.AnalyzeIamPolicyLongrunningResponse
+    name: AnalyzeIamPolicyLongrunningResponse
+  - uid: Google.Cloud.Asset.V1.AnalyzeIamPolicyRequest
+    name: AnalyzeIamPolicyRequest
+  - uid: Google.Cloud.Asset.V1.AnalyzeIamPolicyResponse
+    name: AnalyzeIamPolicyResponse
+  - uid: Google.Cloud.Asset.V1.AnalyzeIamPolicyResponse.Types
+    name: AnalyzeIamPolicyResponse.Types
+  - uid: Google.Cloud.Asset.V1.AnalyzeIamPolicyResponse.Types.IamPolicyAnalysis
+    name: AnalyzeIamPolicyResponse.Types.IamPolicyAnalysis
+  - uid: Google.Cloud.Asset.V1.Asset
+    name: Asset
+  - uid: Google.Cloud.Asset.V1.Asset.AccessContextPolicyOneofCase
+    name: Asset.AccessContextPolicyOneofCase
+  - uid: Google.Cloud.Asset.V1.AssetService
+    name: AssetService
+  - uid: Google.Cloud.Asset.V1.AssetService.AssetServiceBase
+    name: AssetService.AssetServiceBase
+  - uid: Google.Cloud.Asset.V1.AssetService.AssetServiceClient
+    name: AssetService.AssetServiceClient
+  - uid: Google.Cloud.Asset.V1.AssetServiceClient
+    name: AssetServiceClient
+  - uid: Google.Cloud.Asset.V1.AssetServiceClientBuilder
+    name: AssetServiceClientBuilder
+  - uid: Google.Cloud.Asset.V1.AssetServiceClientImpl
+    name: AssetServiceClientImpl
+  - uid: Google.Cloud.Asset.V1.AssetServiceSettings
+    name: AssetServiceSettings
+  - uid: Google.Cloud.Asset.V1.BatchGetAssetsHistoryRequest
+    name: BatchGetAssetsHistoryRequest
+  - uid: Google.Cloud.Asset.V1.BatchGetAssetsHistoryResponse
+    name: BatchGetAssetsHistoryResponse
+  - uid: Google.Cloud.Asset.V1.BigQueryDestination
+    name: BigQueryDestination
+  - uid: Google.Cloud.Asset.V1.ConditionEvaluation
+    name: ConditionEvaluation
+  - uid: Google.Cloud.Asset.V1.ConditionEvaluation.Types
+    name: ConditionEvaluation.Types
+  - uid: Google.Cloud.Asset.V1.ConditionEvaluation.Types.EvaluationValue
+    name: ConditionEvaluation.Types.EvaluationValue
+  - uid: Google.Cloud.Asset.V1.ContentType
+    name: ContentType
+  - uid: Google.Cloud.Asset.V1.CreateFeedRequest
+    name: CreateFeedRequest
+  - uid: Google.Cloud.Asset.V1.DeleteFeedRequest
+    name: DeleteFeedRequest
+  - uid: Google.Cloud.Asset.V1.ExportAssetsRequest
+    name: ExportAssetsRequest
+  - uid: Google.Cloud.Asset.V1.ExportAssetsResponse
+    name: ExportAssetsResponse
+  - uid: Google.Cloud.Asset.V1.Feed
+    name: Feed
+  - uid: Google.Cloud.Asset.V1.FeedName
+    name: FeedName
+  - uid: Google.Cloud.Asset.V1.FeedName.ResourceNameType
+    name: FeedName.ResourceNameType
+  - uid: Google.Cloud.Asset.V1.FeedOutputConfig
+    name: FeedOutputConfig
+  - uid: Google.Cloud.Asset.V1.FeedOutputConfig.DestinationOneofCase
+    name: FeedOutputConfig.DestinationOneofCase
+  - uid: Google.Cloud.Asset.V1.GcsDestination
+    name: GcsDestination
+  - uid: Google.Cloud.Asset.V1.GcsDestination.ObjectUriOneofCase
+    name: GcsDestination.ObjectUriOneofCase
+  - uid: Google.Cloud.Asset.V1.GcsOutputResult
+    name: GcsOutputResult
+  - uid: Google.Cloud.Asset.V1.GetFeedRequest
+    name: GetFeedRequest
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig
+    name: IamPolicyAnalysisOutputConfig
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.DestinationOneofCase
+    name: IamPolicyAnalysisOutputConfig.DestinationOneofCase
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.Types
+    name: IamPolicyAnalysisOutputConfig.Types
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.Types.BigQueryDestination
+    name: IamPolicyAnalysisOutputConfig.Types.BigQueryDestination
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.Types.BigQueryDestination.Types
+    name: IamPolicyAnalysisOutputConfig.Types.BigQueryDestination.Types
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.Types.BigQueryDestination.Types.PartitionKey
+    name: IamPolicyAnalysisOutputConfig.Types.BigQueryDestination.Types.PartitionKey
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.Types.GcsDestination
+    name: IamPolicyAnalysisOutputConfig.Types.GcsDestination
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery
+    name: IamPolicyAnalysisQuery
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.Types
+    name: IamPolicyAnalysisQuery.Types
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.Types.AccessSelector
+    name: IamPolicyAnalysisQuery.Types.AccessSelector
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.Types.ConditionContext
+    name: IamPolicyAnalysisQuery.Types.ConditionContext
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.Types.ConditionContext.TimeContextOneofCase
+    name: IamPolicyAnalysisQuery.Types.ConditionContext.TimeContextOneofCase
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.Types.IdentitySelector
+    name: IamPolicyAnalysisQuery.Types.IdentitySelector
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.Types.Options
+    name: IamPolicyAnalysisQuery.Types.Options
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisQuery.Types.ResourceSelector
+    name: IamPolicyAnalysisQuery.Types.ResourceSelector
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisResult
+    name: IamPolicyAnalysisResult
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Types
+    name: IamPolicyAnalysisResult.Types
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Types.Access
+    name: IamPolicyAnalysisResult.Types.Access
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Types.Access.OneofAccessOneofCase
+    name: IamPolicyAnalysisResult.Types.Access.OneofAccessOneofCase
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Types.AccessControlList
+    name: IamPolicyAnalysisResult.Types.AccessControlList
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Types.Edge
+    name: IamPolicyAnalysisResult.Types.Edge
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Types.Identity
+    name: IamPolicyAnalysisResult.Types.Identity
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Types.IdentityList
+    name: IamPolicyAnalysisResult.Types.IdentityList
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Types.Resource
+    name: IamPolicyAnalysisResult.Types.Resource
+  - uid: Google.Cloud.Asset.V1.IamPolicyAnalysisState
+    name: IamPolicyAnalysisState
+  - uid: Google.Cloud.Asset.V1.IamPolicySearchResult
+    name: IamPolicySearchResult
+  - uid: Google.Cloud.Asset.V1.IamPolicySearchResult.Types
+    name: IamPolicySearchResult.Types
+  - uid: Google.Cloud.Asset.V1.IamPolicySearchResult.Types.Explanation
+    name: IamPolicySearchResult.Types.Explanation
+  - uid: Google.Cloud.Asset.V1.IamPolicySearchResult.Types.Explanation.Types
+    name: IamPolicySearchResult.Types.Explanation.Types
+  - uid: Google.Cloud.Asset.V1.IamPolicySearchResult.Types.Explanation.Types.Permissions
+    name: IamPolicySearchResult.Types.Explanation.Types.Permissions
+  - uid: Google.Cloud.Asset.V1.ListAssetsRequest
+    name: ListAssetsRequest
+  - uid: Google.Cloud.Asset.V1.ListAssetsResponse
+    name: ListAssetsResponse
+  - uid: Google.Cloud.Asset.V1.ListFeedsRequest
+    name: ListFeedsRequest
+  - uid: Google.Cloud.Asset.V1.ListFeedsResponse
+    name: ListFeedsResponse
+  - uid: Google.Cloud.Asset.V1.OutputConfig
+    name: OutputConfig
+  - uid: Google.Cloud.Asset.V1.OutputConfig.DestinationOneofCase
+    name: OutputConfig.DestinationOneofCase
+  - uid: Google.Cloud.Asset.V1.OutputResult
+    name: OutputResult
+  - uid: Google.Cloud.Asset.V1.OutputResult.ResultOneofCase
+    name: OutputResult.ResultOneofCase
+  - uid: Google.Cloud.Asset.V1.PartitionSpec
+    name: PartitionSpec
+  - uid: Google.Cloud.Asset.V1.PartitionSpec.Types
+    name: PartitionSpec.Types
+  - uid: Google.Cloud.Asset.V1.PartitionSpec.Types.PartitionKey
+    name: PartitionSpec.Types.PartitionKey
+  - uid: Google.Cloud.Asset.V1.PubsubDestination
+    name: PubsubDestination
+  - uid: Google.Cloud.Asset.V1.Resource
+    name: Resource
+  - uid: Google.Cloud.Asset.V1.ResourceSearchResult
+    name: ResourceSearchResult
+  - uid: Google.Cloud.Asset.V1.SearchAllIamPoliciesRequest
+    name: SearchAllIamPoliciesRequest
+  - uid: Google.Cloud.Asset.V1.SearchAllIamPoliciesResponse
+    name: SearchAllIamPoliciesResponse
+  - uid: Google.Cloud.Asset.V1.SearchAllResourcesRequest
+    name: SearchAllResourcesRequest
+  - uid: Google.Cloud.Asset.V1.SearchAllResourcesResponse
+    name: SearchAllResourcesResponse
+  - uid: Google.Cloud.Asset.V1.TemporalAsset
+    name: TemporalAsset
+  - uid: Google.Cloud.Asset.V1.TemporalAsset.Types
+    name: TemporalAsset.Types
+  - uid: Google.Cloud.Asset.V1.TemporalAsset.Types.PriorAssetState
+    name: TemporalAsset.Types.PriorAssetState
+  - uid: Google.Cloud.Asset.V1.TimeWindow
+    name: TimeWindow
+  - uid: Google.Cloud.Asset.V1.UpdateFeedRequest
+    name: UpdateFeedRequest

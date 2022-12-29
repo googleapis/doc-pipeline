@@ -1,0 +1,156 @@
+### YamlMime:UniversalReference
+items:
+- uid: Google::Cloud::Vision::V1::ColorInfo
+  children: 
+  - Google::Cloud::Vision::V1::ColorInfo#color(instance)
+  - Google::Cloud::Vision::V1::ColorInfo#color=(instance)
+  - Google::Cloud::Vision::V1::ColorInfo#pixel_fraction(instance)
+  - Google::Cloud::Vision::V1::ColorInfo#pixel_fraction=(instance)
+  - Google::Cloud::Vision::V1::ColorInfo#score(instance)
+  - Google::Cloud::Vision::V1::ColorInfo#score=(instance)
+  fullName: Google::Cloud::Vision::V1::ColorInfo
+  langs:
+  - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: ColorInfo
+  summary: "Color information consists of RGB channels, score, and the fraction of\nthe image that the color occupies in the image."
+  type: "class"
+  name: Google::Cloud::Vision::V1::ColorInfo
+  example: []
+  inherits:
+  - "Object"
+  extendedBy:
+  - "Google::Protobuf::MessageExts::ClassMethods"
+  includes:
+  - "Google::Protobuf::MessageExts"
+- uid: Google::Cloud::Vision::V1::ColorInfo#color(instance)
+  fullName: Google::Cloud::Vision::V1::ColorInfo#color
+  name: "#color"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#color"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def color() -> ::Google::Type::Color"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(<a href=\"./Google-Type-Color\">::Google::Type::Color</a>) — RGB components of the color."
+    raises: []
+- uid: Google::Cloud::Vision::V1::ColorInfo#color=(instance)
+  fullName: Google::Cloud::Vision::V1::ColorInfo#color=
+  name: "#color="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#color="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def color=(value) -> ::Google::Type::Color"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (<a href=\"./Google-Type-Color\">::Google::Type::Color</a>) — RGB components of the color."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(<a href=\"./Google-Type-Color\">::Google::Type::Color</a>) — RGB components of the color."
+    raises: []
+- uid: Google::Cloud::Vision::V1::ColorInfo#pixel_fraction(instance)
+  fullName: Google::Cloud::Vision::V1::ColorInfo#pixel_fraction
+  name: "#pixel_fraction"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#pixel_fraction"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def pixel_fraction() -> ::Float"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Float) — The fraction of pixels the color occupies in the image.\nValue in range [0, 1]."
+    raises: []
+- uid: Google::Cloud::Vision::V1::ColorInfo#pixel_fraction=(instance)
+  fullName: Google::Cloud::Vision::V1::ColorInfo#pixel_fraction=
+  name: "#pixel_fraction="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#pixel_fraction="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def pixel_fraction=(value) -> ::Float"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (::Float) — The fraction of pixels the color occupies in the image.\nValue in range [0, 1]."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Float) — The fraction of pixels the color occupies in the image.\nValue in range [0, 1]."
+    raises: []
+- uid: Google::Cloud::Vision::V1::ColorInfo#score(instance)
+  fullName: Google::Cloud::Vision::V1::ColorInfo#score
+  name: "#score"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#score"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def score() -> ::Float"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Float) — Image-specific score for this color. Value in range [0, 1]."
+    raises: []
+- uid: Google::Cloud::Vision::V1::ColorInfo#score=(instance)
+  fullName: Google::Cloud::Vision::V1::ColorInfo#score=
+  name: "#score="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#score="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def score=(value) -> ::Float"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (::Float) — Image-specific score for this color. Value in range [0, 1]."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Float) — Image-specific score for this color. Value in range [0, 1]."
+    raises: []
+references: []

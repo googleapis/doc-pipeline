@@ -1,0 +1,111 @@
+### YamlMime:UniversalReference
+items:
+- uid: Google::Protobuf::Any
+  children: 
+  - Google::Protobuf::Any#type_url(instance)
+  - Google::Protobuf::Any#type_url=(instance)
+  - Google::Protobuf::Any#value(instance)
+  - Google::Protobuf::Any#value=(instance)
+  fullName: Google::Protobuf::Any
+  langs:
+  - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: Any
+  summary: "<p><code>Any</code> contains an arbitrary serialized protocol buffer message along with a\nURL that describes the type of the serialized message.</p>\n\n<p>Protobuf library provides support to pack/unpack Any values in the form\nof utility functions or additional generated methods of the Any type.</p>\n\n<p>Example 1: Pack and unpack a message in C++.</p>\n\n<pre><code>Foo foo = ...;\nAny any;\nany.PackFrom(foo);\n...\nif (any.UnpackTo(&amp;foo)) {\n  ...\n}\n</code></pre>\n\n<p>Example 2: Pack and unpack a message in Java.</p>\n\n<pre><code>Foo foo = ...;\nAny any = Any.pack(foo);\n...\nif (any.is(Foo.class)) {\n  foo = any.unpack(Foo.class);\n}\n</code></pre>\n\n<p>Example 3: Pack and unpack a message in Python.</p>\n\n<pre><code>foo = Foo(...)\nany = Any()\nany.Pack(foo)\n...\nif any.Is(Foo.DESCRIPTOR):\n  any.Unpack(foo)\n  ...\n</code></pre>\n\n<p>Example 4: Pack and unpack a message in Go</p>\n\n<pre><code> foo := &amp;pb.Foo{...}\n any, err := anypb.New(foo)\n if err != nil {\n   ...\n }\n ...\n foo := &amp;pb.Foo{}\n if err := any.UnmarshalTo(foo); err != nil {\n   ...\n }\n</code></pre>\n\n<p>The pack methods provided by protobuf library will by default use\n&#39;type.googleapis.com/full.type.name&#39; as the type URL and the unpack\nmethods only use the fully qualified type name after the last &#39;/&#39;\nin the type URL, for example &quot;foo.bar.com/x/y.z&quot; will yield type\nname &quot;y.z&quot;.</p>\n<h2>JSON</h2>\n\n<p>The JSON representation of an <code>Any</code> value uses the regular\nrepresentation of the deserialized, embedded message, with an\nadditional field <code>@type</code> which contains the type URL. Example:</p>\n\n<pre><code>package google.profile;\nmessage Person {\n  string first_name = 1;\n  string last_name = 2;\n}\n\n{\n  &quot;@type&quot;: &quot;type.googleapis.com/google.profile.Person&quot;,\n  &quot;firstName&quot;: &lt;string&gt;,\n  &quot;lastName&quot;: &lt;string&gt;\n}\n</code></pre>\n\n<p>If the embedded message type is well-known and has a custom JSON\nrepresentation, that representation will be embedded adding a field\n<code>value</code> which holds the custom JSON in addition to the <code>@type</code>\nfield. Example (for message [google.protobuf.Duration][]):</p>\n\n<pre><code>{\n  &quot;@type&quot;: &quot;type.googleapis.com/google.protobuf.Duration&quot;,\n  &quot;value&quot;: &quot;1.212s&quot;\n}\n</code></pre>"
+  type: "class"
+  name: Google::Protobuf::Any
+  example: []
+  inherits:
+  - "Object"
+  extendedBy:
+  - "Google::Protobuf::MessageExts::ClassMethods"
+  includes:
+  - "Google::Protobuf::MessageExts"
+- uid: Google::Protobuf::Any#type_url(instance)
+  fullName: Google::Protobuf::Any#type_url
+  name: "#type_url"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#type_url"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def type_url() -> ::String"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none &quot;/&quot; character. The last segment of the URL&#39;s path must represent\nthe fully qualified name of the type (as in\n<code>path/google.protobuf.Duration</code>). The name should be in a canonical form\n(e.g., leading &quot;.&quot; is not accepted).</p>\n\n<p>In practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme <code>http</code>, <code>https</code>, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:</p>\n\n<ul>\n<li>If no scheme is provided, <code>https</code> is assumed.</li>\n<li>An HTTP GET on the URL must yield a [google.protobuf.Type][]\nvalue in binary format, or produce an error.</li>\n<li>Applications are allowed to cache lookup results based on the\nURL, or have them precompiled into a binary to avoid any\nlookup. Therefore, binary compatibility needs to be preserved\non changes to types. (Use versioned type names to manage\nbreaking changes.)</li>\n</ul>\n\n<p>Note: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.</p>\n\n<p>Schemes other than <code>http</code>, <code>https</code> (or the empty scheme) might be\nused with implementation specific semantics."
+    raises: []
+- uid: Google::Protobuf::Any#type_url=(instance)
+  fullName: Google::Protobuf::Any#type_url=
+  name: "#type_url="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#type_url="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def type_url=(value) -> ::String"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (::String) — A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none &quot;/&quot; character. The last segment of the URL&#39;s path must represent\nthe fully qualified name of the type (as in\n<code>path/google.protobuf.Duration</code>). The name should be in a canonical form\n(e.g., leading &quot;.&quot; is not accepted).</p>\n\n<p>In practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme <code>http</code>, <code>https</code>, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:</p>\n\n<ul>\n<li>If no scheme is provided, <code>https</code> is assumed.</li>\n<li>An HTTP GET on the URL must yield a [google.protobuf.Type][]\nvalue in binary format, or produce an error.</li>\n<li>Applications are allowed to cache lookup results based on the\nURL, or have them precompiled into a binary to avoid any\nlookup. Therefore, binary compatibility needs to be preserved\non changes to types. (Use versioned type names to manage\nbreaking changes.)</li>\n</ul>\n\n<p>Note: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.</p>\n\n<p>Schemes other than <code>http</code>, <code>https</code> (or the empty scheme) might be\nused with implementation specific semantics."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — A URL/resource name that uniquely identifies the type of the serialized\nprotocol buffer message. This string must contain at least\none &quot;/&quot; character. The last segment of the URL&#39;s path must represent\nthe fully qualified name of the type (as in\n<code>path/google.protobuf.Duration</code>). The name should be in a canonical form\n(e.g., leading &quot;.&quot; is not accepted).</p>\n\n<p>In practice, teams usually precompile into the binary all types that they\nexpect it to use in the context of Any. However, for URLs which use the\nscheme <code>http</code>, <code>https</code>, or no scheme, one can optionally set up a type\nserver that maps type URLs to message definitions as follows:</p>\n\n<ul>\n<li>If no scheme is provided, <code>https</code> is assumed.</li>\n<li>An HTTP GET on the URL must yield a [google.protobuf.Type][]\nvalue in binary format, or produce an error.</li>\n<li>Applications are allowed to cache lookup results based on the\nURL, or have them precompiled into a binary to avoid any\nlookup. Therefore, binary compatibility needs to be preserved\non changes to types. (Use versioned type names to manage\nbreaking changes.)</li>\n</ul>\n\n<p>Note: this functionality is not currently available in the official\nprotobuf release, and it is not used for type URLs beginning with\ntype.googleapis.com.</p>\n\n<p>Schemes other than <code>http</code>, <code>https</code> (or the empty scheme) might be\nused with implementation specific semantics."
+    raises: []
+- uid: Google::Protobuf::Any#value(instance)
+  fullName: Google::Protobuf::Any#value
+  name: "#value"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#value"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def value() -> ::String"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — Must be a valid serialized protocol buffer of the above specified type."
+    raises: []
+- uid: Google::Protobuf::Any#value=(instance)
+  fullName: Google::Protobuf::Any#value=
+  name: "#value="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#value="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def value=(value) -> ::String"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (::String) — Must be a valid serialized protocol buffer of the above specified type."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — Must be a valid serialized protocol buffer of the above specified type."
+    raises: []
+references: []

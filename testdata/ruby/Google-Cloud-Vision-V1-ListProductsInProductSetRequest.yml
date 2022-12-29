@@ -1,0 +1,156 @@
+### YamlMime:UniversalReference
+items:
+- uid: Google::Cloud::Vision::V1::ListProductsInProductSetRequest
+  children: 
+  - Google::Cloud::Vision::V1::ListProductsInProductSetRequest#name(instance)
+  - Google::Cloud::Vision::V1::ListProductsInProductSetRequest#name=(instance)
+  - Google::Cloud::Vision::V1::ListProductsInProductSetRequest#page_size(instance)
+  - Google::Cloud::Vision::V1::ListProductsInProductSetRequest#page_size=(instance)
+  - Google::Cloud::Vision::V1::ListProductsInProductSetRequest#page_token(instance)
+  - Google::Cloud::Vision::V1::ListProductsInProductSetRequest#page_token=(instance)
+  fullName: Google::Cloud::Vision::V1::ListProductsInProductSetRequest
+  langs:
+  - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: ListProductsInProductSetRequest
+  summary: "Request message for the <code>ListProductsInProductSet</code> method."
+  type: "class"
+  name: Google::Cloud::Vision::V1::ListProductsInProductSetRequest
+  example: []
+  inherits:
+  - "Object"
+  extendedBy:
+  - "Google::Protobuf::MessageExts::ClassMethods"
+  includes:
+  - "Google::Protobuf::MessageExts"
+- uid: Google::Cloud::Vision::V1::ListProductsInProductSetRequest#name(instance)
+  fullName: Google::Cloud::Vision::V1::ListProductsInProductSetRequest#name
+  name: "#name"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#name"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def name() -> ::String"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — Required. The ProductSet resource for which to retrieve Products.</p>\n\n<p>Format is:\n<code>projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID</code>"
+    raises: []
+- uid: Google::Cloud::Vision::V1::ListProductsInProductSetRequest#name=(instance)
+  fullName: Google::Cloud::Vision::V1::ListProductsInProductSetRequest#name=
+  name: "#name="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#name="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def name=(value) -> ::String"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (::String) — Required. The ProductSet resource for which to retrieve Products.</p>\n\n<p>Format is:\n<code>projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID</code>"
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — Required. The ProductSet resource for which to retrieve Products.</p>\n\n<p>Format is:\n<code>projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID</code>"
+    raises: []
+- uid: Google::Cloud::Vision::V1::ListProductsInProductSetRequest#page_size(instance)
+  fullName: Google::Cloud::Vision::V1::ListProductsInProductSetRequest#page_size
+  name: "#page_size"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#page_size"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def page_size() -> ::Integer"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Integer) — The maximum number of items to return. Default 10, maximum 100."
+    raises: []
+- uid: Google::Cloud::Vision::V1::ListProductsInProductSetRequest#page_size=(instance)
+  fullName: Google::Cloud::Vision::V1::ListProductsInProductSetRequest#page_size=
+  name: "#page_size="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#page_size="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def page_size=(value) -> ::Integer"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (::Integer) — The maximum number of items to return. Default 10, maximum 100."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Integer) — The maximum number of items to return. Default 10, maximum 100."
+    raises: []
+- uid: Google::Cloud::Vision::V1::ListProductsInProductSetRequest#page_token(instance)
+  fullName: Google::Cloud::Vision::V1::ListProductsInProductSetRequest#page_token
+  name: "#page_token"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#page_token"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def page_token() -> ::String"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — The next_page_token returned from a previous List request, if any."
+    raises: []
+- uid: Google::Cloud::Vision::V1::ListProductsInProductSetRequest#page_token=(instance)
+  fullName: Google::Cloud::Vision::V1::ListProductsInProductSetRequest#page_token=
+  name: "#page_token="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#page_token="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def page_token=(value) -> ::String"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (::String) — The next_page_token returned from a previous List request, if any."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — The next_page_token returned from a previous List request, if any."
+    raises: []
+references: []

@@ -1,0 +1,156 @@
+### YamlMime:UniversalReference
+items:
+- uid: Google::Cloud::Vision::V1::WebDetection::WebEntity
+  children: 
+  - Google::Cloud::Vision::V1::WebDetection::WebEntity#description(instance)
+  - Google::Cloud::Vision::V1::WebDetection::WebEntity#description=(instance)
+  - Google::Cloud::Vision::V1::WebDetection::WebEntity#entity_id(instance)
+  - Google::Cloud::Vision::V1::WebDetection::WebEntity#entity_id=(instance)
+  - Google::Cloud::Vision::V1::WebDetection::WebEntity#score(instance)
+  - Google::Cloud::Vision::V1::WebDetection::WebEntity#score=(instance)
+  fullName: Google::Cloud::Vision::V1::WebDetection::WebEntity
+  langs:
+  - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: WebEntity
+  summary: "Entity deduced from similar images on the Internet."
+  type: "class"
+  name: Google::Cloud::Vision::V1::WebDetection::WebEntity
+  example: []
+  inherits:
+  - "Object"
+  extendedBy:
+  - "Google::Protobuf::MessageExts::ClassMethods"
+  includes:
+  - "Google::Protobuf::MessageExts"
+- uid: Google::Cloud::Vision::V1::WebDetection::WebEntity#description(instance)
+  fullName: Google::Cloud::Vision::V1::WebDetection::WebEntity#description
+  name: "#description"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#description"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def description() -> ::String"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — Canonical description of the entity, in English."
+    raises: []
+- uid: Google::Cloud::Vision::V1::WebDetection::WebEntity#description=(instance)
+  fullName: Google::Cloud::Vision::V1::WebDetection::WebEntity#description=
+  name: "#description="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#description="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def description=(value) -> ::String"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (::String) — Canonical description of the entity, in English."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — Canonical description of the entity, in English."
+    raises: []
+- uid: Google::Cloud::Vision::V1::WebDetection::WebEntity#entity_id(instance)
+  fullName: Google::Cloud::Vision::V1::WebDetection::WebEntity#entity_id
+  name: "#entity_id"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#entity_id"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def entity_id() -> ::String"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — Opaque entity ID."
+    raises: []
+- uid: Google::Cloud::Vision::V1::WebDetection::WebEntity#entity_id=(instance)
+  fullName: Google::Cloud::Vision::V1::WebDetection::WebEntity#entity_id=
+  name: "#entity_id="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#entity_id="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def entity_id=(value) -> ::String"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (::String) — Opaque entity ID."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — Opaque entity ID."
+    raises: []
+- uid: Google::Cloud::Vision::V1::WebDetection::WebEntity#score(instance)
+  fullName: Google::Cloud::Vision::V1::WebDetection::WebEntity#score
+  name: "#score"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#score"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def score() -> ::Float"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Float) — Overall relevancy score for the entity.\nNot normalized and not comparable across different image queries."
+    raises: []
+- uid: Google::Cloud::Vision::V1::WebDetection::WebEntity#score=(instance)
+  fullName: Google::Cloud::Vision::V1::WebDetection::WebEntity#score=
+  name: "#score="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#score="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def score=(value) -> ::Float"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (::Float) — Overall relevancy score for the entity.\nNot normalized and not comparable across different image queries."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Float) — Overall relevancy score for the entity.\nNot normalized and not comparable across different image queries."
+    raises: []
+references: []

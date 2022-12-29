@@ -1,0 +1,156 @@
+### YamlMime:UniversalReference
+items:
+- uid: Google::Cloud::Vision::V1::CropHint
+  children: 
+  - Google::Cloud::Vision::V1::CropHint#bounding_poly(instance)
+  - Google::Cloud::Vision::V1::CropHint#bounding_poly=(instance)
+  - Google::Cloud::Vision::V1::CropHint#confidence(instance)
+  - Google::Cloud::Vision::V1::CropHint#confidence=(instance)
+  - Google::Cloud::Vision::V1::CropHint#importance_fraction(instance)
+  - Google::Cloud::Vision::V1::CropHint#importance_fraction=(instance)
+  fullName: Google::Cloud::Vision::V1::CropHint
+  langs:
+  - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: CropHint
+  summary: "Single crop hint that is used to generate a new crop when serving an image."
+  type: "class"
+  name: Google::Cloud::Vision::V1::CropHint
+  example: []
+  inherits:
+  - "Object"
+  extendedBy:
+  - "Google::Protobuf::MessageExts::ClassMethods"
+  includes:
+  - "Google::Protobuf::MessageExts"
+- uid: Google::Cloud::Vision::V1::CropHint#bounding_poly(instance)
+  fullName: Google::Cloud::Vision::V1::CropHint#bounding_poly
+  name: "#bounding_poly"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#bounding_poly"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def bounding_poly() -> ::Google::Cloud::Vision::V1::BoundingPoly"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(<a href=\"./Google-Cloud-Vision-V1-BoundingPoly\">::Google::Cloud::Vision::V1::BoundingPoly</a>) — The bounding polygon for the crop region. The coordinates of the bounding\nbox are in the original image&#39;s scale."
+    raises: []
+- uid: Google::Cloud::Vision::V1::CropHint#bounding_poly=(instance)
+  fullName: Google::Cloud::Vision::V1::CropHint#bounding_poly=
+  name: "#bounding_poly="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#bounding_poly="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def bounding_poly=(value) -> ::Google::Cloud::Vision::V1::BoundingPoly"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (<a href=\"./Google-Cloud-Vision-V1-BoundingPoly\">::Google::Cloud::Vision::V1::BoundingPoly</a>) — The bounding polygon for the crop region. The coordinates of the bounding\nbox are in the original image&#39;s scale."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(<a href=\"./Google-Cloud-Vision-V1-BoundingPoly\">::Google::Cloud::Vision::V1::BoundingPoly</a>) — The bounding polygon for the crop region. The coordinates of the bounding\nbox are in the original image&#39;s scale."
+    raises: []
+- uid: Google::Cloud::Vision::V1::CropHint#confidence(instance)
+  fullName: Google::Cloud::Vision::V1::CropHint#confidence
+  name: "#confidence"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#confidence"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def confidence() -> ::Float"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Float) — Confidence of this being a salient region.  Range [0, 1]."
+    raises: []
+- uid: Google::Cloud::Vision::V1::CropHint#confidence=(instance)
+  fullName: Google::Cloud::Vision::V1::CropHint#confidence=
+  name: "#confidence="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#confidence="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def confidence=(value) -> ::Float"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (::Float) — Confidence of this being a salient region.  Range [0, 1]."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Float) — Confidence of this being a salient region.  Range [0, 1]."
+    raises: []
+- uid: Google::Cloud::Vision::V1::CropHint#importance_fraction(instance)
+  fullName: Google::Cloud::Vision::V1::CropHint#importance_fraction
+  name: "#importance_fraction"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#importance_fraction"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def importance_fraction() -> ::Float"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Float) — Fraction of importance of this salient region with respect to the original\nimage."
+    raises: []
+- uid: Google::Cloud::Vision::V1::CropHint#importance_fraction=(instance)
+  fullName: Google::Cloud::Vision::V1::CropHint#importance_fraction=
+  name: "#importance_fraction="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#importance_fraction="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def importance_fraction=(value) -> ::Float"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (::Float) — Fraction of importance of this salient region with respect to the original\nimage."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Float) — Fraction of importance of this salient region with respect to the original\nimage."
+    raises: []
+references: []

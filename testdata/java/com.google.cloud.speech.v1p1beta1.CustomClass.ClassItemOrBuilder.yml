@@ -1,0 +1,84 @@
+### YamlMime:ManagedReference
+items:
+- uid: "com.google.cloud.speech.v1p1beta1.CustomClass.ClassItemOrBuilder"
+  id: "ClassItemOrBuilder"
+  parent: "com.google.cloud.speech.v1p1beta1"
+  children:
+  - "com.google.cloud.speech.v1p1beta1.CustomClass.ClassItemOrBuilder.getValue()"
+  - "com.google.cloud.speech.v1p1beta1.CustomClass.ClassItemOrBuilder.getValueBytes()"
+  langs:
+  - "java"
+  name: "CustomClass.ClassItemOrBuilder"
+  nameWithType: "CustomClass.ClassItemOrBuilder"
+  fullName: "com.google.cloud.speech.v1p1beta1.CustomClass.ClassItemOrBuilder"
+  type: "Interface"
+  package: "com.google.cloud.speech.v1p1beta1"
+  syntax:
+    content: "public static interface CustomClass.ClassItemOrBuilder extends MessageOrBuilder"
+  implements:
+  - "com.google.protobuf.MessageOrBuilder"
+- uid: "com.google.cloud.speech.v1p1beta1.CustomClass.ClassItemOrBuilder.getValue()"
+  id: "getValue()"
+  parent: "com.google.cloud.speech.v1p1beta1.CustomClass.ClassItemOrBuilder"
+  langs:
+  - "java"
+  name: "getValue()"
+  nameWithType: "CustomClass.ClassItemOrBuilder.getValue()"
+  fullName: "com.google.cloud.speech.v1p1beta1.CustomClass.ClassItemOrBuilder.getValue()"
+  overload: "com.google.cloud.speech.v1p1beta1.CustomClass.ClassItemOrBuilder.getValue*"
+  type: "Method"
+  package: "com.google.cloud.speech.v1p1beta1"
+  summary: "\n The class item's value.\n \n\n <code>string value = 1;</code>"
+  syntax:
+    content: "public abstract String getValue()"
+    return:
+      type: "java.lang.String"
+      description: "The value."
+- uid: "com.google.cloud.speech.v1p1beta1.CustomClass.ClassItemOrBuilder.getValueBytes()"
+  id: "getValueBytes()"
+  parent: "com.google.cloud.speech.v1p1beta1.CustomClass.ClassItemOrBuilder"
+  langs:
+  - "java"
+  name: "getValueBytes()"
+  nameWithType: "CustomClass.ClassItemOrBuilder.getValueBytes()"
+  fullName: "com.google.cloud.speech.v1p1beta1.CustomClass.ClassItemOrBuilder.getValueBytes()"
+  overload: "com.google.cloud.speech.v1p1beta1.CustomClass.ClassItemOrBuilder.getValueBytes*"
+  type: "Method"
+  package: "com.google.cloud.speech.v1p1beta1"
+  summary: "\n The class item's value.\n \n\n <code>string value = 1;</code>"
+  syntax:
+    content: "public abstract ByteString getValueBytes()"
+    return:
+      type: "com.google.protobuf.ByteString"
+      description: "The bytes for value."
+references:
+- uid: "java.lang.String"
+  href: "https://docs.oracle.com/javase/8/docs/api/java/lang/String.html"
+  spec.java:
+  - uid: "java.lang.String"
+    name: "String"
+    fullName: "java.lang.String"
+    isExternal: false
+    href: "https://docs.oracle.com/javase/8/docs/api/java/lang/String.html"
+- uid: "com.google.cloud.speech.v1p1beta1.CustomClass.ClassItemOrBuilder.getValue*"
+  name: "getValue"
+  nameWithType: "CustomClass.ClassItemOrBuilder.getValue"
+  fullName: "com.google.cloud.speech.v1p1beta1.CustomClass.ClassItemOrBuilder.getValue"
+  package: "com.google.cloud.speech.v1p1beta1"
+- uid: "com.google.protobuf.ByteString"
+  isExternal: true
+  spec.java:
+  - uid: "com.google.protobuf.ByteString"
+    name: "ByteString"
+    fullName: "com.google.protobuf.ByteString"
+    isExternal: true
+- uid: "com.google.cloud.speech.v1p1beta1.CustomClass.ClassItemOrBuilder.getValueBytes*"
+  name: "getValueBytes"
+  nameWithType: "CustomClass.ClassItemOrBuilder.getValueBytes"
+  fullName: "com.google.cloud.speech.v1p1beta1.CustomClass.ClassItemOrBuilder.getValueBytes"
+  package: "com.google.cloud.speech.v1p1beta1"
+- uid: "com.google.protobuf.MessageOrBuilder"
+  isExternal: true
+  name: "MessageOrBuilder"
+  nameWithType: "MessageOrBuilder"
+  fullName: "com.google.protobuf.MessageOrBuilder"

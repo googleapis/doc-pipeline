@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/dotnet/docs/reference/_project.yaml">
+    <meta name="book_path" value="/dotnet/docs/reference/Google.Cloud.Asset.V1/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="Google.Cloud.Asset.V1.IamPolicyAnalysisOutputConfig.Types.BigQueryDestination.Types.PartitionKey">
+<h1 class="page-title">Cloud Asset V1 API - Enum IamPolicyAnalysisOutputConfig.Types.BigQueryDestination.Types.PartitionKey (2.8.0)</h1>
+  
+  
+  <div class="codewrapper">
+    <pre class="prettyprint"><code>public enum PartitionKey</code></pre>
+  </div>
+  <div class="markdown level0 summary"><p>Reference documentation and code samples for the Cloud Asset V1 API enum IamPolicyAnalysisOutputConfig.Types.BigQueryDestination.Types.PartitionKey.</p><p>This enum determines the partition key column for the bigquery tables.
+Partitioning can improve query performance and reduce query cost by
+filtering partitions. Refer to
+<a href="https://cloud.google.com/bigquery/docs/partitioned-tables">https://cloud.google.com/bigquery/docs/partitioned-tables</a> for details.</p>
+</div>
+  <h2>Namespace</h2>
+  <a class="xref" href="Google.Cloud.Asset.V1.html">Google.Cloud.Asset.V1</a>
+  <h2>Assembly</h2>
+  <p>Google.Cloud.Asset.V1.dll</p>
+  <h2 id="fields">Fields
+  </h2>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td id="Google_Cloud_Asset_V1_IamPolicyAnalysisOutputConfig_Types_BigQueryDestination_Types_PartitionKey_RequestTime">RequestTime</td>
+        <td><p>The time when the request is received. If specified as partition key,
+the result table(s) is partitoned by the RequestTime column, an
+additional timestamp column representing when the request was received.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="Google_Cloud_Asset_V1_IamPolicyAnalysisOutputConfig_Types_BigQueryDestination_Types_PartitionKey_Unspecified">Unspecified</td>
+        <td><p>Unspecified partition key. Tables won&apos;t be partitioned using this
+option.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

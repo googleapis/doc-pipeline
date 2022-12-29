@@ -1,0 +1,66 @@
+### YamlMime:UniversalReference
+items:
+- uid: Google::Longrunning::DeleteOperationRequest
+  children: 
+  - Google::Longrunning::DeleteOperationRequest#name(instance)
+  - Google::Longrunning::DeleteOperationRequest#name=(instance)
+  fullName: Google::Longrunning::DeleteOperationRequest
+  langs:
+  - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: DeleteOperationRequest
+  summary: "The request message for Operations.DeleteOperation."
+  type: "class"
+  name: Google::Longrunning::DeleteOperationRequest
+  example: []
+  inherits:
+  - "Object"
+  extendedBy:
+  - "Google::Protobuf::MessageExts::ClassMethods"
+  includes:
+  - "Google::Protobuf::MessageExts"
+- uid: Google::Longrunning::DeleteOperationRequest#name(instance)
+  fullName: Google::Longrunning::DeleteOperationRequest#name
+  name: "#name"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#name"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def name() -> ::String"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — The name of the operation resource to be deleted."
+    raises: []
+- uid: Google::Longrunning::DeleteOperationRequest#name=(instance)
+  fullName: Google::Longrunning::DeleteOperationRequest#name=
+  name: "#name="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#name="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def name=(value) -> ::String"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (::String) — The name of the operation resource to be deleted."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — The name of the operation resource to be deleted."
+    raises: []
+references: []

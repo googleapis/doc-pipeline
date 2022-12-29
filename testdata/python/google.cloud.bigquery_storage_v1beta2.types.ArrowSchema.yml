@@ -1,0 +1,43 @@
+### YamlMime:UniversalReference
+api_name: []
+items:
+- attributes:
+  - description: IPC serialized Arrow schema.
+    id: serialized_schema
+    var_type: bytes
+  children: []
+  class: google.cloud.bigquery_storage_v1beta2.types.ArrowSchema
+  fullName: google.cloud.bigquery_storage_v1beta2.types.ArrowSchema
+  inheritance:
+  - inheritance:
+    - type: builtins.object
+    type: proto.message.Message
+  langs:
+  - python
+  module: google.cloud.bigquery_storage_v1beta2.types
+  name: ArrowSchema
+  source:
+    id: ArrowSchema
+    path: google/cloud/bigquery_storage_v1beta2/types/arrow.py
+    remote:
+      branch: main
+      path: google/cloud/bigquery_storage_v1beta2/types/arrow.py
+      repo: git@github.com:googleapis/python-bigquery-storage.git
+    startLine: 25
+  summary: 'Arrow schema as specified in
+
+    https://arrow.apache.org/docs/python/api/datatypes.html and
+
+    serialized to bytes using IPC:
+
+    https://arrow.apache.org/docs/format/Columnar.html#serialization-and-interprocess-communication-ipc
+
+    See code samples on how this message can be deserialized.
+
+    '
+  syntax:
+    content: ArrowSchema(mapping=None, *, ignore_unknown_fields=False, **kwargs)
+    parameters: []
+  type: class
+  uid: google.cloud.bigquery_storage_v1beta2.types.ArrowSchema
+references: []
