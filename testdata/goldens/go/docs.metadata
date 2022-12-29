@@ -1,0 +1,7 @@
+update_time {
+	seconds: 1627926633
+	nanos: 582231837
+}
+name: "cloud.google.com/go/storage"
+version: "v1.16.0"
+language: "go"

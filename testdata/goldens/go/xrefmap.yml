@@ -1,0 +1,508 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: cloud.google.com/go/storage
+  name: cloud.google.com/go/storage
+  href: index.html
+- uid: cloud.google.com/go/storage.ACLEntity
+  name: ACLEntity
+  href: index.html#cloud_google_com_go_storage_ACLEntity
+- uid: cloud.google.com/go/storage.ACLHandle
+  name: ACLHandle
+  href: index.html#cloud_google_com_go_storage_ACLHandle
+- uid: cloud.google.com/go/storage.ACLHandle.Delete
+  name: >
+    func (*ACLHandle) Delete
+  href: index.html#cloud_google_com_go_storage_ACLHandle_Delete
+- uid: cloud.google.com/go/storage.ACLHandle.List
+  name: >
+    func (*ACLHandle) List
+  href: index.html#cloud_google_com_go_storage_ACLHandle_List
+- uid: cloud.google.com/go/storage.ACLHandle.Set
+  name: >
+    func (*ACLHandle) Set
+  href: index.html#cloud_google_com_go_storage_ACLHandle_Set
+- uid: cloud.google.com/go/storage.ACLRole
+  name: ACLRole
+  href: index.html#cloud_google_com_go_storage_ACLRole
+- uid: cloud.google.com/go/storage.ACLRule
+  name: ACLRule
+  href: index.html#cloud_google_com_go_storage_ACLRule
+- uid: cloud.google.com/go/storage.Active,Inactive,Deleted
+  name: Active, Inactive, Deleted
+  href: index.html#cloud_google_com_go_storage_Active_Inactive_Deleted
+- uid: cloud.google.com/go/storage.AllUsers,AllAuthenticatedUsers
+  name: AllUsers, AllAuthenticatedUsers
+  href: index.html#cloud_google_com_go_storage_AllUsers_AllAuthenticatedUsers
+- uid: cloud.google.com/go/storage.BucketAttrs
+  name: BucketAttrs
+  href: index.html#cloud_google_com_go_storage_BucketAttrs
+- uid: cloud.google.com/go/storage.BucketAttrsToUpdate
+  name: BucketAttrsToUpdate
+  href: index.html#cloud_google_com_go_storage_BucketAttrsToUpdate
+- uid: cloud.google.com/go/storage.BucketAttrsToUpdate.DeleteLabel
+  name: >
+    func (*BucketAttrsToUpdate) DeleteLabel
+  href: index.html#cloud_google_com_go_storage_BucketAttrsToUpdate_DeleteLabel
+- uid: cloud.google.com/go/storage.BucketAttrsToUpdate.SetLabel
+  name: >
+    func (*BucketAttrsToUpdate) SetLabel
+  href: index.html#cloud_google_com_go_storage_BucketAttrsToUpdate_SetLabel
+- uid: cloud.google.com/go/storage.BucketConditions
+  name: BucketConditions
+  href: index.html#cloud_google_com_go_storage_BucketConditions
+- uid: cloud.google.com/go/storage.BucketEncryption
+  name: BucketEncryption
+  href: index.html#cloud_google_com_go_storage_BucketEncryption
+- uid: cloud.google.com/go/storage.BucketHandle
+  name: BucketHandle
+  href: index.html#cloud_google_com_go_storage_BucketHandle
+- uid: cloud.google.com/go/storage.BucketHandle.ACL
+  name: >
+    func (*BucketHandle) ACL
+  href: index.html#cloud_google_com_go_storage_BucketHandle_ACL
+- uid: cloud.google.com/go/storage.BucketHandle.AddNotification
+  name: >
+    func (*BucketHandle) AddNotification
+  href: index.html#cloud_google_com_go_storage_BucketHandle_AddNotification
+- uid: cloud.google.com/go/storage.BucketHandle.Attrs
+  name: >
+    func (*BucketHandle) Attrs
+  href: index.html#cloud_google_com_go_storage_BucketHandle_Attrs
+- uid: cloud.google.com/go/storage.BucketHandle.Create
+  name: >
+    func (*BucketHandle) Create
+  href: index.html#cloud_google_com_go_storage_BucketHandle_Create
+- uid: cloud.google.com/go/storage.BucketHandle.DefaultObjectACL
+  name: >
+    func (*BucketHandle) DefaultObjectACL
+  href: index.html#cloud_google_com_go_storage_BucketHandle_DefaultObjectACL
+- uid: cloud.google.com/go/storage.BucketHandle.Delete
+  name: >
+    func (*BucketHandle) Delete
+  href: index.html#cloud_google_com_go_storage_BucketHandle_Delete
+- uid: cloud.google.com/go/storage.BucketHandle.DeleteNotification
+  name: >
+    func (*BucketHandle) DeleteNotification
+  href: index.html#cloud_google_com_go_storage_BucketHandle_DeleteNotification
+- uid: cloud.google.com/go/storage.BucketHandle.IAM
+  name: >
+    func (*BucketHandle) IAM
+  href: index.html#cloud_google_com_go_storage_BucketHandle_IAM
+- uid: cloud.google.com/go/storage.BucketHandle.If
+  name: >
+    func (*BucketHandle) If
+  href: index.html#cloud_google_com_go_storage_BucketHandle_If
+- uid: cloud.google.com/go/storage.BucketHandle.LockRetentionPolicy
+  name: >
+    func (*BucketHandle) LockRetentionPolicy
+  href: index.html#cloud_google_com_go_storage_BucketHandle_LockRetentionPolicy
+- uid: cloud.google.com/go/storage.BucketHandle.Notifications
+  name: >
+    func (*BucketHandle) Notifications
+  href: index.html#cloud_google_com_go_storage_BucketHandle_Notifications
+- uid: cloud.google.com/go/storage.BucketHandle.Object
+  name: >
+    func (*BucketHandle) Object
+  href: index.html#cloud_google_com_go_storage_BucketHandle_Object
+- uid: cloud.google.com/go/storage.BucketHandle.Objects
+  name: >
+    func (*BucketHandle) Objects
+  href: index.html#cloud_google_com_go_storage_BucketHandle_Objects
+- uid: cloud.google.com/go/storage.BucketHandle.Update
+  name: >
+    func (*BucketHandle) Update
+  href: index.html#cloud_google_com_go_storage_BucketHandle_Update
+- uid: cloud.google.com/go/storage.BucketHandle.UserProject
+  name: >
+    func (*BucketHandle) UserProject
+  href: index.html#cloud_google_com_go_storage_BucketHandle_UserProject
+- uid: cloud.google.com/go/storage.BucketIterator
+  name: BucketIterator
+  href: index.html#cloud_google_com_go_storage_BucketIterator
+- uid: cloud.google.com/go/storage.BucketIterator.Next
+  name: >
+    func (*BucketIterator) Next
+  href: index.html#cloud_google_com_go_storage_BucketIterator_Next
+- uid: cloud.google.com/go/storage.BucketIterator.PageInfo
+  name: >
+    func (*BucketIterator) PageInfo
+  href: index.html#cloud_google_com_go_storage_BucketIterator_PageInfo
+- uid: cloud.google.com/go/storage.BucketLogging
+  name: BucketLogging
+  href: index.html#cloud_google_com_go_storage_BucketLogging
+- uid: cloud.google.com/go/storage.BucketPolicyOnly
+  name: BucketPolicyOnly
+  href: index.html#cloud_google_com_go_storage_BucketPolicyOnly
+- uid: cloud.google.com/go/storage.BucketWebsite
+  name: BucketWebsite
+  href: index.html#cloud_google_com_go_storage_BucketWebsite
+- uid: cloud.google.com/go/storage.Client
+  name: Client
+  href: index.html#cloud_google_com_go_storage_Client
+- uid: cloud.google.com/go/storage.Client.Bucket
+  name: >
+    func (*Client) Bucket
+  href: index.html#cloud_google_com_go_storage_Client_Bucket
+- uid: cloud.google.com/go/storage.Client.Buckets
+  name: >
+    func (*Client) Buckets
+  href: index.html#cloud_google_com_go_storage_Client_Buckets
+- uid: cloud.google.com/go/storage.Client.Close
+  name: >
+    func (*Client) Close
+  href: index.html#cloud_google_com_go_storage_Client_Close
+- uid: cloud.google.com/go/storage.Client.CreateHMACKey
+  name: >
+    func (*Client) CreateHMACKey
+  href: index.html#cloud_google_com_go_storage_Client_CreateHMACKey
+- uid: cloud.google.com/go/storage.Client.HMACKeyHandle
+  name: >
+    func (*Client) HMACKeyHandle
+  href: index.html#cloud_google_com_go_storage_Client_HMACKeyHandle
+- uid: cloud.google.com/go/storage.Client.ListHMACKeys
+  name: >
+    func (*Client) ListHMACKeys
+  href: index.html#cloud_google_com_go_storage_Client_ListHMACKeys
+- uid: cloud.google.com/go/storage.Client.NewClient
+  name: >
+    func NewClient
+  href: index.html#cloud_google_com_go_storage_Client_NewClient
+- uid: cloud.google.com/go/storage.Client.ServiceAccount
+  name: >
+    func (*Client) ServiceAccount
+  href: index.html#cloud_google_com_go_storage_Client_ServiceAccount
+- uid: cloud.google.com/go/storage.Composer
+  name: Composer
+  href: index.html#cloud_google_com_go_storage_Composer
+- uid: cloud.google.com/go/storage.Composer.Run
+  name: >
+    func (*Composer) Run
+  href: index.html#cloud_google_com_go_storage_Composer_Run
+- uid: cloud.google.com/go/storage.Conditions
+  name: Conditions
+  href: index.html#cloud_google_com_go_storage_Conditions
+- uid: cloud.google.com/go/storage.Copier
+  name: Copier
+  href: index.html#cloud_google_com_go_storage_Copier
+- uid: cloud.google.com/go/storage.Copier.Run
+  name: >
+    func (*Copier) Run
+  href: index.html#cloud_google_com_go_storage_Copier_Run
+- uid: cloud.google.com/go/storage.CORS
+  name: CORS
+  href: index.html#cloud_google_com_go_storage_CORS
+- uid: cloud.google.com/go/storage.DeleteAction,SetStorageClassAction
+  name: DeleteAction, SetStorageClassAction
+  href: index.html#cloud_google_com_go_storage_DeleteAction_SetStorageClassAction
+- uid: cloud.google.com/go/storage.ErrBucketNotExist,ErrObjectNotExist
+  name: ErrBucketNotExist, ErrObjectNotExist
+  href: index.html#cloud_google_com_go_storage_ErrBucketNotExist_ErrObjectNotExist
+- uid: cloud.google.com/go/storage.HMACKey
+  name: HMACKey
+  href: index.html#cloud_google_com_go_storage_HMACKey
+- uid: cloud.google.com/go/storage.HMACKeyAttrsToUpdate
+  name: HMACKeyAttrsToUpdate
+  href: index.html#cloud_google_com_go_storage_HMACKeyAttrsToUpdate
+- uid: cloud.google.com/go/storage.HMACKeyHandle
+  name: HMACKeyHandle
+  href: index.html#cloud_google_com_go_storage_HMACKeyHandle
+- uid: cloud.google.com/go/storage.HMACKeyHandle.Delete
+  name: >
+    func (*HMACKeyHandle) Delete
+  href: index.html#cloud_google_com_go_storage_HMACKeyHandle_Delete
+- uid: cloud.google.com/go/storage.HMACKeyHandle.Get
+  name: >
+    func (*HMACKeyHandle) Get
+  href: index.html#cloud_google_com_go_storage_HMACKeyHandle_Get
+- uid: cloud.google.com/go/storage.HMACKeyHandle.Update
+  name: >
+    func (*HMACKeyHandle) Update
+  href: index.html#cloud_google_com_go_storage_HMACKeyHandle_Update
+- uid: cloud.google.com/go/storage.HMACKeyOption
+  name: HMACKeyOption
+  href: index.html#cloud_google_com_go_storage_HMACKeyOption
+- uid: cloud.google.com/go/storage.HMACKeyOption.ForHMACKeyServiceAccountEmail
+  name: >
+    func ForHMACKeyServiceAccountEmail
+  href: index.html#cloud_google_com_go_storage_HMACKeyOption_ForHMACKeyServiceAccountEmail
+- uid: cloud.google.com/go/storage.HMACKeyOption.ShowDeletedHMACKeys
+  name: >
+    func ShowDeletedHMACKeys
+  href: index.html#cloud_google_com_go_storage_HMACKeyOption_ShowDeletedHMACKeys
+- uid: cloud.google.com/go/storage.HMACKeyOption.UserProjectForHMACKeys
+  name: >
+    func UserProjectForHMACKeys
+  href: index.html#cloud_google_com_go_storage_HMACKeyOption_UserProjectForHMACKeys
+- uid: cloud.google.com/go/storage.HMACKeysIterator
+  name: HMACKeysIterator
+  href: index.html#cloud_google_com_go_storage_HMACKeysIterator
+- uid: cloud.google.com/go/storage.HMACKeysIterator.Next
+  name: >
+    func (*HMACKeysIterator) Next
+  href: index.html#cloud_google_com_go_storage_HMACKeysIterator_Next
+- uid: cloud.google.com/go/storage.HMACKeysIterator.PageInfo
+  name: >
+    func (*HMACKeysIterator) PageInfo
+  href: index.html#cloud_google_com_go_storage_HMACKeysIterator_PageInfo
+- uid: cloud.google.com/go/storage.HMACState
+  name: HMACState
+  href: index.html#cloud_google_com_go_storage_HMACState
+- uid: cloud.google.com/go/storage.Lifecycle
+  name: Lifecycle
+  href: index.html#cloud_google_com_go_storage_Lifecycle
+- uid: cloud.google.com/go/storage.LifecycleAction
+  name: LifecycleAction
+  href: index.html#cloud_google_com_go_storage_LifecycleAction
+- uid: cloud.google.com/go/storage.LifecycleCondition
+  name: LifecycleCondition
+  href: index.html#cloud_google_com_go_storage_LifecycleCondition
+- uid: cloud.google.com/go/storage.LifecycleRule
+  name: LifecycleRule
+  href: index.html#cloud_google_com_go_storage_LifecycleRule
+- uid: cloud.google.com/go/storage.LiveAndArchived,Live,Archived
+  name: LiveAndArchived, Live, Archived
+  href: index.html#cloud_google_com_go_storage_LiveAndArchived_Live_Archived
+- uid: cloud.google.com/go/storage.Liveness
+  name: Liveness
+  href: index.html#cloud_google_com_go_storage_Liveness
+- uid: cloud.google.com/go/storage.NoPayload,JSONPayload
+  name: NoPayload, JSONPayload
+  href: index.html#cloud_google_com_go_storage_NoPayload_JSONPayload
+- uid: cloud.google.com/go/storage.Notification
+  name: Notification
+  href: index.html#cloud_google_com_go_storage_Notification
+- uid: cloud.google.com/go/storage.ObjectAttrs
+  name: ObjectAttrs
+  href: index.html#cloud_google_com_go_storage_ObjectAttrs
+- uid: cloud.google.com/go/storage.ObjectAttrsToUpdate
+  name: ObjectAttrsToUpdate
+  href: index.html#cloud_google_com_go_storage_ObjectAttrsToUpdate
+- uid: cloud.google.com/go/storage.ObjectFinalizeEvent,ObjectMetadataUpdateEvent,ObjectDeleteEvent,ObjectArchiveEvent
+  name: ObjectFinalizeEvent, ObjectMetadataUpdateEvent, ObjectDeleteEvent, ObjectArchiveEvent
+  href: index.html#cloud_google_com_go_storage_ObjectFinalizeEvent_ObjectMetadataUpdateEvent_ObjectDeleteEvent_ObjectArchiveEvent
+- uid: cloud.google.com/go/storage.ObjectHandle
+  name: ObjectHandle
+  href: index.html#cloud_google_com_go_storage_ObjectHandle
+- uid: cloud.google.com/go/storage.ObjectHandle.ACL
+  name: >
+    func (*ObjectHandle) ACL
+  href: index.html#cloud_google_com_go_storage_ObjectHandle_ACL
+- uid: cloud.google.com/go/storage.ObjectHandle.Attrs
+  name: >
+    func (*ObjectHandle) Attrs
+  href: index.html#cloud_google_com_go_storage_ObjectHandle_Attrs
+- uid: cloud.google.com/go/storage.ObjectHandle.BucketName
+  name: >
+    func (*ObjectHandle) BucketName
+  href: index.html#cloud_google_com_go_storage_ObjectHandle_BucketName
+- uid: cloud.google.com/go/storage.ObjectHandle.ComposerFrom
+  name: >
+    func (*ObjectHandle) ComposerFrom
+  href: index.html#cloud_google_com_go_storage_ObjectHandle_ComposerFrom
+- uid: cloud.google.com/go/storage.ObjectHandle.CopierFrom
+  name: >
+    func (*ObjectHandle) CopierFrom
+  href: index.html#cloud_google_com_go_storage_ObjectHandle_CopierFrom
+- uid: cloud.google.com/go/storage.ObjectHandle.Delete
+  name: >
+    func (*ObjectHandle) Delete
+  href: index.html#cloud_google_com_go_storage_ObjectHandle_Delete
+- uid: cloud.google.com/go/storage.ObjectHandle.Generation
+  name: >
+    func (*ObjectHandle) Generation
+  href: index.html#cloud_google_com_go_storage_ObjectHandle_Generation
+- uid: cloud.google.com/go/storage.ObjectHandle.If
+  name: >
+    func (*ObjectHandle) If
+  href: index.html#cloud_google_com_go_storage_ObjectHandle_If
+- uid: cloud.google.com/go/storage.ObjectHandle.Key
+  name: >
+    func (*ObjectHandle) Key
+  href: index.html#cloud_google_com_go_storage_ObjectHandle_Key
+- uid: cloud.google.com/go/storage.ObjectHandle.NewRangeReader
+  name: >
+    func (*ObjectHandle) NewRangeReader
+  href: index.html#cloud_google_com_go_storage_ObjectHandle_NewRangeReader
+- uid: cloud.google.com/go/storage.ObjectHandle.NewReader
+  name: >
+    func (*ObjectHandle) NewReader
+  href: index.html#cloud_google_com_go_storage_ObjectHandle_NewReader
+- uid: cloud.google.com/go/storage.ObjectHandle.NewWriter
+  name: >
+    func (*ObjectHandle) NewWriter
+  href: index.html#cloud_google_com_go_storage_ObjectHandle_NewWriter
+- uid: cloud.google.com/go/storage.ObjectHandle.ObjectName
+  name: >
+    func (*ObjectHandle) ObjectName
+  href: index.html#cloud_google_com_go_storage_ObjectHandle_ObjectName
+- uid: cloud.google.com/go/storage.ObjectHandle.ReadCompressed
+  name: >
+    func (*ObjectHandle) ReadCompressed
+  href: index.html#cloud_google_com_go_storage_ObjectHandle_ReadCompressed
+- uid: cloud.google.com/go/storage.ObjectHandle.Update
+  name: >
+    func (*ObjectHandle) Update
+  href: index.html#cloud_google_com_go_storage_ObjectHandle_Update
+- uid: cloud.google.com/go/storage.ObjectIterator
+  name: ObjectIterator
+  href: index.html#cloud_google_com_go_storage_ObjectIterator
+- uid: cloud.google.com/go/storage.ObjectIterator.Next
+  name: >
+    func (*ObjectIterator) Next
+  href: index.html#cloud_google_com_go_storage_ObjectIterator_Next
+- uid: cloud.google.com/go/storage.ObjectIterator.PageInfo
+  name: >
+    func (*ObjectIterator) PageInfo
+  href: index.html#cloud_google_com_go_storage_ObjectIterator_PageInfo
+- uid: cloud.google.com/go/storage.PolicyV4Fields
+  name: PolicyV4Fields
+  href: index.html#cloud_google_com_go_storage_PolicyV4Fields
+- uid: cloud.google.com/go/storage.PostPolicyV4
+  name: PostPolicyV4
+  href: index.html#cloud_google_com_go_storage_PostPolicyV4
+- uid: cloud.google.com/go/storage.PostPolicyV4.GenerateSignedPostPolicyV4
+  name: >
+    func GenerateSignedPostPolicyV4
+  href: index.html#cloud_google_com_go_storage_PostPolicyV4_GenerateSignedPostPolicyV4
+- uid: cloud.google.com/go/storage.PostPolicyV4Condition
+  name: PostPolicyV4Condition
+  href: index.html#cloud_google_com_go_storage_PostPolicyV4Condition
+- uid: cloud.google.com/go/storage.PostPolicyV4Condition.ConditionContentLengthRange
+  name: >
+    func ConditionContentLengthRange
+  href: index.html#cloud_google_com_go_storage_PostPolicyV4Condition_ConditionContentLengthRange
+- uid: cloud.google.com/go/storage.PostPolicyV4Condition.ConditionStartsWith
+  name: >
+    func ConditionStartsWith
+  href: index.html#cloud_google_com_go_storage_PostPolicyV4Condition_ConditionStartsWith
+- uid: cloud.google.com/go/storage.PostPolicyV4Options
+  name: PostPolicyV4Options
+  href: index.html#cloud_google_com_go_storage_PostPolicyV4Options
+- uid: cloud.google.com/go/storage.Projection
+  name: Projection
+  href: index.html#cloud_google_com_go_storage_Projection
+- uid: cloud.google.com/go/storage.Projection.String
+  name: >
+    func (Projection) String
+  href: index.html#cloud_google_com_go_storage_Projection_String
+- uid: cloud.google.com/go/storage.ProjectionDefault,ProjectionFull,ProjectionNoACL
+  name: ProjectionDefault, ProjectionFull, ProjectionNoACL
+  href: index.html#cloud_google_com_go_storage_ProjectionDefault_ProjectionFull_ProjectionNoACL
+- uid: cloud.google.com/go/storage.ProjectTeam
+  name: ProjectTeam
+  href: index.html#cloud_google_com_go_storage_ProjectTeam
+- uid: cloud.google.com/go/storage.PublicAccessPrevention
+  name: PublicAccessPrevention
+  href: index.html#cloud_google_com_go_storage_PublicAccessPrevention
+- uid: cloud.google.com/go/storage.PublicAccessPrevention.String
+  name: >
+    func (PublicAccessPrevention) String
+  href: index.html#cloud_google_com_go_storage_PublicAccessPrevention_String
+- uid: cloud.google.com/go/storage.PublicAccessPreventionUnknown,PublicAccessPreventionUnspecified,PublicAccessPreventionEnforced
+  name: PublicAccessPreventionUnknown, PublicAccessPreventionUnspecified, PublicAccessPreventionEnforced
+  href: index.html#cloud_google_com_go_storage_PublicAccessPreventionUnknown_PublicAccessPreventionUnspecified_PublicAccessPreventionEnforced
+- uid: cloud.google.com/go/storage.Query
+  name: Query
+  href: index.html#cloud_google_com_go_storage_Query
+- uid: cloud.google.com/go/storage.Query.SetAttrSelection
+  name: >
+    func (*Query) SetAttrSelection
+  href: index.html#cloud_google_com_go_storage_Query_SetAttrSelection
+- uid: cloud.google.com/go/storage.Reader
+  name: Reader
+  href: index.html#cloud_google_com_go_storage_Reader
+- uid: cloud.google.com/go/storage.Reader.CacheControl
+  name: >
+    func (*Reader) CacheControl
+  href: index.html#cloud_google_com_go_storage_Reader_CacheControl
+- uid: cloud.google.com/go/storage.Reader.Close
+  name: >
+    func (*Reader) Close
+  href: index.html#cloud_google_com_go_storage_Reader_Close
+- uid: cloud.google.com/go/storage.Reader.ContentEncoding
+  name: >
+    func (*Reader) ContentEncoding
+  href: index.html#cloud_google_com_go_storage_Reader_ContentEncoding
+- uid: cloud.google.com/go/storage.Reader.ContentType
+  name: >
+    func (*Reader) ContentType
+  href: index.html#cloud_google_com_go_storage_Reader_ContentType
+- uid: cloud.google.com/go/storage.Reader.LastModified
+  name: >
+    func (*Reader) LastModified
+  href: index.html#cloud_google_com_go_storage_Reader_LastModified
+- uid: cloud.google.com/go/storage.Reader.Read
+  name: >
+    func (*Reader) Read
+  href: index.html#cloud_google_com_go_storage_Reader_Read
+- uid: cloud.google.com/go/storage.Reader.Remain
+  name: >
+    func (*Reader) Remain
+  href: index.html#cloud_google_com_go_storage_Reader_Remain
+- uid: cloud.google.com/go/storage.Reader.Size
+  name: >
+    func (*Reader) Size
+  href: index.html#cloud_google_com_go_storage_Reader_Size
+- uid: cloud.google.com/go/storage.ReaderObjectAttrs
+  name: ReaderObjectAttrs
+  href: index.html#cloud_google_com_go_storage_ReaderObjectAttrs
+- uid: cloud.google.com/go/storage.RetentionPolicy
+  name: RetentionPolicy
+  href: index.html#cloud_google_com_go_storage_RetentionPolicy
+- uid: cloud.google.com/go/storage.RoleOwner,RoleReader,RoleWriter
+  name: RoleOwner, RoleReader, RoleWriter
+  href: index.html#cloud_google_com_go_storage_RoleOwner_RoleReader_RoleWriter
+- uid: cloud.google.com/go/storage.ScopeFullControl,ScopeReadOnly,ScopeReadWrite
+  name: ScopeFullControl, ScopeReadOnly, ScopeReadWrite
+  href: index.html#cloud_google_com_go_storage_ScopeFullControl_ScopeReadOnly_ScopeReadWrite
+- uid: cloud.google.com/go/storage.SignedURL
+  name: >
+    func SignedURL
+  href: index.html#cloud_google_com_go_storage_SignedURL
+- uid: cloud.google.com/go/storage.SignedURLOptions
+  name: SignedURLOptions
+  href: index.html#cloud_google_com_go_storage_SignedURLOptions
+- uid: cloud.google.com/go/storage.SigningScheme
+  name: SigningScheme
+  href: index.html#cloud_google_com_go_storage_SigningScheme
+- uid: cloud.google.com/go/storage.SigningSchemeDefault,SigningSchemeV2,SigningSchemeV4
+  name: SigningSchemeDefault, SigningSchemeV2, SigningSchemeV4
+  href: index.html#cloud_google_com_go_storage_SigningSchemeDefault_SigningSchemeV2_SigningSchemeV4
+- uid: cloud.google.com/go/storage.UniformBucketLevelAccess
+  name: UniformBucketLevelAccess
+  href: index.html#cloud_google_com_go_storage_UniformBucketLevelAccess
+- uid: cloud.google.com/go/storage.URLStyle
+  name: URLStyle
+  href: index.html#cloud_google_com_go_storage_URLStyle
+- uid: cloud.google.com/go/storage.URLStyle.BucketBoundHostname
+  name: >
+    func BucketBoundHostname
+  href: index.html#cloud_google_com_go_storage_URLStyle_BucketBoundHostname
+- uid: cloud.google.com/go/storage.URLStyle.PathStyle
+  name: >
+    func PathStyle
+  href: index.html#cloud_google_com_go_storage_URLStyle_PathStyle
+- uid: cloud.google.com/go/storage.URLStyle.VirtualHostedStyle
+  name: >
+    func VirtualHostedStyle
+  href: index.html#cloud_google_com_go_storage_URLStyle_VirtualHostedStyle
+- uid: cloud.google.com/go/storage.Writer
+  name: Writer
+  href: index.html#cloud_google_com_go_storage_Writer
+- uid: cloud.google.com/go/storage.Writer.Attrs
+  name: >
+    func (*Writer) Attrs
+  href: index.html#cloud_google_com_go_storage_Writer_Attrs
+- uid: cloud.google.com/go/storage.Writer.Close
+  name: >
+    func (*Writer) Close
+  href: index.html#cloud_google_com_go_storage_Writer_Close
+- uid: cloud.google.com/go/storage.Writer.CloseWithError
+  name: >
+    func (*Writer) CloseWithError
+  href: index.html#cloud_google_com_go_storage_Writer_CloseWithError
+- uid: cloud.google.com/go/storage.Writer.Write
+  name: >
+    func (*Writer) Write
+  href: index.html#cloud_google_com_go_storage_Writer_Write

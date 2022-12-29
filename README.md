@@ -148,14 +148,27 @@ black docpipeline tests
 ### Testing
 
 1. Create a testing Cloud Storage bucket (`my-bucket`).
-1. Copy a service account with permission to access `my-bucket` to
-   `/dev/shm/73713_docuploader_service_account`.
-1. Run the following command, replacing `my-bucket` with your development bucket:
-   ```
-   TEST_BUCKET=my-bucket TRAMPOLINE_BUILD_FILE=./ci/run_tests.sh TRAMPOLINE_IMAGE=gcr.io/cloud-devrel-kokoro-resources/docfx TRAMPOLINE_DOCKERFILE=docfx/Dockerfile ci/trampoline_v2.sh
-   ```
-1. The tests upload a test DocFX YAML tarball, call the generator, and verify
-   the content.
+1. Run the tests.
+   * Docker:
+      1. Copy a service account with permission to access `my-bucket` to
+         `/dev/shm/73713_docuploader_service_account`.
+      1. Run the following command, replacing `my-bucket` with your development bucket:
+         ```
+         TEST_BUCKET=my-bucket TRAMPOLINE_BUILD_FILE=./ci/run_tests.sh TRAMPOLINE_IMAGE=gcr.io/cloud-devrel-kokoro-resources/docfx TRAMPOLINE_DOCKERFILE=docfx/Dockerfile ci/trampoline_v2.sh
+         ```
+      1. To update goldens, add the `UPDATE_GOLDENS=1` environment variable.
+   * Local:
+      1. `pip install -e .`
+      1. `pip install pytest`
+      1. ```
+         black --check tests
+         flake8 tests
+         GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json TEST_BUCKET=my-bucket pytest tests
+         ```
+      1. To update goldens add the `--update-goldens` flag:
+         ```
+         pytest --update-goldens tests
+         ```
 
 ### Running locally for one package
 
