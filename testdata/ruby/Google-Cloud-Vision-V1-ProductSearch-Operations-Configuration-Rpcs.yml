@@ -1,0 +1,127 @@
+### YamlMime:UniversalReference
+items:
+- uid: Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs
+  children: 
+  - Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs#cancel_operation(instance)
+  - Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs#delete_operation(instance)
+  - Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs#get_operation(instance)
+  - Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs#list_operations(instance)
+  - Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs#wait_operation(instance)
+  fullName: Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs
+  langs:
+  - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: Rpcs
+  summary: "<p>Configuration RPC class for the Operations API.</p>\n\n<p>Includes fields providing the configuration for each RPC in this service.\nEach configuration object is of type <code>Gapic::Config::Method</code> and includes\nthe following configuration fields:</p>\n\n<ul>\n<li> <code>timeout</code> (<em>type:</em> <code>Numeric</code>) - The call timeout in seconds</li>\n<li> <code>metadata</code> (<em>type:</em> <code>Hash{Symbol=&gt;String}</code>) - Additional gRPC headers</li>\n<li> <code>retry_policy (*type:*</code>Hash`) - The retry policy. The policy fields\ninclude the following keys:\n\n<ul>\n<li> <code>:initial_delay</code> (<em>type:</em> <code>Numeric</code>) - The initial delay in seconds.</li>\n<li> <code>:max_delay</code> (<em>type:</em> <code>Numeric</code>) - The max delay in seconds.</li>\n<li> <code>:multiplier</code> (<em>type:</em> <code>Numeric</code>) - The incremental backoff multiplier.</li>\n<li> <code>:retry_codes</code> (<em>type:</em> <code>Array&lt;String&gt;</code>) - The error codes that should\ntrigger a retry.</li>\n</ul></li>\n</ul>"
+  type: "class"
+  name: Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs
+  example: []
+  inherits:
+  - "Object"
+- uid: Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs#cancel_operation(instance)
+  fullName: Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs#cancel_operation
+  name: "#cancel_operation"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#cancel_operation"
+  summary: "RPC-specific configuration for <code>cancel_operation</code>"
+  type: method
+  example: []
+  syntax:
+    description: "RPC-specific configuration for <code>cancel_operation</code>"
+    content: "def cancel_operation() -> ::Gapic::Config::Method"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Gapic::Config::Method)"
+    raises: []
+- uid: Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs#delete_operation(instance)
+  fullName: Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs#delete_operation
+  name: "#delete_operation"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#delete_operation"
+  summary: "RPC-specific configuration for <code>delete_operation</code>"
+  type: method
+  example: []
+  syntax:
+    description: "RPC-specific configuration for <code>delete_operation</code>"
+    content: "def delete_operation() -> ::Gapic::Config::Method"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Gapic::Config::Method)"
+    raises: []
+- uid: Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs#get_operation(instance)
+  fullName: Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs#get_operation
+  name: "#get_operation"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#get_operation"
+  summary: "RPC-specific configuration for <code>get_operation</code>"
+  type: method
+  example: []
+  syntax:
+    description: "RPC-specific configuration for <code>get_operation</code>"
+    content: "def get_operation() -> ::Gapic::Config::Method"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Gapic::Config::Method)"
+    raises: []
+- uid: Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs#list_operations(instance)
+  fullName: Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs#list_operations
+  name: "#list_operations"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#list_operations"
+  summary: "RPC-specific configuration for <code>list_operations</code>"
+  type: method
+  example: []
+  syntax:
+    description: "RPC-specific configuration for <code>list_operations</code>"
+    content: "def list_operations() -> ::Gapic::Config::Method"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Gapic::Config::Method)"
+    raises: []
+- uid: Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs#wait_operation(instance)
+  fullName: Google::Cloud::Vision::V1::ProductSearch::Operations::Configuration::Rpcs#wait_operation
+  name: "#wait_operation"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#wait_operation"
+  summary: "RPC-specific configuration for <code>wait_operation</code>"
+  type: method
+  example: []
+  syntax:
+    description: "RPC-specific configuration for <code>wait_operation</code>"
+    content: "def wait_operation() -> ::Gapic::Config::Method"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Gapic::Config::Method)"
+    raises: []
+references: []

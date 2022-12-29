@@ -1,0 +1,66 @@
+### YamlMime:UniversalReference
+items:
+- uid: Google::Protobuf::BytesValue
+  children: 
+  - Google::Protobuf::BytesValue#value(instance)
+  - Google::Protobuf::BytesValue#value=(instance)
+  fullName: Google::Protobuf::BytesValue
+  langs:
+  - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: BytesValue
+  summary: "Wrapper message for <code>bytes</code>.</p>\n\n<p>The JSON representation for <code>BytesValue</code> is JSON string."
+  type: "class"
+  name: Google::Protobuf::BytesValue
+  example: []
+  inherits:
+  - "Object"
+  extendedBy:
+  - "Google::Protobuf::MessageExts::ClassMethods"
+  includes:
+  - "Google::Protobuf::MessageExts"
+- uid: Google::Protobuf::BytesValue#value(instance)
+  fullName: Google::Protobuf::BytesValue#value
+  name: "#value"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#value"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def value() -> ::String"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — The bytes value."
+    raises: []
+- uid: Google::Protobuf::BytesValue#value=(instance)
+  fullName: Google::Protobuf::BytesValue#value=
+  name: "#value="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#value="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def value=(value) -> ::String"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (::String) — The bytes value."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::String) — The bytes value."
+    raises: []
+references: []

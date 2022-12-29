@@ -1,0 +1,66 @@
+### YamlMime:UniversalReference
+items:
+- uid: Google::Protobuf::FloatValue
+  children: 
+  - Google::Protobuf::FloatValue#value(instance)
+  - Google::Protobuf::FloatValue#value=(instance)
+  fullName: Google::Protobuf::FloatValue
+  langs:
+  - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: FloatValue
+  summary: "Wrapper message for <code>float</code>.</p>\n\n<p>The JSON representation for <code>FloatValue</code> is JSON number."
+  type: "class"
+  name: Google::Protobuf::FloatValue
+  example: []
+  inherits:
+  - "Object"
+  extendedBy:
+  - "Google::Protobuf::MessageExts::ClassMethods"
+  includes:
+  - "Google::Protobuf::MessageExts"
+- uid: Google::Protobuf::FloatValue#value(instance)
+  fullName: Google::Protobuf::FloatValue#value
+  name: "#value"
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#value"
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def value() -> ::Float"
+    aliases: []
+    arguments: []
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Float) — The float value."
+    raises: []
+- uid: Google::Protobuf::FloatValue#value=(instance)
+  fullName: Google::Protobuf::FloatValue#value=
+  name: "#value="
+  langs:
+    - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: "#value="
+  summary: ""
+  type: method
+  example: []
+  syntax:
+    description: ""
+    content: "def value=(value) -> ::Float"
+    aliases: []
+    arguments:
+    - description: "<strong>value</strong> (::Float) — The float value."
+    yields: []
+    yieldparams: []
+    returnValues:
+    - description: "(::Float) — The float value."
+    raises: []
+references: []

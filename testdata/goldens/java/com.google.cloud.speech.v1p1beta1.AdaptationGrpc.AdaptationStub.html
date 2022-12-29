@@ -1,0 +1,395 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/java/docs/reference/_project.yaml">
+    <meta name="book_path" value="/java/docs/reference/google-cloud-speech/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub">
+<h1 class="page-title">Class AdaptationGrpc.AdaptationStub (2.0.0)</h1>
+  
+  
+  <div class="codewrapper">
+    <pre class="prettyprint"><code>public static final class AdaptationGrpc.AdaptationStub extends AbstractAsyncStub&lt;AdaptationGrpc.AdaptationStub&gt;</code></pre>
+  </div>
+  <div class="markdown level0 summary"><p> Service that implements Google Cloud Speech Adaptation API.</p>
+</div>
+  <div class="inheritance">
+    <h2>Inheritance</h2>
+    <span><a class="xref" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html">java.lang.Object</a></span> <span> &gt; </span>
+    <span><span class="xref">io.grpc.stub.AbstractStub</span></span> <span> &gt; </span>
+    <span><span class="xref">io.grpc.stub.AbstractAsyncStub</span></span> <span> &gt; </span>
+    <span class="xref">AdaptationGrpc.AdaptationStub</span>
+  </div>
+  <div class="inheritedMembers expandable">
+    <h2 class="showalways">Inherited Members</h2>
+    <div>
+      <span class="xref">io.grpc.stub.AbstractAsyncStub.&lt;T&gt;newStub(io.grpc.stub.AbstractStub.StubFactory&lt;T&gt;,io.grpc.Channel)</span>
+    </div>
+    <div>
+      <span class="xref">io.grpc.stub.AbstractAsyncStub.&lt;T&gt;newStub(io.grpc.stub.AbstractStub.StubFactory&lt;T&gt;,io.grpc.Channel,io.grpc.CallOptions)</span>
+    </div>
+    <div>
+      <span class="xref">io.grpc.stub.AbstractStub.&lt;T&gt;withOption(io.grpc.CallOptions.Key&lt;T&gt;,T)</span>
+    </div>
+    <div>
+      <span class="xref">io.grpc.stub.AbstractStub.build(io.grpc.Channel,io.grpc.CallOptions)</span>
+    </div>
+    <div>
+      <span class="xref">io.grpc.stub.AbstractStub.getCallOptions()</span>
+    </div>
+    <div>
+      <span class="xref">io.grpc.stub.AbstractStub.getChannel()</span>
+    </div>
+    <div>
+      <span class="xref">io.grpc.stub.AbstractStub.withCallCredentials(io.grpc.CallCredentials)</span>
+    </div>
+    <div>
+      <span class="xref">io.grpc.stub.AbstractStub.withChannel(io.grpc.Channel)</span>
+    </div>
+    <div>
+      <span class="xref">io.grpc.stub.AbstractStub.withCompression(java.lang.String)</span>
+    </div>
+    <div>
+      <span class="xref">io.grpc.stub.AbstractStub.withDeadline(io.grpc.Deadline)</span>
+    </div>
+    <div>
+      <span class="xref">io.grpc.stub.AbstractStub.withDeadlineAfter(long,java.util.concurrent.TimeUnit)</span>
+    </div>
+    <div>
+      <span class="xref">io.grpc.stub.AbstractStub.withExecutor(java.util.concurrent.Executor)</span>
+    </div>
+    <div>
+      <span class="xref">io.grpc.stub.AbstractStub.withInterceptors(io.grpc.ClientInterceptor...)</span>
+    </div>
+    <div>
+      <span class="xref">io.grpc.stub.AbstractStub.withMaxInboundMessageSize(int)</span>
+    </div>
+    <div>
+      <span class="xref">io.grpc.stub.AbstractStub.withMaxOutboundMessageSize(int)</span>
+    </div>
+    <div>
+      <span class="xref">io.grpc.stub.AbstractStub.withWaitForReady()</span>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#clone--">Object.clone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#equals-java.lang.Object-">Object.equals(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#finalize--">Object.finalize()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#getClass--">Object.getClass()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#hashCode--">Object.hashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#notify--">Object.notify()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#notifyAll--">Object.notifyAll()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#toString--">Object.toString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#wait--">Object.wait()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#wait-long-">Object.wait(long)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#wait-long-int-">Object.wait(long,int)</a>
+    </div>
+  </div>
+  <h2 id="methods">Methods
+  </h2>
+  <a id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_build_" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.build*"></a>
+  <h3 id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_build_io_grpc_Channel_io_grpc_CallOptions_" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.build(io.grpc.Channel,io.grpc.CallOptions)" class="notranslate">build(Channel channel, CallOptions callOptions)</h3>
+  <div class="codewrapper">
+    <pre class="prettyprint"><code>protected AdaptationGrpc.AdaptationStub build(Channel channel, CallOptions callOptions)</code></pre>
+  </div>
+  <strong>Parameters</strong>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">channel</span></td>
+        <td><code><span class="xref">io.grpc.Channel</span></code><br></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">callOptions</span></td>
+        <td><code><span class="xref">io.grpc.CallOptions</span></code><br></td>
+      </tr>
+    </tbody>
+  </table>
+  <strong>Returns</strong>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.html">AdaptationGrpc.AdaptationStub</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <strong>Overrides</strong>
+  <div><span class="xref">io.grpc.stub.AbstractStub.build(io.grpc.Channel,io.grpc.CallOptions)</span></div>
+  <a id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_createCustomClass_" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.createCustomClass*"></a>
+  <h3 id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_createCustomClass_com_google_cloud_speech_v1p1beta1_CreateCustomClassRequest_io_grpc_stub_StreamObserver_com_google_cloud_speech_v1p1beta1_CustomClass__" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.createCustomClass(com.google.cloud.speech.v1p1beta1.CreateCustomClassRequest,io.grpc.stub.StreamObserver&lt;com.google.cloud.speech.v1p1beta1.CustomClass&gt;)" class="notranslate">createCustomClass(CreateCustomClassRequest request, StreamObserver&lt;CustomClass&gt; responseObserver)</h3>
+  <div class="codewrapper">
+    <pre class="prettyprint"><code>public void createCustomClass(CreateCustomClassRequest request, StreamObserver&lt;CustomClass&gt; responseObserver)</code></pre>
+  </div>
+  <div class="markdown level1 summary"><p> Create a custom class.</p>
+</div>
+  <strong>Parameters</strong>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">request</span></td>
+        <td><code><a class="xref" href="com.google.cloud.speech.v1p1beta1.CreateCustomClassRequest.html">CreateCustomClassRequest</a></code><br></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">responseObserver</span></td>
+        <td><code><span class="xref">io.grpc.stub.StreamObserver</span>&lt;<a class="xref" href="com.google.cloud.speech.v1p1beta1.CustomClass.html">CustomClass</a>&gt;</code><br></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_createPhraseSet_" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.createPhraseSet*"></a>
+  <h3 id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_createPhraseSet_com_google_cloud_speech_v1p1beta1_CreatePhraseSetRequest_io_grpc_stub_StreamObserver_com_google_cloud_speech_v1p1beta1_PhraseSet__" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.createPhraseSet(com.google.cloud.speech.v1p1beta1.CreatePhraseSetRequest,io.grpc.stub.StreamObserver&lt;com.google.cloud.speech.v1p1beta1.PhraseSet&gt;)" class="notranslate">createPhraseSet(CreatePhraseSetRequest request, StreamObserver&lt;PhraseSet&gt; responseObserver)</h3>
+  <div class="codewrapper">
+    <pre class="prettyprint"><code>public void createPhraseSet(CreatePhraseSetRequest request, StreamObserver&lt;PhraseSet&gt; responseObserver)</code></pre>
+  </div>
+  <div class="markdown level1 summary"><p> Create a set of phrase hints. Each item in the set can be a single word or
+ a multi-word phrase. The items in the PhraseSet are favored by the
+ recognition model when you send a call that includes the PhraseSet.</p>
+</div>
+  <strong>Parameters</strong>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">request</span></td>
+        <td><code><a class="xref" href="com.google.cloud.speech.v1p1beta1.CreatePhraseSetRequest.html">CreatePhraseSetRequest</a></code><br></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">responseObserver</span></td>
+        <td><code><span class="xref">io.grpc.stub.StreamObserver</span>&lt;<a class="xref" href="com.google.cloud.speech.v1p1beta1.PhraseSet.html">PhraseSet</a>&gt;</code><br></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_deleteCustomClass_" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.deleteCustomClass*"></a>
+  <h3 id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_deleteCustomClass_com_google_cloud_speech_v1p1beta1_DeleteCustomClassRequest_io_grpc_stub_StreamObserver_com_google_protobuf_Empty__" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.deleteCustomClass(com.google.cloud.speech.v1p1beta1.DeleteCustomClassRequest,io.grpc.stub.StreamObserver&lt;com.google.protobuf.Empty&gt;)" class="notranslate">deleteCustomClass(DeleteCustomClassRequest request, StreamObserver&lt;Empty&gt; responseObserver)</h3>
+  <div class="codewrapper">
+    <pre class="prettyprint"><code>public void deleteCustomClass(DeleteCustomClassRequest request, StreamObserver&lt;Empty&gt; responseObserver)</code></pre>
+  </div>
+  <div class="markdown level1 summary"><p> Delete a custom class.</p>
+</div>
+  <strong>Parameters</strong>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">request</span></td>
+        <td><code><a class="xref" href="com.google.cloud.speech.v1p1beta1.DeleteCustomClassRequest.html">DeleteCustomClassRequest</a></code><br></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">responseObserver</span></td>
+        <td><code><span class="xref">io.grpc.stub.StreamObserver</span>&lt;<span class="xref">com.google.protobuf.Empty</span>&gt;</code><br></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_deletePhraseSet_" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.deletePhraseSet*"></a>
+  <h3 id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_deletePhraseSet_com_google_cloud_speech_v1p1beta1_DeletePhraseSetRequest_io_grpc_stub_StreamObserver_com_google_protobuf_Empty__" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.deletePhraseSet(com.google.cloud.speech.v1p1beta1.DeletePhraseSetRequest,io.grpc.stub.StreamObserver&lt;com.google.protobuf.Empty&gt;)" class="notranslate">deletePhraseSet(DeletePhraseSetRequest request, StreamObserver&lt;Empty&gt; responseObserver)</h3>
+  <div class="codewrapper">
+    <pre class="prettyprint"><code>public void deletePhraseSet(DeletePhraseSetRequest request, StreamObserver&lt;Empty&gt; responseObserver)</code></pre>
+  </div>
+  <div class="markdown level1 summary"><p> Delete a phrase set.</p>
+</div>
+  <strong>Parameters</strong>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">request</span></td>
+        <td><code><a class="xref" href="com.google.cloud.speech.v1p1beta1.DeletePhraseSetRequest.html">DeletePhraseSetRequest</a></code><br></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">responseObserver</span></td>
+        <td><code><span class="xref">io.grpc.stub.StreamObserver</span>&lt;<span class="xref">com.google.protobuf.Empty</span>&gt;</code><br></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_getCustomClass_" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.getCustomClass*"></a>
+  <h3 id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_getCustomClass_com_google_cloud_speech_v1p1beta1_GetCustomClassRequest_io_grpc_stub_StreamObserver_com_google_cloud_speech_v1p1beta1_CustomClass__" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.getCustomClass(com.google.cloud.speech.v1p1beta1.GetCustomClassRequest,io.grpc.stub.StreamObserver&lt;com.google.cloud.speech.v1p1beta1.CustomClass&gt;)" class="notranslate">getCustomClass(GetCustomClassRequest request, StreamObserver&lt;CustomClass&gt; responseObserver)</h3>
+  <div class="codewrapper">
+    <pre class="prettyprint"><code>public void getCustomClass(GetCustomClassRequest request, StreamObserver&lt;CustomClass&gt; responseObserver)</code></pre>
+  </div>
+  <div class="markdown level1 summary"><p> Get a custom class.</p>
+</div>
+  <strong>Parameters</strong>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">request</span></td>
+        <td><code><a class="xref" href="com.google.cloud.speech.v1p1beta1.GetCustomClassRequest.html">GetCustomClassRequest</a></code><br></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">responseObserver</span></td>
+        <td><code><span class="xref">io.grpc.stub.StreamObserver</span>&lt;<a class="xref" href="com.google.cloud.speech.v1p1beta1.CustomClass.html">CustomClass</a>&gt;</code><br></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_getPhraseSet_" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.getPhraseSet*"></a>
+  <h3 id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_getPhraseSet_com_google_cloud_speech_v1p1beta1_GetPhraseSetRequest_io_grpc_stub_StreamObserver_com_google_cloud_speech_v1p1beta1_PhraseSet__" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.getPhraseSet(com.google.cloud.speech.v1p1beta1.GetPhraseSetRequest,io.grpc.stub.StreamObserver&lt;com.google.cloud.speech.v1p1beta1.PhraseSet&gt;)" class="notranslate">getPhraseSet(GetPhraseSetRequest request, StreamObserver&lt;PhraseSet&gt; responseObserver)</h3>
+  <div class="codewrapper">
+    <pre class="prettyprint"><code>public void getPhraseSet(GetPhraseSetRequest request, StreamObserver&lt;PhraseSet&gt; responseObserver)</code></pre>
+  </div>
+  <div class="markdown level1 summary"><p> Get a phrase set.</p>
+</div>
+  <strong>Parameters</strong>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">request</span></td>
+        <td><code><a class="xref" href="com.google.cloud.speech.v1p1beta1.GetPhraseSetRequest.html">GetPhraseSetRequest</a></code><br></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">responseObserver</span></td>
+        <td><code><span class="xref">io.grpc.stub.StreamObserver</span>&lt;<a class="xref" href="com.google.cloud.speech.v1p1beta1.PhraseSet.html">PhraseSet</a>&gt;</code><br></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_listCustomClasses_" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.listCustomClasses*"></a>
+  <h3 id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_listCustomClasses_com_google_cloud_speech_v1p1beta1_ListCustomClassesRequest_io_grpc_stub_StreamObserver_com_google_cloud_speech_v1p1beta1_ListCustomClassesResponse__" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.listCustomClasses(com.google.cloud.speech.v1p1beta1.ListCustomClassesRequest,io.grpc.stub.StreamObserver&lt;com.google.cloud.speech.v1p1beta1.ListCustomClassesResponse&gt;)" class="notranslate">listCustomClasses(ListCustomClassesRequest request, StreamObserver&lt;ListCustomClassesResponse&gt; responseObserver)</h3>
+  <div class="codewrapper">
+    <pre class="prettyprint"><code>public void listCustomClasses(ListCustomClassesRequest request, StreamObserver&lt;ListCustomClassesResponse&gt; responseObserver)</code></pre>
+  </div>
+  <div class="markdown level1 summary"><p> List custom classes.</p>
+</div>
+  <strong>Parameters</strong>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">request</span></td>
+        <td><code><a class="xref" href="com.google.cloud.speech.v1p1beta1.ListCustomClassesRequest.html">ListCustomClassesRequest</a></code><br></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">responseObserver</span></td>
+        <td><code><span class="xref">io.grpc.stub.StreamObserver</span>&lt;<a class="xref" href="com.google.cloud.speech.v1p1beta1.ListCustomClassesResponse.html">ListCustomClassesResponse</a>&gt;</code><br></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_listPhraseSet_" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.listPhraseSet*"></a>
+  <h3 id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_listPhraseSet_com_google_cloud_speech_v1p1beta1_ListPhraseSetRequest_io_grpc_stub_StreamObserver_com_google_cloud_speech_v1p1beta1_ListPhraseSetResponse__" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.listPhraseSet(com.google.cloud.speech.v1p1beta1.ListPhraseSetRequest,io.grpc.stub.StreamObserver&lt;com.google.cloud.speech.v1p1beta1.ListPhraseSetResponse&gt;)" class="notranslate">listPhraseSet(ListPhraseSetRequest request, StreamObserver&lt;ListPhraseSetResponse&gt; responseObserver)</h3>
+  <div class="codewrapper">
+    <pre class="prettyprint"><code>public void listPhraseSet(ListPhraseSetRequest request, StreamObserver&lt;ListPhraseSetResponse&gt; responseObserver)</code></pre>
+  </div>
+  <div class="markdown level1 summary"><p> List phrase sets.</p>
+</div>
+  <strong>Parameters</strong>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">request</span></td>
+        <td><code><a class="xref" href="com.google.cloud.speech.v1p1beta1.ListPhraseSetRequest.html">ListPhraseSetRequest</a></code><br></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">responseObserver</span></td>
+        <td><code><span class="xref">io.grpc.stub.StreamObserver</span>&lt;<a class="xref" href="com.google.cloud.speech.v1p1beta1.ListPhraseSetResponse.html">ListPhraseSetResponse</a>&gt;</code><br></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_updateCustomClass_" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.updateCustomClass*"></a>
+  <h3 id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_updateCustomClass_com_google_cloud_speech_v1p1beta1_UpdateCustomClassRequest_io_grpc_stub_StreamObserver_com_google_cloud_speech_v1p1beta1_CustomClass__" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.updateCustomClass(com.google.cloud.speech.v1p1beta1.UpdateCustomClassRequest,io.grpc.stub.StreamObserver&lt;com.google.cloud.speech.v1p1beta1.CustomClass&gt;)" class="notranslate">updateCustomClass(UpdateCustomClassRequest request, StreamObserver&lt;CustomClass&gt; responseObserver)</h3>
+  <div class="codewrapper">
+    <pre class="prettyprint"><code>public void updateCustomClass(UpdateCustomClassRequest request, StreamObserver&lt;CustomClass&gt; responseObserver)</code></pre>
+  </div>
+  <div class="markdown level1 summary"><p> Update a custom class.</p>
+</div>
+  <strong>Parameters</strong>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">request</span></td>
+        <td><code><a class="xref" href="com.google.cloud.speech.v1p1beta1.UpdateCustomClassRequest.html">UpdateCustomClassRequest</a></code><br></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">responseObserver</span></td>
+        <td><code><span class="xref">io.grpc.stub.StreamObserver</span>&lt;<a class="xref" href="com.google.cloud.speech.v1p1beta1.CustomClass.html">CustomClass</a>&gt;</code><br></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_updatePhraseSet_" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.updatePhraseSet*"></a>
+  <h3 id="com_google_cloud_speech_v1p1beta1_AdaptationGrpc_AdaptationStub_updatePhraseSet_com_google_cloud_speech_v1p1beta1_UpdatePhraseSetRequest_io_grpc_stub_StreamObserver_com_google_cloud_speech_v1p1beta1_PhraseSet__" data-uid="com.google.cloud.speech.v1p1beta1.AdaptationGrpc.AdaptationStub.updatePhraseSet(com.google.cloud.speech.v1p1beta1.UpdatePhraseSetRequest,io.grpc.stub.StreamObserver&lt;com.google.cloud.speech.v1p1beta1.PhraseSet&gt;)" class="notranslate">updatePhraseSet(UpdatePhraseSetRequest request, StreamObserver&lt;PhraseSet&gt; responseObserver)</h3>
+  <div class="codewrapper">
+    <pre class="prettyprint"><code>public void updatePhraseSet(UpdatePhraseSetRequest request, StreamObserver&lt;PhraseSet&gt; responseObserver)</code></pre>
+  </div>
+  <div class="markdown level1 summary"><p> Update a phrase set.</p>
+</div>
+  <strong>Parameters</strong>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">request</span></td>
+        <td><code><a class="xref" href="com.google.cloud.speech.v1p1beta1.UpdatePhraseSetRequest.html">UpdatePhraseSetRequest</a></code><br></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">responseObserver</span></td>
+        <td><code><span class="xref">io.grpc.stub.StreamObserver</span>&lt;<a class="xref" href="com.google.cloud.speech.v1p1beta1.PhraseSet.html">PhraseSet</a>&gt;</code><br></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

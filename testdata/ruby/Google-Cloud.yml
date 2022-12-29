@@ -1,0 +1,25 @@
+### YamlMime:UniversalReference
+items:
+- uid: Google::Cloud
+  children: 
+  - Google::Cloud::Vision
+  fullName: Google::Cloud
+  langs:
+  - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: Cloud
+  summary: ""
+  type: "module"
+  name: Google::Cloud
+  example: []
+
+references:
+- uid: Google::Cloud::Vision
+  fullName: Google::Cloud::Vision
+  name: Vision
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: Vision
+  summary: ""
+  parent: Google::Cloud

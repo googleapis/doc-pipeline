@@ -1,0 +1,7 @@
+update_time {
+  seconds: 1617042258
+  nanos: 986080000
+}
+name: "google-cloud-speech"
+version: "2.0.0"
+language: "java"

@@ -1,0 +1,1403 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineHttpTarget#appEngineRouting:member'
+  name: appEngineRouting
+  href: google.cloud.scheduler.v1.appenginehttptarget.html
+  fullName: appEngineRouting
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineHttpTarget#body:member'
+  name: body
+  href: google.cloud.scheduler.v1.appenginehttptarget.html
+  fullName: body
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineHttpTarget#headers:member'
+  name: headers
+  href: google.cloud.scheduler.v1.appenginehttptarget.html
+  fullName: headers
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineHttpTarget#httpMethod:member'
+  name: httpMethod
+  href: google.cloud.scheduler.v1.appenginehttptarget.html
+  fullName: httpMethod
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineHttpTarget#relativeUri:member'
+  name: relativeUri
+  href: google.cloud.scheduler.v1.appenginehttptarget.html
+  fullName: relativeUri
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineHttpTarget#toJSON:member(1)'
+  name: toJSON()
+  href: google.cloud.scheduler.v1.appenginehttptarget.html
+  fullName: toJSON()
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineHttpTarget.create:member(1)'
+  name: create(properties)
+  href: google.cloud.scheduler.v1.appenginehttptarget.html
+  fullName: create(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineHttpTarget.decode:member(1)'
+  name: decode(reader, length)
+  href: google.cloud.scheduler.v1.appenginehttptarget.html
+  fullName: decode(reader, length)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineHttpTarget.decodeDelimited:member(1)'
+  name: decodeDelimited(reader)
+  href: google.cloud.scheduler.v1.appenginehttptarget.html
+  fullName: decodeDelimited(reader)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineHttpTarget.encode:member(1)'
+  name: encode(message, writer)
+  href: google.cloud.scheduler.v1.appenginehttptarget.html
+  fullName: encode(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineHttpTarget.encodeDelimited:member(1)'
+  name: encodeDelimited(message, writer)
+  href: google.cloud.scheduler.v1.appenginehttptarget.html
+  fullName: encodeDelimited(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineHttpTarget.fromObject:member(1)'
+  name: fromObject(object)
+  href: google.cloud.scheduler.v1.appenginehttptarget.html
+  fullName: fromObject(object)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineHttpTarget.toObject:member(1)'
+  name: toObject(message, options)
+  href: google.cloud.scheduler.v1.appenginehttptarget.html
+  fullName: toObject(message, options)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineHttpTarget.verify:member(1)'
+  name: verify(message)
+  href: google.cloud.scheduler.v1.appenginehttptarget.html
+  fullName: verify(message)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineHttpTarget:class'
+  name: google.cloud.scheduler.v1.AppEngineHttpTarget
+  href: google.cloud.scheduler.v1.appenginehttptarget.html
+  fullName: google.cloud.scheduler.v1.AppEngineHttpTarget
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineHttpTarget:constructor(1)'
+  name: (constructor)(properties)
+  href: google.cloud.scheduler.v1.appenginehttptarget.html
+  fullName: (constructor)(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineRouting#host:member'
+  name: host
+  href: google.cloud.scheduler.v1.appenginerouting.html
+  fullName: host
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineRouting#instance:member'
+  name: instance
+  href: google.cloud.scheduler.v1.appenginerouting.html
+  fullName: instance
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineRouting#service:member'
+  name: service
+  href: google.cloud.scheduler.v1.appenginerouting.html
+  fullName: service
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineRouting#toJSON:member(1)'
+  name: toJSON()
+  href: google.cloud.scheduler.v1.appenginerouting.html
+  fullName: toJSON()
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineRouting#version:member'
+  name: version
+  href: google.cloud.scheduler.v1.appenginerouting.html
+  fullName: version
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineRouting.create:member(1)'
+  name: create(properties)
+  href: google.cloud.scheduler.v1.appenginerouting.html
+  fullName: create(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineRouting.decode:member(1)'
+  name: decode(reader, length)
+  href: google.cloud.scheduler.v1.appenginerouting.html
+  fullName: decode(reader, length)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineRouting.decodeDelimited:member(1)'
+  name: decodeDelimited(reader)
+  href: google.cloud.scheduler.v1.appenginerouting.html
+  fullName: decodeDelimited(reader)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineRouting.encode:member(1)'
+  name: encode(message, writer)
+  href: google.cloud.scheduler.v1.appenginerouting.html
+  fullName: encode(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineRouting.encodeDelimited:member(1)'
+  name: encodeDelimited(message, writer)
+  href: google.cloud.scheduler.v1.appenginerouting.html
+  fullName: encodeDelimited(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineRouting.fromObject:member(1)'
+  name: fromObject(object)
+  href: google.cloud.scheduler.v1.appenginerouting.html
+  fullName: fromObject(object)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineRouting.toObject:member(1)'
+  name: toObject(message, options)
+  href: google.cloud.scheduler.v1.appenginerouting.html
+  fullName: toObject(message, options)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineRouting.verify:member(1)'
+  name: verify(message)
+  href: google.cloud.scheduler.v1.appenginerouting.html
+  fullName: verify(message)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineRouting:class'
+  name: google.cloud.scheduler.v1.AppEngineRouting
+  href: google.cloud.scheduler.v1.appenginerouting.html
+  fullName: google.cloud.scheduler.v1.AppEngineRouting
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.AppEngineRouting:constructor(1)'
+  name: (constructor)(properties)
+  href: google.cloud.scheduler.v1.appenginerouting.html
+  fullName: (constructor)(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler#createJob:member(1)'
+  name: createJob(request, callback)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: createJob(request, callback)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler#createJob:member(2)'
+  name: createJob(request)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: createJob(request)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler#deleteJob:member(1)'
+  name: deleteJob(request, callback)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: deleteJob(request, callback)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler#deleteJob:member(2)'
+  name: deleteJob(request)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: deleteJob(request)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler#getJob:member(1)'
+  name: getJob(request, callback)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: getJob(request, callback)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler#getJob:member(2)'
+  name: getJob(request)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: getJob(request)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler#listJobs:member(1)'
+  name: listJobs(request, callback)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: listJobs(request, callback)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler#listJobs:member(2)'
+  name: listJobs(request)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: listJobs(request)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler#pauseJob:member(1)'
+  name: pauseJob(request, callback)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: pauseJob(request, callback)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler#pauseJob:member(2)'
+  name: pauseJob(request)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: pauseJob(request)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler#resumeJob:member(1)'
+  name: resumeJob(request, callback)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: resumeJob(request, callback)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler#resumeJob:member(2)'
+  name: resumeJob(request)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: resumeJob(request)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler#runJob:member(1)'
+  name: runJob(request, callback)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: runJob(request, callback)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler#runJob:member(2)'
+  name: runJob(request)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: runJob(request)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler#updateJob:member(1)'
+  name: updateJob(request, callback)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: updateJob(request, callback)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler#updateJob:member(2)'
+  name: updateJob(request)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: updateJob(request)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler.create:member(1)'
+  name: create(rpcImpl, requestDelimited, responseDelimited)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: create(rpcImpl, requestDelimited, responseDelimited)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler:class'
+  name: google.cloud.scheduler.v1.CloudScheduler
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: google.cloud.scheduler.v1.CloudScheduler
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CloudScheduler:constructor(1)'
+  name: (constructor)(rpcImpl, requestDelimited, responseDelimited)
+  href: google.cloud.scheduler.v1.cloudscheduler-class.html
+  fullName: (constructor)(rpcImpl, requestDelimited, responseDelimited)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CreateJobRequest#job:member'
+  name: job
+  href: google.cloud.scheduler.v1.createjobrequest.html
+  fullName: job
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CreateJobRequest#parent:member'
+  name: parent
+  href: google.cloud.scheduler.v1.createjobrequest.html
+  fullName: parent
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CreateJobRequest#toJSON:member(1)'
+  name: toJSON()
+  href: google.cloud.scheduler.v1.createjobrequest.html
+  fullName: toJSON()
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CreateJobRequest.create:member(1)'
+  name: create(properties)
+  href: google.cloud.scheduler.v1.createjobrequest.html
+  fullName: create(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CreateJobRequest.decode:member(1)'
+  name: decode(reader, length)
+  href: google.cloud.scheduler.v1.createjobrequest.html
+  fullName: decode(reader, length)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CreateJobRequest.decodeDelimited:member(1)'
+  name: decodeDelimited(reader)
+  href: google.cloud.scheduler.v1.createjobrequest.html
+  fullName: decodeDelimited(reader)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CreateJobRequest.encode:member(1)'
+  name: encode(message, writer)
+  href: google.cloud.scheduler.v1.createjobrequest.html
+  fullName: encode(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CreateJobRequest.encodeDelimited:member(1)'
+  name: encodeDelimited(message, writer)
+  href: google.cloud.scheduler.v1.createjobrequest.html
+  fullName: encodeDelimited(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CreateJobRequest.fromObject:member(1)'
+  name: fromObject(object)
+  href: google.cloud.scheduler.v1.createjobrequest.html
+  fullName: fromObject(object)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CreateJobRequest.toObject:member(1)'
+  name: toObject(message, options)
+  href: google.cloud.scheduler.v1.createjobrequest.html
+  fullName: toObject(message, options)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CreateJobRequest.verify:member(1)'
+  name: verify(message)
+  href: google.cloud.scheduler.v1.createjobrequest.html
+  fullName: verify(message)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CreateJobRequest:class'
+  name: google.cloud.scheduler.v1.CreateJobRequest
+  href: google.cloud.scheduler.v1.createjobrequest.html
+  fullName: google.cloud.scheduler.v1.CreateJobRequest
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.CreateJobRequest:constructor(1)'
+  name: (constructor)(properties)
+  href: google.cloud.scheduler.v1.createjobrequest.html
+  fullName: (constructor)(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.DeleteJobRequest#name:member'
+  name: name
+  href: google.cloud.scheduler.v1.deletejobrequest.html
+  fullName: name
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.DeleteJobRequest#toJSON:member(1)'
+  name: toJSON()
+  href: google.cloud.scheduler.v1.deletejobrequest.html
+  fullName: toJSON()
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.DeleteJobRequest.create:member(1)'
+  name: create(properties)
+  href: google.cloud.scheduler.v1.deletejobrequest.html
+  fullName: create(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.DeleteJobRequest.decode:member(1)'
+  name: decode(reader, length)
+  href: google.cloud.scheduler.v1.deletejobrequest.html
+  fullName: decode(reader, length)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.DeleteJobRequest.decodeDelimited:member(1)'
+  name: decodeDelimited(reader)
+  href: google.cloud.scheduler.v1.deletejobrequest.html
+  fullName: decodeDelimited(reader)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.DeleteJobRequest.encode:member(1)'
+  name: encode(message, writer)
+  href: google.cloud.scheduler.v1.deletejobrequest.html
+  fullName: encode(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.DeleteJobRequest.encodeDelimited:member(1)'
+  name: encodeDelimited(message, writer)
+  href: google.cloud.scheduler.v1.deletejobrequest.html
+  fullName: encodeDelimited(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.DeleteJobRequest.fromObject:member(1)'
+  name: fromObject(object)
+  href: google.cloud.scheduler.v1.deletejobrequest.html
+  fullName: fromObject(object)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.DeleteJobRequest.toObject:member(1)'
+  name: toObject(message, options)
+  href: google.cloud.scheduler.v1.deletejobrequest.html
+  fullName: toObject(message, options)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.DeleteJobRequest.verify:member(1)'
+  name: verify(message)
+  href: google.cloud.scheduler.v1.deletejobrequest.html
+  fullName: verify(message)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.DeleteJobRequest:class'
+  name: google.cloud.scheduler.v1.DeleteJobRequest
+  href: google.cloud.scheduler.v1.deletejobrequest.html
+  fullName: google.cloud.scheduler.v1.DeleteJobRequest
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.DeleteJobRequest:constructor(1)'
+  name: (constructor)(properties)
+  href: google.cloud.scheduler.v1.deletejobrequest.html
+  fullName: (constructor)(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.GetJobRequest#name:member'
+  name: name
+  href: google.cloud.scheduler.v1.getjobrequest.html
+  fullName: name
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.GetJobRequest#toJSON:member(1)'
+  name: toJSON()
+  href: google.cloud.scheduler.v1.getjobrequest.html
+  fullName: toJSON()
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.GetJobRequest.create:member(1)'
+  name: create(properties)
+  href: google.cloud.scheduler.v1.getjobrequest.html
+  fullName: create(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.GetJobRequest.decode:member(1)'
+  name: decode(reader, length)
+  href: google.cloud.scheduler.v1.getjobrequest.html
+  fullName: decode(reader, length)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.GetJobRequest.decodeDelimited:member(1)'
+  name: decodeDelimited(reader)
+  href: google.cloud.scheduler.v1.getjobrequest.html
+  fullName: decodeDelimited(reader)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.GetJobRequest.encode:member(1)'
+  name: encode(message, writer)
+  href: google.cloud.scheduler.v1.getjobrequest.html
+  fullName: encode(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.GetJobRequest.encodeDelimited:member(1)'
+  name: encodeDelimited(message, writer)
+  href: google.cloud.scheduler.v1.getjobrequest.html
+  fullName: encodeDelimited(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.GetJobRequest.fromObject:member(1)'
+  name: fromObject(object)
+  href: google.cloud.scheduler.v1.getjobrequest.html
+  fullName: fromObject(object)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.GetJobRequest.toObject:member(1)'
+  name: toObject(message, options)
+  href: google.cloud.scheduler.v1.getjobrequest.html
+  fullName: toObject(message, options)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.GetJobRequest.verify:member(1)'
+  name: verify(message)
+  href: google.cloud.scheduler.v1.getjobrequest.html
+  fullName: verify(message)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.GetJobRequest:class'
+  name: google.cloud.scheduler.v1.GetJobRequest
+  href: google.cloud.scheduler.v1.getjobrequest.html
+  fullName: google.cloud.scheduler.v1.GetJobRequest
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.GetJobRequest:constructor(1)'
+  name: (constructor)(properties)
+  href: google.cloud.scheduler.v1.getjobrequest.html
+  fullName: (constructor)(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpMethod.DELETE:member'
+  name: DELETE
+  href: google.cloud.scheduler.v1.httpmethod.html
+  fullName: DELETE
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpMethod.GET:member'
+  name: GET
+  href: google.cloud.scheduler.v1.httpmethod.html
+  fullName: GET
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpMethod.HEAD:member'
+  name: HEAD
+  href: google.cloud.scheduler.v1.httpmethod.html
+  fullName: HEAD
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpMethod.HTTP_METHOD_UNSPECIFIED:member'
+  name: HTTP_METHOD_UNSPECIFIED
+  href: google.cloud.scheduler.v1.httpmethod.html
+  fullName: HTTP_METHOD_UNSPECIFIED
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpMethod.OPTIONS:member'
+  name: OPTIONS
+  href: google.cloud.scheduler.v1.httpmethod.html
+  fullName: OPTIONS
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpMethod.PATCH:member'
+  name: PATCH
+  href: google.cloud.scheduler.v1.httpmethod.html
+  fullName: PATCH
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpMethod.POST:member'
+  name: POST
+  href: google.cloud.scheduler.v1.httpmethod.html
+  fullName: POST
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpMethod.PUT:member'
+  name: PUT
+  href: google.cloud.scheduler.v1.httpmethod.html
+  fullName: PUT
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpMethod:enum'
+  name: google.cloud.scheduler.v1.HttpMethod
+  href: google.cloud.scheduler.v1.httpmethod.html
+  fullName: google.cloud.scheduler.v1.HttpMethod
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget#authorizationHeader:member'
+  name: authorizationHeader
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: authorizationHeader
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget#body:member'
+  name: body
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: body
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget#headers:member'
+  name: headers
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: headers
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget#httpMethod:member'
+  name: httpMethod
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: httpMethod
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget#oauthToken:member'
+  name: oauthToken
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: oauthToken
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget#oidcToken:member'
+  name: oidcToken
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: oidcToken
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget#toJSON:member(1)'
+  name: toJSON()
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: toJSON()
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget#uri:member'
+  name: uri
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: uri
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget.create:member(1)'
+  name: create(properties)
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: create(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget.decode:member(1)'
+  name: decode(reader, length)
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: decode(reader, length)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget.decodeDelimited:member(1)'
+  name: decodeDelimited(reader)
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: decodeDelimited(reader)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget.encode:member(1)'
+  name: encode(message, writer)
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: encode(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget.encodeDelimited:member(1)'
+  name: encodeDelimited(message, writer)
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: encodeDelimited(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget.fromObject:member(1)'
+  name: fromObject(object)
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: fromObject(object)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget.toObject:member(1)'
+  name: toObject(message, options)
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: toObject(message, options)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget.verify:member(1)'
+  name: verify(message)
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: verify(message)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget:class'
+  name: google.cloud.scheduler.v1.HttpTarget
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: google.cloud.scheduler.v1.HttpTarget
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.HttpTarget:constructor(1)'
+  name: (constructor)(properties)
+  href: google.cloud.scheduler.v1.httptarget.html
+  fullName: (constructor)(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IAppEngineHttpTarget#appEngineRouting:member'
+  name: appEngineRouting
+  href: google.cloud.scheduler.v1.iappenginehttptarget.html
+  fullName: appEngineRouting
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IAppEngineHttpTarget#body:member'
+  name: body
+  href: google.cloud.scheduler.v1.iappenginehttptarget.html
+  fullName: body
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IAppEngineHttpTarget#headers:member'
+  name: headers
+  href: google.cloud.scheduler.v1.iappenginehttptarget.html
+  fullName: headers
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IAppEngineHttpTarget#httpMethod:member'
+  name: httpMethod
+  href: google.cloud.scheduler.v1.iappenginehttptarget.html
+  fullName: httpMethod
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IAppEngineHttpTarget#relativeUri:member'
+  name: relativeUri
+  href: google.cloud.scheduler.v1.iappenginehttptarget.html
+  fullName: relativeUri
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IAppEngineHttpTarget:interface'
+  name: google.cloud.scheduler.v1.IAppEngineHttpTarget
+  href: google.cloud.scheduler.v1.iappenginehttptarget.html
+  fullName: google.cloud.scheduler.v1.IAppEngineHttpTarget
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IAppEngineRouting#host:member'
+  name: host
+  href: google.cloud.scheduler.v1.iappenginerouting.html
+  fullName: host
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IAppEngineRouting#instance:member'
+  name: instance
+  href: google.cloud.scheduler.v1.iappenginerouting.html
+  fullName: instance
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IAppEngineRouting#service:member'
+  name: service
+  href: google.cloud.scheduler.v1.iappenginerouting.html
+  fullName: service
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IAppEngineRouting#version:member'
+  name: version
+  href: google.cloud.scheduler.v1.iappenginerouting.html
+  fullName: version
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IAppEngineRouting:interface'
+  name: google.cloud.scheduler.v1.IAppEngineRouting
+  href: google.cloud.scheduler.v1.iappenginerouting.html
+  fullName: google.cloud.scheduler.v1.IAppEngineRouting
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ICreateJobRequest#job:member'
+  name: job
+  href: google.cloud.scheduler.v1.icreatejobrequest.html
+  fullName: job
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ICreateJobRequest#parent:member'
+  name: parent
+  href: google.cloud.scheduler.v1.icreatejobrequest.html
+  fullName: parent
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ICreateJobRequest:interface'
+  name: google.cloud.scheduler.v1.ICreateJobRequest
+  href: google.cloud.scheduler.v1.icreatejobrequest.html
+  fullName: google.cloud.scheduler.v1.ICreateJobRequest
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IDeleteJobRequest#name:member'
+  name: name
+  href: google.cloud.scheduler.v1.ideletejobrequest.html
+  fullName: name
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IDeleteJobRequest:interface'
+  name: google.cloud.scheduler.v1.IDeleteJobRequest
+  href: google.cloud.scheduler.v1.ideletejobrequest.html
+  fullName: google.cloud.scheduler.v1.IDeleteJobRequest
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IGetJobRequest#name:member'
+  name: name
+  href: google.cloud.scheduler.v1.igetjobrequest.html
+  fullName: name
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IGetJobRequest:interface'
+  name: google.cloud.scheduler.v1.IGetJobRequest
+  href: google.cloud.scheduler.v1.igetjobrequest.html
+  fullName: google.cloud.scheduler.v1.IGetJobRequest
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IHttpTarget#body:member'
+  name: body
+  href: google.cloud.scheduler.v1.ihttptarget.html
+  fullName: body
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IHttpTarget#headers:member'
+  name: headers
+  href: google.cloud.scheduler.v1.ihttptarget.html
+  fullName: headers
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IHttpTarget#httpMethod:member'
+  name: httpMethod
+  href: google.cloud.scheduler.v1.ihttptarget.html
+  fullName: httpMethod
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IHttpTarget#oauthToken:member'
+  name: oauthToken
+  href: google.cloud.scheduler.v1.ihttptarget.html
+  fullName: oauthToken
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IHttpTarget#oidcToken:member'
+  name: oidcToken
+  href: google.cloud.scheduler.v1.ihttptarget.html
+  fullName: oidcToken
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IHttpTarget#uri:member'
+  name: uri
+  href: google.cloud.scheduler.v1.ihttptarget.html
+  fullName: uri
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IHttpTarget:interface'
+  name: google.cloud.scheduler.v1.IHttpTarget
+  href: google.cloud.scheduler.v1.ihttptarget.html
+  fullName: google.cloud.scheduler.v1.IHttpTarget
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IJob#appEngineHttpTarget:member'
+  name: appEngineHttpTarget
+  href: google.cloud.scheduler.v1.ijob.html
+  fullName: appEngineHttpTarget
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IJob#attemptDeadline:member'
+  name: attemptDeadline
+  href: google.cloud.scheduler.v1.ijob.html
+  fullName: attemptDeadline
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IJob#description:member'
+  name: description
+  href: google.cloud.scheduler.v1.ijob.html
+  fullName: description
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IJob#httpTarget:member'
+  name: httpTarget
+  href: google.cloud.scheduler.v1.ijob.html
+  fullName: httpTarget
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IJob#lastAttemptTime:member'
+  name: lastAttemptTime
+  href: google.cloud.scheduler.v1.ijob.html
+  fullName: lastAttemptTime
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IJob#name:member'
+  name: name
+  href: google.cloud.scheduler.v1.ijob.html
+  fullName: name
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IJob#pubsubTarget:member'
+  name: pubsubTarget
+  href: google.cloud.scheduler.v1.ijob.html
+  fullName: pubsubTarget
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IJob#retryConfig:member'
+  name: retryConfig
+  href: google.cloud.scheduler.v1.ijob.html
+  fullName: retryConfig
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IJob#schedule:member'
+  name: schedule
+  href: google.cloud.scheduler.v1.ijob.html
+  fullName: schedule
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IJob#scheduleTime:member'
+  name: scheduleTime
+  href: google.cloud.scheduler.v1.ijob.html
+  fullName: scheduleTime
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IJob#state:member'
+  name: state
+  href: google.cloud.scheduler.v1.ijob.html
+  fullName: state
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IJob#status:member'
+  name: status
+  href: google.cloud.scheduler.v1.ijob.html
+  fullName: status
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IJob#timeZone:member'
+  name: timeZone
+  href: google.cloud.scheduler.v1.ijob.html
+  fullName: timeZone
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IJob#userUpdateTime:member'
+  name: userUpdateTime
+  href: google.cloud.scheduler.v1.ijob.html
+  fullName: userUpdateTime
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IJob:interface'
+  name: google.cloud.scheduler.v1.IJob
+  href: google.cloud.scheduler.v1.ijob.html
+  fullName: google.cloud.scheduler.v1.IJob
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IListJobsRequest#pageSize:member'
+  name: pageSize
+  href: google.cloud.scheduler.v1.ilistjobsrequest.html
+  fullName: pageSize
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IListJobsRequest#pageToken:member'
+  name: pageToken
+  href: google.cloud.scheduler.v1.ilistjobsrequest.html
+  fullName: pageToken
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IListJobsRequest#parent:member'
+  name: parent
+  href: google.cloud.scheduler.v1.ilistjobsrequest.html
+  fullName: parent
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IListJobsRequest:interface'
+  name: google.cloud.scheduler.v1.IListJobsRequest
+  href: google.cloud.scheduler.v1.ilistjobsrequest.html
+  fullName: google.cloud.scheduler.v1.IListJobsRequest
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IListJobsResponse#jobs:member'
+  name: jobs
+  href: google.cloud.scheduler.v1.ilistjobsresponse.html
+  fullName: jobs
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IListJobsResponse#nextPageToken:member'
+  name: nextPageToken
+  href: google.cloud.scheduler.v1.ilistjobsresponse.html
+  fullName: nextPageToken
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IListJobsResponse:interface'
+  name: google.cloud.scheduler.v1.IListJobsResponse
+  href: google.cloud.scheduler.v1.ilistjobsresponse.html
+  fullName: google.cloud.scheduler.v1.IListJobsResponse
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IOAuthToken#scope:member'
+  name: scope
+  href: google.cloud.scheduler.v1.ioauthtoken.html
+  fullName: scope
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IOAuthToken#serviceAccountEmail:member'
+  name: serviceAccountEmail
+  href: google.cloud.scheduler.v1.ioauthtoken.html
+  fullName: serviceAccountEmail
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IOAuthToken:interface'
+  name: google.cloud.scheduler.v1.IOAuthToken
+  href: google.cloud.scheduler.v1.ioauthtoken.html
+  fullName: google.cloud.scheduler.v1.IOAuthToken
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IOidcToken#audience:member'
+  name: audience
+  href: google.cloud.scheduler.v1.ioidctoken.html
+  fullName: audience
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IOidcToken#serviceAccountEmail:member'
+  name: serviceAccountEmail
+  href: google.cloud.scheduler.v1.ioidctoken.html
+  fullName: serviceAccountEmail
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IOidcToken:interface'
+  name: google.cloud.scheduler.v1.IOidcToken
+  href: google.cloud.scheduler.v1.ioidctoken.html
+  fullName: google.cloud.scheduler.v1.IOidcToken
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IPauseJobRequest#name:member'
+  name: name
+  href: google.cloud.scheduler.v1.ipausejobrequest.html
+  fullName: name
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IPauseJobRequest:interface'
+  name: google.cloud.scheduler.v1.IPauseJobRequest
+  href: google.cloud.scheduler.v1.ipausejobrequest.html
+  fullName: google.cloud.scheduler.v1.IPauseJobRequest
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IPubsubTarget#attributes:member'
+  name: attributes
+  href: google.cloud.scheduler.v1.ipubsubtarget.html
+  fullName: attributes
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IPubsubTarget#data:member'
+  name: data
+  href: google.cloud.scheduler.v1.ipubsubtarget.html
+  fullName: data
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IPubsubTarget#topicName:member'
+  name: topicName
+  href: google.cloud.scheduler.v1.ipubsubtarget.html
+  fullName: topicName
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IPubsubTarget:interface'
+  name: google.cloud.scheduler.v1.IPubsubTarget
+  href: google.cloud.scheduler.v1.ipubsubtarget.html
+  fullName: google.cloud.scheduler.v1.IPubsubTarget
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IResumeJobRequest#name:member'
+  name: name
+  href: google.cloud.scheduler.v1.iresumejobrequest.html
+  fullName: name
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IResumeJobRequest:interface'
+  name: google.cloud.scheduler.v1.IResumeJobRequest
+  href: google.cloud.scheduler.v1.iresumejobrequest.html
+  fullName: google.cloud.scheduler.v1.IResumeJobRequest
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IRetryConfig#maxBackoffDuration:member'
+  name: maxBackoffDuration
+  href: google.cloud.scheduler.v1.iretryconfig.html
+  fullName: maxBackoffDuration
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IRetryConfig#maxDoublings:member'
+  name: maxDoublings
+  href: google.cloud.scheduler.v1.iretryconfig.html
+  fullName: maxDoublings
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IRetryConfig#maxRetryDuration:member'
+  name: maxRetryDuration
+  href: google.cloud.scheduler.v1.iretryconfig.html
+  fullName: maxRetryDuration
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IRetryConfig#minBackoffDuration:member'
+  name: minBackoffDuration
+  href: google.cloud.scheduler.v1.iretryconfig.html
+  fullName: minBackoffDuration
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IRetryConfig#retryCount:member'
+  name: retryCount
+  href: google.cloud.scheduler.v1.iretryconfig.html
+  fullName: retryCount
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IRetryConfig:interface'
+  name: google.cloud.scheduler.v1.IRetryConfig
+  href: google.cloud.scheduler.v1.iretryconfig.html
+  fullName: google.cloud.scheduler.v1.IRetryConfig
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IRunJobRequest#name:member'
+  name: name
+  href: google.cloud.scheduler.v1.irunjobrequest.html
+  fullName: name
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IRunJobRequest:interface'
+  name: google.cloud.scheduler.v1.IRunJobRequest
+  href: google.cloud.scheduler.v1.irunjobrequest.html
+  fullName: google.cloud.scheduler.v1.IRunJobRequest
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IUpdateJobRequest#job:member'
+  name: job
+  href: google.cloud.scheduler.v1.iupdatejobrequest.html
+  fullName: job
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IUpdateJobRequest#updateMask:member'
+  name: updateMask
+  href: google.cloud.scheduler.v1.iupdatejobrequest.html
+  fullName: updateMask
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.IUpdateJobRequest:interface'
+  name: google.cloud.scheduler.v1.IUpdateJobRequest
+  href: google.cloud.scheduler.v1.iupdatejobrequest.html
+  fullName: google.cloud.scheduler.v1.IUpdateJobRequest
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job#appEngineHttpTarget:member'
+  name: appEngineHttpTarget
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: appEngineHttpTarget
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job#attemptDeadline:member'
+  name: attemptDeadline
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: attemptDeadline
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job#description:member'
+  name: description
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: description
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job#httpTarget:member'
+  name: httpTarget
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: httpTarget
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job#lastAttemptTime:member'
+  name: lastAttemptTime
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: lastAttemptTime
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job#name:member'
+  name: name
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: name
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job#pubsubTarget:member'
+  name: pubsubTarget
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: pubsubTarget
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job#retryConfig:member'
+  name: retryConfig
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: retryConfig
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job#schedule:member'
+  name: schedule
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: schedule
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job#scheduleTime:member'
+  name: scheduleTime
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: scheduleTime
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job#state:member'
+  name: state
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: state
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job#status:member'
+  name: status
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: status
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job#target:member'
+  name: target
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: target
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job#timeZone:member'
+  name: timeZone
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: timeZone
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job#toJSON:member(1)'
+  name: toJSON()
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: toJSON()
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job#userUpdateTime:member'
+  name: userUpdateTime
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: userUpdateTime
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job.create:member(1)'
+  name: create(properties)
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: create(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job.decode:member(1)'
+  name: decode(reader, length)
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: decode(reader, length)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job.decodeDelimited:member(1)'
+  name: decodeDelimited(reader)
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: decodeDelimited(reader)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job.encode:member(1)'
+  name: encode(message, writer)
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: encode(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job.encodeDelimited:member(1)'
+  name: encodeDelimited(message, writer)
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: encodeDelimited(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job.fromObject:member(1)'
+  name: fromObject(object)
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: fromObject(object)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job.State.DISABLED:member'
+  name: DISABLED
+  href: google.cloud.scheduler.v1.job.state.html
+  fullName: DISABLED
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job.State.ENABLED:member'
+  name: ENABLED
+  href: google.cloud.scheduler.v1.job.state.html
+  fullName: ENABLED
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job.State.PAUSED:member'
+  name: PAUSED
+  href: google.cloud.scheduler.v1.job.state.html
+  fullName: PAUSED
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job.State.STATE_UNSPECIFIED:member'
+  name: STATE_UNSPECIFIED
+  href: google.cloud.scheduler.v1.job.state.html
+  fullName: STATE_UNSPECIFIED
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job.State.UPDATE_FAILED:member'
+  name: UPDATE_FAILED
+  href: google.cloud.scheduler.v1.job.state.html
+  fullName: UPDATE_FAILED
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job.State:enum'
+  name: google.cloud.scheduler.v1.Job.State
+  href: google.cloud.scheduler.v1.job.state.html
+  fullName: google.cloud.scheduler.v1.Job.State
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job.toObject:member(1)'
+  name: toObject(message, options)
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: toObject(message, options)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job.verify:member(1)'
+  name: verify(message)
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: verify(message)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job:class'
+  name: google.cloud.scheduler.v1.Job
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: google.cloud.scheduler.v1.Job
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.Job:constructor(1)'
+  name: (constructor)(properties)
+  href: google.cloud.scheduler.v1.job-class.html
+  fullName: (constructor)(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsRequest#pageSize:member'
+  name: pageSize
+  href: google.cloud.scheduler.v1.listjobsrequest.html
+  fullName: pageSize
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsRequest#pageToken:member'
+  name: pageToken
+  href: google.cloud.scheduler.v1.listjobsrequest.html
+  fullName: pageToken
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsRequest#parent:member'
+  name: parent
+  href: google.cloud.scheduler.v1.listjobsrequest.html
+  fullName: parent
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsRequest#toJSON:member(1)'
+  name: toJSON()
+  href: google.cloud.scheduler.v1.listjobsrequest.html
+  fullName: toJSON()
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsRequest.create:member(1)'
+  name: create(properties)
+  href: google.cloud.scheduler.v1.listjobsrequest.html
+  fullName: create(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsRequest.decode:member(1)'
+  name: decode(reader, length)
+  href: google.cloud.scheduler.v1.listjobsrequest.html
+  fullName: decode(reader, length)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsRequest.decodeDelimited:member(1)'
+  name: decodeDelimited(reader)
+  href: google.cloud.scheduler.v1.listjobsrequest.html
+  fullName: decodeDelimited(reader)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsRequest.encode:member(1)'
+  name: encode(message, writer)
+  href: google.cloud.scheduler.v1.listjobsrequest.html
+  fullName: encode(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsRequest.encodeDelimited:member(1)'
+  name: encodeDelimited(message, writer)
+  href: google.cloud.scheduler.v1.listjobsrequest.html
+  fullName: encodeDelimited(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsRequest.fromObject:member(1)'
+  name: fromObject(object)
+  href: google.cloud.scheduler.v1.listjobsrequest.html
+  fullName: fromObject(object)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsRequest.toObject:member(1)'
+  name: toObject(message, options)
+  href: google.cloud.scheduler.v1.listjobsrequest.html
+  fullName: toObject(message, options)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsRequest.verify:member(1)'
+  name: verify(message)
+  href: google.cloud.scheduler.v1.listjobsrequest.html
+  fullName: verify(message)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsRequest:class'
+  name: google.cloud.scheduler.v1.ListJobsRequest
+  href: google.cloud.scheduler.v1.listjobsrequest.html
+  fullName: google.cloud.scheduler.v1.ListJobsRequest
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsRequest:constructor(1)'
+  name: (constructor)(properties)
+  href: google.cloud.scheduler.v1.listjobsrequest.html
+  fullName: (constructor)(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsResponse#jobs:member'
+  name: jobs
+  href: google.cloud.scheduler.v1.listjobsresponse.html
+  fullName: jobs
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsResponse#nextPageToken:member'
+  name: nextPageToken
+  href: google.cloud.scheduler.v1.listjobsresponse.html
+  fullName: nextPageToken
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsResponse#toJSON:member(1)'
+  name: toJSON()
+  href: google.cloud.scheduler.v1.listjobsresponse.html
+  fullName: toJSON()
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsResponse.create:member(1)'
+  name: create(properties)
+  href: google.cloud.scheduler.v1.listjobsresponse.html
+  fullName: create(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsResponse.decode:member(1)'
+  name: decode(reader, length)
+  href: google.cloud.scheduler.v1.listjobsresponse.html
+  fullName: decode(reader, length)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsResponse.decodeDelimited:member(1)'
+  name: decodeDelimited(reader)
+  href: google.cloud.scheduler.v1.listjobsresponse.html
+  fullName: decodeDelimited(reader)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsResponse.encode:member(1)'
+  name: encode(message, writer)
+  href: google.cloud.scheduler.v1.listjobsresponse.html
+  fullName: encode(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsResponse.encodeDelimited:member(1)'
+  name: encodeDelimited(message, writer)
+  href: google.cloud.scheduler.v1.listjobsresponse.html
+  fullName: encodeDelimited(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsResponse.fromObject:member(1)'
+  name: fromObject(object)
+  href: google.cloud.scheduler.v1.listjobsresponse.html
+  fullName: fromObject(object)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsResponse.toObject:member(1)'
+  name: toObject(message, options)
+  href: google.cloud.scheduler.v1.listjobsresponse.html
+  fullName: toObject(message, options)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsResponse.verify:member(1)'
+  name: verify(message)
+  href: google.cloud.scheduler.v1.listjobsresponse.html
+  fullName: verify(message)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsResponse:class'
+  name: google.cloud.scheduler.v1.ListJobsResponse
+  href: google.cloud.scheduler.v1.listjobsresponse.html
+  fullName: google.cloud.scheduler.v1.ListJobsResponse
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ListJobsResponse:constructor(1)'
+  name: (constructor)(properties)
+  href: google.cloud.scheduler.v1.listjobsresponse.html
+  fullName: (constructor)(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OAuthToken#scope:member'
+  name: scope
+  href: google.cloud.scheduler.v1.oauthtoken.html
+  fullName: scope
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OAuthToken#serviceAccountEmail:member'
+  name: serviceAccountEmail
+  href: google.cloud.scheduler.v1.oauthtoken.html
+  fullName: serviceAccountEmail
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OAuthToken#toJSON:member(1)'
+  name: toJSON()
+  href: google.cloud.scheduler.v1.oauthtoken.html
+  fullName: toJSON()
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OAuthToken.create:member(1)'
+  name: create(properties)
+  href: google.cloud.scheduler.v1.oauthtoken.html
+  fullName: create(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OAuthToken.decode:member(1)'
+  name: decode(reader, length)
+  href: google.cloud.scheduler.v1.oauthtoken.html
+  fullName: decode(reader, length)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OAuthToken.decodeDelimited:member(1)'
+  name: decodeDelimited(reader)
+  href: google.cloud.scheduler.v1.oauthtoken.html
+  fullName: decodeDelimited(reader)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OAuthToken.encode:member(1)'
+  name: encode(message, writer)
+  href: google.cloud.scheduler.v1.oauthtoken.html
+  fullName: encode(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OAuthToken.encodeDelimited:member(1)'
+  name: encodeDelimited(message, writer)
+  href: google.cloud.scheduler.v1.oauthtoken.html
+  fullName: encodeDelimited(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OAuthToken.fromObject:member(1)'
+  name: fromObject(object)
+  href: google.cloud.scheduler.v1.oauthtoken.html
+  fullName: fromObject(object)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OAuthToken.toObject:member(1)'
+  name: toObject(message, options)
+  href: google.cloud.scheduler.v1.oauthtoken.html
+  fullName: toObject(message, options)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OAuthToken.verify:member(1)'
+  name: verify(message)
+  href: google.cloud.scheduler.v1.oauthtoken.html
+  fullName: verify(message)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OAuthToken:class'
+  name: google.cloud.scheduler.v1.OAuthToken
+  href: google.cloud.scheduler.v1.oauthtoken.html
+  fullName: google.cloud.scheduler.v1.OAuthToken
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OAuthToken:constructor(1)'
+  name: (constructor)(properties)
+  href: google.cloud.scheduler.v1.oauthtoken.html
+  fullName: (constructor)(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OidcToken#audience:member'
+  name: audience
+  href: google.cloud.scheduler.v1.oidctoken.html
+  fullName: audience
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OidcToken#serviceAccountEmail:member'
+  name: serviceAccountEmail
+  href: google.cloud.scheduler.v1.oidctoken.html
+  fullName: serviceAccountEmail
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OidcToken#toJSON:member(1)'
+  name: toJSON()
+  href: google.cloud.scheduler.v1.oidctoken.html
+  fullName: toJSON()
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OidcToken.create:member(1)'
+  name: create(properties)
+  href: google.cloud.scheduler.v1.oidctoken.html
+  fullName: create(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OidcToken.decode:member(1)'
+  name: decode(reader, length)
+  href: google.cloud.scheduler.v1.oidctoken.html
+  fullName: decode(reader, length)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OidcToken.decodeDelimited:member(1)'
+  name: decodeDelimited(reader)
+  href: google.cloud.scheduler.v1.oidctoken.html
+  fullName: decodeDelimited(reader)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OidcToken.encode:member(1)'
+  name: encode(message, writer)
+  href: google.cloud.scheduler.v1.oidctoken.html
+  fullName: encode(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OidcToken.encodeDelimited:member(1)'
+  name: encodeDelimited(message, writer)
+  href: google.cloud.scheduler.v1.oidctoken.html
+  fullName: encodeDelimited(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OidcToken.fromObject:member(1)'
+  name: fromObject(object)
+  href: google.cloud.scheduler.v1.oidctoken.html
+  fullName: fromObject(object)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OidcToken.toObject:member(1)'
+  name: toObject(message, options)
+  href: google.cloud.scheduler.v1.oidctoken.html
+  fullName: toObject(message, options)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OidcToken.verify:member(1)'
+  name: verify(message)
+  href: google.cloud.scheduler.v1.oidctoken.html
+  fullName: verify(message)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OidcToken:class'
+  name: google.cloud.scheduler.v1.OidcToken
+  href: google.cloud.scheduler.v1.oidctoken.html
+  fullName: google.cloud.scheduler.v1.OidcToken
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.OidcToken:constructor(1)'
+  name: (constructor)(properties)
+  href: google.cloud.scheduler.v1.oidctoken.html
+  fullName: (constructor)(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PauseJobRequest#name:member'
+  name: name
+  href: google.cloud.scheduler.v1.pausejobrequest.html
+  fullName: name
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PauseJobRequest#toJSON:member(1)'
+  name: toJSON()
+  href: google.cloud.scheduler.v1.pausejobrequest.html
+  fullName: toJSON()
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PauseJobRequest.create:member(1)'
+  name: create(properties)
+  href: google.cloud.scheduler.v1.pausejobrequest.html
+  fullName: create(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PauseJobRequest.decode:member(1)'
+  name: decode(reader, length)
+  href: google.cloud.scheduler.v1.pausejobrequest.html
+  fullName: decode(reader, length)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PauseJobRequest.decodeDelimited:member(1)'
+  name: decodeDelimited(reader)
+  href: google.cloud.scheduler.v1.pausejobrequest.html
+  fullName: decodeDelimited(reader)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PauseJobRequest.encode:member(1)'
+  name: encode(message, writer)
+  href: google.cloud.scheduler.v1.pausejobrequest.html
+  fullName: encode(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PauseJobRequest.encodeDelimited:member(1)'
+  name: encodeDelimited(message, writer)
+  href: google.cloud.scheduler.v1.pausejobrequest.html
+  fullName: encodeDelimited(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PauseJobRequest.fromObject:member(1)'
+  name: fromObject(object)
+  href: google.cloud.scheduler.v1.pausejobrequest.html
+  fullName: fromObject(object)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PauseJobRequest.toObject:member(1)'
+  name: toObject(message, options)
+  href: google.cloud.scheduler.v1.pausejobrequest.html
+  fullName: toObject(message, options)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PauseJobRequest.verify:member(1)'
+  name: verify(message)
+  href: google.cloud.scheduler.v1.pausejobrequest.html
+  fullName: verify(message)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PauseJobRequest:class'
+  name: google.cloud.scheduler.v1.PauseJobRequest
+  href: google.cloud.scheduler.v1.pausejobrequest.html
+  fullName: google.cloud.scheduler.v1.PauseJobRequest
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PauseJobRequest:constructor(1)'
+  name: (constructor)(properties)
+  href: google.cloud.scheduler.v1.pausejobrequest.html
+  fullName: (constructor)(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PubsubTarget#attributes:member'
+  name: attributes
+  href: google.cloud.scheduler.v1.pubsubtarget.html
+  fullName: attributes
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PubsubTarget#data:member'
+  name: data
+  href: google.cloud.scheduler.v1.pubsubtarget.html
+  fullName: data
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PubsubTarget#toJSON:member(1)'
+  name: toJSON()
+  href: google.cloud.scheduler.v1.pubsubtarget.html
+  fullName: toJSON()
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PubsubTarget#topicName:member'
+  name: topicName
+  href: google.cloud.scheduler.v1.pubsubtarget.html
+  fullName: topicName
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PubsubTarget.create:member(1)'
+  name: create(properties)
+  href: google.cloud.scheduler.v1.pubsubtarget.html
+  fullName: create(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PubsubTarget.decode:member(1)'
+  name: decode(reader, length)
+  href: google.cloud.scheduler.v1.pubsubtarget.html
+  fullName: decode(reader, length)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PubsubTarget.decodeDelimited:member(1)'
+  name: decodeDelimited(reader)
+  href: google.cloud.scheduler.v1.pubsubtarget.html
+  fullName: decodeDelimited(reader)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PubsubTarget.encode:member(1)'
+  name: encode(message, writer)
+  href: google.cloud.scheduler.v1.pubsubtarget.html
+  fullName: encode(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PubsubTarget.encodeDelimited:member(1)'
+  name: encodeDelimited(message, writer)
+  href: google.cloud.scheduler.v1.pubsubtarget.html
+  fullName: encodeDelimited(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PubsubTarget.fromObject:member(1)'
+  name: fromObject(object)
+  href: google.cloud.scheduler.v1.pubsubtarget.html
+  fullName: fromObject(object)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PubsubTarget.toObject:member(1)'
+  name: toObject(message, options)
+  href: google.cloud.scheduler.v1.pubsubtarget.html
+  fullName: toObject(message, options)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PubsubTarget.verify:member(1)'
+  name: verify(message)
+  href: google.cloud.scheduler.v1.pubsubtarget.html
+  fullName: verify(message)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PubsubTarget:class'
+  name: google.cloud.scheduler.v1.PubsubTarget
+  href: google.cloud.scheduler.v1.pubsubtarget.html
+  fullName: google.cloud.scheduler.v1.PubsubTarget
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.PubsubTarget:constructor(1)'
+  name: (constructor)(properties)
+  href: google.cloud.scheduler.v1.pubsubtarget.html
+  fullName: (constructor)(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ResumeJobRequest#name:member'
+  name: name
+  href: google.cloud.scheduler.v1.resumejobrequest.html
+  fullName: name
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ResumeJobRequest#toJSON:member(1)'
+  name: toJSON()
+  href: google.cloud.scheduler.v1.resumejobrequest.html
+  fullName: toJSON()
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ResumeJobRequest.create:member(1)'
+  name: create(properties)
+  href: google.cloud.scheduler.v1.resumejobrequest.html
+  fullName: create(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ResumeJobRequest.decode:member(1)'
+  name: decode(reader, length)
+  href: google.cloud.scheduler.v1.resumejobrequest.html
+  fullName: decode(reader, length)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ResumeJobRequest.decodeDelimited:member(1)'
+  name: decodeDelimited(reader)
+  href: google.cloud.scheduler.v1.resumejobrequest.html
+  fullName: decodeDelimited(reader)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ResumeJobRequest.encode:member(1)'
+  name: encode(message, writer)
+  href: google.cloud.scheduler.v1.resumejobrequest.html
+  fullName: encode(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ResumeJobRequest.encodeDelimited:member(1)'
+  name: encodeDelimited(message, writer)
+  href: google.cloud.scheduler.v1.resumejobrequest.html
+  fullName: encodeDelimited(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ResumeJobRequest.fromObject:member(1)'
+  name: fromObject(object)
+  href: google.cloud.scheduler.v1.resumejobrequest.html
+  fullName: fromObject(object)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ResumeJobRequest.toObject:member(1)'
+  name: toObject(message, options)
+  href: google.cloud.scheduler.v1.resumejobrequest.html
+  fullName: toObject(message, options)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ResumeJobRequest.verify:member(1)'
+  name: verify(message)
+  href: google.cloud.scheduler.v1.resumejobrequest.html
+  fullName: verify(message)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ResumeJobRequest:class'
+  name: google.cloud.scheduler.v1.ResumeJobRequest
+  href: google.cloud.scheduler.v1.resumejobrequest.html
+  fullName: google.cloud.scheduler.v1.ResumeJobRequest
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.ResumeJobRequest:constructor(1)'
+  name: (constructor)(properties)
+  href: google.cloud.scheduler.v1.resumejobrequest.html
+  fullName: (constructor)(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RetryConfig#maxBackoffDuration:member'
+  name: maxBackoffDuration
+  href: google.cloud.scheduler.v1.retryconfig.html
+  fullName: maxBackoffDuration
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RetryConfig#maxDoublings:member'
+  name: maxDoublings
+  href: google.cloud.scheduler.v1.retryconfig.html
+  fullName: maxDoublings
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RetryConfig#maxRetryDuration:member'
+  name: maxRetryDuration
+  href: google.cloud.scheduler.v1.retryconfig.html
+  fullName: maxRetryDuration
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RetryConfig#minBackoffDuration:member'
+  name: minBackoffDuration
+  href: google.cloud.scheduler.v1.retryconfig.html
+  fullName: minBackoffDuration
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RetryConfig#retryCount:member'
+  name: retryCount
+  href: google.cloud.scheduler.v1.retryconfig.html
+  fullName: retryCount
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RetryConfig#toJSON:member(1)'
+  name: toJSON()
+  href: google.cloud.scheduler.v1.retryconfig.html
+  fullName: toJSON()
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RetryConfig.create:member(1)'
+  name: create(properties)
+  href: google.cloud.scheduler.v1.retryconfig.html
+  fullName: create(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RetryConfig.decode:member(1)'
+  name: decode(reader, length)
+  href: google.cloud.scheduler.v1.retryconfig.html
+  fullName: decode(reader, length)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RetryConfig.decodeDelimited:member(1)'
+  name: decodeDelimited(reader)
+  href: google.cloud.scheduler.v1.retryconfig.html
+  fullName: decodeDelimited(reader)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RetryConfig.encode:member(1)'
+  name: encode(message, writer)
+  href: google.cloud.scheduler.v1.retryconfig.html
+  fullName: encode(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RetryConfig.encodeDelimited:member(1)'
+  name: encodeDelimited(message, writer)
+  href: google.cloud.scheduler.v1.retryconfig.html
+  fullName: encodeDelimited(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RetryConfig.fromObject:member(1)'
+  name: fromObject(object)
+  href: google.cloud.scheduler.v1.retryconfig.html
+  fullName: fromObject(object)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RetryConfig.toObject:member(1)'
+  name: toObject(message, options)
+  href: google.cloud.scheduler.v1.retryconfig.html
+  fullName: toObject(message, options)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RetryConfig.verify:member(1)'
+  name: verify(message)
+  href: google.cloud.scheduler.v1.retryconfig.html
+  fullName: verify(message)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RetryConfig:class'
+  name: google.cloud.scheduler.v1.RetryConfig
+  href: google.cloud.scheduler.v1.retryconfig.html
+  fullName: google.cloud.scheduler.v1.RetryConfig
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RetryConfig:constructor(1)'
+  name: (constructor)(properties)
+  href: google.cloud.scheduler.v1.retryconfig.html
+  fullName: (constructor)(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RunJobRequest#name:member'
+  name: name
+  href: google.cloud.scheduler.v1.runjobrequest.html
+  fullName: name
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RunJobRequest#toJSON:member(1)'
+  name: toJSON()
+  href: google.cloud.scheduler.v1.runjobrequest.html
+  fullName: toJSON()
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RunJobRequest.create:member(1)'
+  name: create(properties)
+  href: google.cloud.scheduler.v1.runjobrequest.html
+  fullName: create(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RunJobRequest.decode:member(1)'
+  name: decode(reader, length)
+  href: google.cloud.scheduler.v1.runjobrequest.html
+  fullName: decode(reader, length)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RunJobRequest.decodeDelimited:member(1)'
+  name: decodeDelimited(reader)
+  href: google.cloud.scheduler.v1.runjobrequest.html
+  fullName: decodeDelimited(reader)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RunJobRequest.encode:member(1)'
+  name: encode(message, writer)
+  href: google.cloud.scheduler.v1.runjobrequest.html
+  fullName: encode(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RunJobRequest.encodeDelimited:member(1)'
+  name: encodeDelimited(message, writer)
+  href: google.cloud.scheduler.v1.runjobrequest.html
+  fullName: encodeDelimited(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RunJobRequest.fromObject:member(1)'
+  name: fromObject(object)
+  href: google.cloud.scheduler.v1.runjobrequest.html
+  fullName: fromObject(object)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RunJobRequest.toObject:member(1)'
+  name: toObject(message, options)
+  href: google.cloud.scheduler.v1.runjobrequest.html
+  fullName: toObject(message, options)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RunJobRequest.verify:member(1)'
+  name: verify(message)
+  href: google.cloud.scheduler.v1.runjobrequest.html
+  fullName: verify(message)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RunJobRequest:class'
+  name: google.cloud.scheduler.v1.RunJobRequest
+  href: google.cloud.scheduler.v1.runjobrequest.html
+  fullName: google.cloud.scheduler.v1.RunJobRequest
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.RunJobRequest:constructor(1)'
+  name: (constructor)(properties)
+  href: google.cloud.scheduler.v1.runjobrequest.html
+  fullName: (constructor)(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.UpdateJobRequest#job:member'
+  name: job
+  href: google.cloud.scheduler.v1.updatejobrequest.html
+  fullName: job
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.UpdateJobRequest#toJSON:member(1)'
+  name: toJSON()
+  href: google.cloud.scheduler.v1.updatejobrequest.html
+  fullName: toJSON()
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.UpdateJobRequest#updateMask:member'
+  name: updateMask
+  href: google.cloud.scheduler.v1.updatejobrequest.html
+  fullName: updateMask
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.UpdateJobRequest.create:member(1)'
+  name: create(properties)
+  href: google.cloud.scheduler.v1.updatejobrequest.html
+  fullName: create(properties)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.UpdateJobRequest.decode:member(1)'
+  name: decode(reader, length)
+  href: google.cloud.scheduler.v1.updatejobrequest.html
+  fullName: decode(reader, length)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.UpdateJobRequest.decodeDelimited:member(1)'
+  name: decodeDelimited(reader)
+  href: google.cloud.scheduler.v1.updatejobrequest.html
+  fullName: decodeDelimited(reader)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.UpdateJobRequest.encode:member(1)'
+  name: encode(message, writer)
+  href: google.cloud.scheduler.v1.updatejobrequest.html
+  fullName: encode(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.UpdateJobRequest.encodeDelimited:member(1)'
+  name: encodeDelimited(message, writer)
+  href: google.cloud.scheduler.v1.updatejobrequest.html
+  fullName: encodeDelimited(message, writer)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.UpdateJobRequest.fromObject:member(1)'
+  name: fromObject(object)
+  href: google.cloud.scheduler.v1.updatejobrequest.html
+  fullName: fromObject(object)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.UpdateJobRequest.toObject:member(1)'
+  name: toObject(message, options)
+  href: google.cloud.scheduler.v1.updatejobrequest.html
+  fullName: toObject(message, options)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.UpdateJobRequest.verify:member(1)'
+  name: verify(message)
+  href: google.cloud.scheduler.v1.updatejobrequest.html
+  fullName: verify(message)
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.UpdateJobRequest:class'
+  name: google.cloud.scheduler.v1.UpdateJobRequest
+  href: google.cloud.scheduler.v1.updatejobrequest.html
+  fullName: google.cloud.scheduler.v1.UpdateJobRequest
+- uid: '@google-cloud/scheduler!google.cloud.scheduler.v1.UpdateJobRequest:constructor(1)'
+  name: (constructor)(properties)
+  href: google.cloud.scheduler.v1.updatejobrequest.html
+  fullName: (constructor)(properties)

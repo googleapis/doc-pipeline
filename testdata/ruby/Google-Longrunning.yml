@@ -1,0 +1,88 @@
+### YamlMime:UniversalReference
+items:
+- uid: Google::Longrunning
+  children: 
+  - Google::Longrunning::Operation
+  - Google::Longrunning::GetOperationRequest
+  - Google::Longrunning::ListOperationsRequest
+  - Google::Longrunning::ListOperationsResponse
+  - Google::Longrunning::CancelOperationRequest
+  - Google::Longrunning::DeleteOperationRequest
+  - Google::Longrunning::WaitOperationRequest
+  - Google::Longrunning::OperationInfo
+  fullName: Google::Longrunning
+  langs:
+  - ruby
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: Longrunning
+  summary: ""
+  type: "module"
+  name: Google::Longrunning
+  example: []
+
+references:
+- uid: Google::Longrunning::Operation
+  fullName: Google::Longrunning::Operation
+  name: Operation
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: Operation
+  summary: "This resource represents a long-running operation that is the result of a\nnetwork API call."
+  parent: Google::Longrunning
+- uid: Google::Longrunning::GetOperationRequest
+  fullName: Google::Longrunning::GetOperationRequest
+  name: GetOperationRequest
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: GetOperationRequest
+  summary: "The request message for Operations.GetOperation."
+  parent: Google::Longrunning
+- uid: Google::Longrunning::ListOperationsRequest
+  fullName: Google::Longrunning::ListOperationsRequest
+  name: ListOperationsRequest
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: ListOperationsRequest
+  summary: "The request message for Operations.ListOperations."
+  parent: Google::Longrunning
+- uid: Google::Longrunning::ListOperationsResponse
+  fullName: Google::Longrunning::ListOperationsResponse
+  name: ListOperationsResponse
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: ListOperationsResponse
+  summary: "The response message for Operations.ListOperations."
+  parent: Google::Longrunning
+- uid: Google::Longrunning::CancelOperationRequest
+  fullName: Google::Longrunning::CancelOperationRequest
+  name: CancelOperationRequest
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: CancelOperationRequest
+  summary: "The request message for Operations.CancelOperation."
+  parent: Google::Longrunning
+- uid: Google::Longrunning::DeleteOperationRequest
+  fullName: Google::Longrunning::DeleteOperationRequest
+  name: DeleteOperationRequest
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: DeleteOperationRequest
+  summary: "The request message for Operations.DeleteOperation."
+  parent: Google::Longrunning
+- uid: Google::Longrunning::WaitOperationRequest
+  fullName: Google::Longrunning::WaitOperationRequest
+  name: WaitOperationRequest
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: WaitOperationRequest
+  summary: "The request message for Operations.WaitOperation."
+  parent: Google::Longrunning
+- uid: Google::Longrunning::OperationInfo
+  fullName: Google::Longrunning::OperationInfo
+  name: OperationInfo
+  module: google-cloud-vision-v1
+  friendlyApiName: "Cloud Vision V1 API"
+  id: OperationInfo
+  summary: "A message representing the message types used by a long-running operation.</p>\n\n<p>Example:</p>\n\n<p>rpc LongRunningRecognize(LongRunningRecognizeRequest)\n      returns (google.longrunning.Operation) {\n    option (google.longrunning.operation_info) = {\n      response_type: &quot;LongRunningRecognizeResponse&quot;\n      metadata_type: &quot;LongRunningRecognizeMetadata&quot;\n    };\n  }"
+  parent: Google::Longrunning

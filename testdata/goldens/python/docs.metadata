@@ -1,0 +1,7 @@
+update_time {
+	seconds: 1627926633
+	nanos: 582231837
+}
+name: "google.cloud.bigquery_storage_v1"
+version: "v1.16.0"
+language: "python"

@@ -23,7 +23,9 @@ from docpipeline import local_generate
 import pytest
 
 
-@pytest.mark.parametrize("test_dir", ["go"])
+@pytest.mark.parametrize(
+    "test_dir", ["dotnet", "go", "java", "nodejs", "php", "python", "ruby"]
+)
 def test_goldens(update_goldens, tmpdir, test_dir):
     input_dir = pathlib.Path("testdata") / test_dir
     output_dir = pathlib.Path(tmpdir)
