@@ -66,7 +66,7 @@
       {{/parameters.0}}
       {{#parameters}}
           <tr>
-            <td>{{{id}}}</td>
+            <td><code>{{{id}}}</code></td>
             <td><code>{{{type.specName.0.value}}}</code><br>{{{description}}}{{>partials/uref/parameters}}</td>
           </tr>
       {{/parameters}}
@@ -83,7 +83,7 @@
             <td><strong>{{__global.description}}</strong></td>
           </tr>
           <tr>
-            <td>{{{value.type.0.specName.0.value}}}</td>
+            <td><code>{{{value.type.0.specName.0.value}}}</code></td>
             <td>{{{value.description}}}</td>
           </tr>
         </tbody>
@@ -100,7 +100,7 @@
       {{/typeParameters.0}}
       {{#typeParameters}}
           <tr>
-            <td>{{{id}}}</td>
+            <td><code>{{{id}}}</code></td>
             <td>{{{description}}}</td>
           </tr>
       {{/typeParameters}}
@@ -117,7 +117,7 @@
             <td><strong>{{__global.description}}</strong></td>
           </tr>
           <tr>
-            <td>{{{value.type.0.specName.0.value}}}</td>
+            <td><code>{{{value.type.0.specName.0.value}}}</code></td>
             <td>{{{value.description}}}</td>
           </tr>
         </tbody>
@@ -132,7 +132,7 @@
             <td><strong>{{__global.description}}</strong></td>
           </tr>
           <tr>
-            <td>{{{value.type.0.specName.0.value}}}</td>
+            <td><code>{{{value.type.0.specName.0.value}}}</code></td>
             <td>{{{value.description}}}</td>
           </tr>
         </tbody>
@@ -147,7 +147,7 @@
             <td><strong>{{__global.description}}</strong></td>
           </tr>
           <tr>
-            <td>{{{type.specName.0.value}}}</td>
+            <td><code>{{{type.specName.0.value}}}</code></td>
             <td>{{{description}}}</td>
           </tr>
         </tbody>
@@ -185,7 +185,7 @@
       {{/exceptions.0}}
       {{#exceptions.0.value}}
           <tr>
-            <td>{{{type.specName.0.value}}}</td>
+            <td><code>{{{type.specName.0.value}}}</code></td>
             <td>{{{description}}}</td>
           </tr>
       {{/exceptions.0.value}}
