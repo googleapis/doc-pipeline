@@ -36,7 +36,7 @@ The Write API can be used to write data to BigQuery.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>BigQueryWriteTransport</td>
+        <td><code>BigQueryWriteTransport</code></td>
         <td>The transport used by the client instance.</td>
       </tr>
     </tbody>
@@ -57,7 +57,7 @@ The Write API can be used to write data to BigQuery.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>credentials</td>
+        <td><code>credentials</code></td>
         <td>
           <code>Optional[google.auth.credentials.Credentials]</code>
           <br>
@@ -67,7 +67,7 @@ The Write API can be used to write data to BigQuery.</p>
         </td>
       </tr>
       <tr>
-        <td>transport</td>
+        <td><code>transport</code></td>
         <td>
           <code>Union[str, BigQueryWriteTransport]</code>
           <br>
@@ -77,7 +77,7 @@ The Write API can be used to write data to BigQuery.</p>
         </td>
       </tr>
       <tr>
-        <td>client_options</td>
+        <td><code>client_options</code></td>
         <td>
           <code>google.api_core.client_options.ClientOptions</code>
           <br>
@@ -87,7 +87,7 @@ The Write API can be used to write data to BigQuery.</p>
         </td>
       </tr>
       <tr>
-        <td>client_info</td>
+        <td><code>client_info</code></td>
         <td>
           <code>google.api_core.gapic_v1.client_info.ClientInfo</code>
           <br>
@@ -106,7 +106,7 @@ The Write API can be used to write data to BigQuery.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>google.auth.exceptions.MutualTLSChannelError</td>
+        <td><code>google.auth.exceptions.MutualTLSChannelError</code></td>
         <td>If mutual TLS transport creation failed for any reason.</td>
       </tr>
     </tbody>
@@ -164,7 +164,7 @@ available for read operations after the stream is committed.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>requests</td>
+        <td><code>requests</code></td>
         <td>
           <code>Iterator[<a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.AppendRowsRequest.html">google.cloud.bigquery_storage_v1beta2.types.AppendRowsRequest</a>]</code>
           <br>
@@ -174,7 +174,7 @@ available for read operations after the stream is committed.</p>
         </td>
       </tr>
       <tr>
-        <td>retry</td>
+        <td><code>retry</code></td>
         <td>
           <code>google.api_core.retry.Retry</code>
           <br>
@@ -184,7 +184,7 @@ available for read operations after the stream is committed.</p>
         </td>
       </tr>
       <tr>
-        <td>timeout</td>
+        <td><code>timeout</code></td>
         <td>
           <code>float</code>
           <br>
@@ -194,7 +194,7 @@ available for read operations after the stream is committed.</p>
         </td>
       </tr>
       <tr>
-        <td>metadata</td>
+        <td><code>metadata</code></td>
         <td>
           <code>Sequence[Tuple[str, str]]</code>
           <br>
@@ -213,7 +213,7 @@ available for read operations after the stream is committed.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>Iterable[<a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.AppendRowsResponse.html">google.cloud.bigquery_storage_v1beta2.types.AppendRowsResponse</a>]</td>
+        <td><code>Iterable[<a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.AppendRowsResponse.html">google.cloud.bigquery_storage_v1beta2.types.AppendRowsResponse</a>]</code></td>
         <td>Response message for AppendRows.</td>
       </tr>
     </tbody>
@@ -250,7 +250,7 @@ operations.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>request</td>
+        <td><code>request</code></td>
         <td>
           <code>Union[<a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.BatchCommitWriteStreamsRequest.html">google.cloud.bigquery_storage_v1beta2.types.BatchCommitWriteStreamsRequest</a>, dict]</code>
           <br>
@@ -260,7 +260,7 @@ operations.</p>
         </td>
       </tr>
       <tr>
-        <td>parent</td>
+        <td><code>parent</code></td>
         <td>
           <code>str</code>
           <br>
@@ -270,7 +270,7 @@ operations.</p>
         </td>
       </tr>
       <tr>
-        <td>retry</td>
+        <td><code>retry</code></td>
         <td>
           <code>google.api_core.retry.Retry</code>
           <br>
@@ -280,7 +280,7 @@ operations.</p>
         </td>
       </tr>
       <tr>
-        <td>timeout</td>
+        <td><code>timeout</code></td>
         <td>
           <code>float</code>
           <br>
@@ -290,7 +290,7 @@ operations.</p>
         </td>
       </tr>
       <tr>
-        <td>metadata</td>
+        <td><code>metadata</code></td>
         <td>
           <code>Sequence[Tuple[str, str]]</code>
           <br>
@@ -309,7 +309,7 @@ operations.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td><a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.BatchCommitWriteStreamsResponse.html">google.cloud.bigquery_storage_v1beta2.types.BatchCommitWriteStreamsResponse</a></td>
+        <td><code><a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.BatchCommitWriteStreamsResponse.html">google.cloud.bigquery_storage_v1beta2.types.BatchCommitWriteStreamsResponse</a></code></td>
         <td>Response message for BatchCommitWriteStreams.</td>
       </tr>
     </tbody>
@@ -381,7 +381,7 @@ received.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>request</td>
+        <td><code>request</code></td>
         <td>
           <code>Union[<a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.CreateWriteStreamRequest.html">google.cloud.bigquery_storage_v1beta2.types.CreateWriteStreamRequest</a>, dict]</code>
           <br>
@@ -391,7 +391,7 @@ received.</p>
         </td>
       </tr>
       <tr>
-        <td>parent</td>
+        <td><code>parent</code></td>
         <td>
           <code>str</code>
           <br>
@@ -401,7 +401,7 @@ received.</p>
         </td>
       </tr>
       <tr>
-        <td>write_stream</td>
+        <td><code>write_stream</code></td>
         <td>
           <code><a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.WriteStream.html">google.cloud.bigquery_storage_v1beta2.types.WriteStream</a></code>
           <br>
@@ -411,7 +411,7 @@ received.</p>
         </td>
       </tr>
       <tr>
-        <td>retry</td>
+        <td><code>retry</code></td>
         <td>
           <code>google.api_core.retry.Retry</code>
           <br>
@@ -421,7 +421,7 @@ received.</p>
         </td>
       </tr>
       <tr>
-        <td>timeout</td>
+        <td><code>timeout</code></td>
         <td>
           <code>float</code>
           <br>
@@ -431,7 +431,7 @@ received.</p>
         </td>
       </tr>
       <tr>
-        <td>metadata</td>
+        <td><code>metadata</code></td>
         <td>
           <code>Sequence[Tuple[str, str]]</code>
           <br>
@@ -450,7 +450,7 @@ received.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td><a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.WriteStream.html">google.cloud.bigquery_storage_v1beta2.types.WriteStream</a></td>
+        <td><code><a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.WriteStream.html">google.cloud.bigquery_storage_v1beta2.types.WriteStream</a></code></td>
         <td>Information about a single stream that gets data inside the storage system.</td>
       </tr>
     </tbody>
@@ -484,7 +484,7 @@ the stream. Finalize is not supported on the &#39;_default&#39; stream.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>request</td>
+        <td><code>request</code></td>
         <td>
           <code>Union[<a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.FinalizeWriteStreamRequest.html">google.cloud.bigquery_storage_v1beta2.types.FinalizeWriteStreamRequest</a>, dict]</code>
           <br>
@@ -494,7 +494,7 @@ the stream. Finalize is not supported on the &#39;_default&#39; stream.</p>
         </td>
       </tr>
       <tr>
-        <td>name</td>
+        <td><code>name</code></td>
         <td>
           <code>str</code>
           <br>
@@ -504,7 +504,7 @@ the stream. Finalize is not supported on the &#39;_default&#39; stream.</p>
         </td>
       </tr>
       <tr>
-        <td>retry</td>
+        <td><code>retry</code></td>
         <td>
           <code>google.api_core.retry.Retry</code>
           <br>
@@ -514,7 +514,7 @@ the stream. Finalize is not supported on the &#39;_default&#39; stream.</p>
         </td>
       </tr>
       <tr>
-        <td>timeout</td>
+        <td><code>timeout</code></td>
         <td>
           <code>float</code>
           <br>
@@ -524,7 +524,7 @@ the stream. Finalize is not supported on the &#39;_default&#39; stream.</p>
         </td>
       </tr>
       <tr>
-        <td>metadata</td>
+        <td><code>metadata</code></td>
         <td>
           <code>Sequence[Tuple[str, str]]</code>
           <br>
@@ -543,7 +543,7 @@ the stream. Finalize is not supported on the &#39;_default&#39; stream.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td><a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.FinalizeWriteStreamResponse.html">google.cloud.bigquery_storage_v1beta2.types.FinalizeWriteStreamResponse</a></td>
+        <td><code><a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.FinalizeWriteStreamResponse.html">google.cloud.bigquery_storage_v1beta2.types.FinalizeWriteStreamResponse</a></code></td>
         <td>Response message for FinalizeWriteStream.</td>
       </tr>
     </tbody>
@@ -580,7 +580,7 @@ _default stream, since it is not BUFFERED.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>request</td>
+        <td><code>request</code></td>
         <td>
           <code>Union[<a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.FlushRowsRequest.html">google.cloud.bigquery_storage_v1beta2.types.FlushRowsRequest</a>, dict]</code>
           <br>
@@ -590,7 +590,7 @@ _default stream, since it is not BUFFERED.</p>
         </td>
       </tr>
       <tr>
-        <td>write_stream</td>
+        <td><code>write_stream</code></td>
         <td>
           <code>str</code>
           <br>
@@ -600,7 +600,7 @@ _default stream, since it is not BUFFERED.</p>
         </td>
       </tr>
       <tr>
-        <td>retry</td>
+        <td><code>retry</code></td>
         <td>
           <code>google.api_core.retry.Retry</code>
           <br>
@@ -610,7 +610,7 @@ _default stream, since it is not BUFFERED.</p>
         </td>
       </tr>
       <tr>
-        <td>timeout</td>
+        <td><code>timeout</code></td>
         <td>
           <code>float</code>
           <br>
@@ -620,7 +620,7 @@ _default stream, since it is not BUFFERED.</p>
         </td>
       </tr>
       <tr>
-        <td>metadata</td>
+        <td><code>metadata</code></td>
         <td>
           <code>Sequence[Tuple[str, str]]</code>
           <br>
@@ -639,7 +639,7 @@ _default stream, since it is not BUFFERED.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td><a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.FlushRowsResponse.html">google.cloud.bigquery_storage_v1beta2.types.FlushRowsResponse</a></td>
+        <td><code><a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.FlushRowsResponse.html">google.cloud.bigquery_storage_v1beta2.types.FlushRowsResponse</a></code></td>
         <td>Respond message for FlushRows.</td>
       </tr>
     </tbody>
@@ -659,7 +659,7 @@ _default stream, since it is not BUFFERED.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>filename</td>
+        <td><code>filename</code></td>
         <td>
           <code>str</code>
           <br>
@@ -678,7 +678,7 @@ _default stream, since it is not BUFFERED.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>BigQueryWriteClient</td>
+        <td><code>BigQueryWriteClient</code></td>
         <td>The constructed client.</td>
       </tr>
     </tbody>
@@ -698,7 +698,7 @@ _default stream, since it is not BUFFERED.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>info</td>
+        <td><code>info</code></td>
         <td>
           <code>dict</code>
           <br>
@@ -717,7 +717,7 @@ _default stream, since it is not BUFFERED.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>BigQueryWriteClient</td>
+        <td><code>BigQueryWriteClient</code></td>
         <td>The constructed client.</td>
       </tr>
     </tbody>
@@ -737,7 +737,7 @@ _default stream, since it is not BUFFERED.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>filename</td>
+        <td><code>filename</code></td>
         <td>
           <code>str</code>
           <br>
@@ -756,7 +756,7 @@ _default stream, since it is not BUFFERED.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>BigQueryWriteClient</td>
+        <td><code>BigQueryWriteClient</code></td>
         <td>The constructed client.</td>
       </tr>
     </tbody>
@@ -792,7 +792,7 @@ use the default API endpoint.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>client_options</td>
+        <td><code>client_options</code></td>
         <td>
           <code>google.api_core.client_options.ClientOptions</code>
           <br>
@@ -811,7 +811,7 @@ use the default API endpoint.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>google.auth.exceptions.MutualTLSChannelError</td>
+        <td><code>google.auth.exceptions.MutualTLSChannelError</code></td>
         <td>If any errors happen.</td>
       </tr>
     </tbody>
@@ -824,7 +824,7 @@ use the default API endpoint.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>Tuple[str, Callable[[], Tuple[bytes, bytes]]]</td>
+        <td><code>Tuple[str, Callable[[], Tuple[bytes, bytes]]]</code></td>
         <td>returns the API endpoint and the client cert source to use.</td>
       </tr>
     </tbody>
@@ -857,7 +857,7 @@ use the default API endpoint.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td>request</td>
+        <td><code>request</code></td>
         <td>
           <code>Union[<a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.GetWriteStreamRequest.html">google.cloud.bigquery_storage_v1beta2.types.GetWriteStreamRequest</a>, dict]</code>
           <br>
@@ -867,7 +867,7 @@ use the default API endpoint.</p>
         </td>
       </tr>
       <tr>
-        <td>name</td>
+        <td><code>name</code></td>
         <td>
           <code>str</code>
           <br>
@@ -877,7 +877,7 @@ use the default API endpoint.</p>
         </td>
       </tr>
       <tr>
-        <td>retry</td>
+        <td><code>retry</code></td>
         <td>
           <code>google.api_core.retry.Retry</code>
           <br>
@@ -887,7 +887,7 @@ use the default API endpoint.</p>
         </td>
       </tr>
       <tr>
-        <td>timeout</td>
+        <td><code>timeout</code></td>
         <td>
           <code>float</code>
           <br>
@@ -897,7 +897,7 @@ use the default API endpoint.</p>
         </td>
       </tr>
       <tr>
-        <td>metadata</td>
+        <td><code>metadata</code></td>
         <td>
           <code>Sequence[Tuple[str, str]]</code>
           <br>
@@ -916,7 +916,7 @@ use the default API endpoint.</p>
         <td><strong>Description</strong></td>
       </tr>
       <tr>
-        <td><a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.WriteStream.html">google.cloud.bigquery_storage_v1beta2.types.WriteStream</a></td>
+        <td><code><a class="xref" href="google.cloud.bigquery_storage_v1beta2.types.WriteStream.html">google.cloud.bigquery_storage_v1beta2.types.WriteStream</a></code></td>
         <td>Information about a single stream that gets data inside the storage system.</td>
       </tr>
     </tbody>
