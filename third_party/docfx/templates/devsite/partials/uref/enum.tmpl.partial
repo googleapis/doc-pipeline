@@ -11,7 +11,7 @@
     </tr>
   {{#children}}
     <tr>
-      <td id="{{id}}">{{name.0.value}}</td>
+      <td id="{{id}}"><code>{{name.0.value}}</code></td>
       <td>{{{summary}}}</td>
     </tr>
   {{/children}}
