@@ -131,7 +131,6 @@ def run_generate(storage_client, test_bucket):
 
 
 def run_local_generate(local_path):
-
     # Test with invalid path given, must throw exception
     try:
         local_generate.build_local_doc(local_path.basename[1:], pathlib.Path("unused"))
@@ -156,7 +155,6 @@ def run_local_generate(local_path):
 
 
 def verify_template_content(tmpdir):
-
     assert tmpdir.joinpath("docs.metadata").is_file()
 
     # Check _rootPath and docs.metadata parsing worked.
