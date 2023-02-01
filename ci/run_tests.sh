@@ -32,7 +32,7 @@ export PATH=$PATH:${HOME}/.local/bin
 
 python3 -m pip install -e .
 # Install lint dependencies. types-protobuf is needed for mypy.
-python3 -m pip install flake8 black pytest pytest-cov mypy types-protobuf
+python3 -m pip install -r requirements.txt
 
 black --check docpipeline tests
 flake8 docpipeline tests
