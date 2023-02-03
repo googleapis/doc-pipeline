@@ -530,7 +530,9 @@ class TestGenerate(unittest.TestCase):
       <failure message="Failed" />
     </testcase>
   </testsuite>
-</testsuites>""".format(job_name)
+</testsuites>""".format(
+            job_name
+        )
         f = io.StringIO()
         successes = ["hello"]
         failures = ["goodbye"]
