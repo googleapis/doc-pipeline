@@ -505,9 +505,26 @@ class TestGenerate(unittest.TestCase):
 
         self.assertMultiLineEqual(got, want)
 
-    def test_write_xunit(self):
+    @pytest.mark.parametrize(
+        "kokoro_job_name, name",
+        [
+            (
+                "cloud-devrel/client-libraries/doc-pipeline/generate/generate-prod",
+                "generate-prod",
+            ),
+            (
+                "cloud-devrel/client-libraries/doc-pipeline/generate/generate-dev",
+                "generate-dev",
+            ),
+            (
+                "cloud-devrel/client-libraries/doc-pipeline/generate/generate-staging",
+                "generate-staging",
+            ),
+        ],
+    )
+    def test_write_xunit(self, kokoro_job_name, name):
         want = """<testsuites>
-  <testsuite tests="2" failures="1" name="github.com/googleapis/doc-pipeline/generate">
+  <testsuite tests="2" failures="1" name="{name}">
     <testcase classname="build" name="hello" />
     <testcase classname="build" name="goodbye">
       <failure message="Failed" />
@@ -517,6 +534,7 @@ class TestGenerate(unittest.TestCase):
         f = io.StringIO()
         successes = ["hello"]
         failures = ["goodbye"]
+        os.environ["KOKORO_JOB_NAME"] = kokoro_job_name
         generate.write_xunit(f, successes, failures)
         got = f.getvalue()
         self.assertMultiLineEqual(want, got)

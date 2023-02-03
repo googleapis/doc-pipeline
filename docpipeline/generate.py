@@ -491,6 +491,8 @@ def build_language_docs(
 
 
 def write_xunit(f: TextIOWrapper, successes: List[str], failures: List[str]):
+    job_name = os.environ.get("KOKORO_JOB_NAME")
+    name = job_name.rsplit("/", 1)
     testsuites = ET.Element("testsuites")
     testsuite = ET.SubElement(
         testsuites,
@@ -498,7 +500,7 @@ def write_xunit(f: TextIOWrapper, successes: List[str], failures: List[str]):
         attrib={
             "tests": str(len(successes) + len(failures)),
             "failures": str(len(failures)),
-            "name": "github.com/googleapis/doc-pipeline/generate",
+            "name": name,
         },
     )
     for success in successes:
