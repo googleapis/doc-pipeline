@@ -23,6 +23,7 @@ import docuploader.credentials
 from docuploader import shell, tar
 from docuploader.protos import metadata_pb2
 from google.cloud import storage
+from parameterized import parameterized
 import pytest
 
 from docpipeline import generate, local_generate
@@ -505,46 +506,44 @@ class TestGenerate(unittest.TestCase):
 
         self.assertMultiLineEqual(got, want)
 
+    test_jobs = [
+        [
+            "cloud-devrel/client-libraries/doc-pipeline/generate/generate-prod",
+            "generate-prod",
+        ],
+        [
+            "cloud-devrel/client-libraries/doc-pipeline/generate/generate-dev",
+            "generate-dev",
+        ],
+        [
+            "cloud-devrel/client-libraries/doc-pipeline/generate/generate-staging",
+            "generate-staging",
+        ],
+    ]
+
+    @parameterized.expand(test_jobs)
+    def test_write_xunit(self, kokoro_job_name, job_name):
+        want = """<testsuites>
+  <testsuite tests="2" failures="1" name="{job_name}">
+    <testcase classname="build" name="hello" />
+    <testcase classname="build" name="goodbye">
+      <failure message="Failed" />
+    </testcase>
+  </testsuite>
+</testsuites>"""
+        f = io.StringIO()
+        successes = ["hello"]
+        failures = ["goodbye"]
+        os.environ["KOKORO_JOB_NAME"] = kokoro_job_name
+        generate.write_xunit(f, successes, failures)
+        got = f.getvalue()
+        self.assertMultiLineEqual(want, got)
+
     def test_parse_blob_name(self):
         want = ["python", "spanner"]
         blob_name = "docfx-python-spanner-3.7.0.tar.gz"
         got = list(generate.parse_blob_name(blob_name))
         self.assertCountEqual(want, got)
-
-
-@pytest.mark.parametrize(
-    "kokoro_job_name, name",
-    [
-        (
-            "cloud-devrel/client-libraries/doc-pipeline/generate/generate-prod",
-            "generate-prod",
-        ),
-        (
-            "cloud-devrel/client-libraries/doc-pipeline/generate/generate-dev",
-            "generate-dev",
-        ),
-        (
-            "cloud-devrel/client-libraries/doc-pipeline/generate/generate-staging",
-            "generate-staging",
-        ),
-    ],
-)
-def test_write_xunit(self, kokoro_job_name, name):
-    want = """<testsuites>
-<testsuite tests="2" failures="1" name="{name}">
-<testcase classname="build" name="hello" />
-<testcase classname="build" name="goodbye">
-    <failure message="Failed" />
-</testcase>
-</testsuite>
-</testsuites>"""
-    f = io.StringIO()
-    successes = ["hello"]
-    failures = ["goodbye"]
-    os.environ["KOKORO_JOB_NAME"] = kokoro_job_name
-    generate.write_xunit(f, successes, failures)
-    got = f.getvalue()
-    self.assertMultiLineEqual(want, got)
 
 
 @pytest.mark.parametrize(
