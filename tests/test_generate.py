@@ -505,45 +505,46 @@ class TestGenerate(unittest.TestCase):
 
         self.assertMultiLineEqual(got, want)
 
-    @pytest.mark.parametrize(
-        "kokoro_job_name, name",
-        [
-            (
-                "cloud-devrel/client-libraries/doc-pipeline/generate/generate-prod",
-                "generate-prod",
-            ),
-            (
-                "cloud-devrel/client-libraries/doc-pipeline/generate/generate-dev",
-                "generate-dev",
-            ),
-            (
-                "cloud-devrel/client-libraries/doc-pipeline/generate/generate-staging",
-                "generate-staging",
-            ),
-        ],
-    )
-    def test_write_xunit(self, kokoro_job_name, name):
-        want = """<testsuites>
-  <testsuite tests="2" failures="1" name="{name}">
-    <testcase classname="build" name="hello" />
-    <testcase classname="build" name="goodbye">
-      <failure message="Failed" />
-    </testcase>
-  </testsuite>
-</testsuites>"""
-        f = io.StringIO()
-        successes = ["hello"]
-        failures = ["goodbye"]
-        os.environ["KOKORO_JOB_NAME"] = kokoro_job_name
-        generate.write_xunit(f, successes, failures)
-        got = f.getvalue()
-        self.assertMultiLineEqual(want, got)
-
     def test_parse_blob_name(self):
         want = ["python", "spanner"]
         blob_name = "docfx-python-spanner-3.7.0.tar.gz"
         got = list(generate.parse_blob_name(blob_name))
         self.assertCountEqual(want, got)
+
+
+@pytest.mark.parametrize(
+    "kokoro_job_name, name",
+    [
+        (
+            "cloud-devrel/client-libraries/doc-pipeline/generate/generate-prod",
+            "generate-prod",
+        ),
+        (
+            "cloud-devrel/client-libraries/doc-pipeline/generate/generate-dev",
+            "generate-dev",
+        ),
+        (
+            "cloud-devrel/client-libraries/doc-pipeline/generate/generate-staging",
+            "generate-staging",
+        ),
+    ],
+)
+def test_write_xunit(self, kokoro_job_name, name):
+    want = """<testsuites>
+<testsuite tests="2" failures="1" name="{name}">
+<testcase classname="build" name="hello" />
+<testcase classname="build" name="goodbye">
+    <failure message="Failed" />
+</testcase>
+</testsuite>
+</testsuites>"""
+    f = io.StringIO()
+    successes = ["hello"]
+    failures = ["goodbye"]
+    os.environ["KOKORO_JOB_NAME"] = kokoro_job_name
+    generate.write_xunit(f, successes, failures)
+    got = f.getvalue()
+    self.assertMultiLineEqual(want, got)
 
 
 @pytest.mark.parametrize(
