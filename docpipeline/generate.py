@@ -14,6 +14,7 @@
 
 import collections
 from io import TextIOWrapper
+import os
 import pathlib
 import shutil
 import tempfile
