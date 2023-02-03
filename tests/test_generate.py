@@ -524,13 +524,13 @@ class TestGenerate(unittest.TestCase):
     @parameterized.expand(test_jobs)
     def test_write_xunit(self, kokoro_job_name, job_name):
         want = """<testsuites>
-  <testsuite tests="2" failures="1" name="{job_name}">
+  <testsuite tests="2" failures="1" name="{}">
     <testcase classname="build" name="hello" />
     <testcase classname="build" name="goodbye">
       <failure message="Failed" />
     </testcase>
   </testsuite>
-</testsuites>"""
+</testsuites>""".format(job_name)
         f = io.StringIO()
         successes = ["hello"]
         failures = ["goodbye"]
