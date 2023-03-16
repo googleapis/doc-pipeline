@@ -3,7 +3,7 @@ module github.com/googleapis/doc-pipeline
 go 1.19
 
 require (
-	cloud.google.com/go/storage v1.29.0
+	cloud.google.com/go/storage v1.30.0
 	github.com/cheggaaa/pb/v3 v3.1.2
 	golang.org/x/sync v0.1.0
 	google.golang.org/api v0.112.0
