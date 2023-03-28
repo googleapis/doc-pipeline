@@ -2,9 +2,11 @@
 
 {{>partials/class.header}}
 {{#children}}
-<h2 id="{{id}}">{{>partials/classSubtitle}}</h2>
 <table class="responsive">
   <tbody>
+    <tr>
+      <th colspan=2><h2 id="{{id}}">{{>partials/classSubtitle}}</h2></th>
+    </tr>
     <tr>
       <td><strong>{{__global.name}}</strong></td>
       <td><strong>{{__global.description}}</strong></td>
