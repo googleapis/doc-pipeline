@@ -32,9 +32,11 @@
 {{/conceptual}}
 {{#syntax}}
 {{#parameters.0}}
-<strong>{{__global.parameter}}{{#parameters.1}}s{{/parameters.1}}</strong>
 <table class="responsive">
   <tbody>
+    <tr>
+      <th colspan=2><strong>{{__global.parameter}}{{#parameters.1}}s{{/parameters.1}}</strong></th>
+    </tr>
     <tr>
       <td><strong>{{__global.name}}</strong></td>
       <td><strong>{{__global.description}}</strong></td>
@@ -51,9 +53,11 @@
 </table>
 {{/parameters.0}}
 {{#return}}
-<strong>{{__global.returns}}</strong>
 <table class="responsive">
   <tbody>
+    <tr>
+      <th colspan=2><strong>{{__global.returns}}</strong></th>
+    </tr>
     <tr>
       <td><strong>{{__global.type}}</strong></td>
       <td><strong>{{__global.description}}</strong></td>
@@ -66,9 +70,11 @@
 </table>
 {{/return}}
 {{#typeParameters.0}}
-<strong>{{__global.typeParameter}}{{#typeParameters.1}}s{{/typeParameters.1}}</strong>
 <table class="responsive">
   <tbody>
+    <tr>
+      <th colspan=2><strong>{{__global.typeParameter}}{{#typeParameters.1}}s{{/typeParameters.1}}</strong></th>
+    </tr>
     <tr>
       <td><strong>{{__global.name}}</strong></td>
       <td><strong>{{__global.description}}</strong></td>
@@ -85,9 +91,11 @@
 </table>
 {{/typeParameters.0}}
 {{#fieldValue}}
-<strong>{{__global.fieldValue}}</strong>
 <table class="responsive">
   <tbody>
+    <tr>
+      <th colspan=2><strong>{{__global.fieldValue}}</strong></th>
+    </tr>
     <tr>
       <td><strong>{{__global.type}}</strong></td>
       <td><strong>{{__global.description}}</strong></td>
@@ -100,9 +108,11 @@
 </table>
 {{/fieldValue}}
 {{#propertyValue}}
-<strong>{{__global.propertyValue}}</strong>
 <table class="responsive">
   <tbody>
+    <tr>
+      <th colspan=2><strong>{{__global.propertyValue}}</strong></th>
+    </tr>
     <tr>
       <td><strong>{{__global.type}}</strong></td>
       <td><strong>{{__global.description}}</strong></td>
@@ -115,9 +125,11 @@
 </table>
 {{/propertyValue}}
 {{#eventType}}
-<strong>{{__global.eventType}}</strong>
 <table class="responsive">
   <tbody>
+    <tr>
+      <th colspan=2><strong>{{__global.eventType}}</strong></th>
+    </tr>
     <tr>
       <td><strong>{{__global.type}}</strong></td>
       <td><strong>{{__global.description}}</strong></td>
@@ -145,9 +157,11 @@
 {{{.}}}
 {{/example}}
 {{#exceptions.0}}
-<strong>{{__global.exceptions}}</strong>
 <table class="responsive">
   <tbody>
+    <tr>
+      <th colspan=2><strong>{{__global.exceptions}}</strong></th>
+    </tr>
     <tr>
       <td><strong>{{__global.type}}</strong></td>
       <td><strong>{{__global.description}}</strong></td>
