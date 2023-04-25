@@ -6,7 +6,7 @@ require (
 	cloud.google.com/go/storage v1.30.1
 	github.com/cheggaaa/pb/v3 v3.1.2
 	golang.org/x/sync v0.1.0
-	google.golang.org/api v0.119.0
+	google.golang.org/api v0.120.0
 )
 
 require (
