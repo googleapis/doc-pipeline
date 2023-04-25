@@ -18,6 +18,12 @@ exports.transform = function (model) {
   if (model.type) {
     switch (model.type.toLowerCase()) {
       case 'overview':
+        // For Java, use special template
+        if(model.langs[0] === "java" && model.children) {
+          model.isJavaOverview = true;
+          groupChildren(model, namespaceCategory);
+          break;
+        }
       case 'package':
       case 'namespace':
         model.isNamespace = true;
