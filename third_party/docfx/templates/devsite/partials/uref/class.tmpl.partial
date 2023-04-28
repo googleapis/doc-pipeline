@@ -246,6 +246,29 @@
   </tbody>
 </table>
 {{/returns.0}}
+{{#cppreturn}}
+<table class="responsive">
+  <tbody>
+    <tr>
+      <th colspan=2><strong>{{__global.returns}}</strong></th>
+    </tr>
+    <tr>
+      <td><strong>{{__global.type}}</strong></td>
+      <td><strong>{{__global.description}}</strong></td>
+    </tr>
+    <tr>
+      <td>
+        <code>{{#var_type}}{{{var_type}}}{{/var_type}}{{^var_type}}{{{type.specName.0.value}}}{{/var_type}}</code>
+      </td>
+      <td>
+        <br>
+        {{{description}}}
+        {{>partials/uref/parameters}}
+      </td>
+    </tr>
+  </tbody>
+</table>
+{{/cppreturn}}
 {{#typeParameters.0}}
 <table class="responsive">
   <tbody>
