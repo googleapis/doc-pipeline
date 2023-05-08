@@ -126,7 +126,7 @@ function handleItem(vm, gitContribute, gitUrlPattern) {
   if (vm.langs && vm.langs[0] === "python") {
       vm.wrapdeclarationcode = true;
   }
-  
+
   common.processSeeAlso(vm);
 
   // id is used as default template's bookmark
@@ -384,6 +384,8 @@ var classItems = {
   "eii":          { inEii: true,          typePropertyName: "inEii",          id: "eii" },
   "member":       { inMember: true,       typePropertyName: "inMember",       id: "members"},
   "function":     { inFunction: true,     typePropertyName: "inFunction",     id: "functions" },
+  "enum":         { inEnum: true,         typePropertyName: "inEnum",         id: "enums" },
+  "enumvalue":    { inConst: true,        typePropertyName: "inConst",        id: "consts", isEmbedded: true },
   "const":        { inConst: true,        typePropertyName: "inConst",        id: "consts", isEmbedded: true }
 };
 // Used for Ruby modules. Currently identical to classItems, except isEmbedded is true for methods.
