@@ -385,8 +385,9 @@ var classItems = {
   "member":       { inMember: true,       typePropertyName: "inMember",       id: "members"},
   "function":     { inFunction: true,     typePropertyName: "inFunction",     id: "functions" },
   "enum":         { inEnum: true,         typePropertyName: "inEnum",         id: "enums" },
-  "enumvalue":    { inConst: true,        typePropertyName: "inConst",        id: "consts", isEmbedded: true },
-  "const":        { inConst: true,        typePropertyName: "inConst",        id: "consts", isEmbedded: true }
+  "enumvalue":    { inConst: true,        typePropertyName: "inConst",        id: "consts",      isEmbedded: true },
+  "const":        { inConst: true,        typePropertyName: "inConst",        id: "consts",      isEmbedded: true },
+  "typealias":    { inTypeAlias: true,    typePropertyName: "inTypeAlias",    id: "typealiases", isEmbedded: true },
 };
 // Used for Ruby modules. Currently identical to classItems, except isEmbedded is true for methods.
 var rubyModuleItems = {
