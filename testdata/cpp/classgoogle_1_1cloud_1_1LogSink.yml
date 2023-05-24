@@ -1,0 +1,514 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1LogSink
+    name: "LogSink"
+    id: classgoogle_1_1cloud_1_1LogSink
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/log.h>
+        class google::cloud::LogSink { ... };
+      source:
+        id: google::cloud::LogSink
+        path: google/cloud/log.h
+        startLine: 182
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      A sink to receive log records. 
+    children:
+      - classgoogle_1_1cloud_1_1LogSink_1af480aa59f84e27c56949904244b44984
+      - classgoogle_1_1cloud_1_1LogSink_1a80051cdac2de5a99b5baa1a0dd533515
+      - classgoogle_1_1cloud_1_1LogSink_1a5fced2b547bea605281f2bc3ffb30991
+      - classgoogle_1_1cloud_1_1LogSink_1a89d2d6261ef1380be3733391fdafe851
+      - classgoogle_1_1cloud_1_1LogSink_1a7c250d78aa40cef29613cffa93120623
+      - classgoogle_1_1cloud_1_1LogSink_1a73593e026ab693f7fd8e4eb6b1225a79
+      - classgoogle_1_1cloud_1_1LogSink_1a63ec26a7560bdae9657f250bb93f6a14
+      - classgoogle_1_1cloud_1_1LogSink_1a8046eb8388eeab19d534ca68639a2b80
+      - classgoogle_1_1cloud_1_1LogSink_1a1c4f0cb3319ccc87db3298a495999824
+      - classgoogle_1_1cloud_1_1LogSink_1aa612a6eb4858ce957dd4f6881008407a
+      - classgoogle_1_1cloud_1_1LogSink_1a2253a4e97e469304f9be9ec0d8bced88
+      - classgoogle_1_1cloud_1_1LogSink_1a9d963ade2c81293ad87cb3a6b7b66bba
+      - classgoogle_1_1cloud_1_1LogSink_1ad8115a6da7fdaa46facf4d51a1572181
+      - classgoogle_1_1cloud_1_1LogSink_1a06247b1adf1203876402ba6a9be76a7e
+      - classgoogle_1_1cloud_1_1LogSink_1ad80239c2b8148603cf0a2e44b2b65619
+      - classgoogle_1_1cloud_1_1LogSink_1a310d372251b40d820d75e51c1707660d
+  - uid: classgoogle_1_1cloud_1_1LogSink_1af480aa59f84e27c56949904244b44984
+    name: "BackendId"
+    fullName: "google::cloud::LogSink::BackendId"
+    id: classgoogle_1_1cloud_1_1LogSink_1af480aa59f84e27c56949904244b44984
+    parent: classgoogle_1_1cloud_1_1LogSink
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::LogSink::BackendId =
+          long;
+      aliasof: |
+        <code>long</code>
+      source:
+        id: BackendId
+        path: google/cloud/log.h
+        startLine: 247
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a80051cdac2de5a99b5baa1a0dd533515
+    name: "LogSink()"
+    fullName: |
+      google::cloud::LogSink::LogSink
+    id: classgoogle_1_1cloud_1_1LogSink_1a80051cdac2de5a99b5baa1a0dd533515
+    parent: classgoogle_1_1cloud_1_1LogSink
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::LogSink::LogSink ()
+      source:
+        id: LogSink
+        path: google/cloud/log.h
+        startLine: 184
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a5fced2b547bea605281f2bc3ffb30991
+    name: "empty() const"
+    fullName: |
+      google::cloud::LogSink::empty
+    id: classgoogle_1_1cloud_1_1LogSink_1a5fced2b547bea605281f2bc3ffb30991
+    parent: classgoogle_1_1cloud_1_1LogSink
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        bool
+        google::cloud::LogSink::empty ()
+      return:
+        type:
+          - "bool"
+      source:
+        id: empty
+        path: google/cloud/log.h
+        startLine: 212
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Return true if this object has no backends. 
+    conceptual: |
+      We want to avoid synchronization overhead when checking if a log message is enabled. Most of the time, most messages will be disabled, so incurring the locking overhead on each message would be too expensive and would discourage developers from creating logs. Furthermore, missing a few messages while the change of state "propagates" to other threads does not affect the correctness of the program.
+
+      Note that `memory_order_relaxed` does not provide a compiler barrier either, so in theory stores into the atomic could be reordered by the optimizer. We have no reason to worry about that because all the writes are done inside a critical section protected by a mutex. The compiler cannot (or should not) reorder operations around those. 
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a89d2d6261ef1380be3733391fdafe851
+    name: "is_enabled(Severity) const"
+    fullName: |
+      google::cloud::LogSink::is_enabled
+    id: classgoogle_1_1cloud_1_1LogSink_1a89d2d6261ef1380be3733391fdafe851
+    parent: classgoogle_1_1cloud_1_1LogSink
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        bool
+        google::cloud::LogSink::is_enabled (
+            Severity severity
+          )
+      return:
+        type:
+          - "bool"
+      parameters:
+        - id: severity
+          var_type: "Severity"
+      source:
+        id: is_enabled
+        path: google/cloud/log.h
+        startLine: 230
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Return true if `severity` is enabled. 
+    conceptual: |
+      We want to avoid synchronization overhead when checking if a log message is enabled. Most of the time, most messages will be disabled, so incurring the locking overhead on each message would be too expensive and would discourage developers from creating logs. Furthermore, missing a few messages while the change of state "propagates" to other threads does not affect the correctness of the program.
+
+      Note that `memory_order_relaxed` does not provide a compiler barrier either, so in theory stores into the atomic could be reordered by the optimizer. We have no reason to worry about that because all the writes are done inside a critical section protected by a mutex. The compiler cannot (or should not) reorder operations around those. 
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a7c250d78aa40cef29613cffa93120623
+    name: "set_minimum_severity(Severity)"
+    fullName: |
+      google::cloud::LogSink::set_minimum_severity
+    id: classgoogle_1_1cloud_1_1LogSink_1a7c250d78aa40cef29613cffa93120623
+    parent: classgoogle_1_1cloud_1_1LogSink
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::LogSink::set_minimum_severity (
+            Severity minimum
+          )
+      return:
+        type:
+          - "void"
+      parameters:
+        - id: minimum
+          var_type: "Severity"
+      source:
+        id: set_minimum_severity
+        path: google/cloud/log.h
+        startLine: 235
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a73593e026ab693f7fd8e4eb6b1225a79
+    name: "minimum_severity() const"
+    fullName: |
+      google::cloud::LogSink::minimum_severity
+    id: classgoogle_1_1cloud_1_1LogSink_1a73593e026ab693f7fd8e4eb6b1225a79
+    parent: classgoogle_1_1cloud_1_1LogSink
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        Severity
+        google::cloud::LogSink::minimum_severity ()
+      return:
+        type:
+          - "Severity"
+      source:
+        id: minimum_severity
+        path: google/cloud/log.h
+        startLine: 238
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a63ec26a7560bdae9657f250bb93f6a14
+    name: "AddBackend(std::shared_ptr< LogBackend >)"
+    fullName: |
+      google::cloud::LogSink::AddBackend
+    id: classgoogle_1_1cloud_1_1LogSink_1a63ec26a7560bdae9657f250bb93f6a14
+    parent: classgoogle_1_1cloud_1_1LogSink
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        BackendId
+        google::cloud::LogSink::AddBackend (
+            std::shared_ptr< LogBackend > backend
+          )
+      return:
+        type:
+          - "BackendId"
+      parameters:
+        - id: backend
+          var_type: "std::shared_ptr&lt; LogBackend &gt;"
+      source:
+        id: AddBackend
+        path: google/cloud/log.h
+        startLine: 249
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a8046eb8388eeab19d534ca68639a2b80
+    name: "RemoveBackend(BackendId)"
+    fullName: |
+      google::cloud::LogSink::RemoveBackend
+    id: classgoogle_1_1cloud_1_1LogSink_1a8046eb8388eeab19d534ca68639a2b80
+    parent: classgoogle_1_1cloud_1_1LogSink
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::LogSink::RemoveBackend (
+            BackendId id
+          )
+      return:
+        type:
+          - "void"
+      parameters:
+        - id: id
+          var_type: "BackendId"
+      source:
+        id: RemoveBackend
+        path: google/cloud/log.h
+        startLine: 250
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a1c4f0cb3319ccc87db3298a495999824
+    name: "ClearBackends()"
+    fullName: |
+      google::cloud::LogSink::ClearBackends
+    id: classgoogle_1_1cloud_1_1LogSink_1a1c4f0cb3319ccc87db3298a495999824
+    parent: classgoogle_1_1cloud_1_1LogSink
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::LogSink::ClearBackends ()
+      return:
+        type:
+          - "void"
+      source:
+        id: ClearBackends
+        path: google/cloud/log.h
+        startLine: 251
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: classgoogle_1_1cloud_1_1LogSink_1aa612a6eb4858ce957dd4f6881008407a
+    name: "BackendCount() const"
+    fullName: |
+      google::cloud::LogSink::BackendCount
+    id: classgoogle_1_1cloud_1_1LogSink_1aa612a6eb4858ce957dd4f6881008407a
+    parent: classgoogle_1_1cloud_1_1LogSink
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::size_t
+        google::cloud::LogSink::BackendCount ()
+      return:
+        type:
+          - "std::size_t"
+      source:
+        id: BackendCount
+        path: google/cloud/log.h
+        startLine: 252
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a2253a4e97e469304f9be9ec0d8bced88
+    name: "Log(LogRecord)"
+    fullName: |
+      google::cloud::LogSink::Log
+    id: classgoogle_1_1cloud_1_1LogSink_1a2253a4e97e469304f9be9ec0d8bced88
+    parent: classgoogle_1_1cloud_1_1LogSink
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::LogSink::Log (
+            LogRecord log_record
+          )
+      return:
+        type:
+          - "void"
+      parameters:
+        - id: log_record
+          var_type: "LogRecord"
+      source:
+        id: Log
+        path: google/cloud/log.h
+        startLine: 254
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a9d963ade2c81293ad87cb3a6b7b66bba
+    name: "Flush()"
+    fullName: |
+      google::cloud::LogSink::Flush
+    id: classgoogle_1_1cloud_1_1LogSink_1a9d963ade2c81293ad87cb3a6b7b66bba
+    parent: classgoogle_1_1cloud_1_1LogSink
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::LogSink::Flush ()
+      return:
+        type:
+          - "void"
+      source:
+        id: Flush
+        path: google/cloud/log.h
+        startLine: 257
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Flush all the current backends. 
+  - uid: classgoogle_1_1cloud_1_1LogSink_1ad8115a6da7fdaa46facf4d51a1572181
+    name: "static CompileTimeEnabled(Severity)"
+    fullName: |
+      google::cloud::LogSink::CompileTimeEnabled
+    id: classgoogle_1_1cloud_1_1LogSink_1ad8115a6da7fdaa46facf4d51a1572181
+    parent: classgoogle_1_1cloud_1_1LogSink
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        bool constexpr
+        google::cloud::LogSink::CompileTimeEnabled (
+            Severity level
+          )
+      return:
+        type:
+          - "bool constexpr"
+      parameters:
+        - id: level
+          var_type: "Severity"
+      source:
+        id: CompileTimeEnabled
+        path: google/cloud/log.h
+        startLine: 187
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Return true if the severity is enabled at compile time. 
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a06247b1adf1203876402ba6a9be76a7e
+    name: "static Instance()"
+    fullName: |
+      google::cloud::LogSink::Instance
+    id: classgoogle_1_1cloud_1_1LogSink_1a06247b1adf1203876402ba6a9be76a7e
+    parent: classgoogle_1_1cloud_1_1LogSink
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        LogSink &
+        google::cloud::LogSink::Instance ()
+      return:
+        type:
+          - "LogSink &"
+      source:
+        id: Instance
+        path: google/cloud/log.h
+        startLine: 194
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Return the singleton instance for this application. 
+  - uid: classgoogle_1_1cloud_1_1LogSink_1ad80239c2b8148603cf0a2e44b2b65619
+    name: "static EnableStdClog(Severity)"
+    fullName: |
+      google::cloud::LogSink::EnableStdClog
+    id: classgoogle_1_1cloud_1_1LogSink_1ad80239c2b8148603cf0a2e44b2b65619
+    parent: classgoogle_1_1cloud_1_1LogSink
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::LogSink::EnableStdClog (
+            Severity min_severity
+          )
+      return:
+        type:
+          - "void"
+      parameters:
+        - id: min_severity
+          var_type: "Severity"
+      source:
+        id: EnableStdClog
+        path: google/cloud/log.h
+        startLine: 265
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Enable `std::clog` on [`LogSink::Instance()`](xref:classgoogle_1_1cloud_1_1LogSink_1a06247b1adf1203876402ba6a9be76a7e). 
+    conceptual: |
+      This is also enabled if the "GOOGLE_CLOUD_CPP_ENABLE_CLOG" environment variable is set. 
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a310d372251b40d820d75e51c1707660d
+    name: "static DisableStdClog()"
+    fullName: |
+      google::cloud::LogSink::DisableStdClog
+    id: classgoogle_1_1cloud_1_1LogSink_1a310d372251b40d820d75e51c1707660d
+    parent: classgoogle_1_1cloud_1_1LogSink
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::LogSink::DisableStdClog ()
+      return:
+        type:
+          - "void"
+      source:
+        id: DisableStdClog
+        path: google/cloud/log.h
+        startLine: 275
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Disable `std::clog` on [`LogSink::Instance()`](xref:classgoogle_1_1cloud_1_1LogSink_1a06247b1adf1203876402ba6a9be76a7e). 
+    conceptual: |
+      Note that this will remove the default logging backend. 
+references:
+  - uid: classgoogle_1_1cloud_1_1LogSink
+    name: google::cloud::LogSink
+  - uid: classgoogle_1_1cloud_1_1LogSink_1af480aa59f84e27c56949904244b44984
+    name: google::cloud::LogSink::BackendId
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a80051cdac2de5a99b5baa1a0dd533515
+    name: google::cloud::LogSink::LogSink
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a5fced2b547bea605281f2bc3ffb30991
+    name: google::cloud::LogSink::empty
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a89d2d6261ef1380be3733391fdafe851
+    name: google::cloud::LogSink::is_enabled
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a7c250d78aa40cef29613cffa93120623
+    name: google::cloud::LogSink::set_minimum_severity
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a73593e026ab693f7fd8e4eb6b1225a79
+    name: google::cloud::LogSink::minimum_severity
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a63ec26a7560bdae9657f250bb93f6a14
+    name: google::cloud::LogSink::AddBackend
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a8046eb8388eeab19d534ca68639a2b80
+    name: google::cloud::LogSink::RemoveBackend
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a1c4f0cb3319ccc87db3298a495999824
+    name: google::cloud::LogSink::ClearBackends
+  - uid: classgoogle_1_1cloud_1_1LogSink_1aa612a6eb4858ce957dd4f6881008407a
+    name: google::cloud::LogSink::BackendCount
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a2253a4e97e469304f9be9ec0d8bced88
+    name: google::cloud::LogSink::Log
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a9d963ade2c81293ad87cb3a6b7b66bba
+    name: google::cloud::LogSink::Flush
+  - uid: classgoogle_1_1cloud_1_1LogSink_1ad8115a6da7fdaa46facf4d51a1572181
+    name: google::cloud::LogSink::CompileTimeEnabled
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a06247b1adf1203876402ba6a9be76a7e
+    name: google::cloud::LogSink::Instance
+  - uid: classgoogle_1_1cloud_1_1LogSink_1ad80239c2b8148603cf0a2e44b2b65619
+    name: google::cloud::LogSink::EnableStdClog
+  - uid: classgoogle_1_1cloud_1_1LogSink_1a310d372251b40d820d75e51c1707660d
+    name: google::cloud::LogSink::DisableStdClog

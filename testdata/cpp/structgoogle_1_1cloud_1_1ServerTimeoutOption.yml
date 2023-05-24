@@ -1,0 +1,54 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1ServerTimeoutOption
+    name: "ServerTimeoutOption"
+    id: structgoogle_1_1cloud_1_1ServerTimeoutOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/rest_options.h>
+        struct google::cloud::ServerTimeoutOption { ... };
+      source:
+        id: google::cloud::ServerTimeoutOption
+        path: google/cloud/rest_options.h
+        startLine: 61
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/rest_options.h
+    summary: |
+      Timeout for the server to finish processing the request. 
+    conceptual: |
+      This system param only applies to REST APIs for which client-side timeout is not applicable. 
+    children:
+      - structgoogle_1_1cloud_1_1ServerTimeoutOption_1adca01c4480f74545b05eb1038f9a9a56
+  - uid: structgoogle_1_1cloud_1_1ServerTimeoutOption_1adca01c4480f74545b05eb1038f9a9a56
+    name: "Type"
+    fullName: "google::cloud::ServerTimeoutOption::Type"
+    id: structgoogle_1_1cloud_1_1ServerTimeoutOption_1adca01c4480f74545b05eb1038f9a9a56
+    parent: structgoogle_1_1cloud_1_1ServerTimeoutOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::ServerTimeoutOption::Type =
+          std::chrono::milliseconds;
+      aliasof: |
+        <code>std::chrono::milliseconds</code>
+      source:
+        id: Type
+        path: google/cloud/rest_options.h
+        startLine: 62
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/rest_options.h
+references:
+  - uid: structgoogle_1_1cloud_1_1ServerTimeoutOption
+    name: google::cloud::ServerTimeoutOption
+  - uid: structgoogle_1_1cloud_1_1ServerTimeoutOption_1adca01c4480f74545b05eb1038f9a9a56
+    name: google::cloud::ServerTimeoutOption::Type

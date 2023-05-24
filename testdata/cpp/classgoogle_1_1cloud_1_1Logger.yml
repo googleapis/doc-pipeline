@@ -1,0 +1,159 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1Logger
+    name: "Logger<bool>"
+    id: classgoogle_1_1cloud_1_1Logger
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/log.h>
+        template <
+            bool>
+        class google::cloud::Logger { ... };
+      source:
+        id: google::cloud::Logger
+        path: google/cloud/log.h
+        startLine: 318
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Define the class to capture a log message. 
+    children:
+      - classgoogle_1_1cloud_1_1Logger_1a12889d17244b61ce0861005d46103a18
+      - classgoogle_1_1cloud_1_1Logger_1ab04a7964f3fae6ac0406b8ae68a18fd7
+      - classgoogle_1_1cloud_1_1Logger_1ab0edd380ba7f81e734a099e11d3f39ce
+      - classgoogle_1_1cloud_1_1Logger_1a0fda914b21394a80ac3998594b8e1023
+  - uid: classgoogle_1_1cloud_1_1Logger_1a12889d17244b61ce0861005d46103a18
+    name: "Logger(Severity, char const *, char const *, int, LogSink &)"
+    fullName: |
+      google::cloud::Logger::Logger
+    id: classgoogle_1_1cloud_1_1Logger_1a12889d17244b61ce0861005d46103a18
+    parent: classgoogle_1_1cloud_1_1Logger
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::Logger::Logger (
+            Severity severity,
+            char const * function,
+            char const * filename,
+            int lineno,
+            LogSink & sink
+          )
+      parameters:
+        - id: severity
+          var_type: "Severity"
+        - id: function
+          var_type: "char const *"
+        - id: filename
+          var_type: "char const *"
+        - id: lineno
+          var_type: "int"
+        - id: sink
+          var_type: "LogSink &"
+      source:
+        id: Logger
+        path: google/cloud/log.h
+        startLine: 320
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: classgoogle_1_1cloud_1_1Logger_1ab04a7964f3fae6ac0406b8ae68a18fd7
+    name: "enabled() const"
+    fullName: |
+      google::cloud::Logger::enabled
+    id: classgoogle_1_1cloud_1_1Logger_1ab04a7964f3fae6ac0406b8ae68a18fd7
+    parent: classgoogle_1_1cloud_1_1Logger
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        bool
+        google::cloud::Logger::enabled ()
+      return:
+        type:
+          - "bool"
+      source:
+        id: enabled
+        path: google/cloud/log.h
+        startLine: 332
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: classgoogle_1_1cloud_1_1Logger_1ab0edd380ba7f81e734a099e11d3f39ce
+    name: "LogTo(LogSink &)"
+    fullName: |
+      google::cloud::Logger::LogTo
+    id: classgoogle_1_1cloud_1_1Logger_1ab0edd380ba7f81e734a099e11d3f39ce
+    parent: classgoogle_1_1cloud_1_1Logger
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::Logger::LogTo (
+            LogSink & sink
+          )
+      return:
+        type:
+          - "void"
+      parameters:
+        - id: sink
+          var_type: "LogSink &"
+      source:
+        id: LogTo
+        path: google/cloud/log.h
+        startLine: 335
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Send the log record captured by this object to `sink`. 
+  - uid: classgoogle_1_1cloud_1_1Logger_1a0fda914b21394a80ac3998594b8e1023
+    name: "Stream()"
+    fullName: |
+      google::cloud::Logger::Stream
+    id: classgoogle_1_1cloud_1_1Logger_1a0fda914b21394a80ac3998594b8e1023
+    parent: classgoogle_1_1cloud_1_1Logger
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::ostream &
+        google::cloud::Logger::Stream ()
+      return:
+        type:
+          - "std::ostream &"
+      source:
+        id: Stream
+        path: google/cloud/log.h
+        startLine: 352
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Return the iostream that captures the log message. 
+references:
+  - uid: classgoogle_1_1cloud_1_1Logger
+    name: google::cloud::Logger
+  - uid: classgoogle_1_1cloud_1_1Logger_1a12889d17244b61ce0861005d46103a18
+    name: google::cloud::Logger::Logger
+  - uid: classgoogle_1_1cloud_1_1Logger_1ab04a7964f3fae6ac0406b8ae68a18fd7
+    name: google::cloud::Logger::enabled
+  - uid: classgoogle_1_1cloud_1_1Logger_1ab0edd380ba7f81e734a099e11d3f39ce
+    name: google::cloud::Logger::LogTo
+  - uid: classgoogle_1_1cloud_1_1Logger_1a0fda914b21394a80ac3998594b8e1023
+    name: google::cloud::Logger::Stream

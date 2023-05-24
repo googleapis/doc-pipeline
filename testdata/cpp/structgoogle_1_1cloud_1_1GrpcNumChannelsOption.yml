@@ -1,0 +1,66 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1GrpcNumChannelsOption
+    name: "GrpcNumChannelsOption"
+    id: structgoogle_1_1cloud_1_1GrpcNumChannelsOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/grpc_options.h>
+        struct google::cloud::GrpcNumChannelsOption { ... };
+      source:
+        id: google::cloud::GrpcNumChannelsOption
+        path: google/cloud/grpc_options.h
+        startLine: 56
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/grpc_options.h
+    summary: |
+      The number of transport channels to create. 
+    conceptual: |
+      gRPC limits the number of simultaneous calls in progress on a channel to
+      1. Increasing the number of channels thus increases the number of operations that can be in progress in parallel.
+
+
+
+      <aside class="note"><b>Note:</b>
+      This option only applies when passed to the following functions:
+      - `bigtable::MakeDataConnection()`
+      - `pubsub::MakePublisherConnection()`
+      - `pubsub::MakeSubscriberConnection()`
+      - `spanner::MakeConnection()`
+      - `storage_experimental::DefaultGrpcClient()`
+      </aside>
+    children:
+      - structgoogle_1_1cloud_1_1GrpcNumChannelsOption_1a4e2c298b9310373e19a5c76e8b7473e6
+  - uid: structgoogle_1_1cloud_1_1GrpcNumChannelsOption_1a4e2c298b9310373e19a5c76e8b7473e6
+    name: "Type"
+    fullName: "google::cloud::GrpcNumChannelsOption::Type"
+    id: structgoogle_1_1cloud_1_1GrpcNumChannelsOption_1a4e2c298b9310373e19a5c76e8b7473e6
+    parent: structgoogle_1_1cloud_1_1GrpcNumChannelsOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::GrpcNumChannelsOption::Type =
+          int;
+      aliasof: |
+        <code>int</code>
+      source:
+        id: Type
+        path: google/cloud/grpc_options.h
+        startLine: 57
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/grpc_options.h
+references:
+  - uid: structgoogle_1_1cloud_1_1GrpcNumChannelsOption
+    name: google::cloud::GrpcNumChannelsOption
+  - uid: structgoogle_1_1cloud_1_1GrpcNumChannelsOption_1a4e2c298b9310373e19a5c76e8b7473e6
+    name: google::cloud::GrpcNumChannelsOption::Type

@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="classgoogle_1_1cloud_1_1promise">
+<h1 class="page-title">Class promise&lt;T&gt; (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>Implement <code>promise&lt;T&gt;</code> as defined in ISO/IEC TS 19571:2016. </p>
+</div>
+  <h2 id="constructors">Constructors
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1promise_1a189b3394c43f2bf11d2d801a1bbfb42e" data-uid="classgoogle_1_1cloud_1_1promise_1a189b3394c43f2bf11d2d801a1bbfb42e" class="notranslate">promise()</h3>
+  <div class="markdown level1 summary"><p>Creates a promise with an unsatisfied shared state. </p>
+</div>
+  <h3 id="classgoogle_1_1cloud_1_1promise_1ae8f4f532c37f1b125e0aeaceda85ab0c" data-uid="classgoogle_1_1cloud_1_1promise_1ae8f4f532c37f1b125e0aeaceda85ab0c" class="notranslate">promise(std::function&lt; void()&gt;)</h3>
+  <div class="markdown level1 summary"><p>Creates a promise with an unsatisfied shared state. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>cancellation_callback</code></td>
+        <td>
+          <code>std::function&lt; void()&gt;</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1promise_1a5a58cbb0133247b4ee8e878f4d68f02b" data-uid="classgoogle_1_1cloud_1_1promise_1a5a58cbb0133247b4ee8e878f4d68f02b" class="notranslate">promise(null_promise_t)</h3>
+  <div class="markdown level1 summary"><p>Creates a promise <em>without</em> a shared state. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>x</code></td>
+        <td>
+          <code>null_promise_t</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1promise_1a07b347a589ad559ca2352c6ed43391c1" data-uid="classgoogle_1_1cloud_1_1promise_1a07b347a589ad559ca2352c6ed43391c1" class="notranslate">promise(promise &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Constructs a new promise and transfer any shared state from <code>rhs</code>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>promise &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1promise_1abb1b4b6d2e0265dc3e6a88728dcfc6e7" data-uid="classgoogle_1_1cloud_1_1promise_1abb1b4b6d2e0265dc3e6a88728dcfc6e7" class="notranslate">promise(promise const &amp;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>promise const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="operators">Operators
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1promise_1a5ac28874dc5760ae84001fc6a8e5ed36" data-uid="classgoogle_1_1cloud_1_1promise_1a5ac28874dc5760ae84001fc6a8e5ed36" class="notranslate">operator=(promise &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Abandons the shared state in <code>*this</code>, if any, and transfers the shared state from <code>rhs</code>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>rhs</code></td>
+        <td>
+          <code>promise &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">promise &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1promise_1a7667c550fdd0e0a7192e5da40d984123" data-uid="classgoogle_1_1cloud_1_1promise_1a7667c550fdd0e0a7192e5da40d984123" class="notranslate">operator=(promise const &amp;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>promise const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">promise &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="functions">Functions
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1promise_1a1601ae4e763a866784997678fc6056a7" data-uid="classgoogle_1_1cloud_1_1promise_1a1601ae4e763a866784997678fc6056a7" class="notranslate">swap(promise &amp;)</h3>
+  <div class="markdown level1 summary"><p>Swaps the shared state in <code>*this</code> with <code>rhs</code>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>other</code></td>
+        <td>
+          <code>promise &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1promise_1a98c2ab3b9b52fc645c0bdff5d3537365" data-uid="classgoogle_1_1cloud_1_1promise_1a98c2ab3b9b52fc645c0bdff5d3537365" class="notranslate">get_future()</h3>
+  <div class="markdown level1 summary"><p>Creates the <code>future&lt;T&gt;</code> using the same shared state as <code>*this</code>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">future&lt; T &gt;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1promise_1aeee6cf2c7a32b01c1b2b9ff728932cee" data-uid="classgoogle_1_1cloud_1_1promise_1aeee6cf2c7a32b01c1b2b9ff728932cee" class="notranslate">set_value(T)</h3>
+  <div class="markdown level1 summary"><p>Satisfies the shared state. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>value</code></td>
+        <td>
+          <code>T</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Exceptions</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>std::future_error</code></td>
+        <td>with std::future_errc::promise_already_satisfied if the shared state is already satisfied. 
+</td>
+      </tr>
+      <tr>
+        <td><code>std::future_error</code></td>
+        <td>with std::no_state if the promise does not have a shared state. 
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

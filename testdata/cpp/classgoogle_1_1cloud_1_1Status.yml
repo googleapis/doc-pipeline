@@ -1,0 +1,400 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1Status
+    name: "Status"
+    id: classgoogle_1_1cloud_1_1Status
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/status.h>
+        class google::cloud::Status { ... };
+      source:
+        id: google::cloud::Status
+        path: google/cloud/status.h
+        startLine: 295
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Represents success or an error with info about the error. 
+    conceptual: |
+      This class is typically used to indicate whether or not a function or other operation completed successfully. Success is indicated by an "OK" status. OK statuses will have `.`[`code()`](xref:classgoogle_1_1cloud_1_1Status_1ac18337d2ceb00ca007725d21f2c63f9f)` == `[`StatusCode::kOk`](xref:namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a) and `.`[`ok()`](xref:classgoogle_1_1cloud_1_1Status_1a18952043ffe5a4f74911c8146e8bb504)` == true`, with all other properties having empty values. All OK statuses are equal. Any non-OK [`Status`](xref:classgoogle_1_1cloud_1_1Status) is considered an error. Users can inspect the error using the member functions, or they can simply stream the [`Status`](xref:classgoogle_1_1cloud_1_1Status) object, and it will print itself in some human readable way (the streamed format may change over time and you should *not* depend on the specific format of a streamed [`Status`](xref:classgoogle_1_1cloud_1_1Status) object remaining unchanged).
+
+      This is a regular value type that can be copied, moved, compared for equality, and streamed. 
+    children:
+      - classgoogle_1_1cloud_1_1Status_1aa3656155ad44d8bd75d92cd797123f4d
+      - classgoogle_1_1cloud_1_1Status_1a675be7e53ab9b27d69ba776a3c1ca7bf
+      - classgoogle_1_1cloud_1_1Status_1afd186465a07fa176c10d437c1240f2de
+      - classgoogle_1_1cloud_1_1Status_1a23aaae701351564b3a17f47d5cb4e7cb
+      - classgoogle_1_1cloud_1_1Status_1af3de0fb0dee8fb557e693195a812987f
+      - classgoogle_1_1cloud_1_1Status_1af927a89141bbcf10f0e02d789ebade94
+      - classgoogle_1_1cloud_1_1Status_1a18952043ffe5a4f74911c8146e8bb504
+      - classgoogle_1_1cloud_1_1Status_1ac18337d2ceb00ca007725d21f2c63f9f
+      - classgoogle_1_1cloud_1_1Status_1aaa8dea39008758d8494f29b12b92be02
+      - classgoogle_1_1cloud_1_1Status_1a172e846ab5623d78d49e2ed128f49583
+      - classgoogle_1_1cloud_1_1Status_1a8c00daab4bca2eeb428f816fabf59492
+      - classgoogle_1_1cloud_1_1Status_1a3624db9be409bca17dc8940db074ddff
+  - uid: classgoogle_1_1cloud_1_1Status_1aa3656155ad44d8bd75d92cd797123f4d
+    name: "Status(Status const &)"
+    fullName: |
+      google::cloud::Status::Status
+    id: classgoogle_1_1cloud_1_1Status_1aa3656155ad44d8bd75d92cd797123f4d
+    parent: classgoogle_1_1cloud_1_1Status
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::Status::Status (
+            Status const &
+          )
+      parameters:
+        - id: ""
+          var_type: "Status const &"
+      source:
+        id: Status
+        path: google/cloud/status.h
+        startLine: 305
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Copy construction and assignment.
+  - uid: classgoogle_1_1cloud_1_1Status_1a675be7e53ab9b27d69ba776a3c1ca7bf
+    name: "operator=(Status const &)"
+    fullName: |
+      google::cloud::Status::operator=
+    id: classgoogle_1_1cloud_1_1Status_1a675be7e53ab9b27d69ba776a3c1ca7bf
+    parent: classgoogle_1_1cloud_1_1Status
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        Status &
+        google::cloud::Status::operator= (
+            Status const &
+          )
+      return:
+        type:
+          - "Status &"
+      parameters:
+        - id: ""
+          var_type: "Status const &"
+      source:
+        id: operator=
+        path: google/cloud/status.h
+        startLine: 306
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Copy construction and assignment.
+  - uid: classgoogle_1_1cloud_1_1Status_1afd186465a07fa176c10d437c1240f2de
+    name: "Status(Status &&)"
+    fullName: |
+      google::cloud::Status::Status
+    id: classgoogle_1_1cloud_1_1Status_1afd186465a07fa176c10d437c1240f2de
+    parent: classgoogle_1_1cloud_1_1Status
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::Status::Status (
+            Status &&
+          )
+      parameters:
+        - id: ""
+          var_type: "Status &&"
+      source:
+        id: Status
+        path: google/cloud/status.h
+        startLine: 312
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Move construction and assignment.
+  - uid: classgoogle_1_1cloud_1_1Status_1a23aaae701351564b3a17f47d5cb4e7cb
+    name: "operator=(Status &&)"
+    fullName: |
+      google::cloud::Status::operator=
+    id: classgoogle_1_1cloud_1_1Status_1a23aaae701351564b3a17f47d5cb4e7cb
+    parent: classgoogle_1_1cloud_1_1Status
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        Status &
+        google::cloud::Status::operator= (
+            Status &&
+          )
+      return:
+        type:
+          - "Status &"
+      parameters:
+        - id: ""
+          var_type: "Status &&"
+      source:
+        id: operator=
+        path: google/cloud/status.h
+        startLine: 313
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Move construction and assignment.
+  - uid: classgoogle_1_1cloud_1_1Status_1af3de0fb0dee8fb557e693195a812987f
+    name: "Status()"
+    fullName: |
+      google::cloud::Status::Status
+    id: classgoogle_1_1cloud_1_1Status_1af3de0fb0dee8fb557e693195a812987f
+    parent: classgoogle_1_1cloud_1_1Status
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::Status::Status ()
+      source:
+        id: Status
+        path: google/cloud/status.h
+        startLine: 298
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Default constructor, initializes to [`StatusCode::kOk`](xref:namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a). 
+  - uid: classgoogle_1_1cloud_1_1Status_1af927a89141bbcf10f0e02d789ebade94
+    name: "Status(StatusCode, std::string, ErrorInfo)"
+    fullName: |
+      google::cloud::Status::Status
+    id: classgoogle_1_1cloud_1_1Status_1af927a89141bbcf10f0e02d789ebade94
+    parent: classgoogle_1_1cloud_1_1Status
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::Status::Status (
+            StatusCode code,
+            std::string message,
+            ErrorInfo info
+          )
+      parameters:
+        - id: code
+          var_type: "StatusCode"
+          description: |
+            the status code for the new [`Status`](xref:classgoogle_1_1cloud_1_1Status). 
+        - id: message
+          var_type: "std::string"
+          description: |
+            the message for the new [`Status`](xref:classgoogle_1_1cloud_1_1Status), ignored if `code` is [`StatusCode::kOk`](xref:namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a). 
+        - id: info
+          var_type: "ErrorInfo"
+          description: |
+            the [`ErrorInfo`](xref:classgoogle_1_1cloud_1_1ErrorInfo) for the new [`Status`](xref:classgoogle_1_1cloud_1_1Status), ignored if `code` is `SStatusCode::kOk`. 
+      source:
+        id: Status
+        path: google/cloud/status.h
+        startLine: 325
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Construct from a status code, message and (optional) error info. 
+  - uid: classgoogle_1_1cloud_1_1Status_1a18952043ffe5a4f74911c8146e8bb504
+    name: "ok() const"
+    fullName: |
+      google::cloud::Status::ok
+    id: classgoogle_1_1cloud_1_1Status_1a18952043ffe5a4f74911c8146e8bb504
+    parent: classgoogle_1_1cloud_1_1Status
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        bool
+        google::cloud::Status::ok ()
+      return:
+        type:
+          - "bool"
+      source:
+        id: ok
+        path: google/cloud/status.h
+        startLine: 328
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Returns true if the status code is [`StatusCode::kOk`](xref:namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a). 
+  - uid: classgoogle_1_1cloud_1_1Status_1ac18337d2ceb00ca007725d21f2c63f9f
+    name: "code() const"
+    fullName: |
+      google::cloud::Status::code
+    id: classgoogle_1_1cloud_1_1Status_1ac18337d2ceb00ca007725d21f2c63f9f
+    parent: classgoogle_1_1cloud_1_1Status
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        StatusCode
+        google::cloud::Status::code ()
+      return:
+        type:
+          - "StatusCode"
+      source:
+        id: code
+        path: google/cloud/status.h
+        startLine: 331
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Returns the status code. 
+  - uid: classgoogle_1_1cloud_1_1Status_1aaa8dea39008758d8494f29b12b92be02
+    name: "message() const"
+    fullName: |
+      google::cloud::Status::message
+    id: classgoogle_1_1cloud_1_1Status_1aaa8dea39008758d8494f29b12b92be02
+    parent: classgoogle_1_1cloud_1_1Status
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::string const &
+        google::cloud::Status::message ()
+      return:
+        type:
+          - "std::string const &"
+      source:
+        id: message
+        path: google/cloud/status.h
+        startLine: 338
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Returns the message associated with the status. 
+    conceptual: |
+      This is always empty if [`code()`](xref:classgoogle_1_1cloud_1_1Status_1ac18337d2ceb00ca007725d21f2c63f9f) is [`StatusCode::kOk`](xref:namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a). 
+  - uid: classgoogle_1_1cloud_1_1Status_1a172e846ab5623d78d49e2ed128f49583
+    name: "error_info() const"
+    fullName: |
+      google::cloud::Status::error_info
+    id: classgoogle_1_1cloud_1_1Status_1a172e846ab5623d78d49e2ed128f49583
+    parent: classgoogle_1_1cloud_1_1Status
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        ErrorInfo const &
+        google::cloud::Status::error_info ()
+      return:
+        type:
+          - "ErrorInfo const &"
+      source:
+        id: error_info
+        path: google/cloud/status.h
+        startLine: 346
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Returns the additional error info associated with the status. 
+    conceptual: |
+      This is always a default-constructed error info if [`code()`](xref:classgoogle_1_1cloud_1_1Status_1ac18337d2ceb00ca007725d21f2c63f9f) is [`StatusCode::kOk`](xref:namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a). 
+  - uid: classgoogle_1_1cloud_1_1Status_1a8c00daab4bca2eeb428f816fabf59492
+    name: "operator==(Status const &, Status const &)"
+    fullName: |
+      google::cloud::Status::operator==
+    id: classgoogle_1_1cloud_1_1Status_1a8c00daab4bca2eeb428f816fabf59492
+    parent: classgoogle_1_1cloud_1_1Status
+    type: friend
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        friend bool
+        google::cloud::Status::operator== (
+            Status const & a,
+            Status const & b
+          )
+      source:
+        id: operator==
+        path: google/cloud/status.h
+        startLine: 348
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+  - uid: classgoogle_1_1cloud_1_1Status_1a3624db9be409bca17dc8940db074ddff
+    name: "operator!=(Status const &, Status const &)"
+    fullName: |
+      google::cloud::Status::operator!=
+    id: classgoogle_1_1cloud_1_1Status_1a3624db9be409bca17dc8940db074ddff
+    parent: classgoogle_1_1cloud_1_1Status
+    type: friend
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        friend bool
+        google::cloud::Status::operator!= (
+            Status const & a,
+            Status const & b
+          )
+      source:
+        id: operator!=
+        path: google/cloud/status.h
+        startLine: 351
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+references:
+  - uid: classgoogle_1_1cloud_1_1Status
+    name: google::cloud::Status
+  - uid: classgoogle_1_1cloud_1_1Status_1aa3656155ad44d8bd75d92cd797123f4d
+    name: google::cloud::Status::Status
+  - uid: classgoogle_1_1cloud_1_1Status_1a675be7e53ab9b27d69ba776a3c1ca7bf
+    name: google::cloud::Status::operator=
+  - uid: classgoogle_1_1cloud_1_1Status_1afd186465a07fa176c10d437c1240f2de
+    name: google::cloud::Status::Status
+  - uid: classgoogle_1_1cloud_1_1Status_1a23aaae701351564b3a17f47d5cb4e7cb
+    name: google::cloud::Status::operator=
+  - uid: classgoogle_1_1cloud_1_1Status_1af3de0fb0dee8fb557e693195a812987f
+    name: google::cloud::Status::Status
+  - uid: classgoogle_1_1cloud_1_1Status_1af927a89141bbcf10f0e02d789ebade94
+    name: google::cloud::Status::Status
+  - uid: classgoogle_1_1cloud_1_1Status_1a18952043ffe5a4f74911c8146e8bb504
+    name: google::cloud::Status::ok
+  - uid: classgoogle_1_1cloud_1_1Status_1ac18337d2ceb00ca007725d21f2c63f9f
+    name: google::cloud::Status::code
+  - uid: classgoogle_1_1cloud_1_1Status_1aaa8dea39008758d8494f29b12b92be02
+    name: google::cloud::Status::message
+  - uid: classgoogle_1_1cloud_1_1Status_1a172e846ab5623d78d49e2ed128f49583
+    name: google::cloud::Status::error_info
+  - uid: classgoogle_1_1cloud_1_1Status_1a8c00daab4bca2eeb428f816fabf59492
+    name: google::cloud::Status::operator==
+  - uid: classgoogle_1_1cloud_1_1Status_1a3624db9be409bca17dc8940db074ddff
+    name: google::cloud::Status::operator!=

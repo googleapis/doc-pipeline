@@ -1,0 +1,347 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1TracingOptions
+    name: "TracingOptions"
+    id: classgoogle_1_1cloud_1_1TracingOptions
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/tracing_options.h>
+        class google::cloud::TracingOptions { ... };
+      source:
+        id: google::cloud::TracingOptions
+        path: google/cloud/tracing_options.h
+        startLine: 33
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/tracing_options.h
+    summary: |
+      The configuration parameters for RPC/protobuf tracing. 
+    conceptual: |
+      The default options are: single_line_mode=on use_short_repeated_primitives=on truncate_string_field_longer_than=128 
+    children:
+      - classgoogle_1_1cloud_1_1TracingOptions_1a2f7be5c6f1a067f9e5400f22384aa0a7
+      - classgoogle_1_1cloud_1_1TracingOptions_1a30cdffb8829955b21ed95058cf385c3e
+      - classgoogle_1_1cloud_1_1TracingOptions_1a977f68415ea4e90df7dd09f14578575c
+      - classgoogle_1_1cloud_1_1TracingOptions_1a9e9ab47d0c17f76ff7b7a532c16f490e
+      - classgoogle_1_1cloud_1_1TracingOptions_1aec012437e7f707ea08eb5e65ab645980
+      - classgoogle_1_1cloud_1_1TracingOptions_1a8a21887562f01910fa63d57f615714ff
+      - classgoogle_1_1cloud_1_1TracingOptions_1a35b5256b9307d06f441c9502f58f51e4
+      - classgoogle_1_1cloud_1_1TracingOptions_1a6a4ce192f978e6c66c86a1b150e47ba5
+      - classgoogle_1_1cloud_1_1TracingOptions_1a357553e2f32a36763048dd7662f73aa4
+      - classgoogle_1_1cloud_1_1TracingOptions_1a1b3110bfbf63939caa1c03f57cdefd97
+      - classgoogle_1_1cloud_1_1TracingOptions_1a4d375de4d26ea4be7a75633186358a63
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a2f7be5c6f1a067f9e5400f22384aa0a7
+    name: "TracingOptions()"
+    fullName: |
+      google::cloud::TracingOptions::TracingOptions
+    id: classgoogle_1_1cloud_1_1TracingOptions_1a2f7be5c6f1a067f9e5400f22384aa0a7
+    parent: classgoogle_1_1cloud_1_1TracingOptions
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::TracingOptions::TracingOptions ()
+      source:
+        id: TracingOptions
+        path: google/cloud/tracing_options.h
+        startLine: 35
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/tracing_options.h
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a30cdffb8829955b21ed95058cf385c3e
+    name: "TracingOptions(TracingOptions const &)"
+    fullName: |
+      google::cloud::TracingOptions::TracingOptions
+    id: classgoogle_1_1cloud_1_1TracingOptions_1a30cdffb8829955b21ed95058cf385c3e
+    parent: classgoogle_1_1cloud_1_1TracingOptions
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::TracingOptions::TracingOptions (
+            TracingOptions const &
+          )
+      parameters:
+        - id: ""
+          var_type: "TracingOptions const &"
+      source:
+        id: TracingOptions
+        path: google/cloud/tracing_options.h
+        startLine: 36
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/tracing_options.h
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a977f68415ea4e90df7dd09f14578575c
+    name: "operator=(TracingOptions const &)"
+    fullName: |
+      google::cloud::TracingOptions::operator=
+    id: classgoogle_1_1cloud_1_1TracingOptions_1a977f68415ea4e90df7dd09f14578575c
+    parent: classgoogle_1_1cloud_1_1TracingOptions
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        TracingOptions &
+        google::cloud::TracingOptions::operator= (
+            TracingOptions const &
+          )
+      return:
+        type:
+          - "TracingOptions &"
+      parameters:
+        - id: ""
+          var_type: "TracingOptions const &"
+      source:
+        id: operator=
+        path: google/cloud/tracing_options.h
+        startLine: 37
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/tracing_options.h
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a9e9ab47d0c17f76ff7b7a532c16f490e
+    name: "TracingOptions(TracingOptions &&)"
+    fullName: |
+      google::cloud::TracingOptions::TracingOptions
+    id: classgoogle_1_1cloud_1_1TracingOptions_1a9e9ab47d0c17f76ff7b7a532c16f490e
+    parent: classgoogle_1_1cloud_1_1TracingOptions
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::TracingOptions::TracingOptions (
+            TracingOptions &&
+          )
+      parameters:
+        - id: ""
+          var_type: "TracingOptions &&"
+      source:
+        id: TracingOptions
+        path: google/cloud/tracing_options.h
+        startLine: 38
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/tracing_options.h
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1aec012437e7f707ea08eb5e65ab645980
+    name: "operator=(TracingOptions &&)"
+    fullName: |
+      google::cloud::TracingOptions::operator=
+    id: classgoogle_1_1cloud_1_1TracingOptions_1aec012437e7f707ea08eb5e65ab645980
+    parent: classgoogle_1_1cloud_1_1TracingOptions
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        TracingOptions &
+        google::cloud::TracingOptions::operator= (
+            TracingOptions &&
+          )
+      return:
+        type:
+          - "TracingOptions &"
+      parameters:
+        - id: ""
+          var_type: "TracingOptions &&"
+      source:
+        id: operator=
+        path: google/cloud/tracing_options.h
+        startLine: 39
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/tracing_options.h
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a8a21887562f01910fa63d57f615714ff
+    name: "SetOptions(std::string const &)"
+    fullName: |
+      google::cloud::TracingOptions::SetOptions
+    id: classgoogle_1_1cloud_1_1TracingOptions_1a8a21887562f01910fa63d57f615714ff
+    parent: classgoogle_1_1cloud_1_1TracingOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        TracingOptions &
+        google::cloud::TracingOptions::SetOptions (
+            std::string const & str
+          )
+      return:
+        type:
+          - "TracingOptions &"
+      parameters:
+        - id: str
+          var_type: "std::string const &"
+      source:
+        id: SetOptions
+        path: google/cloud/tracing_options.h
+        startLine: 47
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/tracing_options.h
+    summary: |
+      Override the default options with values from ``str``. 
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a35b5256b9307d06f441c9502f58f51e4
+    name: "single_line_mode() const"
+    fullName: |
+      google::cloud::TracingOptions::single_line_mode
+    id: classgoogle_1_1cloud_1_1TracingOptions_1a35b5256b9307d06f441c9502f58f51e4
+    parent: classgoogle_1_1cloud_1_1TracingOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        bool
+        google::cloud::TracingOptions::single_line_mode ()
+      return:
+        type:
+          - "bool"
+      source:
+        id: single_line_mode
+        path: google/cloud/tracing_options.h
+        startLine: 50
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/tracing_options.h
+    summary: |
+      The entire message will be output on a single line with no line breaks. 
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a6a4ce192f978e6c66c86a1b150e47ba5
+    name: "use_short_repeated_primitives() const"
+    fullName: |
+      google::cloud::TracingOptions::use_short_repeated_primitives
+    id: classgoogle_1_1cloud_1_1TracingOptions_1a6a4ce192f978e6c66c86a1b150e47ba5
+    parent: classgoogle_1_1cloud_1_1TracingOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        bool
+        google::cloud::TracingOptions::use_short_repeated_primitives ()
+      return:
+        type:
+          - "bool"
+      source:
+        id: use_short_repeated_primitives
+        path: google/cloud/tracing_options.h
+        startLine: 54
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/tracing_options.h
+    summary: |
+      Print repeated primitives in a compact format instead of each value on its own line. 
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a357553e2f32a36763048dd7662f73aa4
+    name: "truncate_string_field_longer_than() const"
+    fullName: |
+      google::cloud::TracingOptions::truncate_string_field_longer_than
+    id: classgoogle_1_1cloud_1_1TracingOptions_1a357553e2f32a36763048dd7662f73aa4
+    parent: classgoogle_1_1cloud_1_1TracingOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::int64_t
+        google::cloud::TracingOptions::truncate_string_field_longer_than ()
+      return:
+        type:
+          - "std::int64_t"
+      source:
+        id: truncate_string_field_longer_than
+        path: google/cloud/tracing_options.h
+        startLine: 59
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/tracing_options.h
+    summary: |
+      If non-zero, truncate all string/bytes fields longer than this. 
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a1b3110bfbf63939caa1c03f57cdefd97
+    name: "operator==(TracingOptions const &, TracingOptions const &)"
+    fullName: |
+      google::cloud::TracingOptions::operator==
+    id: classgoogle_1_1cloud_1_1TracingOptions_1a1b3110bfbf63939caa1c03f57cdefd97
+    parent: classgoogle_1_1cloud_1_1TracingOptions
+    type: friend
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        friend bool
+        google::cloud::TracingOptions::operator== (
+            TracingOptions const & a,
+            TracingOptions const & b
+          )
+      source:
+        id: operator==
+        path: google/cloud/tracing_options.h
+        startLine: 41
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/tracing_options.h
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a4d375de4d26ea4be7a75633186358a63
+    name: "operator!=(TracingOptions const &, TracingOptions const &)"
+    fullName: |
+      google::cloud::TracingOptions::operator!=
+    id: classgoogle_1_1cloud_1_1TracingOptions_1a4d375de4d26ea4be7a75633186358a63
+    parent: classgoogle_1_1cloud_1_1TracingOptions
+    type: friend
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        friend bool
+        google::cloud::TracingOptions::operator!= (
+            TracingOptions const & a,
+            TracingOptions const & b
+          )
+      source:
+        id: operator!=
+        path: google/cloud/tracing_options.h
+        startLine: 42
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/tracing_options.h
+references:
+  - uid: classgoogle_1_1cloud_1_1TracingOptions
+    name: google::cloud::TracingOptions
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a2f7be5c6f1a067f9e5400f22384aa0a7
+    name: google::cloud::TracingOptions::TracingOptions
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a30cdffb8829955b21ed95058cf385c3e
+    name: google::cloud::TracingOptions::TracingOptions
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a977f68415ea4e90df7dd09f14578575c
+    name: google::cloud::TracingOptions::operator=
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a9e9ab47d0c17f76ff7b7a532c16f490e
+    name: google::cloud::TracingOptions::TracingOptions
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1aec012437e7f707ea08eb5e65ab645980
+    name: google::cloud::TracingOptions::operator=
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a8a21887562f01910fa63d57f615714ff
+    name: google::cloud::TracingOptions::SetOptions
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a35b5256b9307d06f441c9502f58f51e4
+    name: google::cloud::TracingOptions::single_line_mode
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a6a4ce192f978e6c66c86a1b150e47ba5
+    name: google::cloud::TracingOptions::use_short_repeated_primitives
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a357553e2f32a36763048dd7662f73aa4
+    name: google::cloud::TracingOptions::truncate_string_field_longer_than
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a1b3110bfbf63939caa1c03f57cdefd97
+    name: google::cloud::TracingOptions::operator==
+  - uid: classgoogle_1_1cloud_1_1TracingOptions_1a4d375de4d26ea4be7a75633186358a63
+    name: google::cloud::TracingOptions::operator!=

@@ -1,0 +1,54 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1EndpointOption
+    name: "EndpointOption"
+    id: structgoogle_1_1cloud_1_1EndpointOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/common_options.h>
+        struct google::cloud::EndpointOption { ... };
+      source:
+        id: google::cloud::EndpointOption
+        path: google/cloud/common_options.h
+        startLine: 39
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/common_options.h
+    summary: |
+      Change the endpoint. 
+    conceptual: |
+      In almost all cases a suitable default will be chosen automatically. Applications may need to be changed to (1) test against a fake or simulator, or (2) use a beta or EAP version of the service. When using a beta or EAP version of the service, the [AuthorityOption](xref:structgoogle_1_1cloud_1_1AuthorityOption) should also be set to the usual hostname of the service. 
+    children:
+      - structgoogle_1_1cloud_1_1EndpointOption_1a61a6cbac4806836ddb5bda2040dba797
+  - uid: structgoogle_1_1cloud_1_1EndpointOption_1a61a6cbac4806836ddb5bda2040dba797
+    name: "Type"
+    fullName: "google::cloud::EndpointOption::Type"
+    id: structgoogle_1_1cloud_1_1EndpointOption_1a61a6cbac4806836ddb5bda2040dba797
+    parent: structgoogle_1_1cloud_1_1EndpointOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::EndpointOption::Type =
+          std::string;
+      aliasof: |
+        <code>std::string</code>
+      source:
+        id: Type
+        path: google/cloud/common_options.h
+        startLine: 40
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/common_options.h
+references:
+  - uid: structgoogle_1_1cloud_1_1EndpointOption
+    name: google::cloud::EndpointOption
+  - uid: structgoogle_1_1cloud_1_1EndpointOption_1a61a6cbac4806836ddb5bda2040dba797
+    name: google::cloud::EndpointOption::Type

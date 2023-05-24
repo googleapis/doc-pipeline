@@ -1,0 +1,45 @@
+### YamlMime:UniversalReference
+items:
+  - uid: group__terminate
+    title: Intercepting Unrecoverable Errors
+    id: group__terminate
+    type: module
+    langs:
+      - cpp
+    summary: |
+      # Intercepting Unrecoverable Errors
+
+
+      In some rare cases, the client libraries may need to terminate the application because it encounters an unrecoverable error. For example:
+
+
+      - If the application calls [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>::value()`, and the library was compiled with exceptions disabled, and the [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>` contains an error, *then* the function throws an exception to report the error as the function cannot return a valid value. Applications that disable exceptions should query the [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>` status (using `.ok()` or `.status()`) and avoid calling `.value()` if the [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>` is holding an error.
+      - If the application calls `future<T>::get()`, the library was compiled with exceptions disabled, and (somehow) the future is satisfied with an exception. Note that the library APIs typically return `future<`[`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>>` to avoid this problem, but the application may have created `future<T>` and `promise<T>` pairs in their own code.
+
+      In these cases there is no mechanism to return the error. The library cannot continue working correctly and must terminate the program. The application may want to intercept these errors, before the application crashes, and log or otherwise capture additional information to help with debugging or troubleshooting. The functions in this module can be used to do so.
+
+      By their nature, there is no mechanism to "handle" and "recover" from unrecoverable errors. All the application can do is log additional information before the program terminates.
+
+      Note that the libraries do not use functions that can trigger unrecoverable errors (if they do we consider that a library bug).
+
+      The default behavior in the client library is to call `std::abort()` when an unrecoverable error occurs. 
+
+      ### Functions
+
+      - [`SetTerminateHandler(TerminateHandler)`](xref:group__terminate_1ga6182a1baf32421d3572a904044d6089d)
+      - [`GetTerminateHandler()`](xref:group__terminate_1ga121c4576dd45c93c46ab8fa56bafab38)
+      - [`Terminate(char const *)`](xref:group__terminate_1gac5d2d48b27f2cd1de9075a1c9522f0cf)
+
+      ### Types
+
+      - [`TerminateHandler`](xref:group__terminate_1gacc215b41a0bf17a7ea762fd5bb205348)
+
+references:
+  - uid: group__terminate_1gacc215b41a0bf17a7ea762fd5bb205348
+    name: TerminateHandler
+  - uid: group__terminate_1ga6182a1baf32421d3572a904044d6089d
+    name: SetTerminateHandler(TerminateHandler)
+  - uid: group__terminate_1ga121c4576dd45c93c46ab8fa56bafab38
+    name: GetTerminateHandler()
+  - uid: group__terminate_1gac5d2d48b27f2cd1de9075a1c9522f0cf
+    name: Terminate(char const *)

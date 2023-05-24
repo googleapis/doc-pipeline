@@ -1,0 +1,244 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc
+    name: "AsyncStreamingReadWriteRpc<Request, Response>"
+    id: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/async_streaming_read_write_rpc.h>
+        template <
+            typename Request,
+            typename Response>
+        class google::cloud::AsyncStreamingReadWriteRpc { ... };
+      source:
+        id: google::cloud::AsyncStreamingReadWriteRpc
+        path: google/cloud/async_streaming_read_write_rpc.h
+        startLine: 37
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/async_streaming_read_write_rpc.h
+    summary: |
+      A streaming read-write RPC. 
+    conceptual: |
+      Streaming read-write RPCs (sometimes called bidirectional streaming RPCs) allow applications to send multiple "requests" and receive multiple "responses" on the same request. They are often used in services where sending one request at a time introduces too much latency. The requests 
+    children:
+      - classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a78f8e6fe17c3d5f5899486b393fa4ebe
+      - classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1aa3043132171c86e884b2ad865dc30e49
+      - classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f
+      - classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431
+      - classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a3df7a8ee22c26ea09557df1b002a6afa
+      - classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2
+  - uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a78f8e6fe17c3d5f5899486b393fa4ebe
+    name: "Cancel()"
+    fullName: |
+      google::cloud::AsyncStreamingReadWriteRpc::Cancel
+    id: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a78f8e6fe17c3d5f5899486b393fa4ebe
+    parent: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::AsyncStreamingReadWriteRpc::Cancel ()
+      return:
+        type:
+          - "void"
+      source:
+        id: Cancel
+        path: google/cloud/async_streaming_read_write_rpc.h
+        startLine: 48
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/async_streaming_read_write_rpc.h
+    summary: |
+      Sends a best-effort request to cancel the RPC. 
+    conceptual: |
+      The application should still wait for the current operation(s) (any pending [`Start()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1aa3043132171c86e884b2ad865dc30e49), [`Read()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f), or `Write*()` requests) to complete and use [`Finish()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2) to determine the status of the RPC. 
+  - uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1aa3043132171c86e884b2ad865dc30e49
+    name: "Start()"
+    fullName: |
+      google::cloud::AsyncStreamingReadWriteRpc::Start
+    id: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1aa3043132171c86e884b2ad865dc30e49
+    parent: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        future< bool >
+        google::cloud::AsyncStreamingReadWriteRpc::Start ()
+      return:
+        type:
+          - "future< bool >"
+      source:
+        id: Start
+        path: google/cloud/async_streaming_read_write_rpc.h
+        startLine: 59
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/async_streaming_read_write_rpc.h
+    summary: |
+      Start the streaming RPC. 
+    conceptual: |
+      Applications should call [`Start()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1aa3043132171c86e884b2ad865dc30e49) and wait for its result before calling [`Read()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f) and/or [`Write()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431). If [`Start()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1aa3043132171c86e884b2ad865dc30e49) completes with `false` the stream has completed with an error. The application should not call [`Read()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f) or [`Write()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431) in this case. On errors, the application should call[`Finish()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2) to determine the status of the streaming RPC. 
+  - uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f
+    name: "Read()"
+    fullName: |
+      google::cloud::AsyncStreamingReadWriteRpc::Read
+    id: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f
+    parent: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        future< absl::optional< Response > >
+        google::cloud::AsyncStreamingReadWriteRpc::Read ()
+      return:
+        type:
+          - "future< absl::optional< Response > >"
+      source:
+        id: Read
+        path: google/cloud/async_streaming_read_write_rpc.h
+        startLine: 79
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/async_streaming_read_write_rpc.h
+    summary: |
+      Read one response from the streaming RPC. 
+    conceptual: |
+
+
+      <aside class="note"><b>Note:</b>
+      Only **one**[`Read()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f) operation may be pending at a time. The application is responsible for waiting until any previous [`Read()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f) operations have completed before calling [`Read()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f) again.
+      </aside>
+      Whether [`Read()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f) can be called before a [`Write()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431) operation is specified by each service and RPC. Most services require at least one [`Write()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431) call before calling [`Read()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f). Many services may return more than one response for a single [`Write()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431) request. Each service and RPC specifies how to discover if more responses will be forthcoming.
+
+      If the `optional<>` is not engaged the streaming RPC has completed. The application should wait until any other pending operations (typically any other [`Write()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431) calls) complete and then call [`Finish()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2) to find the status of the streaming RPC. 
+  - uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431
+    name: "Write(Request const &, grpc::WriteOptions)"
+    fullName: |
+      google::cloud::AsyncStreamingReadWriteRpc::Write
+    id: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431
+    parent: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        future< bool >
+        google::cloud::AsyncStreamingReadWriteRpc::Write (
+            Request const &,
+            grpc::WriteOptions
+          )
+      return:
+        type:
+          - "future< bool >"
+      parameters:
+        - id: ""
+          var_type: "Request const &"
+        - id: ""
+          var_type: "grpc::WriteOptions"
+      source:
+        id: Write
+        path: google/cloud/async_streaming_read_write_rpc.h
+        startLine: 98
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/async_streaming_read_write_rpc.h
+    summary: |
+      Write one request to the streaming RPC. 
+    conceptual: |
+
+
+      <aside class="note"><b>Note:</b>
+      Only **one**[`Write()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431) operation may be pending at a time. The application is responsible for waiting until any previous [`Write()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431) operations have completed before calling [`Write()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431) again.
+      </aside>
+      Whether [`Write()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431) can be called before waiting for a matching [`Read()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f) operation is specified by each service and RPC. Many services tolerate multiple [`Write()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431) calls before performing or at least receiving a [`Read()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f) response.
+
+      If [`Write()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431) completes with `false` the streaming RPC has completed. The application should wait until any other pending operations (typically any other [`Read()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f) calls) complete and then call [`Finish()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2) to find the status of the streaming RPC. 
+  - uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a3df7a8ee22c26ea09557df1b002a6afa
+    name: "WritesDone()"
+    fullName: |
+      google::cloud::AsyncStreamingReadWriteRpc::WritesDone
+    id: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a3df7a8ee22c26ea09557df1b002a6afa
+    parent: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        future< bool >
+        google::cloud::AsyncStreamingReadWriteRpc::WritesDone ()
+      return:
+        type:
+          - "future< bool >"
+      source:
+        id: WritesDone
+        path: google/cloud/async_streaming_read_write_rpc.h
+        startLine: 111
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/async_streaming_read_write_rpc.h
+    summary: |
+      Half-closes the streaming RPC. 
+    conceptual: |
+      Sends an indication to the service that no more requests will be issued by the client.
+
+      If [`WritesDone()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a3df7a8ee22c26ea09557df1b002a6afa) completes with `false` the streaming RPC has completed. The application should wait until any other pending operations (typically any other [`Read()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f) calls) complete and then call [`Finish()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2) to find the status of the streaming RPC. 
+  - uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2
+    name: "Finish()"
+    fullName: |
+      google::cloud::AsyncStreamingReadWriteRpc::Finish
+    id: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2
+    parent: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        future< Status >
+        google::cloud::AsyncStreamingReadWriteRpc::Finish ()
+      return:
+        type:
+          - "future< Status >"
+      source:
+        id: Finish
+        path: google/cloud/async_streaming_read_write_rpc.h
+        startLine: 124
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/async_streaming_read_write_rpc.h
+    summary: |
+      Return the final status of the streaming RPC. 
+    conceptual: |
+      Streaming RPCs may return an error because the stream is closed, independently of any whether the application has called [`WritesDone()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a3df7a8ee22c26ea09557df1b002a6afa) or signaled that the stream is closed using other mechanisms (some RPCs define specific attributes to "close" the stream).
+
+      The application must wait until all pending [`Read()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f) and [`Write()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431) operations have completed before calling [`Finish()`](xref:classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2). 
+references:
+  - uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc
+    name: google::cloud::AsyncStreamingReadWriteRpc
+  - uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a78f8e6fe17c3d5f5899486b393fa4ebe
+    name: google::cloud::AsyncStreamingReadWriteRpc::Cancel
+  - uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1aa3043132171c86e884b2ad865dc30e49
+    name: google::cloud::AsyncStreamingReadWriteRpc::Start
+  - uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f
+    name: google::cloud::AsyncStreamingReadWriteRpc::Read
+  - uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431
+    name: google::cloud::AsyncStreamingReadWriteRpc::Write
+  - uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a3df7a8ee22c26ea09557df1b002a6afa
+    name: google::cloud::AsyncStreamingReadWriteRpc::WritesDone
+  - uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2
+    name: google::cloud::AsyncStreamingReadWriteRpc::Finish

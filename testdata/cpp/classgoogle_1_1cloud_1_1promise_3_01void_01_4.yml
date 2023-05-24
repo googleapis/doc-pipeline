@@ -1,0 +1,336 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4
+    name: "promise< void >"
+    id: classgoogle_1_1cloud_1_1promise_3_01void_01_4
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/future_void.h>
+        template <>
+        class google::cloud::promise< void > { ... };
+      source:
+        id: google::cloud::promise< void >
+        path: google/cloud/future_void.h
+        startLine: 140
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_void.h
+    summary: |
+      Specialize promise as defined in ISO/IEC TS 19571:2016 for void. 
+    children:
+      - classgoogle_1_1cloud_1_1promise_3_01void_01_4_1ab6d1fa4f4e820135b47100f6eb695725
+      - classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a94c3516c1e49f3b59de94b6a98b46ff7
+      - classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a1807fb9277f6e4900d8051eb65d33e59
+      - classgoogle_1_1cloud_1_1promise_3_01void_01_4_1abe518a58bcaa85224c47290cd5363c0f
+      - classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a065f3678dc33ee8e4b689a2a21240975
+      - classgoogle_1_1cloud_1_1promise_3_01void_01_4_1aec731fd14ca49f27e2a97fb34d895e96
+      - classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a01c053906f613d3cb2be52091fe0b79c
+      - classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a237bf716876730fe9ecbbeae992a52df
+      - classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a19af69bb1f73508cb6e2b471a94f2d6d
+      - classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a55b13940bb2bf1260fb7042933de142a
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1ab6d1fa4f4e820135b47100f6eb695725
+    name: "promise()"
+    fullName: |
+      google::cloud::promise< void >::promise
+    id: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1ab6d1fa4f4e820135b47100f6eb695725
+    parent: classgoogle_1_1cloud_1_1promise_3_01void_01_4
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::promise< void >::promise ()
+      source:
+        id: promise
+        path: google/cloud/future_void.h
+        startLine: 143
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_void.h
+    summary: |
+      Creates a promise with an unsatisfied shared state. 
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a94c3516c1e49f3b59de94b6a98b46ff7
+    name: "promise(std::function< void()>)"
+    fullName: |
+      google::cloud::promise< void >::promise
+    id: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a94c3516c1e49f3b59de94b6a98b46ff7
+    parent: classgoogle_1_1cloud_1_1promise_3_01void_01_4
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::promise< void >::promise (
+            std::function< void()> cancellation_callback
+          )
+      parameters:
+        - id: cancellation_callback
+          var_type: "std::function&lt; void()&gt;"
+      source:
+        id: promise
+        path: google/cloud/future_void.h
+        startLine: 146
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_void.h
+    summary: |
+      Creates a promise with an unsatisfied shared state. 
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a1807fb9277f6e4900d8051eb65d33e59
+    name: "promise(null_promise_t)"
+    fullName: |
+      google::cloud::promise< void >::promise
+    id: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a1807fb9277f6e4900d8051eb65d33e59
+    parent: classgoogle_1_1cloud_1_1promise_3_01void_01_4
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::promise< void >::promise (
+            null_promise_t x
+          )
+      parameters:
+        - id: x
+          var_type: "null_promise_t"
+      source:
+        id: promise
+        path: google/cloud/future_void.h
+        startLine: 150
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_void.h
+    summary: |
+      Creates a promise *without* a shared state. 
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1abe518a58bcaa85224c47290cd5363c0f
+    name: "promise(promise &&)"
+    fullName: |
+      google::cloud::promise< void >::promise
+    id: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1abe518a58bcaa85224c47290cd5363c0f
+    parent: classgoogle_1_1cloud_1_1promise_3_01void_01_4
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::promise< void >::promise (
+            promise &&
+          )
+      parameters:
+        - id: ""
+          var_type: "promise &&"
+      source:
+        id: promise
+        path: google/cloud/future_void.h
+        startLine: 153
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_void.h
+    summary: |
+      Constructs a new promise and transfer any shared state from `rhs`. 
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a065f3678dc33ee8e4b689a2a21240975
+    name: "operator=(promise &&)"
+    fullName: |
+      google::cloud::promise< void >::operator=
+    id: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a065f3678dc33ee8e4b689a2a21240975
+    parent: classgoogle_1_1cloud_1_1promise_3_01void_01_4
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        promise &
+        google::cloud::promise< void >::operator= (
+            promise && rhs
+          )
+      return:
+        type:
+          - "promise &"
+      parameters:
+        - id: rhs
+          var_type: "promise &&"
+      source:
+        id: operator=
+        path: google/cloud/future_void.h
+        startLine: 157
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_void.h
+    summary: |
+      Abandons the shared state in `*this`, if any, and transfers the shared state from `rhs`. 
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1aec731fd14ca49f27e2a97fb34d895e96
+    name: "promise(promise const &)"
+    fullName: |
+      google::cloud::promise< void >::promise
+    id: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1aec731fd14ca49f27e2a97fb34d895e96
+    parent: classgoogle_1_1cloud_1_1promise_3_01void_01_4
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::promise< void >::promise (
+            promise const &
+          )
+      parameters:
+        - id: ""
+          var_type: "promise const &"
+      source:
+        id: promise
+        path: google/cloud/future_void.h
+        startLine: 172
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_void.h
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a01c053906f613d3cb2be52091fe0b79c
+    name: "operator=(promise const &)"
+    fullName: |
+      google::cloud::promise< void >::operator=
+    id: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a01c053906f613d3cb2be52091fe0b79c
+    parent: classgoogle_1_1cloud_1_1promise_3_01void_01_4
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        promise &
+        google::cloud::promise< void >::operator= (
+            promise const &
+          )
+      return:
+        type:
+          - "promise &"
+      parameters:
+        - id: ""
+          var_type: "promise const &"
+      source:
+        id: operator=
+        path: google/cloud/future_void.h
+        startLine: 173
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_void.h
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a237bf716876730fe9ecbbeae992a52df
+    name: "swap(promise &)"
+    fullName: |
+      google::cloud::promise< void >::swap
+    id: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a237bf716876730fe9ecbbeae992a52df
+    parent: classgoogle_1_1cloud_1_1promise_3_01void_01_4
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::promise< void >::swap (
+            promise & other
+          )
+      return:
+        type:
+          - "void"
+      parameters:
+        - id: other
+          var_type: "promise &"
+      source:
+        id: swap
+        path: google/cloud/future_void.h
+        startLine: 176
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_void.h
+    summary: |
+      Swaps the shared state in `*this` with `rhs`. 
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a19af69bb1f73508cb6e2b471a94f2d6d
+    name: "get_future()"
+    fullName: |
+      google::cloud::promise< void >::get_future
+    id: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a19af69bb1f73508cb6e2b471a94f2d6d
+    parent: classgoogle_1_1cloud_1_1promise_3_01void_01_4
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        future< void >
+        google::cloud::promise< void >::get_future ()
+      return:
+        type:
+          - "future< void >"
+      source:
+        id: get_future
+        path: google/cloud/future_void.h
+        startLine: 183
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_void.h
+    summary: |
+      Creates the `future<void>` using the same shared state as `*this`. 
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a55b13940bb2bf1260fb7042933de142a
+    name: "set_value()"
+    fullName: |
+      google::cloud::promise< void >::set_value
+    id: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a55b13940bb2bf1260fb7042933de142a
+    parent: classgoogle_1_1cloud_1_1promise_3_01void_01_4
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::promise< void >::set_value ()
+      return:
+        type:
+          - "void"
+      exceptions:
+        - var_type: "std::future_error"
+          description: |
+            with std::future_errc::promise_already_satisfied if the shared state is already satisfied. 
+        - var_type: "std::future_error"
+          description: |
+            with std::no_state if the promise does not have a shared state. 
+      source:
+        id: set_value
+        path: google/cloud/future_void.h
+        startLine: 196
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_void.h
+    summary: |
+      Satisfies the shared state. 
+references:
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4
+    name: google::cloud::promise< void >
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1ab6d1fa4f4e820135b47100f6eb695725
+    name: google::cloud::promise< void >::promise
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a94c3516c1e49f3b59de94b6a98b46ff7
+    name: google::cloud::promise< void >::promise
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a1807fb9277f6e4900d8051eb65d33e59
+    name: google::cloud::promise< void >::promise
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1abe518a58bcaa85224c47290cd5363c0f
+    name: google::cloud::promise< void >::promise
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a065f3678dc33ee8e4b689a2a21240975
+    name: google::cloud::promise< void >::operator=
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1aec731fd14ca49f27e2a97fb34d895e96
+    name: google::cloud::promise< void >::promise
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a01c053906f613d3cb2be52091fe0b79c
+    name: google::cloud::promise< void >::operator=
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a237bf716876730fe9ecbbeae992a52df
+    name: google::cloud::promise< void >::swap
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a19af69bb1f73508cb6e2b471a94f2d6d
+    name: google::cloud::promise< void >::get_future
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a55b13940bb2bf1260fb7042933de142a
+    name: google::cloud::promise< void >::set_value
