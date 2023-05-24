@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="group__guac">
+<h1 class="page-title">Authentication Components (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><h1 id="authentication-components">Authentication Components</h1>
+<h3 id="overview-and-motivation">Overview and Motivation</h3>
+<p>Most services in Google Cloud Platform require the client to authenticate the requests. Notable exceptions include public buckets in GCS and public data sets in BigQuery. The C++ client libraries are automatically configured to use <a href="https://cloud.google.com/docs/authentication/application-default-credentials">Application Default Credentials</a>, but some applications may need to override this default. The functions and classes related to changing the authentication configuration are documented here.</p>
+<p>This document is not a general introduction to authentication for Google Cloud Platform. For readers seeking such an introduction we recommend <a href="https://cloud.google.com/docs/authentication">Authentication at Google</a> as a good starting point. Covering authorization in any detail is also out of scope. We recommend reading the <a href="https://cloud.google.com/iam/docs/overview">IAM overview</a> if that is of interest.</p>
+<p>The most common motivation to change authentication is to use a different <a href="https://cloud.google.com/iam/docs/overview#how_cloud_iam_works">principal</a>, that is, to make the request(s) on behalf of a different user or robot account. In many cases the default principal can be changed without having to change any code. The <a href="https://cloud.google.com/docs/authentication/application-default-credentials">Application Default Credentials</a> can be configured via environment variables, or via the <code>gcloud</code> CLI. If your application is running in GCE, Cloud Run, GKE or a similar environment you or the system administrator may change the service account associated with this deployment environment. Consider using these mechanisms instead of changing the code, as that may give your DevOps, SRE, or system administration team more flexibility.</p>
+<h3 id="general-concepts">General Concepts</h3>
+<p>While a complete overview of authentication and authorization for Google Cloud is outside the scope of this document, a brief introduction may help.</p>
+<p>As we mentioned in passing, authentication supports both user accounts and service accounts. These are referred as &quot;principals&quot;. User accounts represent a developer, administrator, or any other person who interacts with GCP services. In contrast, service accounts are accounts that do not represent a person. They typically represent an application, or another service.</p>
+<p>Google Cloud Platform largely uses <a href="https://oauth.net/2/">OAuth2</a> access tokens for authentication. There are multiple ways to create such tokens. For example, when running on GCE the VM has access to a metadata server that can create these tokens for any application running on the VM. As another example, you can download a <a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">service account keyfile</a> and the C++ client libraries will create access tokens using the contents of this file.</p>
+<p>Access tokens are bearer tokens. Having the token authenticates the principal, they can be used in separate connections, or from different computers than the one used to create them. If these tokens are exposed to third-parties the token can be used to make calls on behalf of the principal identified by the token. To reduce exposure, access tokens are always time limited. They automatically expire after a period of time (usually one hour).</p>
+<p>The client libraries automatically refresh access tokens, that is, create new tokens before they expire. The only exception is <code>MakeAccessTokenCredentials()</code>, where the application provides the access token.</p>
+<h3 id="development-workstations">Development Workstations</h3>
+<p>We find that developers typically use Application Default Credentials to test their applications. The developer would either:</p>
+<ol>
+<li>Use <code>gcloud auth application-default</code> to authenticate using the developer&#39;s account. Keep in mind that this persists a &quot;refresh token&quot; in your workstation&#39;s filesystem. This refresh token is long-lived and can be used to create access tokens with full access to all GCP services.</li>
+<li>Set the <code>GOOGLE_APPLICATION_CREDENTIALS</code> environment variable to load a service account key. The value of this environment variable is the full path of a file that contains the service account key. Keep in mind the security implications of keeping such a file as plain text in your filesystem.</li>
+<li>If you are using a GCE instance as your development environment, simply use the service account of the GCE machine to access GCP services.</li>
+</ol>
+<h3 id="limitations">Limitations</h3>
+<p>The C++ authentication components do not allow applications to create their own credential types. It is not possible to extend the C++ libraries without changing internal components. If you need additional functionality please file a <a href="https://github.com/googleapis/google-cloud-cpp/issues">feature request</a> on GitHub. Likewise, creating the components that implement (as opposed to <em>describing</em>) authentication flows are also considered implementation details. If you would like to use them in your own libraries please file a <a href="https://github.com/googleapis/google-cloud-cpp/issues">feature request</a>. We cannot promise that we will be able to satisfy these requests, but we will give them full consideration. </p>
+<h3 id="classes">Classes</h3>
+<ul>
+<li><a class="xref" href="classgoogle_1_1cloud_1_1Credentials.html"><code>google::cloud::Credentials</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1UnifiedCredentialsOption.html"><code>google::cloud::UnifiedCredentialsOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1DelegatesOption.html"><code>google::cloud::DelegatesOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1ScopesOption.html"><code>google::cloud::ScopesOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1AccessTokenLifetimeOption.html"><code>google::cloud::AccessTokenLifetimeOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1CARootsFilePathOption.html"><code>google::cloud::CARootsFilePathOption</code></a></li>
+</ul>
+<h3 id="functions">Functions</h3>
+<ul>
+<li><a class="xref" href="namespacegoogle_1_1cloud.html"><code>MakeInsecureCredentials(Options)</code></a></li>
+<li><a class="xref" href="namespacegoogle_1_1cloud.html"><code>MakeGoogleDefaultCredentials(Options)</code></a></li>
+<li><a class="xref" href="namespacegoogle_1_1cloud.html"><code>MakeAccessTokenCredentials(std::string const &amp;, std::chrono::system_clock::time_point, Options)</code></a></li>
+<li><a class="xref" href="namespacegoogle_1_1cloud.html"><code>MakeImpersonateServiceAccountCredentials(std::shared_ptr&lt; Credentials &gt;, std::string, Options)</code></a></li>
+<li><a class="xref" href="namespacegoogle_1_1cloud.html"><code>MakeServiceAccountCredentials(std::string, Options)</code></a></li>
+<li><a class="xref" href="namespacegoogle_1_1cloud.html"><code>MakeExternalAccountCredentials(std::string, Options)</code></a></li>
+</ul>
+</div>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="namespacegoogle_1_1cloud_1_1mocks">
+<h1 class="page-title">Namespace google::cloud::mocks (2.9.0)</h1>
+  
+  <div class="markdown level0 summary"><p>Contains helpers for testing the Google Cloud C++ Client Libraries. </p>
+</div>
+  <div class="markdown level0 conceptual"><p>The symbols defined in this namespace are part of <code>google-cloud-cpp</code>&#39;s public API. Application developers may use them when mocking the client libraries in their own tests. </p>
+</div>
+  <div class="markdown level0 remarks"></div>
+    <h2 id="functions">Functions
+  
+  </h2>
+        <h3 id="namespacegoogle_1_1cloud_1_1mocks_1a89e1ab5764b466d9e837ebeaa636f353" data-uid="namespacegoogle_1_1cloud_1_1mocks_1a89e1ab5764b466d9e837ebeaa636f353" class="notranslate">CurrentOptions()</h3>
+        <div class="markdown level1 summary"><p>Retrieve options used in a client call. </p>
+</div>
+        <div class="markdown level1 conceptual"><p>This would be used to verify configuration options from within a MockConnection. It provides a way for applications to test the difference between <code>client.Foo(request, options)</code> and <code>client.Foo(request)</code>.</p>
+<pre><code class="prettyprint lang-cpp">TEST(Foo, CallOptions) {
+  auto mock = std::make_shared&lt;MockConnection&gt;();
+  EXPECT_CALL(*mock, Foo).WillOnce([] {
+        auto const&amp; options = google::cloud::mocks::CurrentOptions();
+        EXPECT_THAT(options, ...);
+      });
+  auto client = Client(mock);
+  MyFunctionThatCallsFoo(client);
+}
+</code></pre></div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">Options const &amp;</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="namespacegoogle_1_1cloud_1_1mocks_1a1563fd92115349d2e454922c764b991e" data-uid="namespacegoogle_1_1cloud_1_1mocks_1a1563fd92115349d2e454922c764b991e" class="notranslate">MakeStreamRange(std::vector&lt; T &gt;, Status)</h3>
+        <div class="markdown level1 summary"><p>Construct a <a class="xref" href="classgoogle_1_1cloud_1_1StreamRange.html"><code>StreamRange</code></a><code>&lt;T&gt;</code> for use in tests. </p>
+</div>
+        <div class="markdown level1 conceptual"><pre><code class="prettyprint lang-cpp">auto sr = MakeStreamRange&lt;T&gt;({t1, t2});
+for (StatusOr&lt;T&gt; const&amp; t : sr) {
+  // Yields t1 -&gt; t2
+}
+
+sr = MakeStreamRange&lt;T&gt;({t1, t2}, BadStatus());
+for (StatusOr&lt;T&gt; const&amp; t : sr) {
+  // Yields t1 -&gt; t2 -&gt; BadStatus()
+}
+</code></pre></div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameters</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>values</code></td>
+              <td><code></code><br><p>The successfully returned <code>T</code> values. </p>
+
+  </td>
+            </tr>
+            <tr>
+              <td><code>final_status</code></td>
+              <td><code></code><br><p>The final <a class="xref" href="classgoogle_1_1cloud_1_1Status.html">Status</a> of the range. Defaults to an OK <a class="xref" href="classgoogle_1_1cloud_1_1Status.html">Status</a>.</p>
+
+  </td>
+            </tr>
+            <tr>
+              <td><code>typename T</code></td>
+              <td><code></code><br>
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">StreamRange&lt; T &gt;</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

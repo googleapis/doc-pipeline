@@ -1,0 +1,28 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1ExperimentalTag
+    name: "ExperimentalTag"
+    id: structgoogle_1_1cloud_1_1ExperimentalTag
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/experimental_tag.h>
+        struct google::cloud::ExperimentalTag { ... };
+      source:
+        id: google::cloud::ExperimentalTag
+        path: google/cloud/experimental_tag.h
+        startLine: 30
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/experimental_tag.h
+    summary: |
+      An argument type to indicate experimental functions. 
+    conceptual: |
+      Functions that receive this type as an argument are experimental. They are subject to change (including removal) without notice. 
+references:
+  - uid: structgoogle_1_1cloud_1_1ExperimentalTag
+    name: google::cloud::ExperimentalTag

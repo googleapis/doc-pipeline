@@ -1,0 +1,339 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1Project
+    name: "Project"
+    id: classgoogle_1_1cloud_1_1Project
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/project.h>
+        class google::cloud::Project { ... };
+      source:
+        id: google::cloud::Project
+        path: google/cloud/project.h
+        startLine: 40
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/project.h
+    summary: |
+      This class identifies a Cloud [Project](xref:classgoogle_1_1cloud_1_1Project). 
+    conceptual: |
+      A Cloud project is identified by its `project_id`.
+
+
+
+      <aside class="note"><b>Note:</b>
+      This class makes no effort to validate the components of the project name. It is the application's responsibility to provide a valid project id. Passing invalid values will not be checked until the project name is used in an RPC.
+      </aside>
+      For more info about the `project_id` format, see [https://cloud.google.com/resource-manager/docs/creating-managing-projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
+    children:
+      - classgoogle_1_1cloud_1_1Project_1a98b66fce732953e55fd3bb88ebc2501f
+      - classgoogle_1_1cloud_1_1Project_1a8862157f734c5da4a84761c6b3f5aa63
+      - classgoogle_1_1cloud_1_1Project_1ac8238fa11c57663d45b2f1703470e34d
+      - classgoogle_1_1cloud_1_1Project_1a2ddc65dd13bc985ea4714c202f224838
+      - classgoogle_1_1cloud_1_1Project_1ad765aa3dd3db687f6992d633c65f1c0e
+      - classgoogle_1_1cloud_1_1Project_1aa2e8dcd9663a6826480439c1711e00e3
+      - classgoogle_1_1cloud_1_1Project_1a4f55194bbe8dbd84d8d5588d1ba40fa8
+      - classgoogle_1_1cloud_1_1Project_1a58f67caab0a321a16b8b860a79f900bf
+      - classgoogle_1_1cloud_1_1Project_1ab7f7e3518663d77f7ea111d6369f719e
+      - classgoogle_1_1cloud_1_1Project_1a061f14639f43d13c5b2bdf558c193348
+  - uid: classgoogle_1_1cloud_1_1Project_1a98b66fce732953e55fd3bb88ebc2501f
+    name: "Project(Project const &)"
+    fullName: |
+      google::cloud::Project::Project
+    id: classgoogle_1_1cloud_1_1Project_1a98b66fce732953e55fd3bb88ebc2501f
+    parent: classgoogle_1_1cloud_1_1Project
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::Project::Project (
+            Project const &
+          )
+      parameters:
+        - id: ""
+          var_type: "Project const &"
+      source:
+        id: Project
+        path: google/cloud/project.h
+        startLine: 47
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/project.h
+    summary: |
+      Copy and move
+  - uid: classgoogle_1_1cloud_1_1Project_1a8862157f734c5da4a84761c6b3f5aa63
+    name: "operator=(Project const &)"
+    fullName: |
+      google::cloud::Project::operator=
+    id: classgoogle_1_1cloud_1_1Project_1a8862157f734c5da4a84761c6b3f5aa63
+    parent: classgoogle_1_1cloud_1_1Project
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        Project &
+        google::cloud::Project::operator= (
+            Project const &
+          )
+      return:
+        type:
+          - "Project &"
+      parameters:
+        - id: ""
+          var_type: "Project const &"
+      source:
+        id: operator=
+        path: google/cloud/project.h
+        startLine: 48
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/project.h
+    summary: |
+      Copy and move
+  - uid: classgoogle_1_1cloud_1_1Project_1ac8238fa11c57663d45b2f1703470e34d
+    name: "Project(Project &&)"
+    fullName: |
+      google::cloud::Project::Project
+    id: classgoogle_1_1cloud_1_1Project_1ac8238fa11c57663d45b2f1703470e34d
+    parent: classgoogle_1_1cloud_1_1Project
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::Project::Project (
+            Project &&
+          )
+      parameters:
+        - id: ""
+          var_type: "Project &&"
+      source:
+        id: Project
+        path: google/cloud/project.h
+        startLine: 49
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/project.h
+    summary: |
+      Copy and move
+  - uid: classgoogle_1_1cloud_1_1Project_1a2ddc65dd13bc985ea4714c202f224838
+    name: "operator=(Project &&)"
+    fullName: |
+      google::cloud::Project::operator=
+    id: classgoogle_1_1cloud_1_1Project_1a2ddc65dd13bc985ea4714c202f224838
+    parent: classgoogle_1_1cloud_1_1Project
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        Project &
+        google::cloud::Project::operator= (
+            Project &&
+          )
+      return:
+        type:
+          - "Project &"
+      parameters:
+        - id: ""
+          var_type: "Project &&"
+      source:
+        id: operator=
+        path: google/cloud/project.h
+        startLine: 50
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/project.h
+    summary: |
+      Copy and move
+  - uid: classgoogle_1_1cloud_1_1Project_1ad765aa3dd3db687f6992d633c65f1c0e
+    name: "operator==(Project const &, Project const &)"
+    fullName: |
+      google::cloud::Project::operator==
+    id: classgoogle_1_1cloud_1_1Project_1ad765aa3dd3db687f6992d633c65f1c0e
+    parent: classgoogle_1_1cloud_1_1Project
+    type: friend
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        friend bool
+        google::cloud::Project::operator== (
+            Project const & a,
+            Project const & b
+          )
+      source:
+        id: operator==
+        path: google/cloud/project.h
+        startLine: 64
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/project.h
+    summary: |
+      Equality operators
+  - uid: classgoogle_1_1cloud_1_1Project_1aa2e8dcd9663a6826480439c1711e00e3
+    name: "operator!=(Project const &, Project const &)"
+    fullName: |
+      google::cloud::Project::operator!=
+    id: classgoogle_1_1cloud_1_1Project_1aa2e8dcd9663a6826480439c1711e00e3
+    parent: classgoogle_1_1cloud_1_1Project
+    type: friend
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        friend bool
+        google::cloud::Project::operator!= (
+            Project const & a,
+            Project const & b
+          )
+      source:
+        id: operator!=
+        path: google/cloud/project.h
+        startLine: 65
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/project.h
+    summary: |
+      Equality operators
+  - uid: classgoogle_1_1cloud_1_1Project_1a4f55194bbe8dbd84d8d5588d1ba40fa8
+    name: "Project(std::string)"
+    fullName: |
+      google::cloud::Project::Project
+    id: classgoogle_1_1cloud_1_1Project_1a4f55194bbe8dbd84d8d5588d1ba40fa8
+    parent: classgoogle_1_1cloud_1_1Project
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::Project::Project (
+            std::string project_id
+          )
+      parameters:
+        - id: project_id
+          var_type: "std::string"
+      source:
+        id: Project
+        path: google/cloud/project.h
+        startLine: 43
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/project.h
+    summary: |
+      Constructs a [Project](xref:classgoogle_1_1cloud_1_1Project) object identified by the given `project_id`. 
+  - uid: classgoogle_1_1cloud_1_1Project_1a58f67caab0a321a16b8b860a79f900bf
+    name: "project_id() const"
+    fullName: |
+      google::cloud::Project::project_id
+    id: classgoogle_1_1cloud_1_1Project_1a58f67caab0a321a16b8b860a79f900bf
+    parent: classgoogle_1_1cloud_1_1Project
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::string const &
+        google::cloud::Project::project_id ()
+      return:
+        type:
+          - "std::string const &"
+      source:
+        id: project_id
+        path: google/cloud/project.h
+        startLine: 54
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/project.h
+    summary: |
+      Returns the [Project](xref:classgoogle_1_1cloud_1_1Project) ID. 
+  - uid: classgoogle_1_1cloud_1_1Project_1ab7f7e3518663d77f7ea111d6369f719e
+    name: "FullName() const"
+    fullName: |
+      google::cloud::Project::FullName
+    id: classgoogle_1_1cloud_1_1Project_1ab7f7e3518663d77f7ea111d6369f719e
+    parent: classgoogle_1_1cloud_1_1Project
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::string
+        google::cloud::Project::FullName ()
+      return:
+        type:
+          - "std::string"
+      source:
+        id: FullName
+        path: google/cloud/project.h
+        startLine: 60
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/project.h
+    summary: |
+      Returns the fully qualified project name as a string of the form: "projects/<project-id>". 
+  - uid: classgoogle_1_1cloud_1_1Project_1a061f14639f43d13c5b2bdf558c193348
+    name: "operator<<(std::ostream &, Project const &)"
+    fullName: |
+      google::cloud::Project::operator<<
+    id: classgoogle_1_1cloud_1_1Project_1a061f14639f43d13c5b2bdf558c193348
+    parent: classgoogle_1_1cloud_1_1Project
+    type: friend
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        friend std::ostream &
+        google::cloud::Project::operator<< (
+            std::ostream &,
+            Project const &
+          )
+      source:
+        id: operator<<
+        path: google/cloud/project.h
+        startLine: 69
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/project.h
+    summary: |
+      Output the [`FullName()`](xref:classgoogle_1_1cloud_1_1Project_1ab7f7e3518663d77f7ea111d6369f719e) format. 
+references:
+  - uid: classgoogle_1_1cloud_1_1Project
+    name: google::cloud::Project
+  - uid: classgoogle_1_1cloud_1_1Project_1a98b66fce732953e55fd3bb88ebc2501f
+    name: google::cloud::Project::Project
+  - uid: classgoogle_1_1cloud_1_1Project_1a8862157f734c5da4a84761c6b3f5aa63
+    name: google::cloud::Project::operator=
+  - uid: classgoogle_1_1cloud_1_1Project_1ac8238fa11c57663d45b2f1703470e34d
+    name: google::cloud::Project::Project
+  - uid: classgoogle_1_1cloud_1_1Project_1a2ddc65dd13bc985ea4714c202f224838
+    name: google::cloud::Project::operator=
+  - uid: classgoogle_1_1cloud_1_1Project_1ad765aa3dd3db687f6992d633c65f1c0e
+    name: google::cloud::Project::operator==
+  - uid: classgoogle_1_1cloud_1_1Project_1aa2e8dcd9663a6826480439c1711e00e3
+    name: google::cloud::Project::operator!=
+  - uid: classgoogle_1_1cloud_1_1Project_1a4f55194bbe8dbd84d8d5588d1ba40fa8
+    name: google::cloud::Project::Project
+  - uid: classgoogle_1_1cloud_1_1Project_1a58f67caab0a321a16b8b860a79f900bf
+    name: google::cloud::Project::project_id
+  - uid: classgoogle_1_1cloud_1_1Project_1ab7f7e3518663d77f7ea111d6369f719e
+    name: google::cloud::Project::FullName
+  - uid: classgoogle_1_1cloud_1_1Project_1a061f14639f43d13c5b2bdf558c193348
+    name: google::cloud::Project::operator<<

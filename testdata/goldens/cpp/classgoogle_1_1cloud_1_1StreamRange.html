@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="classgoogle_1_1cloud_1_1StreamRange">
+<h1 class="page-title">Class StreamRange&lt;T&gt; (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>A <a class="xref" href="classgoogle_1_1cloud_1_1StreamRange.html"><code>StreamRange</code></a><code>&lt;T&gt;</code> is a range of <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code> where the end-of-stream is indicated by a non-OK <a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>Status</code></a>. </p>
+</div>
+  <div class="markdown level0 conceptual"><p>Callers can iterate the range using its <a class="xref" href="classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a0e71520c598a1649ddd54cca5a0336f8"><code>begin()</code></a> and <a class="xref" href="classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1aab2620724dbe9f681e66544cbe6d37d1"><code>end()</code></a> members to access iterators that will work with any normal C++ constructs and algorithms that accept <a href="https://en.cppreference.com/w/cpp/named_req/InputIterator">Input Iterators</a>.</p>
+<p>Callers should only consume/iterate this range.</p>
+<h6 id="example-iterating-a-range-of-10-integers">Example: Iterating a range of 10 integers</h6>
+<pre><code class="prettyprint lang-cpp">// Some function that returns a StreamRange&lt;int&gt;
+StreamRange&lt;int&gt; MakeRangeFromOneTo(int n);
+
+StreamRange&lt;int&gt; sr = MakeRangeFromOneTo(10);
+for (StatusOr&lt;int&gt; const&amp; x : sr) {
+  if (!x) {
+    std::cerr &lt;&lt; &quot;Fail: &quot; &lt;&lt; x.status() &lt;&lt; &quot;\n&quot;;
+  } else {
+    std::cout &lt;&lt; *x &lt;&lt; &quot;\n&quot;;
+  }
+}
+</code></pre><aside class="note"><b>Note:</b>
+To construct a <a class="xref" href="classgoogle_1_1cloud_1_1StreamRange.html"><code>StreamRange</code></a><code>&lt;T&gt;</code> for testing (e.g. to mock a <code>Connection::ListFoo</code> call), see <a class="xref" href="namespacegoogle_1_1cloud_1_1mocks.html"><code>google::cloud::mocks::MakeStreamRange</code></a>. 
+</aside>
+</div>
+  <h2 id="constructors">Constructors
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1StreamRange_1a712af3969dccfcb7ffd005015a8286f9" data-uid="classgoogle_1_1cloud_1_1StreamRange_1a712af3969dccfcb7ffd005015a8286f9" class="notranslate">StreamRange(StreamRange const &amp;)</h3>
+  <div class="markdown level1 summary"><p>Move-only</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>StreamRange const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StreamRange_1a925240881f4cb2afaf4b3f6806422eac" data-uid="classgoogle_1_1cloud_1_1StreamRange_1a925240881f4cb2afaf4b3f6806422eac" class="notranslate">StreamRange(StreamRange &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Move-only</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>StreamRange &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StreamRange_1a12769e19a893ba3ddd9b87c6b160b7c4" data-uid="classgoogle_1_1cloud_1_1StreamRange_1a12769e19a893ba3ddd9b87c6b160b7c4" class="notranslate">StreamRange()</h3>
+  <div class="markdown level1 summary"><p>Default-constructs an empty range. </p>
+</div>
+  <h2 id="operators">Operators
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1StreamRange_1aac8c266c68bdbaa3e6c9a86b2e36b534" data-uid="classgoogle_1_1cloud_1_1StreamRange_1aac8c266c68bdbaa3e6c9a86b2e36b534" class="notranslate">operator=(StreamRange const &amp;)</h3>
+  <div class="markdown level1 summary"><p>Move-only</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>StreamRange const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">StreamRange &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StreamRange_1a09724d141e9e41018f98eebe81e7e87e" data-uid="classgoogle_1_1cloud_1_1StreamRange_1a09724d141e9e41018f98eebe81e7e87e" class="notranslate">operator=(StreamRange &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Move-only</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>StreamRange &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">StreamRange &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="functions">Functions
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1StreamRange_1a0e71520c598a1649ddd54cca5a0336f8" data-uid="classgoogle_1_1cloud_1_1StreamRange_1a0e71520c598a1649ddd54cca5a0336f8" class="notranslate">begin()</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">iterator</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StreamRange_1aab2620724dbe9f681e66544cbe6d37d1" data-uid="classgoogle_1_1cloud_1_1StreamRange_1aab2620724dbe9f681e66544cbe6d37d1" class="notranslate">end()</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">iterator</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="typealiases"></h2>
+  <h3 id="classgoogle_1_1cloud_1_1StreamRange_1a717e032ce46abfa423f908143d608c71" data-uid="classgoogle_1_1cloud_1_1StreamRange_1a717e032ce46abfa423f908143d608c71" class="notranslate">value_type</h3>
+  <div class="level1 summary">
+    <strong>Alias Of</strong>: <code>StatusOr&lt; T &gt;</code>
+
+  </div>
+  <h3 id="classgoogle_1_1cloud_1_1StreamRange_1a546db8a63da273c117ce2cefac0ef3be" data-uid="classgoogle_1_1cloud_1_1StreamRange_1a546db8a63da273c117ce2cefac0ef3be" class="notranslate">iterator</h3>
+  <div class="level1 summary">
+    <strong>Alias Of</strong>: <code>IteratorImpl&lt; value_type &gt;</code>
+
+  </div>
+  <h3 id="classgoogle_1_1cloud_1_1StreamRange_1ae57d3c2448e7e9f8d4e0f9439a0b3d5e" data-uid="classgoogle_1_1cloud_1_1StreamRange_1ae57d3c2448e7e9f8d4e0f9439a0b3d5e" class="notranslate">difference_type</h3>
+  <div class="level1 summary">
+    <strong>Alias Of</strong>: <code>typename iterator::difference_type</code>
+
+  </div>
+  <h3 id="classgoogle_1_1cloud_1_1StreamRange_1a0a6da9738af7a7b84a2eaab8b7b5b575" data-uid="classgoogle_1_1cloud_1_1StreamRange_1a0a6da9738af7a7b84a2eaab8b7b5b575" class="notranslate">reference</h3>
+  <div class="level1 summary">
+    <strong>Alias Of</strong>: <code>typename iterator::reference</code>
+
+  </div>
+  <h3 id="classgoogle_1_1cloud_1_1StreamRange_1aa943ef32ee6ca8096d91e9f8d00a0b68" data-uid="classgoogle_1_1cloud_1_1StreamRange_1aa943ef32ee6ca8096d91e9f8d00a0b68" class="notranslate">pointer</h3>
+  <div class="level1 summary">
+    <strong>Alias Of</strong>: <code>typename iterator::pointer</code>
+
+  </div>
+  <h3 id="classgoogle_1_1cloud_1_1StreamRange_1a46c27d4893b2ff0435cd99364d83c33b" data-uid="classgoogle_1_1cloud_1_1StreamRange_1a46c27d4893b2ff0435cd99364d83c33b" class="notranslate">const_reference</h3>
+  <div class="level1 summary">
+    <strong>Alias Of</strong>: <code>typename iterator::const_reference</code>
+
+  </div>
+  <h3 id="classgoogle_1_1cloud_1_1StreamRange_1affda63a549b55279c6a1768526a4648b" data-uid="classgoogle_1_1cloud_1_1StreamRange_1affda63a549b55279c6a1768526a4648b" class="notranslate">const_pointer</h3>
+  <div class="level1 summary">
+    <strong>Alias Of</strong>: <code>typename iterator::const_pointer</code>
+
+  </div>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

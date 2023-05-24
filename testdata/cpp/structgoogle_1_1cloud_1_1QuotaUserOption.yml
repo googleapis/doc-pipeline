@@ -1,0 +1,54 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1QuotaUserOption
+    name: "QuotaUserOption"
+    id: structgoogle_1_1cloud_1_1QuotaUserOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/rest_options.h>
+        struct google::cloud::QuotaUserOption { ... };
+      source:
+        id: google::cloud::QuotaUserOption
+        path: google/cloud/rest_options.h
+        startLine: 39
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/rest_options.h
+    summary: |
+      Configure the QuotaUser system parameter. 
+    conceptual: |
+      A pseudo user identifier for charging per-user quotas. If not specified, the authenticated principal is used. If there is no authenticated principal, the client IP address will be used. When specified, a valid API key with service restrictions must be used to identify the quota project. Otherwise, this parameter is ignored. 
+    children:
+      - structgoogle_1_1cloud_1_1QuotaUserOption_1a65e6f5636acef31c70ed76258c051582
+  - uid: structgoogle_1_1cloud_1_1QuotaUserOption_1a65e6f5636acef31c70ed76258c051582
+    name: "Type"
+    fullName: "google::cloud::QuotaUserOption::Type"
+    id: structgoogle_1_1cloud_1_1QuotaUserOption_1a65e6f5636acef31c70ed76258c051582
+    parent: structgoogle_1_1cloud_1_1QuotaUserOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::QuotaUserOption::Type =
+          std::string;
+      aliasof: |
+        <code>std::string</code>
+      source:
+        id: Type
+        path: google/cloud/rest_options.h
+        startLine: 40
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/rest_options.h
+references:
+  - uid: structgoogle_1_1cloud_1_1QuotaUserOption
+    name: google::cloud::QuotaUserOption
+  - uid: structgoogle_1_1cloud_1_1QuotaUserOption_1a65e6f5636acef31c70ed76258c051582
+    name: google::cloud::QuotaUserOption::Type

@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="classgoogle_1_1cloud_1_1Logger">
+<h1 class="page-title">Class Logger&lt;bool&gt; (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>Define the class to capture a log message. </p>
+</div>
+  <h2 id="constructors">Constructors
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1Logger_1a12889d17244b61ce0861005d46103a18" data-uid="classgoogle_1_1cloud_1_1Logger_1a12889d17244b61ce0861005d46103a18" class="notranslate">Logger(Severity, char const *, char const *, int, LogSink &amp;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameters</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>severity</code></td>
+        <td>
+          <code>Severity</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>function</code></td>
+        <td>
+          <code>char const *</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>filename</code></td>
+        <td>
+          <code>char const *</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>lineno</code></td>
+        <td>
+          <code>int</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>sink</code></td>
+        <td>
+          <code>LogSink &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="functions">Functions
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1Logger_1ab04a7964f3fae6ac0406b8ae68a18fd7" data-uid="classgoogle_1_1cloud_1_1Logger_1ab04a7964f3fae6ac0406b8ae68a18fd7" class="notranslate">enabled() const</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">bool</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Logger_1ab0edd380ba7f81e734a099e11d3f39ce" data-uid="classgoogle_1_1cloud_1_1Logger_1ab0edd380ba7f81e734a099e11d3f39ce" class="notranslate">LogTo(LogSink &amp;)</h3>
+  <div class="markdown level1 summary"><p>Send the log record captured by this object to <code>sink</code>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>sink</code></td>
+        <td>
+          <code>LogSink &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Logger_1a0fda914b21394a80ac3998594b8e1023" data-uid="classgoogle_1_1cloud_1_1Logger_1a0fda914b21394a80ac3998594b8e1023" class="notranslate">Stream()</h3>
+  <div class="markdown level1 summary"><p>Return the iostream that captures the log message. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">std::ostream &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

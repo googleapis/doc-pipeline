@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="logging">
+<h1 class="page-title">
+  <h1 id="logging-components">Logging Components</h1>
+</h1>
+
+<h3 id="introduction">Introduction</h3>
+<p>The client libraries never use logging to report errors, but logging can be enabled to help troubleshoot problems when the last error message does not provide a good enough indication of the root cause.</p>
+<p>In general, we abide by the following principles:</p>
+<ul>
+<li>Logging should be controlled by the application developer. Unless explicitly instructed, the libraries produce no output to the console, except to emit a message to <code>std::clog</code> immediately before a <code>GCP_LOG(FATAL)</code> terminates the process.</li>
+<li>Logging should have very low cost:<ul>
+<li>It should be possible to disable logs at compile time. They should disappear as-if there were <code>#ifdef</code>/<code>#endif</code> directives around them.</li>
+<li>A log line at a disabled log level should be about as expensive as an extra <code>if()</code> statement. At the very least it should not incur additional memory allocations or locks.</li>
+</ul>
+</li>
+<li>It should be easy to log complex objects.</li>
+<li>The logging framework should play well with the C++ iostream classes.</li>
+<li>The application should be able to intercept log records and re-direct them to their own logging framework.</li>
+</ul>
+<h3 id="enabling-logs">Enabling logs</h3>
+<p>The application needs to do two things to enable logging:</p>
+<ul>
+<li>First, to configure the destination of the logs you must add a backend (see <a class="xref" href="classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a63ec26a7560bdae9657f250bb93f6a14">AddBackend</a>) to the default <a class="xref" href="classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a06247b1adf1203876402ba6a9be76a7e">LogSink</a>.</li>
+<li>Second, you must configure what gets logged. Typically, you initialize the <code>*Connection</code> object with a <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html">TracingComponentsOption</a>. Consult the documentation for each <code>*Client</code> class to find what tracing components are available.</li>
+</ul>
+<p>At run-time, setting the <code>GOOGLE_CLOUD_CPP_ENABLE_CLOG</code> to a non-empty value configures a <a class="xref" href="classgoogle_1_1cloud_1_1LogBackend.html">LogBackend</a> that uses <code>std::clog</code>. Likewise, setting the <code>GOOGLE_CLOUD_CPP_ENABLE_TRACING=a,b</code> will enable tracing for components <code>a</code> and <code>b</code> across <strong>all</strong> client objects. The most common components are <code>auth</code>, <code>rpc</code>, and <code>rpc-streams</code>.</p>
+<p>Note that while <code>std::clog</code> is buffered, the framework will flush any log message at severity <code>WARNING</code> or higher.</p>
+<h3 id="example-logging-from-library">Example: Logging From Library</h3>
+<p>Use the <code>GCP_LOG()</code> macro to log from a Google Cloud Platform C++ library:</p>
+<pre><code class="prettyprint lang-cpp">void LibraryCode(ComplexThing const&amp; thing) {
+  GCP_LOG(INFO) &lt;&lt; &quot;I am here&quot;;
+  if (thing.is_bad()) {
+    GCP_LOG(ERROR) &lt;&lt; &quot;Poor thing is bad: &quot; &lt;&lt; thing;
+  }
+}
+</code></pre><h3 id="example-enable-logs-to-stdclog">Example: Enable Logs to std::clog</h3>
+<p>To enable logs to <code>std::clog</code> the application can call:</p>
+<pre><code class="prettyprint lang-cpp">void AppCode() {
+  google::cloud::LogSink::EnableStdClog();
+}
+</code></pre><p>As previously noted, this can be switched at run-time using the <code>GOOGLE_CLOUD_CPP_ENABLE_CLOG</code> environment variable. </p>
+
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

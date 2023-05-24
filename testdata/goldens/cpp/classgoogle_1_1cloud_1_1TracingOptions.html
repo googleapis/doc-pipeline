@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="classgoogle_1_1cloud_1_1TracingOptions">
+<h1 class="page-title">Class TracingOptions (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>The configuration parameters for RPC/protobuf tracing. </p>
+</div>
+  <div class="markdown level0 conceptual"><p>The default options are: single_line_mode=on use_short_repeated_primitives=on truncate_string_field_longer_than=128 </p>
+</div>
+  <h2 id="constructors">Constructors
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1TracingOptions_1a2f7be5c6f1a067f9e5400f22384aa0a7" data-uid="classgoogle_1_1cloud_1_1TracingOptions_1a2f7be5c6f1a067f9e5400f22384aa0a7" class="notranslate">TracingOptions()</h3>
+  <h3 id="classgoogle_1_1cloud_1_1TracingOptions_1a30cdffb8829955b21ed95058cf385c3e" data-uid="classgoogle_1_1cloud_1_1TracingOptions_1a30cdffb8829955b21ed95058cf385c3e" class="notranslate">TracingOptions(TracingOptions const &amp;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>TracingOptions const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1TracingOptions_1a9e9ab47d0c17f76ff7b7a532c16f490e" data-uid="classgoogle_1_1cloud_1_1TracingOptions_1a9e9ab47d0c17f76ff7b7a532c16f490e" class="notranslate">TracingOptions(TracingOptions &amp;&amp;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>TracingOptions &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="operators">Operators
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1TracingOptions_1a977f68415ea4e90df7dd09f14578575c" data-uid="classgoogle_1_1cloud_1_1TracingOptions_1a977f68415ea4e90df7dd09f14578575c" class="notranslate">operator=(TracingOptions const &amp;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>TracingOptions const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">TracingOptions &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1TracingOptions_1aec012437e7f707ea08eb5e65ab645980" data-uid="classgoogle_1_1cloud_1_1TracingOptions_1aec012437e7f707ea08eb5e65ab645980" class="notranslate">operator=(TracingOptions &amp;&amp;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>TracingOptions &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">TracingOptions &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="functions">Functions
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1TracingOptions_1a8a21887562f01910fa63d57f615714ff" data-uid="classgoogle_1_1cloud_1_1TracingOptions_1a8a21887562f01910fa63d57f615714ff" class="notranslate">SetOptions(std::string const &amp;)</h3>
+  <div class="markdown level1 summary"><p>Override the default options with values from <code>str</code>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>str</code></td>
+        <td>
+          <code>std::string const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">TracingOptions &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1TracingOptions_1a35b5256b9307d06f441c9502f58f51e4" data-uid="classgoogle_1_1cloud_1_1TracingOptions_1a35b5256b9307d06f441c9502f58f51e4" class="notranslate">single_line_mode() const</h3>
+  <div class="markdown level1 summary"><p>The entire message will be output on a single line with no line breaks. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">bool</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1TracingOptions_1a6a4ce192f978e6c66c86a1b150e47ba5" data-uid="classgoogle_1_1cloud_1_1TracingOptions_1a6a4ce192f978e6c66c86a1b150e47ba5" class="notranslate">use_short_repeated_primitives() const</h3>
+  <div class="markdown level1 summary"><p>Print repeated primitives in a compact format instead of each value on its own line. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">bool</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1TracingOptions_1a357553e2f32a36763048dd7662f73aa4" data-uid="classgoogle_1_1cloud_1_1TracingOptions_1a357553e2f32a36763048dd7662f73aa4" class="notranslate">truncate_string_field_longer_than() const</h3>
+  <div class="markdown level1 summary"><p>If non-zero, truncate all string/bytes fields longer than this. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">std::int64_t</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

@@ -1,0 +1,253 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1ErrorInfo
+    name: "ErrorInfo"
+    id: classgoogle_1_1cloud_1_1ErrorInfo
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/status.h>
+        class google::cloud::ErrorInfo { ... };
+      source:
+        id: google::cloud::ErrorInfo
+        path: google/cloud/status.h
+        startLine: 207
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Describes the cause of the error with structured details. 
+    conceptual: |
+
+
+      ###### See Also
+
+      [https://cloud.google.com/apis/design/errors#error_info](https://cloud.google.com/apis/design/errors#error_info)
+    children:
+      - classgoogle_1_1cloud_1_1ErrorInfo_1a4ddba4ef52448fc5388c6146732be2ea
+      - classgoogle_1_1cloud_1_1ErrorInfo_1a2e00303e2db2292242b1f09097abe0ee
+      - classgoogle_1_1cloud_1_1ErrorInfo_1a9c68904d153cbec3d48191568939fcf4
+      - classgoogle_1_1cloud_1_1ErrorInfo_1a88e1355f82c33848c93660dc2759a816
+      - classgoogle_1_1cloud_1_1ErrorInfo_1a638bbabb8dc7cd51d5dda6db8cee5a16
+      - classgoogle_1_1cloud_1_1ErrorInfo_1a3e7a9be9a728e13d3333784f63270555
+      - classgoogle_1_1cloud_1_1ErrorInfo_1a28ce071569c6c71d23729d4875d5e977
+  - uid: classgoogle_1_1cloud_1_1ErrorInfo_1a4ddba4ef52448fc5388c6146732be2ea
+    name: "ErrorInfo()"
+    fullName: |
+      google::cloud::ErrorInfo::ErrorInfo
+    id: classgoogle_1_1cloud_1_1ErrorInfo_1a4ddba4ef52448fc5388c6146732be2ea
+    parent: classgoogle_1_1cloud_1_1ErrorInfo
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::ErrorInfo::ErrorInfo ()
+      source:
+        id: ErrorInfo
+        path: google/cloud/status.h
+        startLine: 215
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Default constructor. 
+    conceptual: |
+      Post-condition: the [`reason()`](xref:classgoogle_1_1cloud_1_1ErrorInfo_1a9c68904d153cbec3d48191568939fcf4), [`domain()`](xref:classgoogle_1_1cloud_1_1ErrorInfo_1a88e1355f82c33848c93660dc2759a816), and [`metadata()`](xref:classgoogle_1_1cloud_1_1ErrorInfo_1a638bbabb8dc7cd51d5dda6db8cee5a16) fields are empty. 
+  - uid: classgoogle_1_1cloud_1_1ErrorInfo_1a2e00303e2db2292242b1f09097abe0ee
+    name: "ErrorInfo(std::string, std::string, std::unordered_map< std::string, std::string >)"
+    fullName: |
+      google::cloud::ErrorInfo::ErrorInfo
+    id: classgoogle_1_1cloud_1_1ErrorInfo_1a2e00303e2db2292242b1f09097abe0ee
+    parent: classgoogle_1_1cloud_1_1ErrorInfo
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::ErrorInfo::ErrorInfo (
+            std::string reason,
+            std::string domain,
+            std::unordered_map< std::string, std::string > metadata
+          )
+      parameters:
+        - id: reason
+          var_type: "std::string"
+          description: |
+            initializes the [`reason()`](xref:classgoogle_1_1cloud_1_1ErrorInfo_1a9c68904d153cbec3d48191568939fcf4) value. 
+        - id: domain
+          var_type: "std::string"
+          description: |
+            initializes the [`domain()`](xref:classgoogle_1_1cloud_1_1ErrorInfo_1a88e1355f82c33848c93660dc2759a816) value. 
+        - id: metadata
+          var_type: "std::unordered_map&lt; std::string, std::string &gt;"
+          description: |
+            initializes the [`metadata()`](xref:classgoogle_1_1cloud_1_1ErrorInfo_1a638bbabb8dc7cd51d5dda6db8cee5a16) value. 
+      source:
+        id: ErrorInfo
+        path: google/cloud/status.h
+        startLine: 224
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Constructor. 
+  - uid: classgoogle_1_1cloud_1_1ErrorInfo_1a9c68904d153cbec3d48191568939fcf4
+    name: "reason() const"
+    fullName: |
+      google::cloud::ErrorInfo::reason
+    id: classgoogle_1_1cloud_1_1ErrorInfo_1a9c68904d153cbec3d48191568939fcf4
+    parent: classgoogle_1_1cloud_1_1ErrorInfo
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::string const &
+        google::cloud::ErrorInfo::reason ()
+      return:
+        type:
+          - "std::string const &"
+      source:
+        id: reason
+        path: google/cloud/status.h
+        startLine: 238
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      The reason of the error. 
+    conceptual: |
+      This is a constant value that identifies the proximate cause of the error. Error reasons are unique within a particular domain of errors. This should be at most 63 characters and match a regular expression of `[A-Z][A-Z0-9_]+[A-Z0-9]`, which represents UPPER_SNAKE_CASE. 
+  - uid: classgoogle_1_1cloud_1_1ErrorInfo_1a88e1355f82c33848c93660dc2759a816
+    name: "domain() const"
+    fullName: |
+      google::cloud::ErrorInfo::domain
+    id: classgoogle_1_1cloud_1_1ErrorInfo_1a88e1355f82c33848c93660dc2759a816
+    parent: classgoogle_1_1cloud_1_1ErrorInfo
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::string const &
+        google::cloud::ErrorInfo::domain ()
+      return:
+        type:
+          - "std::string const &"
+      source:
+        id: domain
+        path: google/cloud/status.h
+        startLine: 252
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      The logical grouping to which the "reason" belongs. 
+    conceptual: |
+      The error domain is typically the registered service name of the tool or product that generates the error. Example: "pubsub.googleapis.com". If the error is generated by some common infrastructure, the error domain must be a globally unique value that identifies the infrastructure. For Google API infrastructure, the error domain is "googleapis.com".
+
+      For errors generated by the C++ client libraries the domain is `gcloud-cpp`. 
+  - uid: classgoogle_1_1cloud_1_1ErrorInfo_1a638bbabb8dc7cd51d5dda6db8cee5a16
+    name: "metadata() const"
+    fullName: |
+      google::cloud::ErrorInfo::metadata
+    id: classgoogle_1_1cloud_1_1ErrorInfo_1a638bbabb8dc7cd51d5dda6db8cee5a16
+    parent: classgoogle_1_1cloud_1_1ErrorInfo
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::unordered_map< std::string, std::string > const &
+        google::cloud::ErrorInfo::metadata ()
+      return:
+        type:
+          - "std::unordered_map< std::string, std::string > const &"
+      source:
+        id: metadata
+        path: google/cloud/status.h
+        startLine: 266
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Additional structured details about this error. 
+    conceptual: |
+      Keys should match the regular expression `[a-zA-Z0-9-_]` and be limited to 64 characters in length.
+
+      When identifying the current value of an exceeded limit, the units should be contained in the key, not the value. For example, if the client exceeds the number of instances that can be created in a single (batch) request return `{"instanceLimitPerRequest": "100"}` rather than `{"instanceLimit": "100/request"}`. 
+  - uid: classgoogle_1_1cloud_1_1ErrorInfo_1a3e7a9be9a728e13d3333784f63270555
+    name: "operator==(ErrorInfo const &, ErrorInfo const &)"
+    fullName: |
+      google::cloud::ErrorInfo::operator==
+    id: classgoogle_1_1cloud_1_1ErrorInfo_1a3e7a9be9a728e13d3333784f63270555
+    parent: classgoogle_1_1cloud_1_1ErrorInfo
+    type: friend
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        friend bool
+        google::cloud::ErrorInfo::operator== (
+            ErrorInfo const &,
+            ErrorInfo const &
+          )
+      source:
+        id: operator==
+        path: google/cloud/status.h
+        startLine: 270
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+  - uid: classgoogle_1_1cloud_1_1ErrorInfo_1a28ce071569c6c71d23729d4875d5e977
+    name: "operator!=(ErrorInfo const &, ErrorInfo const &)"
+    fullName: |
+      google::cloud::ErrorInfo::operator!=
+    id: classgoogle_1_1cloud_1_1ErrorInfo_1a28ce071569c6c71d23729d4875d5e977
+    parent: classgoogle_1_1cloud_1_1ErrorInfo
+    type: friend
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        friend bool
+        google::cloud::ErrorInfo::operator!= (
+            ErrorInfo const &,
+            ErrorInfo const &
+          )
+      source:
+        id: operator!=
+        path: google/cloud/status.h
+        startLine: 271
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+references:
+  - uid: classgoogle_1_1cloud_1_1ErrorInfo
+    name: google::cloud::ErrorInfo
+  - uid: classgoogle_1_1cloud_1_1ErrorInfo_1a4ddba4ef52448fc5388c6146732be2ea
+    name: google::cloud::ErrorInfo::ErrorInfo
+  - uid: classgoogle_1_1cloud_1_1ErrorInfo_1a2e00303e2db2292242b1f09097abe0ee
+    name: google::cloud::ErrorInfo::ErrorInfo
+  - uid: classgoogle_1_1cloud_1_1ErrorInfo_1a9c68904d153cbec3d48191568939fcf4
+    name: google::cloud::ErrorInfo::reason
+  - uid: classgoogle_1_1cloud_1_1ErrorInfo_1a88e1355f82c33848c93660dc2759a816
+    name: google::cloud::ErrorInfo::domain
+  - uid: classgoogle_1_1cloud_1_1ErrorInfo_1a638bbabb8dc7cd51d5dda6db8cee5a16
+    name: google::cloud::ErrorInfo::metadata
+  - uid: classgoogle_1_1cloud_1_1ErrorInfo_1a3e7a9be9a728e13d3333784f63270555
+    name: google::cloud::ErrorInfo::operator==
+  - uid: classgoogle_1_1cloud_1_1ErrorInfo_1a28ce071569c6c71d23729d4875d5e977
+    name: google::cloud::ErrorInfo::operator!=

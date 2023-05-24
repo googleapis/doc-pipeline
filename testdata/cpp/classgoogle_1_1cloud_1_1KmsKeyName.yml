@@ -1,0 +1,320 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName
+    name: "KmsKeyName"
+    id: classgoogle_1_1cloud_1_1KmsKeyName
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/kms_key_name.h>
+        class google::cloud::KmsKeyName { ... };
+      source:
+        id: google::cloud::KmsKeyName
+        path: google/cloud/kms_key_name.h
+        startLine: 40
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/kms_key_name.h
+    summary: |
+      This class identifies a Google Cloud KMS Key. 
+    conceptual: |
+      A KMS key is identified by its `project_id`, `location`, `key_ring`, and `kms_key_name`.
+
+
+
+      <aside class="note"><b>Note:</b>
+      This class makes no effort to validate the components of the key, It is the application's responsibility to provide a valid project id, location, key ring, and KMS key name. Passing invalid values will not be checked until the key is used in a RPC.
+      </aside>
+      See [https://cloud.google.com/kms/docs](https://cloud.google.com/kms/docs) for more information on KMS. 
+    children:
+      - classgoogle_1_1cloud_1_1KmsKeyName_1aee71728b4970eb59d9404c5999b86df6
+      - classgoogle_1_1cloud_1_1KmsKeyName_1adbdf3b52f9377b17ddad60943fd939a4
+      - classgoogle_1_1cloud_1_1KmsKeyName_1a75db59489341625dd2f9ccf4aa575904
+      - classgoogle_1_1cloud_1_1KmsKeyName_1afdac51645369610b64b57618c943c709
+      - classgoogle_1_1cloud_1_1KmsKeyName_1a1773459c03b69cbf5dc498f7457b618a
+      - classgoogle_1_1cloud_1_1KmsKeyName_1aaecbf0eb4031f62c4ca93de7a233ef40
+      - classgoogle_1_1cloud_1_1KmsKeyName_1a48947fe0f19b7af3b2d6aee0680ef4ef
+      - classgoogle_1_1cloud_1_1KmsKeyName_1a263411554266dd511036a0ac8242b3ee
+      - classgoogle_1_1cloud_1_1KmsKeyName_1aaf8ff0ccf27ee5bb1a2e5880bdeb0d7b
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1aee71728b4970eb59d9404c5999b86df6
+    name: "KmsKeyName(KmsKeyName const &)"
+    fullName: |
+      google::cloud::KmsKeyName::KmsKeyName
+    id: classgoogle_1_1cloud_1_1KmsKeyName_1aee71728b4970eb59d9404c5999b86df6
+    parent: classgoogle_1_1cloud_1_1KmsKeyName
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::KmsKeyName::KmsKeyName (
+            KmsKeyName const &
+          )
+      parameters:
+        - id: ""
+          var_type: "KmsKeyName const &"
+      source:
+        id: KmsKeyName
+        path: google/cloud/kms_key_name.h
+        startLine: 51
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/kms_key_name.h
+    summary: |
+      Copy and move
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1adbdf3b52f9377b17ddad60943fd939a4
+    name: "operator=(KmsKeyName const &)"
+    fullName: |
+      google::cloud::KmsKeyName::operator=
+    id: classgoogle_1_1cloud_1_1KmsKeyName_1adbdf3b52f9377b17ddad60943fd939a4
+    parent: classgoogle_1_1cloud_1_1KmsKeyName
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        KmsKeyName &
+        google::cloud::KmsKeyName::operator= (
+            KmsKeyName const &
+          )
+      return:
+        type:
+          - "KmsKeyName &"
+      parameters:
+        - id: ""
+          var_type: "KmsKeyName const &"
+      source:
+        id: operator=
+        path: google/cloud/kms_key_name.h
+        startLine: 52
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/kms_key_name.h
+    summary: |
+      Copy and move
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1a75db59489341625dd2f9ccf4aa575904
+    name: "KmsKeyName(KmsKeyName &&)"
+    fullName: |
+      google::cloud::KmsKeyName::KmsKeyName
+    id: classgoogle_1_1cloud_1_1KmsKeyName_1a75db59489341625dd2f9ccf4aa575904
+    parent: classgoogle_1_1cloud_1_1KmsKeyName
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::KmsKeyName::KmsKeyName (
+            KmsKeyName &&
+          )
+      parameters:
+        - id: ""
+          var_type: "KmsKeyName &&"
+      source:
+        id: KmsKeyName
+        path: google/cloud/kms_key_name.h
+        startLine: 53
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/kms_key_name.h
+    summary: |
+      Copy and move
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1afdac51645369610b64b57618c943c709
+    name: "operator=(KmsKeyName &&)"
+    fullName: |
+      google::cloud::KmsKeyName::operator=
+    id: classgoogle_1_1cloud_1_1KmsKeyName_1afdac51645369610b64b57618c943c709
+    parent: classgoogle_1_1cloud_1_1KmsKeyName
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        KmsKeyName &
+        google::cloud::KmsKeyName::operator= (
+            KmsKeyName &&
+          )
+      return:
+        type:
+          - "KmsKeyName &"
+      parameters:
+        - id: ""
+          var_type: "KmsKeyName &&"
+      source:
+        id: operator=
+        path: google/cloud/kms_key_name.h
+        startLine: 54
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/kms_key_name.h
+    summary: |
+      Copy and move
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1a1773459c03b69cbf5dc498f7457b618a
+    name: "operator==(KmsKeyName const &, KmsKeyName const &)"
+    fullName: |
+      google::cloud::KmsKeyName::operator==
+    id: classgoogle_1_1cloud_1_1KmsKeyName_1a1773459c03b69cbf5dc498f7457b618a
+    parent: classgoogle_1_1cloud_1_1KmsKeyName
+    type: friend
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        friend bool
+        google::cloud::KmsKeyName::operator== (
+            KmsKeyName const & a,
+            KmsKeyName const & b
+          )
+      source:
+        id: operator==
+        path: google/cloud/kms_key_name.h
+        startLine: 66
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/kms_key_name.h
+    summary: |
+      Equality operators
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1aaecbf0eb4031f62c4ca93de7a233ef40
+    name: "operator!=(KmsKeyName const &, KmsKeyName const &)"
+    fullName: |
+      google::cloud::KmsKeyName::operator!=
+    id: classgoogle_1_1cloud_1_1KmsKeyName_1aaecbf0eb4031f62c4ca93de7a233ef40
+    parent: classgoogle_1_1cloud_1_1KmsKeyName
+    type: friend
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        friend bool
+        google::cloud::KmsKeyName::operator!= (
+            KmsKeyName const & a,
+            KmsKeyName const & b
+          )
+      source:
+        id: operator!=
+        path: google/cloud/kms_key_name.h
+        startLine: 67
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/kms_key_name.h
+    summary: |
+      Equality operators
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1a48947fe0f19b7af3b2d6aee0680ef4ef
+    name: "KmsKeyName(std::string const &, std::string const &, std::string const &, std::string const &)"
+    fullName: |
+      google::cloud::KmsKeyName::KmsKeyName
+    id: classgoogle_1_1cloud_1_1KmsKeyName_1a48947fe0f19b7af3b2d6aee0680ef4ef
+    parent: classgoogle_1_1cloud_1_1KmsKeyName
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::KmsKeyName::KmsKeyName (
+            std::string const & project_id,
+            std::string const & location,
+            std::string const & key_ring,
+            std::string const & kms_key_name
+          )
+      parameters:
+        - id: project_id
+          var_type: "std::string const &"
+        - id: location
+          var_type: "std::string const &"
+        - id: key_ring
+          var_type: "std::string const &"
+        - id: kms_key_name
+          var_type: "std::string const &"
+      source:
+        id: KmsKeyName
+        path: google/cloud/kms_key_name.h
+        startLine: 46
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/kms_key_name.h
+    summary: |
+      Constructs a [KmsKeyName](xref:classgoogle_1_1cloud_1_1KmsKeyName) object identified by the given `project_id`, `location`, `key_ring`, and `kms_key_name`. 
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1a263411554266dd511036a0ac8242b3ee
+    name: "FullName() const"
+    fullName: |
+      google::cloud::KmsKeyName::FullName
+    id: classgoogle_1_1cloud_1_1KmsKeyName_1a263411554266dd511036a0ac8242b3ee
+    parent: classgoogle_1_1cloud_1_1KmsKeyName
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::string const &
+        google::cloud::KmsKeyName::FullName ()
+      return:
+        type:
+          - "std::string const &"
+      source:
+        id: FullName
+        path: google/cloud/kms_key_name.h
+        startLine: 62
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/kms_key_name.h
+    summary: |
+      Returns the fully qualified KMS Key name as a string of the form: "projects/<project>/locations/<location>/keyRings/<key_ring>/cryptoKeys\
+      /<kms_key_name>". 
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1aaf8ff0ccf27ee5bb1a2e5880bdeb0d7b
+    name: "operator<<(std::ostream &, KmsKeyName const &)"
+    fullName: |
+      google::cloud::KmsKeyName::operator<<
+    id: classgoogle_1_1cloud_1_1KmsKeyName_1aaf8ff0ccf27ee5bb1a2e5880bdeb0d7b
+    parent: classgoogle_1_1cloud_1_1KmsKeyName
+    type: friend
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        friend std::ostream &
+        google::cloud::KmsKeyName::operator<< (
+            std::ostream &,
+            KmsKeyName const &
+          )
+      source:
+        id: operator<<
+        path: google/cloud/kms_key_name.h
+        startLine: 73
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/kms_key_name.h
+    summary: |
+      Output the [`FullName()`](xref:classgoogle_1_1cloud_1_1KmsKeyName_1a263411554266dd511036a0ac8242b3ee) format. 
+references:
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName
+    name: google::cloud::KmsKeyName
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1aee71728b4970eb59d9404c5999b86df6
+    name: google::cloud::KmsKeyName::KmsKeyName
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1adbdf3b52f9377b17ddad60943fd939a4
+    name: google::cloud::KmsKeyName::operator=
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1a75db59489341625dd2f9ccf4aa575904
+    name: google::cloud::KmsKeyName::KmsKeyName
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1afdac51645369610b64b57618c943c709
+    name: google::cloud::KmsKeyName::operator=
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1a1773459c03b69cbf5dc498f7457b618a
+    name: google::cloud::KmsKeyName::operator==
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1aaecbf0eb4031f62c4ca93de7a233ef40
+    name: google::cloud::KmsKeyName::operator!=
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1a48947fe0f19b7af3b2d6aee0680ef4ef
+    name: google::cloud::KmsKeyName::KmsKeyName
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1a263411554266dd511036a0ac8242b3ee
+    name: google::cloud::KmsKeyName::FullName
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName_1aaf8ff0ccf27ee5bb1a2e5880bdeb0d7b
+    name: google::cloud::KmsKeyName::operator<<

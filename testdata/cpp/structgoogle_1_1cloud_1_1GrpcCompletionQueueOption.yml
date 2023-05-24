@@ -1,0 +1,60 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1GrpcCompletionQueueOption
+    name: "GrpcCompletionQueueOption"
+    id: structgoogle_1_1cloud_1_1GrpcCompletionQueueOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/grpc_options.h>
+        struct google::cloud::GrpcCompletionQueueOption { ... };
+      source:
+        id: google::cloud::GrpcCompletionQueueOption
+        path: google/cloud/grpc_options.h
+        startLine: 144
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/grpc_options.h
+    summary: |
+      The [`CompletionQueue`](xref:classgoogle_1_1cloud_1_1CompletionQueue) to use for background gRPC work. 
+    conceptual: |
+      If this option is set, the library will use the supplied [`CompletionQueue`](xref:classgoogle_1_1cloud_1_1CompletionQueue) instead of its own. The caller is responsible for making sure there are thread(s) servicing this [`CompletionQueue`](xref:classgoogle_1_1cloud_1_1CompletionQueue). The client library will not create any background threads or attempt to call [`CompletionQueue::Run()`](xref:classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4).
+
+
+
+      <aside class="note"><b>Note:</b>
+      [`GrpcBackgroundThreadPoolSizeOption`](xref:structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption), [`GrpcCompletionQueueOption`](xref:structgoogle_1_1cloud_1_1GrpcCompletionQueueOption), and [`GrpcBackgroundThreadsFactoryOption`](xref:structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption) are mutually exclusive. 
+      </aside>
+    children:
+      - structgoogle_1_1cloud_1_1GrpcCompletionQueueOption_1a4273ed18516746cf0c0e1e1731db266a
+  - uid: structgoogle_1_1cloud_1_1GrpcCompletionQueueOption_1a4273ed18516746cf0c0e1e1731db266a
+    name: "Type"
+    fullName: "google::cloud::GrpcCompletionQueueOption::Type"
+    id: structgoogle_1_1cloud_1_1GrpcCompletionQueueOption_1a4273ed18516746cf0c0e1e1731db266a
+    parent: structgoogle_1_1cloud_1_1GrpcCompletionQueueOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::GrpcCompletionQueueOption::Type =
+          CompletionQueue;
+      aliasof: |
+        <code>CompletionQueue</code>
+      source:
+        id: Type
+        path: google/cloud/grpc_options.h
+        startLine: 145
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/grpc_options.h
+references:
+  - uid: structgoogle_1_1cloud_1_1GrpcCompletionQueueOption
+    name: google::cloud::GrpcCompletionQueueOption
+  - uid: structgoogle_1_1cloud_1_1GrpcCompletionQueueOption_1a4273ed18516746cf0c0e1e1731db266a
+    name: google::cloud::GrpcCompletionQueueOption::Type

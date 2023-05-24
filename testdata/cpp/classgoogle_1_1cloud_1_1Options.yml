@@ -1,0 +1,441 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1Options
+    name: "Options"
+    id: classgoogle_1_1cloud_1_1Options
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/options.h>
+        class google::cloud::Options { ... };
+      source:
+        id: google::cloud::Options
+        path: google/cloud/options.h
+        startLine: 94
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/options.h
+    summary: |
+      A class that holds option structs indexed by their type. 
+    conceptual: |
+      An "Option" is any struct that has a public `Type` member typedef. By convention they are named like "FooOption". Each library (e.g., spanner, storage) may define their own set of options. Additionally, there are common options defined that many libraries may use. All these options may be set in a single [`Options`](xref:classgoogle_1_1cloud_1_1Options) instance, and each library will look at the options that it needs.
+
+      Here's an overview of this class's interface, but see the method documentation below for details.
+
+
+      - `.set<T>(x)`&ndash; Sets the option `T` to value `x`
+      - `.has<T>()`&ndash; Returns true iff option `T` is set
+      - `.unset<T>()`&ndash; Removes the option `T`
+      - `.get<T>()`&ndash; Gets a const-ref to the value of option `T`
+      - `.lookup<T>(x)`&ndash; Gets a non-const-ref to option `T`'s value, initializing it to `x` if it was not set (`x` is optional).
+
+
+
+      ###### Example:
+
+
+
+      ```cpp
+      struct FooOption {
+        using Type = int;
+      };
+      struct BarOption {
+        using Type = std::set<std::string>;
+      };
+      ...
+      Options opts;
+
+      assert(opts.get<FooOption>() == 0);
+      opts.set<FooOption>(42);
+      assert(opts.get<FooOption>() == 42);
+
+      // Inserts two elements directly into the BarOption's std::set.
+      opts.lookup<BarOption>().insert("hello");
+      opts.lookup<BarOption>().insert("world");
+
+      std::set<std::string> const& bar = opts.get<BarOption>();
+      assert(bar == std::set<std::string>{"hello", "world"});
+      ```
+    children:
+      - classgoogle_1_1cloud_1_1Options_1ae4d04b0ec878b4b82630793f74e6d102
+      - classgoogle_1_1cloud_1_1Options_1aa987bb370871297529e9ecac22b5109f
+      - classgoogle_1_1cloud_1_1Options_1a9243331bcb81d1552263fe4f12f7f9a5
+      - classgoogle_1_1cloud_1_1Options_1af7638098b40961cdcddf5759254775b7
+      - classgoogle_1_1cloud_1_1Options_1ab29e083e7db725955b438edc460c3e3e
+      - classgoogle_1_1cloud_1_1Options_1a55949946a6dfca4a01b52162e28acbcc
+      - classgoogle_1_1cloud_1_1Options_1a0b63821262f22056e6fb5d7dafdc0fce
+      - classgoogle_1_1cloud_1_1Options_1abf9d24f236208dd6d9b18dffe0bd7e4f
+      - classgoogle_1_1cloud_1_1Options_1a1685191ebee1d545c1bf669537b9440f
+      - classgoogle_1_1cloud_1_1Options_1a357d8aa593403d3a12b2516b63027441
+  - uid: classgoogle_1_1cloud_1_1Options_1ae4d04b0ec878b4b82630793f74e6d102
+    name: "Options()"
+    fullName: |
+      google::cloud::Options::Options
+    id: classgoogle_1_1cloud_1_1Options_1ae4d04b0ec878b4b82630793f74e6d102
+    parent: classgoogle_1_1cloud_1_1Options
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::Options::Options ()
+      source:
+        id: Options
+        path: google/cloud/options.h
+        startLine: 101
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/options.h
+    summary: |
+      Constructs an empty instance. 
+  - uid: classgoogle_1_1cloud_1_1Options_1aa987bb370871297529e9ecac22b5109f
+    name: "Options(Options const &)"
+    fullName: |
+      google::cloud::Options::Options
+    id: classgoogle_1_1cloud_1_1Options_1aa987bb370871297529e9ecac22b5109f
+    parent: classgoogle_1_1cloud_1_1Options
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::Options::Options (
+            Options const & rhs
+          )
+      parameters:
+        - id: rhs
+          var_type: "Options const &"
+      source:
+        id: Options
+        path: google/cloud/options.h
+        startLine: 103
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/options.h
+  - uid: classgoogle_1_1cloud_1_1Options_1a9243331bcb81d1552263fe4f12f7f9a5
+    name: "operator=(Options const &)"
+    fullName: |
+      google::cloud::Options::operator=
+    id: classgoogle_1_1cloud_1_1Options_1a9243331bcb81d1552263fe4f12f7f9a5
+    parent: classgoogle_1_1cloud_1_1Options
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        Options &
+        google::cloud::Options::operator= (
+            Options const & rhs
+          )
+      return:
+        type:
+          - "Options &"
+      parameters:
+        - id: rhs
+          var_type: "Options const &"
+      source:
+        id: operator=
+        path: google/cloud/options.h
+        startLine: 106
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/options.h
+  - uid: classgoogle_1_1cloud_1_1Options_1af7638098b40961cdcddf5759254775b7
+    name: "Options(Options &&)"
+    fullName: |
+      google::cloud::Options::Options
+    id: classgoogle_1_1cloud_1_1Options_1af7638098b40961cdcddf5759254775b7
+    parent: classgoogle_1_1cloud_1_1Options
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::Options::Options (
+            Options &&
+          )
+      parameters:
+        - id: ""
+          var_type: "Options &&"
+      source:
+        id: Options
+        path: google/cloud/options.h
+        startLine: 111
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/options.h
+  - uid: classgoogle_1_1cloud_1_1Options_1ab29e083e7db725955b438edc460c3e3e
+    name: "operator=(Options &&)"
+    fullName: |
+      google::cloud::Options::operator=
+    id: classgoogle_1_1cloud_1_1Options_1ab29e083e7db725955b438edc460c3e3e
+    parent: classgoogle_1_1cloud_1_1Options
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        Options &
+        google::cloud::Options::operator= (
+            Options &&
+          )
+      return:
+        type:
+          - "Options &"
+      parameters:
+        - id: ""
+          var_type: "Options &&"
+      source:
+        id: operator=
+        path: google/cloud/options.h
+        startLine: 112
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/options.h
+  - uid: classgoogle_1_1cloud_1_1Options_1a55949946a6dfca4a01b52162e28acbcc
+    name: "set(ValueTypeT< T >)"
+    fullName: |
+      google::cloud::Options::set
+    id: classgoogle_1_1cloud_1_1Options_1a55949946a6dfca4a01b52162e28acbcc
+    parent: classgoogle_1_1cloud_1_1Options
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename T>
+        Options &
+        google::cloud::Options::set (
+            ValueTypeT< T > v
+          )
+      return:
+        type:
+          - "Options &"
+      parameters:
+        - id: v
+          var_type: "ValueTypeT&lt; T &gt;"
+          description: |
+            the value to set the option T 
+        - id: typename T
+          description: |
+            the option type 
+      source:
+        id: set
+        path: google/cloud/options.h
+        startLine: 128
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/options.h
+    summary: |
+      Sets option `T` to the value `v` and returns a reference to `*this`. 
+    conceptual: |
+      ```cpp
+      struct FooOption {
+        using Type = int;
+      };
+      auto opts = Options{}.set<FooOption>(123);
+      ```
+
+
+  - uid: classgoogle_1_1cloud_1_1Options_1a0b63821262f22056e6fb5d7dafdc0fce
+    name: "has() const"
+    fullName: |
+      google::cloud::Options::has
+    id: classgoogle_1_1cloud_1_1Options_1a0b63821262f22056e6fb5d7dafdc0fce
+    parent: classgoogle_1_1cloud_1_1Options
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename T>
+        bool
+        google::cloud::Options::has ()
+      return:
+        type:
+          - "bool"
+      parameters:
+        - id: typename T
+          description: |
+            the option type 
+      source:
+        id: has
+        path: google/cloud/options.h
+        startLine: 139
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/options.h
+    summary: |
+      Returns true IFF an option with type `T` exists. 
+  - uid: classgoogle_1_1cloud_1_1Options_1abf9d24f236208dd6d9b18dffe0bd7e4f
+    name: "unset()"
+    fullName: |
+      google::cloud::Options::unset
+    id: classgoogle_1_1cloud_1_1Options_1abf9d24f236208dd6d9b18dffe0bd7e4f
+    parent: classgoogle_1_1cloud_1_1Options
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename T>
+        void
+        google::cloud::Options::unset ()
+      return:
+        type:
+          - "void"
+      parameters:
+        - id: typename T
+          description: |
+            the option type 
+      source:
+        id: unset
+        path: google/cloud/options.h
+        startLine: 149
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/options.h
+    summary: |
+      Erases the option specified by the type `T`. 
+  - uid: classgoogle_1_1cloud_1_1Options_1a1685191ebee1d545c1bf669537b9440f
+    name: "get() const"
+    fullName: |
+      google::cloud::Options::get
+    id: classgoogle_1_1cloud_1_1Options_1a1685191ebee1d545c1bf669537b9440f
+    parent: classgoogle_1_1cloud_1_1Options
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename T>
+        ValueTypeT< T > const &
+        google::cloud::Options::get ()
+      return:
+        type:
+          - "ValueTypeT< T > const &"
+      parameters:
+        - id: typename T
+          description: |
+            the option type 
+      source:
+        id: get
+        path: google/cloud/options.h
+        startLine: 177
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/options.h
+    summary: |
+      Returns a reference to the value for `T`, or a value-initialized default if `T` was not set. 
+    conceptual: |
+      This method will always return a reference to a valid value of the correct type for option `T`, whether or not `T` has actually been set. Use `has<T>()` to check whether or not the option has been set.
+
+
+
+      ```cpp
+      struct FooOption {
+        using Type = std::set<std::string>;
+      };
+      Options opts;
+      std::set<std::string> const& x = opts.get<FooOption>();
+      assert(x.empty());
+      assert(!x.has<FooOption>());
+
+      opts.set<FooOption>({"foo"});
+      assert(opts.get<FooOption>().size() == 1);
+      ```
+
+
+  - uid: classgoogle_1_1cloud_1_1Options_1a357d8aa593403d3a12b2516b63027441
+    name: "lookup(ValueTypeT< T >)"
+    fullName: |
+      google::cloud::Options::lookup
+    id: classgoogle_1_1cloud_1_1Options_1a357d8aa593403d3a12b2516b63027441
+    parent: classgoogle_1_1cloud_1_1Options
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename T>
+        ValueTypeT< T > &
+        google::cloud::Options::lookup (
+            ValueTypeT< T > value
+          )
+      return:
+        type:
+          - "ValueTypeT< T > &"
+      parameters:
+        - id: value
+          var_type: "ValueTypeT&lt; T &gt;"
+          description: |
+            the initial value to use if `T` is not set (optional) 
+        - id: typename T
+          description: |
+            the option type 
+      source:
+        id: lookup
+        path: google/cloud/options.h
+        startLine: 205
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/options.h
+    summary: |
+      Returns a reference to the value for option `T`, setting the value to `init_value` if necessary. 
+    conceptual: |
+      ```cpp
+      struct BigOption {
+        using Type = std::set<std::string>;
+      };
+      Options opts;
+      std::set<std::string>& x = opts.lookup<BigOption>();
+      assert(x.empty());
+
+      x.insert("foo");
+      opts.lookup<BigOption>().insert("bar");
+      assert(x.size() == 2);
+      ```
+
+
+references:
+  - uid: classgoogle_1_1cloud_1_1Options
+    name: google::cloud::Options
+  - uid: classgoogle_1_1cloud_1_1Options_1ae4d04b0ec878b4b82630793f74e6d102
+    name: google::cloud::Options::Options
+  - uid: classgoogle_1_1cloud_1_1Options_1aa987bb370871297529e9ecac22b5109f
+    name: google::cloud::Options::Options
+  - uid: classgoogle_1_1cloud_1_1Options_1a9243331bcb81d1552263fe4f12f7f9a5
+    name: google::cloud::Options::operator=
+  - uid: classgoogle_1_1cloud_1_1Options_1af7638098b40961cdcddf5759254775b7
+    name: google::cloud::Options::Options
+  - uid: classgoogle_1_1cloud_1_1Options_1ab29e083e7db725955b438edc460c3e3e
+    name: google::cloud::Options::operator=
+  - uid: classgoogle_1_1cloud_1_1Options_1a55949946a6dfca4a01b52162e28acbcc
+    name: google::cloud::Options::set
+  - uid: classgoogle_1_1cloud_1_1Options_1a0b63821262f22056e6fb5d7dafdc0fce
+    name: google::cloud::Options::has
+  - uid: classgoogle_1_1cloud_1_1Options_1abf9d24f236208dd6d9b18dffe0bd7e4f
+    name: google::cloud::Options::unset
+  - uid: classgoogle_1_1cloud_1_1Options_1a1685191ebee1d545c1bf669537b9440f
+    name: google::cloud::Options::get
+  - uid: classgoogle_1_1cloud_1_1Options_1a357d8aa593403d3a12b2516b63027441
+    name: google::cloud::Options::lookup

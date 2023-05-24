@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="classgoogle_1_1cloud_1_1Project">
+<h1 class="page-title">Class Project (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>This class identifies a Cloud <a class="xref" href="classgoogle_1_1cloud_1_1Project.html">Project</a>. </p>
+</div>
+  <div class="markdown level0 conceptual"><p>A Cloud project is identified by its <code>project_id</code>.</p>
+<p><aside class="note"><b>Note:</b>
+This class makes no effort to validate the components of the project name. It is the application&#39;s responsibility to provide a valid project id. Passing invalid values will not be checked until the project name is used in an RPC.
+</aside>
+For more info about the <code>project_id</code> format, see <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects">https://cloud.google.com/resource-manager/docs/creating-managing-projects</a></p>
+</div>
+  <h2 id="constructors">Constructors
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1Project_1a98b66fce732953e55fd3bb88ebc2501f" data-uid="classgoogle_1_1cloud_1_1Project_1a98b66fce732953e55fd3bb88ebc2501f" class="notranslate">Project(Project const &amp;)</h3>
+  <div class="markdown level1 summary"><p>Copy and move</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>Project const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Project_1ac8238fa11c57663d45b2f1703470e34d" data-uid="classgoogle_1_1cloud_1_1Project_1ac8238fa11c57663d45b2f1703470e34d" class="notranslate">Project(Project &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Copy and move</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>Project &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Project_1a4f55194bbe8dbd84d8d5588d1ba40fa8" data-uid="classgoogle_1_1cloud_1_1Project_1a4f55194bbe8dbd84d8d5588d1ba40fa8" class="notranslate">Project(std::string)</h3>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="classgoogle_1_1cloud_1_1Project.html">Project</a> object identified by the given <code>project_id</code>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>project_id</code></td>
+        <td>
+          <code>std::string</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="operators">Operators
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1Project_1a8862157f734c5da4a84761c6b3f5aa63" data-uid="classgoogle_1_1cloud_1_1Project_1a8862157f734c5da4a84761c6b3f5aa63" class="notranslate">operator=(Project const &amp;)</h3>
+  <div class="markdown level1 summary"><p>Copy and move</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>Project const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">Project &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Project_1a2ddc65dd13bc985ea4714c202f224838" data-uid="classgoogle_1_1cloud_1_1Project_1a2ddc65dd13bc985ea4714c202f224838" class="notranslate">operator=(Project &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Copy and move</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>Project &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">Project &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="functions">Functions
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1Project_1a58f67caab0a321a16b8b860a79f900bf" data-uid="classgoogle_1_1cloud_1_1Project_1a58f67caab0a321a16b8b860a79f900bf" class="notranslate">project_id() const</h3>
+  <div class="markdown level1 summary"><p>Returns the <a class="xref" href="classgoogle_1_1cloud_1_1Project.html">Project</a> ID. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">std::string const &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Project_1ab7f7e3518663d77f7ea111d6369f719e" data-uid="classgoogle_1_1cloud_1_1Project_1ab7f7e3518663d77f7ea111d6369f719e" class="notranslate">FullName() const</h3>
+  <div class="markdown level1 summary"><p>Returns the fully qualified project name as a string of the form: &quot;projects/<project-id>&quot;. <p>
+</project-id></div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">std::string</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

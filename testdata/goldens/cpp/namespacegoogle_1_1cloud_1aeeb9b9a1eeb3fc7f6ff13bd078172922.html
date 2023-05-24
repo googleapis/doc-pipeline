@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922">
+<h1 class="page-title">Enum Severity (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>Define the severity levels for Google Cloud Platform C++ Libraries logging. </p>
+</div>
+  <div class="markdown level0 conceptual"><p>These are modelled after the severity level in syslog(1) and many derived tools.</p>
+<p>We force the enum to be represented as an <code>int</code> because we will store the values in an <code>std::atomic&lt;&gt;</code> and the implementations usually optimize <code>std::atomic&lt;int&gt;</code> but not <code>std::atomic&lt;Foo&gt;</code></p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><h2 id="consts">Constants
+  </h2></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a19926e6b33f63355986e9c77f35126e8"><code>GCP_LS_TRACE</code></td>
+        <td><p>Use this level for messages that indicate the code is entering and leaving functions. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922ab858c69248c47bb9f411651cf8ee26d6"><code>GCP_LS_DEBUG</code></td>
+        <td><p>Use this level for debug messages that should not be present in production. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a47d3a15eead1f73cc69c68274fb275dd"><code>GCP_LS_INFO</code></td>
+        <td><p>Informational messages, such as normal progress. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a89b8b9ebac3278bfe0d998d0052c86a3"><code>GCP_LS_NOTICE</code></td>
+        <td><p>Informational messages, such as unusual, but expected conditions. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abc2618fc8ebd51bfa277121434384423"><code>GCP_LS_WARNING</code></td>
+        <td><p>An indication of problems, users may need to take action. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a40b0bbe787c992e7538add97b9abdc21"><code>GCP_LS_ERROR</code></td>
+        <td><p>An error has been detected. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922aa0ad543f2f38678a0e3c606be03ac386"><code>GCP_LS_CRITICAL</code></td>
+        <td><p>The system is in a critical state, such as running out of local resources. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abbc803db504b24b377a2abcf5f6f6fbb"><code>GCP_LS_ALERT</code></td>
+        <td><p>The system is at risk of immediate failure. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a231b1e1189f54337be4b9ccb9b607489"><code>GCP_LS_FATAL</code></td>
+        <td><p>The system is unusable. GCP_LOG(FATAL) will call std::abort(). </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a71e59df789d3d1c4eb7a8c9e8070cf0d"><code>GCP_LS_HIGHEST</code></td>
+        <td><p>The highest possible severity level. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a2aaca572b21aab277c1eb51d75bd34f2"><code>GCP_LS_LOWEST</code></td>
+        <td><p>The lowest possible severity level. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a6fab7141215b31a08473e15c105e7b15"><code>GCP_LS_LOWEST_ENABLED</code></td>
+        <td><p>The lowest level that is enabled at compile-time. </p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

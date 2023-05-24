@@ -1,0 +1,1752 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: classgoogle_1_1cloud_1_1AsyncOperation
+  name: AsyncOperation
+  href: classgoogle_1_1cloud_1_1AsyncOperation.html
+- uid: classgoogle_1_1cloud_1_1AsyncOperation_1ad3fd3bde580a47ace62c258b382a5f7f
+  name: Cancel()
+  href: classgoogle_1_1cloud_1_1AsyncOperation.html#classgoogle_1_1cloud_1_1AsyncOperation_1ad3fd3bde580a47ace62c258b382a5f7f
+  fullName: >
+    google::cloud::AsyncOperation::Cancel
+- uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc
+  name: AsyncStreamingReadWriteRpc<Request, Response>
+  href: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html
+- uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f
+  name: Read()
+  href: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f
+  fullName: >
+    google::cloud::AsyncStreamingReadWriteRpc::Read
+- uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2
+  name: Finish()
+  href: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2
+  fullName: >
+    google::cloud::AsyncStreamingReadWriteRpc::Finish
+- uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a3df7a8ee22c26ea09557df1b002a6afa
+  name: WritesDone()
+  href: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a3df7a8ee22c26ea09557df1b002a6afa
+  fullName: >
+    google::cloud::AsyncStreamingReadWriteRpc::WritesDone
+- uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431
+  name: Write(Request const &, grpc::WriteOptions)
+  href: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431
+  fullName: >
+    google::cloud::AsyncStreamingReadWriteRpc::Write
+- uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a78f8e6fe17c3d5f5899486b393fa4ebe
+  name: Cancel()
+  href: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a78f8e6fe17c3d5f5899486b393fa4ebe
+  fullName: >
+    google::cloud::AsyncStreamingReadWriteRpc::Cancel
+- uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1aa3043132171c86e884b2ad865dc30e49
+  name: Start()
+  href: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1aa3043132171c86e884b2ad865dc30e49
+  fullName: >
+    google::cloud::AsyncStreamingReadWriteRpc::Start
+- uid: classgoogle_1_1cloud_1_1BackgroundThreads
+  name: BackgroundThreads
+  href: classgoogle_1_1cloud_1_1BackgroundThreads.html
+- uid: classgoogle_1_1cloud_1_1BackgroundThreads_1a3ffeaa87e9965917e86ca40d81ae41d9
+  name: cq() const
+  href: classgoogle_1_1cloud_1_1BackgroundThreads.html#classgoogle_1_1cloud_1_1BackgroundThreads_1a3ffeaa87e9965917e86ca40d81ae41d9
+  fullName: >
+    google::cloud::BackgroundThreads::cq
+- uid: classgoogle_1_1cloud_1_1CompletionQueue
+  name: CompletionQueue
+  href: classgoogle_1_1cloud_1_1CompletionQueue.html
+- uid: classgoogle_1_1cloud_1_1CompletionQueue_1a1a953c10106be1b0135eacafa29f9b45
+  name: MakeStreamingReadRpc(AsyncCallType &&, Request const &, std::unique_ptr< grpc::ClientContext >, OnReadHandler &&, OnFinishHandler &&)
+  href: classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a1a953c10106be1b0135eacafa29f9b45
+  fullName: >
+    google::cloud::CompletionQueue::MakeStreamingReadRpc
+- uid: classgoogle_1_1cloud_1_1CompletionQueue_1a5e95a325b49eb1b087ee8c318c4c2234
+  name: CancelAll()
+  href: classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a5e95a325b49eb1b087ee8c318c4c2234
+  fullName: >
+    google::cloud::CompletionQueue::CancelAll
+- uid: classgoogle_1_1cloud_1_1CompletionQueue_1a743c36b17b5d9201132620def0584658
+  name: CompletionQueue(std::shared_ptr< internal::CompletionQueueImpl >)
+  href: classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a743c36b17b5d9201132620def0584658
+  fullName: >
+    google::cloud::CompletionQueue::CompletionQueue
+- uid: classgoogle_1_1cloud_1_1CompletionQueue_1a760d68ec606a03ab8cc80eea8bd965b3
+  name: MakeRelativeTimer(std::chrono::duration< Rep, Period >)
+  href: classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a760d68ec606a03ab8cc80eea8bd965b3
+  fullName: >
+    google::cloud::CompletionQueue::MakeRelativeTimer
+- uid: classgoogle_1_1cloud_1_1CompletionQueue_1a7dc90cac7ff19ef85b136b9581cb7e5d
+  name: MakeUnaryRpc(AsyncCallType, Request const &, std::unique_ptr< grpc::ClientContext >)
+  href: classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a7dc90cac7ff19ef85b136b9581cb7e5d
+  fullName: >
+    google::cloud::CompletionQueue::MakeUnaryRpc
+- uid: classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4
+  name: Run()
+  href: classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4
+  fullName: >
+    google::cloud::CompletionQueue::Run
+- uid: classgoogle_1_1cloud_1_1CompletionQueue_1aa97c0beefb121dd6edfec5575196f1e7
+  name: CompletionQueue()
+  href: classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1aa97c0beefb121dd6edfec5575196f1e7
+  fullName: >
+    google::cloud::CompletionQueue::CompletionQueue
+- uid: classgoogle_1_1cloud_1_1CompletionQueue_1ae98eaa1bf1210e6a3773e091e93a730e
+  name: MakeDeadlineTimer(std::chrono::system_clock::time_point)
+  href: classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1ae98eaa1bf1210e6a3773e091e93a730e
+  fullName: >
+    google::cloud::CompletionQueue::MakeDeadlineTimer
+- uid: classgoogle_1_1cloud_1_1CompletionQueue_1aec5b6997c267651ea3761567306e4585
+  name: AsyncWaitConnectionReady(std::shared_ptr< grpc::Channel >, std::chrono::system_clock::time_point)
+  href: classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1aec5b6997c267651ea3761567306e4585
+  fullName: >
+    google::cloud::CompletionQueue::AsyncWaitConnectionReady
+- uid: classgoogle_1_1cloud_1_1CompletionQueue_1af69536be75d6157fbd8fafe1a88f7233
+  name: Shutdown()
+  href: classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1af69536be75d6157fbd8fafe1a88f7233
+  fullName: >
+    google::cloud::CompletionQueue::Shutdown
+- uid: classgoogle_1_1cloud_1_1CompletionQueue_1af84eb273575b989bbf8049fe5eb64df5
+  name: RunAsync(Functor &&)
+  href: classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1af84eb273575b989bbf8049fe5eb64df5
+  fullName: >
+    google::cloud::CompletionQueue::RunAsync
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions
+  name: ConnectionOptions<ConnectionTraits>
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a014d08059dd0482b8c74a52ae32d29ec
+  name: ConnectionOptions()
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a014d08059dd0482b8c74a52ae32d29ec
+  fullName: >
+    google::cloud::ConnectionOptions::ConnectionOptions
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a041758d537570967fa7fcc73e314489f
+  name: BackgroundThreadsFactory
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a041758d537570967fa7fcc73e314489f
+  fullName: google::cloud::ConnectionOptions::BackgroundThreadsFactory
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a071230426369b780e3ab13c29c71f32d
+  name: channel_pool_domain() const
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a071230426369b780e3ab13c29c71f32d
+  fullName: >
+    google::cloud::ConnectionOptions::channel_pool_domain
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a0b03e828d2f2f1507102e468a65ea1cc
+  name: set_channel_pool_domain(std::string)
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a0b03e828d2f2f1507102e468a65ea1cc
+  fullName: >
+    google::cloud::ConnectionOptions::set_channel_pool_domain
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a1fcb13945aa3ae97f552892178ffe387
+  name: background_thread_pool_size() const
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a1fcb13945aa3ae97f552892178ffe387
+  fullName: >
+    google::cloud::ConnectionOptions::background_thread_pool_size
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a2111a32e661fadb78048bc77c4f94f54
+  name: set_background_thread_pool_size(std::size_t)
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a2111a32e661fadb78048bc77c4f94f54
+  fullName: >
+    google::cloud::ConnectionOptions::set_background_thread_pool_size
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a3143dce67dd3d5e652fd47df605e8faf
+  name: disable_tracing(std::string const &)
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a3143dce67dd3d5e652fd47df605e8faf
+  fullName: >
+    google::cloud::ConnectionOptions::disable_tracing
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a31b16872029e8bb854bd59cf52ce1794
+  name: background_threads_factory() const
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a31b16872029e8bb854bd59cf52ce1794
+  fullName: >
+    google::cloud::ConnectionOptions::background_threads_factory
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a33a14176b143f87becf17c1db408163b
+  name: enable_tracing(std::string const &)
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a33a14176b143f87becf17c1db408163b
+  fullName: >
+    google::cloud::ConnectionOptions::enable_tracing
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a3a6de10c915ca2129c825dc44818b996
+  name: num_channels() const
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a3a6de10c915ca2129c825dc44818b996
+  fullName: >
+    google::cloud::ConnectionOptions::num_channels
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a559aad8ffc196726743a1290103e28eb
+  name: credentials() const
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a559aad8ffc196726743a1290103e28eb
+  fullName: >
+    google::cloud::ConnectionOptions::credentials
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a609f5dc4ceba1e2a98d585e95a13e792
+  name: endpoint() const
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a609f5dc4ceba1e2a98d585e95a13e792
+  fullName: >
+    google::cloud::ConnectionOptions::endpoint
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a634acc56b4ba2236d8ba918662a6b859
+  name: tracing_enabled(std::string const &) const
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a634acc56b4ba2236d8ba918662a6b859
+  fullName: >
+    google::cloud::ConnectionOptions::tracing_enabled
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a67dbaf1d7000594cab3d7e2b9a46b660
+  name: components() const
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a67dbaf1d7000594cab3d7e2b9a46b660
+  fullName: >
+    google::cloud::ConnectionOptions::components
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a77ce8aa80fdcce81c72a0db6533db8b0
+  name: CreateChannelArguments() const
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a77ce8aa80fdcce81c72a0db6533db8b0
+  fullName: >
+    google::cloud::ConnectionOptions::CreateChannelArguments
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a877ff9ed24fce99d2a64cb9a158a920d
+  name: user_agent_prefix() const
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a877ff9ed24fce99d2a64cb9a158a920d
+  fullName: >
+    google::cloud::ConnectionOptions::user_agent_prefix
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1ab21f86704d7d5df59664e4c33986715f
+  name: add_user_agent_prefix(std::string)
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1ab21f86704d7d5df59664e4c33986715f
+  fullName: >
+    google::cloud::ConnectionOptions::add_user_agent_prefix
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1abb2ecfc7d50420c53ef4721ed70b33c6
+  name: set_endpoint(std::string)
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1abb2ecfc7d50420c53ef4721ed70b33c6
+  fullName: >
+    google::cloud::ConnectionOptions::set_endpoint
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1abcf2f6f68b967c20aecaeca56cca2814
+  name: set_num_channels(int)
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1abcf2f6f68b967c20aecaeca56cca2814
+  fullName: >
+    google::cloud::ConnectionOptions::set_num_channels
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1abe5d598cf3cfdc4eadd4dafd9a0e0cfb
+  name: set_credentials(std::shared_ptr< grpc::ChannelCredentials >)
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1abe5d598cf3cfdc4eadd4dafd9a0e0cfb
+  fullName: >
+    google::cloud::ConnectionOptions::set_credentials
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1add38cfda2c0c8a541883cef94e0cede9
+  name: tracing_options() const
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1add38cfda2c0c8a541883cef94e0cede9
+  fullName: >
+    google::cloud::ConnectionOptions::tracing_options
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1aded28068ff75c1b5fd20e37ecdb7a2b4
+  name: ConnectionOptions(std::shared_ptr< grpc::ChannelCredentials >)
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1aded28068ff75c1b5fd20e37ecdb7a2b4
+  fullName: >
+    google::cloud::ConnectionOptions::ConnectionOptions
+- uid: classgoogle_1_1cloud_1_1ConnectionOptions_1ae6065c5f7db873ad6ac3df86291a573d
+  name: DisableBackgroundThreads(google::cloud::CompletionQueue const &)
+  href: classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1ae6065c5f7db873ad6ac3df86291a573d
+  fullName: >
+    google::cloud::ConnectionOptions::DisableBackgroundThreads
+- uid: classgoogle_1_1cloud_1_1Credentials
+  name: Credentials
+  href: classgoogle_1_1cloud_1_1Credentials.html
+- uid: classgoogle_1_1cloud_1_1ErrorInfo
+  name: ErrorInfo
+  href: classgoogle_1_1cloud_1_1ErrorInfo.html
+- uid: classgoogle_1_1cloud_1_1ErrorInfo_1a28ce071569c6c71d23729d4875d5e977
+  name: operator!=(ErrorInfo const &, ErrorInfo const &)
+  href: classgoogle_1_1cloud_1_1ErrorInfo.html#classgoogle_1_1cloud_1_1ErrorInfo_1a28ce071569c6c71d23729d4875d5e977
+  fullName: >
+    google::cloud::ErrorInfo::operator!=
+- uid: classgoogle_1_1cloud_1_1ErrorInfo_1a2e00303e2db2292242b1f09097abe0ee
+  name: ErrorInfo(std::string, std::string, std::unordered_map< std::string, std::string >)
+  href: classgoogle_1_1cloud_1_1ErrorInfo.html#classgoogle_1_1cloud_1_1ErrorInfo_1a2e00303e2db2292242b1f09097abe0ee
+  fullName: >
+    google::cloud::ErrorInfo::ErrorInfo
+- uid: classgoogle_1_1cloud_1_1ErrorInfo_1a3e7a9be9a728e13d3333784f63270555
+  name: operator==(ErrorInfo const &, ErrorInfo const &)
+  href: classgoogle_1_1cloud_1_1ErrorInfo.html#classgoogle_1_1cloud_1_1ErrorInfo_1a3e7a9be9a728e13d3333784f63270555
+  fullName: >
+    google::cloud::ErrorInfo::operator==
+- uid: classgoogle_1_1cloud_1_1ErrorInfo_1a4ddba4ef52448fc5388c6146732be2ea
+  name: ErrorInfo()
+  href: classgoogle_1_1cloud_1_1ErrorInfo.html#classgoogle_1_1cloud_1_1ErrorInfo_1a4ddba4ef52448fc5388c6146732be2ea
+  fullName: >
+    google::cloud::ErrorInfo::ErrorInfo
+- uid: classgoogle_1_1cloud_1_1ErrorInfo_1a638bbabb8dc7cd51d5dda6db8cee5a16
+  name: metadata() const
+  href: classgoogle_1_1cloud_1_1ErrorInfo.html#classgoogle_1_1cloud_1_1ErrorInfo_1a638bbabb8dc7cd51d5dda6db8cee5a16
+  fullName: >
+    google::cloud::ErrorInfo::metadata
+- uid: classgoogle_1_1cloud_1_1ErrorInfo_1a88e1355f82c33848c93660dc2759a816
+  name: domain() const
+  href: classgoogle_1_1cloud_1_1ErrorInfo.html#classgoogle_1_1cloud_1_1ErrorInfo_1a88e1355f82c33848c93660dc2759a816
+  fullName: >
+    google::cloud::ErrorInfo::domain
+- uid: classgoogle_1_1cloud_1_1ErrorInfo_1a9c68904d153cbec3d48191568939fcf4
+  name: reason() const
+  href: classgoogle_1_1cloud_1_1ErrorInfo.html#classgoogle_1_1cloud_1_1ErrorInfo_1a9c68904d153cbec3d48191568939fcf4
+  fullName: >
+    google::cloud::ErrorInfo::reason
+- uid: classgoogle_1_1cloud_1_1future
+  name: future<T>
+  href: classgoogle_1_1cloud_1_1future.html
+- uid: classgoogle_1_1cloud_1_1future_1a0fab9a942ca9c037d93eef02ac3a591c
+  name: future(future< U > &&)
+  href: classgoogle_1_1cloud_1_1future.html#classgoogle_1_1cloud_1_1future_1a0fab9a942ca9c037d93eef02ac3a591c
+  fullName: >
+    google::cloud::future::future
+- uid: classgoogle_1_1cloud_1_1future_1a23b7c9cabdcf116d3b908c32e627c7af
+  name: get()
+  href: classgoogle_1_1cloud_1_1future.html#classgoogle_1_1cloud_1_1future_1a23b7c9cabdcf116d3b908c32e627c7af
+  fullName: >
+    google::cloud::future::get
+- uid: classgoogle_1_1cloud_1_1future_1a44ba4050a8b72d7de43d421b3f633de8
+  name: then(F &&)
+  href: classgoogle_1_1cloud_1_1future.html#classgoogle_1_1cloud_1_1future_1a44ba4050a8b72d7de43d421b3f633de8
+  fullName: >
+    google::cloud::future::then
+- uid: classgoogle_1_1cloud_1_1future_1a724fc143a9a2e97f9e4523cd44a65e9f
+  name: future(std::shared_ptr< shared_state_type >)
+  href: classgoogle_1_1cloud_1_1future.html#classgoogle_1_1cloud_1_1future_1a724fc143a9a2e97f9e4523cd44a65e9f
+  fullName: >
+    google::cloud::future::future
+- uid: classgoogle_1_1cloud_1_1future_1ad7a72b78c2561600a88b30c52a2764eb
+  name: shared_state_type
+  href: classgoogle_1_1cloud_1_1future.html#classgoogle_1_1cloud_1_1future_1ad7a72b78c2561600a88b30c52a2764eb
+  fullName: google::cloud::future::shared_state_type
+- uid: classgoogle_1_1cloud_1_1future_1add920aaf1afc06919b4dabf4fd92734d
+  name: future()
+  href: classgoogle_1_1cloud_1_1future.html#classgoogle_1_1cloud_1_1future_1add920aaf1afc06919b4dabf4fd92734d
+  fullName: >
+    google::cloud::future::future
+- uid: classgoogle_1_1cloud_1_1future_1afe5f53983c6e3f705a050fcd1c501f50
+  name: future(future< future< T > > &&)
+  href: classgoogle_1_1cloud_1_1future.html#classgoogle_1_1cloud_1_1future_1afe5f53983c6e3f705a050fcd1c501f50
+  fullName: >
+    google::cloud::future::future
+- uid: classgoogle_1_1cloud_1_1future_3_01void_01_4
+  name: future< void >
+  href: classgoogle_1_1cloud_1_1future_3_01void_01_4.html
+- uid: classgoogle_1_1cloud_1_1future_3_01void_01_4_1a14d526677fc057ef4de4151a98caf31b
+  name: get()
+  href: classgoogle_1_1cloud_1_1future_3_01void_01_4.html#classgoogle_1_1cloud_1_1future_3_01void_01_4_1a14d526677fc057ef4de4151a98caf31b
+  fullName: >
+    google::cloud::future< void >::get
+- uid: classgoogle_1_1cloud_1_1future_3_01void_01_4_1a41a3cf31ed35d02d32a4f84572299498
+  name: future()
+  href: classgoogle_1_1cloud_1_1future_3_01void_01_4.html#classgoogle_1_1cloud_1_1future_3_01void_01_4_1a41a3cf31ed35d02d32a4f84572299498
+  fullName: >
+    google::cloud::future< void >::future
+- uid: classgoogle_1_1cloud_1_1future_3_01void_01_4_1a49ddd3b209c866c3c83b6feb2e957aaa
+  name: shared_state_type
+  href: classgoogle_1_1cloud_1_1future_3_01void_01_4.html#classgoogle_1_1cloud_1_1future_3_01void_01_4_1a49ddd3b209c866c3c83b6feb2e957aaa
+  fullName: google::cloud::future< void >::shared_state_type
+- uid: classgoogle_1_1cloud_1_1future_3_01void_01_4_1a839ca4063656b14a9d299d6ec5d16e39
+  name: future(future< T > &&)
+  href: classgoogle_1_1cloud_1_1future_3_01void_01_4.html#classgoogle_1_1cloud_1_1future_3_01void_01_4_1a839ca4063656b14a9d299d6ec5d16e39
+  fullName: >
+    google::cloud::future< void >::future
+- uid: classgoogle_1_1cloud_1_1future_3_01void_01_4_1a97465667e18deceba770306a5d440d74
+  name: future(std::shared_ptr< shared_state_type >)
+  href: classgoogle_1_1cloud_1_1future_3_01void_01_4.html#classgoogle_1_1cloud_1_1future_3_01void_01_4_1a97465667e18deceba770306a5d440d74
+  fullName: >
+    google::cloud::future< void >::future
+- uid: classgoogle_1_1cloud_1_1future_3_01void_01_4_1aae7ca0d449df6951ecbc079d933dded1
+  name: then(F &&)
+  href: classgoogle_1_1cloud_1_1future_3_01void_01_4.html#classgoogle_1_1cloud_1_1future_3_01void_01_4_1aae7ca0d449df6951ecbc079d933dded1
+  fullName: >
+    google::cloud::future< void >::then
+- uid: classgoogle_1_1cloud_1_1future_3_01void_01_4_1abc28f6f4f5afcbd5794135b4e1757cca
+  name: future(future< future< void > > &&)
+  href: classgoogle_1_1cloud_1_1future_3_01void_01_4.html#classgoogle_1_1cloud_1_1future_3_01void_01_4_1abc28f6f4f5afcbd5794135b4e1757cca
+  fullName: >
+    google::cloud::future< void >::future
+- uid: classgoogle_1_1cloud_1_1GenericPollingPolicy
+  name: GenericPollingPolicy<Retry, Backoff>
+  href: classgoogle_1_1cloud_1_1GenericPollingPolicy.html
+- uid: classgoogle_1_1cloud_1_1GenericPollingPolicy_1a5d1ef825516278545decb5c87b024e6c
+  name: virtual OnFailure(Status const &)
+  href: classgoogle_1_1cloud_1_1GenericPollingPolicy.html#classgoogle_1_1cloud_1_1GenericPollingPolicy_1a5d1ef825516278545decb5c87b024e6c
+  fullName: >
+    google::cloud::GenericPollingPolicy::OnFailure
+- uid: classgoogle_1_1cloud_1_1GenericPollingPolicy_1a62a3ef720fb43955d62ebf879bd1ebdc
+  name: virtual clone() const
+  href: classgoogle_1_1cloud_1_1GenericPollingPolicy.html#classgoogle_1_1cloud_1_1GenericPollingPolicy_1a62a3ef720fb43955d62ebf879bd1ebdc
+  fullName: >
+    google::cloud::GenericPollingPolicy::clone
+- uid: classgoogle_1_1cloud_1_1GenericPollingPolicy_1a9d3e4d7a76a484576c5c4ba5c5295884
+  name: virtual WaitPeriod()
+  href: classgoogle_1_1cloud_1_1GenericPollingPolicy.html#classgoogle_1_1cloud_1_1GenericPollingPolicy_1a9d3e4d7a76a484576c5c4ba5c5295884
+  fullName: >
+    google::cloud::GenericPollingPolicy::WaitPeriod
+- uid: classgoogle_1_1cloud_1_1GenericPollingPolicy_1ae0a25c7510fc5873721b84b2890d445f
+  name: GenericPollingPolicy(Retry, Backoff)
+  href: classgoogle_1_1cloud_1_1GenericPollingPolicy.html#classgoogle_1_1cloud_1_1GenericPollingPolicy_1ae0a25c7510fc5873721b84b2890d445f
+  fullName: >
+    google::cloud::GenericPollingPolicy::GenericPollingPolicy
+- uid: classgoogle_1_1cloud_1_1KmsKeyName
+  name: KmsKeyName
+  href: classgoogle_1_1cloud_1_1KmsKeyName.html
+- uid: classgoogle_1_1cloud_1_1KmsKeyName_1a1773459c03b69cbf5dc498f7457b618a
+  name: operator==(KmsKeyName const &, KmsKeyName const &)
+  href: classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1a1773459c03b69cbf5dc498f7457b618a
+  fullName: >
+    google::cloud::KmsKeyName::operator==
+- uid: classgoogle_1_1cloud_1_1KmsKeyName_1a263411554266dd511036a0ac8242b3ee
+  name: FullName() const
+  href: classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1a263411554266dd511036a0ac8242b3ee
+  fullName: >
+    google::cloud::KmsKeyName::FullName
+- uid: classgoogle_1_1cloud_1_1KmsKeyName_1a48947fe0f19b7af3b2d6aee0680ef4ef
+  name: KmsKeyName(std::string const &, std::string const &, std::string const &, std::string const &)
+  href: classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1a48947fe0f19b7af3b2d6aee0680ef4ef
+  fullName: >
+    google::cloud::KmsKeyName::KmsKeyName
+- uid: classgoogle_1_1cloud_1_1KmsKeyName_1a75db59489341625dd2f9ccf4aa575904
+  name: KmsKeyName(KmsKeyName &&)
+  href: classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1a75db59489341625dd2f9ccf4aa575904
+  fullName: >
+    google::cloud::KmsKeyName::KmsKeyName
+- uid: classgoogle_1_1cloud_1_1KmsKeyName_1aaecbf0eb4031f62c4ca93de7a233ef40
+  name: operator!=(KmsKeyName const &, KmsKeyName const &)
+  href: classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1aaecbf0eb4031f62c4ca93de7a233ef40
+  fullName: >
+    google::cloud::KmsKeyName::operator!=
+- uid: classgoogle_1_1cloud_1_1KmsKeyName_1aaf8ff0ccf27ee5bb1a2e5880bdeb0d7b
+  name: operator<<(std::ostream &, KmsKeyName const &)
+  href: classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1aaf8ff0ccf27ee5bb1a2e5880bdeb0d7b
+  fullName: >
+    google::cloud::KmsKeyName::operator<<
+- uid: classgoogle_1_1cloud_1_1KmsKeyName_1adbdf3b52f9377b17ddad60943fd939a4
+  name: operator=(KmsKeyName const &)
+  href: classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1adbdf3b52f9377b17ddad60943fd939a4
+  fullName: >
+    google::cloud::KmsKeyName::operator=
+- uid: classgoogle_1_1cloud_1_1KmsKeyName_1aee71728b4970eb59d9404c5999b86df6
+  name: KmsKeyName(KmsKeyName const &)
+  href: classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1aee71728b4970eb59d9404c5999b86df6
+  fullName: >
+    google::cloud::KmsKeyName::KmsKeyName
+- uid: classgoogle_1_1cloud_1_1KmsKeyName_1afdac51645369610b64b57618c943c709
+  name: operator=(KmsKeyName &&)
+  href: classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1afdac51645369610b64b57618c943c709
+  fullName: >
+    google::cloud::KmsKeyName::operator=
+- uid: classgoogle_1_1cloud_1_1LogBackend
+  name: LogBackend
+  href: classgoogle_1_1cloud_1_1LogBackend.html
+- uid: classgoogle_1_1cloud_1_1LogBackend_1a10e4aa5b5c547a7d3d79689144d5165f
+  name: ProcessWithOwnership(LogRecord)
+  href: classgoogle_1_1cloud_1_1LogBackend.html#classgoogle_1_1cloud_1_1LogBackend_1a10e4aa5b5c547a7d3d79689144d5165f
+  fullName: >
+    google::cloud::LogBackend::ProcessWithOwnership
+- uid: classgoogle_1_1cloud_1_1LogBackend_1a3bfeb9aaf88c7ffa2bb440e21bf42ffc
+  name: Process(LogRecord const &)
+  href: classgoogle_1_1cloud_1_1LogBackend.html#classgoogle_1_1cloud_1_1LogBackend_1a3bfeb9aaf88c7ffa2bb440e21bf42ffc
+  fullName: >
+    google::cloud::LogBackend::Process
+- uid: classgoogle_1_1cloud_1_1LogBackend_1a461afc85f066f490ee01505413998dff
+  name: virtual Flush()
+  href: classgoogle_1_1cloud_1_1LogBackend.html#classgoogle_1_1cloud_1_1LogBackend_1a461afc85f066f490ee01505413998dff
+  fullName: >
+    google::cloud::LogBackend::Flush
+- uid: classgoogle_1_1cloud_1_1Logger
+  name: Logger<bool>
+  href: classgoogle_1_1cloud_1_1Logger.html
+- uid: classgoogle_1_1cloud_1_1Logger_1a0fda914b21394a80ac3998594b8e1023
+  name: Stream()
+  href: classgoogle_1_1cloud_1_1Logger.html#classgoogle_1_1cloud_1_1Logger_1a0fda914b21394a80ac3998594b8e1023
+  fullName: >
+    google::cloud::Logger::Stream
+- uid: classgoogle_1_1cloud_1_1Logger_1a12889d17244b61ce0861005d46103a18
+  name: Logger(Severity, char const *, char const *, int, LogSink &)
+  href: classgoogle_1_1cloud_1_1Logger.html#classgoogle_1_1cloud_1_1Logger_1a12889d17244b61ce0861005d46103a18
+  fullName: >
+    google::cloud::Logger::Logger
+- uid: classgoogle_1_1cloud_1_1Logger_1ab04a7964f3fae6ac0406b8ae68a18fd7
+  name: enabled() const
+  href: classgoogle_1_1cloud_1_1Logger.html#classgoogle_1_1cloud_1_1Logger_1ab04a7964f3fae6ac0406b8ae68a18fd7
+  fullName: >
+    google::cloud::Logger::enabled
+- uid: classgoogle_1_1cloud_1_1Logger_1ab0edd380ba7f81e734a099e11d3f39ce
+  name: LogTo(LogSink &)
+  href: classgoogle_1_1cloud_1_1Logger.html#classgoogle_1_1cloud_1_1Logger_1ab0edd380ba7f81e734a099e11d3f39ce
+  fullName: >
+    google::cloud::Logger::LogTo
+- uid: classgoogle_1_1cloud_1_1Logger_3_01false_01_4
+  name: Logger< false >
+  href: classgoogle_1_1cloud_1_1Logger_3_01false_01_4.html
+- uid: classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1a7c26a019649d2aae6f00e9937ca6bfb8
+  name: enabled() const
+  href: classgoogle_1_1cloud_1_1Logger_3_01false_01_4.html#classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1a7c26a019649d2aae6f00e9937ca6bfb8
+  fullName: >
+    google::cloud::Logger< false >::enabled
+- uid: classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ab35c4b46d1271c2e285845d45ecd1321
+  name: Logger(Severity, char const *, char const *, int, LogSink &)
+  href: classgoogle_1_1cloud_1_1Logger_3_01false_01_4.html#classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ab35c4b46d1271c2e285845d45ecd1321
+  fullName: >
+    google::cloud::Logger< false >::Logger
+- uid: classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ad27ccd0a05917104e8704f6013091abc
+  name: Stream()
+  href: classgoogle_1_1cloud_1_1Logger_3_01false_01_4.html#classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ad27ccd0a05917104e8704f6013091abc
+  fullName: >
+    google::cloud::Logger< false >::Stream
+- uid: classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ad6682042718b825eb2c9c9bc1dd7d026
+  name: LogTo(LogSink &)
+  href: classgoogle_1_1cloud_1_1Logger_3_01false_01_4.html#classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ad6682042718b825eb2c9c9bc1dd7d026
+  fullName: >
+    google::cloud::Logger< false >::LogTo
+- uid: classgoogle_1_1cloud_1_1LogSink
+  name: LogSink
+  href: classgoogle_1_1cloud_1_1LogSink.html
+- uid: classgoogle_1_1cloud_1_1LogSink_1a06247b1adf1203876402ba6a9be76a7e
+  name: static Instance()
+  href: classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a06247b1adf1203876402ba6a9be76a7e
+  fullName: >
+    google::cloud::LogSink::Instance
+- uid: classgoogle_1_1cloud_1_1LogSink_1a1c4f0cb3319ccc87db3298a495999824
+  name: ClearBackends()
+  href: classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a1c4f0cb3319ccc87db3298a495999824
+  fullName: >
+    google::cloud::LogSink::ClearBackends
+- uid: classgoogle_1_1cloud_1_1LogSink_1a2253a4e97e469304f9be9ec0d8bced88
+  name: Log(LogRecord)
+  href: classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a2253a4e97e469304f9be9ec0d8bced88
+  fullName: >
+    google::cloud::LogSink::Log
+- uid: classgoogle_1_1cloud_1_1LogSink_1a310d372251b40d820d75e51c1707660d
+  name: static DisableStdClog()
+  href: classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a310d372251b40d820d75e51c1707660d
+  fullName: >
+    google::cloud::LogSink::DisableStdClog
+- uid: classgoogle_1_1cloud_1_1LogSink_1a5fced2b547bea605281f2bc3ffb30991
+  name: empty() const
+  href: classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a5fced2b547bea605281f2bc3ffb30991
+  fullName: >
+    google::cloud::LogSink::empty
+- uid: classgoogle_1_1cloud_1_1LogSink_1a63ec26a7560bdae9657f250bb93f6a14
+  name: AddBackend(std::shared_ptr< LogBackend >)
+  href: classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a63ec26a7560bdae9657f250bb93f6a14
+  fullName: >
+    google::cloud::LogSink::AddBackend
+- uid: classgoogle_1_1cloud_1_1LogSink_1a73593e026ab693f7fd8e4eb6b1225a79
+  name: minimum_severity() const
+  href: classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a73593e026ab693f7fd8e4eb6b1225a79
+  fullName: >
+    google::cloud::LogSink::minimum_severity
+- uid: classgoogle_1_1cloud_1_1LogSink_1a7c250d78aa40cef29613cffa93120623
+  name: set_minimum_severity(Severity)
+  href: classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a7c250d78aa40cef29613cffa93120623
+  fullName: >
+    google::cloud::LogSink::set_minimum_severity
+- uid: classgoogle_1_1cloud_1_1LogSink_1a80051cdac2de5a99b5baa1a0dd533515
+  name: LogSink()
+  href: classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a80051cdac2de5a99b5baa1a0dd533515
+  fullName: >
+    google::cloud::LogSink::LogSink
+- uid: classgoogle_1_1cloud_1_1LogSink_1a8046eb8388eeab19d534ca68639a2b80
+  name: RemoveBackend(BackendId)
+  href: classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a8046eb8388eeab19d534ca68639a2b80
+  fullName: >
+    google::cloud::LogSink::RemoveBackend
+- uid: classgoogle_1_1cloud_1_1LogSink_1a89d2d6261ef1380be3733391fdafe851
+  name: is_enabled(Severity) const
+  href: classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a89d2d6261ef1380be3733391fdafe851
+  fullName: >
+    google::cloud::LogSink::is_enabled
+- uid: classgoogle_1_1cloud_1_1LogSink_1a9d963ade2c81293ad87cb3a6b7b66bba
+  name: Flush()
+  href: classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a9d963ade2c81293ad87cb3a6b7b66bba
+  fullName: >
+    google::cloud::LogSink::Flush
+- uid: classgoogle_1_1cloud_1_1LogSink_1aa612a6eb4858ce957dd4f6881008407a
+  name: BackendCount() const
+  href: classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1aa612a6eb4858ce957dd4f6881008407a
+  fullName: >
+    google::cloud::LogSink::BackendCount
+- uid: classgoogle_1_1cloud_1_1LogSink_1ad80239c2b8148603cf0a2e44b2b65619
+  name: static EnableStdClog(Severity)
+  href: classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1ad80239c2b8148603cf0a2e44b2b65619
+  fullName: >
+    google::cloud::LogSink::EnableStdClog
+- uid: classgoogle_1_1cloud_1_1LogSink_1ad8115a6da7fdaa46facf4d51a1572181
+  name: static CompileTimeEnabled(Severity)
+  href: classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1ad8115a6da7fdaa46facf4d51a1572181
+  fullName: >
+    google::cloud::LogSink::CompileTimeEnabled
+- uid: classgoogle_1_1cloud_1_1LogSink_1af480aa59f84e27c56949904244b44984
+  name: BackendId
+  href: classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1af480aa59f84e27c56949904244b44984
+  fullName: google::cloud::LogSink::BackendId
+- uid: classgoogle_1_1cloud_1_1Options
+  name: Options
+  href: classgoogle_1_1cloud_1_1Options.html
+- uid: classgoogle_1_1cloud_1_1Options_1a0b63821262f22056e6fb5d7dafdc0fce
+  name: has() const
+  href: classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1a0b63821262f22056e6fb5d7dafdc0fce
+  fullName: >
+    google::cloud::Options::has
+- uid: classgoogle_1_1cloud_1_1Options_1a1685191ebee1d545c1bf669537b9440f
+  name: get() const
+  href: classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1a1685191ebee1d545c1bf669537b9440f
+  fullName: >
+    google::cloud::Options::get
+- uid: classgoogle_1_1cloud_1_1Options_1a357d8aa593403d3a12b2516b63027441
+  name: lookup(ValueTypeT< T >)
+  href: classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1a357d8aa593403d3a12b2516b63027441
+  fullName: >
+    google::cloud::Options::lookup
+- uid: classgoogle_1_1cloud_1_1Options_1a55949946a6dfca4a01b52162e28acbcc
+  name: set(ValueTypeT< T >)
+  href: classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1a55949946a6dfca4a01b52162e28acbcc
+  fullName: >
+    google::cloud::Options::set
+- uid: classgoogle_1_1cloud_1_1Options_1a9243331bcb81d1552263fe4f12f7f9a5
+  name: operator=(Options const &)
+  href: classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1a9243331bcb81d1552263fe4f12f7f9a5
+  fullName: >
+    google::cloud::Options::operator=
+- uid: classgoogle_1_1cloud_1_1Options_1aa987bb370871297529e9ecac22b5109f
+  name: Options(Options const &)
+  href: classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1aa987bb370871297529e9ecac22b5109f
+  fullName: >
+    google::cloud::Options::Options
+- uid: classgoogle_1_1cloud_1_1Options_1ab29e083e7db725955b438edc460c3e3e
+  name: operator=(Options &&)
+  href: classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1ab29e083e7db725955b438edc460c3e3e
+  fullName: >
+    google::cloud::Options::operator=
+- uid: classgoogle_1_1cloud_1_1Options_1abf9d24f236208dd6d9b18dffe0bd7e4f
+  name: unset()
+  href: classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1abf9d24f236208dd6d9b18dffe0bd7e4f
+  fullName: >
+    google::cloud::Options::unset
+- uid: classgoogle_1_1cloud_1_1Options_1ae4d04b0ec878b4b82630793f74e6d102
+  name: Options()
+  href: classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1ae4d04b0ec878b4b82630793f74e6d102
+  fullName: >
+    google::cloud::Options::Options
+- uid: classgoogle_1_1cloud_1_1Options_1af7638098b40961cdcddf5759254775b7
+  name: Options(Options &&)
+  href: classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1af7638098b40961cdcddf5759254775b7
+  fullName: >
+    google::cloud::Options::Options
+- uid: classgoogle_1_1cloud_1_1PollingPolicy
+  name: PollingPolicy
+  href: classgoogle_1_1cloud_1_1PollingPolicy.html
+- uid: classgoogle_1_1cloud_1_1PollingPolicy_1a03d970d4c274382a6b9cb8e8819daec3
+  name: WaitPeriod()
+  href: classgoogle_1_1cloud_1_1PollingPolicy.html#classgoogle_1_1cloud_1_1PollingPolicy_1a03d970d4c274382a6b9cb8e8819daec3
+  fullName: >
+    google::cloud::PollingPolicy::WaitPeriod
+- uid: classgoogle_1_1cloud_1_1PollingPolicy_1a42b97ed33436c1aabec55108e4333a95
+  name: OnFailure(Status const &)
+  href: classgoogle_1_1cloud_1_1PollingPolicy.html#classgoogle_1_1cloud_1_1PollingPolicy_1a42b97ed33436c1aabec55108e4333a95
+  fullName: >
+    google::cloud::PollingPolicy::OnFailure
+- uid: classgoogle_1_1cloud_1_1PollingPolicy_1aa76d4da9504c38830269f78758fee846
+  name: clone() const
+  href: classgoogle_1_1cloud_1_1PollingPolicy.html#classgoogle_1_1cloud_1_1PollingPolicy_1aa76d4da9504c38830269f78758fee846
+  fullName: >
+    google::cloud::PollingPolicy::clone
+- uid: classgoogle_1_1cloud_1_1Project
+  name: Project
+  href: classgoogle_1_1cloud_1_1Project.html
+- uid: classgoogle_1_1cloud_1_1Project_1a061f14639f43d13c5b2bdf558c193348
+  name: operator<<(std::ostream &, Project const &)
+  href: classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1a061f14639f43d13c5b2bdf558c193348
+  fullName: >
+    google::cloud::Project::operator<<
+- uid: classgoogle_1_1cloud_1_1Project_1a2ddc65dd13bc985ea4714c202f224838
+  name: operator=(Project &&)
+  href: classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1a2ddc65dd13bc985ea4714c202f224838
+  fullName: >
+    google::cloud::Project::operator=
+- uid: classgoogle_1_1cloud_1_1Project_1a4f55194bbe8dbd84d8d5588d1ba40fa8
+  name: Project(std::string)
+  href: classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1a4f55194bbe8dbd84d8d5588d1ba40fa8
+  fullName: >
+    google::cloud::Project::Project
+- uid: classgoogle_1_1cloud_1_1Project_1a58f67caab0a321a16b8b860a79f900bf
+  name: project_id() const
+  href: classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1a58f67caab0a321a16b8b860a79f900bf
+  fullName: >
+    google::cloud::Project::project_id
+- uid: classgoogle_1_1cloud_1_1Project_1a8862157f734c5da4a84761c6b3f5aa63
+  name: operator=(Project const &)
+  href: classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1a8862157f734c5da4a84761c6b3f5aa63
+  fullName: >
+    google::cloud::Project::operator=
+- uid: classgoogle_1_1cloud_1_1Project_1a98b66fce732953e55fd3bb88ebc2501f
+  name: Project(Project const &)
+  href: classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1a98b66fce732953e55fd3bb88ebc2501f
+  fullName: >
+    google::cloud::Project::Project
+- uid: classgoogle_1_1cloud_1_1Project_1aa2e8dcd9663a6826480439c1711e00e3
+  name: operator!=(Project const &, Project const &)
+  href: classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1aa2e8dcd9663a6826480439c1711e00e3
+  fullName: >
+    google::cloud::Project::operator!=
+- uid: classgoogle_1_1cloud_1_1Project_1ab7f7e3518663d77f7ea111d6369f719e
+  name: FullName() const
+  href: classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1ab7f7e3518663d77f7ea111d6369f719e
+  fullName: >
+    google::cloud::Project::FullName
+- uid: classgoogle_1_1cloud_1_1Project_1ac8238fa11c57663d45b2f1703470e34d
+  name: Project(Project &&)
+  href: classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1ac8238fa11c57663d45b2f1703470e34d
+  fullName: >
+    google::cloud::Project::Project
+- uid: classgoogle_1_1cloud_1_1Project_1ad765aa3dd3db687f6992d633c65f1c0e
+  name: operator==(Project const &, Project const &)
+  href: classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1ad765aa3dd3db687f6992d633c65f1c0e
+  fullName: >
+    google::cloud::Project::operator==
+- uid: classgoogle_1_1cloud_1_1promise
+  name: promise<T>
+  href: classgoogle_1_1cloud_1_1promise.html
+- uid: classgoogle_1_1cloud_1_1promise_1a07b347a589ad559ca2352c6ed43391c1
+  name: promise(promise &&)
+  href: classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1a07b347a589ad559ca2352c6ed43391c1
+  fullName: >
+    google::cloud::promise::promise
+- uid: classgoogle_1_1cloud_1_1promise_1a1601ae4e763a866784997678fc6056a7
+  name: swap(promise &)
+  href: classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1a1601ae4e763a866784997678fc6056a7
+  fullName: >
+    google::cloud::promise::swap
+- uid: classgoogle_1_1cloud_1_1promise_1a189b3394c43f2bf11d2d801a1bbfb42e
+  name: promise()
+  href: classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1a189b3394c43f2bf11d2d801a1bbfb42e
+  fullName: >
+    google::cloud::promise::promise
+- uid: classgoogle_1_1cloud_1_1promise_1a5a58cbb0133247b4ee8e878f4d68f02b
+  name: promise(null_promise_t)
+  href: classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1a5a58cbb0133247b4ee8e878f4d68f02b
+  fullName: >
+    google::cloud::promise::promise
+- uid: classgoogle_1_1cloud_1_1promise_1a5ac28874dc5760ae84001fc6a8e5ed36
+  name: operator=(promise &&)
+  href: classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1a5ac28874dc5760ae84001fc6a8e5ed36
+  fullName: >
+    google::cloud::promise::operator=
+- uid: classgoogle_1_1cloud_1_1promise_1a7667c550fdd0e0a7192e5da40d984123
+  name: operator=(promise const &)
+  href: classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1a7667c550fdd0e0a7192e5da40d984123
+  fullName: >
+    google::cloud::promise::operator=
+- uid: classgoogle_1_1cloud_1_1promise_1a98c2ab3b9b52fc645c0bdff5d3537365
+  name: get_future()
+  href: classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1a98c2ab3b9b52fc645c0bdff5d3537365
+  fullName: >
+    google::cloud::promise::get_future
+- uid: classgoogle_1_1cloud_1_1promise_1abb1b4b6d2e0265dc3e6a88728dcfc6e7
+  name: promise(promise const &)
+  href: classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1abb1b4b6d2e0265dc3e6a88728dcfc6e7
+  fullName: >
+    google::cloud::promise::promise
+- uid: classgoogle_1_1cloud_1_1promise_1ae8f4f532c37f1b125e0aeaceda85ab0c
+  name: promise(std::function< void()>)
+  href: classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1ae8f4f532c37f1b125e0aeaceda85ab0c
+  fullName: >
+    google::cloud::promise::promise
+- uid: classgoogle_1_1cloud_1_1promise_1aeee6cf2c7a32b01c1b2b9ff728932cee
+  name: set_value(T)
+  href: classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1aeee6cf2c7a32b01c1b2b9ff728932cee
+  fullName: >
+    google::cloud::promise::set_value
+- uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4
+  name: promise< void >
+  href: classgoogle_1_1cloud_1_1promise_3_01void_01_4.html
+- uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a01c053906f613d3cb2be52091fe0b79c
+  name: operator=(promise const &)
+  href: classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a01c053906f613d3cb2be52091fe0b79c
+  fullName: >
+    google::cloud::promise< void >::operator=
+- uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a065f3678dc33ee8e4b689a2a21240975
+  name: operator=(promise &&)
+  href: classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a065f3678dc33ee8e4b689a2a21240975
+  fullName: >
+    google::cloud::promise< void >::operator=
+- uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a1807fb9277f6e4900d8051eb65d33e59
+  name: promise(null_promise_t)
+  href: classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a1807fb9277f6e4900d8051eb65d33e59
+  fullName: >
+    google::cloud::promise< void >::promise
+- uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a19af69bb1f73508cb6e2b471a94f2d6d
+  name: get_future()
+  href: classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a19af69bb1f73508cb6e2b471a94f2d6d
+  fullName: >
+    google::cloud::promise< void >::get_future
+- uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a237bf716876730fe9ecbbeae992a52df
+  name: swap(promise &)
+  href: classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a237bf716876730fe9ecbbeae992a52df
+  fullName: >
+    google::cloud::promise< void >::swap
+- uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a55b13940bb2bf1260fb7042933de142a
+  name: set_value()
+  href: classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a55b13940bb2bf1260fb7042933de142a
+  fullName: >
+    google::cloud::promise< void >::set_value
+- uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a94c3516c1e49f3b59de94b6a98b46ff7
+  name: promise(std::function< void()>)
+  href: classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a94c3516c1e49f3b59de94b6a98b46ff7
+  fullName: >
+    google::cloud::promise< void >::promise
+- uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1ab6d1fa4f4e820135b47100f6eb695725
+  name: promise()
+  href: classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1ab6d1fa4f4e820135b47100f6eb695725
+  fullName: >
+    google::cloud::promise< void >::promise
+- uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1abe518a58bcaa85224c47290cd5363c0f
+  name: promise(promise &&)
+  href: classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1abe518a58bcaa85224c47290cd5363c0f
+  fullName: >
+    google::cloud::promise< void >::promise
+- uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4_1aec731fd14ca49f27e2a97fb34d895e96
+  name: promise(promise const &)
+  href: classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1aec731fd14ca49f27e2a97fb34d895e96
+  fullName: >
+    google::cloud::promise< void >::promise
+- uid: classgoogle_1_1cloud_1_1RuntimeStatusError
+  name: RuntimeStatusError
+  href: classgoogle_1_1cloud_1_1RuntimeStatusError.html
+- uid: classgoogle_1_1cloud_1_1RuntimeStatusError_1aac6b78160cce6468696ce77eb1276a95
+  name: RuntimeStatusError(Status)
+  href: classgoogle_1_1cloud_1_1RuntimeStatusError.html#classgoogle_1_1cloud_1_1RuntimeStatusError_1aac6b78160cce6468696ce77eb1276a95
+  fullName: >
+    google::cloud::RuntimeStatusError::RuntimeStatusError
+- uid: classgoogle_1_1cloud_1_1RuntimeStatusError_1ac30dbdb272a62aee4eb8f9bf45966c7e
+  name: status() const
+  href: classgoogle_1_1cloud_1_1RuntimeStatusError.html#classgoogle_1_1cloud_1_1RuntimeStatusError_1ac30dbdb272a62aee4eb8f9bf45966c7e
+  fullName: >
+    google::cloud::RuntimeStatusError::status
+- uid: classgoogle_1_1cloud_1_1Status
+  name: Status
+  href: classgoogle_1_1cloud_1_1Status.html
+- uid: classgoogle_1_1cloud_1_1Status_1a172e846ab5623d78d49e2ed128f49583
+  name: error_info() const
+  href: classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1a172e846ab5623d78d49e2ed128f49583
+  fullName: >
+    google::cloud::Status::error_info
+- uid: classgoogle_1_1cloud_1_1Status_1a18952043ffe5a4f74911c8146e8bb504
+  name: ok() const
+  href: classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1a18952043ffe5a4f74911c8146e8bb504
+  fullName: >
+    google::cloud::Status::ok
+- uid: classgoogle_1_1cloud_1_1Status_1a23aaae701351564b3a17f47d5cb4e7cb
+  name: operator=(Status &&)
+  href: classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1a23aaae701351564b3a17f47d5cb4e7cb
+  fullName: >
+    google::cloud::Status::operator=
+- uid: classgoogle_1_1cloud_1_1Status_1a3624db9be409bca17dc8940db074ddff
+  name: operator!=(Status const &, Status const &)
+  href: classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1a3624db9be409bca17dc8940db074ddff
+  fullName: >
+    google::cloud::Status::operator!=
+- uid: classgoogle_1_1cloud_1_1Status_1a675be7e53ab9b27d69ba776a3c1ca7bf
+  name: operator=(Status const &)
+  href: classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1a675be7e53ab9b27d69ba776a3c1ca7bf
+  fullName: >
+    google::cloud::Status::operator=
+- uid: classgoogle_1_1cloud_1_1Status_1a8c00daab4bca2eeb428f816fabf59492
+  name: operator==(Status const &, Status const &)
+  href: classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1a8c00daab4bca2eeb428f816fabf59492
+  fullName: >
+    google::cloud::Status::operator==
+- uid: classgoogle_1_1cloud_1_1Status_1aa3656155ad44d8bd75d92cd797123f4d
+  name: Status(Status const &)
+  href: classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1aa3656155ad44d8bd75d92cd797123f4d
+  fullName: >
+    google::cloud::Status::Status
+- uid: classgoogle_1_1cloud_1_1Status_1aaa8dea39008758d8494f29b12b92be02
+  name: message() const
+  href: classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1aaa8dea39008758d8494f29b12b92be02
+  fullName: >
+    google::cloud::Status::message
+- uid: classgoogle_1_1cloud_1_1Status_1ac18337d2ceb00ca007725d21f2c63f9f
+  name: code() const
+  href: classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1ac18337d2ceb00ca007725d21f2c63f9f
+  fullName: >
+    google::cloud::Status::code
+- uid: classgoogle_1_1cloud_1_1Status_1af3de0fb0dee8fb557e693195a812987f
+  name: Status()
+  href: classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1af3de0fb0dee8fb557e693195a812987f
+  fullName: >
+    google::cloud::Status::Status
+- uid: classgoogle_1_1cloud_1_1Status_1af927a89141bbcf10f0e02d789ebade94
+  name: Status(StatusCode, std::string, ErrorInfo)
+  href: classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1af927a89141bbcf10f0e02d789ebade94
+  fullName: >
+    google::cloud::Status::Status
+- uid: classgoogle_1_1cloud_1_1Status_1afd186465a07fa176c10d437c1240f2de
+  name: Status(Status &&)
+  href: classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1afd186465a07fa176c10d437c1240f2de
+  fullName: >
+    google::cloud::Status::Status
+- uid: classgoogle_1_1cloud_1_1StatusOr
+  name: StatusOr<T>
+  href: classgoogle_1_1cloud_1_1StatusOr.html
+- uid: classgoogle_1_1cloud_1_1StatusOr_1a00d8a93a92c455cffd5787d1c05c3230
+  name: StatusOr(T const &)
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a00d8a93a92c455cffd5787d1c05c3230
+  fullName: >
+    google::cloud::StatusOr::StatusOr
+- uid: classgoogle_1_1cloud_1_1StatusOr_1a010daabd5030f6c5a0b6aa689b682472
+  name: operator*() &&
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a010daabd5030f6c5a0b6aa689b682472
+  fullName: >
+    google::cloud::StatusOr::operator*
+- uid: classgoogle_1_1cloud_1_1StatusOr_1a09043295e2c7c6dbc57e7c932926269f
+  name: operator->() const &
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a09043295e2c7c6dbc57e7c932926269f
+  fullName: >
+    google::cloud::StatusOr::operator->
+- uid: classgoogle_1_1cloud_1_1StatusOr_1a13c395d28dd33824d174c3843687aad9
+  name: operator*() const &&
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a13c395d28dd33824d174c3843687aad9
+  fullName: >
+    google::cloud::StatusOr::operator*
+- uid: classgoogle_1_1cloud_1_1StatusOr_1a15bd3bdffe4f0cb52da4ec73d5ed2a42
+  name: StatusOr(StatusOr &&)
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a15bd3bdffe4f0cb52da4ec73d5ed2a42
+  fullName: >
+    google::cloud::StatusOr::StatusOr
+- uid: classgoogle_1_1cloud_1_1StatusOr_1a2f3f95ac87322b5e6593c61de407d045
+  name: value_type
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a2f3f95ac87322b5e6593c61de407d045
+  fullName: google::cloud::StatusOr::value_type
+- uid: classgoogle_1_1cloud_1_1StatusOr_1a30a58f04b5e7b936ee6571084a853e9d
+  name: value() const &&
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a30a58f04b5e7b936ee6571084a853e9d
+  fullName: >
+    google::cloud::StatusOr::value
+- uid: classgoogle_1_1cloud_1_1StatusOr_1a3851160a971f8b5e06f3dad432bb2c21
+  name: status() &&
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a3851160a971f8b5e06f3dad432bb2c21
+  fullName: >
+    google::cloud::StatusOr::status
+- uid: classgoogle_1_1cloud_1_1StatusOr_1a3ad91c0d133de45ace554fb810f97b14
+  name: operator=(Status)
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a3ad91c0d133de45ace554fb810f97b14
+  fullName: >
+    google::cloud::StatusOr::operator=
+- uid: classgoogle_1_1cloud_1_1StatusOr_1a3c792bab2c0d0b4840d8cca3a07c1ca0
+  name: operator=(U &&)
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a3c792bab2c0d0b4840d8cca3a07c1ca0
+  fullName: >
+    google::cloud::StatusOr::operator=
+- uid: classgoogle_1_1cloud_1_1StatusOr_1a4282edcbc114def76d690dd4f595325b
+  name: operator bool() const
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a4282edcbc114def76d690dd4f595325b
+  fullName: >
+    google::cloud::StatusOr::operator bool
+- uid: classgoogle_1_1cloud_1_1StatusOr_1a46da72dc9d35a019bd1359f4b3b4f8bd
+  name: status() const &
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a46da72dc9d35a019bd1359f4b3b4f8bd
+  fullName: >
+    google::cloud::StatusOr::status
+- uid: classgoogle_1_1cloud_1_1StatusOr_1a741f115cfdd32723958f4b4528fe1ab8
+  name: StatusOr(StatusOr const &)
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a741f115cfdd32723958f4b4528fe1ab8
+  fullName: >
+    google::cloud::StatusOr::StatusOr
+- uid: classgoogle_1_1cloud_1_1StatusOr_1a95250d82418ed95673d41377347a3dbd
+  name: operator*() &
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a95250d82418ed95673d41377347a3dbd
+  fullName: >
+    google::cloud::StatusOr::operator*
+- uid: classgoogle_1_1cloud_1_1StatusOr_1a9efeaa6ef3e44529bffbcef1aad20168
+  name: operator->() &
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a9efeaa6ef3e44529bffbcef1aad20168
+  fullName: >
+    google::cloud::StatusOr::operator->
+- uid: classgoogle_1_1cloud_1_1StatusOr_1aa4abd48a28fc10d9e9f35e79a82a03ff
+  name: StatusOr()
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1aa4abd48a28fc10d9e9f35e79a82a03ff
+  fullName: >
+    google::cloud::StatusOr::StatusOr
+- uid: classgoogle_1_1cloud_1_1StatusOr_1aa9983639335d1eb5d64627030226d532
+  name: operator*() const &
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1aa9983639335d1eb5d64627030226d532
+  fullName: >
+    google::cloud::StatusOr::operator*
+- uid: classgoogle_1_1cloud_1_1StatusOr_1ab7d8005a1d44e2e140220776aad093bc
+  name: StatusOr(Status)
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1ab7d8005a1d44e2e140220776aad093bc
+  fullName: >
+    google::cloud::StatusOr::StatusOr
+- uid: classgoogle_1_1cloud_1_1StatusOr_1ad4f329657805aa8e7a06649385e270bb
+  name: value() const &
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1ad4f329657805aa8e7a06649385e270bb
+  fullName: >
+    google::cloud::StatusOr::value
+- uid: classgoogle_1_1cloud_1_1StatusOr_1adadee001e7aa8b9823053373e88793f9
+  name: operator=(StatusOr const &)
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1adadee001e7aa8b9823053373e88793f9
+  fullName: >
+    google::cloud::StatusOr::operator=
+- uid: classgoogle_1_1cloud_1_1StatusOr_1ae5cc86e877f3744887c8e64e40903795
+  name: value() &&
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1ae5cc86e877f3744887c8e64e40903795
+  fullName: >
+    google::cloud::StatusOr::value
+- uid: classgoogle_1_1cloud_1_1StatusOr_1ae8fe30215a7be3414a42ef68c108be86
+  name: StatusOr(T &&)
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1ae8fe30215a7be3414a42ef68c108be86
+  fullName: >
+    google::cloud::StatusOr::StatusOr
+- uid: classgoogle_1_1cloud_1_1StatusOr_1ae96b1085b75ea736251125d73994a488
+  name: operator=(StatusOr &&)
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1ae96b1085b75ea736251125d73994a488
+  fullName: >
+    google::cloud::StatusOr::operator=
+- uid: classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697
+  name: value() &
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697
+  fullName: >
+    google::cloud::StatusOr::value
+- uid: classgoogle_1_1cloud_1_1StatusOr_1afce69df5d31d0fba3bd95b317580ae11
+  name: ok() const
+  href: classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1afce69df5d31d0fba3bd95b317580ae11
+  fullName: >
+    google::cloud::StatusOr::ok
+- uid: classgoogle_1_1cloud_1_1StreamRange
+  name: StreamRange<T>
+  href: classgoogle_1_1cloud_1_1StreamRange.html
+- uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl
+  name: IteratorImpl<U>
+  href: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl
+- uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a214c0c24a1be43066d9007e35135bf53
+  name: operator==(IteratorImpl const &, IteratorImpl const &)
+  href: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a214c0c24a1be43066d9007e35135bf53
+  fullName: >
+    google::cloud::StreamRange::IteratorImpl::operator==
+- uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a226e306960543d1fa95785dfc739b874
+  name: value_type
+  href: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a226e306960543d1fa95785dfc739b874
+  fullName: google::cloud::StreamRange::IteratorImpl::value_type
+- uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a275b412a4b0b4315df63d319edcb71e6
+  name: operator->()
+  href: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a275b412a4b0b4315df63d319edcb71e6
+  fullName: >
+    google::cloud::StreamRange::IteratorImpl::operator->
+- uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a3307d9a12fb9448db3c9c366ebed9326
+  name: difference_type
+  href: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a3307d9a12fb9448db3c9c366ebed9326
+  fullName: google::cloud::StreamRange::IteratorImpl::difference_type
+- uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a51cda50021c4a0aac6d18399e2250fd4
+  name: operator++()
+  href: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a51cda50021c4a0aac6d18399e2250fd4
+  fullName: >
+    google::cloud::StreamRange::IteratorImpl::operator++
+- uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a5f01954ff044dd045b94eb4a0cc69dd2
+  name: pointer
+  href: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a5f01954ff044dd045b94eb4a0cc69dd2
+  fullName: google::cloud::StreamRange::IteratorImpl::pointer
+- uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a6327ee807f0303b61f8ddd41bade787b
+  name: const_pointer
+  href: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a6327ee807f0303b61f8ddd41bade787b
+  fullName: google::cloud::StreamRange::IteratorImpl::const_pointer
+- uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a736a31477f42f53e47ecc79c2e1c7a49
+  name: iterator_category
+  href: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a736a31477f42f53e47ecc79c2e1c7a49
+  fullName: google::cloud::StreamRange::IteratorImpl::iterator_category
+- uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a76ce97e0258cada08be80f4804454438
+  name: const_reference
+  href: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a76ce97e0258cada08be80f4804454438
+  fullName: google::cloud::StreamRange::IteratorImpl::const_reference
+- uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a92b0225aa11f564cf5d405dbf8f036ef
+  name: operator++(int)
+  href: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a92b0225aa11f564cf5d405dbf8f036ef
+  fullName: >
+    google::cloud::StreamRange::IteratorImpl::operator++
+- uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1ac7514a29c8eb02157f024908bbaa1d3b
+  name: operator->() const
+  href: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1ac7514a29c8eb02157f024908bbaa1d3b
+  fullName: >
+    google::cloud::StreamRange::IteratorImpl::operator->
+- uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1ad64ca13d75c7c8a92866370b6e82555a
+  name: IteratorImpl()
+  href: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1ad64ca13d75c7c8a92866370b6e82555a
+  fullName: >
+    google::cloud::StreamRange::IteratorImpl::IteratorImpl
+- uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1ae11c83c373859ba214dc3e0a6b76e6e6
+  name: operator*() const
+  href: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1ae11c83c373859ba214dc3e0a6b76e6e6
+  fullName: >
+    google::cloud::StreamRange::IteratorImpl::operator*
+- uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1ae197bc9d8d6967b520e73b433c51ece3
+  name: operator*()
+  href: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1ae197bc9d8d6967b520e73b433c51ece3
+  fullName: >
+    google::cloud::StreamRange::IteratorImpl::operator*
+- uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1aefc747de8f7d3d4e9c78cd3855dc683d
+  name: operator!=(IteratorImpl const &, IteratorImpl const &)
+  href: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1aefc747de8f7d3d4e9c78cd3855dc683d
+  fullName: >
+    google::cloud::StreamRange::IteratorImpl::operator!=
+- uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1af8f872654d80ba6850c00a5d3ee74194
+  name: reference
+  href: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1af8f872654d80ba6850c00a5d3ee74194
+  fullName: google::cloud::StreamRange::IteratorImpl::reference
+- uid: classgoogle_1_1cloud_1_1StreamRange_1a09724d141e9e41018f98eebe81e7e87e
+  name: operator=(StreamRange &&)
+  href: classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a09724d141e9e41018f98eebe81e7e87e
+  fullName: >
+    google::cloud::StreamRange::operator=
+- uid: classgoogle_1_1cloud_1_1StreamRange_1a0a6da9738af7a7b84a2eaab8b7b5b575
+  name: reference
+  href: classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a0a6da9738af7a7b84a2eaab8b7b5b575
+  fullName: google::cloud::StreamRange::reference
+- uid: classgoogle_1_1cloud_1_1StreamRange_1a0e71520c598a1649ddd54cca5a0336f8
+  name: begin()
+  href: classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a0e71520c598a1649ddd54cca5a0336f8
+  fullName: >
+    google::cloud::StreamRange::begin
+- uid: classgoogle_1_1cloud_1_1StreamRange_1a12769e19a893ba3ddd9b87c6b160b7c4
+  name: StreamRange()
+  href: classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a12769e19a893ba3ddd9b87c6b160b7c4
+  fullName: >
+    google::cloud::StreamRange::StreamRange
+- uid: classgoogle_1_1cloud_1_1StreamRange_1a46c27d4893b2ff0435cd99364d83c33b
+  name: const_reference
+  href: classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a46c27d4893b2ff0435cd99364d83c33b
+  fullName: google::cloud::StreamRange::const_reference
+- uid: classgoogle_1_1cloud_1_1StreamRange_1a546db8a63da273c117ce2cefac0ef3be
+  name: iterator
+  href: classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a546db8a63da273c117ce2cefac0ef3be
+  fullName: google::cloud::StreamRange::iterator
+- uid: classgoogle_1_1cloud_1_1StreamRange_1a712af3969dccfcb7ffd005015a8286f9
+  name: StreamRange(StreamRange const &)
+  href: classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a712af3969dccfcb7ffd005015a8286f9
+  fullName: >
+    google::cloud::StreamRange::StreamRange
+- uid: classgoogle_1_1cloud_1_1StreamRange_1a717e032ce46abfa423f908143d608c71
+  name: value_type
+  href: classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a717e032ce46abfa423f908143d608c71
+  fullName: google::cloud::StreamRange::value_type
+- uid: classgoogle_1_1cloud_1_1StreamRange_1a925240881f4cb2afaf4b3f6806422eac
+  name: StreamRange(StreamRange &&)
+  href: classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a925240881f4cb2afaf4b3f6806422eac
+  fullName: >
+    google::cloud::StreamRange::StreamRange
+- uid: classgoogle_1_1cloud_1_1StreamRange_1aa943ef32ee6ca8096d91e9f8d00a0b68
+  name: pointer
+  href: classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1aa943ef32ee6ca8096d91e9f8d00a0b68
+  fullName: google::cloud::StreamRange::pointer
+- uid: classgoogle_1_1cloud_1_1StreamRange_1aab2620724dbe9f681e66544cbe6d37d1
+  name: end()
+  href: classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1aab2620724dbe9f681e66544cbe6d37d1
+  fullName: >
+    google::cloud::StreamRange::end
+- uid: classgoogle_1_1cloud_1_1StreamRange_1aac8c266c68bdbaa3e6c9a86b2e36b534
+  name: operator=(StreamRange const &)
+  href: classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1aac8c266c68bdbaa3e6c9a86b2e36b534
+  fullName: >
+    google::cloud::StreamRange::operator=
+- uid: classgoogle_1_1cloud_1_1StreamRange_1ae57d3c2448e7e9f8d4e0f9439a0b3d5e
+  name: difference_type
+  href: classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1ae57d3c2448e7e9f8d4e0f9439a0b3d5e
+  fullName: google::cloud::StreamRange::difference_type
+- uid: classgoogle_1_1cloud_1_1StreamRange_1affda63a549b55279c6a1768526a4648b
+  name: const_pointer
+  href: classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1affda63a549b55279c6a1768526a4648b
+  fullName: google::cloud::StreamRange::const_pointer
+- uid: classgoogle_1_1cloud_1_1TracingOptions
+  name: TracingOptions
+  href: classgoogle_1_1cloud_1_1TracingOptions.html
+- uid: classgoogle_1_1cloud_1_1TracingOptions_1a1b3110bfbf63939caa1c03f57cdefd97
+  name: operator==(TracingOptions const &, TracingOptions const &)
+  href: classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a1b3110bfbf63939caa1c03f57cdefd97
+  fullName: >
+    google::cloud::TracingOptions::operator==
+- uid: classgoogle_1_1cloud_1_1TracingOptions_1a2f7be5c6f1a067f9e5400f22384aa0a7
+  name: TracingOptions()
+  href: classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a2f7be5c6f1a067f9e5400f22384aa0a7
+  fullName: >
+    google::cloud::TracingOptions::TracingOptions
+- uid: classgoogle_1_1cloud_1_1TracingOptions_1a30cdffb8829955b21ed95058cf385c3e
+  name: TracingOptions(TracingOptions const &)
+  href: classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a30cdffb8829955b21ed95058cf385c3e
+  fullName: >
+    google::cloud::TracingOptions::TracingOptions
+- uid: classgoogle_1_1cloud_1_1TracingOptions_1a357553e2f32a36763048dd7662f73aa4
+  name: truncate_string_field_longer_than() const
+  href: classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a357553e2f32a36763048dd7662f73aa4
+  fullName: >
+    google::cloud::TracingOptions::truncate_string_field_longer_than
+- uid: classgoogle_1_1cloud_1_1TracingOptions_1a35b5256b9307d06f441c9502f58f51e4
+  name: single_line_mode() const
+  href: classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a35b5256b9307d06f441c9502f58f51e4
+  fullName: >
+    google::cloud::TracingOptions::single_line_mode
+- uid: classgoogle_1_1cloud_1_1TracingOptions_1a4d375de4d26ea4be7a75633186358a63
+  name: operator!=(TracingOptions const &, TracingOptions const &)
+  href: classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a4d375de4d26ea4be7a75633186358a63
+  fullName: >
+    google::cloud::TracingOptions::operator!=
+- uid: classgoogle_1_1cloud_1_1TracingOptions_1a6a4ce192f978e6c66c86a1b150e47ba5
+  name: use_short_repeated_primitives() const
+  href: classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a6a4ce192f978e6c66c86a1b150e47ba5
+  fullName: >
+    google::cloud::TracingOptions::use_short_repeated_primitives
+- uid: classgoogle_1_1cloud_1_1TracingOptions_1a8a21887562f01910fa63d57f615714ff
+  name: SetOptions(std::string const &)
+  href: classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a8a21887562f01910fa63d57f615714ff
+  fullName: >
+    google::cloud::TracingOptions::SetOptions
+- uid: classgoogle_1_1cloud_1_1TracingOptions_1a977f68415ea4e90df7dd09f14578575c
+  name: operator=(TracingOptions const &)
+  href: classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a977f68415ea4e90df7dd09f14578575c
+  fullName: >
+    google::cloud::TracingOptions::operator=
+- uid: classgoogle_1_1cloud_1_1TracingOptions_1a9e9ab47d0c17f76ff7b7a532c16f490e
+  name: TracingOptions(TracingOptions &&)
+  href: classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a9e9ab47d0c17f76ff7b7a532c16f490e
+  fullName: >
+    google::cloud::TracingOptions::TracingOptions
+- uid: classgoogle_1_1cloud_1_1TracingOptions_1aec012437e7f707ea08eb5e65ab645980
+  name: operator=(TracingOptions &&)
+  href: classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1aec012437e7f707ea08eb5e65ab645980
+  fullName: >
+    google::cloud::TracingOptions::operator=
+- uid: common-error-handling
+  name: Error Handling
+  href: common-error-handling.html
+- uid: group__guac
+  name: 
+  href: group__guac.html
+- uid: group__guac_1ga0f2d23032efe73d17745a5f53112b918
+  name: MakeServiceAccountCredentials(std::string, Options)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::MakeServiceAccountCredentials
+- uid: group__guac_1ga51e8f3c130c4f0f8457c5f9e4bf5e013
+  name: MakeAccessTokenCredentials(std::string const &, std::chrono::system_clock::time_point, Options)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::MakeAccessTokenCredentials
+- uid: group__guac_1ga5b10de8aaba7ac9cefcea94b3d195bc1
+  name: MakeImpersonateServiceAccountCredentials(std::shared_ptr< Credentials >, std::string, Options)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::MakeImpersonateServiceAccountCredentials
+- uid: group__guac_1ga5d87aa265cd139ab190d7490b8a85c09
+  name: MakeInsecureCredentials(Options)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::MakeInsecureCredentials
+- uid: group__guac_1ga75e5dbea7079dbb177fe6f7e8bd6edb5
+  name: MakeExternalAccountCredentials(std::string, Options)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::MakeExternalAccountCredentials
+- uid: group__guac_1gae42afce56cd78e04c6aca74337829b38
+  name: MakeGoogleDefaultCredentials(Options)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::MakeGoogleDefaultCredentials
+- uid: group__options
+  name: 
+  href: group__options.html
+- uid: group__rest-options
+  name: 
+  href: group__rest-options.html
+- uid: group__terminate
+  name: 
+  href: group__terminate.html
+- uid: group__terminate_1ga121c4576dd45c93c46ab8fa56bafab38
+  name: GetTerminateHandler()
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::GetTerminateHandler
+- uid: group__terminate_1ga6182a1baf32421d3572a904044d6089d
+  name: SetTerminateHandler(TerminateHandler)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::SetTerminateHandler
+- uid: group__terminate_1gac5d2d48b27f2cd1de9075a1c9522f0cf
+  name: Terminate(char const *)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::Terminate
+- uid: group__terminate_1gacc215b41a0bf17a7ea762fd5bb205348
+  name: TerminateHandler
+  href: namespacegoogle_1_1cloud.html
+  fullName: google::cloud::TerminateHandler
+- uid: indexpage
+  name: Common Components for the Google Cloud C++ Client Libraries
+  href: index.html
+- uid: logging
+  name: Logging Components
+  href: logging.html
+- uid: namespacegoogle_1_1cloud
+  name: google::cloud
+  href: namespacegoogle_1_1cloud.html
+- uid: namespacegoogle_1_1cloud_1_1mocks
+  name: google::cloud::mocks
+  href: namespacegoogle_1_1cloud_1_1mocks.html
+- uid: namespacegoogle_1_1cloud_1_1mocks_1a1563fd92115349d2e454922c764b991e
+  name: MakeStreamRange(std::vector< T >, Status)
+  href: namespacegoogle_1_1cloud_1_1mocks.html
+  fullName: >
+    google::cloud::mocks::MakeStreamRange
+- uid: namespacegoogle_1_1cloud_1_1mocks_1a89e1ab5764b466d9e837ebeaa636f353
+  name: CurrentOptions()
+  href: namespacegoogle_1_1cloud_1_1mocks.html
+  fullName: >
+    google::cloud::mocks::CurrentOptions
+- uid: namespacegoogle_1_1cloud_1a0c2b787f31888303e995bc8b390c68b8
+  name: MakeStatusFromRpcError(grpc::Status const &)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::MakeStatusFromRpcError
+- uid: namespacegoogle_1_1cloud_1a1498c1ea55d81842f37bbc42d003df1f
+  name: BackgroundThreadsFactory
+  href: namespacegoogle_1_1cloud.html
+  fullName: google::cloud::BackgroundThreadsFactory
+- uid: namespacegoogle_1_1cloud_1a2487299690c92afa651d0498f107d0d5
+  name: MakeKmsKeyName(std::string const &)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::MakeKmsKeyName
+- uid: namespacegoogle_1_1cloud_1a2d994d61451f865f26bd6545e0ff4169
+  name: operator<<(std::ostream &, LogRecord const &)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::operator<<
+- uid: namespacegoogle_1_1cloud_1a34af5fbaaafe784cb177bc8a78c552b0
+  name: version_string()
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::version_string
+- uid: namespacegoogle_1_1cloud_1a4bc7c2b44d9aa5ba461c00f7c33f42e9
+  name: make_status_or(T)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::make_status_or
+- uid: namespacegoogle_1_1cloud_1a5353f90b939473fdd0371d5c5bda6642
+  name: MakeProject(std::string const &)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::MakeProject
+- uid: namespacegoogle_1_1cloud_1a5ba713297ba807c3d561765217339aa1
+  name: CommonOptionList
+  href: namespacegoogle_1_1cloud.html
+  fullName: google::cloud::CommonOptionList
+- uid: namespacegoogle_1_1cloud_1a6f3dc1ead401ac30b1c87c46c031d778
+  name: version()
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::version
+- uid: namespacegoogle_1_1cloud_1a79b9f84df668a22278130dafe40762e9
+  name: RestOptionList
+  href: namespacegoogle_1_1cloud.html
+  fullName: google::cloud::RestOptionList
+- uid: namespacegoogle_1_1cloud_1a7a08fee311943ff399218e534ee86287
+  name: BackoffPolicy
+  href: namespacegoogle_1_1cloud.html
+  fullName: google::cloud::BackoffPolicy
+- uid: namespacegoogle_1_1cloud_1a7af1ec26a232eb1d9aa1ab6af7485c8b
+  name: IamUpdater
+  href: namespacegoogle_1_1cloud.html
+  fullName: google::cloud::IamUpdater
+- uid: namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9c
+  name: Idempotency
+  href: namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9c.html
+  fullName: >
+    google::cloud::Idempotency
+- uid: namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9cae75d33e94f2dc4028d4d67bdaab75190
+  name: kNonIdempotent
+  href: namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9c.html#namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9cae75d33e94f2dc4028d4d67bdaab75190
+- uid: namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9caf8bb1d9c7cccc450ecd06167c7422bfa
+  name: kIdempotent
+  href: namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9c.html#namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9caf8bb1d9c7cccc450ecd06167c7422bfa
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+  name: StatusCode
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html
+  fullName: >
+    google::cloud::StatusCode
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a17f82936b75ec2c8d1665298cadde372
+  name: kFailedPrecondition
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a17f82936b75ec2c8d1665298cadde372
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a25c2dc47991b3df171ed5192bcf70390
+  name: kUnknown
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a25c2dc47991b3df171ed5192bcf70390
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a3118b7fae62033f78581e16942bbdf32
+  name: kDataLoss
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a3118b7fae62033f78581e16942bbdf32
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a4d40d05ef9a0c7b22fb80d1bbf8a72df
+  name: kDeadlineExceeded
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a4d40d05ef9a0c7b22fb80d1bbf8a72df
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a70b1deeb4d30d0e807ebaf0b14d63246
+  name: kResourceExhausted
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a70b1deeb4d30d0e807ebaf0b14d63246
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a80fdc050363ea6925fa2e7eb7f0a94a0
+  name: kInvalidArgument
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a80fdc050363ea6925fa2e7eb7f0a94a0
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a8a1714a85ad21a1c4814b260d2cd24dd
+  name: kUnavailable
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a8a1714a85ad21a1c4814b260d2cd24dd
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a90bf1b080583063c8a08fb96e975082f
+  name: kUnimplemented
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a90bf1b080583063c8a08fb96e975082f
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a96509148247c627a753b021d6dbea774
+  name: kInternal
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a96509148247c627a753b021d6dbea774
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a971493a769ad0aed23946733ede4a8f1
+  name: kCancelled
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a971493a769ad0aed23946733ede4a8f1
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847aa824609a8c511d10b4496d1d24761b3a
+  name: kAlreadyExists
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847aa824609a8c511d10b4496d1d24761b3a
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ab096e4f92f6c4184d188166e8f156fbb
+  name: kNotFound
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ab096e4f92f6c4184d188166e8f156fbb
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ac20d0424ae4484fda4424713f021d736
+  name: kAborted
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ac20d0424ae4484fda4424713f021d736
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ad676439e57a5d7a9a4dd2cd09f5300a2
+  name: kUnauthenticated
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ad676439e57a5d7a9a4dd2cd09f5300a2
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847adc0b458db7d0dd510aae0367dfafc4af
+  name: kPermissionDenied
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847adc0b458db7d0dd510aae0367dfafc4af
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a
+  name: kOk
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a
+- uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847af2fcb517cfc19949e909cbc2607e0f27
+  name: kOutOfRange
+  href: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847af2fcb517cfc19949e909cbc2607e0f27
+- uid: namespacegoogle_1_1cloud_1a913d8dd9e4a1b6e0c6520b6666a71cd8
+  name: operator==(StatusOr< T > const &, StatusOr< T > const &)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::operator==
+- uid: namespacegoogle_1_1cloud_1a950623d6404701c8d363cae839348a3b
+  name: ParseSeverity(std::string const &)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::ParseSeverity
+- uid: namespacegoogle_1_1cloud_1a98fd06a132f38a5222e640aa33260aa0
+  name: make_ready_future(T &&)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::make_ready_future
+- uid: namespacegoogle_1_1cloud_1a9b99a7ce2d0d1335c39885d71003767b
+  name: make_ready_future()
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::make_ready_future
+- uid: namespacegoogle_1_1cloud_1a9eff450b1f08be2562b45a46ba05f880
+  name: MakeStatusFromRpcError(grpc::StatusCode, std::string)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::MakeStatusFromRpcError
+- uid: namespacegoogle_1_1cloud_1aacce74695aba795178e975a5f791105d
+  name: UnifiedCredentialsOptionList
+  href: namespacegoogle_1_1cloud.html
+  fullName: google::cloud::UnifiedCredentialsOptionList
+- uid: namespacegoogle_1_1cloud_1aade1afeeffeda6aea3bb2fbdfc2d0d70
+  name: optional
+  href: namespacegoogle_1_1cloud.html
+  fullName: google::cloud::optional
+- uid: namespacegoogle_1_1cloud_1ab694f454e155d3743c02fe50961cd550
+  name: version_minor()
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::version_minor
+- uid: namespacegoogle_1_1cloud_1ab83d0a4176eca49778cec5fa16e184bc
+  name: version_major()
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::version_major
+- uid: namespacegoogle_1_1cloud_1abe01696097a74c9e817236af99f0ca35
+  name: operator<<(std::ostream &, Severity)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::operator<<
+- uid: namespacegoogle_1_1cloud_1abf812707db77df6745a7e15613c91f7c
+  name: version_pre_release()
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::version_pre_release
+- uid: namespacegoogle_1_1cloud_1acd3d52fbea5900e7ed3df07ce7a86ae0
+  name: operator<<(std::ostream &, StatusCode)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::operator<<
+- uid: namespacegoogle_1_1cloud_1adbc883f10549b827f82c93be159ffdd6
+  name: operator<<(std::ostream &, Status const &)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::operator<<
+- uid: namespacegoogle_1_1cloud_1ae4dd1dd89c2240c629763690e65a04aa
+  name: MakeStatusFromRpcError(google::rpc::Status const &)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::MakeStatusFromRpcError
+- uid: namespacegoogle_1_1cloud_1ae520379fd5a69cc8a4314a36e024c8df
+  name: GrpcOptionList
+  href: namespacegoogle_1_1cloud.html
+  fullName: google::cloud::GrpcOptionList
+- uid: namespacegoogle_1_1cloud_1ae5bbe5d72f99eb8cb569d932e51f536d
+  name: OptionList
+  href: namespacegoogle_1_1cloud.html
+  fullName: google::cloud::OptionList
+- uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+  name: Severity
+  href: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html
+  fullName: >
+    google::cloud::Severity
+- uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a19926e6b33f63355986e9c77f35126e8
+  name: GCP_LS_TRACE
+  href: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a19926e6b33f63355986e9c77f35126e8
+- uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a231b1e1189f54337be4b9ccb9b607489
+  name: GCP_LS_FATAL
+  href: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a231b1e1189f54337be4b9ccb9b607489
+- uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a2aaca572b21aab277c1eb51d75bd34f2
+  name: GCP_LS_LOWEST
+  href: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a2aaca572b21aab277c1eb51d75bd34f2
+- uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a40b0bbe787c992e7538add97b9abdc21
+  name: GCP_LS_ERROR
+  href: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a40b0bbe787c992e7538add97b9abdc21
+- uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a47d3a15eead1f73cc69c68274fb275dd
+  name: GCP_LS_INFO
+  href: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a47d3a15eead1f73cc69c68274fb275dd
+- uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a6fab7141215b31a08473e15c105e7b15
+  name: GCP_LS_LOWEST_ENABLED
+  href: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a6fab7141215b31a08473e15c105e7b15
+- uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a71e59df789d3d1c4eb7a8c9e8070cf0d
+  name: GCP_LS_HIGHEST
+  href: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a71e59df789d3d1c4eb7a8c9e8070cf0d
+- uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a89b8b9ebac3278bfe0d998d0052c86a3
+  name: GCP_LS_NOTICE
+  href: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a89b8b9ebac3278bfe0d998d0052c86a3
+- uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922aa0ad543f2f38678a0e3c606be03ac386
+  name: GCP_LS_CRITICAL
+  href: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922aa0ad543f2f38678a0e3c606be03ac386
+- uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922ab858c69248c47bb9f411651cf8ee26d6
+  name: GCP_LS_DEBUG
+  href: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922ab858c69248c47bb9f411651cf8ee26d6
+- uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abbc803db504b24b377a2abcf5f6f6fbb
+  name: GCP_LS_ALERT
+  href: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abbc803db504b24b377a2abcf5f6f6fbb
+- uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abc2618fc8ebd51bfa277121434384423
+  name: GCP_LS_WARNING
+  href: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abc2618fc8ebd51bfa277121434384423
+- uid: namespacegoogle_1_1cloud_1af2ca2ec19803a761502aed8b36edcdc0
+  name: StatusCodeToString(StatusCode)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::StatusCodeToString
+- uid: namespacegoogle_1_1cloud_1af59c1ad2a1697f9e27b25731b1164a07
+  name: ExponentialBackoffPolicy
+  href: namespacegoogle_1_1cloud.html
+  fullName: google::cloud::ExponentialBackoffPolicy
+- uid: namespacegoogle_1_1cloud_1af9e607bddb356e604ed97e13ff3f7979
+  name: operator!=(StatusOr< T > const &, StatusOr< T > const &)
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::operator!=
+- uid: namespacegoogle_1_1cloud_1afbb9c2c634ef86b85383206010a3167c
+  name: version_patch()
+  href: namespacegoogle_1_1cloud.html
+  fullName: >
+    google::cloud::version_patch
+- uid: structgoogle_1_1cloud_1_1AccessTokenLifetimeOption
+  name: AccessTokenLifetimeOption
+  href: structgoogle_1_1cloud_1_1AccessTokenLifetimeOption.html
+- uid: structgoogle_1_1cloud_1_1AccessTokenLifetimeOption_1ad6b8a4672f1c196926849229f62d0de2
+  name: Type
+  href: structgoogle_1_1cloud_1_1AccessTokenLifetimeOption.html#structgoogle_1_1cloud_1_1AccessTokenLifetimeOption_1ad6b8a4672f1c196926849229f62d0de2
+  fullName: google::cloud::AccessTokenLifetimeOption::Type
+- uid: structgoogle_1_1cloud_1_1AsyncTimerResult
+  name: AsyncTimerResult
+  href: structgoogle_1_1cloud_1_1AsyncTimerResult.html
+- uid: structgoogle_1_1cloud_1_1AsyncTimerResult_1a199c812e0d81c7adfd5720386cd5030a
+  name: cancelled
+  href: structgoogle_1_1cloud_1_1AsyncTimerResult.html#structgoogle_1_1cloud_1_1AsyncTimerResult_1a199c812e0d81c7adfd5720386cd5030a
+  fullName: >
+    google::cloud::AsyncTimerResult::cancelled
+- uid: structgoogle_1_1cloud_1_1AsyncTimerResult_1a691ee4398edc058285993e47977d2127
+  name: deadline
+  href: structgoogle_1_1cloud_1_1AsyncTimerResult.html#structgoogle_1_1cloud_1_1AsyncTimerResult_1a691ee4398edc058285993e47977d2127
+  fullName: >
+    google::cloud::AsyncTimerResult::deadline
+- uid: structgoogle_1_1cloud_1_1AuthorityOption
+  name: AuthorityOption
+  href: structgoogle_1_1cloud_1_1AuthorityOption.html
+- uid: structgoogle_1_1cloud_1_1AuthorityOption_1a2a43afe80294667d13ad814168bb233c
+  name: Type
+  href: structgoogle_1_1cloud_1_1AuthorityOption.html#structgoogle_1_1cloud_1_1AuthorityOption_1a2a43afe80294667d13ad814168bb233c
+  fullName: google::cloud::AuthorityOption::Type
+- uid: structgoogle_1_1cloud_1_1CARootsFilePathOption
+  name: CARootsFilePathOption
+  href: structgoogle_1_1cloud_1_1CARootsFilePathOption.html
+- uid: structgoogle_1_1cloud_1_1CARootsFilePathOption_1a3bd9708c3fcb44760a8fb3d1ecbf131a
+  name: Type
+  href: structgoogle_1_1cloud_1_1CARootsFilePathOption.html#structgoogle_1_1cloud_1_1CARootsFilePathOption_1a3bd9708c3fcb44760a8fb3d1ecbf131a
+  fullName: google::cloud::CARootsFilePathOption::Type
+- uid: structgoogle_1_1cloud_1_1DelegatesOption
+  name: DelegatesOption
+  href: structgoogle_1_1cloud_1_1DelegatesOption.html
+- uid: structgoogle_1_1cloud_1_1DelegatesOption_1a6cc48715b5f857de1ab3c7d4a49918c6
+  name: Type
+  href: structgoogle_1_1cloud_1_1DelegatesOption.html#structgoogle_1_1cloud_1_1DelegatesOption_1a6cc48715b5f857de1ab3c7d4a49918c6
+  fullName: google::cloud::DelegatesOption::Type
+- uid: structgoogle_1_1cloud_1_1EndpointOption
+  name: EndpointOption
+  href: structgoogle_1_1cloud_1_1EndpointOption.html
+- uid: structgoogle_1_1cloud_1_1EndpointOption_1a61a6cbac4806836ddb5bda2040dba797
+  name: Type
+  href: structgoogle_1_1cloud_1_1EndpointOption.html#structgoogle_1_1cloud_1_1EndpointOption_1a61a6cbac4806836ddb5bda2040dba797
+  fullName: google::cloud::EndpointOption::Type
+- uid: structgoogle_1_1cloud_1_1ExperimentalTag
+  name: ExperimentalTag
+  href: structgoogle_1_1cloud_1_1ExperimentalTag.html
+- uid: structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption
+  name: GrpcBackgroundThreadPoolSizeOption
+  href: structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption.html
+- uid: structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption_1a1054cdb1003689157d327581731f7bde
+  name: Type
+  href: structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption.html#structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption_1a1054cdb1003689157d327581731f7bde
+  fullName: google::cloud::GrpcBackgroundThreadPoolSizeOption::Type
+- uid: structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption
+  name: GrpcBackgroundThreadsFactoryOption
+  href: structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption.html
+- uid: structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption_1a65ea53b32b35f991ce3d0af6ee4faa4c
+  name: Type
+  href: structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption.html#structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption_1a65ea53b32b35f991ce3d0af6ee4faa4c
+  fullName: google::cloud::GrpcBackgroundThreadsFactoryOption::Type
+- uid: structgoogle_1_1cloud_1_1GrpcChannelArgumentsNativeOption
+  name: GrpcChannelArgumentsNativeOption
+  href: structgoogle_1_1cloud_1_1GrpcChannelArgumentsNativeOption.html
+- uid: structgoogle_1_1cloud_1_1GrpcChannelArgumentsNativeOption_1afb9fa0fc355222b6a827e53e12d91b24
+  name: Type
+  href: structgoogle_1_1cloud_1_1GrpcChannelArgumentsNativeOption.html#structgoogle_1_1cloud_1_1GrpcChannelArgumentsNativeOption_1afb9fa0fc355222b6a827e53e12d91b24
+  fullName: google::cloud::GrpcChannelArgumentsNativeOption::Type
+- uid: structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption
+  name: GrpcChannelArgumentsOption
+  href: structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption.html
+- uid: structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption_1afb6d7bd99eda67d1c6b208a7e92af139
+  name: Type
+  href: structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption.html#structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption_1afb6d7bd99eda67d1c6b208a7e92af139
+  fullName: google::cloud::GrpcChannelArgumentsOption::Type
+- uid: structgoogle_1_1cloud_1_1GrpcCompletionQueueOption
+  name: GrpcCompletionQueueOption
+  href: structgoogle_1_1cloud_1_1GrpcCompletionQueueOption.html
+- uid: structgoogle_1_1cloud_1_1GrpcCompletionQueueOption_1a4273ed18516746cf0c0e1e1731db266a
+  name: Type
+  href: structgoogle_1_1cloud_1_1GrpcCompletionQueueOption.html#structgoogle_1_1cloud_1_1GrpcCompletionQueueOption_1a4273ed18516746cf0c0e1e1731db266a
+  fullName: google::cloud::GrpcCompletionQueueOption::Type
+- uid: structgoogle_1_1cloud_1_1GrpcCredentialOption
+  name: GrpcCredentialOption
+  href: structgoogle_1_1cloud_1_1GrpcCredentialOption.html
+- uid: structgoogle_1_1cloud_1_1GrpcCredentialOption_1abbd8711da4d2b6934f853ab8054c901a
+  name: Type
+  href: structgoogle_1_1cloud_1_1GrpcCredentialOption.html#structgoogle_1_1cloud_1_1GrpcCredentialOption_1abbd8711da4d2b6934f853ab8054c901a
+  fullName: google::cloud::GrpcCredentialOption::Type
+- uid: structgoogle_1_1cloud_1_1GrpcNumChannelsOption
+  name: GrpcNumChannelsOption
+  href: structgoogle_1_1cloud_1_1GrpcNumChannelsOption.html
+- uid: structgoogle_1_1cloud_1_1GrpcNumChannelsOption_1a4e2c298b9310373e19a5c76e8b7473e6
+  name: Type
+  href: structgoogle_1_1cloud_1_1GrpcNumChannelsOption.html#structgoogle_1_1cloud_1_1GrpcNumChannelsOption_1a4e2c298b9310373e19a5c76e8b7473e6
+  fullName: google::cloud::GrpcNumChannelsOption::Type
+- uid: structgoogle_1_1cloud_1_1GrpcTracingOptionsOption
+  name: GrpcTracingOptionsOption
+  href: structgoogle_1_1cloud_1_1GrpcTracingOptionsOption.html
+- uid: structgoogle_1_1cloud_1_1GrpcTracingOptionsOption_1af678ec85d9990e384f0be0b7a639d624
+  name: Type
+  href: structgoogle_1_1cloud_1_1GrpcTracingOptionsOption.html#structgoogle_1_1cloud_1_1GrpcTracingOptionsOption_1af678ec85d9990e384f0be0b7a639d624
+  fullName: google::cloud::GrpcTracingOptionsOption::Type
+- uid: structgoogle_1_1cloud_1_1LogRecord
+  name: LogRecord
+  href: structgoogle_1_1cloud_1_1LogRecord.html
+- uid: structgoogle_1_1cloud_1_1LogRecord_1a29f2cf2bafa97addc548c26ba48a4fe0
+  name: lineno
+  href: structgoogle_1_1cloud_1_1LogRecord.html#structgoogle_1_1cloud_1_1LogRecord_1a29f2cf2bafa97addc548c26ba48a4fe0
+  fullName: >
+    google::cloud::LogRecord::lineno
+- uid: structgoogle_1_1cloud_1_1LogRecord_1a46bc9a3adab542be80be9671d2ff82e6
+  name: filename
+  href: structgoogle_1_1cloud_1_1LogRecord.html#structgoogle_1_1cloud_1_1LogRecord_1a46bc9a3adab542be80be9671d2ff82e6
+  fullName: >
+    google::cloud::LogRecord::filename
+- uid: structgoogle_1_1cloud_1_1LogRecord_1a830f8ba5fe86e1581dddbbb2cd922cbc
+  name: severity
+  href: structgoogle_1_1cloud_1_1LogRecord.html#structgoogle_1_1cloud_1_1LogRecord_1a830f8ba5fe86e1581dddbbb2cd922cbc
+  fullName: >
+    google::cloud::LogRecord::severity
+- uid: structgoogle_1_1cloud_1_1LogRecord_1a8a04caf649e69b55404abf2d3b72d4a6
+  name: function
+  href: structgoogle_1_1cloud_1_1LogRecord.html#structgoogle_1_1cloud_1_1LogRecord_1a8a04caf649e69b55404abf2d3b72d4a6
+  fullName: >
+    google::cloud::LogRecord::function
+- uid: structgoogle_1_1cloud_1_1LogRecord_1a949e7b4cb62d085ee13b107e63f83152
+  name: timestamp
+  href: structgoogle_1_1cloud_1_1LogRecord.html#structgoogle_1_1cloud_1_1LogRecord_1a949e7b4cb62d085ee13b107e63f83152
+  fullName: >
+    google::cloud::LogRecord::timestamp
+- uid: structgoogle_1_1cloud_1_1LogRecord_1a95652739567b944a4ffbbb6d31b3f2e0
+  name: message
+  href: structgoogle_1_1cloud_1_1LogRecord.html#structgoogle_1_1cloud_1_1LogRecord_1a95652739567b944a4ffbbb6d31b3f2e0
+  fullName: >
+    google::cloud::LogRecord::message
+- uid: structgoogle_1_1cloud_1_1LogRecord_1a9acea199684809e231263a486559f834
+  name: thread_id
+  href: structgoogle_1_1cloud_1_1LogRecord.html#structgoogle_1_1cloud_1_1LogRecord_1a9acea199684809e231263a486559f834
+  fullName: >
+    google::cloud::LogRecord::thread_id
+- uid: structgoogle_1_1cloud_1_1NullStream
+  name: NullStream
+  href: structgoogle_1_1cloud_1_1NullStream.html
+- uid: structgoogle_1_1cloud_1_1NullStream_1ad92e8b5b7b3f71225ba95476d56b3eba
+  name: operator<<(T)
+  href: structgoogle_1_1cloud_1_1NullStream.html#structgoogle_1_1cloud_1_1NullStream_1ad92e8b5b7b3f71225ba95476d56b3eba
+  fullName: >
+    google::cloud::NullStream::operator<<
+- uid: structgoogle_1_1cloud_1_1QuotaUserOption
+  name: QuotaUserOption
+  href: structgoogle_1_1cloud_1_1QuotaUserOption.html
+- uid: structgoogle_1_1cloud_1_1QuotaUserOption_1a65e6f5636acef31c70ed76258c051582
+  name: Type
+  href: structgoogle_1_1cloud_1_1QuotaUserOption.html#structgoogle_1_1cloud_1_1QuotaUserOption_1a65e6f5636acef31c70ed76258c051582
+  fullName: google::cloud::QuotaUserOption::Type
+- uid: structgoogle_1_1cloud_1_1RestTracingOptionsOption
+  name: RestTracingOptionsOption
+  href: structgoogle_1_1cloud_1_1RestTracingOptionsOption.html
+- uid: structgoogle_1_1cloud_1_1RestTracingOptionsOption_1a8d6d51b6e9be89779d1053016b2a2802
+  name: Type
+  href: structgoogle_1_1cloud_1_1RestTracingOptionsOption.html#structgoogle_1_1cloud_1_1RestTracingOptionsOption_1a8d6d51b6e9be89779d1053016b2a2802
+  fullName: google::cloud::RestTracingOptionsOption::Type
+- uid: structgoogle_1_1cloud_1_1ScopesOption
+  name: ScopesOption
+  href: structgoogle_1_1cloud_1_1ScopesOption.html
+- uid: structgoogle_1_1cloud_1_1ScopesOption_1a95557b309f247c5c848d0392338119ae
+  name: Type
+  href: structgoogle_1_1cloud_1_1ScopesOption.html#structgoogle_1_1cloud_1_1ScopesOption_1a95557b309f247c5c848d0392338119ae
+  fullName: google::cloud::ScopesOption::Type
+- uid: structgoogle_1_1cloud_1_1ServerTimeoutOption
+  name: ServerTimeoutOption
+  href: structgoogle_1_1cloud_1_1ServerTimeoutOption.html
+- uid: structgoogle_1_1cloud_1_1ServerTimeoutOption_1adca01c4480f74545b05eb1038f9a9a56
+  name: Type
+  href: structgoogle_1_1cloud_1_1ServerTimeoutOption.html#structgoogle_1_1cloud_1_1ServerTimeoutOption_1adca01c4480f74545b05eb1038f9a9a56
+  fullName: google::cloud::ServerTimeoutOption::Type
+- uid: structgoogle_1_1cloud_1_1TracingComponentsOption
+  name: TracingComponentsOption
+  href: structgoogle_1_1cloud_1_1TracingComponentsOption.html
+- uid: structgoogle_1_1cloud_1_1TracingComponentsOption_1a14eb9d2fb091bb17e433d7325326f78b
+  name: Type
+  href: structgoogle_1_1cloud_1_1TracingComponentsOption.html#structgoogle_1_1cloud_1_1TracingComponentsOption_1a14eb9d2fb091bb17e433d7325326f78b
+  fullName: google::cloud::TracingComponentsOption::Type
+- uid: structgoogle_1_1cloud_1_1UnifiedCredentialsOption
+  name: UnifiedCredentialsOption
+  href: structgoogle_1_1cloud_1_1UnifiedCredentialsOption.html
+- uid: structgoogle_1_1cloud_1_1UnifiedCredentialsOption_1affa4ac9e72fe5624e15d17e507177d2b
+  name: Type
+  href: structgoogle_1_1cloud_1_1UnifiedCredentialsOption.html#structgoogle_1_1cloud_1_1UnifiedCredentialsOption_1affa4ac9e72fe5624e15d17e507177d2b
+  fullName: google::cloud::UnifiedCredentialsOption::Type
+- uid: structgoogle_1_1cloud_1_1UserAgentProductsOption
+  name: UserAgentProductsOption
+  href: structgoogle_1_1cloud_1_1UserAgentProductsOption.html
+- uid: structgoogle_1_1cloud_1_1UserAgentProductsOption_1acbbd25eda33665932bf5561aae9682e3
+  name: Type
+  href: structgoogle_1_1cloud_1_1UserAgentProductsOption.html#structgoogle_1_1cloud_1_1UserAgentProductsOption_1acbbd25eda33665932bf5561aae9682e3
+  fullName: google::cloud::UserAgentProductsOption::Type
+- uid: structgoogle_1_1cloud_1_1UserIpOption
+  name: UserIpOption
+  href: structgoogle_1_1cloud_1_1UserIpOption.html
+- uid: structgoogle_1_1cloud_1_1UserIpOption_1af69a552534f64cd51243a002e1dd6488
+  name: Type
+  href: structgoogle_1_1cloud_1_1UserIpOption.html#structgoogle_1_1cloud_1_1UserIpOption_1af69a552534f64cd51243a002e1dd6488
+  fullName: google::cloud::UserIpOption::Type
+- uid: structgoogle_1_1cloud_1_1UserProjectOption
+  name: UserProjectOption
+  href: structgoogle_1_1cloud_1_1UserProjectOption.html
+- uid: structgoogle_1_1cloud_1_1UserProjectOption_1a05738e758fa2b69dd115a85369c618f8
+  name: Type
+  href: structgoogle_1_1cloud_1_1UserProjectOption.html#structgoogle_1_1cloud_1_1UserProjectOption_1a05738e758fa2b69dd115a85369c618f8
+  fullName: google::cloud::UserProjectOption::Type

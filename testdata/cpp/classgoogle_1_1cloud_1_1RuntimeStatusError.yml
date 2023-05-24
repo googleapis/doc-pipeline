@@ -1,0 +1,86 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1RuntimeStatusError
+    name: "RuntimeStatusError"
+    id: classgoogle_1_1cloud_1_1RuntimeStatusError
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/status.h>
+        class google::cloud::RuntimeStatusError { ... };
+      source:
+        id: google::cloud::RuntimeStatusError
+        path: google/cloud/status.h
+        startLine: 377
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      A runtime error that wraps a [`google::cloud::Status`](xref:classgoogle_1_1cloud_1_1Status). 
+    children:
+      - classgoogle_1_1cloud_1_1RuntimeStatusError_1aac6b78160cce6468696ce77eb1276a95
+      - classgoogle_1_1cloud_1_1RuntimeStatusError_1ac30dbdb272a62aee4eb8f9bf45966c7e
+  - uid: classgoogle_1_1cloud_1_1RuntimeStatusError_1aac6b78160cce6468696ce77eb1276a95
+    name: "RuntimeStatusError(Status)"
+    fullName: |
+      google::cloud::RuntimeStatusError::RuntimeStatusError
+    id: classgoogle_1_1cloud_1_1RuntimeStatusError_1aac6b78160cce6468696ce77eb1276a95
+    parent: classgoogle_1_1cloud_1_1RuntimeStatusError
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::RuntimeStatusError::RuntimeStatusError (
+            Status status
+          )
+      parameters:
+        - id: status
+          var_type: "Status"
+      source:
+        id: RuntimeStatusError
+        path: google/cloud/status.h
+        startLine: 380
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Constructor from a [`Status`](xref:classgoogle_1_1cloud_1_1Status). 
+  - uid: classgoogle_1_1cloud_1_1RuntimeStatusError_1ac30dbdb272a62aee4eb8f9bf45966c7e
+    name: "status() const"
+    fullName: |
+      google::cloud::RuntimeStatusError::status
+    id: classgoogle_1_1cloud_1_1RuntimeStatusError_1ac30dbdb272a62aee4eb8f9bf45966c7e
+    parent: classgoogle_1_1cloud_1_1RuntimeStatusError
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        Status const &
+        google::cloud::RuntimeStatusError::status ()
+      return:
+        type:
+          - "Status const &"
+      source:
+        id: status
+        path: google/cloud/status.h
+        startLine: 383
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Returns the original status. 
+references:
+  - uid: classgoogle_1_1cloud_1_1RuntimeStatusError
+    name: google::cloud::RuntimeStatusError
+  - uid: classgoogle_1_1cloud_1_1RuntimeStatusError_1aac6b78160cce6468696ce77eb1276a95
+    name: google::cloud::RuntimeStatusError::RuntimeStatusError
+  - uid: classgoogle_1_1cloud_1_1RuntimeStatusError_1ac30dbdb272a62aee4eb8f9bf45966c7e
+    name: google::cloud::RuntimeStatusError::status
