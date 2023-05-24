@@ -18,6 +18,12 @@ exports.transform = function (model) {
   if (model.type) {
     switch (model.type.toLowerCase()) {
       case 'overview':
+        // For Java, use special template to ensure indentation is correct on righthand nav
+        if(model.langs[0] === "java" && model.children) {
+          model.isJavaOverview = true;
+          groupChildren(model, namespaceCategory);
+          break;
+        }
       case 'package':
       case 'namespace':
         model.isNamespace = true;
@@ -265,7 +271,7 @@ function handleItem(vm, gitContribute, gitUrlPattern) {
   function shouldHideTitleType(vm) {
     var type = vm.type.toLowerCase();
     return ((type === 'namespace' && langs.length == 1 && (langs[0] === 'objectivec' || langs[0] === 'java' || langs[0] === 'c'))
-      || ((type === 'class' || type === 'enum') && langs.length == 1 && langs[0] === 'c'));
+        || ((type === 'class' || type === 'enum') && langs.length == 1 && langs[0] === 'c'));
   }
 
   function shouldHideSubtitle(vm) {
@@ -284,7 +290,7 @@ function handleItem(vm, gitContribute, gitUrlPattern) {
     return array;
   }
 
-  
+
   // handles where syntax return/parameters type doesn't include specName but includes uid
   if (vm.syntax && langs[0]) {
 
@@ -333,7 +339,7 @@ function handleItem(vm, gitContribute, gitUrlPattern) {
   }
 
   if (vm.javaType) {
-    // Resetting 'type' from added field 'javaType' field here 
+    // Resetting 'type' from added field 'javaType' field here
     // because docfx cannot process custom types while using ManagedReference.
     // This allows Java to use custom types without rewriting for UniversalReference
     vm.type = vm.javaType;
