@@ -1,0 +1,139 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1PollingPolicy
+    name: "PollingPolicy"
+    id: classgoogle_1_1cloud_1_1PollingPolicy
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/polling_policy.h>
+        class google::cloud::PollingPolicy { ... };
+      source:
+        id: google::cloud::PollingPolicy
+        path: google/cloud/polling_policy.h
+        startLine: 48
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/polling_policy.h
+    summary: |
+      Control the Cloud C++ client library behavior with respect to polling on long running operations. 
+    conceptual: |
+      Some operations in Cloud services return a `google.longrunning.Operation` object. As their name implies, these objects represent requests that may take a long time to complete, in some cases operations may take tens of seconds or even 30 minutes to complete.
+
+      The Cloud C++ client libraries models these long running operations as a [`google::cloud::future`](xref:classgoogle_1_1cloud_1_1future)`<`[`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>>`, where `T` represents the final result of the operation. In the background, the library polls the service until the operation completes (or fails) and then satisfies the future.
+
+      This class defines the interface for policies that control the behavior of this polling loop.
+
+
+
+      ###### See Also
+
+      [https://aip.dev/151](https://aip.dev/151) for more information on long running operations. 
+    children:
+      - classgoogle_1_1cloud_1_1PollingPolicy_1aa76d4da9504c38830269f78758fee846
+      - classgoogle_1_1cloud_1_1PollingPolicy_1a42b97ed33436c1aabec55108e4333a95
+      - classgoogle_1_1cloud_1_1PollingPolicy_1a03d970d4c274382a6b9cb8e8819daec3
+  - uid: classgoogle_1_1cloud_1_1PollingPolicy_1aa76d4da9504c38830269f78758fee846
+    name: "clone() const"
+    fullName: |
+      google::cloud::PollingPolicy::clone
+    id: classgoogle_1_1cloud_1_1PollingPolicy_1aa76d4da9504c38830269f78758fee846
+    parent: classgoogle_1_1cloud_1_1PollingPolicy
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::unique_ptr< PollingPolicy >
+        google::cloud::PollingPolicy::clone ()
+      return:
+        type:
+          - "std::unique_ptr< PollingPolicy >"
+      source:
+        id: clone
+        path: google/cloud/polling_policy.h
+        startLine: 59
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/polling_policy.h
+    summary: |
+      Return a copy of the current policy. 
+    conceptual: |
+      This function is called at the beginning of the polling loop. Policies that are based on relative time should restart their timers when this function is called. 
+  - uid: classgoogle_1_1cloud_1_1PollingPolicy_1a42b97ed33436c1aabec55108e4333a95
+    name: "OnFailure(Status const &)"
+    fullName: |
+      google::cloud::PollingPolicy::OnFailure
+    id: classgoogle_1_1cloud_1_1PollingPolicy_1a42b97ed33436c1aabec55108e4333a95
+    parent: classgoogle_1_1cloud_1_1PollingPolicy
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        bool
+        google::cloud::PollingPolicy::OnFailure (
+            Status const & status
+          )
+      return:
+        type:
+          - "bool"
+        description: |
+          true if the failure should be treated as transient and the polling loop should continue. 
+      parameters:
+        - id: status
+          var_type: "Status const &"
+      source:
+        id: OnFailure
+        path: google/cloud/polling_policy.h
+        startLine: 70
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/polling_policy.h
+    summary: |
+      A callback to indicate that a polling attempt failed. 
+    conceptual: |
+      This is called when a polling request fails. Note that this callback is not invoked when the polling request succeeds with "operation not done".
+
+
+  - uid: classgoogle_1_1cloud_1_1PollingPolicy_1a03d970d4c274382a6b9cb8e8819daec3
+    name: "WaitPeriod()"
+    fullName: |
+      google::cloud::PollingPolicy::WaitPeriod
+    id: classgoogle_1_1cloud_1_1PollingPolicy_1a03d970d4c274382a6b9cb8e8819daec3
+    parent: classgoogle_1_1cloud_1_1PollingPolicy
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::chrono::milliseconds
+        google::cloud::PollingPolicy::WaitPeriod ()
+      return:
+        type:
+          - "std::chrono::milliseconds"
+      source:
+        id: WaitPeriod
+        path: google/cloud/polling_policy.h
+        startLine: 75
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/polling_policy.h
+    summary: |
+      How long should the polling loop wait before trying again. 
+references:
+  - uid: classgoogle_1_1cloud_1_1PollingPolicy
+    name: google::cloud::PollingPolicy
+  - uid: classgoogle_1_1cloud_1_1PollingPolicy_1aa76d4da9504c38830269f78758fee846
+    name: google::cloud::PollingPolicy::clone
+  - uid: classgoogle_1_1cloud_1_1PollingPolicy_1a42b97ed33436c1aabec55108e4333a95
+    name: google::cloud::PollingPolicy::OnFailure
+  - uid: classgoogle_1_1cloud_1_1PollingPolicy_1a03d970d4c274382a6b9cb8e8819daec3
+    name: google::cloud::PollingPolicy::WaitPeriod

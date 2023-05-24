@@ -1,0 +1,860 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1StatusOr
+    name: "StatusOr<T>"
+    id: classgoogle_1_1cloud_1_1StatusOr
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/status_or.h>
+        template <
+            typename T>
+        class google::cloud::StatusOr { ... };
+      source:
+        id: google::cloud::StatusOr
+        path: google/cloud/status_or.h
+        startLine: 89
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Holds a value or a [`Status`](xref:classgoogle_1_1cloud_1_1Status) indicating why there is no value. 
+    conceptual: |
+      [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>` represents either a usable `T` value or a [`Status`](xref:classgoogle_1_1cloud_1_1Status) object explaining why a `T` value is not present. Typical usage of [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>` looks like usage of a smart pointer, or even a `std::optional<T>`, in that you first check its validity using a conversion to bool (or by calling [`StatusOr::ok()`](xref:classgoogle_1_1cloud_1_1StatusOr_1afce69df5d31d0fba3bd95b317580ae11)), then you may dereference the object to access the contained value.
+
+      It is undefined behavior (UB) to dereference a [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>` that is not "ok". For example:
+
+
+
+      ```cpp
+      StatusOr<Foo> foo = FetchFoo();
+      if (!foo) {  // Same as !foo.ok()
+        // handle error and probably look at foo.status()
+      } else {
+        foo->DoSomethingFooey();  // UB if !foo
+      }
+      ```
+
+      Alternatively, you may call the [`StatusOr::value()`](xref:classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697) member function, which is defined to: (1) throw an exception if there is no `T` value, or (2) crash the program if exceptions are disabled. It is never UB to call [`value()`](xref:classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697).
+
+
+
+      ```cpp
+      StatusOr<Foo> foo = FetchFoo();
+      foo.value().DoSomethingFooey();  // May throw/crash if there is no value
+      ```
+
+      Functions that can fail will often return a [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>` instead of returning an error code and taking a `T` out-param, or rather than directly returning the `T` and throwing an exception on error. [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>` is used so that callers can choose whether they want to explicitly check for errors, crash the program, or throw exceptions.
+
+      Since constructors do not have a return value, they should be designed in such a way that they cannot fail by moving the object's complex initialization logic into a separate factory function that itself can return a [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>`. For example:
+
+
+
+      ```cpp
+      class Bar {
+       public:
+        Bar(Arg arg);
+        ...
+      };
+      StatusOr<Bar> MakeBar() {
+        ... complicated logic that might fail
+        return Bar(std::move(arg));
+      }
+      ```
+
+      [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>` supports equality comparisons if the underlying type `T` does.
+
+
+    children:
+      - classgoogle_1_1cloud_1_1StatusOr_1a95250d82418ed95673d41377347a3dbd
+      - classgoogle_1_1cloud_1_1StatusOr_1aa9983639335d1eb5d64627030226d532
+      - classgoogle_1_1cloud_1_1StatusOr_1a010daabd5030f6c5a0b6aa689b682472
+      - classgoogle_1_1cloud_1_1StatusOr_1a13c395d28dd33824d174c3843687aad9
+      - classgoogle_1_1cloud_1_1StatusOr_1a9efeaa6ef3e44529bffbcef1aad20168
+      - classgoogle_1_1cloud_1_1StatusOr_1a09043295e2c7c6dbc57e7c932926269f
+      - classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697
+      - classgoogle_1_1cloud_1_1StatusOr_1ad4f329657805aa8e7a06649385e270bb
+      - classgoogle_1_1cloud_1_1StatusOr_1ae5cc86e877f3744887c8e64e40903795
+      - classgoogle_1_1cloud_1_1StatusOr_1a30a58f04b5e7b936ee6571084a853e9d
+      - classgoogle_1_1cloud_1_1StatusOr_1a46da72dc9d35a019bd1359f4b3b4f8bd
+      - classgoogle_1_1cloud_1_1StatusOr_1a3851160a971f8b5e06f3dad432bb2c21
+      - classgoogle_1_1cloud_1_1StatusOr_1a2f3f95ac87322b5e6593c61de407d045
+      - classgoogle_1_1cloud_1_1StatusOr_1aa4abd48a28fc10d9e9f35e79a82a03ff
+      - classgoogle_1_1cloud_1_1StatusOr_1a741f115cfdd32723958f4b4528fe1ab8
+      - classgoogle_1_1cloud_1_1StatusOr_1adadee001e7aa8b9823053373e88793f9
+      - classgoogle_1_1cloud_1_1StatusOr_1a15bd3bdffe4f0cb52da4ec73d5ed2a42
+      - classgoogle_1_1cloud_1_1StatusOr_1ae96b1085b75ea736251125d73994a488
+      - classgoogle_1_1cloud_1_1StatusOr_1ab7d8005a1d44e2e140220776aad093bc
+      - classgoogle_1_1cloud_1_1StatusOr_1a3ad91c0d133de45ace554fb810f97b14
+      - classgoogle_1_1cloud_1_1StatusOr_1a3c792bab2c0d0b4840d8cca3a07c1ca0
+      - classgoogle_1_1cloud_1_1StatusOr_1ae8fe30215a7be3414a42ef68c108be86
+      - classgoogle_1_1cloud_1_1StatusOr_1a00d8a93a92c455cffd5787d1c05c3230
+      - classgoogle_1_1cloud_1_1StatusOr_1afce69df5d31d0fba3bd95b317580ae11
+      - classgoogle_1_1cloud_1_1StatusOr_1a4282edcbc114def76d690dd4f595325b
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a95250d82418ed95673d41377347a3dbd
+    name: "operator*() &"
+    fullName: |
+      google::cloud::StatusOr::operator*
+    id: classgoogle_1_1cloud_1_1StatusOr_1a95250d82418ed95673d41377347a3dbd
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        T &
+        google::cloud::StatusOr::operator* ()
+      return:
+        type:
+          - "T &"
+      source:
+        id: operator*
+        path: google/cloud/status_or.h
+        startLine: 218
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Dereference operators.
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1aa9983639335d1eb5d64627030226d532
+    name: "operator*() const &"
+    fullName: |
+      google::cloud::StatusOr::operator*
+    id: classgoogle_1_1cloud_1_1StatusOr_1aa9983639335d1eb5d64627030226d532
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        T const &
+        google::cloud::StatusOr::operator* ()
+      return:
+        type:
+          - "T const &"
+      source:
+        id: operator*
+        path: google/cloud/status_or.h
+        startLine: 220
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Dereference operators.
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a010daabd5030f6c5a0b6aa689b682472
+    name: "operator*() &&"
+    fullName: |
+      google::cloud::StatusOr::operator*
+    id: classgoogle_1_1cloud_1_1StatusOr_1a010daabd5030f6c5a0b6aa689b682472
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        T &&
+        google::cloud::StatusOr::operator* ()
+      return:
+        type:
+          - "T &&"
+      source:
+        id: operator*
+        path: google/cloud/status_or.h
+        startLine: 222
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Dereference operators.
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a13c395d28dd33824d174c3843687aad9
+    name: "operator*() const &&"
+    fullName: |
+      google::cloud::StatusOr::operator*
+    id: classgoogle_1_1cloud_1_1StatusOr_1a13c395d28dd33824d174c3843687aad9
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        T const &&
+        google::cloud::StatusOr::operator* ()
+      return:
+        type:
+          - "T const &&"
+      source:
+        id: operator*
+        path: google/cloud/status_or.h
+        startLine: 224
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Dereference operators.
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a9efeaa6ef3e44529bffbcef1aad20168
+    name: "operator->() &"
+    fullName: |
+      google::cloud::StatusOr::operator->
+    id: classgoogle_1_1cloud_1_1StatusOr_1a9efeaa6ef3e44529bffbcef1aad20168
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        T *
+        google::cloud::StatusOr::operator-> ()
+      return:
+        type:
+          - "T *"
+      source:
+        id: operator->
+        path: google/cloud/status_or.h
+        startLine: 241
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Member access operators.
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a09043295e2c7c6dbc57e7c932926269f
+    name: "operator->() const &"
+    fullName: |
+      google::cloud::StatusOr::operator->
+    id: classgoogle_1_1cloud_1_1StatusOr_1a09043295e2c7c6dbc57e7c932926269f
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        T const *
+        google::cloud::StatusOr::operator-> ()
+      return:
+        type:
+          - "T const *"
+      source:
+        id: operator->
+        path: google/cloud/status_or.h
+        startLine: 243
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Member access operators.
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697
+    name: "value() &"
+    fullName: |
+      google::cloud::StatusOr::value
+    id: classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        T &
+        google::cloud::StatusOr::value ()
+      return:
+        type:
+          - "T &"
+      source:
+        id: value
+        path: google/cloud/status_or.h
+        startLine: 256
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Value accessors.
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1ad4f329657805aa8e7a06649385e270bb
+    name: "value() const &"
+    fullName: |
+      google::cloud::StatusOr::value
+    id: classgoogle_1_1cloud_1_1StatusOr_1ad4f329657805aa8e7a06649385e270bb
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        T const &
+        google::cloud::StatusOr::value ()
+      return:
+        type:
+          - "T const &"
+      source:
+        id: value
+        path: google/cloud/status_or.h
+        startLine: 261
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Value accessors.
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1ae5cc86e877f3744887c8e64e40903795
+    name: "value() &&"
+    fullName: |
+      google::cloud::StatusOr::value
+    id: classgoogle_1_1cloud_1_1StatusOr_1ae5cc86e877f3744887c8e64e40903795
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        T &&
+        google::cloud::StatusOr::value ()
+      return:
+        type:
+          - "T &&"
+      source:
+        id: value
+        path: google/cloud/status_or.h
+        startLine: 266
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Value accessors.
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a30a58f04b5e7b936ee6571084a853e9d
+    name: "value() const &&"
+    fullName: |
+      google::cloud::StatusOr::value
+    id: classgoogle_1_1cloud_1_1StatusOr_1a30a58f04b5e7b936ee6571084a853e9d
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        T const &&
+        google::cloud::StatusOr::value ()
+      return:
+        type:
+          - "T const &&"
+      source:
+        id: value
+        path: google/cloud/status_or.h
+        startLine: 271
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Value accessors.
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a46da72dc9d35a019bd1359f4b3b4f8bd
+    name: "status() const &"
+    fullName: |
+      google::cloud::StatusOr::status
+    id: classgoogle_1_1cloud_1_1StatusOr_1a46da72dc9d35a019bd1359f4b3b4f8bd
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        Status const &
+        google::cloud::StatusOr::status ()
+      return:
+        type:
+          - "Status const &"
+      source:
+        id: status
+        path: google/cloud/status_or.h
+        startLine: 283
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Status accessors.
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a3851160a971f8b5e06f3dad432bb2c21
+    name: "status() &&"
+    fullName: |
+      google::cloud::StatusOr::status
+    id: classgoogle_1_1cloud_1_1StatusOr_1a3851160a971f8b5e06f3dad432bb2c21
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        Status &&
+        google::cloud::StatusOr::status ()
+      return:
+        type:
+          - "Status &&"
+      source:
+        id: status
+        path: google/cloud/status_or.h
+        startLine: 284
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Status accessors.
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a2f3f95ac87322b5e6593c61de407d045
+    name: "value_type"
+    fullName: "google::cloud::StatusOr::value_type"
+    id: classgoogle_1_1cloud_1_1StatusOr_1a2f3f95ac87322b5e6593c61de407d045
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::StatusOr::value_type =
+          T;
+      aliasof: |
+        <code>T</code>
+      source:
+        id: value_type
+        path: google/cloud/status_or.h
+        startLine: 99
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      A `value_type` member for use in generic programming. 
+    conceptual: |
+      This is analogous to that of `std::optional::value_type`. 
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1aa4abd48a28fc10d9e9f35e79a82a03ff
+    name: "StatusOr()"
+    fullName: |
+      google::cloud::StatusOr::StatusOr
+    id: classgoogle_1_1cloud_1_1StatusOr_1aa4abd48a28fc10d9e9f35e79a82a03ff
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::StatusOr::StatusOr ()
+      source:
+        id: StatusOr
+        path: google/cloud/status_or.h
+        startLine: 104
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Initializes with an error status ([`StatusCode::kUnknown`](xref:namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a25c2dc47991b3df171ed5192bcf70390)). 
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a741f115cfdd32723958f4b4528fe1ab8
+    name: "StatusOr(StatusOr const &)"
+    fullName: |
+      google::cloud::StatusOr::StatusOr
+    id: classgoogle_1_1cloud_1_1StatusOr_1a741f115cfdd32723958f4b4528fe1ab8
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::StatusOr::StatusOr (
+            StatusOr const &
+          )
+      parameters:
+        - id: ""
+          var_type: "StatusOr const &"
+      source:
+        id: StatusOr
+        path: google/cloud/status_or.h
+        startLine: 106
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1adadee001e7aa8b9823053373e88793f9
+    name: "operator=(StatusOr const &)"
+    fullName: |
+      google::cloud::StatusOr::operator=
+    id: classgoogle_1_1cloud_1_1StatusOr_1adadee001e7aa8b9823053373e88793f9
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        StatusOr &
+        google::cloud::StatusOr::operator= (
+            StatusOr const &
+          )
+      return:
+        type:
+          - "StatusOr &"
+      parameters:
+        - id: ""
+          var_type: "StatusOr const &"
+      source:
+        id: operator=
+        path: google/cloud/status_or.h
+        startLine: 107
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a15bd3bdffe4f0cb52da4ec73d5ed2a42
+    name: "StatusOr(StatusOr &&)"
+    fullName: |
+      google::cloud::StatusOr::StatusOr
+    id: classgoogle_1_1cloud_1_1StatusOr_1a15bd3bdffe4f0cb52da4ec73d5ed2a42
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::StatusOr::StatusOr (
+            StatusOr && other
+          )
+      parameters:
+        - id: other
+          var_type: "StatusOr &&"
+      source:
+        id: StatusOr
+        path: google/cloud/status_or.h
+        startLine: 109
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1ae96b1085b75ea736251125d73994a488
+    name: "operator=(StatusOr &&)"
+    fullName: |
+      google::cloud::StatusOr::operator=
+    id: classgoogle_1_1cloud_1_1StatusOr_1ae96b1085b75ea736251125d73994a488
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        StatusOr &
+        google::cloud::StatusOr::operator= (
+            StatusOr && other
+          )
+      return:
+        type:
+          - "StatusOr &"
+      parameters:
+        - id: other
+          var_type: "StatusOr &&"
+      source:
+        id: operator=
+        path: google/cloud/status_or.h
+        startLine: 114
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1ab7d8005a1d44e2e140220776aad093bc
+    name: "StatusOr(Status)"
+    fullName: |
+      google::cloud::StatusOr::StatusOr
+    id: classgoogle_1_1cloud_1_1StatusOr_1ab7d8005a1d44e2e140220776aad093bc
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::StatusOr::StatusOr (
+            Status rhs
+          )
+      parameters:
+        - id: rhs
+          var_type: "Status"
+          description: |
+            the status to initialize the object. 
+      exceptions:
+        - var_type: "std::invalid_argument"
+          description: |
+            if `rhs.ok()`. If exceptions are disabled the program terminates via [`google::cloud::Terminate()`](xref:group__terminate_1gac5d2d48b27f2cd1de9075a1c9522f0cf)
+      source:
+        id: StatusOr
+        path: google/cloud/status_or.h
+        startLine: 132
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Creates a new [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>` holding the error condition `rhs`. 
+    conceptual: |
+
+
+      ###### Post-conditions
+
+      [`ok()`](xref:classgoogle_1_1cloud_1_1StatusOr_1afce69df5d31d0fba3bd95b317580ae11)` == false` and [`status()`](xref:classgoogle_1_1cloud_1_1StatusOr_1a46da72dc9d35a019bd1359f4b3b4f8bd)` == rhs`.
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a3ad91c0d133de45ace554fb810f97b14
+    name: "operator=(Status)"
+    fullName: |
+      google::cloud::StatusOr::operator=
+    id: classgoogle_1_1cloud_1_1StatusOr_1a3ad91c0d133de45ace554fb810f97b14
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        StatusOr &
+        google::cloud::StatusOr::operator= (
+            Status status
+          )
+      return:
+        type:
+          - "StatusOr &"
+      parameters:
+        - id: status
+          var_type: "Status"
+      exceptions:
+        - var_type: "std::invalid_argument"
+          description: |
+            if `status.ok()`. If exceptions are disabled the program terminates via [`google::cloud::Terminate()`](xref:group__terminate_1gac5d2d48b27f2cd1de9075a1c9522f0cf)
+      source:
+        id: operator=
+        path: google/cloud/status_or.h
+        startLine: 144
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Assigns the given non-OK [Status](xref:classgoogle_1_1cloud_1_1Status) to this [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>`. 
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a3c792bab2c0d0b4840d8cca3a07c1ca0
+    name: "operator=(U &&)"
+    fullName: |
+      google::cloud::StatusOr::operator=
+    id: classgoogle_1_1cloud_1_1StatusOr_1a3c792bab2c0d0b4840d8cca3a07c1ca0
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename U = T>
+        StatusOr &
+        google::cloud::StatusOr::operator= (
+            U && rhs
+          )
+      return:
+        type:
+          - "StatusOr &"
+        description: |
+          a reference to this object. 
+      parameters:
+        - id: rhs
+          var_type: "U &&"
+        - id: typename U
+          description: |
+            a type convertible to `T`. 
+      source:
+        id: operator=
+        path: google/cloud/status_or.h
+        startLine: 165
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Assign a `T` (or anything convertible to `T`) into the [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr). 
+    conceptual: |
+      This function does not participate in overload resolution if `U` is equal to [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>` (or to a cv-ref-qualified [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>`).
+
+
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1ae8fe30215a7be3414a42ef68c108be86
+    name: "StatusOr(T &&)"
+    fullName: |
+      google::cloud::StatusOr::StatusOr
+    id: classgoogle_1_1cloud_1_1StatusOr_1ae8fe30215a7be3414a42ef68c108be86
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::StatusOr::StatusOr (
+            T && rhs
+          )
+      parameters:
+        - id: rhs
+          var_type: "T &&"
+          description: |
+            the value used to initialize the object.
+      exceptions:
+        - var_type: "..."
+          description: |
+            If `T`'s move constructor throws. 
+      source:
+        id: StatusOr
+        path: google/cloud/status_or.h
+        startLine: 182
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Creates a new [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>` holding the value `rhs`. 
+    conceptual: |
+
+
+      ###### Post-conditions
+
+      [`ok()`](xref:classgoogle_1_1cloud_1_1StatusOr_1afce69df5d31d0fba3bd95b317580ae11)` == true` and [`value()`](xref:classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697)` == rhs`.
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a00d8a93a92c455cffd5787d1c05c3230
+    name: "StatusOr(T const &)"
+    fullName: |
+      google::cloud::StatusOr::StatusOr
+    id: classgoogle_1_1cloud_1_1StatusOr_1a00d8a93a92c455cffd5787d1c05c3230
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::StatusOr::StatusOr (
+            T const & rhs
+          )
+      parameters:
+        - id: rhs
+          var_type: "T const &"
+          description: |
+            the value used to initialize the object.
+      exceptions:
+        - var_type: "..."
+          description: |
+            If `T` copy constructor throws. 
+      source:
+        id: StatusOr
+        path: google/cloud/status_or.h
+        startLine: 195
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Creates a new [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>` holding the value `rhs`. 
+    conceptual: |
+
+
+      ###### Post-conditions
+
+      [`ok()`](xref:classgoogle_1_1cloud_1_1StatusOr_1afce69df5d31d0fba3bd95b317580ae11)` == true` and [`value()`](xref:classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697)` == rhs`.
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1afce69df5d31d0fba3bd95b317580ae11
+    name: "ok() const"
+    fullName: |
+      google::cloud::StatusOr::ok
+    id: classgoogle_1_1cloud_1_1StatusOr_1afce69df5d31d0fba3bd95b317580ae11
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        bool
+        google::cloud::StatusOr::ok ()
+      return:
+        type:
+          - "bool"
+      source:
+        id: ok
+        path: google/cloud/status_or.h
+        startLine: 198
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Returns `true` when `this` holds a value. 
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a4282edcbc114def76d690dd4f595325b
+    name: "operator bool() const"
+    fullName: |
+      google::cloud::StatusOr::operator bool
+    id: classgoogle_1_1cloud_1_1StatusOr_1a4282edcbc114def76d690dd4f595325b
+    parent: classgoogle_1_1cloud_1_1StatusOr
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::StatusOr::operator bool ()
+      source:
+        id: operator bool
+        path: google/cloud/status_or.h
+        startLine: 201
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+    summary: |
+      Returns `true` when `this` holds a value. 
+references:
+  - uid: classgoogle_1_1cloud_1_1StatusOr
+    name: google::cloud::StatusOr
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a95250d82418ed95673d41377347a3dbd
+    name: google::cloud::StatusOr::operator*
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1aa9983639335d1eb5d64627030226d532
+    name: google::cloud::StatusOr::operator*
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a010daabd5030f6c5a0b6aa689b682472
+    name: google::cloud::StatusOr::operator*
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a13c395d28dd33824d174c3843687aad9
+    name: google::cloud::StatusOr::operator*
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a9efeaa6ef3e44529bffbcef1aad20168
+    name: google::cloud::StatusOr::operator->
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a09043295e2c7c6dbc57e7c932926269f
+    name: google::cloud::StatusOr::operator->
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697
+    name: google::cloud::StatusOr::value
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1ad4f329657805aa8e7a06649385e270bb
+    name: google::cloud::StatusOr::value
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1ae5cc86e877f3744887c8e64e40903795
+    name: google::cloud::StatusOr::value
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a30a58f04b5e7b936ee6571084a853e9d
+    name: google::cloud::StatusOr::value
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a46da72dc9d35a019bd1359f4b3b4f8bd
+    name: google::cloud::StatusOr::status
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a3851160a971f8b5e06f3dad432bb2c21
+    name: google::cloud::StatusOr::status
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a2f3f95ac87322b5e6593c61de407d045
+    name: google::cloud::StatusOr::value_type
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1aa4abd48a28fc10d9e9f35e79a82a03ff
+    name: google::cloud::StatusOr::StatusOr
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a741f115cfdd32723958f4b4528fe1ab8
+    name: google::cloud::StatusOr::StatusOr
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1adadee001e7aa8b9823053373e88793f9
+    name: google::cloud::StatusOr::operator=
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a15bd3bdffe4f0cb52da4ec73d5ed2a42
+    name: google::cloud::StatusOr::StatusOr
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1ae96b1085b75ea736251125d73994a488
+    name: google::cloud::StatusOr::operator=
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1ab7d8005a1d44e2e140220776aad093bc
+    name: google::cloud::StatusOr::StatusOr
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a3ad91c0d133de45ace554fb810f97b14
+    name: google::cloud::StatusOr::operator=
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a3c792bab2c0d0b4840d8cca3a07c1ca0
+    name: google::cloud::StatusOr::operator=
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1ae8fe30215a7be3414a42ef68c108be86
+    name: google::cloud::StatusOr::StatusOr
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a00d8a93a92c455cffd5787d1c05c3230
+    name: google::cloud::StatusOr::StatusOr
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1afce69df5d31d0fba3bd95b317580ae11
+    name: google::cloud::StatusOr::ok
+  - uid: classgoogle_1_1cloud_1_1StatusOr_1a4282edcbc114def76d690dd4f595325b
+    name: google::cloud::StatusOr::operator bool

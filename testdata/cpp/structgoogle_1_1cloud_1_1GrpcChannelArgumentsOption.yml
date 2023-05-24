@@ -1,0 +1,68 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption
+    name: "GrpcChannelArgumentsOption"
+    id: structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/grpc_options.h>
+        struct google::cloud::GrpcChannelArgumentsOption { ... };
+      source:
+        id: google::cloud::GrpcChannelArgumentsOption
+        path: google/cloud/grpc_options.h
+        startLine: 78
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/grpc_options.h
+    summary: |
+      A string-string map of arguments for `grpc::ChannelArguments::SetString`. 
+    conceptual: |
+      This option gives users the ability to set various arguments for the underlying `grpc::ChannelArguments` objects that will be created. See the gRPC documentation for more details about available channel arguments.
+
+
+
+      <aside class="note"><b>Note:</b>
+      Our library will always start with the native object from [`GrpcChannelArgumentsNativeOption`](xref:structgoogle_1_1cloud_1_1GrpcChannelArgumentsNativeOption), then add the channel arguments from this option. Users are cautioned not to set the same channel argument to different values in different options as gRPC will use the first value set for some channel arguments, and the last value set for others.
+      </aside>
+
+      ###### See Also
+
+      [https://grpc.github.io/grpc/cpp/classgrpc_1_1_channel_arguments.html](https://grpc.github.io/grpc/cpp/classgrpc_1_1_channel_arguments.html)
+
+      ###### See Also
+
+      [https://grpc.github.io/grpc/core/group__grpc__arg__keys.html](https://grpc.github.io/grpc/core/group__grpc__arg__keys.html)
+    children:
+      - structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption_1afb6d7bd99eda67d1c6b208a7e92af139
+  - uid: structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption_1afb6d7bd99eda67d1c6b208a7e92af139
+    name: "Type"
+    fullName: "google::cloud::GrpcChannelArgumentsOption::Type"
+    id: structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption_1afb6d7bd99eda67d1c6b208a7e92af139
+    parent: structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::GrpcChannelArgumentsOption::Type =
+          std::map< std::string, std::string >;
+      aliasof: |
+        <code>std::map&lt; std::string, std::string &gt;</code>
+      source:
+        id: Type
+        path: google/cloud/grpc_options.h
+        startLine: 79
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/grpc_options.h
+references:
+  - uid: structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption
+    name: google::cloud::GrpcChannelArgumentsOption
+  - uid: structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption_1afb6d7bd99eda67d1c6b208a7e92af139
+    name: google::cloud::GrpcChannelArgumentsOption::Type

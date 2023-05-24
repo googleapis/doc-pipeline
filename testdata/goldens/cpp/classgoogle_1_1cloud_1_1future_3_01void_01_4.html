@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="classgoogle_1_1cloud_1_1future_3_01void_01_4">
+<h1 class="page-title">Class future&lt; void &gt; (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>Implement ISO/IEC TS 19571:2016 future for void. </p>
+</div>
+  <h2 id="constructors">Constructors
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1future_3_01void_01_4_1a41a3cf31ed35d02d32a4f84572299498" data-uid="classgoogle_1_1cloud_1_1future_3_01void_01_4_1a41a3cf31ed35d02d32a4f84572299498" class="notranslate">future()</h3>
+  <h3 id="classgoogle_1_1cloud_1_1future_3_01void_01_4_1abc28f6f4f5afcbd5794135b4e1757cca" data-uid="classgoogle_1_1cloud_1_1future_3_01void_01_4_1abc28f6f4f5afcbd5794135b4e1757cca" class="notranslate">future(future&lt; future&lt; void &gt; &gt; &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Creates a new future that unwraps <code>rhs</code>. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>This constructor creates a new shared state that becomes satisfied when both <code>rhs</code> and <code>rhs.get()</code> become satisfied. If <code>rhs</code> is satisfied, but <code>rhs.get()</code> returns an invalid future then the newly created future becomes satisfied with a <code>std::future_error</code> exception, and the exception error code is <code>std::future_errc::broken_promise</code>.</p>
+<aside class="note"><b>Note:</b>
+The technical specification requires this to be a <code>noexcept</code> constructor I (coryan) believe this is a defect in the technical specification, as this <em>creates</em> a new shared state: shared states are dynamically allocated, and the allocator (which might be the default <code>operator new</code>) may raise. 
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>rhs</code></td>
+        <td>
+          <code>future&lt; future&lt; void &gt; &gt; &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1future_3_01void_01_4_1a839ca4063656b14a9d299d6ec5d16e39" data-uid="classgoogle_1_1cloud_1_1future_3_01void_01_4_1a839ca4063656b14a9d299d6ec5d16e39" class="notranslate">future(future&lt; T &gt; &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Creates a future from a future whose result type is convertible to this future&#39;s result type. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameters</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>rhs</code></td>
+        <td>
+          <code>future&lt; T &gt; &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>class T</code></td>
+        <td>
+          <code></code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1future_3_01void_01_4_1a97465667e18deceba770306a5d440d74" data-uid="classgoogle_1_1cloud_1_1future_3_01void_01_4_1a97465667e18deceba770306a5d440d74" class="notranslate">future(std::shared_ptr&lt; shared_state_type &gt;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>state</code></td>
+        <td>
+          <code>std::shared_ptr&lt; shared_state_type &gt;</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="functions">Functions
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1future_3_01void_01_4_1a14d526677fc057ef4de4151a98caf31b" data-uid="classgoogle_1_1cloud_1_1future_3_01void_01_4_1a14d526677fc057ef4de4151a98caf31b" class="notranslate">get()</h3>
+  <div class="markdown level1 summary"><p>Waits until the shared state becomes ready, then retrieves the value stored in the shared state. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Exceptions</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>...</code></td>
+        <td>any exceptions stored in the shared state. 
+</td>
+      </tr>
+      <tr>
+        <td><code>std::future_error</code></td>
+        <td>with std::no_state if the future does not have a shared state. 
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1future_3_01void_01_4_1aae7ca0d449df6951ecbc079d933dded1" data-uid="classgoogle_1_1cloud_1_1future_3_01void_01_4_1aae7ca0d449df6951ecbc079d933dded1" class="notranslate">then(F &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Attach a continuation to the future. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>Attach a callable <em>func</em> to be invoked when the future is ready. The return type is a future wrapping the return type of <em>func</em>.</p>
+<p>Side effects: <code>valid() == false</code> if the operation is successful. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameters</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>func</code></td>
+        <td>
+          <code>F &&</code>
+          <br>
+          <p>a Callable to be invoked when the future is ready. The function might be called immediately, e.g., if the future is ready.</p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>typename F</code></td>
+        <td>
+          <code></code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">internal::then_helper&lt; F, void &gt;::future_t</span></code></td>
+        <td><p><code>future&lt;T&gt;</code> where T is <code>std::result_of_t&lt;F, R&gt;</code> (basically). If T matches <code>future&lt;U&gt;</code> then it returns <code>future&lt;U&gt;</code>. The returned future will contain the result of <em>func</em>. </p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="typealiases"></h2>
+  <h3 id="classgoogle_1_1cloud_1_1future_3_01void_01_4_1a49ddd3b209c866c3c83b6feb2e957aaa" data-uid="classgoogle_1_1cloud_1_1future_3_01void_01_4_1a49ddd3b209c866c3c83b6feb2e957aaa" class="notranslate">shared_state_type</h3>
+  <div class="level1 summary">
+    <strong>Alias Of</strong>: <code>typename internal::future_base&lt; void &gt;::shared_state_type</code>
+
+  </div>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

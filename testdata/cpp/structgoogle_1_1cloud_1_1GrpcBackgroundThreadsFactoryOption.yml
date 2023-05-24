@@ -1,0 +1,62 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption
+    name: "GrpcBackgroundThreadsFactoryOption"
+    id: structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/grpc_options.h>
+        struct google::cloud::GrpcBackgroundThreadsFactoryOption { ... };
+      source:
+        id: google::cloud::GrpcBackgroundThreadsFactoryOption
+        path: google/cloud/grpc_options.h
+        startLine: 169
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/grpc_options.h
+    summary: |
+      Changes the `BackgroundThreadsFactory`. 
+    conceptual: |
+      Connections need to perform background work on behalf of the application. Normally they just create a background thread and a [`CompletionQueue`](xref:classgoogle_1_1cloud_1_1CompletionQueue) for this work, but the application may need more fine-grained control of their threads.
+
+      In this case the application can provide its own `BackgroundThreadsFactory` and it assumes responsibility for creating one or more threads blocked on its [`CompletionQueue::Run()`](xref:classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4).
+
+
+
+      <aside class="note"><b>Note:</b>
+      [`GrpcBackgroundThreadPoolSizeOption`](xref:structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption), [`GrpcCompletionQueueOption`](xref:structgoogle_1_1cloud_1_1GrpcCompletionQueueOption), and [`GrpcBackgroundThreadsFactoryOption`](xref:structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption) are mutually exclusive. This option will be ignored if [`GrpcCompletionQueueOption`](xref:structgoogle_1_1cloud_1_1GrpcCompletionQueueOption) is set. 
+      </aside>
+    children:
+      - structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption_1a65ea53b32b35f991ce3d0af6ee4faa4c
+  - uid: structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption_1a65ea53b32b35f991ce3d0af6ee4faa4c
+    name: "Type"
+    fullName: "google::cloud::GrpcBackgroundThreadsFactoryOption::Type"
+    id: structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption_1a65ea53b32b35f991ce3d0af6ee4faa4c
+    parent: structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::GrpcBackgroundThreadsFactoryOption::Type =
+          BackgroundThreadsFactory;
+      aliasof: |
+        <code>BackgroundThreadsFactory</code>
+      source:
+        id: Type
+        path: google/cloud/grpc_options.h
+        startLine: 170
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/grpc_options.h
+references:
+  - uid: structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption
+    name: google::cloud::GrpcBackgroundThreadsFactoryOption
+  - uid: structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption_1a65ea53b32b35f991ce3d0af6ee4faa4c
+    name: google::cloud::GrpcBackgroundThreadsFactoryOption::Type

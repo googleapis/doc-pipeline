@@ -1,0 +1,58 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1TracingComponentsOption
+    name: "TracingComponentsOption"
+    id: structgoogle_1_1cloud_1_1TracingComponentsOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/common_options.h>
+        struct google::cloud::TracingComponentsOption { ... };
+      source:
+        id: google::cloud::TracingComponentsOption
+        path: google/cloud/common_options.h
+        startLine: 70
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/common_options.h
+    summary: |
+      Return whether tracing is enabled for the given `component`. 
+    conceptual: |
+      The C++ clients can log interesting events to help library and application developers troubleshoot problems. To see log messages (maybe lots) you can enable tracing for the component that interests you. Valid components are currently:
+
+
+      - rpc
+      - rpc-streams 
+    children:
+      - structgoogle_1_1cloud_1_1TracingComponentsOption_1a14eb9d2fb091bb17e433d7325326f78b
+  - uid: structgoogle_1_1cloud_1_1TracingComponentsOption_1a14eb9d2fb091bb17e433d7325326f78b
+    name: "Type"
+    fullName: "google::cloud::TracingComponentsOption::Type"
+    id: structgoogle_1_1cloud_1_1TracingComponentsOption_1a14eb9d2fb091bb17e433d7325326f78b
+    parent: structgoogle_1_1cloud_1_1TracingComponentsOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::TracingComponentsOption::Type =
+          std::set< std::string >;
+      aliasof: |
+        <code>std::set&lt; std::string &gt;</code>
+      source:
+        id: Type
+        path: google/cloud/common_options.h
+        startLine: 71
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/common_options.h
+references:
+  - uid: structgoogle_1_1cloud_1_1TracingComponentsOption
+    name: google::cloud::TracingComponentsOption
+  - uid: structgoogle_1_1cloud_1_1TracingComponentsOption_1a14eb9d2fb091bb17e433d7325326f78b
+    name: google::cloud::TracingComponentsOption::Type

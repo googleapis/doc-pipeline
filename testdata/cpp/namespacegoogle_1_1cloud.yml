@@ -1,0 +1,1754 @@
+### YamlMime:UniversalReference
+items:
+  - uid: namespacegoogle_1_1cloud
+    name: "google::cloud"
+    id: namespacegoogle_1_1cloud
+    parent: ""
+    type: namespace
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        namespace google::cloud { ... };
+      source:
+        id: google::cloud
+        path: google/cloud/async_operation.h
+        startLine: 23
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/async_operation.h
+    summary: |
+      Contains all the Google Cloud C++ Library APIs. 
+    children:
+      - namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9c
+      - namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+      - namespacegoogle_1_1cloud_1a7a08fee311943ff399218e534ee86287
+      - namespacegoogle_1_1cloud_1af59c1ad2a1697f9e27b25731b1164a07
+      - namespacegoogle_1_1cloud_1a5ba713297ba807c3d561765217339aa1
+      - namespacegoogle_1_1cloud_1aacce74695aba795178e975a5f791105d
+      - namespacegoogle_1_1cloud_1a1498c1ea55d81842f37bbc42d003df1f
+      - namespacegoogle_1_1cloud_1ae520379fd5a69cc8a4314a36e024c8df
+      - namespacegoogle_1_1cloud_1a7af1ec26a232eb1d9aa1ab6af7485c8b
+      - namespacegoogle_1_1cloud_1aade1afeeffeda6aea3bb2fbdfc2d0d70
+      - namespacegoogle_1_1cloud_1ae5bbe5d72f99eb8cb569d932e51f536d
+      - namespacegoogle_1_1cloud_1a79b9f84df668a22278130dafe40762e9
+      - group__terminate_1gacc215b41a0bf17a7ea762fd5bb205348
+      - group__guac_1ga5d87aa265cd139ab190d7490b8a85c09
+      - group__guac_1gae42afce56cd78e04c6aca74337829b38
+      - group__guac_1ga51e8f3c130c4f0f8457c5f9e4bf5e013
+      - group__guac_1ga5b10de8aaba7ac9cefcea94b3d195bc1
+      - group__guac_1ga0f2d23032efe73d17745a5f53112b918
+      - group__guac_1ga75e5dbea7079dbb177fe6f7e8bd6edb5
+      - namespacegoogle_1_1cloud_1a98fd06a132f38a5222e640aa33260aa0
+      - namespacegoogle_1_1cloud_1a9b99a7ce2d0d1335c39885d71003767b
+      - namespacegoogle_1_1cloud_1a0c2b787f31888303e995bc8b390c68b8
+      - namespacegoogle_1_1cloud_1a9eff450b1f08be2562b45a46ba05f880
+      - namespacegoogle_1_1cloud_1ae4dd1dd89c2240c629763690e65a04aa
+      - namespacegoogle_1_1cloud_1a2487299690c92afa651d0498f107d0d5
+      - namespacegoogle_1_1cloud_1a950623d6404701c8d363cae839348a3b
+      - namespacegoogle_1_1cloud_1abe01696097a74c9e817236af99f0ca35
+      - namespacegoogle_1_1cloud_1a2d994d61451f865f26bd6545e0ff4169
+      - namespacegoogle_1_1cloud_1a5353f90b939473fdd0371d5c5bda6642
+      - namespacegoogle_1_1cloud_1af2ca2ec19803a761502aed8b36edcdc0
+      - namespacegoogle_1_1cloud_1acd3d52fbea5900e7ed3df07ce7a86ae0
+      - namespacegoogle_1_1cloud_1adbc883f10549b827f82c93be159ffdd6
+      - namespacegoogle_1_1cloud_1a913d8dd9e4a1b6e0c6520b6666a71cd8
+      - namespacegoogle_1_1cloud_1af9e607bddb356e604ed97e13ff3f7979
+      - namespacegoogle_1_1cloud_1a4bc7c2b44d9aa5ba461c00f7c33f42e9
+      - group__terminate_1ga6182a1baf32421d3572a904044d6089d
+      - group__terminate_1ga121c4576dd45c93c46ab8fa56bafab38
+      - group__terminate_1gac5d2d48b27f2cd1de9075a1c9522f0cf
+      - namespacegoogle_1_1cloud_1ab83d0a4176eca49778cec5fa16e184bc
+      - namespacegoogle_1_1cloud_1ab694f454e155d3743c02fe50961cd550
+      - namespacegoogle_1_1cloud_1afbb9c2c634ef86b85383206010a3167c
+      - namespacegoogle_1_1cloud_1abf812707db77df6745a7e15613c91f7c
+      - namespacegoogle_1_1cloud_1a6f3dc1ead401ac30b1c87c46c031d778
+      - namespacegoogle_1_1cloud_1a34af5fbaaafe784cb177bc8a78c552b0
+      - structgoogle_1_1cloud_1_1AccessTokenLifetimeOption
+      - classgoogle_1_1cloud_1_1AsyncOperation
+      - classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc
+      - structgoogle_1_1cloud_1_1AsyncTimerResult
+      - structgoogle_1_1cloud_1_1AuthorityOption
+      - classgoogle_1_1cloud_1_1BackgroundThreads
+      - structgoogle_1_1cloud_1_1CARootsFilePathOption
+      - classgoogle_1_1cloud_1_1CompletionQueue
+      - classgoogle_1_1cloud_1_1ConnectionOptions
+      - classgoogle_1_1cloud_1_1Credentials
+      - structgoogle_1_1cloud_1_1DelegatesOption
+      - structgoogle_1_1cloud_1_1EndpointOption
+      - classgoogle_1_1cloud_1_1ErrorInfo
+      - structgoogle_1_1cloud_1_1ExperimentalTag
+      - classgoogle_1_1cloud_1_1future
+      - classgoogle_1_1cloud_1_1future_3_01void_01_4
+      - classgoogle_1_1cloud_1_1GenericPollingPolicy
+      - structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption
+      - structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption
+      - structgoogle_1_1cloud_1_1GrpcChannelArgumentsNativeOption
+      - structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption
+      - structgoogle_1_1cloud_1_1GrpcCompletionQueueOption
+      - structgoogle_1_1cloud_1_1GrpcCredentialOption
+      - structgoogle_1_1cloud_1_1GrpcNumChannelsOption
+      - structgoogle_1_1cloud_1_1GrpcTracingOptionsOption
+      - classgoogle_1_1cloud_1_1KmsKeyName
+      - classgoogle_1_1cloud_1_1LogBackend
+      - classgoogle_1_1cloud_1_1Logger
+      - classgoogle_1_1cloud_1_1Logger_3_01false_01_4
+      - structgoogle_1_1cloud_1_1LogRecord
+      - classgoogle_1_1cloud_1_1LogSink
+      - structgoogle_1_1cloud_1_1NullStream
+      - classgoogle_1_1cloud_1_1Options
+      - classgoogle_1_1cloud_1_1PollingPolicy
+      - classgoogle_1_1cloud_1_1Project
+      - classgoogle_1_1cloud_1_1promise
+      - classgoogle_1_1cloud_1_1promise_3_01void_01_4
+      - structgoogle_1_1cloud_1_1QuotaUserOption
+      - structgoogle_1_1cloud_1_1RestTracingOptionsOption
+      - classgoogle_1_1cloud_1_1RuntimeStatusError
+      - structgoogle_1_1cloud_1_1ScopesOption
+      - structgoogle_1_1cloud_1_1ServerTimeoutOption
+      - classgoogle_1_1cloud_1_1Status
+      - classgoogle_1_1cloud_1_1StatusOr
+      - classgoogle_1_1cloud_1_1StreamRange
+      - structgoogle_1_1cloud_1_1TracingComponentsOption
+      - classgoogle_1_1cloud_1_1TracingOptions
+      - structgoogle_1_1cloud_1_1UnifiedCredentialsOption
+      - structgoogle_1_1cloud_1_1UserAgentProductsOption
+      - structgoogle_1_1cloud_1_1UserIpOption
+      - structgoogle_1_1cloud_1_1UserProjectOption
+  - uid: namespacegoogle_1_1cloud_1a7a08fee311943ff399218e534ee86287
+    name: "BackoffPolicy"
+    fullName: "google::cloud::BackoffPolicy"
+    id: namespacegoogle_1_1cloud_1a7a08fee311943ff399218e534ee86287
+    parent: namespacegoogle_1_1cloud
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::BackoffPolicy =
+          ::google::cloud::internal::BackoffPolicy;
+      aliasof: |
+        <code>::google::cloud::internal::BackoffPolicy</code>
+      source:
+        id: BackoffPolicy
+        path: google/cloud/backoff_policy.h
+        startLine: 26
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/backoff_policy.h
+    summary: |
+      The base class for backoff policies. 
+  - uid: namespacegoogle_1_1cloud_1af59c1ad2a1697f9e27b25731b1164a07
+    name: "ExponentialBackoffPolicy"
+    fullName: "google::cloud::ExponentialBackoffPolicy"
+    id: namespacegoogle_1_1cloud_1af59c1ad2a1697f9e27b25731b1164a07
+    parent: namespacegoogle_1_1cloud
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::ExponentialBackoffPolicy =
+          google::cloud::internal::ExponentialBackoffPolicy;
+      aliasof: |
+        <code>google::cloud::internal::ExponentialBackoffPolicy</code>
+      source:
+        id: ExponentialBackoffPolicy
+        path: google/cloud/backoff_policy.h
+        startLine: 29
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/backoff_policy.h
+    summary: |
+      A truncated exponential backoff policy with randomized periods. 
+  - uid: namespacegoogle_1_1cloud_1a5ba713297ba807c3d561765217339aa1
+    name: "CommonOptionList"
+    fullName: "google::cloud::CommonOptionList"
+    id: namespacegoogle_1_1cloud_1a5ba713297ba807c3d561765217339aa1
+    parent: namespacegoogle_1_1cloud
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::CommonOptionList =
+          OptionList< EndpointOption, UserAgentProductsOption, TracingComponentsOption, UserProjectOption, AuthorityOption >;
+      aliasof: |
+        <code>OptionList&lt; EndpointOption, UserAgentProductsOption, TracingComponentsOption, UserProjectOption, AuthorityOption &gt;</code>
+      source:
+        id: CommonOptionList
+        path: google/cloud/common_options.h
+        startLine: 112
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/common_options.h
+    summary: |
+      A list of all the common options. 
+  - uid: namespacegoogle_1_1cloud_1aacce74695aba795178e975a5f791105d
+    name: "UnifiedCredentialsOptionList"
+    fullName: "google::cloud::UnifiedCredentialsOptionList"
+    id: namespacegoogle_1_1cloud_1aacce74695aba795178e975a5f791105d
+    parent: namespacegoogle_1_1cloud
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::UnifiedCredentialsOptionList =
+          OptionList< AccessTokenLifetimeOption, CARootsFilePathOption, DelegatesOption, ScopesOption, TracingComponentsOption, UnifiedCredentialsOption >;
+      aliasof: |
+        <code>OptionList&lt; AccessTokenLifetimeOption, CARootsFilePathOption, DelegatesOption, ScopesOption, TracingComponentsOption, UnifiedCredentialsOption &gt;</code>
+      source:
+        id: UnifiedCredentialsOptionList
+        path: google/cloud/credentials.h
+        startLine: 351
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/credentials.h
+    summary: |
+      A list of options related to authentication. 
+  - uid: namespacegoogle_1_1cloud_1a1498c1ea55d81842f37bbc42d003df1f
+    name: "BackgroundThreadsFactory"
+    fullName: "google::cloud::BackgroundThreadsFactory"
+    id: namespacegoogle_1_1cloud_1a1498c1ea55d81842f37bbc42d003df1f
+    parent: namespacegoogle_1_1cloud
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::BackgroundThreadsFactory =
+          std::function< std::unique_ptr< BackgroundThreads >()>;
+      aliasof: |
+        <code>std::function&lt; std::unique_ptr&lt; BackgroundThreads &gt;()&gt;</code>
+      source:
+        id: BackgroundThreadsFactory
+        path: google/cloud/grpc_options.h
+        startLine: 148
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/grpc_options.h
+  - uid: namespacegoogle_1_1cloud_1ae520379fd5a69cc8a4314a36e024c8df
+    name: "GrpcOptionList"
+    fullName: "google::cloud::GrpcOptionList"
+    id: namespacegoogle_1_1cloud_1ae520379fd5a69cc8a4314a36e024c8df
+    parent: namespacegoogle_1_1cloud
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::GrpcOptionList =
+          OptionList< GrpcCredentialOption, GrpcNumChannelsOption, GrpcChannelArgumentsOption, GrpcChannelArgumentsNativeOption, GrpcTracingOptionsOption, GrpcBackgroundThreadPoolSizeOption, GrpcCompletionQueueOption, GrpcBackgroundThreadsFactoryOption >;
+      aliasof: |
+        <code>OptionList&lt; GrpcCredentialOption, GrpcNumChannelsOption, GrpcChannelArgumentsOption, GrpcChannelArgumentsNativeOption, GrpcTracingOptionsOption, GrpcBackgroundThreadPoolSizeOption, GrpcCompletionQueueOption, GrpcBackgroundThreadsFactoryOption &gt;</code>
+      source:
+        id: GrpcOptionList
+        path: google/cloud/grpc_options.h
+        startLine: 176
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/grpc_options.h
+    summary: |
+      A list of all the gRPC options. 
+  - uid: namespacegoogle_1_1cloud_1a7af1ec26a232eb1d9aa1ab6af7485c8b
+    name: "IamUpdater"
+    fullName: "google::cloud::IamUpdater"
+    id: namespacegoogle_1_1cloud_1a7af1ec26a232eb1d9aa1ab6af7485c8b
+    parent: namespacegoogle_1_1cloud
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::IamUpdater =
+          std::function< absl::optional< google::iam::v1::Policy >(google::iam::v1::Policy)>;
+      aliasof: |
+        <code>std::function&lt; absl::optional&lt; google::iam::v1::Policy &gt;(google::iam::v1::Policy)&gt;</code>
+      source:
+        id: IamUpdater
+        path: google/cloud/iam_updater.h
+        startLine: 41
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/iam_updater.h
+    summary: |
+      Used in the `SetIamPolicy()` read-modify-write cycles where an `etag` helps prevent simultaneous updates of a policy from overwriting each other. 
+    conceptual: |
+      The updater is called with a recently fetched policy, and should either return an empty optional if no changes are required, or return a new policy to be set. In the latter case the updater should either (1) set the `etag` of the returned policy to that of the recently fetched policy (strongly suggested), or (2) not set the `etag` at all.
+
+      In case (1) if the `etag` does not match the existing policy (i.e., there has been an intermediate update), this update is dropped and a new cycle is initiated. In case (2) the existing policy is overwritten blindly. 
+  - uid: namespacegoogle_1_1cloud_1aade1afeeffeda6aea3bb2fbdfc2d0d70
+    name: "optional"
+    fullName: "google::cloud::optional"
+    id: namespacegoogle_1_1cloud_1aade1afeeffeda6aea3bb2fbdfc2d0d70
+    parent: namespacegoogle_1_1cloud
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::optional =
+          absl::optional< T >;
+      aliasof: |
+        <code>absl::optional&lt; T &gt;</code>
+      source:
+        id: optional
+        path: google/cloud/optional.h
+        startLine: 31
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/optional.h
+    summary: |
+      Alias template for [`google::cloud::optional`](xref:namespacegoogle_1_1cloud_1aade1afeeffeda6aea3bb2fbdfc2d0d70). 
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      this alias is deprecated; use `absl::optional<T>` directly. 
+      </aside>
+  - uid: namespacegoogle_1_1cloud_1ae5bbe5d72f99eb8cb569d932e51f536d
+    name: "OptionList"
+    fullName: "google::cloud::OptionList"
+    id: namespacegoogle_1_1cloud_1ae5bbe5d72f99eb8cb569d932e51f536d
+    parent: namespacegoogle_1_1cloud
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::OptionList =
+          internal::TypeList< T... >;
+      aliasof: |
+        <code>internal::TypeList&lt; T... &gt;</code>
+      source:
+        id: OptionList
+        path: google/cloud/options.h
+        startLine: 264
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/options.h
+    summary: |
+      A template to hold a list of "option" types. 
+    conceptual: |
+      This can be a useful way to create meaningful lists of options. For example, there could be a list containing all the gRPC options. Or a list of all ProductX options. This gives us a way to link to lists of options with doxygen, and to do some checking about what options a function may expect. 
+  - uid: namespacegoogle_1_1cloud_1a79b9f84df668a22278130dafe40762e9
+    name: "RestOptionList"
+    fullName: "google::cloud::RestOptionList"
+    id: namespacegoogle_1_1cloud_1a79b9f84df668a22278130dafe40762e9
+    parent: namespacegoogle_1_1cloud
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::RestOptionList =
+          ::google::cloud::OptionList< QuotaUserOption, RestTracingOptionsOption, ServerTimeoutOption, UserIpOption >;
+      aliasof: |
+        <code>::google::cloud::OptionList&lt; QuotaUserOption, RestTracingOptionsOption, ServerTimeoutOption, UserIpOption &gt;</code>
+      source:
+        id: RestOptionList
+        path: google/cloud/rest_options.h
+        startLine: 75
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/rest_options.h
+    summary: |
+      The complete list of options accepted by `CurlRestClient`
+  - uid: group__terminate_1gacc215b41a0bf17a7ea762fd5bb205348
+    name: "TerminateHandler"
+    fullName: "google::cloud::TerminateHandler"
+    id: group__terminate_1gacc215b41a0bf17a7ea762fd5bb205348
+    parent: namespacegoogle_1_1cloud
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::TerminateHandler =
+          std::function< void(char const  *msg)>;
+      aliasof: |
+        <code>std::function&lt; void(char const  *msg)&gt;</code>
+      source:
+        id: TerminateHandler
+        path: google/cloud/terminate_handler.h
+        startLine: 69
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/terminate_handler.h
+    summary: |
+      Terminate handler. 
+    conceptual: |
+      It should handle the error, whose description are given in *msg* and should never return. 
+  - uid: group__guac_1ga5d87aa265cd139ab190d7490b8a85c09
+    name: "MakeInsecureCredentials(Options)"
+    fullName: |
+      google::cloud::MakeInsecureCredentials
+    id: group__guac_1ga5d87aa265cd139ab190d7490b8a85c09
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::shared_ptr< Credentials >
+        google::cloud::MakeInsecureCredentials (
+            Options opts
+          )
+      return:
+        type:
+          - "std::shared_ptr< Credentials >"
+      parameters:
+        - id: opts
+          var_type: "Options"
+          description: |
+            optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, [`TracingComponentsOption`](xref:structgoogle_1_1cloud_1_1TracingComponentsOption) is ignored by gRPC-based services. 
+      source:
+        id: MakeInsecureCredentials
+        path: google/cloud/credentials.h
+        startLine: 91
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/credentials.h
+    summary: |
+      Create insecure (aka anonymous, aka unauthenticated) credentials. 
+    conceptual: |
+      These credentials are mostly intended for testing. Integration tests running against an emulator do not need to authenticate. In fact, it may be impossible to connect to an emulator using SSL/TLS because the emulators typically run without secure communication.
+
+      In addition, unit tests may benefit from using these credentials: loading the default credentials unnecessarily slows down the unit tests, and in some CI environments the credentials may fail to load, creating confusing warnings and sometimes even errors.
+
+
+  - uid: group__guac_1gae42afce56cd78e04c6aca74337829b38
+    name: "MakeGoogleDefaultCredentials(Options)"
+    fullName: |
+      google::cloud::MakeGoogleDefaultCredentials
+    id: group__guac_1gae42afce56cd78e04c6aca74337829b38
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::shared_ptr< Credentials >
+        google::cloud::MakeGoogleDefaultCredentials (
+            Options opts
+          )
+      return:
+        type:
+          - "std::shared_ptr< Credentials >"
+      parameters:
+        - id: opts
+          var_type: "Options"
+          description: |
+            optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, [`TracingComponentsOption`](xref:structgoogle_1_1cloud_1_1TracingComponentsOption) is ignored by gRPC-based services. 
+      source:
+        id: MakeGoogleDefaultCredentials
+        path: google/cloud/credentials.h
+        startLine: 127
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/credentials.h
+    summary: |
+      Creates the default credentials. 
+    conceptual: |
+      These are the most commonly used credentials, and are expected to meet the needs of most applications. The Google Default [Credentials](xref:classgoogle_1_1cloud_1_1Credentials) conform to [aip/4110](https://google.aip.dev/auth/4110). Consider using these credentials when:
+
+
+      - Your application is deployed to a GCP environment such as GCE, GKE, or Cloud Run. Each of these deployment environments provides a default service account to the application, and offers mechanisms to change the default credentials without any code changes to your application.
+      - You are testing or developing the application on a workstation (physical or virtual). These credentials will use your preferences as set with [gcloud auth application-default](https://cloud.google.com/sdk/gcloud/reference/auth/application-default). These preferences can be your own GCP user credentials, or some service account.
+      - Regardless of where your application is running, you can use the `GOOGLE_APPLICATION_CREDENTIALS` environment variable to override the defaults. This environment variable should point to a file containing a service account key file, or a JSON object describing your user credentials.
+
+
+
+      ###### See Also
+
+      [https://cloud.google.com/docs/authentication](https://cloud.google.com/docs/authentication) for more information on authentication in GCP.
+  - uid: group__guac_1ga51e8f3c130c4f0f8457c5f9e4bf5e013
+    name: "MakeAccessTokenCredentials(std::string const &, std::chrono::system_clock::time_point, Options)"
+    fullName: |
+      google::cloud::MakeAccessTokenCredentials
+    id: group__guac_1ga51e8f3c130c4f0f8457c5f9e4bf5e013
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::shared_ptr< Credentials >
+        google::cloud::MakeAccessTokenCredentials (
+            std::string const & access_token,
+            std::chrono::system_clock::time_point expiration,
+            Options opts
+          )
+      return:
+        type:
+          - "std::shared_ptr< Credentials >"
+      parameters:
+        - id: access_token
+          var_type: "std::string const &"
+          description: |
+            the access token to be used by the client library. 
+        - id: expiration
+          var_type: "std::chrono::system_clock::time_point"
+          description: |
+            the expiration time for the token. 
+        - id: opts
+          var_type: "Options"
+          description: |
+            optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, [`TracingComponentsOption`](xref:structgoogle_1_1cloud_1_1TracingComponentsOption) is ignored by gRPC-based services. 
+      source:
+        id: MakeAccessTokenCredentials
+        path: google/cloud/credentials.h
+        startLine: 147
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/credentials.h
+    summary: |
+      Creates credentials with a fixed access token. 
+    conceptual: |
+      These credentials are useful when using an out-of-band mechanism to fetch access tokens. Note that access tokens are time limited, you will need to manually refresh the tokens created by the
+
+
+
+      ###### See Also
+
+      [https://cloud.google.com/docs/authentication](https://cloud.google.com/docs/authentication) for more information on authentication in GCP.
+  - uid: group__guac_1ga5b10de8aaba7ac9cefcea94b3d195bc1
+    name: "MakeImpersonateServiceAccountCredentials(std::shared_ptr< Credentials >, std::string, Options)"
+    fullName: |
+      google::cloud::MakeImpersonateServiceAccountCredentials
+    id: group__guac_1ga5b10de8aaba7ac9cefcea94b3d195bc1
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::shared_ptr< Credentials >
+        google::cloud::MakeImpersonateServiceAccountCredentials (
+            std::shared_ptr< Credentials > base_credentials,
+            std::string target_service_account,
+            Options opts
+          )
+      return:
+        type:
+          - "std::shared_ptr< Credentials >"
+      parameters:
+        - id: base_credentials
+          var_type: "std::shared_ptr&lt; Credentials &gt;"
+          description: |
+            the credentials used to contact the IAM [Credentials](xref:classgoogle_1_1cloud_1_1Credentials) services. 
+        - id: target_service_account
+          var_type: "std::string"
+          description: |
+            the email address of the service account to impersonate. 
+        - id: opts
+          var_type: "Options"
+          description: |
+            optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, [`TracingComponentsOption`](xref:structgoogle_1_1cloud_1_1TracingComponentsOption) is ignored by gRPC-based services. 
+      source:
+        id: MakeImpersonateServiceAccountCredentials
+        path: google/cloud/credentials.h
+        startLine: 194
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/credentials.h
+    summary: |
+      Creates credentials for service account impersonation. 
+    conceptual: |
+      Service account impersonation allows one account (user or service account) to *act as* a second account. This can be useful in multi-tenant services, where the service may perform some actions with an specific account associated with a tenant. The tenant can grant or restrict permissions to this tenant account.
+
+      When using service account impersonation is important to distinguish between the credentials used to *obtain* the target account credentials (the `base_credentials`) parameter, and the credentials representing the `target_service_account`.
+
+      Use [`AccessTokenLifetimeOption`](xref:structgoogle_1_1cloud_1_1AccessTokenLifetimeOption) to configure the maximum lifetime of the obtained credentials. The default is 1h (3600s), see [IAM quotas](https://cloud.google.com/iam/quotas) for the limits set by the platform and how to override them.
+
+      Use [`DelegatesOption`](xref:structgoogle_1_1cloud_1_1DelegatesOption) to configure a sequence of intermediate service account, each of which has permissions to impersonate the next and the last one has permissions to impersonate `target_service_account`.
+
+      Use [`ScopesOption`](xref:structgoogle_1_1cloud_1_1ScopesOption) to restrict the authentication scope for the obtained credentials. See below for possible values.
+
+
+
+      ###### See Also
+
+      [https://cloud.google.com/docs/authentication](https://cloud.google.com/docs/authentication) for more information on authentication in GCP. 
+
+      ###### See Also
+
+      [https://cloud.google.com/iam/docs/impersonating-service-accounts](https://cloud.google.com/iam/docs/impersonating-service-accounts) for information on managing service account impersonation. 
+
+      ###### See Also
+
+      [https://developers.google.com/identity/protocols/oauth2/scopes](https://developers.google.com/identity/protocols/oauth2/scopes) for authentication scopes in Google Cloud Platform.
+  - uid: group__guac_1ga0f2d23032efe73d17745a5f53112b918
+    name: "MakeServiceAccountCredentials(std::string, Options)"
+    fullName: |
+      google::cloud::MakeServiceAccountCredentials
+    id: group__guac_1ga0f2d23032efe73d17745a5f53112b918
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::shared_ptr< Credentials >
+        google::cloud::MakeServiceAccountCredentials (
+            std::string json_object,
+            Options opts
+          )
+      return:
+        type:
+          - "std::shared_ptr< Credentials >"
+      parameters:
+        - id: json_object
+          var_type: "std::string"
+          description: |
+            the service account configuration as a JSON string. Typically applications read this from a file, or download the contents from something like Google's secret manager service. 
+        - id: opts
+          var_type: "Options"
+          description: |
+            optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, [`TracingComponentsOption`](xref:structgoogle_1_1cloud_1_1TracingComponentsOption) is ignored by gRPC-based services. 
+      source:
+        id: MakeServiceAccountCredentials
+        path: google/cloud/credentials.h
+        startLine: 240
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/credentials.h
+    summary: |
+      Creates service account credentials from a service account key. 
+    conceptual: |
+      A [service account](https://cloud.google.com/iam/docs/overview#service_account) is an account for an application or compute workload instead of an individual end user. The recommended practice is to use Google Default [Credentials](xref:classgoogle_1_1cloud_1_1Credentials), which relies on the configuration of the Google Cloud system hosting your application (GCE, GKE, Cloud Run) to authenticate your workload or application. But sometimes you may need to create and download a [service account key](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#iam-service-account-keys-create-cpp), for example, to use a service account when running your application on a system that is not part of Google Cloud.
+
+      Service account credentials are used in this latter case.
+
+      You can create multiple service account keys for a single service account. When you create a service account key, the key is returned as string, in the format described by [aip/4112](https://google.aip.dev/auth/4112). This string contains an id for the service account, as well as the cryptographical materials (a RSA private key) required to authenticate the caller.
+
+      Therefore, services account keys should be treated as any other secret with security implications. Think of them as unencrypted passwords. Do not store them where unauthorized persons or programs may read them.
+
+      As stated above, most applications should probably use default credentials, maybe pointing them to a file with these contents. Using this function may be useful when the service account key is obtained from Cloud Secret Manager or a similar service.
+
+
+  - uid: group__guac_1ga75e5dbea7079dbb177fe6f7e8bd6edb5
+    name: "MakeExternalAccountCredentials(std::string, Options)"
+    fullName: |
+      google::cloud::MakeExternalAccountCredentials
+    id: group__guac_1ga75e5dbea7079dbb177fe6f7e8bd6edb5
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::shared_ptr< Credentials >
+        google::cloud::MakeExternalAccountCredentials (
+            std::string json_object,
+            Options opts
+          )
+      return:
+        type:
+          - "std::shared_ptr< Credentials >"
+      parameters:
+        - id: json_object
+          var_type: "std::string"
+          description: |
+            the external account configuration as a JSON string. Typically applications read this from a file, or download the contents from something like Google's secret manager service. The configuration file can be created using the [create-cred-config](https://cloud.google.com/sdk/gcloud/reference/iam/workload-identity-pools/create-cred-config)`gcloud` subcommand. 
+        - id: opts
+          var_type: "Options"
+          description: |
+            optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, [`TracingComponentsOption`](xref:structgoogle_1_1cloud_1_1TracingComponentsOption) is ignored by gRPC-based services. 
+      source:
+        id: MakeExternalAccountCredentials
+        path: google/cloud/credentials.h
+        startLine: 271
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/credentials.h
+    summary: |
+      Creates credentials based on external accounts. 
+    conceptual: |
+      [Workload Identity Federation](https://cloud.google.com/iam/docs/workload-identity-federation) can grant on-premises or multi-cloud workloads access to Google Cloud resources, without using a service account key. You can use identity federation with Amazon Web Services (AWS), or with any identity provider that supports OpenID Connect (OIDC), such as Microsoft Azure, or SAML 2.0.
+
+
+
+      ###### See Also
+
+      [https://cloud.google.com/docs/authentication](https://cloud.google.com/docs/authentication) for more information on authentication in GCP.
+  - uid: namespacegoogle_1_1cloud_1a98fd06a132f38a5222e640aa33260aa0
+    name: "make_ready_future(T &&)"
+    fullName: |
+      google::cloud::make_ready_future
+    id: namespacegoogle_1_1cloud_1a98fd06a132f38a5222e640aa33260aa0
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename T>
+        future< typename internal::make_ready_return< T >::type >
+        google::cloud::make_ready_future (
+            T && t
+          )
+      return:
+        type:
+          - "future< typename internal::make_ready_return< T >::type >"
+      parameters:
+        - id: t
+          var_type: "T &&"
+        - id: typename T
+      source:
+        id: make_ready_future
+        path: google/cloud/future_generic.h
+        startLine: 217
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_generic.h
+    summary: |
+      Create a [future<void>](xref:classgoogle_1_1cloud_1_1future_3_01void_01_4) that is immediately ready. 
+  - uid: namespacegoogle_1_1cloud_1a9b99a7ce2d0d1335c39885d71003767b
+    name: "make_ready_future()"
+    fullName: |
+      google::cloud::make_ready_future
+    id: namespacegoogle_1_1cloud_1a9b99a7ce2d0d1335c39885d71003767b
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        future< void >
+        google::cloud::make_ready_future ()
+      return:
+        type:
+          - "future< void >"
+      source:
+        id: make_ready_future
+        path: google/cloud/future_void.h
+        startLine: 207
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_void.h
+    summary: |
+      Create a [future<void>](xref:classgoogle_1_1cloud_1_1future_3_01void_01_4) that is immediately ready. 
+  - uid: namespacegoogle_1_1cloud_1a0c2b787f31888303e995bc8b390c68b8
+    name: "MakeStatusFromRpcError(grpc::Status const &)"
+    fullName: |
+      google::cloud::MakeStatusFromRpcError
+    id: namespacegoogle_1_1cloud_1a0c2b787f31888303e995bc8b390c68b8
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::Status
+        google::cloud::MakeStatusFromRpcError (
+            grpc::Status const & status
+          )
+      return:
+        type:
+          - "google::cloud::Status"
+      parameters:
+        - id: status
+          var_type: "grpc::Status const &"
+      source:
+        id: MakeStatusFromRpcError
+        path: google/cloud/grpc_error_delegate.h
+        startLine: 31
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/grpc_error_delegate.h
+    summary: |
+      Creates a [`google::cloud::Status`](xref:classgoogle_1_1cloud_1_1Status) from a grpc::Status. 
+  - uid: namespacegoogle_1_1cloud_1a9eff450b1f08be2562b45a46ba05f880
+    name: "MakeStatusFromRpcError(grpc::StatusCode, std::string)"
+    fullName: |
+      google::cloud::MakeStatusFromRpcError
+    id: namespacegoogle_1_1cloud_1a9eff450b1f08be2562b45a46ba05f880
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::Status
+        google::cloud::MakeStatusFromRpcError (
+            grpc::StatusCode code,
+            std::string what
+          )
+      return:
+        type:
+          - "google::cloud::Status"
+      parameters:
+        - id: code
+          var_type: "grpc::StatusCode"
+        - id: what
+          var_type: "std::string"
+      source:
+        id: MakeStatusFromRpcError
+        path: google/cloud/grpc_error_delegate.h
+        startLine: 36
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/grpc_error_delegate.h
+    summary: |
+      Creates a [`google::cloud::Status`](xref:classgoogle_1_1cloud_1_1Status) from a grpc::StatusCode and description. 
+  - uid: namespacegoogle_1_1cloud_1ae4dd1dd89c2240c629763690e65a04aa
+    name: "MakeStatusFromRpcError(google::rpc::Status const &)"
+    fullName: |
+      google::cloud::MakeStatusFromRpcError
+    id: namespacegoogle_1_1cloud_1ae4dd1dd89c2240c629763690e65a04aa
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::Status
+        google::cloud::MakeStatusFromRpcError (
+            google::rpc::Status const & proto
+          )
+      return:
+        type:
+          - "google::cloud::Status"
+      parameters:
+        - id: proto
+          var_type: "google::rpc::Status const &"
+      source:
+        id: MakeStatusFromRpcError
+        path: google/cloud/grpc_error_delegate.h
+        startLine: 46
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/grpc_error_delegate.h
+    summary: |
+      Creates a [`google::cloud::Status`](xref:classgoogle_1_1cloud_1_1Status) from a `google:rpc::`[`Status`](xref:classgoogle_1_1cloud_1_1Status) proto. 
+    conceptual: |
+      Some gRPC services return the `google::rpc::Status` proto for errors. The libraries in `google-cloud-cpp` represent these errors using a [`google::cloud::Status`](xref:classgoogle_1_1cloud_1_1Status). 
+  - uid: namespacegoogle_1_1cloud_1a2487299690c92afa651d0498f107d0d5
+    name: "MakeKmsKeyName(std::string const &)"
+    fullName: |
+      google::cloud::MakeKmsKeyName
+    id: namespacegoogle_1_1cloud_1a2487299690c92afa651d0498f107d0d5
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        StatusOr< KmsKeyName >
+        google::cloud::MakeKmsKeyName (
+            std::string const & full_name
+          )
+      return:
+        type:
+          - "StatusOr< KmsKeyName >"
+      parameters:
+        - id: full_name
+          var_type: "std::string const &"
+      source:
+        id: MakeKmsKeyName
+        path: google/cloud/kms_key_name.h
+        startLine: 83
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/kms_key_name.h
+    summary: |
+      Constructs a [`KmsKeyName`](xref:classgoogle_1_1cloud_1_1KmsKeyName) from the given `full_name`. 
+    conceptual: |
+      Returns a non-OK [Status](xref:classgoogle_1_1cloud_1_1Status) if `full_name` is improperly formed. 
+  - uid: namespacegoogle_1_1cloud_1a950623d6404701c8d363cae839348a3b
+    name: "ParseSeverity(std::string const &)"
+    fullName: |
+      google::cloud::ParseSeverity
+    id: namespacegoogle_1_1cloud_1a950623d6404701c8d363cae839348a3b
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        absl::optional< Severity >
+        google::cloud::ParseSeverity (
+            std::string const & name
+          )
+      return:
+        type:
+          - "absl::optional< Severity >"
+      parameters:
+        - id: name
+          var_type: "std::string const &"
+      source:
+        id: ParseSeverity
+        path: google/cloud/log.h
+        startLine: 146
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Convert a human-readable representation to a Severity. 
+  - uid: namespacegoogle_1_1cloud_1abe01696097a74c9e817236af99f0ca35
+    name: "operator<<(std::ostream &, Severity)"
+    fullName: |
+      google::cloud::operator<<
+    id: namespacegoogle_1_1cloud_1abe01696097a74c9e817236af99f0ca35
+    parent: namespacegoogle_1_1cloud
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::ostream &
+        google::cloud::operator<< (
+            std::ostream & os,
+            Severity x
+          )
+      return:
+        type:
+          - "std::ostream &"
+      parameters:
+        - id: os
+          var_type: "std::ostream &"
+        - id: x
+          var_type: "Severity"
+      source:
+        id: operator<<
+        path: google/cloud/log.h
+        startLine: 149
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Streaming operator, writes a human-readable representation. 
+  - uid: namespacegoogle_1_1cloud_1a2d994d61451f865f26bd6545e0ff4169
+    name: "operator<<(std::ostream &, LogRecord const &)"
+    fullName: |
+      google::cloud::operator<<
+    id: namespacegoogle_1_1cloud_1a2d994d61451f865f26bd6545e0ff4169
+    parent: namespacegoogle_1_1cloud
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::ostream &
+        google::cloud::operator<< (
+            std::ostream & os,
+            LogRecord const & rhs
+          )
+      return:
+        type:
+          - "std::ostream &"
+      parameters:
+        - id: os
+          var_type: "std::ostream &"
+        - id: rhs
+          var_type: "LogRecord const &"
+      source:
+        id: operator<<
+        path: google/cloud/log.h
+        startLine: 165
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Default formatting of a [LogRecord](xref:structgoogle_1_1cloud_1_1LogRecord). 
+  - uid: namespacegoogle_1_1cloud_1a5353f90b939473fdd0371d5c5bda6642
+    name: "MakeProject(std::string const &)"
+    fullName: |
+      google::cloud::MakeProject
+    id: namespacegoogle_1_1cloud_1a5353f90b939473fdd0371d5c5bda6642
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        StatusOr< Project >
+        google::cloud::MakeProject (
+            std::string const & full_name
+          )
+      return:
+        type:
+          - "StatusOr< Project >"
+      parameters:
+        - id: full_name
+          var_type: "std::string const &"
+      source:
+        id: MakeProject
+        path: google/cloud/project.h
+        startLine: 79
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/project.h
+    summary: |
+      Constructs a [`Project`](xref:classgoogle_1_1cloud_1_1Project) from the given `full_name`. 
+    conceptual: |
+      Returns a non-OK [Status](xref:classgoogle_1_1cloud_1_1Status) if `full_name` is improperly formed. 
+  - uid: namespacegoogle_1_1cloud_1af2ca2ec19803a761502aed8b36edcdc0
+    name: "StatusCodeToString(StatusCode)"
+    fullName: |
+      google::cloud::StatusCodeToString
+    id: namespacegoogle_1_1cloud_1af2ca2ec19803a761502aed8b36edcdc0
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::string
+        google::cloud::StatusCodeToString (
+            StatusCode code
+          )
+      return:
+        type:
+          - "std::string"
+      parameters:
+        - id: code
+          var_type: "StatusCode"
+      source:
+        id: StatusCodeToString
+        path: google/cloud/status.h
+        startLine: 191
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Convert `code` to a human readable string. 
+  - uid: namespacegoogle_1_1cloud_1acd3d52fbea5900e7ed3df07ce7a86ae0
+    name: "operator<<(std::ostream &, StatusCode)"
+    fullName: |
+      google::cloud::operator<<
+    id: namespacegoogle_1_1cloud_1acd3d52fbea5900e7ed3df07ce7a86ae0
+    parent: namespacegoogle_1_1cloud
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::ostream &
+        google::cloud::operator<< (
+            std::ostream & os,
+            StatusCode code
+          )
+      return:
+        type:
+          - "std::ostream &"
+      parameters:
+        - id: os
+          var_type: "std::ostream &"
+        - id: code
+          var_type: "StatusCode"
+      source:
+        id: operator<<
+        path: google/cloud/status.h
+        startLine: 194
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Integration with `std::iostreams`. 
+  - uid: namespacegoogle_1_1cloud_1adbc883f10549b827f82c93be159ffdd6
+    name: "operator<<(std::ostream &, Status const &)"
+    fullName: |
+      google::cloud::operator<<
+    id: namespacegoogle_1_1cloud_1adbc883f10549b827f82c93be159ffdd6
+    parent: namespacegoogle_1_1cloud
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::ostream &
+        google::cloud::operator<< (
+            std::ostream & os,
+            Status const & s
+          )
+      return:
+        type:
+          - "std::ostream &"
+      parameters:
+        - id: os
+          var_type: "std::ostream &"
+        - id: s
+          var_type: "Status const &"
+      source:
+        id: operator<<
+        path: google/cloud/status.h
+        startLine: 372
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Stream `s` to `os`. 
+    conceptual: |
+      This in intended for logging and troubleshooting. Applications should not depend on the format of this output. 
+  - uid: namespacegoogle_1_1cloud_1a913d8dd9e4a1b6e0c6520b6666a71cd8
+    name: "operator==(StatusOr< T > const &, StatusOr< T > const &)"
+    fullName: |
+      google::cloud::operator==
+    id: namespacegoogle_1_1cloud_1a913d8dd9e4a1b6e0c6520b6666a71cd8
+    parent: namespacegoogle_1_1cloud
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename T>
+        bool
+        google::cloud::operator== (
+            StatusOr< T > const & a,
+            StatusOr< T > const & b
+          )
+      return:
+        type:
+          - "bool"
+      parameters:
+        - id: a
+          var_type: "StatusOr&lt; T &gt; const &"
+        - id: b
+          var_type: "StatusOr&lt; T &gt; const &"
+        - id: typename T
+      source:
+        id: operator==
+        path: google/cloud/status_or.h
+        startLine: 312
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+  - uid: namespacegoogle_1_1cloud_1af9e607bddb356e604ed97e13ff3f7979
+    name: "operator!=(StatusOr< T > const &, StatusOr< T > const &)"
+    fullName: |
+      google::cloud::operator!=
+    id: namespacegoogle_1_1cloud_1af9e607bddb356e604ed97e13ff3f7979
+    parent: namespacegoogle_1_1cloud
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename T>
+        bool
+        google::cloud::operator!= (
+            StatusOr< T > const & a,
+            StatusOr< T > const & b
+          )
+      return:
+        type:
+          - "bool"
+      parameters:
+        - id: a
+          var_type: "StatusOr&lt; T &gt; const &"
+        - id: b
+          var_type: "StatusOr&lt; T &gt; const &"
+        - id: typename T
+      source:
+        id: operator!=
+        path: google/cloud/status_or.h
+        startLine: 320
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+  - uid: namespacegoogle_1_1cloud_1a4bc7c2b44d9aa5ba461c00f7c33f42e9
+    name: "make_status_or(T)"
+    fullName: |
+      google::cloud::make_status_or
+    id: namespacegoogle_1_1cloud_1a4bc7c2b44d9aa5ba461c00f7c33f42e9
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename T>
+        StatusOr< T >
+        google::cloud::make_status_or (
+            T rhs
+          )
+      return:
+        type:
+          - "StatusOr< T >"
+      parameters:
+        - id: rhs
+          var_type: "T"
+        - id: typename T
+      source:
+        id: make_status_or
+        path: google/cloud/status_or.h
+        startLine: 325
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status_or.h
+  - uid: group__terminate_1ga6182a1baf32421d3572a904044d6089d
+    name: "SetTerminateHandler(TerminateHandler)"
+    fullName: |
+      google::cloud::SetTerminateHandler
+    id: group__terminate_1ga6182a1baf32421d3572a904044d6089d
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        TerminateHandler
+        google::cloud::SetTerminateHandler (
+            TerminateHandler f
+          )
+      return:
+        type:
+          - "TerminateHandler"
+        description: |
+          Previously set handler. 
+      parameters:
+        - id: f
+          var_type: "TerminateHandler"
+          description: |
+            the handler. It should never return, behaviour is undefined otherwise.
+      source:
+        id: SetTerminateHandler
+        path: google/cloud/terminate_handler.h
+        startLine: 81
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/terminate_handler.h
+    summary: |
+      Install terminate handler and get the old one atomically. 
+  - uid: group__terminate_1ga121c4576dd45c93c46ab8fa56bafab38
+    name: "GetTerminateHandler()"
+    fullName: |
+      google::cloud::GetTerminateHandler
+    id: group__terminate_1ga121c4576dd45c93c46ab8fa56bafab38
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        TerminateHandler
+        google::cloud::GetTerminateHandler ()
+      return:
+        type:
+          - "TerminateHandler"
+        description: |
+          The currently installed handler. 
+      source:
+        id: GetTerminateHandler
+        path: google/cloud/terminate_handler.h
+        startLine: 90
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/terminate_handler.h
+    summary: |
+      Get the currently installed handler. 
+  - uid: group__terminate_1gac5d2d48b27f2cd1de9075a1c9522f0cf
+    name: "Terminate(char const *)"
+    fullName: |
+      google::cloud::Terminate
+    id: group__terminate_1gac5d2d48b27f2cd1de9075a1c9522f0cf
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::Terminate (
+            char const * msg
+          )
+      return:
+        type:
+          - "void"
+      parameters:
+        - id: msg
+          var_type: "char const *"
+          description: |
+            Details about the error.
+      source:
+        id: Terminate
+        path: google/cloud/terminate_handler.h
+        startLine: 101
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/terminate_handler.h
+    summary: |
+      Invoke the currently installed handler. 
+    conceptual: |
+
+      This function should never return. 
+  - uid: namespacegoogle_1_1cloud_1ab83d0a4176eca49778cec5fa16e184bc
+    name: "version_major()"
+    fullName: |
+      google::cloud::version_major
+    id: namespacegoogle_1_1cloud_1ab83d0a4176eca49778cec5fa16e184bc
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        int constexpr
+        google::cloud::version_major ()
+      return:
+        type:
+          - "int constexpr"
+      source:
+        id: version_major
+        path: google/cloud/version.h
+        startLine: 65
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/version.h
+    summary: |
+      The Google Cloud C++ Client major version. 
+    conceptual: |
+
+
+      ###### See Also
+
+      [https://semver.org/spec/v2.0.0.html](https://semver.org/spec/v2.0.0.html) for details. 
+  - uid: namespacegoogle_1_1cloud_1ab694f454e155d3743c02fe50961cd550
+    name: "version_minor()"
+    fullName: |
+      google::cloud::version_minor
+    id: namespacegoogle_1_1cloud_1ab694f454e155d3743c02fe50961cd550
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        int constexpr
+        google::cloud::version_minor ()
+      return:
+        type:
+          - "int constexpr"
+      source:
+        id: version_minor
+        path: google/cloud/version.h
+        startLine: 72
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/version.h
+    summary: |
+      The Google Cloud C++ Client minor version. 
+    conceptual: |
+
+
+      ###### See Also
+
+      [https://semver.org/spec/v2.0.0.html](https://semver.org/spec/v2.0.0.html) for details. 
+  - uid: namespacegoogle_1_1cloud_1afbb9c2c634ef86b85383206010a3167c
+    name: "version_patch()"
+    fullName: |
+      google::cloud::version_patch
+    id: namespacegoogle_1_1cloud_1afbb9c2c634ef86b85383206010a3167c
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        int constexpr
+        google::cloud::version_patch ()
+      return:
+        type:
+          - "int constexpr"
+      source:
+        id: version_patch
+        path: google/cloud/version.h
+        startLine: 79
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/version.h
+    summary: |
+      The Google Cloud C++ Client patch version. 
+    conceptual: |
+
+
+      ###### See Also
+
+      [https://semver.org/spec/v2.0.0.html](https://semver.org/spec/v2.0.0.html) for details. 
+  - uid: namespacegoogle_1_1cloud_1abf812707db77df6745a7e15613c91f7c
+    name: "version_pre_release()"
+    fullName: |
+      google::cloud::version_pre_release
+    id: namespacegoogle_1_1cloud_1abf812707db77df6745a7e15613c91f7c
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        constexpr char const *
+        google::cloud::version_pre_release ()
+      return:
+        type:
+          - "constexpr char const *"
+      source:
+        id: version_pre_release
+        path: google/cloud/version.h
+        startLine: 86
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/version.h
+    summary: |
+      The Google Cloud C++ Client pre-release version. 
+    conceptual: |
+
+
+      ###### See Also
+
+      [https://semver.org/spec/v2.0.0.html](https://semver.org/spec/v2.0.0.html) for details. 
+  - uid: namespacegoogle_1_1cloud_1a6f3dc1ead401ac30b1c87c46c031d778
+    name: "version()"
+    fullName: |
+      google::cloud::version
+    id: namespacegoogle_1_1cloud_1a6f3dc1ead401ac30b1c87c46c031d778
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        int constexpr
+        google::cloud::version ()
+      return:
+        type:
+          - "int constexpr"
+      source:
+        id: version
+        path: google/cloud/version.h
+        startLine: 96
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/version.h
+    summary: |
+      A single integer representing the Major/Minor/Patch version. 
+  - uid: namespacegoogle_1_1cloud_1a34af5fbaaafe784cb177bc8a78c552b0
+    name: "version_string()"
+    fullName: |
+      google::cloud::version_string
+    id: namespacegoogle_1_1cloud_1a34af5fbaaafe784cb177bc8a78c552b0
+    parent: namespacegoogle_1_1cloud
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::string
+        google::cloud::version_string ()
+      return:
+        type:
+          - "std::string"
+      source:
+        id: version_string
+        path: google/cloud/version.h
+        startLine: 107
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/version.h
+    summary: |
+      The version as a string, in MAJOR.MINOR.PATCH[-PRE][+gitrev] format. 
+references:
+  - uid: namespacegoogle_1_1cloud
+    name: google::cloud
+  - uid: structgoogle_1_1cloud_1_1AccessTokenLifetimeOption
+    name: google::cloud::AccessTokenLifetimeOption
+  - uid: classgoogle_1_1cloud_1_1AsyncOperation
+    name: google::cloud::AsyncOperation
+  - uid: classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc
+    name: google::cloud::AsyncStreamingReadWriteRpc
+  - uid: structgoogle_1_1cloud_1_1AsyncTimerResult
+    name: google::cloud::AsyncTimerResult
+  - uid: structgoogle_1_1cloud_1_1AuthorityOption
+    name: google::cloud::AuthorityOption
+  - uid: classgoogle_1_1cloud_1_1BackgroundThreads
+    name: google::cloud::BackgroundThreads
+  - uid: structgoogle_1_1cloud_1_1CARootsFilePathOption
+    name: google::cloud::CARootsFilePathOption
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue
+    name: google::cloud::CompletionQueue
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions
+    name: google::cloud::ConnectionOptions
+  - uid: classgoogle_1_1cloud_1_1Credentials
+    name: google::cloud::Credentials
+  - uid: structgoogle_1_1cloud_1_1DelegatesOption
+    name: google::cloud::DelegatesOption
+  - uid: structgoogle_1_1cloud_1_1EndpointOption
+    name: google::cloud::EndpointOption
+  - uid: classgoogle_1_1cloud_1_1ErrorInfo
+    name: google::cloud::ErrorInfo
+  - uid: structgoogle_1_1cloud_1_1ExperimentalTag
+    name: google::cloud::ExperimentalTag
+  - uid: classgoogle_1_1cloud_1_1future
+    name: google::cloud::future
+  - uid: classgoogle_1_1cloud_1_1future_3_01void_01_4
+    name: google::cloud::future< void >
+  - uid: classgoogle_1_1cloud_1_1GenericPollingPolicy
+    name: google::cloud::GenericPollingPolicy
+  - uid: structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption
+    name: google::cloud::GrpcBackgroundThreadPoolSizeOption
+  - uid: structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption
+    name: google::cloud::GrpcBackgroundThreadsFactoryOption
+  - uid: structgoogle_1_1cloud_1_1GrpcChannelArgumentsNativeOption
+    name: google::cloud::GrpcChannelArgumentsNativeOption
+  - uid: structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption
+    name: google::cloud::GrpcChannelArgumentsOption
+  - uid: structgoogle_1_1cloud_1_1GrpcCompletionQueueOption
+    name: google::cloud::GrpcCompletionQueueOption
+  - uid: structgoogle_1_1cloud_1_1GrpcCredentialOption
+    name: google::cloud::GrpcCredentialOption
+  - uid: structgoogle_1_1cloud_1_1GrpcNumChannelsOption
+    name: google::cloud::GrpcNumChannelsOption
+  - uid: structgoogle_1_1cloud_1_1GrpcTracingOptionsOption
+    name: google::cloud::GrpcTracingOptionsOption
+  - uid: classgoogle_1_1cloud_1_1KmsKeyName
+    name: google::cloud::KmsKeyName
+  - uid: classgoogle_1_1cloud_1_1LogBackend
+    name: google::cloud::LogBackend
+  - uid: classgoogle_1_1cloud_1_1Logger
+    name: google::cloud::Logger
+  - uid: classgoogle_1_1cloud_1_1Logger_3_01false_01_4
+    name: google::cloud::Logger< false >
+  - uid: structgoogle_1_1cloud_1_1LogRecord
+    name: google::cloud::LogRecord
+  - uid: classgoogle_1_1cloud_1_1LogSink
+    name: google::cloud::LogSink
+  - uid: structgoogle_1_1cloud_1_1NullStream
+    name: google::cloud::NullStream
+  - uid: classgoogle_1_1cloud_1_1Options
+    name: google::cloud::Options
+  - uid: classgoogle_1_1cloud_1_1PollingPolicy
+    name: google::cloud::PollingPolicy
+  - uid: classgoogle_1_1cloud_1_1Project
+    name: google::cloud::Project
+  - uid: classgoogle_1_1cloud_1_1promise
+    name: google::cloud::promise
+  - uid: classgoogle_1_1cloud_1_1promise_3_01void_01_4
+    name: google::cloud::promise< void >
+  - uid: structgoogle_1_1cloud_1_1QuotaUserOption
+    name: google::cloud::QuotaUserOption
+  - uid: structgoogle_1_1cloud_1_1RestTracingOptionsOption
+    name: google::cloud::RestTracingOptionsOption
+  - uid: classgoogle_1_1cloud_1_1RuntimeStatusError
+    name: google::cloud::RuntimeStatusError
+  - uid: structgoogle_1_1cloud_1_1ScopesOption
+    name: google::cloud::ScopesOption
+  - uid: structgoogle_1_1cloud_1_1ServerTimeoutOption
+    name: google::cloud::ServerTimeoutOption
+  - uid: classgoogle_1_1cloud_1_1Status
+    name: google::cloud::Status
+  - uid: classgoogle_1_1cloud_1_1StatusOr
+    name: google::cloud::StatusOr
+  - uid: classgoogle_1_1cloud_1_1StreamRange
+    name: google::cloud::StreamRange
+  - uid: structgoogle_1_1cloud_1_1TracingComponentsOption
+    name: google::cloud::TracingComponentsOption
+  - uid: classgoogle_1_1cloud_1_1TracingOptions
+    name: google::cloud::TracingOptions
+  - uid: structgoogle_1_1cloud_1_1UnifiedCredentialsOption
+    name: google::cloud::UnifiedCredentialsOption
+  - uid: structgoogle_1_1cloud_1_1UserAgentProductsOption
+    name: google::cloud::UserAgentProductsOption
+  - uid: structgoogle_1_1cloud_1_1UserIpOption
+    name: google::cloud::UserIpOption
+  - uid: structgoogle_1_1cloud_1_1UserProjectOption
+    name: google::cloud::UserProjectOption
+  - uid: namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9c
+    name: google::cloud::Idempotency
+  - uid: namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9caf8bb1d9c7cccc450ecd06167c7422bfa
+    name: kIdempotent
+  - uid: namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9cae75d33e94f2dc4028d4d67bdaab75190
+    name: kNonIdempotent
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+    name: google::cloud::Severity
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a19926e6b33f63355986e9c77f35126e8
+    name: GCP_LS_TRACE
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922ab858c69248c47bb9f411651cf8ee26d6
+    name: GCP_LS_DEBUG
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a47d3a15eead1f73cc69c68274fb275dd
+    name: GCP_LS_INFO
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a89b8b9ebac3278bfe0d998d0052c86a3
+    name: GCP_LS_NOTICE
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abc2618fc8ebd51bfa277121434384423
+    name: GCP_LS_WARNING
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a40b0bbe787c992e7538add97b9abdc21
+    name: GCP_LS_ERROR
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922aa0ad543f2f38678a0e3c606be03ac386
+    name: GCP_LS_CRITICAL
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abbc803db504b24b377a2abcf5f6f6fbb
+    name: GCP_LS_ALERT
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a231b1e1189f54337be4b9ccb9b607489
+    name: GCP_LS_FATAL
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a71e59df789d3d1c4eb7a8c9e8070cf0d
+    name: GCP_LS_HIGHEST
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a2aaca572b21aab277c1eb51d75bd34f2
+    name: GCP_LS_LOWEST
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a6fab7141215b31a08473e15c105e7b15
+    name: GCP_LS_LOWEST_ENABLED
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    name: google::cloud::StatusCode
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a
+    name: kOk
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a971493a769ad0aed23946733ede4a8f1
+    name: kCancelled
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a25c2dc47991b3df171ed5192bcf70390
+    name: kUnknown
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a80fdc050363ea6925fa2e7eb7f0a94a0
+    name: kInvalidArgument
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a4d40d05ef9a0c7b22fb80d1bbf8a72df
+    name: kDeadlineExceeded
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ab096e4f92f6c4184d188166e8f156fbb
+    name: kNotFound
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847aa824609a8c511d10b4496d1d24761b3a
+    name: kAlreadyExists
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847adc0b458db7d0dd510aae0367dfafc4af
+    name: kPermissionDenied
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a70b1deeb4d30d0e807ebaf0b14d63246
+    name: kResourceExhausted
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a17f82936b75ec2c8d1665298cadde372
+    name: kFailedPrecondition
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ac20d0424ae4484fda4424713f021d736
+    name: kAborted
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847af2fcb517cfc19949e909cbc2607e0f27
+    name: kOutOfRange
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a90bf1b080583063c8a08fb96e975082f
+    name: kUnimplemented
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a96509148247c627a753b021d6dbea774
+    name: kInternal
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a8a1714a85ad21a1c4814b260d2cd24dd
+    name: kUnavailable
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a3118b7fae62033f78581e16942bbdf32
+    name: kDataLoss
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ad676439e57a5d7a9a4dd2cd09f5300a2
+    name: kUnauthenticated
+  - uid: namespacegoogle_1_1cloud_1a7a08fee311943ff399218e534ee86287
+    name: google::cloud::BackoffPolicy
+  - uid: namespacegoogle_1_1cloud_1af59c1ad2a1697f9e27b25731b1164a07
+    name: google::cloud::ExponentialBackoffPolicy
+  - uid: namespacegoogle_1_1cloud_1a5ba713297ba807c3d561765217339aa1
+    name: google::cloud::CommonOptionList
+  - uid: namespacegoogle_1_1cloud_1aacce74695aba795178e975a5f791105d
+    name: google::cloud::UnifiedCredentialsOptionList
+  - uid: namespacegoogle_1_1cloud_1a1498c1ea55d81842f37bbc42d003df1f
+    name: google::cloud::BackgroundThreadsFactory
+  - uid: namespacegoogle_1_1cloud_1ae520379fd5a69cc8a4314a36e024c8df
+    name: google::cloud::GrpcOptionList
+  - uid: namespacegoogle_1_1cloud_1a7af1ec26a232eb1d9aa1ab6af7485c8b
+    name: google::cloud::IamUpdater
+  - uid: namespacegoogle_1_1cloud_1aade1afeeffeda6aea3bb2fbdfc2d0d70
+    name: google::cloud::optional
+  - uid: namespacegoogle_1_1cloud_1ae5bbe5d72f99eb8cb569d932e51f536d
+    name: google::cloud::OptionList
+  - uid: namespacegoogle_1_1cloud_1a79b9f84df668a22278130dafe40762e9
+    name: google::cloud::RestOptionList
+  - uid: group__terminate_1gacc215b41a0bf17a7ea762fd5bb205348
+    name: google::cloud::TerminateHandler
+  - uid: group__guac_1ga5d87aa265cd139ab190d7490b8a85c09
+    name: google::cloud::MakeInsecureCredentials
+  - uid: group__guac_1gae42afce56cd78e04c6aca74337829b38
+    name: google::cloud::MakeGoogleDefaultCredentials
+  - uid: group__guac_1ga51e8f3c130c4f0f8457c5f9e4bf5e013
+    name: google::cloud::MakeAccessTokenCredentials
+  - uid: group__guac_1ga5b10de8aaba7ac9cefcea94b3d195bc1
+    name: google::cloud::MakeImpersonateServiceAccountCredentials
+  - uid: group__guac_1ga0f2d23032efe73d17745a5f53112b918
+    name: google::cloud::MakeServiceAccountCredentials
+  - uid: group__guac_1ga75e5dbea7079dbb177fe6f7e8bd6edb5
+    name: google::cloud::MakeExternalAccountCredentials
+  - uid: namespacegoogle_1_1cloud_1a98fd06a132f38a5222e640aa33260aa0
+    name: google::cloud::make_ready_future
+  - uid: namespacegoogle_1_1cloud_1a9b99a7ce2d0d1335c39885d71003767b
+    name: google::cloud::make_ready_future
+  - uid: namespacegoogle_1_1cloud_1a0c2b787f31888303e995bc8b390c68b8
+    name: google::cloud::MakeStatusFromRpcError
+  - uid: namespacegoogle_1_1cloud_1a9eff450b1f08be2562b45a46ba05f880
+    name: google::cloud::MakeStatusFromRpcError
+  - uid: namespacegoogle_1_1cloud_1ae4dd1dd89c2240c629763690e65a04aa
+    name: google::cloud::MakeStatusFromRpcError
+  - uid: namespacegoogle_1_1cloud_1a2487299690c92afa651d0498f107d0d5
+    name: google::cloud::MakeKmsKeyName
+  - uid: namespacegoogle_1_1cloud_1a950623d6404701c8d363cae839348a3b
+    name: google::cloud::ParseSeverity
+  - uid: namespacegoogle_1_1cloud_1abe01696097a74c9e817236af99f0ca35
+    name: google::cloud::operator<<
+  - uid: namespacegoogle_1_1cloud_1a2d994d61451f865f26bd6545e0ff4169
+    name: google::cloud::operator<<
+  - uid: namespacegoogle_1_1cloud_1a5353f90b939473fdd0371d5c5bda6642
+    name: google::cloud::MakeProject
+  - uid: namespacegoogle_1_1cloud_1af2ca2ec19803a761502aed8b36edcdc0
+    name: google::cloud::StatusCodeToString
+  - uid: namespacegoogle_1_1cloud_1acd3d52fbea5900e7ed3df07ce7a86ae0
+    name: google::cloud::operator<<
+  - uid: namespacegoogle_1_1cloud_1adbc883f10549b827f82c93be159ffdd6
+    name: google::cloud::operator<<
+  - uid: namespacegoogle_1_1cloud_1a913d8dd9e4a1b6e0c6520b6666a71cd8
+    name: google::cloud::operator==
+  - uid: namespacegoogle_1_1cloud_1af9e607bddb356e604ed97e13ff3f7979
+    name: google::cloud::operator!=
+  - uid: namespacegoogle_1_1cloud_1a4bc7c2b44d9aa5ba461c00f7c33f42e9
+    name: google::cloud::make_status_or
+  - uid: group__terminate_1ga6182a1baf32421d3572a904044d6089d
+    name: google::cloud::SetTerminateHandler
+  - uid: group__terminate_1ga121c4576dd45c93c46ab8fa56bafab38
+    name: google::cloud::GetTerminateHandler
+  - uid: group__terminate_1gac5d2d48b27f2cd1de9075a1c9522f0cf
+    name: google::cloud::Terminate
+  - uid: namespacegoogle_1_1cloud_1ab83d0a4176eca49778cec5fa16e184bc
+    name: google::cloud::version_major
+  - uid: namespacegoogle_1_1cloud_1ab694f454e155d3743c02fe50961cd550
+    name: google::cloud::version_minor
+  - uid: namespacegoogle_1_1cloud_1afbb9c2c634ef86b85383206010a3167c
+    name: google::cloud::version_patch
+  - uid: namespacegoogle_1_1cloud_1abf812707db77df6745a7e15613c91f7c
+    name: google::cloud::version_pre_release
+  - uid: namespacegoogle_1_1cloud_1a6f3dc1ead401ac30b1c87c46c031d778
+    name: google::cloud::version
+  - uid: namespacegoogle_1_1cloud_1a34af5fbaaafe784cb177bc8a78c552b0
+    name: google::cloud::version_string

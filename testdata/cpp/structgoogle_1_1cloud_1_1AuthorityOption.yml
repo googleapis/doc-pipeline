@@ -1,0 +1,58 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1AuthorityOption
+    name: "AuthorityOption"
+    id: structgoogle_1_1cloud_1_1AuthorityOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/common_options.h>
+        struct google::cloud::AuthorityOption { ... };
+      source:
+        id: google::cloud::AuthorityOption
+        path: google/cloud/common_options.h
+        startLine: 105
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/common_options.h
+    summary: |
+      Configure the "authority" attribute. 
+    conceptual: |
+      For gRPC requests this is the `authority()` field in the `grpc::ClientContext`. This configures the :authority pseudo-header in the HTTP/2 request. [https://datatracker.ietf.org/doc/html/rfc7540#section-8.1.2.3](https://datatracker.ietf.org/doc/html/rfc7540#section-8.1.2.3)
+
+      For REST-based services using HTTP/1.1 or HTTP/1.0 this is the `Host` header.
+
+      Setting this option to the empty string has no effect, i.e., no headers are set. This can be useful if you are not using Google's production environment. 
+    children:
+      - structgoogle_1_1cloud_1_1AuthorityOption_1a2a43afe80294667d13ad814168bb233c
+  - uid: structgoogle_1_1cloud_1_1AuthorityOption_1a2a43afe80294667d13ad814168bb233c
+    name: "Type"
+    fullName: "google::cloud::AuthorityOption::Type"
+    id: structgoogle_1_1cloud_1_1AuthorityOption_1a2a43afe80294667d13ad814168bb233c
+    parent: structgoogle_1_1cloud_1_1AuthorityOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::AuthorityOption::Type =
+          std::string;
+      aliasof: |
+        <code>std::string</code>
+      source:
+        id: Type
+        path: google/cloud/common_options.h
+        startLine: 106
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/common_options.h
+references:
+  - uid: structgoogle_1_1cloud_1_1AuthorityOption
+    name: google::cloud::AuthorityOption
+  - uid: structgoogle_1_1cloud_1_1AuthorityOption_1a2a43afe80294667d13ad814168bb233c
+    name: google::cloud::AuthorityOption::Type

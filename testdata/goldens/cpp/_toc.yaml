@@ -1,0 +1,1086 @@
+
+toc:
+- title: 'Common Components for the Google Cloud C++ Client Libraries'
+  path: /cpp/docs/reference/common/latest/index.html
+- title: 'In-Depth Topics'
+  section:
+  - title: 'Error Handling'
+    path: /cpp/docs/reference/common/latest/common-error-handling.html
+  - title: 'Logging Components'
+    path: /cpp/docs/reference/common/latest/logging.html
+- title: 'Modules'
+  section:
+  - title: 'Intercepting Unrecoverable Errors'
+    path: /cpp/docs/reference/common/latest/group__terminate.html
+  - title: 'Authentication Components'
+    path: /cpp/docs/reference/common/latest/group__guac.html
+  - title: 'Client Library Configuration'
+    path: /cpp/docs/reference/common/latest/group__options.html
+  - title: 'Options only applicable when using REST transport'
+    path: /cpp/docs/reference/common/latest/group__rest-options.html
+- title: 'Namespaces'
+  section:
+  - title: 'google::cloud'
+    section:
+    - title: 'Overview'
+      path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+    - title: 'Classes'
+      section:
+      - title: 'AsyncOperation'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1AsyncOperation.html
+        - title: 'Functions'
+          section:
+          - title: 'Cancel()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1AsyncOperation.html#classgoogle_1_1cloud_1_1AsyncOperation_1ad3fd3bde580a47ace62c258b382a5f7f
+      - title: 'AsyncStreamingReadWriteRpc<Request, Response>'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html
+        - title: 'Functions'
+          section:
+          - title: 'Cancel()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a78f8e6fe17c3d5f5899486b393fa4ebe
+          - title: 'Start()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1aa3043132171c86e884b2ad865dc30e49
+          - title: 'Read()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f
+          - title: 'Write(Request const &, grpc::WriteOptions)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431
+          - title: 'WritesDone()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a3df7a8ee22c26ea09557df1b002a6afa
+          - title: 'Finish()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2
+      - title: 'BackgroundThreads'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1BackgroundThreads.html
+        - title: 'Functions'
+          section:
+          - title: 'cq() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1BackgroundThreads.html#classgoogle_1_1cloud_1_1BackgroundThreads_1a3ffeaa87e9965917e86ca40d81ae41d9
+      - title: 'CompletionQueue'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1CompletionQueue.html
+        - title: 'Constructors'
+          section:
+          - title: 'CompletionQueue()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1aa97c0beefb121dd6edfec5575196f1e7
+          - title: 'CompletionQueue(std::shared_ptr< internal::CompletionQueueImpl >)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a743c36b17b5d9201132620def0584658
+        - title: 'Functions'
+          section:
+          - title: 'Run()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4
+          - title: 'Shutdown()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1af69536be75d6157fbd8fafe1a88f7233
+          - title: 'CancelAll()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a5e95a325b49eb1b087ee8c318c4c2234
+          - title: 'MakeDeadlineTimer(std::chrono::system_clock::time_point)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1ae98eaa1bf1210e6a3773e091e93a730e
+          - title: 'MakeRelativeTimer(std::chrono::duration< Rep, Period >)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a760d68ec606a03ab8cc80eea8bd965b3
+          - title: 'MakeUnaryRpc(AsyncCallType, Request const &, std::unique_ptr< grpc::ClientContext >)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a7dc90cac7ff19ef85b136b9581cb7e5d
+          - title: 'MakeStreamingReadRpc(AsyncCallType &&, Request const &, std::unique_ptr< grpc::ClientContext >, OnReadHandler &&, OnFinishHandler &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a1a953c10106be1b0135eacafa29f9b45
+          - title: 'RunAsync(Functor &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1af84eb273575b989bbf8049fe5eb64df5
+          - title: 'RunAsync(Functor &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1af84eb273575b989bbf8049fe5eb64df5
+          - title: 'AsyncWaitConnectionReady(std::shared_ptr< grpc::Channel >, std::chrono::system_clock::time_point)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1aec5b6997c267651ea3761567306e4585
+      - title: 'ConnectionOptions<ConnectionTraits>'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html
+        - title: 'Constructors'
+          section:
+          - title: 'ConnectionOptions()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a014d08059dd0482b8c74a52ae32d29ec
+          - title: 'ConnectionOptions(std::shared_ptr< grpc::ChannelCredentials >)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1aded28068ff75c1b5fd20e37ecdb7a2b4
+        - title: 'Functions'
+          section:
+          - title: 'set_credentials(std::shared_ptr< grpc::ChannelCredentials >)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1abe5d598cf3cfdc4eadd4dafd9a0e0cfb
+          - title: 'credentials() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a559aad8ffc196726743a1290103e28eb
+          - title: 'set_endpoint(std::string)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1abb2ecfc7d50420c53ef4721ed70b33c6
+          - title: 'endpoint() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a609f5dc4ceba1e2a98d585e95a13e792
+          - title: 'num_channels() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a3a6de10c915ca2129c825dc44818b996
+          - title: 'set_num_channels(int)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1abcf2f6f68b967c20aecaeca56cca2814
+          - title: 'tracing_enabled(std::string const &) const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a634acc56b4ba2236d8ba918662a6b859
+          - title: 'enable_tracing(std::string const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a33a14176b143f87becf17c1db408163b
+          - title: 'disable_tracing(std::string const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a3143dce67dd3d5e652fd47df605e8faf
+          - title: 'components() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a67dbaf1d7000594cab3d7e2b9a46b660
+          - title: 'tracing_options() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1add38cfda2c0c8a541883cef94e0cede9
+          - title: 'channel_pool_domain() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a071230426369b780e3ab13c29c71f32d
+          - title: 'set_channel_pool_domain(std::string)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a0b03e828d2f2f1507102e468a65ea1cc
+          - title: 'add_user_agent_prefix(std::string)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1ab21f86704d7d5df59664e4c33986715f
+          - title: 'user_agent_prefix() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a877ff9ed24fce99d2a64cb9a158a920d
+          - title: 'CreateChannelArguments() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a77ce8aa80fdcce81c72a0db6533db8b0
+          - title: 'set_background_thread_pool_size(std::size_t)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a2111a32e661fadb78048bc77c4f94f54
+          - title: 'background_thread_pool_size() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a1fcb13945aa3ae97f552892178ffe387
+          - title: 'DisableBackgroundThreads(google::cloud::CompletionQueue const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1ae6065c5f7db873ad6ac3df86291a573d
+          - title: 'background_threads_factory() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a31b16872029e8bb854bd59cf52ce1794
+        - title: 'Types'
+          section:
+          - title: 'BackgroundThreadsFactory'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a041758d537570967fa7fcc73e314489f
+      - title: 'Credentials'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Credentials.html
+      - title: 'ErrorInfo'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ErrorInfo.html
+        - title: 'Constructors'
+          section:
+          - title: 'ErrorInfo()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ErrorInfo.html#classgoogle_1_1cloud_1_1ErrorInfo_1a4ddba4ef52448fc5388c6146732be2ea
+          - title: 'ErrorInfo(std::string, std::string, std::unordered_map< std::string, std::string >)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ErrorInfo.html#classgoogle_1_1cloud_1_1ErrorInfo_1a2e00303e2db2292242b1f09097abe0ee
+        - title: 'Operators'
+          section:
+          - title: 'operator==(ErrorInfo const &, ErrorInfo const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ErrorInfo.html#classgoogle_1_1cloud_1_1ErrorInfo_1a3e7a9be9a728e13d3333784f63270555
+          - title: 'operator!=(ErrorInfo const &, ErrorInfo const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ErrorInfo.html#classgoogle_1_1cloud_1_1ErrorInfo_1a28ce071569c6c71d23729d4875d5e977
+        - title: 'Functions'
+          section:
+          - title: 'reason() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ErrorInfo.html#classgoogle_1_1cloud_1_1ErrorInfo_1a9c68904d153cbec3d48191568939fcf4
+          - title: 'domain() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ErrorInfo.html#classgoogle_1_1cloud_1_1ErrorInfo_1a88e1355f82c33848c93660dc2759a816
+          - title: 'metadata() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1ErrorInfo.html#classgoogle_1_1cloud_1_1ErrorInfo_1a638bbabb8dc7cd51d5dda6db8cee5a16
+      - title: 'future<T>'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1future.html
+        - title: 'Constructors'
+          section:
+          - title: 'future()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1future.html#classgoogle_1_1cloud_1_1future_1add920aaf1afc06919b4dabf4fd92734d
+          - title: 'future(future< future< T > > &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1future.html#classgoogle_1_1cloud_1_1future_1afe5f53983c6e3f705a050fcd1c501f50
+          - title: 'future(future< U > &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1future.html#classgoogle_1_1cloud_1_1future_1a0fab9a942ca9c037d93eef02ac3a591c
+          - title: 'future(std::shared_ptr< shared_state_type >)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1future.html#classgoogle_1_1cloud_1_1future_1a724fc143a9a2e97f9e4523cd44a65e9f
+        - title: 'Functions'
+          section:
+          - title: 'get()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1future.html#classgoogle_1_1cloud_1_1future_1a23b7c9cabdcf116d3b908c32e627c7af
+          - title: 'then(F &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1future.html#classgoogle_1_1cloud_1_1future_1a44ba4050a8b72d7de43d421b3f633de8
+        - title: 'Types'
+          section:
+          - title: 'shared_state_type'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1future.html#classgoogle_1_1cloud_1_1future_1ad7a72b78c2561600a88b30c52a2764eb
+      - title: 'future< void >'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1future_3_01void_01_4.html
+        - title: 'Constructors'
+          section:
+          - title: 'future()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1future_3_01void_01_4.html#classgoogle_1_1cloud_1_1future_3_01void_01_4_1a41a3cf31ed35d02d32a4f84572299498
+          - title: 'future(future< future< void > > &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1future_3_01void_01_4.html#classgoogle_1_1cloud_1_1future_3_01void_01_4_1abc28f6f4f5afcbd5794135b4e1757cca
+          - title: 'future(future< T > &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1future_3_01void_01_4.html#classgoogle_1_1cloud_1_1future_3_01void_01_4_1a839ca4063656b14a9d299d6ec5d16e39
+          - title: 'future(std::shared_ptr< shared_state_type >)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1future_3_01void_01_4.html#classgoogle_1_1cloud_1_1future_3_01void_01_4_1a97465667e18deceba770306a5d440d74
+        - title: 'Functions'
+          section:
+          - title: 'get()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1future_3_01void_01_4.html#classgoogle_1_1cloud_1_1future_3_01void_01_4_1a14d526677fc057ef4de4151a98caf31b
+          - title: 'then(F &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1future_3_01void_01_4.html#classgoogle_1_1cloud_1_1future_3_01void_01_4_1aae7ca0d449df6951ecbc079d933dded1
+        - title: 'Types'
+          section:
+          - title: 'shared_state_type'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1future_3_01void_01_4.html#classgoogle_1_1cloud_1_1future_3_01void_01_4_1a49ddd3b209c866c3c83b6feb2e957aaa
+      - title: 'GenericPollingPolicy<Retry, Backoff>'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1GenericPollingPolicy.html
+        - title: 'Constructors'
+          section:
+          - title: 'GenericPollingPolicy(Retry, Backoff)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1GenericPollingPolicy.html#classgoogle_1_1cloud_1_1GenericPollingPolicy_1ae0a25c7510fc5873721b84b2890d445f
+        - title: 'Functions'
+          section:
+          - title: 'virtual clone() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1GenericPollingPolicy.html#classgoogle_1_1cloud_1_1GenericPollingPolicy_1a62a3ef720fb43955d62ebf879bd1ebdc
+          - title: 'virtual OnFailure(Status const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1GenericPollingPolicy.html#classgoogle_1_1cloud_1_1GenericPollingPolicy_1a5d1ef825516278545decb5c87b024e6c
+          - title: 'virtual WaitPeriod()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1GenericPollingPolicy.html#classgoogle_1_1cloud_1_1GenericPollingPolicy_1a9d3e4d7a76a484576c5c4ba5c5295884
+      - title: 'KmsKeyName'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1KmsKeyName.html
+        - title: 'Constructors'
+          section:
+          - title: 'KmsKeyName(KmsKeyName const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1aee71728b4970eb59d9404c5999b86df6
+          - title: 'KmsKeyName(KmsKeyName &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1a75db59489341625dd2f9ccf4aa575904
+          - title: 'KmsKeyName(std::string const &, std::string const &, std::string const &, std::string const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1a48947fe0f19b7af3b2d6aee0680ef4ef
+        - title: 'Operators'
+          section:
+          - title: 'operator=(KmsKeyName const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1adbdf3b52f9377b17ddad60943fd939a4
+          - title: 'operator=(KmsKeyName &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1afdac51645369610b64b57618c943c709
+          - title: 'operator==(KmsKeyName const &, KmsKeyName const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1a1773459c03b69cbf5dc498f7457b618a
+          - title: 'operator!=(KmsKeyName const &, KmsKeyName const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1aaecbf0eb4031f62c4ca93de7a233ef40
+          - title: 'operator<<(std::ostream &, KmsKeyName const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1aaf8ff0ccf27ee5bb1a2e5880bdeb0d7b
+        - title: 'Functions'
+          section:
+          - title: 'FullName() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1KmsKeyName.html#classgoogle_1_1cloud_1_1KmsKeyName_1a263411554266dd511036a0ac8242b3ee
+      - title: 'LogBackend'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogBackend.html
+        - title: 'Functions'
+          section:
+          - title: 'Process(LogRecord const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogBackend.html#classgoogle_1_1cloud_1_1LogBackend_1a3bfeb9aaf88c7ffa2bb440e21bf42ffc
+          - title: 'ProcessWithOwnership(LogRecord)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogBackend.html#classgoogle_1_1cloud_1_1LogBackend_1a10e4aa5b5c547a7d3d79689144d5165f
+          - title: 'virtual Flush()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogBackend.html#classgoogle_1_1cloud_1_1LogBackend_1a461afc85f066f490ee01505413998dff
+      - title: 'Logger<bool>'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Logger.html
+        - title: 'Constructors'
+          section:
+          - title: 'Logger(Severity, char const *, char const *, int, LogSink &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Logger.html#classgoogle_1_1cloud_1_1Logger_1a12889d17244b61ce0861005d46103a18
+        - title: 'Functions'
+          section:
+          - title: 'enabled() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Logger.html#classgoogle_1_1cloud_1_1Logger_1ab04a7964f3fae6ac0406b8ae68a18fd7
+          - title: 'LogTo(LogSink &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Logger.html#classgoogle_1_1cloud_1_1Logger_1ab0edd380ba7f81e734a099e11d3f39ce
+          - title: 'Stream()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Logger.html#classgoogle_1_1cloud_1_1Logger_1a0fda914b21394a80ac3998594b8e1023
+      - title: 'Logger< false >'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Logger_3_01false_01_4.html
+        - title: 'Constructors'
+          section:
+          - title: 'Logger(Severity, char const *, char const *, int, LogSink &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Logger_3_01false_01_4.html#classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ab35c4b46d1271c2e285845d45ecd1321
+        - title: 'Functions'
+          section:
+          - title: 'enabled() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Logger_3_01false_01_4.html#classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1a7c26a019649d2aae6f00e9937ca6bfb8
+          - title: 'LogTo(LogSink &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Logger_3_01false_01_4.html#classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ad6682042718b825eb2c9c9bc1dd7d026
+          - title: 'Stream()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Logger_3_01false_01_4.html#classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ad27ccd0a05917104e8704f6013091abc
+      - title: 'LogSink'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogSink.html
+        - title: 'Constructors'
+          section:
+          - title: 'LogSink()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a80051cdac2de5a99b5baa1a0dd533515
+        - title: 'Functions'
+          section:
+          - title: 'empty() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a5fced2b547bea605281f2bc3ffb30991
+          - title: 'is_enabled(Severity) const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a89d2d6261ef1380be3733391fdafe851
+          - title: 'set_minimum_severity(Severity)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a7c250d78aa40cef29613cffa93120623
+          - title: 'minimum_severity() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a73593e026ab693f7fd8e4eb6b1225a79
+          - title: 'AddBackend(std::shared_ptr< LogBackend >)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a63ec26a7560bdae9657f250bb93f6a14
+          - title: 'RemoveBackend(BackendId)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a8046eb8388eeab19d534ca68639a2b80
+          - title: 'ClearBackends()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a1c4f0cb3319ccc87db3298a495999824
+          - title: 'BackendCount() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1aa612a6eb4858ce957dd4f6881008407a
+          - title: 'Log(LogRecord)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a2253a4e97e469304f9be9ec0d8bced88
+          - title: 'Flush()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a9d963ade2c81293ad87cb3a6b7b66bba
+          - title: 'static CompileTimeEnabled(Severity)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1ad8115a6da7fdaa46facf4d51a1572181
+          - title: 'static Instance()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a06247b1adf1203876402ba6a9be76a7e
+          - title: 'static EnableStdClog(Severity)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1ad80239c2b8148603cf0a2e44b2b65619
+          - title: 'static DisableStdClog()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a310d372251b40d820d75e51c1707660d
+        - title: 'Types'
+          section:
+          - title: 'BackendId'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1af480aa59f84e27c56949904244b44984
+      - title: 'Options'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Options.html
+        - title: 'Constructors'
+          section:
+          - title: 'Options()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1ae4d04b0ec878b4b82630793f74e6d102
+          - title: 'Options(Options const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1aa987bb370871297529e9ecac22b5109f
+          - title: 'Options(Options &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1af7638098b40961cdcddf5759254775b7
+        - title: 'Operators'
+          section:
+          - title: 'operator=(Options const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1a9243331bcb81d1552263fe4f12f7f9a5
+          - title: 'operator=(Options &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1ab29e083e7db725955b438edc460c3e3e
+        - title: 'Functions'
+          section:
+          - title: 'set(ValueTypeT< T >)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1a55949946a6dfca4a01b52162e28acbcc
+          - title: 'has() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1a0b63821262f22056e6fb5d7dafdc0fce
+          - title: 'unset()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1abf9d24f236208dd6d9b18dffe0bd7e4f
+          - title: 'get() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1a1685191ebee1d545c1bf669537b9440f
+          - title: 'lookup(ValueTypeT< T >)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Options.html#classgoogle_1_1cloud_1_1Options_1a357d8aa593403d3a12b2516b63027441
+      - title: 'PollingPolicy'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1PollingPolicy.html
+        - title: 'Functions'
+          section:
+          - title: 'clone() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1PollingPolicy.html#classgoogle_1_1cloud_1_1PollingPolicy_1aa76d4da9504c38830269f78758fee846
+          - title: 'OnFailure(Status const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1PollingPolicy.html#classgoogle_1_1cloud_1_1PollingPolicy_1a42b97ed33436c1aabec55108e4333a95
+          - title: 'WaitPeriod()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1PollingPolicy.html#classgoogle_1_1cloud_1_1PollingPolicy_1a03d970d4c274382a6b9cb8e8819daec3
+      - title: 'Project'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Project.html
+        - title: 'Constructors'
+          section:
+          - title: 'Project(Project const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1a98b66fce732953e55fd3bb88ebc2501f
+          - title: 'Project(Project &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1ac8238fa11c57663d45b2f1703470e34d
+          - title: 'Project(std::string)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1a4f55194bbe8dbd84d8d5588d1ba40fa8
+        - title: 'Operators'
+          section:
+          - title: 'operator=(Project const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1a8862157f734c5da4a84761c6b3f5aa63
+          - title: 'operator=(Project &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1a2ddc65dd13bc985ea4714c202f224838
+          - title: 'operator==(Project const &, Project const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1ad765aa3dd3db687f6992d633c65f1c0e
+          - title: 'operator!=(Project const &, Project const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1aa2e8dcd9663a6826480439c1711e00e3
+          - title: 'operator<<(std::ostream &, Project const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1a061f14639f43d13c5b2bdf558c193348
+        - title: 'Functions'
+          section:
+          - title: 'project_id() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1a58f67caab0a321a16b8b860a79f900bf
+          - title: 'FullName() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Project.html#classgoogle_1_1cloud_1_1Project_1ab7f7e3518663d77f7ea111d6369f719e
+      - title: 'promise<T>'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise.html
+        - title: 'Constructors'
+          section:
+          - title: 'promise()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1a189b3394c43f2bf11d2d801a1bbfb42e
+          - title: 'promise(std::function< void()>)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1ae8f4f532c37f1b125e0aeaceda85ab0c
+          - title: 'promise(null_promise_t)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1a5a58cbb0133247b4ee8e878f4d68f02b
+          - title: 'promise(promise &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1a07b347a589ad559ca2352c6ed43391c1
+          - title: 'promise(promise const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1abb1b4b6d2e0265dc3e6a88728dcfc6e7
+        - title: 'Operators'
+          section:
+          - title: 'operator=(promise &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1a5ac28874dc5760ae84001fc6a8e5ed36
+          - title: 'operator=(promise const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1a7667c550fdd0e0a7192e5da40d984123
+        - title: 'Functions'
+          section:
+          - title: 'swap(promise &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1a1601ae4e763a866784997678fc6056a7
+          - title: 'get_future()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1a98c2ab3b9b52fc645c0bdff5d3537365
+          - title: 'set_value(T)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise.html#classgoogle_1_1cloud_1_1promise_1aeee6cf2c7a32b01c1b2b9ff728932cee
+      - title: 'promise< void >'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise_3_01void_01_4.html
+        - title: 'Constructors'
+          section:
+          - title: 'promise()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1ab6d1fa4f4e820135b47100f6eb695725
+          - title: 'promise(std::function< void()>)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a94c3516c1e49f3b59de94b6a98b46ff7
+          - title: 'promise(null_promise_t)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a1807fb9277f6e4900d8051eb65d33e59
+          - title: 'promise(promise &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1abe518a58bcaa85224c47290cd5363c0f
+          - title: 'promise(promise const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1aec731fd14ca49f27e2a97fb34d895e96
+        - title: 'Operators'
+          section:
+          - title: 'operator=(promise &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a065f3678dc33ee8e4b689a2a21240975
+          - title: 'operator=(promise const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a01c053906f613d3cb2be52091fe0b79c
+        - title: 'Functions'
+          section:
+          - title: 'swap(promise &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a237bf716876730fe9ecbbeae992a52df
+          - title: 'get_future()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a19af69bb1f73508cb6e2b471a94f2d6d
+          - title: 'set_value()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1promise_3_01void_01_4.html#classgoogle_1_1cloud_1_1promise_3_01void_01_4_1a55b13940bb2bf1260fb7042933de142a
+      - title: 'RuntimeStatusError'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1RuntimeStatusError.html
+        - title: 'Constructors'
+          section:
+          - title: 'RuntimeStatusError(Status)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1RuntimeStatusError.html#classgoogle_1_1cloud_1_1RuntimeStatusError_1aac6b78160cce6468696ce77eb1276a95
+        - title: 'Functions'
+          section:
+          - title: 'status() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1RuntimeStatusError.html#classgoogle_1_1cloud_1_1RuntimeStatusError_1ac30dbdb272a62aee4eb8f9bf45966c7e
+      - title: 'Status'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Status.html
+        - title: 'Constructors'
+          section:
+          - title: 'Status(Status const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1aa3656155ad44d8bd75d92cd797123f4d
+          - title: 'Status(Status &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1afd186465a07fa176c10d437c1240f2de
+          - title: 'Status()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1af3de0fb0dee8fb557e693195a812987f
+          - title: 'Status(StatusCode, std::string, ErrorInfo)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1af927a89141bbcf10f0e02d789ebade94
+        - title: 'Operators'
+          section:
+          - title: 'operator=(Status const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1a675be7e53ab9b27d69ba776a3c1ca7bf
+          - title: 'operator=(Status &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1a23aaae701351564b3a17f47d5cb4e7cb
+          - title: 'operator==(Status const &, Status const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1a8c00daab4bca2eeb428f816fabf59492
+          - title: 'operator!=(Status const &, Status const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1a3624db9be409bca17dc8940db074ddff
+        - title: 'Functions'
+          section:
+          - title: 'ok() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1a18952043ffe5a4f74911c8146e8bb504
+          - title: 'code() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1ac18337d2ceb00ca007725d21f2c63f9f
+          - title: 'message() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1aaa8dea39008758d8494f29b12b92be02
+          - title: 'error_info() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1a172e846ab5623d78d49e2ed128f49583
+      - title: 'StatusOr<T>'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html
+        - title: 'Constructors'
+          section:
+          - title: 'StatusOr()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1aa4abd48a28fc10d9e9f35e79a82a03ff
+          - title: 'StatusOr(StatusOr const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a741f115cfdd32723958f4b4528fe1ab8
+          - title: 'StatusOr(StatusOr &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a15bd3bdffe4f0cb52da4ec73d5ed2a42
+          - title: 'StatusOr(Status)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1ab7d8005a1d44e2e140220776aad093bc
+          - title: 'StatusOr(T &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1ae8fe30215a7be3414a42ef68c108be86
+          - title: 'StatusOr(T const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a00d8a93a92c455cffd5787d1c05c3230
+          - title: 'operator bool() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a4282edcbc114def76d690dd4f595325b
+        - title: 'Operators'
+          section:
+          - title: 'operator*() &'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a95250d82418ed95673d41377347a3dbd
+          - title: 'operator*() const &'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1aa9983639335d1eb5d64627030226d532
+          - title: 'operator*() &&'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a010daabd5030f6c5a0b6aa689b682472
+          - title: 'operator*() const &&'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a13c395d28dd33824d174c3843687aad9
+          - title: 'operator->() &'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a9efeaa6ef3e44529bffbcef1aad20168
+          - title: 'operator->() const &'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a09043295e2c7c6dbc57e7c932926269f
+          - title: 'operator=(StatusOr const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1adadee001e7aa8b9823053373e88793f9
+          - title: 'operator=(StatusOr &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1ae96b1085b75ea736251125d73994a488
+          - title: 'operator=(Status)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a3ad91c0d133de45ace554fb810f97b14
+          - title: 'operator=(U &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a3c792bab2c0d0b4840d8cca3a07c1ca0
+          - title: 'operator bool() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a4282edcbc114def76d690dd4f595325b
+        - title: 'Functions'
+          section:
+          - title: 'value() &'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697
+          - title: 'value() const &'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1ad4f329657805aa8e7a06649385e270bb
+          - title: 'value() &&'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1ae5cc86e877f3744887c8e64e40903795
+          - title: 'value() const &&'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a30a58f04b5e7b936ee6571084a853e9d
+          - title: 'status() const &'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a46da72dc9d35a019bd1359f4b3b4f8bd
+          - title: 'status() &&'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a3851160a971f8b5e06f3dad432bb2c21
+          - title: 'ok() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1afce69df5d31d0fba3bd95b317580ae11
+        - title: 'Types'
+          section:
+          - title: 'value_type'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a2f3f95ac87322b5e6593c61de407d045
+      - title: 'StreamRange<T>'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange.html
+        - title: 'Constructors'
+          section:
+          - title: 'IteratorImpl<U>'
+            section:
+            - title: 'Overview'
+              path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl
+            - title: 'Constructors'
+              section:
+              - title: 'IteratorImpl()'
+                path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1ad64ca13d75c7c8a92866370b6e82555a
+            - title: 'Operators'
+              section:
+              - title: 'operator==(IteratorImpl const &, IteratorImpl const &)'
+                path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a214c0c24a1be43066d9007e35135bf53
+              - title: 'operator!=(IteratorImpl const &, IteratorImpl const &)'
+                path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1aefc747de8f7d3d4e9c78cd3855dc683d
+              - title: 'operator*()'
+                path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1ae197bc9d8d6967b520e73b433c51ece3
+              - title: 'operator->()'
+                path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a275b412a4b0b4315df63d319edcb71e6
+              - title: 'operator*() const'
+                path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1ae11c83c373859ba214dc3e0a6b76e6e6
+              - title: 'operator->() const'
+                path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1ac7514a29c8eb02157f024908bbaa1d3b
+              - title: 'operator++()'
+                path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a51cda50021c4a0aac6d18399e2250fd4
+              - title: 'operator++(int)'
+                path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a92b0225aa11f564cf5d405dbf8f036ef
+            - title: 'Types'
+              section:
+              - title: 'iterator_category'
+                path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a736a31477f42f53e47ecc79c2e1c7a49
+              - title: 'value_type'
+                path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a226e306960543d1fa95785dfc739b874
+              - title: 'difference_type'
+                path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a3307d9a12fb9448db3c9c366ebed9326
+              - title: 'reference'
+                path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1af8f872654d80ba6850c00a5d3ee74194
+              - title: 'pointer'
+                path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a5f01954ff044dd045b94eb4a0cc69dd2
+              - title: 'const_reference'
+                path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a76ce97e0258cada08be80f4804454438
+              - title: 'const_pointer'
+                path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl.html#classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl_1a6327ee807f0303b61f8ddd41bade787b
+          - title: 'StreamRange(StreamRange const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a712af3969dccfcb7ffd005015a8286f9
+          - title: 'StreamRange(StreamRange &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a925240881f4cb2afaf4b3f6806422eac
+          - title: 'StreamRange()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a12769e19a893ba3ddd9b87c6b160b7c4
+        - title: 'Operators'
+          section:
+          - title: 'operator=(StreamRange const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1aac8c266c68bdbaa3e6c9a86b2e36b534
+          - title: 'operator=(StreamRange &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a09724d141e9e41018f98eebe81e7e87e
+        - title: 'Functions'
+          section:
+          - title: 'begin()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a0e71520c598a1649ddd54cca5a0336f8
+          - title: 'end()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1aab2620724dbe9f681e66544cbe6d37d1
+        - title: 'Types'
+          section:
+          - title: 'value_type'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a717e032ce46abfa423f908143d608c71
+          - title: 'iterator'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a546db8a63da273c117ce2cefac0ef3be
+          - title: 'difference_type'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1ae57d3c2448e7e9f8d4e0f9439a0b3d5e
+          - title: 'reference'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a0a6da9738af7a7b84a2eaab8b7b5b575
+          - title: 'pointer'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1aa943ef32ee6ca8096d91e9f8d00a0b68
+          - title: 'const_reference'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1a46c27d4893b2ff0435cd99364d83c33b
+          - title: 'const_pointer'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1StreamRange.html#classgoogle_1_1cloud_1_1StreamRange_1affda63a549b55279c6a1768526a4648b
+      - title: 'TracingOptions'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1TracingOptions.html
+        - title: 'Constructors'
+          section:
+          - title: 'TracingOptions()'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a2f7be5c6f1a067f9e5400f22384aa0a7
+          - title: 'TracingOptions(TracingOptions const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a30cdffb8829955b21ed95058cf385c3e
+          - title: 'TracingOptions(TracingOptions &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a9e9ab47d0c17f76ff7b7a532c16f490e
+        - title: 'Operators'
+          section:
+          - title: 'operator=(TracingOptions const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a977f68415ea4e90df7dd09f14578575c
+          - title: 'operator=(TracingOptions &&)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1aec012437e7f707ea08eb5e65ab645980
+          - title: 'operator==(TracingOptions const &, TracingOptions const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a1b3110bfbf63939caa1c03f57cdefd97
+          - title: 'operator!=(TracingOptions const &, TracingOptions const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a4d375de4d26ea4be7a75633186358a63
+        - title: 'Functions'
+          section:
+          - title: 'SetOptions(std::string const &)'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a8a21887562f01910fa63d57f615714ff
+          - title: 'single_line_mode() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a35b5256b9307d06f441c9502f58f51e4
+          - title: 'use_short_repeated_primitives() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a6a4ce192f978e6c66c86a1b150e47ba5
+          - title: 'truncate_string_field_longer_than() const'
+            path: /cpp/docs/reference/common/latest/classgoogle_1_1cloud_1_1TracingOptions.html#classgoogle_1_1cloud_1_1TracingOptions_1a357553e2f32a36763048dd7662f73aa4
+    - title: 'Structs'
+      section:
+      - title: 'AccessTokenLifetimeOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1AccessTokenLifetimeOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1AccessTokenLifetimeOption.html#structgoogle_1_1cloud_1_1AccessTokenLifetimeOption_1ad6b8a4672f1c196926849229f62d0de2
+      - title: 'AsyncTimerResult'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1AsyncTimerResult.html
+      - title: 'AuthorityOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1AuthorityOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1AuthorityOption.html#structgoogle_1_1cloud_1_1AuthorityOption_1a2a43afe80294667d13ad814168bb233c
+      - title: 'CARootsFilePathOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1CARootsFilePathOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1CARootsFilePathOption.html#structgoogle_1_1cloud_1_1CARootsFilePathOption_1a3bd9708c3fcb44760a8fb3d1ecbf131a
+      - title: 'DelegatesOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1DelegatesOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1DelegatesOption.html#structgoogle_1_1cloud_1_1DelegatesOption_1a6cc48715b5f857de1ab3c7d4a49918c6
+      - title: 'EndpointOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1EndpointOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1EndpointOption.html#structgoogle_1_1cloud_1_1EndpointOption_1a61a6cbac4806836ddb5bda2040dba797
+      - title: 'ExperimentalTag'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1ExperimentalTag.html
+      - title: 'GrpcBackgroundThreadPoolSizeOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption.html#structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption_1a1054cdb1003689157d327581731f7bde
+      - title: 'GrpcBackgroundThreadsFactoryOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption.html#structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption_1a65ea53b32b35f991ce3d0af6ee4faa4c
+      - title: 'GrpcChannelArgumentsNativeOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1GrpcChannelArgumentsNativeOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1GrpcChannelArgumentsNativeOption.html#structgoogle_1_1cloud_1_1GrpcChannelArgumentsNativeOption_1afb9fa0fc355222b6a827e53e12d91b24
+      - title: 'GrpcChannelArgumentsOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption.html#structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption_1afb6d7bd99eda67d1c6b208a7e92af139
+      - title: 'GrpcCompletionQueueOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1GrpcCompletionQueueOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1GrpcCompletionQueueOption.html#structgoogle_1_1cloud_1_1GrpcCompletionQueueOption_1a4273ed18516746cf0c0e1e1731db266a
+      - title: 'GrpcCredentialOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1GrpcCredentialOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1GrpcCredentialOption.html#structgoogle_1_1cloud_1_1GrpcCredentialOption_1abbd8711da4d2b6934f853ab8054c901a
+      - title: 'GrpcNumChannelsOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1GrpcNumChannelsOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1GrpcNumChannelsOption.html#structgoogle_1_1cloud_1_1GrpcNumChannelsOption_1a4e2c298b9310373e19a5c76e8b7473e6
+      - title: 'GrpcTracingOptionsOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1GrpcTracingOptionsOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1GrpcTracingOptionsOption.html#structgoogle_1_1cloud_1_1GrpcTracingOptionsOption_1af678ec85d9990e384f0be0b7a639d624
+      - title: 'LogRecord'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1LogRecord.html
+      - title: 'NullStream'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1NullStream.html
+        - title: 'Operators'
+          section:
+          - title: 'operator<<(T)'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1NullStream.html#structgoogle_1_1cloud_1_1NullStream_1ad92e8b5b7b3f71225ba95476d56b3eba
+      - title: 'QuotaUserOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1QuotaUserOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1QuotaUserOption.html#structgoogle_1_1cloud_1_1QuotaUserOption_1a65e6f5636acef31c70ed76258c051582
+      - title: 'RestTracingOptionsOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1RestTracingOptionsOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1RestTracingOptionsOption.html#structgoogle_1_1cloud_1_1RestTracingOptionsOption_1a8d6d51b6e9be89779d1053016b2a2802
+      - title: 'ScopesOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1ScopesOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1ScopesOption.html#structgoogle_1_1cloud_1_1ScopesOption_1a95557b309f247c5c848d0392338119ae
+      - title: 'ServerTimeoutOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1ServerTimeoutOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1ServerTimeoutOption.html#structgoogle_1_1cloud_1_1ServerTimeoutOption_1adca01c4480f74545b05eb1038f9a9a56
+      - title: 'TracingComponentsOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1TracingComponentsOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1TracingComponentsOption.html#structgoogle_1_1cloud_1_1TracingComponentsOption_1a14eb9d2fb091bb17e433d7325326f78b
+      - title: 'UnifiedCredentialsOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1UnifiedCredentialsOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1UnifiedCredentialsOption.html#structgoogle_1_1cloud_1_1UnifiedCredentialsOption_1affa4ac9e72fe5624e15d17e507177d2b
+      - title: 'UserAgentProductsOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1UserAgentProductsOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1UserAgentProductsOption.html#structgoogle_1_1cloud_1_1UserAgentProductsOption_1acbbd25eda33665932bf5561aae9682e3
+      - title: 'UserIpOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1UserIpOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1UserIpOption.html#structgoogle_1_1cloud_1_1UserIpOption_1af69a552534f64cd51243a002e1dd6488
+      - title: 'UserProjectOption'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1UserProjectOption.html
+        - title: 'Types'
+          section:
+          - title: 'Type'
+            path: /cpp/docs/reference/common/latest/structgoogle_1_1cloud_1_1UserProjectOption.html#structgoogle_1_1cloud_1_1UserProjectOption_1a05738e758fa2b69dd115a85369c618f8
+    - title: 'Functions'
+      section:
+      - title: 'MakeInsecureCredentials(Options)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'MakeGoogleDefaultCredentials(Options)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'MakeAccessTokenCredentials(std::string const &, std::chrono::system_clock::time_point, Options)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'MakeImpersonateServiceAccountCredentials(std::shared_ptr< Credentials >, std::string, Options)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'MakeServiceAccountCredentials(std::string, Options)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'MakeExternalAccountCredentials(std::string, Options)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'make_ready_future(T &&)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'make_ready_future()'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'MakeStatusFromRpcError(grpc::Status const &)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'MakeStatusFromRpcError(grpc::StatusCode, std::string)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'MakeStatusFromRpcError(google::rpc::Status const &)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'MakeKmsKeyName(std::string const &)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'ParseSeverity(std::string const &)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'MakeProject(std::string const &)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'StatusCodeToString(StatusCode)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'make_status_or(T)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'SetTerminateHandler(TerminateHandler)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'GetTerminateHandler()'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'Terminate(char const *)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'version_major()'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'version_minor()'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'version_patch()'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'version_pre_release()'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'version()'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'version_string()'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+    - title: 'Operators'
+      section:
+      - title: 'operator<<(std::ostream &, Severity)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'operator<<(std::ostream &, LogRecord const &)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'operator<<(std::ostream &, StatusCode)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'operator<<(std::ostream &, Status const &)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'operator==(StatusOr< T > const &, StatusOr< T > const &)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'operator!=(StatusOr< T > const &, StatusOr< T > const &)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+    - title: 'Enums'
+      section:
+      - title: 'Idempotency'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9c.html
+        - title: 'kIdempotent'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9c.html#namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9caf8bb1d9c7cccc450ecd06167c7422bfa
+        - title: 'kNonIdempotent'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9c.html#namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9cae75d33e94f2dc4028d4d67bdaab75190
+      - title: 'Severity'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html
+        - title: 'GCP_LS_TRACE'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a19926e6b33f63355986e9c77f35126e8
+        - title: 'GCP_LS_DEBUG'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922ab858c69248c47bb9f411651cf8ee26d6
+        - title: 'GCP_LS_INFO'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a47d3a15eead1f73cc69c68274fb275dd
+        - title: 'GCP_LS_NOTICE'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a89b8b9ebac3278bfe0d998d0052c86a3
+        - title: 'GCP_LS_WARNING'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abc2618fc8ebd51bfa277121434384423
+        - title: 'GCP_LS_ERROR'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a40b0bbe787c992e7538add97b9abdc21
+        - title: 'GCP_LS_CRITICAL'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922aa0ad543f2f38678a0e3c606be03ac386
+        - title: 'GCP_LS_ALERT'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abbc803db504b24b377a2abcf5f6f6fbb
+        - title: 'GCP_LS_FATAL'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a231b1e1189f54337be4b9ccb9b607489
+        - title: 'GCP_LS_HIGHEST'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a71e59df789d3d1c4eb7a8c9e8070cf0d
+        - title: 'GCP_LS_LOWEST'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a2aaca572b21aab277c1eb51d75bd34f2
+        - title: 'GCP_LS_LOWEST_ENABLED'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html#namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a6fab7141215b31a08473e15c105e7b15
+      - title: 'StatusCode'
+        section:
+        - title: 'Overview'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html
+        - title: 'kOk'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a
+        - title: 'kCancelled'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a971493a769ad0aed23946733ede4a8f1
+        - title: 'kUnknown'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a25c2dc47991b3df171ed5192bcf70390
+        - title: 'kInvalidArgument'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a80fdc050363ea6925fa2e7eb7f0a94a0
+        - title: 'kDeadlineExceeded'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a4d40d05ef9a0c7b22fb80d1bbf8a72df
+        - title: 'kNotFound'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ab096e4f92f6c4184d188166e8f156fbb
+        - title: 'kAlreadyExists'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847aa824609a8c511d10b4496d1d24761b3a
+        - title: 'kPermissionDenied'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847adc0b458db7d0dd510aae0367dfafc4af
+        - title: 'kResourceExhausted'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a70b1deeb4d30d0e807ebaf0b14d63246
+        - title: 'kFailedPrecondition'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a17f82936b75ec2c8d1665298cadde372
+        - title: 'kAborted'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ac20d0424ae4484fda4424713f021d736
+        - title: 'kOutOfRange'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847af2fcb517cfc19949e909cbc2607e0f27
+        - title: 'kUnimplemented'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a90bf1b080583063c8a08fb96e975082f
+        - title: 'kInternal'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a96509148247c627a753b021d6dbea774
+        - title: 'kUnavailable'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a8a1714a85ad21a1c4814b260d2cd24dd
+        - title: 'kDataLoss'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a3118b7fae62033f78581e16942bbdf32
+        - title: 'kUnauthenticated'
+          path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ad676439e57a5d7a9a4dd2cd09f5300a2
+    - title: 'Types'
+      section:
+      - title: 'BackoffPolicy'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'ExponentialBackoffPolicy'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'CommonOptionList'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'UnifiedCredentialsOptionList'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'BackgroundThreadsFactory'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'GrpcOptionList'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'IamUpdater'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'optional'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'OptionList'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'RestOptionList'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+      - title: 'TerminateHandler'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud.html
+  - title: 'google::cloud::mocks'
+    section:
+    - title: 'Overview'
+      path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1_1mocks.html
+    - title: 'Functions'
+      section:
+      - title: 'CurrentOptions()'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1_1mocks.html
+      - title: 'MakeStreamRange(std::vector< T >, Status)'
+        path: /cpp/docs/reference/common/latest/namespacegoogle_1_1cloud_1_1mocks.html

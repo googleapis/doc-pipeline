@@ -1,0 +1,191 @@
+### YamlMime:UniversalReference
+items:
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+    name: "Severity"
+    fullName: |
+      google::cloud::Severity
+    id: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+    parent: ""
+    type: enum
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        enum class google::cloud::Severity {
+          GCP_LS_TRACE,
+          GCP_LS_DEBUG,
+          GCP_LS_INFO,
+          GCP_LS_NOTICE,
+          GCP_LS_WARNING,
+          GCP_LS_ERROR,
+          GCP_LS_CRITICAL,
+          GCP_LS_ALERT,
+          GCP_LS_FATAL,
+          GCP_LS_HIGHEST,
+          GCP_LS_LOWEST,
+          GCP_LS_LOWEST_ENABLED,
+        };
+      source:
+        id: Severity
+        path: google/cloud/log.h
+        startLine: 114
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Define the severity levels for Google Cloud Platform C++ Libraries logging. 
+    conceptual: |
+      These are modelled after the severity level in syslog(1) and many derived tools.
+
+      We force the enum to be represented as an `int` because we will store the values in an `std::atomic<>` and the implementations usually optimize `std::atomic<int>` but not `std::atomic<Foo>`
+    children:
+      - namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a19926e6b33f63355986e9c77f35126e8
+      - namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922ab858c69248c47bb9f411651cf8ee26d6
+      - namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a47d3a15eead1f73cc69c68274fb275dd
+      - namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a89b8b9ebac3278bfe0d998d0052c86a3
+      - namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abc2618fc8ebd51bfa277121434384423
+      - namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a40b0bbe787c992e7538add97b9abdc21
+      - namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922aa0ad543f2f38678a0e3c606be03ac386
+      - namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abbc803db504b24b377a2abcf5f6f6fbb
+      - namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a231b1e1189f54337be4b9ccb9b607489
+      - namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a71e59df789d3d1c4eb7a8c9e8070cf0d
+      - namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a2aaca572b21aab277c1eb51d75bd34f2
+      - namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a6fab7141215b31a08473e15c105e7b15
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a19926e6b33f63355986e9c77f35126e8
+    name: "GCP_LS_TRACE"
+    id: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a19926e6b33f63355986e9c77f35126e8
+    parent: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      Use this level for messages that indicate the code is entering and leaving functions. 
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922ab858c69248c47bb9f411651cf8ee26d6
+    name: "GCP_LS_DEBUG"
+    id: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922ab858c69248c47bb9f411651cf8ee26d6
+    parent: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      Use this level for debug messages that should not be present in production. 
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a47d3a15eead1f73cc69c68274fb275dd
+    name: "GCP_LS_INFO"
+    id: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a47d3a15eead1f73cc69c68274fb275dd
+    parent: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      Informational messages, such as normal progress. 
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a89b8b9ebac3278bfe0d998d0052c86a3
+    name: "GCP_LS_NOTICE"
+    id: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a89b8b9ebac3278bfe0d998d0052c86a3
+    parent: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      Informational messages, such as unusual, but expected conditions. 
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abc2618fc8ebd51bfa277121434384423
+    name: "GCP_LS_WARNING"
+    id: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abc2618fc8ebd51bfa277121434384423
+    parent: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      An indication of problems, users may need to take action. 
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a40b0bbe787c992e7538add97b9abdc21
+    name: "GCP_LS_ERROR"
+    id: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a40b0bbe787c992e7538add97b9abdc21
+    parent: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      An error has been detected. 
+    conceptual: |
+      Do not use for normal conditions, such as remote servers disconnecting. 
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922aa0ad543f2f38678a0e3c606be03ac386
+    name: "GCP_LS_CRITICAL"
+    id: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922aa0ad543f2f38678a0e3c606be03ac386
+    parent: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      The system is in a critical state, such as running out of local resources. 
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abbc803db504b24b377a2abcf5f6f6fbb
+    name: "GCP_LS_ALERT"
+    id: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abbc803db504b24b377a2abcf5f6f6fbb
+    parent: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      The system is at risk of immediate failure. 
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a231b1e1189f54337be4b9ccb9b607489
+    name: "GCP_LS_FATAL"
+    id: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a231b1e1189f54337be4b9ccb9b607489
+    parent: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      The system is unusable. GCP_LOG(FATAL) will call std::abort(). 
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a71e59df789d3d1c4eb7a8c9e8070cf0d
+    name: "GCP_LS_HIGHEST"
+    id: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a71e59df789d3d1c4eb7a8c9e8070cf0d
+    parent: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      The highest possible severity level. 
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a2aaca572b21aab277c1eb51d75bd34f2
+    name: "GCP_LS_LOWEST"
+    id: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a2aaca572b21aab277c1eb51d75bd34f2
+    parent: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      The lowest possible severity level. 
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a6fab7141215b31a08473e15c105e7b15
+    name: "GCP_LS_LOWEST_ENABLED"
+    id: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a6fab7141215b31a08473e15c105e7b15
+    parent: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      The lowest level that is enabled at compile-time. 
+references:
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922
+    name: google::cloud::Severity
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a19926e6b33f63355986e9c77f35126e8
+    name: GCP_LS_TRACE
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922ab858c69248c47bb9f411651cf8ee26d6
+    name: GCP_LS_DEBUG
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a47d3a15eead1f73cc69c68274fb275dd
+    name: GCP_LS_INFO
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a89b8b9ebac3278bfe0d998d0052c86a3
+    name: GCP_LS_NOTICE
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abc2618fc8ebd51bfa277121434384423
+    name: GCP_LS_WARNING
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a40b0bbe787c992e7538add97b9abdc21
+    name: GCP_LS_ERROR
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922aa0ad543f2f38678a0e3c606be03ac386
+    name: GCP_LS_CRITICAL
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922abbc803db504b24b377a2abcf5f6f6fbb
+    name: GCP_LS_ALERT
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a231b1e1189f54337be4b9ccb9b607489
+    name: GCP_LS_FATAL
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a71e59df789d3d1c4eb7a8c9e8070cf0d
+    name: GCP_LS_HIGHEST
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a2aaca572b21aab277c1eb51d75bd34f2
+    name: GCP_LS_LOWEST
+  - uid: namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922a6fab7141215b31a08473e15c105e7b15
+    name: GCP_LS_LOWEST_ENABLED

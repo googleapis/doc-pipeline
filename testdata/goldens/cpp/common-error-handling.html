@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="common-error-handling">
+<h1 class="page-title">
+  <h1 id="error-handling">Error Handling</h1>
+</h1>
+
+<h3 id="overview">Overview</h3>
+<p>In general, the <code>google-cloud-cpp</code> libraries return a <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html">StatusOr<t></t></a> if a function may fail and needs to signal an error. <code>StatusOr&lt;T&gt;</code> is an &quot;outcome&quot;, it contains either the value returned on success, or a description of the error. Errors are represented by <a class="xref" href="classgoogle_1_1cloud_1_1Status.html">Status</a>, thus the name. If you are familiar with <code>std::expected</code> from C++23, <code>StatusOr&lt;T&gt;</code> plays a similar role, but does not attempt to be compatible with it.</p>
+<p>If you are planning to log a <code>Status</code>, consider using the <a class="xref" href="namespacegoogle_1_1cloud.html">iostream operator&lt;&lt;</a>. A <code>Status</code> contains more than just the message, in particular, its <a class="xref" href="classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1a172e846ab5623d78d49e2ed128f49583">error_info()</a> member function may return additional information that is useful during troubleshooting.</p>
+<h3 id="stream-ranges">Stream Ranges</h3>
+<p>Some functions return <a class="xref" href="classgoogle_1_1cloud_1_1StreamRange.html">StreamRange<s></s></a>, where <code>S</code> is a <code>StatusOr&lt;T&gt;</code>. These ranges provide <a href="https://en.cppreference.com/w/cpp/named_req/InputIterator">input iterators</a> that paginate or stream results from a service, offering a more idiomatic API. The value type in these iterators is <code>StatusOr&lt;T&gt;</code> because the stream may fail after it has successfully returned some values. For example, if the request to obtain the next page of results fails, or if the underlying stream is interrupted by the service.</p>
+<h3 id="futures">Futures</h3>
+<p>Some functions return a &quot;future&quot; (<a class="xref" href="classgoogle_1_1cloud_1_1future.html">future<t></t></a>). These objects represent a value that will be obtained asynchronously. By the very nature of asynchronous operations, the request may fail after the function is called. Therefore, we have chosen to return <code>future&lt;StatusOr&lt;T&gt;&gt;</code>. We think the alternatives are either incorrect (e.g. <code>StatusOr&lt;future&lt;T&gt;&gt;</code> can only handle errors detected before the function returns), or overly complex (<code>StatusOr&lt;future&lt;StatusOr&lt;T&gt;&gt;&gt;</code>).</p>
+<h3 id="values-with-specific-error-handling">Values with specific error handling</h3>
+<p>Some functions return a value that already has a mechanism to signal failures. For example:</p>
+<ul>
+<li>Some functions return <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html">AsyncStreamingReadWriteRpc&lt;T,U&gt;</a>. Or to be technical, they return <code>std::unique_ptr&lt;AsyncStreamingReadWriteRpc&lt;T,U&gt;&gt;</code>.</li>
+<li>A small number of functions return classes derived from <code>std::istream</code> or <code>std::ostream</code>.</li>
+</ul>
+<p>In such cases, the library does not wrap the result in a <code>StatusOr&lt;T&gt;</code> because the returned type already has mechanisms to signal errors.</p>
+<h3 id="example-using-statusort">Example: Using StatusOr<t></t></h3>
+<p>You can check that a <code>StatusOr&lt;T&gt;</code> contains a value by calling the <code>.ok()</code> method, or by using <code>operator bool()</code> (like with other smart pointers). If there is no value, you can access the contained <code>Status</code> object using the <code>.status()</code> member. If there is a value, you may access it by dereferencing with <code>operator*()</code> or <code>operator-&gt;()</code>. As with all smart pointers, callers must first check that the <code>StatusOr&lt;T&gt;</code> contains a value before dereferencing and accessing the contained value.</p>
+<pre><code class="prettyprint lang-cpp">  namespace gc = ::google::cloud;
+  [](std::string const&amp; project_name) {
+    gc::StatusOr&lt;gc::Project&gt; project = gc::MakeProject(project_name);
+    if (!project) {
+      std::cerr &lt;&lt; &quot;Error parsing project &lt;&quot; &lt;&lt; project_name
+                &lt;&lt; &quot;&gt;: &quot; &lt;&lt; project.status() &lt;&lt; &quot;\n&quot;;
+      return;
+    }
+    std::cout &lt;&lt; &quot;The project id is &quot; &lt;&lt; project-&gt;project_id() &lt;&lt; &quot;\n&quot;;
+  }
+</code></pre><h3 id="example-using-statusort-with-exceptions">Example: Using StatusOr<t> with exceptions</t></h3>
+<p>Some applications prefer to throw exceptions on errors. In this case, consider using <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697"><code>StatusOr&lt;T&gt;::value()</code></a>. This function throws a <a class="xref" href="classgoogle_1_1cloud_1_1RuntimeStatusError.html">RuntimeStatusError</a> if there is no value, and returns the value otherwise.</p>
+<aside class="note"><b>Note:</b>
+If you&#39;re compiling with exceptions disabled, calling <code>.value()</code> on a <code>StatusOr&lt;T&gt;</code> that does not contain a value will terminate the program instead of throwing.
+</aside>
+
+<pre><code class="prettyprint lang-cpp">  namespace gc = ::google::cloud;
+  [](std::string const&amp; project_name) {
+    try {
+      gc::Project project = gc::MakeProject(project_name).value();
+      std::cout &lt;&lt; &quot;The project id is &quot; &lt;&lt; project.project_id() &lt;&lt; &quot;\n&quot;;
+    } catch (gc::RuntimeStatusError const&amp; ex) {
+      std::cerr &lt;&lt; &quot;Error parsing project &lt;&quot; &lt;&lt; project_name
+                &lt;&lt; &quot;&gt;: &quot; &lt;&lt; ex.status() &lt;&lt; &quot;\n&quot;;
+    }
+  }
+</code></pre><h3 id="error-handling-in-google-cloud-cpp-code-samples">Error Handling in google-cloud-cpp code samples</h3>
+<p>The code samples for <code>google-cloud-cpp</code> try to emphasize how to use specific APIs and often have minimal error handling. A typical code sample may simply throw the status on error, like so:</p>
+<pre><code class="prettyprint lang-cpp">namespace svc = ::google::cloud::some_service;
+[](svc::Client client, std::string const&amp; key) {
+    auto response = client.SomeRpc(key);
+    if (!response) throw std::move(response).status();
+    // ... example continues here ...
+}
+</code></pre><p>This should not be interpreted as a best practice. If your application is designed to work with exceptions, then using <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697"><code>StatusOr&lt;T&gt;::value()</code></a> is a better alternative. We just want to show that some error handling is required for these functions, but at the same time we don&#39;t want to obscure the example with a lot of error handling code.</p>
+<h6 id="see-also">See Also</h6>
+<p><a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>google::cloud::StatusOr</code></a></p>
+<h6 id="see-also-1">See Also</h6>
+<p><a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>google::cloud::Status</code></a> the class used to describe errors. </p>
+<h6 id="see-also-2">See Also</h6>
+<p><a class="xref" href="classgoogle_1_1cloud_1_1future.html"><code>google::cloud::future</code></a> for more details on the type returned by asynchronous operations. </p>
+<h6 id="see-also-3">See Also</h6>
+<p><a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html"><code>google::cloud::AsyncStreamingReadWriteRpc</code></a> for more details on error handling for this class template. </p>
+<h6 id="see-also-4">See Also</h6>
+<p><a href="https://en.cppreference.com/w/cpp/utility/expected">https://en.cppreference.com/w/cpp/utility/expected</a> for more information about <code>std::expected</code></p>
+
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

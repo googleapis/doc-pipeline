@@ -1,0 +1,60 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1UserIpOption
+    name: "UserIpOption"
+    id: structgoogle_1_1cloud_1_1UserIpOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/rest_options.h>
+        struct google::cloud::UserIpOption { ... };
+      source:
+        id: google::cloud::UserIpOption
+        path: google/cloud/rest_options.h
+        startLine: 51
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/rest_options.h
+    summary: |
+      Configure the UserIp query parameter. 
+    conceptual: |
+      This can be used to separate quota usage by source IP address.
+
+      <aside class="deprecated"><b>Deprecated:</b>
+
+
+      prefer using `google::cloud::QuotaUser`.
+      </aside>
+    children:
+      - structgoogle_1_1cloud_1_1UserIpOption_1af69a552534f64cd51243a002e1dd6488
+  - uid: structgoogle_1_1cloud_1_1UserIpOption_1af69a552534f64cd51243a002e1dd6488
+    name: "Type"
+    fullName: "google::cloud::UserIpOption::Type"
+    id: structgoogle_1_1cloud_1_1UserIpOption_1af69a552534f64cd51243a002e1dd6488
+    parent: structgoogle_1_1cloud_1_1UserIpOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::UserIpOption::Type =
+          std::string;
+      aliasof: |
+        <code>std::string</code>
+      source:
+        id: Type
+        path: google/cloud/rest_options.h
+        startLine: 52
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/rest_options.h
+references:
+  - uid: structgoogle_1_1cloud_1_1UserIpOption
+    name: google::cloud::UserIpOption
+  - uid: structgoogle_1_1cloud_1_1UserIpOption_1af69a552534f64cd51243a002e1dd6488
+    name: google::cloud::UserIpOption::Type

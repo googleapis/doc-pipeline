@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption">
+<h1 class="page-title">Struct GrpcBackgroundThreadsFactoryOption (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>Changes the <code>BackgroundThreadsFactory</code>. </p>
+</div>
+  <div class="markdown level0 conceptual"><p>Connections need to perform background work on behalf of the application. Normally they just create a background thread and a <a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html"><code>CompletionQueue</code></a> for this work, but the application may need more fine-grained control of their threads.</p>
+<p>In this case the application can provide its own <code>BackgroundThreadsFactory</code> and it assumes responsibility for creating one or more threads blocked on its <a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4"><code>CompletionQueue::Run()</code></a>.</p>
+<aside class="note"><b>Note:</b>
+<a class="xref" href="structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption.html"><code>GrpcBackgroundThreadPoolSizeOption</code></a>, <a class="xref" href="structgoogle_1_1cloud_1_1GrpcCompletionQueueOption.html"><code>GrpcCompletionQueueOption</code></a>, and <a class="xref" href="structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption.html"><code>GrpcBackgroundThreadsFactoryOption</code></a> are mutually exclusive. This option will be ignored if <a class="xref" href="structgoogle_1_1cloud_1_1GrpcCompletionQueueOption.html"><code>GrpcCompletionQueueOption</code></a> is set. 
+</aside>
+</div>
+  <h2 id="typealiases"></h2>
+  <h3 id="structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption_1a65ea53b32b35f991ce3d0af6ee4faa4c" data-uid="structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption_1a65ea53b32b35f991ce3d0af6ee4faa4c" class="notranslate">Type</h3>
+  <div class="level1 summary">
+    <strong>Alias Of</strong>: <code>BackgroundThreadsFactory</code>
+
+  </div>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

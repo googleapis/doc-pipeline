@@ -1,0 +1,416 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="classgoogle_1_1cloud_1_1Options">
+<h1 class="page-title">Class Options (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>A class that holds option structs indexed by their type. </p>
+</div>
+  <div class="markdown level0 conceptual"><p>An &quot;Option&quot; is any struct that has a public <code>Type</code> member typedef. By convention they are named like &quot;FooOption&quot;. Each library (e.g., spanner, storage) may define their own set of options. Additionally, there are common options defined that many libraries may use. All these options may be set in a single <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> instance, and each library will look at the options that it needs.</p>
+<p>Here&#39;s an overview of this class&#39;s interface, but see the method documentation below for details.</p>
+<ul>
+<li><code>.set&lt;T&gt;(x)</code>&ndash; Sets the option <code>T</code> to value <code>x</code></li>
+<li><code>.has&lt;T&gt;()</code>&ndash; Returns true iff option <code>T</code> is set</li>
+<li><code>.unset&lt;T&gt;()</code>&ndash; Removes the option <code>T</code></li>
+<li><code>.get&lt;T&gt;()</code>&ndash; Gets a const-ref to the value of option <code>T</code></li>
+<li><code>.lookup&lt;T&gt;(x)</code>&ndash; Gets a non-const-ref to option <code>T</code>&#39;s value, initializing it to <code>x</code> if it was not set (<code>x</code> is optional).</li>
+</ul>
+<h6 id="example">Example:</h6>
+<pre><code class="prettyprint lang-cpp">struct FooOption {
+  using Type = int;
+};
+struct BarOption {
+  using Type = std::set&lt;std::string&gt;;
+};
+...
+Options opts;
+
+assert(opts.get&lt;FooOption&gt;() == 0);
+opts.set&lt;FooOption&gt;(42);
+assert(opts.get&lt;FooOption&gt;() == 42);
+
+// Inserts two elements directly into the BarOption&#39;s std::set.
+opts.lookup&lt;BarOption&gt;().insert(&quot;hello&quot;);
+opts.lookup&lt;BarOption&gt;().insert(&quot;world&quot;);
+
+std::set&lt;std::string&gt; const&amp; bar = opts.get&lt;BarOption&gt;();
+assert(bar == std::set&lt;std::string&gt;{&quot;hello&quot;, &quot;world&quot;});
+</code></pre></div>
+  <h2 id="constructors">Constructors
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1Options_1ae4d04b0ec878b4b82630793f74e6d102" data-uid="classgoogle_1_1cloud_1_1Options_1ae4d04b0ec878b4b82630793f74e6d102" class="notranslate">Options()</h3>
+  <div class="markdown level1 summary"><p>Constructs an empty instance. </p>
+</div>
+  <h3 id="classgoogle_1_1cloud_1_1Options_1aa987bb370871297529e9ecac22b5109f" data-uid="classgoogle_1_1cloud_1_1Options_1aa987bb370871297529e9ecac22b5109f" class="notranslate">Options(Options const &amp;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>rhs</code></td>
+        <td>
+          <code>Options const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Options_1af7638098b40961cdcddf5759254775b7" data-uid="classgoogle_1_1cloud_1_1Options_1af7638098b40961cdcddf5759254775b7" class="notranslate">Options(Options &amp;&amp;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>Options &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="operators">Operators
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1Options_1a9243331bcb81d1552263fe4f12f7f9a5" data-uid="classgoogle_1_1cloud_1_1Options_1a9243331bcb81d1552263fe4f12f7f9a5" class="notranslate">operator=(Options const &amp;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>rhs</code></td>
+        <td>
+          <code>Options const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">Options &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Options_1ab29e083e7db725955b438edc460c3e3e" data-uid="classgoogle_1_1cloud_1_1Options_1ab29e083e7db725955b438edc460c3e3e" class="notranslate">operator=(Options &amp;&amp;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>Options &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">Options &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="functions">Functions
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1Options_1a55949946a6dfca4a01b52162e28acbcc" data-uid="classgoogle_1_1cloud_1_1Options_1a55949946a6dfca4a01b52162e28acbcc" class="notranslate">set(ValueTypeT&lt; T &gt;)</h3>
+  <div class="markdown level1 summary"><p>Sets option <code>T</code> to the value <code>v</code> and returns a reference to <code>*this</code>. </p>
+</div>
+  <div class="markdown level1 conceptual"><pre><code class="prettyprint lang-cpp">struct FooOption {
+  using Type = int;
+};
+auto opts = Options{}.set&lt;FooOption&gt;(123);
+</code></pre></div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameters</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>v</code></td>
+        <td>
+          <code>ValueTypeT&lt; T &gt;</code>
+          <br>
+          <p>the value to set the option T </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>typename T</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>the option type </p>
+
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">Options &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Options_1a0b63821262f22056e6fb5d7dafdc0fce" data-uid="classgoogle_1_1cloud_1_1Options_1a0b63821262f22056e6fb5d7dafdc0fce" class="notranslate">has() const</h3>
+  <div class="markdown level1 summary"><p>Returns true IFF an option with type <code>T</code> exists. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>typename T</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>the option type </p>
+
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">bool</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Options_1abf9d24f236208dd6d9b18dffe0bd7e4f" data-uid="classgoogle_1_1cloud_1_1Options_1abf9d24f236208dd6d9b18dffe0bd7e4f" class="notranslate">unset()</h3>
+  <div class="markdown level1 summary"><p>Erases the option specified by the type <code>T</code>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>typename T</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>the option type </p>
+
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Options_1a1685191ebee1d545c1bf669537b9440f" data-uid="classgoogle_1_1cloud_1_1Options_1a1685191ebee1d545c1bf669537b9440f" class="notranslate">get() const</h3>
+  <div class="markdown level1 summary"><p>Returns a reference to the value for <code>T</code>, or a value-initialized default if <code>T</code> was not set. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>This method will always return a reference to a valid value of the correct type for option <code>T</code>, whether or not <code>T</code> has actually been set. Use <code>has&lt;T&gt;()</code> to check whether or not the option has been set.</p>
+<pre><code class="prettyprint lang-cpp">struct FooOption {
+  using Type = std::set&lt;std::string&gt;;
+};
+Options opts;
+std::set&lt;std::string&gt; const&amp; x = opts.get&lt;FooOption&gt;();
+assert(x.empty());
+assert(!x.has&lt;FooOption&gt;());
+
+opts.set&lt;FooOption&gt;({&quot;foo&quot;});
+assert(opts.get&lt;FooOption&gt;().size() == 1);
+</code></pre></div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>typename T</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>the option type </p>
+
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">ValueTypeT&lt; T &gt; const &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Options_1a357d8aa593403d3a12b2516b63027441" data-uid="classgoogle_1_1cloud_1_1Options_1a357d8aa593403d3a12b2516b63027441" class="notranslate">lookup(ValueTypeT&lt; T &gt;)</h3>
+  <div class="markdown level1 summary"><p>Returns a reference to the value for option <code>T</code>, setting the value to <code>init_value</code> if necessary. </p>
+</div>
+  <div class="markdown level1 conceptual"><pre><code class="prettyprint lang-cpp">struct BigOption {
+  using Type = std::set&lt;std::string&gt;;
+};
+Options opts;
+std::set&lt;std::string&gt;&amp; x = opts.lookup&lt;BigOption&gt;();
+assert(x.empty());
+
+x.insert(&quot;foo&quot;);
+opts.lookup&lt;BigOption&gt;().insert(&quot;bar&quot;);
+assert(x.size() == 2);
+</code></pre></div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameters</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>value</code></td>
+        <td>
+          <code>ValueTypeT&lt; T &gt;</code>
+          <br>
+          <p>the initial value to use if <code>T</code> is not set (optional) </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>typename T</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>the option type </p>
+
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">ValueTypeT&lt; T &gt; &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

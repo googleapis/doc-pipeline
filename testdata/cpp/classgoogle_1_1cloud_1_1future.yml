@@ -1,0 +1,266 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1future
+    name: "future<T>"
+    id: classgoogle_1_1cloud_1_1future
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/future_generic.h>
+        template <
+            typename T>
+        class google::cloud::future { ... };
+      source:
+        id: google::cloud::future
+        path: google/cloud/future_generic.h
+        startLine: 37
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_generic.h
+    summary: |
+      Implement ISO/IEC TS 19571:2016 `future<T>`. 
+    children:
+      - classgoogle_1_1cloud_1_1future_1ad7a72b78c2561600a88b30c52a2764eb
+      - classgoogle_1_1cloud_1_1future_1add920aaf1afc06919b4dabf4fd92734d
+      - classgoogle_1_1cloud_1_1future_1afe5f53983c6e3f705a050fcd1c501f50
+      - classgoogle_1_1cloud_1_1future_1a0fab9a942ca9c037d93eef02ac3a591c
+      - classgoogle_1_1cloud_1_1future_1a23b7c9cabdcf116d3b908c32e627c7af
+      - classgoogle_1_1cloud_1_1future_1a44ba4050a8b72d7de43d421b3f633de8
+      - classgoogle_1_1cloud_1_1future_1a724fc143a9a2e97f9e4523cd44a65e9f
+  - uid: classgoogle_1_1cloud_1_1future_1ad7a72b78c2561600a88b30c52a2764eb
+    name: "shared_state_type"
+    fullName: "google::cloud::future::shared_state_type"
+    id: classgoogle_1_1cloud_1_1future_1ad7a72b78c2561600a88b30c52a2764eb
+    parent: classgoogle_1_1cloud_1_1future
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::future::shared_state_type =
+          typename internal::future_base< T >::shared_state_type;
+      aliasof: |
+        <code>typename internal::future_base&lt; T &gt;::shared_state_type</code>
+      source:
+        id: shared_state_type
+        path: google/cloud/future_generic.h
+        startLine: 39
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_generic.h
+  - uid: classgoogle_1_1cloud_1_1future_1add920aaf1afc06919b4dabf4fd92734d
+    name: "future()"
+    fullName: |
+      google::cloud::future::future
+    id: classgoogle_1_1cloud_1_1future_1add920aaf1afc06919b4dabf4fd92734d
+    parent: classgoogle_1_1cloud_1_1future
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::future::future ()
+      source:
+        id: future
+        path: google/cloud/future_generic.h
+        startLine: 44
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_generic.h
+  - uid: classgoogle_1_1cloud_1_1future_1afe5f53983c6e3f705a050fcd1c501f50
+    name: "future(future< future< T > > &&)"
+    fullName: |
+      google::cloud::future::future
+    id: classgoogle_1_1cloud_1_1future_1afe5f53983c6e3f705a050fcd1c501f50
+    parent: classgoogle_1_1cloud_1_1future
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::future::future (
+            future< future< T > > && rhs
+          )
+      parameters:
+        - id: rhs
+          var_type: "future&lt; future&lt; T &gt; &gt; &&"
+      source:
+        id: future
+        path: google/cloud/future_generic.h
+        startLine: 62
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_generic.h
+    summary: |
+      Creates a new future that unwraps `rhs`. 
+    conceptual: |
+      This constructor creates a new shared state that becomes satisfied when both `rhs` and `rhs.get()` become satisfied. If `rhs` is satisfied, but `rhs.get()` returns an invalid future then the newly created future becomes satisfied with a `std::future_error` exception, and the exception error code is `std::future_errc::broken_promise`.
+
+
+
+      <aside class="note"><b>Note:</b>
+      The technical specification requires this to be a `noexcept` constructor I (coryan) believe this is a defect in the technical specification, as this *creates* a new shared state: shared states are dynamically allocated, and the allocator (which might be the default `operator new`) may raise. 
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1future_1a0fab9a942ca9c037d93eef02ac3a591c
+    name: "future(future< U > &&)"
+    fullName: |
+      google::cloud::future::future
+    id: classgoogle_1_1cloud_1_1future_1a0fab9a942ca9c037d93eef02ac3a591c
+    parent: classgoogle_1_1cloud_1_1future
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            class U,
+            typename Enable = absl::enable_if_t<std::is_constructible<T, U>::value>>
+        google::cloud::future::future (
+            future< U > && rhs
+          )
+      parameters:
+        - id: rhs
+          var_type: "future&lt; U &gt; &&"
+        - id: class U
+        - id: typename Enable
+      source:
+        id: future
+        path: google/cloud/future_generic.h
+        startLine: 70
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_generic.h
+    summary: |
+      Creates a future from a future whose result type is convertible to this future's result type. 
+  - uid: classgoogle_1_1cloud_1_1future_1a23b7c9cabdcf116d3b908c32e627c7af
+    name: "get()"
+    fullName: |
+      google::cloud::future::get
+    id: classgoogle_1_1cloud_1_1future_1a23b7c9cabdcf116d3b908c32e627c7af
+    parent: classgoogle_1_1cloud_1_1future
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        T
+        google::cloud::future::get ()
+      return:
+        type:
+          - "T"
+      exceptions:
+        - var_type: "..."
+          description: |
+            any exceptions stored in the shared state. 
+        - var_type: "std::future_error"
+          description: |
+            with std::no_state if the future does not have a shared state. 
+      source:
+        id: get
+        path: google/cloud/future_generic.h
+        startLine: 84
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_generic.h
+    summary: |
+      Waits until the shared state becomes ready, then retrieves the value stored in the shared state. 
+    conceptual: |
+
+
+      <aside class="note"><b>Note:</b>
+      This operation invalidates the future, subsequent calls will fail, the application should capture the returned value because it would.
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1future_1a44ba4050a8b72d7de43d421b3f633de8
+    name: "then(F &&)"
+    fullName: |
+      google::cloud::future::then
+    id: classgoogle_1_1cloud_1_1future_1a44ba4050a8b72d7de43d421b3f633de8
+    parent: classgoogle_1_1cloud_1_1future
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename F>
+        internal::then_helper< F, T >::future_t
+        google::cloud::future::then (
+            F && func
+          )
+      return:
+        type:
+          - "internal::then_helper< F, T >::future_t"
+        description: |
+          `future<T>` where T is `std::result_of_t<F, R>` (basically). If T matches `future<U>` then it returns `future<U>`. The returned future will contain the result of *func*. 
+      parameters:
+        - id: func
+          var_type: "F &&"
+          description: |
+            a Callable to be invoked when the future is ready. The function might be called immediately, e.g., if the future is ready.
+        - id: typename F
+      source:
+        id: then
+        path: google/cloud/future_generic.h
+        startLine: 115
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_generic.h
+    summary: |
+      Attach a continuation to the future. 
+    conceptual: |
+      Attach a callable *func* to be invoked when the future is ready. The return type is a future wrapping the return type of *func*.
+
+
+      Side effects: `valid() == false` if the operation is successful. 
+  - uid: classgoogle_1_1cloud_1_1future_1a724fc143a9a2e97f9e4523cd44a65e9f
+    name: "future(std::shared_ptr< shared_state_type >)"
+    fullName: |
+      google::cloud::future::future
+    id: classgoogle_1_1cloud_1_1future_1a724fc143a9a2e97f9e4523cd44a65e9f
+    parent: classgoogle_1_1cloud_1_1future
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::future::future (
+            std::shared_ptr< shared_state_type > state
+          )
+      parameters:
+        - id: state
+          var_type: "std::shared_ptr&lt; shared_state_type &gt;"
+      source:
+        id: future
+        path: google/cloud/future_generic.h
+        startLine: 122
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/future_generic.h
+references:
+  - uid: classgoogle_1_1cloud_1_1future
+    name: google::cloud::future
+  - uid: classgoogle_1_1cloud_1_1future_1ad7a72b78c2561600a88b30c52a2764eb
+    name: google::cloud::future::shared_state_type
+  - uid: classgoogle_1_1cloud_1_1future_1add920aaf1afc06919b4dabf4fd92734d
+    name: google::cloud::future::future
+  - uid: classgoogle_1_1cloud_1_1future_1afe5f53983c6e3f705a050fcd1c501f50
+    name: google::cloud::future::future
+  - uid: classgoogle_1_1cloud_1_1future_1a0fab9a942ca9c037d93eef02ac3a591c
+    name: google::cloud::future::future
+  - uid: classgoogle_1_1cloud_1_1future_1a23b7c9cabdcf116d3b908c32e627c7af
+    name: google::cloud::future::get
+  - uid: classgoogle_1_1cloud_1_1future_1a44ba4050a8b72d7de43d421b3f633de8
+    name: google::cloud::future::then
+  - uid: classgoogle_1_1cloud_1_1future_1a724fc143a9a2e97f9e4523cd44a65e9f
+    name: google::cloud::future::future

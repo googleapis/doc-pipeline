@@ -1,0 +1,295 @@
+### YamlMime:UniversalReference
+items:
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    name: "StatusCode"
+    fullName: |
+      google::cloud::StatusCode
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    parent: ""
+    type: enum
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        enum class google::cloud::StatusCode {
+          kOk,
+          kCancelled,
+          kUnknown,
+          kInvalidArgument,
+          kDeadlineExceeded,
+          kNotFound,
+          kAlreadyExists,
+          kPermissionDenied,
+          kResourceExhausted,
+          kFailedPrecondition,
+          kAborted,
+          kOutOfRange,
+          kUnimplemented,
+          kInternal,
+          kUnavailable,
+          kDataLoss,
+          kUnauthenticated,
+        };
+      source:
+        id: StatusCode
+        path: google/cloud/status.h
+        startLine: 35
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/status.h
+    summary: |
+      Well-known status codes with `grpc::StatusCode`-compatible values. 
+    conceptual: |
+      The semantics of these values are documented in: [https://grpc.io/grpc/cpp/classgrpc_1_1_status.html](https://grpc.io/grpc/cpp/classgrpc_1_1_status.html)
+    children:
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a971493a769ad0aed23946733ede4a8f1
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a25c2dc47991b3df171ed5192bcf70390
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a80fdc050363ea6925fa2e7eb7f0a94a0
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a4d40d05ef9a0c7b22fb80d1bbf8a72df
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ab096e4f92f6c4184d188166e8f156fbb
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847aa824609a8c511d10b4496d1d24761b3a
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847adc0b458db7d0dd510aae0367dfafc4af
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a70b1deeb4d30d0e807ebaf0b14d63246
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a17f82936b75ec2c8d1665298cadde372
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ac20d0424ae4484fda4424713f021d736
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847af2fcb517cfc19949e909cbc2607e0f27
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a90bf1b080583063c8a08fb96e975082f
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a96509148247c627a753b021d6dbea774
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a8a1714a85ad21a1c4814b260d2cd24dd
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a3118b7fae62033f78581e16942bbdf32
+      - namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ad676439e57a5d7a9a4dd2cd09f5300a2
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a
+    name: "kOk"
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a
+    parent: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      Not an error; returned on success. 
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a971493a769ad0aed23946733ede4a8f1
+    name: "kCancelled"
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a971493a769ad0aed23946733ede4a8f1
+    parent: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      `kCancelled` (gRPC code `CANCELLED`) indicates the operation was cancelled, typically by the caller. 
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a25c2dc47991b3df171ed5192bcf70390
+    name: "kUnknown"
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a25c2dc47991b3df171ed5192bcf70390
+    parent: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      `kUnknown` (gRPC code `UNKNOWN`) indicates an unknown error occurred. 
+    conceptual: |
+      In general, more specific errors should be raised, if possible. Errors raised by APIs that do not return enough error information may be converted to this error. 
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a80fdc050363ea6925fa2e7eb7f0a94a0
+    name: "kInvalidArgument"
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a80fdc050363ea6925fa2e7eb7f0a94a0
+    parent: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      `kInvalidArgument` (gRPC code `INVALID_ARGUMENT`) indicates the caller specified an invalid argument, such as a malformed filename. 
+    conceptual: |
+      Note that use of such errors should be narrowly limited to indicate the invalid nature of the arguments themselves. Errors with validly formed arguments that may cause errors with the state of the receiving system should be denoted with `kFailedPrecondition` instead. 
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a4d40d05ef9a0c7b22fb80d1bbf8a72df
+    name: "kDeadlineExceeded"
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a4d40d05ef9a0c7b22fb80d1bbf8a72df
+    parent: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      `kDeadlineExceeded` (gRPC code `DEADLINE_EXCEEDED`) indicates a deadline expired before the operation could complete. 
+    conceptual: |
+      For operations that may change state within a system, this error may be returned even if the operation has completed successfully. For example, a successful response from a server could have been delayed long enough for the deadline to expire. 
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ab096e4f92f6c4184d188166e8f156fbb
+    name: "kNotFound"
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ab096e4f92f6c4184d188166e8f156fbb
+    parent: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      `kNotFound` (gRPC code `NOT_FOUND`) indicates some requested entity (such as a file or directory) was not found. 
+    conceptual: |
+      `kNotFound` is useful if a request should be denied for an entire class of users, such as during a gradual feature rollout or undocumented allow list. If a request should be denied for specific sets of users, such as through user-based access control, use `kPermissionDenied` instead. 
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847aa824609a8c511d10b4496d1d24761b3a
+    name: "kAlreadyExists"
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847aa824609a8c511d10b4496d1d24761b3a
+    parent: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      `kAlreadyExists (gRPC code`ALREADY_EXISTS`) indicates that the entity a caller attempted to create (such as a file or directory) is already present. 
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847adc0b458db7d0dd510aae0367dfafc4af
+    name: "kPermissionDenied"
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847adc0b458db7d0dd510aae0367dfafc4af
+    parent: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      `kPermissionDenied` (gRPC code `PERMISSION_DENIED`) indicates that the caller does not have permission to execute the specified operation. 
+    conceptual: |
+      Note that this error is different than an error due to an *un*authenticated caller. This error code does not imply the request is valid or the requested entity exists or satisfies any other pre-conditions.
+
+      `kPermissionDenied` must not be used for rejections caused by exhausting some resource. Instead, use `kResourceExhausted` for those errors. `kPermissionDenied` must not be used if the caller cannot be identified. Instead, use `kUnauthenticated` for those errors. 
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a70b1deeb4d30d0e807ebaf0b14d63246
+    name: "kResourceExhausted"
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a70b1deeb4d30d0e807ebaf0b14d63246
+    parent: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      `kResourceExhausted` (gRPC code `RESOURCE_EXHAUSTED`) indicates some resource has been exhausted. 
+    conceptual: |
+      Examples include a per-user quota, or the entire file system being out of space. 
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a17f82936b75ec2c8d1665298cadde372
+    name: "kFailedPrecondition"
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a17f82936b75ec2c8d1665298cadde372
+    parent: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      `kFailedPrecondition` (gRPC code `FAILED_PRECONDITION`) indicates that the operation was rejected because the system is not in a state required for the operation's execution. 
+    conceptual: |
+      For example, a directory to be deleted may be non-empty, a "rmdir" operation is applied to a non-directory, etc.
+
+      Some guidelines that may help a service implementer in deciding between `kFailedPrecondition`, `kAborted`, and `kUnavailable`:
+
+
+      1. Use `kUnavailable` if the client can retry just the failing call.
+      1. Use `kAborted` if the client should retry at a higher transaction level (such as when a client-specified test-and-set fails, indicating the client should restart a read-modify-write sequence).
+      1. Use `kFailedPrecondition` if the client should not retry until the system state has been explicitly fixed. For example, if a "rmdir" fails because the directory is non-empty, `kFailedPrecondition` should be returned since the client should not retry unless the files are deleted from the directory. 
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ac20d0424ae4484fda4424713f021d736
+    name: "kAborted"
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ac20d0424ae4484fda4424713f021d736
+    parent: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      `kAborted` (gRPC code `ABORTED`) indicates the operation was aborted. 
+    conceptual: |
+      This is typically due to a concurrency issue such as a sequencer check failure or a failed transaction.
+
+      See the guidelines above for deciding between `kFailedPrecondition`, `kAborted`, and `kUnavailable`. 
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847af2fcb517cfc19949e909cbc2607e0f27
+    name: "kOutOfRange"
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847af2fcb517cfc19949e909cbc2607e0f27
+    parent: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      `kOutOfRange` (gRPC code `OUT_OF_RANGE`) indicates the operation was attempted past the valid range, such as seeking or reading past an end-of-file. 
+    conceptual: |
+      Unlike `kInvalidArgument`, this error indicates a problem that may be fixed if the system state changes. For example, a 32-bit file system will generate `kInvalidArgument` if asked to read at an offset that is not in the range [0,2^32-1], but it will generate `kOutOfRange` if asked to read from an offset past the current file size.
+
+      There is a fair bit of overlap between `kFailedPrecondition` and `kOutOfRange`. We recommend using `kOutOfRange` (the more specific error) when it applies so that callers who are iterating through a space can easily look for an `kOutOfRange` error to detect when they are done. 
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a90bf1b080583063c8a08fb96e975082f
+    name: "kUnimplemented"
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a90bf1b080583063c8a08fb96e975082f
+    parent: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      `kUnimplemented` (gRPC code `UNIMPLEMENTED`) indicates the operation is not implemented or supported in this service. 
+    conceptual: |
+      In this case, the operation should not be re-attempted. 
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a96509148247c627a753b021d6dbea774
+    name: "kInternal"
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a96509148247c627a753b021d6dbea774
+    parent: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      `kInternal` (gRPC code `INTERNAL`) indicates an internal error has occurred and some invariants expected by the underlying system have not been satisfied. 
+    conceptual: |
+      While this error code is reserved for serious errors, some services return this error under overload conditions. 
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a8a1714a85ad21a1c4814b260d2cd24dd
+    name: "kUnavailable"
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a8a1714a85ad21a1c4814b260d2cd24dd
+    parent: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      `kUnavailable` (gRPC code `UNAVAILABLE`) indicates the service is currently unavailable and that this is most likely a transient condition. 
+    conceptual: |
+      An error such as this can be corrected by retrying with a backoff scheme. Note that it is not always safe to retry non-idempotent operations.
+
+      See the guidelines above for deciding between `kFailedPrecondition`, `kAborted`, and `kUnavailable`. 
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a3118b7fae62033f78581e16942bbdf32
+    name: "kDataLoss"
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a3118b7fae62033f78581e16942bbdf32
+    parent: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      `kDataLoss` (gRPC code `DATA_LOSS`) indicates that unrecoverable data loss or corruption has occurred. 
+    conceptual: |
+      As this error is serious, proper alerting should be attached to errors such as this. 
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ad676439e57a5d7a9a4dd2cd09f5300a2
+    name: "kUnauthenticated"
+    id: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ad676439e57a5d7a9a4dd2cd09f5300a2
+    parent: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    type: enumvalue
+    langs:
+      - cpp
+    summary: |
+      `kUnauthenticated` (gRPC code `UNAUTHENTICATED`) indicates that the request does not have valid authentication credentials for the operation. 
+    conceptual: |
+      Correct the authentication and try again. 
+references:
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847
+    name: google::cloud::StatusCode
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a
+    name: kOk
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a971493a769ad0aed23946733ede4a8f1
+    name: kCancelled
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a25c2dc47991b3df171ed5192bcf70390
+    name: kUnknown
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a80fdc050363ea6925fa2e7eb7f0a94a0
+    name: kInvalidArgument
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a4d40d05ef9a0c7b22fb80d1bbf8a72df
+    name: kDeadlineExceeded
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ab096e4f92f6c4184d188166e8f156fbb
+    name: kNotFound
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847aa824609a8c511d10b4496d1d24761b3a
+    name: kAlreadyExists
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847adc0b458db7d0dd510aae0367dfafc4af
+    name: kPermissionDenied
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a70b1deeb4d30d0e807ebaf0b14d63246
+    name: kResourceExhausted
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a17f82936b75ec2c8d1665298cadde372
+    name: kFailedPrecondition
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ac20d0424ae4484fda4424713f021d736
+    name: kAborted
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847af2fcb517cfc19949e909cbc2607e0f27
+    name: kOutOfRange
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a90bf1b080583063c8a08fb96e975082f
+    name: kUnimplemented
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a96509148247c627a753b021d6dbea774
+    name: kInternal
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a8a1714a85ad21a1c4814b260d2cd24dd
+    name: kUnavailable
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a3118b7fae62033f78581e16942bbdf32
+    name: kDataLoss
+  - uid: namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ad676439e57a5d7a9a4dd2cd09f5300a2
+    name: kUnauthenticated

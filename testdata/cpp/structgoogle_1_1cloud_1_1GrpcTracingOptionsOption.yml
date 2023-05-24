@@ -1,0 +1,52 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1GrpcTracingOptionsOption
+    name: "GrpcTracingOptionsOption"
+    id: structgoogle_1_1cloud_1_1GrpcTracingOptionsOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/grpc_options.h>
+        struct google::cloud::GrpcTracingOptionsOption { ... };
+      source:
+        id: google::cloud::GrpcTracingOptionsOption
+        path: google/cloud/grpc_options.h
+        startLine: 110
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/grpc_options.h
+    summary: |
+      The [`TracingOptions`](xref:classgoogle_1_1cloud_1_1TracingOptions) to use when printing grpc protocol buffer messages. 
+    children:
+      - structgoogle_1_1cloud_1_1GrpcTracingOptionsOption_1af678ec85d9990e384f0be0b7a639d624
+  - uid: structgoogle_1_1cloud_1_1GrpcTracingOptionsOption_1af678ec85d9990e384f0be0b7a639d624
+    name: "Type"
+    fullName: "google::cloud::GrpcTracingOptionsOption::Type"
+    id: structgoogle_1_1cloud_1_1GrpcTracingOptionsOption_1af678ec85d9990e384f0be0b7a639d624
+    parent: structgoogle_1_1cloud_1_1GrpcTracingOptionsOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::GrpcTracingOptionsOption::Type =
+          TracingOptions;
+      aliasof: |
+        <code>TracingOptions</code>
+      source:
+        id: Type
+        path: google/cloud/grpc_options.h
+        startLine: 111
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/grpc_options.h
+references:
+  - uid: structgoogle_1_1cloud_1_1GrpcTracingOptionsOption
+    name: google::cloud::GrpcTracingOptionsOption
+  - uid: structgoogle_1_1cloud_1_1GrpcTracingOptionsOption_1af678ec85d9990e384f0be0b7a639d624
+    name: google::cloud::GrpcTracingOptionsOption::Type

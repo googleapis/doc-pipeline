@@ -1,0 +1,27 @@
+### YamlMime:UniversalReference
+items:
+  - uid: group__rest-options
+    title: Options only applicable when using REST transport
+    id: group__rest-options
+    type: module
+    langs:
+      - cpp
+    summary: |
+      # Options only applicable when using REST transport
+
+
+      These Options are used with libraries that either only support REST transport, or with libraries where the user has elected to enable gRPC to HTTP transcoding. 
+
+      ### Classes
+
+      - [`google::cloud::QuotaUserOption`](xref:structgoogle_1_1cloud_1_1QuotaUserOption)
+      - [`google::cloud::UserIpOption`](xref:structgoogle_1_1cloud_1_1UserIpOption)
+      - [`google::cloud::ServerTimeoutOption`](xref:structgoogle_1_1cloud_1_1ServerTimeoutOption)
+
+references:
+  - uid: structgoogle_1_1cloud_1_1QuotaUserOption
+    name: google::cloud::QuotaUserOption
+  - uid: structgoogle_1_1cloud_1_1UserIpOption
+    name: google::cloud::UserIpOption
+  - uid: structgoogle_1_1cloud_1_1ServerTimeoutOption
+    name: google::cloud::ServerTimeoutOption
