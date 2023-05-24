@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847">
+<h1 class="page-title">Enum StatusCode (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>Well-known status codes with <code>grpc::StatusCode</code>-compatible values. </p>
+</div>
+  <div class="markdown level0 conceptual"><p>The semantics of these values are documented in: <a href="https://grpc.io/grpc/cpp/classgrpc_1_1_status.html">https://grpc.io/grpc/cpp/classgrpc_1_1_status.html</a></p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><h2 id="consts">Constants
+  </h2></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a"><code>kOk</code></td>
+        <td><p>Not an error; returned on success. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a971493a769ad0aed23946733ede4a8f1"><code>kCancelled</code></td>
+        <td><p><code>kCancelled</code> (gRPC code <code>CANCELLED</code>) indicates the operation was cancelled, typically by the caller. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a25c2dc47991b3df171ed5192bcf70390"><code>kUnknown</code></td>
+        <td><p><code>kUnknown</code> (gRPC code <code>UNKNOWN</code>) indicates an unknown error occurred. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a80fdc050363ea6925fa2e7eb7f0a94a0"><code>kInvalidArgument</code></td>
+        <td><p><code>kInvalidArgument</code> (gRPC code <code>INVALID_ARGUMENT</code>) indicates the caller specified an invalid argument, such as a malformed filename. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a4d40d05ef9a0c7b22fb80d1bbf8a72df"><code>kDeadlineExceeded</code></td>
+        <td><p><code>kDeadlineExceeded</code> (gRPC code <code>DEADLINE_EXCEEDED</code>) indicates a deadline expired before the operation could complete. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ab096e4f92f6c4184d188166e8f156fbb"><code>kNotFound</code></td>
+        <td><p><code>kNotFound</code> (gRPC code <code>NOT_FOUND</code>) indicates some requested entity (such as a file or directory) was not found. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847aa824609a8c511d10b4496d1d24761b3a"><code>kAlreadyExists</code></td>
+        <td><p><code>kAlreadyExists (gRPC code</code>ALREADY_EXISTS`) indicates that the entity a caller attempted to create (such as a file or directory) is already present. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847adc0b458db7d0dd510aae0367dfafc4af"><code>kPermissionDenied</code></td>
+        <td><p><code>kPermissionDenied</code> (gRPC code <code>PERMISSION_DENIED</code>) indicates that the caller does not have permission to execute the specified operation. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a70b1deeb4d30d0e807ebaf0b14d63246"><code>kResourceExhausted</code></td>
+        <td><p><code>kResourceExhausted</code> (gRPC code <code>RESOURCE_EXHAUSTED</code>) indicates some resource has been exhausted. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a17f82936b75ec2c8d1665298cadde372"><code>kFailedPrecondition</code></td>
+        <td><p><code>kFailedPrecondition</code> (gRPC code <code>FAILED_PRECONDITION</code>) indicates that the operation was rejected because the system is not in a state required for the operation&#39;s execution. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ac20d0424ae4484fda4424713f021d736"><code>kAborted</code></td>
+        <td><p><code>kAborted</code> (gRPC code <code>ABORTED</code>) indicates the operation was aborted. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847af2fcb517cfc19949e909cbc2607e0f27"><code>kOutOfRange</code></td>
+        <td><p><code>kOutOfRange</code> (gRPC code <code>OUT_OF_RANGE</code>) indicates the operation was attempted past the valid range, such as seeking or reading past an end-of-file. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a90bf1b080583063c8a08fb96e975082f"><code>kUnimplemented</code></td>
+        <td><p><code>kUnimplemented</code> (gRPC code <code>UNIMPLEMENTED</code>) indicates the operation is not implemented or supported in this service. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a96509148247c627a753b021d6dbea774"><code>kInternal</code></td>
+        <td><p><code>kInternal</code> (gRPC code <code>INTERNAL</code>) indicates an internal error has occurred and some invariants expected by the underlying system have not been satisfied. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a8a1714a85ad21a1c4814b260d2cd24dd"><code>kUnavailable</code></td>
+        <td><p><code>kUnavailable</code> (gRPC code <code>UNAVAILABLE</code>) indicates the service is currently unavailable and that this is most likely a transient condition. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a3118b7fae62033f78581e16942bbdf32"><code>kDataLoss</code></td>
+        <td><p><code>kDataLoss</code> (gRPC code <code>DATA_LOSS</code>) indicates that unrecoverable data loss or corruption has occurred. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ad676439e57a5d7a9a4dd2cd09f5300a2"><code>kUnauthenticated</code></td>
+        <td><p><code>kUnauthenticated</code> (gRPC code <code>UNAUTHENTICATED</code>) indicates that the request does not have valid authentication credentials for the operation. </p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

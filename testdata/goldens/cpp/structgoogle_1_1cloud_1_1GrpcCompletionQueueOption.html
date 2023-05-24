@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="structgoogle_1_1cloud_1_1GrpcCompletionQueueOption">
+<h1 class="page-title">Struct GrpcCompletionQueueOption (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>The <a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html"><code>CompletionQueue</code></a> to use for background gRPC work. </p>
+</div>
+  <div class="markdown level0 conceptual"><p>If this option is set, the library will use the supplied <a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html"><code>CompletionQueue</code></a> instead of its own. The caller is responsible for making sure there are thread(s) servicing this <a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html"><code>CompletionQueue</code></a>. The client library will not create any background threads or attempt to call <a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4"><code>CompletionQueue::Run()</code></a>.</p>
+<aside class="note"><b>Note:</b>
+<a class="xref" href="structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption.html"><code>GrpcBackgroundThreadPoolSizeOption</code></a>, <a class="xref" href="structgoogle_1_1cloud_1_1GrpcCompletionQueueOption.html"><code>GrpcCompletionQueueOption</code></a>, and <a class="xref" href="structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption.html"><code>GrpcBackgroundThreadsFactoryOption</code></a> are mutually exclusive. 
+</aside>
+</div>
+  <h2 id="typealiases"></h2>
+  <h3 id="structgoogle_1_1cloud_1_1GrpcCompletionQueueOption_1a4273ed18516746cf0c0e1e1731db266a" data-uid="structgoogle_1_1cloud_1_1GrpcCompletionQueueOption_1a4273ed18516746cf0c0e1e1731db266a" class="notranslate">Type</h3>
+  <div class="level1 summary">
+    <strong>Alias Of</strong>: <code>CompletionQueue</code>
+
+  </div>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

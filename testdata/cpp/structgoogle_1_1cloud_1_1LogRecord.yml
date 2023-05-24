@@ -1,0 +1,188 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1LogRecord
+    name: "LogRecord"
+    id: structgoogle_1_1cloud_1_1LogRecord
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/log.h>
+        struct google::cloud::LogRecord { ... };
+      source:
+        id: google::cloud::LogRecord
+        path: google/cloud/log.h
+        startLine: 154
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Represents a single log message. 
+    children:
+      - structgoogle_1_1cloud_1_1LogRecord_1a830f8ba5fe86e1581dddbbb2cd922cbc
+      - structgoogle_1_1cloud_1_1LogRecord_1a8a04caf649e69b55404abf2d3b72d4a6
+      - structgoogle_1_1cloud_1_1LogRecord_1a46bc9a3adab542be80be9671d2ff82e6
+      - structgoogle_1_1cloud_1_1LogRecord_1a29f2cf2bafa97addc548c26ba48a4fe0
+      - structgoogle_1_1cloud_1_1LogRecord_1a9acea199684809e231263a486559f834
+      - structgoogle_1_1cloud_1_1LogRecord_1a949e7b4cb62d085ee13b107e63f83152
+      - structgoogle_1_1cloud_1_1LogRecord_1a95652739567b944a4ffbbb6d31b3f2e0
+  - uid: structgoogle_1_1cloud_1_1LogRecord_1a830f8ba5fe86e1581dddbbb2cd922cbc
+    name: "severity"
+    fullName: |
+      google::cloud::LogRecord::severity
+    id: structgoogle_1_1cloud_1_1LogRecord_1a830f8ba5fe86e1581dddbbb2cd922cbc
+    parent: structgoogle_1_1cloud_1_1LogRecord
+    type: variable
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        Severity severity;
+      source:
+        id: severity
+        path: google/cloud/log.h
+        startLine: 155
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: structgoogle_1_1cloud_1_1LogRecord_1a8a04caf649e69b55404abf2d3b72d4a6
+    name: "function"
+    fullName: |
+      google::cloud::LogRecord::function
+    id: structgoogle_1_1cloud_1_1LogRecord_1a8a04caf649e69b55404abf2d3b72d4a6
+    parent: structgoogle_1_1cloud_1_1LogRecord
+    type: variable
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::string function;
+      source:
+        id: function
+        path: google/cloud/log.h
+        startLine: 156
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: structgoogle_1_1cloud_1_1LogRecord_1a46bc9a3adab542be80be9671d2ff82e6
+    name: "filename"
+    fullName: |
+      google::cloud::LogRecord::filename
+    id: structgoogle_1_1cloud_1_1LogRecord_1a46bc9a3adab542be80be9671d2ff82e6
+    parent: structgoogle_1_1cloud_1_1LogRecord
+    type: variable
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::string filename;
+      source:
+        id: filename
+        path: google/cloud/log.h
+        startLine: 157
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: structgoogle_1_1cloud_1_1LogRecord_1a29f2cf2bafa97addc548c26ba48a4fe0
+    name: "lineno"
+    fullName: |
+      google::cloud::LogRecord::lineno
+    id: structgoogle_1_1cloud_1_1LogRecord_1a29f2cf2bafa97addc548c26ba48a4fe0
+    parent: structgoogle_1_1cloud_1_1LogRecord
+    type: variable
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        int lineno;
+      source:
+        id: lineno
+        path: google/cloud/log.h
+        startLine: 158
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: structgoogle_1_1cloud_1_1LogRecord_1a9acea199684809e231263a486559f834
+    name: "thread_id"
+    fullName: |
+      google::cloud::LogRecord::thread_id
+    id: structgoogle_1_1cloud_1_1LogRecord_1a9acea199684809e231263a486559f834
+    parent: structgoogle_1_1cloud_1_1LogRecord
+    type: variable
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::thread::id thread_id;
+      source:
+        id: thread_id
+        path: google/cloud/log.h
+        startLine: 159
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: structgoogle_1_1cloud_1_1LogRecord_1a949e7b4cb62d085ee13b107e63f83152
+    name: "timestamp"
+    fullName: |
+      google::cloud::LogRecord::timestamp
+    id: structgoogle_1_1cloud_1_1LogRecord_1a949e7b4cb62d085ee13b107e63f83152
+    parent: structgoogle_1_1cloud_1_1LogRecord
+    type: variable
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::chrono::system_clock::time_point timestamp;
+      source:
+        id: timestamp
+        path: google/cloud/log.h
+        startLine: 160
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: structgoogle_1_1cloud_1_1LogRecord_1a95652739567b944a4ffbbb6d31b3f2e0
+    name: "message"
+    fullName: |
+      google::cloud::LogRecord::message
+    id: structgoogle_1_1cloud_1_1LogRecord_1a95652739567b944a4ffbbb6d31b3f2e0
+    parent: structgoogle_1_1cloud_1_1LogRecord
+    type: variable
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::string message;
+      source:
+        id: message
+        path: google/cloud/log.h
+        startLine: 161
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+references:
+  - uid: structgoogle_1_1cloud_1_1LogRecord
+    name: google::cloud::LogRecord
+  - uid: structgoogle_1_1cloud_1_1LogRecord_1a830f8ba5fe86e1581dddbbb2cd922cbc
+    name: google::cloud::LogRecord::severity
+  - uid: structgoogle_1_1cloud_1_1LogRecord_1a8a04caf649e69b55404abf2d3b72d4a6
+    name: google::cloud::LogRecord::function
+  - uid: structgoogle_1_1cloud_1_1LogRecord_1a46bc9a3adab542be80be9671d2ff82e6
+    name: google::cloud::LogRecord::filename
+  - uid: structgoogle_1_1cloud_1_1LogRecord_1a29f2cf2bafa97addc548c26ba48a4fe0
+    name: google::cloud::LogRecord::lineno
+  - uid: structgoogle_1_1cloud_1_1LogRecord_1a9acea199684809e231263a486559f834
+    name: google::cloud::LogRecord::thread_id
+  - uid: structgoogle_1_1cloud_1_1LogRecord_1a949e7b4cb62d085ee13b107e63f83152
+    name: google::cloud::LogRecord::timestamp
+  - uid: structgoogle_1_1cloud_1_1LogRecord_1a95652739567b944a4ffbbb6d31b3f2e0
+    name: google::cloud::LogRecord::message

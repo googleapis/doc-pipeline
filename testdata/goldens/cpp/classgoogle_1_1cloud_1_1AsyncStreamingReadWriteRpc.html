@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc">
+<h1 class="page-title">Class AsyncStreamingReadWriteRpc&lt;Request, Response&gt; (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>A streaming read-write RPC. </p>
+</div>
+  <div class="markdown level0 conceptual"><p>Streaming read-write RPCs (sometimes called bidirectional streaming RPCs) allow applications to send multiple &quot;requests&quot; and receive multiple &quot;responses&quot; on the same request. They are often used in services where sending one request at a time introduces too much latency. The requests </p>
+</div>
+  <h2 id="functions">Functions
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a78f8e6fe17c3d5f5899486b393fa4ebe" data-uid="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a78f8e6fe17c3d5f5899486b393fa4ebe" class="notranslate">Cancel()</h3>
+  <div class="markdown level1 summary"><p>Sends a best-effort request to cancel the RPC. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>The application should still wait for the current operation(s) (any pending <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1aa3043132171c86e884b2ad865dc30e49"><code>Start()</code></a>, <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f"><code>Read()</code></a>, or <code>Write*()</code> requests) to complete and use <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2"><code>Finish()</code></a> to determine the status of the RPC. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1aa3043132171c86e884b2ad865dc30e49" data-uid="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1aa3043132171c86e884b2ad865dc30e49" class="notranslate">Start()</h3>
+  <div class="markdown level1 summary"><p>Start the streaming RPC. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>Applications should call <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1aa3043132171c86e884b2ad865dc30e49"><code>Start()</code></a> and wait for its result before calling <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f"><code>Read()</code></a> and/or <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431"><code>Write()</code></a>. If <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1aa3043132171c86e884b2ad865dc30e49"><code>Start()</code></a> completes with <code>false</code> the stream has completed with an error. The application should not call <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f"><code>Read()</code></a> or <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431"><code>Write()</code></a> in this case. On errors, the application should call<a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2"><code>Finish()</code></a> to determine the status of the streaming RPC. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">future&lt; bool &gt;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f" data-uid="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f" class="notranslate">Read()</h3>
+  <div class="markdown level1 summary"><p>Read one response from the streaming RPC. </p>
+</div>
+  <div class="markdown level1 conceptual"><p><aside class="note"><b>Note:</b>
+Only <strong>one</strong><a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f"><code>Read()</code></a> operation may be pending at a time. The application is responsible for waiting until any previous <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f"><code>Read()</code></a> operations have completed before calling <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f"><code>Read()</code></a> again.
+</aside>
+Whether <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f"><code>Read()</code></a> can be called before a <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431"><code>Write()</code></a> operation is specified by each service and RPC. Most services require at least one <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431"><code>Write()</code></a> call before calling <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f"><code>Read()</code></a>. Many services may return more than one response for a single <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431"><code>Write()</code></a> request. Each service and RPC specifies how to discover if more responses will be forthcoming.</p>
+<p>If the <code>optional&lt;&gt;</code> is not engaged the streaming RPC has completed. The application should wait until any other pending operations (typically any other <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431"><code>Write()</code></a> calls) complete and then call <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2"><code>Finish()</code></a> to find the status of the streaming RPC. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">future&lt; absl::optional&lt; Response &gt; &gt;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431" data-uid="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431" class="notranslate">Write(Request const &amp;, grpc::WriteOptions)</h3>
+  <div class="markdown level1 summary"><p>Write one request to the streaming RPC. </p>
+</div>
+  <div class="markdown level1 conceptual"><p><aside class="note"><b>Note:</b>
+Only <strong>one</strong><a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431"><code>Write()</code></a> operation may be pending at a time. The application is responsible for waiting until any previous <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431"><code>Write()</code></a> operations have completed before calling <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431"><code>Write()</code></a> again.
+</aside>
+Whether <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431"><code>Write()</code></a> can be called before waiting for a matching <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f"><code>Read()</code></a> operation is specified by each service and RPC. Many services tolerate multiple <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431"><code>Write()</code></a> calls before performing or at least receiving a <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f"><code>Read()</code></a> response.</p>
+<p>If <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431"><code>Write()</code></a> completes with <code>false</code> the streaming RPC has completed. The application should wait until any other pending operations (typically any other <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f"><code>Read()</code></a> calls) complete and then call <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2"><code>Finish()</code></a> to find the status of the streaming RPC. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameters</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>Request const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>grpc::WriteOptions</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">future&lt; bool &gt;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a3df7a8ee22c26ea09557df1b002a6afa" data-uid="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a3df7a8ee22c26ea09557df1b002a6afa" class="notranslate">WritesDone()</h3>
+  <div class="markdown level1 summary"><p>Half-closes the streaming RPC. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>Sends an indication to the service that no more requests will be issued by the client.</p>
+<p>If <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a3df7a8ee22c26ea09557df1b002a6afa"><code>WritesDone()</code></a> completes with <code>false</code> the streaming RPC has completed. The application should wait until any other pending operations (typically any other <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f"><code>Read()</code></a> calls) complete and then call <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2"><code>Finish()</code></a> to find the status of the streaming RPC. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">future&lt; bool &gt;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2" data-uid="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2" class="notranslate">Finish()</h3>
+  <div class="markdown level1 summary"><p>Return the final status of the streaming RPC. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>Streaming RPCs may return an error because the stream is closed, independently of any whether the application has called <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a3df7a8ee22c26ea09557df1b002a6afa"><code>WritesDone()</code></a> or signaled that the stream is closed using other mechanisms (some RPCs define specific attributes to &quot;close&quot; the stream).</p>
+<p>The application must wait until all pending <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a29e81944b90d4e5706442049439f188f"><code>Read()</code></a> and <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a54050bb8b966bcebc2bf3ef396996431"><code>Write()</code></a> operations have completed before calling <a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html#classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc_1a350dc5a4df27303b78ee3e7c837b9cb2"><code>Finish()</code></a>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">future&lt; Status &gt;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

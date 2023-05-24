@@ -1,0 +1,648 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="classgoogle_1_1cloud_1_1StatusOr">
+<h1 class="page-title">Class StatusOr&lt;T&gt; (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>Holds a value or a <a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>Status</code></a> indicating why there is no value. </p>
+</div>
+  <div class="markdown level0 conceptual"><p><a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code> represents either a usable <code>T</code> value or a <a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>Status</code></a> object explaining why a <code>T</code> value is not present. Typical usage of <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code> looks like usage of a smart pointer, or even a <code>std::optional&lt;T&gt;</code>, in that you first check its validity using a conversion to bool (or by calling <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1afce69df5d31d0fba3bd95b317580ae11"><code>StatusOr::ok()</code></a>), then you may dereference the object to access the contained value.</p>
+<p>It is undefined behavior (UB) to dereference a <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code> that is not &quot;ok&quot;. For example:</p>
+<pre><code class="prettyprint lang-cpp">StatusOr&lt;Foo&gt; foo = FetchFoo();
+if (!foo) {  // Same as !foo.ok()
+  // handle error and probably look at foo.status()
+} else {
+  foo-&gt;DoSomethingFooey();  // UB if !foo
+}
+</code></pre><p>Alternatively, you may call the <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697"><code>StatusOr::value()</code></a> member function, which is defined to: (1) throw an exception if there is no <code>T</code> value, or (2) crash the program if exceptions are disabled. It is never UB to call <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697"><code>value()</code></a>.</p>
+<pre><code class="prettyprint lang-cpp">StatusOr&lt;Foo&gt; foo = FetchFoo();
+foo.value().DoSomethingFooey();  // May throw/crash if there is no value
+</code></pre><p>Functions that can fail will often return a <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code> instead of returning an error code and taking a <code>T</code> out-param, or rather than directly returning the <code>T</code> and throwing an exception on error. <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code> is used so that callers can choose whether they want to explicitly check for errors, crash the program, or throw exceptions.</p>
+<p>Since constructors do not have a return value, they should be designed in such a way that they cannot fail by moving the object&#39;s complex initialization logic into a separate factory function that itself can return a <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code>. For example:</p>
+<pre><code class="prettyprint lang-cpp">class Bar {
+ public:
+  Bar(Arg arg);
+  ...
+};
+StatusOr&lt;Bar&gt; MakeBar() {
+  ... complicated logic that might fail
+  return Bar(std::move(arg));
+}
+</code></pre><p><a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code> supports equality comparisons if the underlying type <code>T</code> does.</p>
+</div>
+  <h2 id="constructors">Constructors
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1aa4abd48a28fc10d9e9f35e79a82a03ff" data-uid="classgoogle_1_1cloud_1_1StatusOr_1aa4abd48a28fc10d9e9f35e79a82a03ff" class="notranslate">StatusOr()</h3>
+  <div class="markdown level1 summary"><p>Initializes with an error status (<a class="xref" href="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a25c2dc47991b3df171ed5192bcf70390"><code>StatusCode::kUnknown</code></a>). </p>
+</div>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1a741f115cfdd32723958f4b4528fe1ab8" data-uid="classgoogle_1_1cloud_1_1StatusOr_1a741f115cfdd32723958f4b4528fe1ab8" class="notranslate">StatusOr(StatusOr const &amp;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>StatusOr const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1a15bd3bdffe4f0cb52da4ec73d5ed2a42" data-uid="classgoogle_1_1cloud_1_1StatusOr_1a15bd3bdffe4f0cb52da4ec73d5ed2a42" class="notranslate">StatusOr(StatusOr &amp;&amp;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>other</code></td>
+        <td>
+          <code>StatusOr &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1ab7d8005a1d44e2e140220776aad093bc" data-uid="classgoogle_1_1cloud_1_1StatusOr_1ab7d8005a1d44e2e140220776aad093bc" class="notranslate">StatusOr(Status)</h3>
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code> holding the error condition <code>rhs</code>. </p>
+</div>
+  <div class="markdown level1 conceptual"><h6 id="post-conditions">Post-conditions</h6>
+<p><a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1afce69df5d31d0fba3bd95b317580ae11"><code>ok()</code></a><code>== false</code> and <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1a46da72dc9d35a019bd1359f4b3b4f8bd"><code>status()</code></a><code>== rhs</code>.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>rhs</code></td>
+        <td>
+          <code>Status</code>
+          <br>
+          <p>the status to initialize the object. </p>
+
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Exceptions</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>std::invalid_argument</code></td>
+        <td>if `rhs.ok()`. If exceptions are disabled the program terminates via [`google::cloud::Terminate()`](xref:group__terminate_1gac5d2d48b27f2cd1de9075a1c9522f0cf)
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1ae8fe30215a7be3414a42ef68c108be86" data-uid="classgoogle_1_1cloud_1_1StatusOr_1ae8fe30215a7be3414a42ef68c108be86" class="notranslate">StatusOr(T &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code> holding the value <code>rhs</code>. </p>
+</div>
+  <div class="markdown level1 conceptual"><h6 id="post-conditions">Post-conditions</h6>
+<p><a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1afce69df5d31d0fba3bd95b317580ae11"><code>ok()</code></a><code>== true</code> and <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697"><code>value()</code></a><code>== rhs</code>.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>rhs</code></td>
+        <td>
+          <code>T &&</code>
+          <br>
+          <p>the value used to initialize the object.</p>
+
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Exceptions</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>...</code></td>
+        <td>If `T`'s move constructor throws. 
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1a00d8a93a92c455cffd5787d1c05c3230" data-uid="classgoogle_1_1cloud_1_1StatusOr_1a00d8a93a92c455cffd5787d1c05c3230" class="notranslate">StatusOr(T const &amp;)</h3>
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code> holding the value <code>rhs</code>. </p>
+</div>
+  <div class="markdown level1 conceptual"><h6 id="post-conditions">Post-conditions</h6>
+<p><a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1afce69df5d31d0fba3bd95b317580ae11"><code>ok()</code></a><code>== true</code> and <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html#classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697"><code>value()</code></a><code>== rhs</code>.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>rhs</code></td>
+        <td>
+          <code>T const &</code>
+          <br>
+          <p>the value used to initialize the object.</p>
+
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Exceptions</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>...</code></td>
+        <td>If `T` copy constructor throws. 
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="operators">Operators
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1a95250d82418ed95673d41377347a3dbd" data-uid="classgoogle_1_1cloud_1_1StatusOr_1a95250d82418ed95673d41377347a3dbd" class="notranslate">operator*() &amp;</h3>
+  <div class="markdown level1 summary"><p>Dereference operators.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">T &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1aa9983639335d1eb5d64627030226d532" data-uid="classgoogle_1_1cloud_1_1StatusOr_1aa9983639335d1eb5d64627030226d532" class="notranslate">operator*() const &amp;</h3>
+  <div class="markdown level1 summary"><p>Dereference operators.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">T const &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1a010daabd5030f6c5a0b6aa689b682472" data-uid="classgoogle_1_1cloud_1_1StatusOr_1a010daabd5030f6c5a0b6aa689b682472" class="notranslate">operator*() &amp;&amp;</h3>
+  <div class="markdown level1 summary"><p>Dereference operators.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">T &amp;&amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1a13c395d28dd33824d174c3843687aad9" data-uid="classgoogle_1_1cloud_1_1StatusOr_1a13c395d28dd33824d174c3843687aad9" class="notranslate">operator*() const &amp;&amp;</h3>
+  <div class="markdown level1 summary"><p>Dereference operators.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">T const &amp;&amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1a9efeaa6ef3e44529bffbcef1aad20168" data-uid="classgoogle_1_1cloud_1_1StatusOr_1a9efeaa6ef3e44529bffbcef1aad20168" class="notranslate">operator-&gt;() &amp;</h3>
+  <div class="markdown level1 summary"><p>Member access operators.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">T *</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1a09043295e2c7c6dbc57e7c932926269f" data-uid="classgoogle_1_1cloud_1_1StatusOr_1a09043295e2c7c6dbc57e7c932926269f" class="notranslate">operator-&gt;() const &amp;</h3>
+  <div class="markdown level1 summary"><p>Member access operators.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">T const *</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1adadee001e7aa8b9823053373e88793f9" data-uid="classgoogle_1_1cloud_1_1StatusOr_1adadee001e7aa8b9823053373e88793f9" class="notranslate">operator=(StatusOr const &amp;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>StatusOr const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">StatusOr &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1ae96b1085b75ea736251125d73994a488" data-uid="classgoogle_1_1cloud_1_1StatusOr_1ae96b1085b75ea736251125d73994a488" class="notranslate">operator=(StatusOr &amp;&amp;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>other</code></td>
+        <td>
+          <code>StatusOr &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">StatusOr &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1a3ad91c0d133de45ace554fb810f97b14" data-uid="classgoogle_1_1cloud_1_1StatusOr_1a3ad91c0d133de45ace554fb810f97b14" class="notranslate">operator=(Status)</h3>
+  <div class="markdown level1 summary"><p>Assigns the given non-OK <a class="xref" href="classgoogle_1_1cloud_1_1Status.html">Status</a> to this <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>status</code></td>
+        <td>
+          <code>Status</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Exceptions</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>std::invalid_argument</code></td>
+        <td>if `status.ok()`. If exceptions are disabled the program terminates via [`google::cloud::Terminate()`](xref:group__terminate_1gac5d2d48b27f2cd1de9075a1c9522f0cf)
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">StatusOr &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1a3c792bab2c0d0b4840d8cca3a07c1ca0" data-uid="classgoogle_1_1cloud_1_1StatusOr_1a3c792bab2c0d0b4840d8cca3a07c1ca0" class="notranslate">operator=(U &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Assign a <code>T</code> (or anything convertible to <code>T</code>) into the <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a>. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>This function does not participate in overload resolution if <code>U</code> is equal to <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code> (or to a cv-ref-qualified <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code>).</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameters</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>rhs</code></td>
+        <td>
+          <code>U &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>typename U</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>a type convertible to <code>T</code>. </p>
+
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">StatusOr &amp;</span></code></td>
+        <td><p>a reference to this object. </p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1a4282edcbc114def76d690dd4f595325b" data-uid="classgoogle_1_1cloud_1_1StatusOr_1a4282edcbc114def76d690dd4f595325b" class="notranslate">operator bool() const</h3>
+  <div class="markdown level1 summary"><p>Returns <code>true</code> when <code>this</code> holds a value. </p>
+</div>
+  <h2 id="functions">Functions
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697" data-uid="classgoogle_1_1cloud_1_1StatusOr_1aeb1f35f6c7b8b5d56641a6f2bb1c9697" class="notranslate">value() &amp;</h3>
+  <div class="markdown level1 summary"><p>Value accessors.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">T &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1ad4f329657805aa8e7a06649385e270bb" data-uid="classgoogle_1_1cloud_1_1StatusOr_1ad4f329657805aa8e7a06649385e270bb" class="notranslate">value() const &amp;</h3>
+  <div class="markdown level1 summary"><p>Value accessors.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">T const &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1ae5cc86e877f3744887c8e64e40903795" data-uid="classgoogle_1_1cloud_1_1StatusOr_1ae5cc86e877f3744887c8e64e40903795" class="notranslate">value() &amp;&amp;</h3>
+  <div class="markdown level1 summary"><p>Value accessors.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">T &amp;&amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1a30a58f04b5e7b936ee6571084a853e9d" data-uid="classgoogle_1_1cloud_1_1StatusOr_1a30a58f04b5e7b936ee6571084a853e9d" class="notranslate">value() const &amp;&amp;</h3>
+  <div class="markdown level1 summary"><p>Value accessors.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">T const &amp;&amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1a46da72dc9d35a019bd1359f4b3b4f8bd" data-uid="classgoogle_1_1cloud_1_1StatusOr_1a46da72dc9d35a019bd1359f4b3b4f8bd" class="notranslate">status() const &amp;</h3>
+  <div class="markdown level1 summary"><p>Status accessors.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">Status const &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1a3851160a971f8b5e06f3dad432bb2c21" data-uid="classgoogle_1_1cloud_1_1StatusOr_1a3851160a971f8b5e06f3dad432bb2c21" class="notranslate">status() &amp;&amp;</h3>
+  <div class="markdown level1 summary"><p>Status accessors.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">Status &amp;&amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1afce69df5d31d0fba3bd95b317580ae11" data-uid="classgoogle_1_1cloud_1_1StatusOr_1afce69df5d31d0fba3bd95b317580ae11" class="notranslate">ok() const</h3>
+  <div class="markdown level1 summary"><p>Returns <code>true</code> when <code>this</code> holds a value. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">bool</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="typealiases"></h2>
+  <h3 id="classgoogle_1_1cloud_1_1StatusOr_1a2f3f95ac87322b5e6593c61de407d045" data-uid="classgoogle_1_1cloud_1_1StatusOr_1a2f3f95ac87322b5e6593c61de407d045" class="notranslate">value_type</h3>
+  <div class="level1 summary">
+    <strong>Alias Of</strong>: <code>T</code>
+
+  </div>
+  <div class="markdown level1 summary"><p>A <code>value_type</code> member for use in generic programming. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>This is analogous to that of <code>std::optional::value_type</code>. </p>
+</div>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

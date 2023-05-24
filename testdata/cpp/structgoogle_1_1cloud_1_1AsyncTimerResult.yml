@@ -1,0 +1,75 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1AsyncTimerResult
+    name: "AsyncTimerResult"
+    id: structgoogle_1_1cloud_1_1AsyncTimerResult
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/async_operation.h>
+        struct google::cloud::AsyncTimerResult { ... };
+      source:
+        id: google::cloud::AsyncTimerResult
+        path: google/cloud/async_operation.h
+        startLine: 31
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/async_operation.h
+    summary: |
+      The result of an async timer operation. 
+    conceptual: |
+      Callbacks for async timers will receive an object of this class. 
+    children:
+      - structgoogle_1_1cloud_1_1AsyncTimerResult_1a691ee4398edc058285993e47977d2127
+      - structgoogle_1_1cloud_1_1AsyncTimerResult_1a199c812e0d81c7adfd5720386cd5030a
+  - uid: structgoogle_1_1cloud_1_1AsyncTimerResult_1a691ee4398edc058285993e47977d2127
+    name: "deadline"
+    fullName: |
+      google::cloud::AsyncTimerResult::deadline
+    id: structgoogle_1_1cloud_1_1AsyncTimerResult_1a691ee4398edc058285993e47977d2127
+    parent: structgoogle_1_1cloud_1_1AsyncTimerResult
+    type: variable
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::chrono::system_clock::time_point deadline;
+      source:
+        id: deadline
+        path: google/cloud/async_operation.h
+        startLine: 32
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/async_operation.h
+  - uid: structgoogle_1_1cloud_1_1AsyncTimerResult_1a199c812e0d81c7adfd5720386cd5030a
+    name: "cancelled"
+    fullName: |
+      google::cloud::AsyncTimerResult::cancelled
+    id: structgoogle_1_1cloud_1_1AsyncTimerResult_1a199c812e0d81c7adfd5720386cd5030a
+    parent: structgoogle_1_1cloud_1_1AsyncTimerResult
+    type: variable
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        bool cancelled;
+      source:
+        id: cancelled
+        path: google/cloud/async_operation.h
+        startLine: 33
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/async_operation.h
+references:
+  - uid: structgoogle_1_1cloud_1_1AsyncTimerResult
+    name: google::cloud::AsyncTimerResult
+  - uid: structgoogle_1_1cloud_1_1AsyncTimerResult_1a691ee4398edc058285993e47977d2127
+    name: google::cloud::AsyncTimerResult::deadline
+  - uid: structgoogle_1_1cloud_1_1AsyncTimerResult_1a199c812e0d81c7adfd5720386cd5030a
+    name: google::cloud::AsyncTimerResult::cancelled

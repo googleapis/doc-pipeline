@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="structgoogle_1_1cloud_1_1GrpcNumChannelsOption">
+<h1 class="page-title">Struct GrpcNumChannelsOption (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>The number of transport channels to create. </p>
+</div>
+  <div class="markdown level0 conceptual"><p>gRPC limits the number of simultaneous calls in progress on a channel to</p>
+<ol>
+<li>Increasing the number of channels thus increases the number of operations that can be in progress in parallel.</li>
+</ol>
+<aside class="note"><b>Note:</b>
+This option only applies when passed to the following functions:
+- <code>bigtable::MakeDataConnection()</code>
+- <code>pubsub::MakePublisherConnection()</code>
+- <code>pubsub::MakeSubscriberConnection()</code>
+- <code>spanner::MakeConnection()</code>
+- <code>storage_experimental::DefaultGrpcClient()</code>
+</aside>
+</div>
+  <h2 id="typealiases"></h2>
+  <h3 id="structgoogle_1_1cloud_1_1GrpcNumChannelsOption_1a4e2c298b9310373e19a5c76e8b7473e6" data-uid="structgoogle_1_1cloud_1_1GrpcNumChannelsOption_1a4e2c298b9310373e19a5c76e8b7473e6" class="notranslate">Type</h3>
+  <div class="level1 summary">
+    <strong>Alias Of</strong>: <code>int</code>
+
+  </div>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

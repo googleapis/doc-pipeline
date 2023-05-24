@@ -1,0 +1,74 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1CARootsFilePathOption
+    name: "CARootsFilePathOption"
+    id: structgoogle_1_1cloud_1_1CARootsFilePathOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/credentials.h>
+        struct google::cloud::CARootsFilePathOption { ... };
+      source:
+        id: google::cloud::CARootsFilePathOption
+        path: google/cloud/credentials.h
+        startLine: 346
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/credentials.h
+    summary: |
+      Configures a custom CA (Certificates Authority) certificates file. 
+    conceptual: |
+      Most applications should use the system's root certificates and should avoid setting this option unnecessarily. A common exception to this recommendation are containerized applications. These often deploy without system's root certificates and need to explicitly configure a root of trust.
+
+      The value of this option should be the name of a file in [PEM format](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail). Consult your security team and/or system administrator for the contents of this file. Be aware of the security implications of adding new CA certificates to this file. Only use trustworthy sources for the CA certificates.
+
+      For REST-based libraries this configures the [CAINFO option](https://curl.se/libcurl/c/CURLOPT_CAINFO.html) in libcurl. These are used for all credentials that require authentication, including the default credentials.
+
+      For gRPC-based libraries this configures the `pem_roots_cert` parameter in [`grpc::SslCredentialsOptions`](https://grpc.github.io/grpc/cpp/structgrpc_1_1_ssl_credentials_options.html).
+
+
+
+      <aside class="warning"><b>Warning:</b>
+      gRPC does not have a programmatic mechanism to set the CA certificates for the default credentials. This option only has no effect with [`MakeGoogleDefaultCredentials()`](xref:group__guac_1gae42afce56cd78e04c6aca74337829b38), or [`MakeServiceAccountCredentials()`](xref:group__guac_1ga0f2d23032efe73d17745a5f53112b918). Consider using the `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` environment variable in these cases.
+      </aside>
+
+      <aside class="note"><b>Note:</b>
+      CA certificates can be revoked or expire, plan for updates in your deployment.
+      </aside>
+
+      ###### See Also
+
+      [https://en.wikipedia.org/wiki/Certificate_authority](https://en.wikipedia.org/wiki/Certificate_authority) for a general introduction to SSL certificate authorities. 
+    children:
+      - structgoogle_1_1cloud_1_1CARootsFilePathOption_1a3bd9708c3fcb44760a8fb3d1ecbf131a
+  - uid: structgoogle_1_1cloud_1_1CARootsFilePathOption_1a3bd9708c3fcb44760a8fb3d1ecbf131a
+    name: "Type"
+    fullName: "google::cloud::CARootsFilePathOption::Type"
+    id: structgoogle_1_1cloud_1_1CARootsFilePathOption_1a3bd9708c3fcb44760a8fb3d1ecbf131a
+    parent: structgoogle_1_1cloud_1_1CARootsFilePathOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::CARootsFilePathOption::Type =
+          std::string;
+      aliasof: |
+        <code>std::string</code>
+      source:
+        id: Type
+        path: google/cloud/credentials.h
+        startLine: 347
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/credentials.h
+references:
+  - uid: structgoogle_1_1cloud_1_1CARootsFilePathOption
+    name: google::cloud::CARootsFilePathOption
+  - uid: structgoogle_1_1cloud_1_1CARootsFilePathOption_1a3bd9708c3fcb44760a8fb3d1ecbf131a
+    name: google::cloud::CARootsFilePathOption::Type

@@ -1,0 +1,66 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1NullStream
+    name: "NullStream"
+    id: structgoogle_1_1cloud_1_1NullStream
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/log.h>
+        struct google::cloud::NullStream { ... };
+      source:
+        id: google::cloud::NullStream
+        path: google/cloud/log.h
+        startLine: 302
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Implements operator<< for all types, without any effect. 
+    conceptual: |
+      It is desirable to disable at compile-time tracing, debugging, and other low severity messages. The Google Cloud Platform C++ Libraries logging adaptors return an object of this class when the particular log-line is disabled at compile-time. 
+    children:
+      - structgoogle_1_1cloud_1_1NullStream_1ad92e8b5b7b3f71225ba95476d56b3eba
+  - uid: structgoogle_1_1cloud_1_1NullStream_1ad92e8b5b7b3f71225ba95476d56b3eba
+    name: "operator<<(T)"
+    fullName: |
+      google::cloud::NullStream::operator<<
+    id: structgoogle_1_1cloud_1_1NullStream_1ad92e8b5b7b3f71225ba95476d56b3eba
+    parent: structgoogle_1_1cloud_1_1NullStream
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename T>
+        NullStream &
+        google::cloud::NullStream::operator<< (
+            T
+          )
+      return:
+        type:
+          - "NullStream &"
+      parameters:
+        - id: ""
+          var_type: "T"
+        - id: typename T
+      source:
+        id: operator<<
+        path: google/cloud/log.h
+        startLine: 305
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Generic do-nothing streaming operator. 
+references:
+  - uid: structgoogle_1_1cloud_1_1NullStream
+    name: google::cloud::NullStream
+  - uid: structgoogle_1_1cloud_1_1NullStream_1ad92e8b5b7b3f71225ba95476d56b3eba
+    name: google::cloud::NullStream::operator<<

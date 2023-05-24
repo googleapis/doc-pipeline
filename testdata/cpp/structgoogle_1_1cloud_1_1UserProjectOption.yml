@@ -1,0 +1,64 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1UserProjectOption
+    name: "UserProjectOption"
+    id: structgoogle_1_1cloud_1_1UserProjectOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/common_options.h>
+        struct google::cloud::UserProjectOption { ... };
+      source:
+        id: google::cloud::UserProjectOption
+        path: google/cloud/common_options.h
+        startLine: 86
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/common_options.h
+    summary: |
+      Specifies a project for quota and billing purposes. 
+    conceptual: |
+      The caller must have `serviceusage.services.use` permission on the project.
+
+
+
+      ###### See Also
+
+      [https://cloud.google.com/iam/docs/permissions-reference](https://cloud.google.com/iam/docs/permissions-reference) for more information about the `seviceusage.services.use` permission, including default roles that grant it. 
+
+      ###### See Also
+
+      [https://cloud.google.com/apis/docs/system-parameters](https://cloud.google.com/apis/docs/system-parameters)
+    children:
+      - structgoogle_1_1cloud_1_1UserProjectOption_1a05738e758fa2b69dd115a85369c618f8
+  - uid: structgoogle_1_1cloud_1_1UserProjectOption_1a05738e758fa2b69dd115a85369c618f8
+    name: "Type"
+    fullName: "google::cloud::UserProjectOption::Type"
+    id: structgoogle_1_1cloud_1_1UserProjectOption_1a05738e758fa2b69dd115a85369c618f8
+    parent: structgoogle_1_1cloud_1_1UserProjectOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::UserProjectOption::Type =
+          std::string;
+      aliasof: |
+        <code>std::string</code>
+      source:
+        id: Type
+        path: google/cloud/common_options.h
+        startLine: 87
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/common_options.h
+references:
+  - uid: structgoogle_1_1cloud_1_1UserProjectOption
+    name: google::cloud::UserProjectOption
+  - uid: structgoogle_1_1cloud_1_1UserProjectOption_1a05738e758fa2b69dd115a85369c618f8
+    name: google::cloud::UserProjectOption::Type

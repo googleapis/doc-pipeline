@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="indexpage">
+<h1 class="page-title">
+  <h1 id="common-components-for-the-google-cloud-c-client-libraries">Common Components for the Google Cloud C++ Client Libraries</h1>
+</h1>
+
+<h2 id="overview">Overview</h2>
+<p>This library contains common components shared by all the Google Cloud C++ Client Libraries. Including:</p>
+<ul>
+<li><a class="xref" href="classgoogle_1_1cloud_1_1Credentials.html">Credentials</a> are used to configure authentication in the client libraries. See <a class="xref" href="group__guac.html">Authentication Components</a> for more details on authentication.</li>
+<li><a class="xref" href="classgoogle_1_1cloud_1_1Options.html">Options</a> are used to override the client library default configuration. See <a class="xref" href="group__options.html">Client Library Configuration</a> for more details on library configuration.</li>
+<li><a class="xref" href="classgoogle_1_1cloud_1_1Status.html">Status</a> error codes and details from an operation.</li>
+<li><a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html">StatusOr<t></t></a> returns a value on success and a <code>Status</code> on error.</li>
+<li><a class="xref" href="classgoogle_1_1cloud_1_1future.html">future<t></t></a> and <a class="xref" href="classgoogle_1_1cloud_1_1promise.html">promise<t></t></a> futures (a holder that will receive a value asynchronously) and promises (the counterpart of a future, where values are stored asynchronously). They satisfy the API for <code>std::future</code> and <code>std::promise</code>, and add support for callbacks and cancellation.</li>
+</ul>
+<aside class="warning"><b>Warning:</b>
+
+Some namespaces are reserved for implementation details and are subject to change without notice. Do not use any symbols in these namespaces as your application may break when trying to use future versions of the library.
+These namespaces include:
+
+- Any namespace with <code>internal</code> in its name, including <code>google::cloud::internal</code> and <code>google::cloud::rest_internal</code>.
+- Any namespace with <code>testing</code> in its name, including <code>google::cloud::testing_util</code>. 
+</aside>
+
+<h3 id="more-information">More information</h3>
+<ul>
+<li><a class="xref" href="common-error-handling.html">Error Handling</a> for more details about how the libraries report run-time errors and how you can handle them.</li>
+<li><a class="xref" href="group__options.html">Client Library Configuration</a> for information about configuring the client libraries at runtime.</li>
+<li><a class="xref" href="group__guac.html">Authentication Components</a> for more details about how to configure authentication in the client libraries.</li>
+<li><a class="xref" href="logging.html">Logging Components</a> for information about enabling logging to the console in the client libraries. </li>
+</ul>
+
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

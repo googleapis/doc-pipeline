@@ -1,0 +1,869 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions
+    name: "ConnectionOptions<ConnectionTraits>"
+    id: classgoogle_1_1cloud_1_1ConnectionOptions
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/connection_options.h>
+        template <
+            typename ConnectionTraits>
+        class google::cloud::ConnectionOptions { ... };
+      source:
+        id: google::cloud::ConnectionOptions
+        path: google/cloud/connection_options.h
+        startLine: 54
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      The configuration parameters for client connections. 
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) instead. 
+      </aside>
+    children:
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1a041758d537570967fa7fcc73e314489f
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1a014d08059dd0482b8c74a52ae32d29ec
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1aded28068ff75c1b5fd20e37ecdb7a2b4
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1abe5d598cf3cfdc4eadd4dafd9a0e0cfb
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1a559aad8ffc196726743a1290103e28eb
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1abb2ecfc7d50420c53ef4721ed70b33c6
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1a609f5dc4ceba1e2a98d585e95a13e792
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1a3a6de10c915ca2129c825dc44818b996
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1abcf2f6f68b967c20aecaeca56cca2814
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1a634acc56b4ba2236d8ba918662a6b859
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1a33a14176b143f87becf17c1db408163b
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1a3143dce67dd3d5e652fd47df605e8faf
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1a67dbaf1d7000594cab3d7e2b9a46b660
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1add38cfda2c0c8a541883cef94e0cede9
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1a071230426369b780e3ab13c29c71f32d
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1a0b03e828d2f2f1507102e468a65ea1cc
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1ab21f86704d7d5df59664e4c33986715f
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1a877ff9ed24fce99d2a64cb9a158a920d
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1a77ce8aa80fdcce81c72a0db6533db8b0
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1a2111a32e661fadb78048bc77c4f94f54
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1a1fcb13945aa3ae97f552892178ffe387
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1ae6065c5f7db873ad6ac3df86291a573d
+      - classgoogle_1_1cloud_1_1ConnectionOptions_1a31b16872029e8bb854bd59cf52ce1794
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a041758d537570967fa7fcc73e314489f
+    name: "BackgroundThreadsFactory"
+    fullName: "google::cloud::ConnectionOptions::BackgroundThreadsFactory"
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1a041758d537570967fa7fcc73e314489f
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::ConnectionOptions::BackgroundThreadsFactory =
+          ::google::cloud::BackgroundThreadsFactory;
+      aliasof: |
+        <code>::google::cloud::BackgroundThreadsFactory</code>
+      source:
+        id: BackgroundThreadsFactory
+        path: google/cloud/connection_options.h
+        startLine: 330
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      Prefer using [`google::cloud::BackgroundThreadsFactory`](xref:namespacegoogle_1_1cloud_1a1498c1ea55d81842f37bbc42d003df1f). 
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a014d08059dd0482b8c74a52ae32d29ec
+    name: "ConnectionOptions()"
+    fullName: |
+      google::cloud::ConnectionOptions::ConnectionOptions
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1a014d08059dd0482b8c74a52ae32d29ec
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::ConnectionOptions::ConnectionOptions ()
+      source:
+        id: ConnectionOptions
+        path: google/cloud/connection_options.h
+        startLine: 61
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      The default options, using `grpc::GoogleDefaultCredentials()`. 
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) instead. 
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1aded28068ff75c1b5fd20e37ecdb7a2b4
+    name: "ConnectionOptions(std::shared_ptr< grpc::ChannelCredentials >)"
+    fullName: |
+      google::cloud::ConnectionOptions::ConnectionOptions
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1aded28068ff75c1b5fd20e37ecdb7a2b4
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::ConnectionOptions::ConnectionOptions (
+            std::shared_ptr< grpc::ChannelCredentials > credentials
+          )
+      parameters:
+        - id: credentials
+          var_type: "std::shared_ptr&lt; grpc::ChannelCredentials &gt;"
+      source:
+        id: ConnectionOptions
+        path: google/cloud/connection_options.h
+        startLine: 68
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      The default options, using an explicit credentials object. 
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) instead. 
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1abe5d598cf3cfdc4eadd4dafd9a0e0cfb
+    name: "set_credentials(std::shared_ptr< grpc::ChannelCredentials >)"
+    fullName: |
+      google::cloud::ConnectionOptions::set_credentials
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1abe5d598cf3cfdc4eadd4dafd9a0e0cfb
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        ConnectionOptions &
+        google::cloud::ConnectionOptions::set_credentials (
+            std::shared_ptr< grpc::ChannelCredentials > v
+          )
+      return:
+        type:
+          - "ConnectionOptions &"
+      parameters:
+        - id: v
+          var_type: "std::shared_ptr&lt; grpc::ChannelCredentials &gt;"
+      source:
+        id: set_credentials
+        path: google/cloud/connection_options.h
+        startLine: 88
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      Change the gRPC credentials value. 
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and [`UnifiedCredentialsOption`](xref:structgoogle_1_1cloud_1_1UnifiedCredentialsOption). 
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a559aad8ffc196726743a1290103e28eb
+    name: "credentials() const"
+    fullName: |
+      google::cloud::ConnectionOptions::credentials
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1a559aad8ffc196726743a1290103e28eb
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::shared_ptr< grpc::ChannelCredentials >
+        google::cloud::ConnectionOptions::credentials ()
+      return:
+        type:
+          - "std::shared_ptr< grpc::ChannelCredentials >"
+      source:
+        id: credentials
+        path: google/cloud/connection_options.h
+        startLine: 100
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      The gRPC credentials used by clients configured with this object. 
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and [`UnifiedCredentialsOption`](xref:structgoogle_1_1cloud_1_1UnifiedCredentialsOption). 
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1abb2ecfc7d50420c53ef4721ed70b33c6
+    name: "set_endpoint(std::string)"
+    fullName: |
+      google::cloud::ConnectionOptions::set_endpoint
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1abb2ecfc7d50420c53ef4721ed70b33c6
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        ConnectionOptions &
+        google::cloud::ConnectionOptions::set_endpoint (
+            std::string v
+          )
+      return:
+        type:
+          - "ConnectionOptions &"
+      parameters:
+        - id: v
+          var_type: "std::string"
+      source:
+        id: set_endpoint
+        path: google/cloud/connection_options.h
+        startLine: 116
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      Change the gRPC endpoint. 
+    conceptual: |
+      In almost all cases the default is the correct endpoint to use. Applications may need to be changed to (1) test against a fake or simulator, or (2) to use a beta or EAP version of the service.
+
+      The default value is set by `ConnectionTraits::default_endpoint()`.
+
+      <aside class="deprecated"><b>Deprecated:</b>
+
+
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and [`EndpointOption`](xref:structgoogle_1_1cloud_1_1EndpointOption). 
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a609f5dc4ceba1e2a98d585e95a13e792
+    name: "endpoint() const"
+    fullName: |
+      google::cloud::ConnectionOptions::endpoint
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1a609f5dc4ceba1e2a98d585e95a13e792
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::string const &
+        google::cloud::ConnectionOptions::endpoint ()
+      return:
+        type:
+          - "std::string const &"
+      source:
+        id: endpoint
+        path: google/cloud/connection_options.h
+        startLine: 127
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      The endpoint used by clients configured with this object. 
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and [`EndpointOption`](xref:structgoogle_1_1cloud_1_1EndpointOption). 
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a3a6de10c915ca2129c825dc44818b996
+    name: "num_channels() const"
+    fullName: |
+      google::cloud::ConnectionOptions::num_channels
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1a3a6de10c915ca2129c825dc44818b996
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        int
+        google::cloud::ConnectionOptions::num_channels ()
+      return:
+        type:
+          - "int"
+      source:
+        id: num_channels
+        path: google/cloud/connection_options.h
+        startLine: 142
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      The number of transport channels to create. 
+    conceptual: |
+      Some transports limit the number of simultaneous calls in progress on a channel (for gRPC the limit is 100). Increasing the number of channels thus increases the number of operations that can be in progress in parallel.
+
+      The default value is set by `ConnectionTraits::default_num_channels()`.
+
+      <aside class="deprecated"><b>Deprecated:</b>
+
+
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and [`GrpcNumChannelsOption`](xref:structgoogle_1_1cloud_1_1GrpcNumChannelsOption)
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1abcf2f6f68b967c20aecaeca56cca2814
+    name: "set_num_channels(int)"
+    fullName: |
+      google::cloud::ConnectionOptions::set_num_channels
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1abcf2f6f68b967c20aecaeca56cca2814
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        ConnectionOptions &
+        google::cloud::ConnectionOptions::set_num_channels (
+            int num_channels
+          )
+      return:
+        type:
+          - "ConnectionOptions &"
+      parameters:
+        - id: num_channels
+          var_type: "int"
+      source:
+        id: set_num_channels
+        path: google/cloud/connection_options.h
+        startLine: 150
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      Set the value for [`num_channels()`](xref:classgoogle_1_1cloud_1_1ConnectionOptions_1a3a6de10c915ca2129c825dc44818b996). 
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and [`GrpcNumChannelsOption`](xref:structgoogle_1_1cloud_1_1GrpcNumChannelsOption)
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a634acc56b4ba2236d8ba918662a6b859
+    name: "tracing_enabled(std::string const &) const"
+    fullName: |
+      google::cloud::ConnectionOptions::tracing_enabled
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1a634acc56b4ba2236d8ba918662a6b859
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        bool
+        google::cloud::ConnectionOptions::tracing_enabled (
+            std::string const & component
+          )
+      return:
+        type:
+          - "bool"
+      parameters:
+        - id: component
+          var_type: "std::string const &"
+      source:
+        id: tracing_enabled
+        path: google/cloud/connection_options.h
+        startLine: 165
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      Return whether tracing is enabled for the given `component`. 
+    conceptual: |
+      The C++ clients can log interesting events to help library and application developers troubleshoot problems. This flag returns true if tracing should be enabled by clients configured with this option.
+
+      <aside class="deprecated"><b>Deprecated:</b>
+
+
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and [`TracingComponentsOption`](xref:structgoogle_1_1cloud_1_1TracingComponentsOption)
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a33a14176b143f87becf17c1db408163b
+    name: "enable_tracing(std::string const &)"
+    fullName: |
+      google::cloud::ConnectionOptions::enable_tracing
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1a33a14176b143f87becf17c1db408163b
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        ConnectionOptions &
+        google::cloud::ConnectionOptions::enable_tracing (
+            std::string const & component
+          )
+      return:
+        type:
+          - "ConnectionOptions &"
+      parameters:
+        - id: component
+          var_type: "std::string const &"
+      source:
+        id: enable_tracing
+        path: google/cloud/connection_options.h
+        startLine: 175
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      Enable tracing for `component` in clients configured with this object. 
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and [`TracingComponentsOption`](xref:structgoogle_1_1cloud_1_1TracingComponentsOption)
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a3143dce67dd3d5e652fd47df605e8faf
+    name: "disable_tracing(std::string const &)"
+    fullName: |
+      google::cloud::ConnectionOptions::disable_tracing
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1a3143dce67dd3d5e652fd47df605e8faf
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        ConnectionOptions &
+        google::cloud::ConnectionOptions::disable_tracing (
+            std::string const & component
+          )
+      return:
+        type:
+          - "ConnectionOptions &"
+      parameters:
+        - id: component
+          var_type: "std::string const &"
+      source:
+        id: disable_tracing
+        path: google/cloud/connection_options.h
+        startLine: 186
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      Disable tracing for `component` in clients configured with this object. 
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and [`TracingComponentsOption`](xref:structgoogle_1_1cloud_1_1TracingComponentsOption)
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a67dbaf1d7000594cab3d7e2b9a46b660
+    name: "components() const"
+    fullName: |
+      google::cloud::ConnectionOptions::components
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1a67dbaf1d7000594cab3d7e2b9a46b660
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::set< std::string > const &
+        google::cloud::ConnectionOptions::components ()
+      return:
+        type:
+          - "std::set< std::string > const &"
+      source:
+        id: components
+        path: google/cloud/connection_options.h
+        startLine: 197
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      Return the set of tracing components. 
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and [`TracingComponentsOption`](xref:structgoogle_1_1cloud_1_1TracingComponentsOption)
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1add38cfda2c0c8a541883cef94e0cede9
+    name: "tracing_options() const"
+    fullName: |
+      google::cloud::ConnectionOptions::tracing_options
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1add38cfda2c0c8a541883cef94e0cede9
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        TracingOptions const &
+        google::cloud::ConnectionOptions::tracing_options ()
+      return:
+        type:
+          - "TracingOptions const &"
+      source:
+        id: tracing_options
+        path: google/cloud/connection_options.h
+        startLine: 207
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      Return the options for use when tracing RPCs. 
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and `GrpcTracingOption`
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a071230426369b780e3ab13c29c71f32d
+    name: "channel_pool_domain() const"
+    fullName: |
+      google::cloud::ConnectionOptions::channel_pool_domain
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1a071230426369b780e3ab13c29c71f32d
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::string const &
+        google::cloud::ConnectionOptions::channel_pool_domain ()
+      return:
+        type:
+          - "std::string const &"
+      source:
+        id: channel_pool_domain
+        path: google/cloud/connection_options.h
+        startLine: 230
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      Define the gRPC channel domain for clients configured with this object. 
+    conceptual: |
+      In some cases applications may want to use a separate gRPC connections for different clients. gRPC may share the connection used by separate channels created with the same configuration. The client objects created with this object will create gRPC channels configured with `grpc.channel_pooling_domain` set to the value returned by [`channel_pool_domain()`](xref:classgoogle_1_1cloud_1_1ConnectionOptions_1a071230426369b780e3ab13c29c71f32d). gRPC channels with different values for `grpc.channel_pooling_domain` are guaranteed to use different connections. Note that there is no guarantee that channels with the same value will have the same connection though.
+
+      This option might be useful for applications that want to segregate traffic for whatever reason.
+
+      <aside class="deprecated"><b>Deprecated:</b>
+
+
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and `GrpcChannelsArgumentsOption`
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a0b03e828d2f2f1507102e468a65ea1cc
+    name: "set_channel_pool_domain(std::string)"
+    fullName: |
+      google::cloud::ConnectionOptions::set_channel_pool_domain
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1a0b03e828d2f2f1507102e468a65ea1cc
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        ConnectionOptions &
+        google::cloud::ConnectionOptions::set_channel_pool_domain (
+            std::string v
+          )
+      return:
+        type:
+          - "ConnectionOptions &"
+      parameters:
+        - id: v
+          var_type: "std::string"
+      source:
+        id: set_channel_pool_domain
+        path: google/cloud/connection_options.h
+        startLine: 240
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      Set the value for [`channel_pool_domain()`](xref:classgoogle_1_1cloud_1_1ConnectionOptions_1a071230426369b780e3ab13c29c71f32d). 
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and `GrpcChannelsArgumentsOption`
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1ab21f86704d7d5df59664e4c33986715f
+    name: "add_user_agent_prefix(std::string)"
+    fullName: |
+      google::cloud::ConnectionOptions::add_user_agent_prefix
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1ab21f86704d7d5df59664e4c33986715f
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        ConnectionOptions &
+        google::cloud::ConnectionOptions::add_user_agent_prefix (
+            std::string prefix
+          )
+      return:
+        type:
+          - "ConnectionOptions &"
+      parameters:
+        - id: prefix
+          var_type: "std::string"
+      source:
+        id: add_user_agent_prefix
+        path: google/cloud/connection_options.h
+        startLine: 255
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      Prepend `prefix` to the user-agent string. 
+    conceptual: |
+      Libraries or services that use Cloud C++ clients may want to set their own user-agent prefix. This can help them develop telemetry information about number of users running particular versions of their system or library.
+
+      <aside class="deprecated"><b>Deprecated:</b>
+
+
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and [`UserAgentProductsOption`](xref:structgoogle_1_1cloud_1_1UserAgentProductsOption)
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a877ff9ed24fce99d2a64cb9a158a920d
+    name: "user_agent_prefix() const"
+    fullName: |
+      google::cloud::ConnectionOptions::user_agent_prefix
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1a877ff9ed24fce99d2a64cb9a158a920d
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::string const &
+        google::cloud::ConnectionOptions::user_agent_prefix ()
+      return:
+        type:
+          - "std::string const &"
+      source:
+        id: user_agent_prefix
+        path: google/cloud/connection_options.h
+        startLine: 268
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      Return the current value for the user agent string. 
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and [`UserAgentProductsOption`](xref:structgoogle_1_1cloud_1_1UserAgentProductsOption). 
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a77ce8aa80fdcce81c72a0db6533db8b0
+    name: "CreateChannelArguments() const"
+    fullName: |
+      google::cloud::ConnectionOptions::CreateChannelArguments
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1a77ce8aa80fdcce81c72a0db6533db8b0
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        grpc::ChannelArguments
+        google::cloud::ConnectionOptions::CreateChannelArguments ()
+      return:
+        type:
+          - "grpc::ChannelArguments"
+      source:
+        id: CreateChannelArguments
+        path: google/cloud/connection_options.h
+        startLine: 283
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      Create a new `grpc::ChannelArguments` configured with the options in this object. 
+    conceptual: |
+      The caller would typically pass this argument to `grpc::CreateCustomChannel` and create one more more gRPC channels.
+
+      <aside class="deprecated"><b>Deprecated:</b>
+
+
+      Not intended for use in application code. There is no alternative implemented or planned. 
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a2111a32e661fadb78048bc77c4f94f54
+    name: "set_background_thread_pool_size(std::size_t)"
+    fullName: |
+      google::cloud::ConnectionOptions::set_background_thread_pool_size
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1a2111a32e661fadb78048bc77c4f94f54
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        ConnectionOptions &
+        google::cloud::ConnectionOptions::set_background_thread_pool_size (
+            std::size_t s
+          )
+      return:
+        type:
+          - "ConnectionOptions &"
+      parameters:
+        - id: s
+          var_type: "std::size_t"
+      source:
+        id: set_background_thread_pool_size
+        path: google/cloud/connection_options.h
+        startLine: 296
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      Set the number of background threads. 
+    conceptual: |
+
+
+      <aside class="note"><b>Note:</b>
+      This value is not used if [`DisableBackgroundThreads()`](xref:classgoogle_1_1cloud_1_1ConnectionOptions_1ae6065c5f7db873ad6ac3df86291a573d) is called.
+      </aside><aside class="deprecated"><b>Deprecated:</b>
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and [`GrpcBackgroundThreadPoolSizeOption`](xref:structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption)
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a1fcb13945aa3ae97f552892178ffe387
+    name: "background_thread_pool_size() const"
+    fullName: |
+      google::cloud::ConnectionOptions::background_thread_pool_size
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1a1fcb13945aa3ae97f552892178ffe387
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        std::size_t
+        google::cloud::ConnectionOptions::background_thread_pool_size ()
+      return:
+        type:
+          - "std::size_t"
+      source:
+        id: background_thread_pool_size
+        path: google/cloud/connection_options.h
+        startLine: 304
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and [`GrpcBackgroundThreadPoolSizeOption`](xref:structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption). 
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1ae6065c5f7db873ad6ac3df86291a573d
+    name: "DisableBackgroundThreads(google::cloud::CompletionQueue const &)"
+    fullName: |
+      google::cloud::ConnectionOptions::DisableBackgroundThreads
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1ae6065c5f7db873ad6ac3df86291a573d
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        ConnectionOptions &
+        google::cloud::ConnectionOptions::DisableBackgroundThreads (
+            google::cloud::CompletionQueue const & cq
+          )
+      return:
+        type:
+          - "ConnectionOptions &"
+      parameters:
+        - id: cq
+          var_type: "google::cloud::CompletionQueue const &"
+      source:
+        id: DisableBackgroundThreads
+        path: google/cloud/connection_options.h
+        startLine: 321
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    summary: |
+      Configure the connection to use `cq` for all background work. 
+    conceptual: |
+      Connections need to perform background work on behalf of the application. Normally they just create a background thread and a [`CompletionQueue`](xref:classgoogle_1_1cloud_1_1CompletionQueue) for this work, but the application may need more fine-grained control of their threads. In this case the application can provide the [`CompletionQueue`](xref:classgoogle_1_1cloud_1_1CompletionQueue) and it assumes responsibility for creating one or more threads blocked on [`CompletionQueue::Run()`](xref:classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4).
+
+      <aside class="deprecated"><b>Deprecated:</b>
+
+
+      Use [`Options`](xref:classgoogle_1_1cloud_1_1Options) and [`GrpcCompletionQueueOption`](xref:structgoogle_1_1cloud_1_1GrpcCompletionQueueOption)
+      </aside>
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a31b16872029e8bb854bd59cf52ce1794
+    name: "background_threads_factory() const"
+    fullName: |
+      google::cloud::ConnectionOptions::background_threads_factory
+    id: classgoogle_1_1cloud_1_1ConnectionOptions_1a31b16872029e8bb854bd59cf52ce1794
+    parent: classgoogle_1_1cloud_1_1ConnectionOptions
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        BackgroundThreadsFactory
+        google::cloud::ConnectionOptions::background_threads_factory ()
+      return:
+        type:
+          - "BackgroundThreadsFactory"
+      source:
+        id: background_threads_factory
+        path: google/cloud/connection_options.h
+        startLine: 337
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/connection_options.h
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      Not intended for applications to use. There is no alternative implemented or planned. 
+      </aside>
+references:
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions
+    name: google::cloud::ConnectionOptions
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a041758d537570967fa7fcc73e314489f
+    name: google::cloud::ConnectionOptions::BackgroundThreadsFactory
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a014d08059dd0482b8c74a52ae32d29ec
+    name: google::cloud::ConnectionOptions::ConnectionOptions
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1aded28068ff75c1b5fd20e37ecdb7a2b4
+    name: google::cloud::ConnectionOptions::ConnectionOptions
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1abe5d598cf3cfdc4eadd4dafd9a0e0cfb
+    name: google::cloud::ConnectionOptions::set_credentials
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a559aad8ffc196726743a1290103e28eb
+    name: google::cloud::ConnectionOptions::credentials
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1abb2ecfc7d50420c53ef4721ed70b33c6
+    name: google::cloud::ConnectionOptions::set_endpoint
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a609f5dc4ceba1e2a98d585e95a13e792
+    name: google::cloud::ConnectionOptions::endpoint
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a3a6de10c915ca2129c825dc44818b996
+    name: google::cloud::ConnectionOptions::num_channels
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1abcf2f6f68b967c20aecaeca56cca2814
+    name: google::cloud::ConnectionOptions::set_num_channels
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a634acc56b4ba2236d8ba918662a6b859
+    name: google::cloud::ConnectionOptions::tracing_enabled
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a33a14176b143f87becf17c1db408163b
+    name: google::cloud::ConnectionOptions::enable_tracing
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a3143dce67dd3d5e652fd47df605e8faf
+    name: google::cloud::ConnectionOptions::disable_tracing
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a67dbaf1d7000594cab3d7e2b9a46b660
+    name: google::cloud::ConnectionOptions::components
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1add38cfda2c0c8a541883cef94e0cede9
+    name: google::cloud::ConnectionOptions::tracing_options
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a071230426369b780e3ab13c29c71f32d
+    name: google::cloud::ConnectionOptions::channel_pool_domain
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a0b03e828d2f2f1507102e468a65ea1cc
+    name: google::cloud::ConnectionOptions::set_channel_pool_domain
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1ab21f86704d7d5df59664e4c33986715f
+    name: google::cloud::ConnectionOptions::add_user_agent_prefix
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a877ff9ed24fce99d2a64cb9a158a920d
+    name: google::cloud::ConnectionOptions::user_agent_prefix
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a77ce8aa80fdcce81c72a0db6533db8b0
+    name: google::cloud::ConnectionOptions::CreateChannelArguments
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a2111a32e661fadb78048bc77c4f94f54
+    name: google::cloud::ConnectionOptions::set_background_thread_pool_size
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a1fcb13945aa3ae97f552892178ffe387
+    name: google::cloud::ConnectionOptions::background_thread_pool_size
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1ae6065c5f7db873ad6ac3df86291a573d
+    name: google::cloud::ConnectionOptions::DisableBackgroundThreads
+  - uid: classgoogle_1_1cloud_1_1ConnectionOptions_1a31b16872029e8bb854bd59cf52ce1794
+    name: google::cloud::ConnectionOptions::background_threads_factory

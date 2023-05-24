@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="group__options">
+<h1 class="page-title">Client Library Configuration (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><h1 id="client-library-configuration">Client Library Configuration</h1>
+<h3 id="overview">Overview</h3>
+<p>While the client libraries defaults should work for most applications, there are multiple runtime configuration options that applications may need to set. For example, the application may need to override the endpoint used to access the service, or change the retry policies to be more strict (or lenient) than the defaults.</p>
+<p>Applications use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>google::cloud::Options</code></a> to override the defaults. You can think of an instance of <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>google::cloud::Options</code></a> as a set of overrides, indexed by a C++ type that uniquely identifies the option. There is no need for applications to fill this set with the defaults.</p>
+<h3 id="override-priority">Override Priority</h3>
+<p>For most libraries overrides can be made at 3 different levels:</p>
+<ul>
+<li>Function calls</li>
+<li><code>*Client</code> objects</li>
+<li><code>*Connection</code> objects</li>
+</ul>
+<p>In general, function call overrides take precedence over <code>*Client</code> overrides, and these in turn take precedence over any overrides in the <code>*Connection</code> override. However, most options can only be set when the <code>*Connection</code> object is created. You need to consult the documentation for an option to determine if they are usable for a specific function call.</p>
+<p>Consider this example:</p>
+<pre><code class="prettyprint lang-cpp">#include &quot;google/cloud/kms/key_management_client.h&quot;
+#include &quot;google/cloud/kms/key_management_connection.h&quot;
+#include &quot;google/cloud/kms/key_management_options.h&quot;
+#include &quot;google/cloud/common_options.h&quot;
+
+using kms = ::google::cloud::kms;
+using g = ::google::cloud;
+
+// `parent` must be in the form &quot;projects/&lt;project-id&gt;/locations/&lt;region-id&gt;&quot;.
+//  For example F(&quot;projects/my-project/locations/us-central1&quot;)
+void F(std::string const&amp; parent) {
+  auto retry = [](int n) { return kms::LimitedErrorCountRetryPolicy(n).clone(); };
+
+  auto conn_1 = kms::MakeKeyManagementServiceConnection();
+  auto conn_2 = kms::MakeKeyManagementServiceConnection(
+    g::Options{}
+        .set&lt;g::EndpointOption&gt;(&quot;private.googleapis.com&quot;)
+        .set&lt;kms::KeyManagementServiceRetryPolicyOption&gt;(retry(3)));
+
+  auto client_1 = kms::KeyManagementServiceClient(conn_1);
+  auto client_2 = kms::KeyManagementServiceClient(conn_2);
+  auto client_3 = kms::KeyManagementServiceClient(conn_2, g::Options{}
+         .set&lt;kms::KeyManagementServiceRetryPolicyOption&gt;(retry(5));
+
+  auto rpc_1 = client_1.ListKeyRings(parent);
+  auto rpc_2 = client_2.ListKeyRings(parent);
+  auto rpc_3 = client_3.ListKeyRings(parent);
+  auto rpc_4 = client_3.ListKeyRights(parent,
+      g::Options{}.set&lt;kms::KeyManagementServiceRetryPolicyOption&gt;(retry(7)));
+}
+</code></pre><p>In this case, <code>rpc_4</code> will retry the request up to 7 times, because the value of the <code>kms::RetryPolicyOption</code> overrides the values at the connection or client level. Meanwhile, <code>rpc_3</code> will retry the request 5 times, because the value at the <code>*Client</code> level overrides the value at the <code>*Connection</code> level. Likewise, <code>rpc_2</code> will retry the request 3 times, because this is the value in the <code>*Connection</code> and there are no overrides in the client or function calls. Finally, <code>rpc_1</code> will use the default. For this service the default is to retry for 30 minutes.</p>
+<p>Note that only the connection overrides the <code>g::EndpointOption</code>. Overriding this option at the <code>*Client</code> or function call level would have no effect.</p>
+<h3 id="library-specific-options">Library-specific Options</h3>
+<p>All libraries have options that are only meaningful for that library (and ignored by other libraries). In some cases, the option may be specific to a service* (sometimes called &quot;an API&quot;). In the previous example, the <code>kms::KeyManagementServiceRetryPolicyOption</code> is only applicable to <code>kms::KeyManagementServiceClient</code> and <code>kms::KeyManagementServiceConnection</code>. Other services in the same library (e.g., <code>kms::EkmServiceClient</code>) will ignore this option. Likewise, other services in different libraries (e.g. <code>pubsub::Publisher</code>) will also ignore the option. </p>
+<h3 id="classes">Classes</h3>
+<ul>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1EndpointOption.html"><code>google::cloud::EndpointOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1UserAgentProductsOption.html"><code>google::cloud::UserAgentProductsOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1UserProjectOption.html"><code>google::cloud::UserProjectOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1AuthorityOption.html"><code>google::cloud::AuthorityOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1UnifiedCredentialsOption.html"><code>google::cloud::UnifiedCredentialsOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1DelegatesOption.html"><code>google::cloud::DelegatesOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1ScopesOption.html"><code>google::cloud::ScopesOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1AccessTokenLifetimeOption.html"><code>google::cloud::AccessTokenLifetimeOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1CARootsFilePathOption.html"><code>google::cloud::CARootsFilePathOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1GrpcCredentialOption.html"><code>google::cloud::GrpcCredentialOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1GrpcNumChannelsOption.html"><code>google::cloud::GrpcNumChannelsOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption.html"><code>google::cloud::GrpcChannelArgumentsOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1GrpcChannelArgumentsNativeOption.html"><code>google::cloud::GrpcChannelArgumentsNativeOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1GrpcTracingOptionsOption.html"><code>google::cloud::GrpcTracingOptionsOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption.html"><code>google::cloud::GrpcBackgroundThreadPoolSizeOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1GrpcCompletionQueueOption.html"><code>google::cloud::GrpcCompletionQueueOption</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption.html"><code>google::cloud::GrpcBackgroundThreadsFactoryOption</code></a></li>
+<li><a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>google::cloud::Options</code></a></li>
+<li><a class="xref" href="structgoogle_1_1cloud_1_1RestTracingOptionsOption.html"><code>google::cloud::RestTracingOptionsOption</code></a></li>
+</ul>
+</div>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

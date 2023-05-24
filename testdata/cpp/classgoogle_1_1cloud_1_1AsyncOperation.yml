@@ -1,0 +1,58 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1AsyncOperation
+    name: "AsyncOperation"
+    id: classgoogle_1_1cloud_1_1AsyncOperation
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/async_operation.h>
+        class google::cloud::AsyncOperation { ... };
+      source:
+        id: google::cloud::AsyncOperation
+        path: google/cloud/async_operation.h
+        startLine: 42
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/async_operation.h
+    summary: |
+      Represents a pending asynchronous operation. 
+    conceptual: |
+      It can either be a simple RPC, or a more complex operation involving potentially many RPCs, sleeping and processing. 
+    children:
+      - classgoogle_1_1cloud_1_1AsyncOperation_1ad3fd3bde580a47ace62c258b382a5f7f
+  - uid: classgoogle_1_1cloud_1_1AsyncOperation_1ad3fd3bde580a47ace62c258b382a5f7f
+    name: "Cancel()"
+    fullName: |
+      google::cloud::AsyncOperation::Cancel
+    id: classgoogle_1_1cloud_1_1AsyncOperation_1ad3fd3bde580a47ace62c258b382a5f7f
+    parent: classgoogle_1_1cloud_1_1AsyncOperation
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::AsyncOperation::Cancel ()
+      return:
+        type:
+          - "void"
+      source:
+        id: Cancel
+        path: google/cloud/async_operation.h
+        startLine: 49
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/async_operation.h
+    summary: |
+      Requests that the operation be canceled. 
+references:
+  - uid: classgoogle_1_1cloud_1_1AsyncOperation
+    name: google::cloud::AsyncOperation
+  - uid: classgoogle_1_1cloud_1_1AsyncOperation_1ad3fd3bde580a47ace62c258b382a5f7f
+    name: google::cloud::AsyncOperation::Cancel

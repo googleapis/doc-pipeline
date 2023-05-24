@@ -1,0 +1,60 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption
+    name: "GrpcBackgroundThreadPoolSizeOption"
+    id: structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/grpc_options.h>
+        struct google::cloud::GrpcBackgroundThreadPoolSizeOption { ... };
+      source:
+        id: google::cloud::GrpcBackgroundThreadPoolSizeOption
+        path: google/cloud/grpc_options.h
+        startLine: 127
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/grpc_options.h
+    summary: |
+      The size of the background thread pool. 
+    conceptual: |
+      These threads are created by the client library to run a [`CompletionQueue`](xref:classgoogle_1_1cloud_1_1CompletionQueue) which performs background work for gRPC.
+
+
+
+      <aside class="note"><b>Note:</b>
+      [`GrpcBackgroundThreadPoolSizeOption`](xref:structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption), [`GrpcCompletionQueueOption`](xref:structgoogle_1_1cloud_1_1GrpcCompletionQueueOption), and [`GrpcBackgroundThreadsFactoryOption`](xref:structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption) are mutually exclusive. This option will be ignored if either [`GrpcCompletionQueueOption`](xref:structgoogle_1_1cloud_1_1GrpcCompletionQueueOption) or [`GrpcBackgroundThreadsFactoryOption`](xref:structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption) are set. 
+      </aside>
+    children:
+      - structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption_1a1054cdb1003689157d327581731f7bde
+  - uid: structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption_1a1054cdb1003689157d327581731f7bde
+    name: "Type"
+    fullName: "google::cloud::GrpcBackgroundThreadPoolSizeOption::Type"
+    id: structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption_1a1054cdb1003689157d327581731f7bde
+    parent: structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::GrpcBackgroundThreadPoolSizeOption::Type =
+          std::size_t;
+      aliasof: |
+        <code>std::size_t</code>
+      source:
+        id: Type
+        path: google/cloud/grpc_options.h
+        startLine: 128
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/grpc_options.h
+references:
+  - uid: structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption
+    name: google::cloud::GrpcBackgroundThreadPoolSizeOption
+  - uid: structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption_1a1054cdb1003689157d327581731f7bde
+    name: google::cloud::GrpcBackgroundThreadPoolSizeOption::Type

@@ -1,0 +1,419 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="classgoogle_1_1cloud_1_1LogSink">
+<h1 class="page-title">Class LogSink (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>A sink to receive log records. </p>
+</div>
+  <h2 id="constructors">Constructors
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1LogSink_1a80051cdac2de5a99b5baa1a0dd533515" data-uid="classgoogle_1_1cloud_1_1LogSink_1a80051cdac2de5a99b5baa1a0dd533515" class="notranslate">LogSink()</h3>
+  <h2 id="functions">Functions
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1LogSink_1a5fced2b547bea605281f2bc3ffb30991" data-uid="classgoogle_1_1cloud_1_1LogSink_1a5fced2b547bea605281f2bc3ffb30991" class="notranslate">empty() const</h3>
+  <div class="markdown level1 summary"><p>Return true if this object has no backends. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>We want to avoid synchronization overhead when checking if a log message is enabled. Most of the time, most messages will be disabled, so incurring the locking overhead on each message would be too expensive and would discourage developers from creating logs. Furthermore, missing a few messages while the change of state &quot;propagates&quot; to other threads does not affect the correctness of the program.</p>
+<p>Note that <code>memory_order_relaxed</code> does not provide a compiler barrier either, so in theory stores into the atomic could be reordered by the optimizer. We have no reason to worry about that because all the writes are done inside a critical section protected by a mutex. The compiler cannot (or should not) reorder operations around those. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">bool</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1LogSink_1a89d2d6261ef1380be3733391fdafe851" data-uid="classgoogle_1_1cloud_1_1LogSink_1a89d2d6261ef1380be3733391fdafe851" class="notranslate">is_enabled(Severity) const</h3>
+  <div class="markdown level1 summary"><p>Return true if <code>severity</code> is enabled. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>We want to avoid synchronization overhead when checking if a log message is enabled. Most of the time, most messages will be disabled, so incurring the locking overhead on each message would be too expensive and would discourage developers from creating logs. Furthermore, missing a few messages while the change of state &quot;propagates&quot; to other threads does not affect the correctness of the program.</p>
+<p>Note that <code>memory_order_relaxed</code> does not provide a compiler barrier either, so in theory stores into the atomic could be reordered by the optimizer. We have no reason to worry about that because all the writes are done inside a critical section protected by a mutex. The compiler cannot (or should not) reorder operations around those. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>severity</code></td>
+        <td>
+          <code>Severity</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">bool</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1LogSink_1a7c250d78aa40cef29613cffa93120623" data-uid="classgoogle_1_1cloud_1_1LogSink_1a7c250d78aa40cef29613cffa93120623" class="notranslate">set_minimum_severity(Severity)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>minimum</code></td>
+        <td>
+          <code>Severity</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1LogSink_1a73593e026ab693f7fd8e4eb6b1225a79" data-uid="classgoogle_1_1cloud_1_1LogSink_1a73593e026ab693f7fd8e4eb6b1225a79" class="notranslate">minimum_severity() const</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">Severity</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1LogSink_1a63ec26a7560bdae9657f250bb93f6a14" data-uid="classgoogle_1_1cloud_1_1LogSink_1a63ec26a7560bdae9657f250bb93f6a14" class="notranslate">AddBackend(std::shared_ptr&lt; LogBackend &gt;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>backend</code></td>
+        <td>
+          <code>std::shared_ptr&lt; LogBackend &gt;</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">BackendId</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1LogSink_1a8046eb8388eeab19d534ca68639a2b80" data-uid="classgoogle_1_1cloud_1_1LogSink_1a8046eb8388eeab19d534ca68639a2b80" class="notranslate">RemoveBackend(BackendId)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>id</code></td>
+        <td>
+          <code>BackendId</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1LogSink_1a1c4f0cb3319ccc87db3298a495999824" data-uid="classgoogle_1_1cloud_1_1LogSink_1a1c4f0cb3319ccc87db3298a495999824" class="notranslate">ClearBackends()</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1LogSink_1aa612a6eb4858ce957dd4f6881008407a" data-uid="classgoogle_1_1cloud_1_1LogSink_1aa612a6eb4858ce957dd4f6881008407a" class="notranslate">BackendCount() const</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">std::size_t</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1LogSink_1a2253a4e97e469304f9be9ec0d8bced88" data-uid="classgoogle_1_1cloud_1_1LogSink_1a2253a4e97e469304f9be9ec0d8bced88" class="notranslate">Log(LogRecord)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>log_record</code></td>
+        <td>
+          <code>LogRecord</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1LogSink_1a9d963ade2c81293ad87cb3a6b7b66bba" data-uid="classgoogle_1_1cloud_1_1LogSink_1a9d963ade2c81293ad87cb3a6b7b66bba" class="notranslate">Flush()</h3>
+  <div class="markdown level1 summary"><p>Flush all the current backends. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1LogSink_1ad8115a6da7fdaa46facf4d51a1572181" data-uid="classgoogle_1_1cloud_1_1LogSink_1ad8115a6da7fdaa46facf4d51a1572181" class="notranslate">static CompileTimeEnabled(Severity)</h3>
+  <div class="markdown level1 summary"><p>Return true if the severity is enabled at compile time. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>level</code></td>
+        <td>
+          <code>Severity</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">bool constexpr</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1LogSink_1a06247b1adf1203876402ba6a9be76a7e" data-uid="classgoogle_1_1cloud_1_1LogSink_1a06247b1adf1203876402ba6a9be76a7e" class="notranslate">static Instance()</h3>
+  <div class="markdown level1 summary"><p>Return the singleton instance for this application. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">LogSink &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1LogSink_1ad80239c2b8148603cf0a2e44b2b65619" data-uid="classgoogle_1_1cloud_1_1LogSink_1ad80239c2b8148603cf0a2e44b2b65619" class="notranslate">static EnableStdClog(Severity)</h3>
+  <div class="markdown level1 summary"><p>Enable <code>std::clog</code> on <a class="xref" href="classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a06247b1adf1203876402ba6a9be76a7e"><code>LogSink::Instance()</code></a>. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>This is also enabled if the &quot;GOOGLE_CLOUD_CPP_ENABLE_CLOG&quot; environment variable is set. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>min_severity</code></td>
+        <td>
+          <code>Severity</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1LogSink_1a310d372251b40d820d75e51c1707660d" data-uid="classgoogle_1_1cloud_1_1LogSink_1a310d372251b40d820d75e51c1707660d" class="notranslate">static DisableStdClog()</h3>
+  <div class="markdown level1 summary"><p>Disable <code>std::clog</code> on <a class="xref" href="classgoogle_1_1cloud_1_1LogSink.html#classgoogle_1_1cloud_1_1LogSink_1a06247b1adf1203876402ba6a9be76a7e"><code>LogSink::Instance()</code></a>. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>Note that this will remove the default logging backend. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="typealiases"></h2>
+  <h3 id="classgoogle_1_1cloud_1_1LogSink_1af480aa59f84e27c56949904244b44984" data-uid="classgoogle_1_1cloud_1_1LogSink_1af480aa59f84e27c56949904244b44984" class="notranslate">BackendId</h3>
+  <div class="level1 summary">
+    <strong>Alias Of</strong>: <code>long</code>
+
+  </div>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>
