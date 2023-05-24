@@ -182,7 +182,7 @@ types-protobuf==4.23.0.1 \
     --hash=sha256:7bd5ea122a057b11a82b785d9de464932a1e9175fe977a4128adef11d7f35547 \
     --hash=sha256:c926104f69ea62103846681b35b690d8d100ecf86c6cdda16c850a1313a272e4
     # via -r requirements.in
-typing-extensions==4.6.0 \
-    --hash=sha256:6ad00b63f849b7dcc313b70b6b304ed67b2b2963b3098a33efe18056b1a9a223 \
-    --hash=sha256:ff6b238610c747e44c268aa4bb23c8c735d665a63726df3f9431ce707f2aa768
+typing-extensions==4.6.1 \
+    --hash=sha256:558bc0c4145f01e6405f4a5fdbd82050bd221b119f4bf72a961a1cfd471349d6 \
+    --hash=sha256:6bac751f4789b135c43228e72de18637e9a6c29d12777023a703fd1a6858469f
     # via mypy
