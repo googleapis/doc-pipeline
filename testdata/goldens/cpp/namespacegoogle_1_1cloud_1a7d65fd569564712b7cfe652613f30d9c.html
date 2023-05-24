@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9c">
+<h1 class="page-title">Enum Idempotency (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>Whether a request is <a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a>. </p>
+</div>
+  <div class="markdown level0 conceptual"><p>When a RPC fails with a retryable error, the <code>google-cloud-cpp</code> client libraries automatically retry the RPC <strong>if</strong> the RPC is <a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a>. For each service, the library define a policy that determines whether a given request is idempotent. In many cases this can be determined statically, for example, read-only operations are always idempotent. In some cases, the contents of the request may need to be examined to determine if the operation is idempotent. For example, performing operations with pre-conditions, such that the pre-conditions change when the operation succeed, is typically idempotent.</p>
+<p>Applications may override the default idempotency policy, though we anticipate that this would be needed only in very rare circumstances. A few examples include:</p>
+<ul>
+<li>In some services deleting &quot;the most recent&quot; entry may be idempotent if the system has been configured to keep no history or versions, as the deletion may succeed only once. In contrast, deleting &quot;the most recent entry&quot; is <strong>not</strong> idempotent if the system keeps multiple versions. Google Cloud Storage or Bigtable can be configured either way.</li>
+<li>In some applications, creating a duplicate entry may be acceptable as the system will deduplicate them later. In such systems it may be preferable to retry the operation even though it is not idempotent. </li>
+</ul>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><h2 id="consts">Constants
+  </h2></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9caf8bb1d9c7cccc450ecd06167c7422bfa"><code>kIdempotent</code></td>
+        <td><p>The operation is idempotent and can be retried after a transient failure. </p>
+</td>
+      </tr>
+      <tr>
+        <td id="namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9cae75d33e94f2dc4028d4d67bdaab75190"><code>kNonIdempotent</code></td>
+        <td><p>The operation is not idempotent and should <strong>not</strong> be retried after a transient failure. </p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

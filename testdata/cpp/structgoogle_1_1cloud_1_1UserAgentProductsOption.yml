@@ -1,0 +1,60 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1UserAgentProductsOption
+    name: "UserAgentProductsOption"
+    id: structgoogle_1_1cloud_1_1UserAgentProductsOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/common_options.h>
+        struct google::cloud::UserAgentProductsOption { ... };
+      source:
+        id: google::cloud::UserAgentProductsOption
+        path: google/cloud/common_options.h
+        startLine: 55
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/common_options.h
+    summary: |
+      User-agent products to include with each request. 
+    conceptual: |
+      Libraries or services that use Cloud C++ clients may want to set their own user-agent product information. This can help them develop telemetry information about number of users running particular versions of their system or library.
+
+
+
+      ###### See Also
+
+      [https://tools.ietf.org/html/rfc7231#section-5.5.3](https://tools.ietf.org/html/rfc7231#section-5.5.3)
+    children:
+      - structgoogle_1_1cloud_1_1UserAgentProductsOption_1acbbd25eda33665932bf5561aae9682e3
+  - uid: structgoogle_1_1cloud_1_1UserAgentProductsOption_1acbbd25eda33665932bf5561aae9682e3
+    name: "Type"
+    fullName: "google::cloud::UserAgentProductsOption::Type"
+    id: structgoogle_1_1cloud_1_1UserAgentProductsOption_1acbbd25eda33665932bf5561aae9682e3
+    parent: structgoogle_1_1cloud_1_1UserAgentProductsOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::UserAgentProductsOption::Type =
+          std::vector< std::string >;
+      aliasof: |
+        <code>std::vector&lt; std::string &gt;</code>
+      source:
+        id: Type
+        path: google/cloud/common_options.h
+        startLine: 56
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/common_options.h
+references:
+  - uid: structgoogle_1_1cloud_1_1UserAgentProductsOption
+    name: google::cloud::UserAgentProductsOption
+  - uid: structgoogle_1_1cloud_1_1UserAgentProductsOption_1acbbd25eda33665932bf5561aae9682e3
+    name: google::cloud::UserAgentProductsOption::Type

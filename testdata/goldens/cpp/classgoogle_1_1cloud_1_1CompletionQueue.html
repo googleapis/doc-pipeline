@@ -1,0 +1,580 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="classgoogle_1_1cloud_1_1CompletionQueue">
+<h1 class="page-title">Class CompletionQueue (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>Call the functor associated with asynchronous operations when they complete. </p>
+</div>
+  <h2 id="constructors">Constructors
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1CompletionQueue_1aa97c0beefb121dd6edfec5575196f1e7" data-uid="classgoogle_1_1cloud_1_1CompletionQueue_1aa97c0beefb121dd6edfec5575196f1e7" class="notranslate">CompletionQueue()</h3>
+  <h3 id="classgoogle_1_1cloud_1_1CompletionQueue_1a743c36b17b5d9201132620def0584658" data-uid="classgoogle_1_1cloud_1_1CompletionQueue_1a743c36b17b5d9201132620def0584658" class="notranslate">CompletionQueue(std::shared_ptr&lt; internal::CompletionQueueImpl &gt;)</h3>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>impl</code></td>
+        <td>
+          <code>std::shared_ptr&lt; internal::CompletionQueueImpl &gt;</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="functions">Functions
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4" data-uid="classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4" class="notranslate">Run()</h3>
+  <div class="markdown level1 summary"><p>Run the completion queue event loop. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>Note that more than one thread can call this member function, to create a pool of threads completing asynchronous operations. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1CompletionQueue_1af69536be75d6157fbd8fafe1a88f7233" data-uid="classgoogle_1_1cloud_1_1CompletionQueue_1af69536be75d6157fbd8fafe1a88f7233" class="notranslate">Shutdown()</h3>
+  <div class="markdown level1 summary"><p>Terminate the completion queue event loop. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1CompletionQueue_1a5e95a325b49eb1b087ee8c318c4c2234" data-uid="classgoogle_1_1cloud_1_1CompletionQueue_1a5e95a325b49eb1b087ee8c318c4c2234" class="notranslate">CancelAll()</h3>
+  <div class="markdown level1 summary"><p>Cancel all pending operations. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1CompletionQueue_1ae98eaa1bf1210e6a3773e091e93a730e" data-uid="classgoogle_1_1cloud_1_1CompletionQueue_1ae98eaa1bf1210e6a3773e091e93a730e" class="notranslate">MakeDeadlineTimer(std::chrono::system_clock::time_point)</h3>
+  <div class="markdown level1 summary"><p>Create a timer that fires at <code>deadline</code>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>deadline</code></td>
+        <td>
+          <code>std::chrono::system_clock::time_point</code>
+          <br>
+          <p>when should the timer expire.</p>
+
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">google::cloud::future&lt; StatusOr&lt; std::chrono::system_clock::time_point &gt; &gt;</span></code></td>
+        <td><p>a future that becomes satisfied after <code>deadline</code>. The result of the future is the time at which it expired, or an error <a class="xref" href="classgoogle_1_1cloud_1_1Status.html">Status</a> if the timer did not run to expiration (e.g. it was cancelled). </p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1CompletionQueue_1a760d68ec606a03ab8cc80eea8bd965b3" data-uid="classgoogle_1_1cloud_1_1CompletionQueue_1a760d68ec606a03ab8cc80eea8bd965b3" class="notranslate">MakeRelativeTimer(std::chrono::duration&lt; Rep, Period &gt;)</h3>
+  <div class="markdown level1 summary"><p>Create a timer that fires after the <code>duration</code>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameters</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>duration</code></td>
+        <td>
+          <code>std::chrono::duration&lt; Rep, Period &gt;</code>
+          <br>
+          <p>when should the timer expire relative to the current time.</p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>typename Rep</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>a placeholder to match the Rep tparam for <code>duration</code> type, the semantics of this template parameter are documented in <code>std::chrono::duration&lt;&gt;</code> (in brief, the underlying arithmetic type used to store the number of ticks), for our purposes it is simply a formal parameter. </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>typename Period</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>a placeholder to match the Period tparam for <code>duration</code> type, the semantics of this template parameter are documented in <code>std::chrono::duration&lt;&gt;</code> (in brief, the length of the tick in seconds, expressed as a <code>std::ratio&lt;&gt;</code>), for our purposes it is simply a formal parameter.</p>
+
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">future&lt; StatusOr&lt; std::chrono::system_clock::time_point &gt; &gt;</span></code></td>
+        <td><p>a future that becomes satisfied after <code>duration</code> time has elapsed. The result of the future is the time at which it expired, or an error <a class="xref" href="classgoogle_1_1cloud_1_1Status.html">Status</a> if the timer did not run to expiration (e.g. it was cancelled). </p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1CompletionQueue_1a7dc90cac7ff19ef85b136b9581cb7e5d" data-uid="classgoogle_1_1cloud_1_1CompletionQueue_1a7dc90cac7ff19ef85b136b9581cb7e5d" class="notranslate">MakeUnaryRpc(AsyncCallType, Request const &amp;, std::unique_ptr&lt; grpc::ClientContext &gt;)</h3>
+  <div class="markdown level1 summary"><p>Make an asynchronous unary RPC. </p>
+</div>
+  <div class="markdown level1 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+Applications should have no need to call this function. The libraries provide <code>Async*()</code> member functions in the generated (or) hand-crafted <code>*Client</code> classes for the same purpose.
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameters</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>async_call</code></td>
+        <td>
+          <code>AsyncCallType</code>
+          <br>
+          <p>a callable to start the asynchronous RPC. </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>request</code></td>
+        <td>
+          <code>Request const &</code>
+          <br>
+          <p>the contents of the request. </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>context</code></td>
+        <td>
+          <code>std::unique_ptr&lt; grpc::ClientContext &gt;</code>
+          <br>
+          <p>an initialized request context to make the call.</p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>typename AsyncCallType</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>the type of <em>async_call</em>. It must be invocable with <code>(grpc::ClientContext*, Request const&amp;, grpc::CompletionQueue*)</code>. Furthermore, it should return a <code>std::unique_ptr&lt;grpc::ClientAsyncResponseReaderInterface&lt;Response&gt;&gt;&gt;</code>. These requirements are verified by <code>internal::CheckAsyncUnaryRpcSignature&lt;&gt;</code>, and this function is excluded from overload resolution if the parameters do not meet these requirements. </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>typename Request</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>the type of the request parameter in the gRPC. </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>typename Response</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>the response from the asynchronous RPC. </p>
+
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">future&lt; StatusOr&lt; Response &gt; &gt;</span></code></td>
+        <td><p>a future that becomes satisfied when the operation completes. </p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1CompletionQueue_1a1a953c10106be1b0135eacafa29f9b45" data-uid="classgoogle_1_1cloud_1_1CompletionQueue_1a1a953c10106be1b0135eacafa29f9b45" class="notranslate">MakeStreamingReadRpc(AsyncCallType &amp;&amp;, Request const &amp;, std::unique_ptr&lt; grpc::ClientContext &gt;, OnReadHandler &amp;&amp;, OnFinishHandler &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Make an asynchronous streaming read RPC. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>Reading from the stream starts automatically, and the handler is notified of all interesting events in the stream. Note that then handler is called by any thread blocked on this object&#39;s <a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4">Run()</a> member function. However, only one callback in the handler is called at a time.</p>
+<aside class="deprecated"><b>Deprecated:</b>
+
+
+Applications should have no need to call this function. The libraries provide <code>Async*()</code> member functions in the generated (or) hand-crafted <code>*Client</code> classes for the same purpose.
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameters</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>async_call</code></td>
+        <td>
+          <code>AsyncCallType &&</code>
+          <br>
+          <p>a callable to start the asynchronous RPC. </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>request</code></td>
+        <td>
+          <code>Request const &</code>
+          <br>
+          <p>the contents of the request. </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>context</code></td>
+        <td>
+          <code>std::unique_ptr&lt; grpc::ClientContext &gt;</code>
+          <br>
+          <p>an initialized request context to make the call. </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>on_read</code></td>
+        <td>
+          <code>OnReadHandler &&</code>
+          <br>
+          <p>the callback to be invoked on each successful Read(). </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>on_finish</code></td>
+        <td>
+          <code>OnFinishHandler &&</code>
+          <br>
+          <p>the callback to be invoked when the stream is closed.</p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>typename AsyncCallType</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>the type of <em>async_call</em>. It must be invocable with parameters <code>(grpc::ClientContext*, RequestType const&amp;, grpc::CompletionQueue*)</code>. Furthermore, it should return a type convertible to <code>std::unique_ptr&lt;grpc::ClientAsyncReaderInterface&lt;Response&gt;&gt;&gt;</code>. These requirements are verified by <code>internal::AsyncStreamingReadRpcUnwrap&lt;&gt;</code>, and this function is excluded from overload resolution if the parameters do not meet these requirements. </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>typename Request</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>the type of the request in the streaming RPC. </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>typename Response</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>the type of the response in the streaming RPC. </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>typename OnReadHandler</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>the type of the <code>on_read</code> callback. </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>typename OnFinishHandler</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>the type of the <code>on_finish</code> callback. </p>
+
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">std::shared_ptr&lt; AsyncOperation &gt;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1CompletionQueue_1af84eb273575b989bbf8049fe5eb64df5" data-uid="classgoogle_1_1cloud_1_1CompletionQueue_1af84eb273575b989bbf8049fe5eb64df5" class="notranslate">RunAsync(Functor &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Asynchronously run a functor on a thread <a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4"><code>Run()</code></a>ning the <a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html"><code>CompletionQueue</code></a>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameters</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>functor</code></td>
+        <td>
+          <code>Functor &&</code>
+          <br>
+          <p>the functor to call in one of the <a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html">CompletionQueue</a>&#39;s threads. </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>typename Functor</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>the type of <code>functor</code>. It must satisfy <code>std::is_invocable&lt;Functor&gt;</code>. </p>
+
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1CompletionQueue_1af84eb273575b989bbf8049fe5eb64df5" data-uid="classgoogle_1_1cloud_1_1CompletionQueue_1af84eb273575b989bbf8049fe5eb64df5" class="notranslate">RunAsync(Functor &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Asynchronously run a functor on a thread <a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4"><code>Run()</code></a>ning the <a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html"><code>CompletionQueue</code></a>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameters</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>functor</code></td>
+        <td>
+          <code>Functor &&</code>
+          <br>
+          <p>the functor to call in one of the <a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html">CompletionQueue</a>&#39;s threads. </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>typename Functor</code></td>
+        <td>
+          <code></code>
+          <br>
+          <p>the type of <code>functor</code>. It must satisfy <code>std::is_invocable&lt;Functor&gt;</code>. </p>
+
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">void</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1CompletionQueue_1aec5b6997c267651ea3761567306e4585" data-uid="classgoogle_1_1cloud_1_1CompletionQueue_1aec5b6997c267651ea3761567306e4585" class="notranslate">AsyncWaitConnectionReady(std::shared_ptr&lt; grpc::Channel &gt;, std::chrono::system_clock::time_point)</h3>
+  <div class="markdown level1 summary"><p>Asynchronously wait for a connection to become ready. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameters</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>channel</code></td>
+        <td>
+          <code>std::shared_ptr&lt; grpc::Channel &gt;</code>
+          <br>
+          <p>the channel on which to wait for state changes </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>deadline</code></td>
+        <td>
+          <code>std::chrono::system_clock::time_point</code>
+          <br>
+          <p>give up waiting for the state change if this deadline passes </p>
+
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">future&lt; Status &gt;</span></code></td>
+        <td><p><code>future&lt;&gt;</code> which will be satisfied when either of these events happen: (a) the connection is ready, (b) the connection permanently failed, (c) deadline passes before (a) or (b) happen; the future will be satisfied with <a class="xref" href="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a"><code>StatusCode::kOk</code></a> for (a), <a class="xref" href="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a971493a769ad0aed23946733ede4a8f1"><code>StatusCode::kCancelled</code></a> for (b) and <a class="xref" href="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a4d40d05ef9a0c7b22fb80d1bbf8a72df"><code>StatusCode::kDeadlineExceeded</code></a> for (c) </p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

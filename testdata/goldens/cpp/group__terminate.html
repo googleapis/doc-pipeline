@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="group__terminate">
+<h1 class="page-title">Intercepting Unrecoverable Errors (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><h1 id="intercepting-unrecoverable-errors">Intercepting Unrecoverable Errors</h1>
+<p>In some rare cases, the client libraries may need to terminate the application because it encounters an unrecoverable error. For example:</p>
+<ul>
+<li>If the application calls <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;::value()</code>, and the library was compiled with exceptions disabled, and the <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code> contains an error, <em>then</em> the function throws an exception to report the error as the function cannot return a valid value. Applications that disable exceptions should query the <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code> status (using <code>.ok()</code> or <code>.status()</code>) and avoid calling <code>.value()</code> if the <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code> is holding an error.</li>
+<li>If the application calls <code>future&lt;T&gt;::get()</code>, the library was compiled with exceptions disabled, and (somehow) the future is satisfied with an exception. Note that the library APIs typically return <code>future&lt;</code><a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;&gt;</code> to avoid this problem, but the application may have created <code>future&lt;T&gt;</code> and <code>promise&lt;T&gt;</code> pairs in their own code.</li>
+</ul>
+<p>In these cases there is no mechanism to return the error. The library cannot continue working correctly and must terminate the program. The application may want to intercept these errors, before the application crashes, and log or otherwise capture additional information to help with debugging or troubleshooting. The functions in this module can be used to do so.</p>
+<p>By their nature, there is no mechanism to &quot;handle&quot; and &quot;recover&quot; from unrecoverable errors. All the application can do is log additional information before the program terminates.</p>
+<p>Note that the libraries do not use functions that can trigger unrecoverable errors (if they do we consider that a library bug).</p>
+<p>The default behavior in the client library is to call <code>std::abort()</code> when an unrecoverable error occurs. </p>
+<h3 id="functions">Functions</h3>
+<ul>
+<li><a class="xref" href="namespacegoogle_1_1cloud.html"><code>SetTerminateHandler(TerminateHandler)</code></a></li>
+<li><a class="xref" href="namespacegoogle_1_1cloud.html"><code>GetTerminateHandler()</code></a></li>
+<li><a class="xref" href="namespacegoogle_1_1cloud.html"><code>Terminate(char const *)</code></a></li>
+</ul>
+<h3 id="types">Types</h3>
+<ul>
+<li><a class="xref" href="namespacegoogle_1_1cloud.html"><code>TerminateHandler</code></a></li>
+</ul>
+</div>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="classgoogle_1_1cloud_1_1PollingPolicy">
+<h1 class="page-title">Class PollingPolicy (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>Control the Cloud C++ client library behavior with respect to polling on long running operations. </p>
+</div>
+  <div class="markdown level0 conceptual"><p>Some operations in Cloud services return a <code>google.longrunning.Operation</code> object. As their name implies, these objects represent requests that may take a long time to complete, in some cases operations may take tens of seconds or even 30 minutes to complete.</p>
+<p>The Cloud C++ client libraries models these long running operations as a <a class="xref" href="classgoogle_1_1cloud_1_1future.html"><code>google::cloud::future</code></a><code>&lt;</code><a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;&gt;</code>, where <code>T</code> represents the final result of the operation. In the background, the library polls the service until the operation completes (or fails) and then satisfies the future.</p>
+<p>This class defines the interface for policies that control the behavior of this polling loop.</p>
+<h6 id="see-also">See Also</h6>
+<p><a href="https://aip.dev/151">https://aip.dev/151</a> for more information on long running operations. </p>
+</div>
+  <h2 id="functions">Functions
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1PollingPolicy_1aa76d4da9504c38830269f78758fee846" data-uid="classgoogle_1_1cloud_1_1PollingPolicy_1aa76d4da9504c38830269f78758fee846" class="notranslate">clone() const</h3>
+  <div class="markdown level1 summary"><p>Return a copy of the current policy. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>This function is called at the beginning of the polling loop. Policies that are based on relative time should restart their timers when this function is called. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">std::unique_ptr&lt; PollingPolicy &gt;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1PollingPolicy_1a42b97ed33436c1aabec55108e4333a95" data-uid="classgoogle_1_1cloud_1_1PollingPolicy_1a42b97ed33436c1aabec55108e4333a95" class="notranslate">OnFailure(Status const &amp;)</h3>
+  <div class="markdown level1 summary"><p>A callback to indicate that a polling attempt failed. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>This is called when a polling request fails. Note that this callback is not invoked when the polling request succeeds with &quot;operation not done&quot;.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>status</code></td>
+        <td>
+          <code>Status const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">bool</span></code></td>
+        <td><p>true if the failure should be treated as transient and the polling loop should continue. </p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1PollingPolicy_1a03d970d4c274382a6b9cb8e8819daec3" data-uid="classgoogle_1_1cloud_1_1PollingPolicy_1a03d970d4c274382a6b9cb8e8819daec3" class="notranslate">WaitPeriod()</h3>
+  <div class="markdown level1 summary"><p>How long should the polling loop wait before trying again. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">std::chrono::milliseconds</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

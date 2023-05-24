@@ -1,0 +1,129 @@
+### YamlMime:UniversalReference
+items:
+  - uid: namespacegoogle_1_1cloud_1_1mocks
+    name: "google::cloud::mocks"
+    id: namespacegoogle_1_1cloud_1_1mocks
+    parent: ""
+    type: namespace
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        namespace google::cloud::mocks { ... };
+      source:
+        id: google::cloud::mocks
+        path: google/cloud/mocks/current_options.h
+        startLine: 22
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/mocks/current_options.h
+    summary: |
+      Contains helpers for testing the Google Cloud C++ Client Libraries. 
+    conceptual: |
+      The symbols defined in this namespace are part of `google-cloud-cpp`'s public API. Application developers may use them when mocking the client libraries in their own tests. 
+    children:
+      - namespacegoogle_1_1cloud_1_1mocks_1a89e1ab5764b466d9e837ebeaa636f353
+      - namespacegoogle_1_1cloud_1_1mocks_1a1563fd92115349d2e454922c764b991e
+  - uid: namespacegoogle_1_1cloud_1_1mocks_1a89e1ab5764b466d9e837ebeaa636f353
+    name: "CurrentOptions()"
+    fullName: |
+      google::cloud::mocks::CurrentOptions
+    id: namespacegoogle_1_1cloud_1_1mocks_1a89e1ab5764b466d9e837ebeaa636f353
+    parent: namespacegoogle_1_1cloud_1_1mocks
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        Options const &
+        google::cloud::mocks::CurrentOptions ()
+      return:
+        type:
+          - "Options const &"
+      source:
+        id: CurrentOptions
+        path: google/cloud/mocks/current_options.h
+        startLine: 44
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/mocks/current_options.h
+    summary: |
+      Retrieve options used in a client call. 
+    conceptual: |
+      This would be used to verify configuration options from within a MockConnection. It provides a way for applications to test the difference between `client.Foo(request, options)` and `client.Foo(request)`.
+
+
+
+      ```cpp
+      TEST(Foo, CallOptions) {
+        auto mock = std::make_shared<MockConnection>();
+        EXPECT_CALL(*mock, Foo).WillOnce([] {
+              auto const& options = google::cloud::mocks::CurrentOptions();
+              EXPECT_THAT(options, ...);
+            });
+        auto client = Client(mock);
+        MyFunctionThatCallsFoo(client);
+      }
+      ```
+  - uid: namespacegoogle_1_1cloud_1_1mocks_1a1563fd92115349d2e454922c764b991e
+    name: "MakeStreamRange(std::vector< T >, Status)"
+    fullName: |
+      google::cloud::mocks::MakeStreamRange
+    id: namespacegoogle_1_1cloud_1_1mocks_1a1563fd92115349d2e454922c764b991e
+    parent: namespacegoogle_1_1cloud_1_1mocks
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename T>
+        StreamRange< T >
+        google::cloud::mocks::MakeStreamRange (
+            std::vector< T > values,
+            Status final_status
+          )
+      return:
+        type:
+          - "StreamRange< T >"
+      parameters:
+        - id: values
+          var_type: "std::vector&lt; T &gt;"
+          description: |
+            The successfully returned `T` values. 
+        - id: final_status
+          var_type: "Status"
+          description: |
+            The final [Status](xref:classgoogle_1_1cloud_1_1Status) of the range. Defaults to an OK [Status](xref:classgoogle_1_1cloud_1_1Status).
+        - id: typename T
+      source:
+        id: MakeStreamRange
+        path: google/cloud/mocks/mock_stream_range.h
+        startLine: 53
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/mocks/mock_stream_range.h
+    summary: |
+      Construct a [`StreamRange`](xref:classgoogle_1_1cloud_1_1StreamRange)`<T>` for use in tests. 
+    conceptual: |
+      ```cpp
+      auto sr = MakeStreamRange<T>({t1, t2});
+      for (StatusOr<T> const& t : sr) {
+        // Yields t1 -> t2
+      }
+
+      sr = MakeStreamRange<T>({t1, t2}, BadStatus());
+      for (StatusOr<T> const& t : sr) {
+        // Yields t1 -> t2 -> BadStatus()
+      }
+      ```
+references:
+  - uid: namespacegoogle_1_1cloud_1_1mocks
+    name: google::cloud::mocks
+  - uid: namespacegoogle_1_1cloud_1_1mocks_1a89e1ab5764b466d9e837ebeaa636f353
+    name: google::cloud::mocks::CurrentOptions
+  - uid: namespacegoogle_1_1cloud_1_1mocks_1a1563fd92115349d2e454922c764b991e
+    name: google::cloud::mocks::MakeStreamRange

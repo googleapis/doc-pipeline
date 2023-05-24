@@ -1,0 +1,52 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1RestTracingOptionsOption
+    name: "RestTracingOptionsOption"
+    id: structgoogle_1_1cloud_1_1RestTracingOptionsOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/rest_options.h>
+        struct google::cloud::RestTracingOptionsOption { ... };
+      source:
+        id: google::cloud::RestTracingOptionsOption
+        path: google/cloud/rest_options.h
+        startLine: 70
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/rest_options.h
+    summary: |
+      The [`TracingOptions`](xref:classgoogle_1_1cloud_1_1TracingOptions) to use when printing REST transport http messages. 
+    children:
+      - structgoogle_1_1cloud_1_1RestTracingOptionsOption_1a8d6d51b6e9be89779d1053016b2a2802
+  - uid: structgoogle_1_1cloud_1_1RestTracingOptionsOption_1a8d6d51b6e9be89779d1053016b2a2802
+    name: "Type"
+    fullName: "google::cloud::RestTracingOptionsOption::Type"
+    id: structgoogle_1_1cloud_1_1RestTracingOptionsOption_1a8d6d51b6e9be89779d1053016b2a2802
+    parent: structgoogle_1_1cloud_1_1RestTracingOptionsOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::RestTracingOptionsOption::Type =
+          TracingOptions;
+      aliasof: |
+        <code>TracingOptions</code>
+      source:
+        id: Type
+        path: google/cloud/rest_options.h
+        startLine: 71
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/rest_options.h
+references:
+  - uid: structgoogle_1_1cloud_1_1RestTracingOptionsOption
+    name: google::cloud::RestTracingOptionsOption
+  - uid: structgoogle_1_1cloud_1_1RestTracingOptionsOption_1a8d6d51b6e9be89779d1053016b2a2802
+    name: google::cloud::RestTracingOptionsOption::Type

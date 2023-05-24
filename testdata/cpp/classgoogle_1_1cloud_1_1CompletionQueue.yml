@@ -1,0 +1,531 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue
+    name: "CompletionQueue"
+    id: classgoogle_1_1cloud_1_1CompletionQueue
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/completion_queue.h>
+        class google::cloud::CompletionQueue { ... };
+      source:
+        id: google::cloud::CompletionQueue
+        path: google/cloud/completion_queue.h
+        startLine: 49
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/completion_queue.h
+    summary: |
+      Call the functor associated with asynchronous operations when they complete. 
+    children:
+      - classgoogle_1_1cloud_1_1CompletionQueue_1aa97c0beefb121dd6edfec5575196f1e7
+      - classgoogle_1_1cloud_1_1CompletionQueue_1a743c36b17b5d9201132620def0584658
+      - classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4
+      - classgoogle_1_1cloud_1_1CompletionQueue_1af69536be75d6157fbd8fafe1a88f7233
+      - classgoogle_1_1cloud_1_1CompletionQueue_1a5e95a325b49eb1b087ee8c318c4c2234
+      - classgoogle_1_1cloud_1_1CompletionQueue_1ae98eaa1bf1210e6a3773e091e93a730e
+      - classgoogle_1_1cloud_1_1CompletionQueue_1a760d68ec606a03ab8cc80eea8bd965b3
+      - classgoogle_1_1cloud_1_1CompletionQueue_1a7dc90cac7ff19ef85b136b9581cb7e5d
+      - classgoogle_1_1cloud_1_1CompletionQueue_1a1a953c10106be1b0135eacafa29f9b45
+      - classgoogle_1_1cloud_1_1CompletionQueue_1af84eb273575b989bbf8049fe5eb64df5
+      - classgoogle_1_1cloud_1_1CompletionQueue_1af84eb273575b989bbf8049fe5eb64df5
+      - classgoogle_1_1cloud_1_1CompletionQueue_1aec5b6997c267651ea3761567306e4585
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1aa97c0beefb121dd6edfec5575196f1e7
+    name: "CompletionQueue()"
+    fullName: |
+      google::cloud::CompletionQueue::CompletionQueue
+    id: classgoogle_1_1cloud_1_1CompletionQueue_1aa97c0beefb121dd6edfec5575196f1e7
+    parent: classgoogle_1_1cloud_1_1CompletionQueue
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::CompletionQueue::CompletionQueue ()
+      source:
+        id: CompletionQueue
+        path: google/cloud/completion_queue.h
+        startLine: 51
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/completion_queue.h
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1a743c36b17b5d9201132620def0584658
+    name: "CompletionQueue(std::shared_ptr< internal::CompletionQueueImpl >)"
+    fullName: |
+      google::cloud::CompletionQueue::CompletionQueue
+    id: classgoogle_1_1cloud_1_1CompletionQueue_1a743c36b17b5d9201132620def0584658
+    parent: classgoogle_1_1cloud_1_1CompletionQueue
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::CompletionQueue::CompletionQueue (
+            std::shared_ptr< internal::CompletionQueueImpl > impl
+          )
+      parameters:
+        - id: impl
+          var_type: "std::shared_ptr&lt; internal::CompletionQueueImpl &gt;"
+      source:
+        id: CompletionQueue
+        path: google/cloud/completion_queue.h
+        startLine: 52
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/completion_queue.h
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4
+    name: "Run()"
+    fullName: |
+      google::cloud::CompletionQueue::Run
+    id: classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4
+    parent: classgoogle_1_1cloud_1_1CompletionQueue
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::CompletionQueue::Run ()
+      return:
+        type:
+          - "void"
+      source:
+        id: Run
+        path: google/cloud/completion_queue.h
+        startLine: 61
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/completion_queue.h
+    summary: |
+      Run the completion queue event loop. 
+    conceptual: |
+      Note that more than one thread can call this member function, to create a pool of threads completing asynchronous operations. 
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1af69536be75d6157fbd8fafe1a88f7233
+    name: "Shutdown()"
+    fullName: |
+      google::cloud::CompletionQueue::Shutdown
+    id: classgoogle_1_1cloud_1_1CompletionQueue_1af69536be75d6157fbd8fafe1a88f7233
+    parent: classgoogle_1_1cloud_1_1CompletionQueue
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::CompletionQueue::Shutdown ()
+      return:
+        type:
+          - "void"
+      source:
+        id: Shutdown
+        path: google/cloud/completion_queue.h
+        startLine: 64
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/completion_queue.h
+    summary: |
+      Terminate the completion queue event loop. 
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1a5e95a325b49eb1b087ee8c318c4c2234
+    name: "CancelAll()"
+    fullName: |
+      google::cloud::CompletionQueue::CancelAll
+    id: classgoogle_1_1cloud_1_1CompletionQueue_1a5e95a325b49eb1b087ee8c318c4c2234
+    parent: classgoogle_1_1cloud_1_1CompletionQueue
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::CompletionQueue::CancelAll ()
+      return:
+        type:
+          - "void"
+      source:
+        id: CancelAll
+        path: google/cloud/completion_queue.h
+        startLine: 67
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/completion_queue.h
+    summary: |
+      Cancel all pending operations. 
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1ae98eaa1bf1210e6a3773e091e93a730e
+    name: "MakeDeadlineTimer(std::chrono::system_clock::time_point)"
+    fullName: |
+      google::cloud::CompletionQueue::MakeDeadlineTimer
+    id: classgoogle_1_1cloud_1_1CompletionQueue_1ae98eaa1bf1210e6a3773e091e93a730e
+    parent: classgoogle_1_1cloud_1_1CompletionQueue
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::future< StatusOr< std::chrono::system_clock::time_point > >
+        google::cloud::CompletionQueue::MakeDeadlineTimer (
+            std::chrono::system_clock::time_point deadline
+          )
+      return:
+        type:
+          - "google::cloud::future< StatusOr< std::chrono::system_clock::time_point > >"
+        description: |
+          a future that becomes satisfied after `deadline`. The result of the future is the time at which it expired, or an error [Status](xref:classgoogle_1_1cloud_1_1Status) if the timer did not run to expiration (e.g. it was cancelled). 
+      parameters:
+        - id: deadline
+          var_type: "std::chrono::system_clock::time_point"
+          description: |
+            when should the timer expire.
+      source:
+        id: MakeDeadlineTimer
+        path: google/cloud/completion_queue.h
+        startLine: 79
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/completion_queue.h
+    summary: |
+      Create a timer that fires at `deadline`. 
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1a760d68ec606a03ab8cc80eea8bd965b3
+    name: "MakeRelativeTimer(std::chrono::duration< Rep, Period >)"
+    fullName: |
+      google::cloud::CompletionQueue::MakeRelativeTimer
+    id: classgoogle_1_1cloud_1_1CompletionQueue_1a760d68ec606a03ab8cc80eea8bd965b3
+    parent: classgoogle_1_1cloud_1_1CompletionQueue
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename Rep,
+            typename Period>
+        future< StatusOr< std::chrono::system_clock::time_point > >
+        google::cloud::CompletionQueue::MakeRelativeTimer (
+            std::chrono::duration< Rep, Period > duration
+          )
+      return:
+        type:
+          - "future< StatusOr< std::chrono::system_clock::time_point > >"
+        description: |
+          a future that becomes satisfied after `duration` time has elapsed. The result of the future is the time at which it expired, or an error [Status](xref:classgoogle_1_1cloud_1_1Status) if the timer did not run to expiration (e.g. it was cancelled). 
+      parameters:
+        - id: duration
+          var_type: "std::chrono::duration&lt; Rep, Period &gt;"
+          description: |
+            when should the timer expire relative to the current time.
+        - id: typename Rep
+          description: |
+            a placeholder to match the Rep tparam for `duration` type, the semantics of this template parameter are documented in `std::chrono::duration<>` (in brief, the underlying arithmetic type used to store the number of ticks), for our purposes it is simply a formal parameter. 
+        - id: typename Period
+          description: |
+            a placeholder to match the Period tparam for `duration` type, the semantics of this template parameter are documented in `std::chrono::duration<>` (in brief, the length of the tick in seconds, expressed as a `std::ratio<>`), for our purposes it is simply a formal parameter.
+      source:
+        id: MakeRelativeTimer
+        path: google/cloud/completion_queue.h
+        startLine: 104
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/completion_queue.h
+    summary: |
+      Create a timer that fires after the `duration`. 
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1a7dc90cac7ff19ef85b136b9581cb7e5d
+    name: "MakeUnaryRpc(AsyncCallType, Request const &, std::unique_ptr< grpc::ClientContext >)"
+    fullName: |
+      google::cloud::CompletionQueue::MakeUnaryRpc
+    id: classgoogle_1_1cloud_1_1CompletionQueue_1a7dc90cac7ff19ef85b136b9581cb7e5d
+    parent: classgoogle_1_1cloud_1_1CompletionQueue
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename AsyncCallType,
+            typename Request,
+            typename Response = typename Sig::type>
+        future< StatusOr< Response > >
+        google::cloud::CompletionQueue::MakeUnaryRpc (
+            AsyncCallType async_call,
+            Request const & request,
+            std::unique_ptr< grpc::ClientContext > context
+          )
+      return:
+        type:
+          - "future< StatusOr< Response > >"
+        description: |
+          a future that becomes satisfied when the operation completes. 
+      parameters:
+        - id: async_call
+          var_type: "AsyncCallType"
+          description: |
+            a callable to start the asynchronous RPC. 
+        - id: request
+          var_type: "Request const &"
+          description: |
+            the contents of the request. 
+        - id: context
+          var_type: "std::unique_ptr&lt; grpc::ClientContext &gt;"
+          description: |
+            an initialized request context to make the call.
+        - id: typename AsyncCallType
+          description: |
+            the type of *async_call*. It must be invocable with `(grpc::ClientContext*, Request const&, grpc::CompletionQueue*)`. Furthermore, it should return a `std::unique_ptr<grpc::ClientAsyncResponseReaderInterface<Response>>>`. These requirements are verified by `internal::CheckAsyncUnaryRpcSignature<>`, and this function is excluded from overload resolution if the parameters do not meet these requirements. 
+        - id: typename Request
+          description: |
+            the type of the request parameter in the gRPC. 
+        - id: typename Response
+          description: |
+            the response from the asynchronous RPC. 
+      source:
+        id: MakeUnaryRpc
+        path: google/cloud/completion_queue.h
+        startLine: 145
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/completion_queue.h
+    summary: |
+      Make an asynchronous unary RPC. 
+    conceptual: |
+      <aside class="deprecated"><b>Deprecated:</b>
+      Applications should have no need to call this function. The libraries provide `Async*()` member functions in the generated (or) hand-crafted `*Client` classes for the same purpose.
+      </aside>
+
+
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1a1a953c10106be1b0135eacafa29f9b45
+    name: "MakeStreamingReadRpc(AsyncCallType &&, Request const &, std::unique_ptr< grpc::ClientContext >, OnReadHandler &&, OnFinishHandler &&)"
+    fullName: |
+      google::cloud::CompletionQueue::MakeStreamingReadRpc
+    id: classgoogle_1_1cloud_1_1CompletionQueue_1a1a953c10106be1b0135eacafa29f9b45
+    parent: classgoogle_1_1cloud_1_1CompletionQueue
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename AsyncCallType,
+            typename Request,
+            typename Response = typename internal:: AsyncStreamingReadResponseType<AsyncCallType, Request>::type,
+            typename OnReadHandler,
+            typename OnFinishHandler>
+        std::shared_ptr< AsyncOperation >
+        google::cloud::CompletionQueue::MakeStreamingReadRpc (
+            AsyncCallType && async_call,
+            Request const & request,
+            std::unique_ptr< grpc::ClientContext > context,
+            OnReadHandler && on_read,
+            OnFinishHandler && on_finish
+          )
+      return:
+        type:
+          - "std::shared_ptr< AsyncOperation >"
+      parameters:
+        - id: async_call
+          var_type: "AsyncCallType &&"
+          description: |
+            a callable to start the asynchronous RPC. 
+        - id: request
+          var_type: "Request const &"
+          description: |
+            the contents of the request. 
+        - id: context
+          var_type: "std::unique_ptr&lt; grpc::ClientContext &gt;"
+          description: |
+            an initialized request context to make the call. 
+        - id: on_read
+          var_type: "OnReadHandler &&"
+          description: |
+            the callback to be invoked on each successful Read(). 
+        - id: on_finish
+          var_type: "OnFinishHandler &&"
+          description: |
+            the callback to be invoked when the stream is closed.
+        - id: typename AsyncCallType
+          description: |
+            the type of *async_call*. It must be invocable with parameters `(grpc::ClientContext*, RequestType const&, grpc::CompletionQueue*)`. Furthermore, it should return a type convertible to `std::unique_ptr<grpc::ClientAsyncReaderInterface<Response>>>`. These requirements are verified by `internal::AsyncStreamingReadRpcUnwrap<>`, and this function is excluded from overload resolution if the parameters do not meet these requirements. 
+        - id: typename Request
+          description: |
+            the type of the request in the streaming RPC. 
+        - id: typename Response
+          description: |
+            the type of the response in the streaming RPC. 
+        - id: typename OnReadHandler
+          description: |
+            the type of the `on_read` callback. 
+        - id: typename OnFinishHandler
+          description: |
+            the type of the `on_finish` callback. 
+      source:
+        id: MakeStreamingReadRpc
+        path: google/cloud/completion_queue.h
+        startLine: 188
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/completion_queue.h
+    summary: |
+      Make an asynchronous streaming read RPC. 
+    conceptual: |
+      Reading from the stream starts automatically, and the handler is notified of all interesting events in the stream. Note that then handler is called by any thread blocked on this object's [Run()](xref:classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4) member function. However, only one callback in the handler is called at a time.
+
+      <aside class="deprecated"><b>Deprecated:</b>
+
+
+      Applications should have no need to call this function. The libraries provide `Async*()` member functions in the generated (or) hand-crafted `*Client` classes for the same purpose.
+      </aside>
+
+
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1af84eb273575b989bbf8049fe5eb64df5
+    name: "RunAsync(Functor &&)"
+    fullName: |
+      google::cloud::CompletionQueue::RunAsync
+    id: classgoogle_1_1cloud_1_1CompletionQueue_1af84eb273575b989bbf8049fe5eb64df5
+    parent: classgoogle_1_1cloud_1_1CompletionQueue
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename Functor>
+        void
+        google::cloud::CompletionQueue::RunAsync (
+            Functor && functor
+          )
+      return:
+        type:
+          - "void"
+      parameters:
+        - id: functor
+          var_type: "Functor &&"
+          description: |
+            the functor to invoke in one of the [CompletionQueue](xref:classgoogle_1_1cloud_1_1CompletionQueue)'s threads.
+        - id: typename Functor
+          description: |
+            the type of `functor`. It must satisfy `std::is_invocable<Functor, #`[`CompletionQueue`](xref:classgoogle_1_1cloud_1_1CompletionQueue)`&>`
+      source:
+        id: RunAsync
+        path: google/cloud/completion_queue.h
+        startLine: 215
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/completion_queue.h
+    summary: |
+      Asynchronously run a functor on a thread [`Run()`](xref:classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4)ning the [`CompletionQueue`](xref:classgoogle_1_1cloud_1_1CompletionQueue). 
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1af84eb273575b989bbf8049fe5eb64df5
+    name: "RunAsync(Functor &&)"
+    fullName: |
+      google::cloud::CompletionQueue::RunAsync
+    id: classgoogle_1_1cloud_1_1CompletionQueue_1af84eb273575b989bbf8049fe5eb64df5
+    parent: classgoogle_1_1cloud_1_1CompletionQueue
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        template <
+            typename Functor>
+        void
+        google::cloud::CompletionQueue::RunAsync (
+            Functor && functor
+          )
+      return:
+        type:
+          - "void"
+      parameters:
+        - id: functor
+          var_type: "Functor &&"
+          description: |
+            the functor to call in one of the [CompletionQueue](xref:classgoogle_1_1cloud_1_1CompletionQueue)'s threads. 
+        - id: typename Functor
+          description: |
+            the type of `functor`. It must satisfy `std::is_invocable<Functor>`. 
+      source:
+        id: RunAsync
+        path: google/cloud/completion_queue.h
+        startLine: 249
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/completion_queue.h
+    summary: |
+      Asynchronously run a functor on a thread [`Run()`](xref:classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4)ning the [`CompletionQueue`](xref:classgoogle_1_1cloud_1_1CompletionQueue). 
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1aec5b6997c267651ea3761567306e4585
+    name: "AsyncWaitConnectionReady(std::shared_ptr< grpc::Channel >, std::chrono::system_clock::time_point)"
+    fullName: |
+      google::cloud::CompletionQueue::AsyncWaitConnectionReady
+    id: classgoogle_1_1cloud_1_1CompletionQueue_1aec5b6997c267651ea3761567306e4585
+    parent: classgoogle_1_1cloud_1_1CompletionQueue
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        future< Status >
+        google::cloud::CompletionQueue::AsyncWaitConnectionReady (
+            std::shared_ptr< grpc::Channel > channel,
+            std::chrono::system_clock::time_point deadline
+          )
+      return:
+        type:
+          - "future< Status >"
+        description: |
+          `future<>` which will be satisfied when either of these events happen: (a) the connection is ready, (b) the connection permanently failed, (c) deadline passes before (a) or (b) happen; the future will be satisfied with [`StatusCode::kOk`](xref:namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a) for (a), [`StatusCode::kCancelled`](xref:namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a971493a769ad0aed23946733ede4a8f1) for (b) and [`StatusCode::kDeadlineExceeded`](xref:namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847a4d40d05ef9a0c7b22fb80d1bbf8a72df) for (c) 
+      parameters:
+        - id: channel
+          var_type: "std::shared_ptr&lt; grpc::Channel &gt;"
+          description: |
+            the channel on which to wait for state changes 
+        - id: deadline
+          var_type: "std::chrono::system_clock::time_point"
+          description: |
+            give up waiting for the state change if this deadline passes 
+      source:
+        id: AsyncWaitConnectionReady
+        path: google/cloud/completion_queue.h
+        startLine: 274
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/completion_queue.h
+    summary: |
+      Asynchronously wait for a connection to become ready. 
+references:
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue
+    name: google::cloud::CompletionQueue
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1aa97c0beefb121dd6edfec5575196f1e7
+    name: google::cloud::CompletionQueue::CompletionQueue
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1a743c36b17b5d9201132620def0584658
+    name: google::cloud::CompletionQueue::CompletionQueue
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4
+    name: google::cloud::CompletionQueue::Run
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1af69536be75d6157fbd8fafe1a88f7233
+    name: google::cloud::CompletionQueue::Shutdown
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1a5e95a325b49eb1b087ee8c318c4c2234
+    name: google::cloud::CompletionQueue::CancelAll
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1ae98eaa1bf1210e6a3773e091e93a730e
+    name: google::cloud::CompletionQueue::MakeDeadlineTimer
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1a760d68ec606a03ab8cc80eea8bd965b3
+    name: google::cloud::CompletionQueue::MakeRelativeTimer
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1a7dc90cac7ff19ef85b136b9581cb7e5d
+    name: google::cloud::CompletionQueue::MakeUnaryRpc
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1a1a953c10106be1b0135eacafa29f9b45
+    name: google::cloud::CompletionQueue::MakeStreamingReadRpc
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1af84eb273575b989bbf8049fe5eb64df5
+    name: google::cloud::CompletionQueue::RunAsync
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1af84eb273575b989bbf8049fe5eb64df5
+    name: google::cloud::CompletionQueue::RunAsync
+  - uid: classgoogle_1_1cloud_1_1CompletionQueue_1aec5b6997c267651ea3761567306e4585
+    name: google::cloud::CompletionQueue::AsyncWaitConnectionReady

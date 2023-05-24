@@ -1,0 +1,734 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="classgoogle_1_1cloud_1_1ConnectionOptions">
+<h1 class="page-title">Class ConnectionOptions&lt;ConnectionTraits&gt; (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>The configuration parameters for client connections. </p>
+</div>
+  <div class="markdown level0 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> instead. 
+</aside>
+</div>
+  <h2 id="constructors">Constructors
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1a014d08059dd0482b8c74a52ae32d29ec" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1a014d08059dd0482b8c74a52ae32d29ec" class="notranslate">ConnectionOptions()</h3>
+  <div class="markdown level1 summary"><p>The default options, using <code>grpc::GoogleDefaultCredentials()</code>. </p>
+</div>
+  <div class="markdown level1 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> instead. 
+</aside>
+</div>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1aded28068ff75c1b5fd20e37ecdb7a2b4" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1aded28068ff75c1b5fd20e37ecdb7a2b4" class="notranslate">ConnectionOptions(std::shared_ptr&lt; grpc::ChannelCredentials &gt;)</h3>
+  <div class="markdown level1 summary"><p>The default options, using an explicit credentials object. </p>
+</div>
+  <div class="markdown level1 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> instead. 
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>credentials</code></td>
+        <td>
+          <code>std::shared_ptr&lt; grpc::ChannelCredentials &gt;</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="functions">Functions
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1abe5d598cf3cfdc4eadd4dafd9a0e0cfb" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1abe5d598cf3cfdc4eadd4dafd9a0e0cfb" class="notranslate">set_credentials(std::shared_ptr&lt; grpc::ChannelCredentials &gt;)</h3>
+  <div class="markdown level1 summary"><p>Change the gRPC credentials value. </p>
+</div>
+  <div class="markdown level1 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <a class="xref" href="structgoogle_1_1cloud_1_1UnifiedCredentialsOption.html"><code>UnifiedCredentialsOption</code></a>. 
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>v</code></td>
+        <td>
+          <code>std::shared_ptr&lt; grpc::ChannelCredentials &gt;</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">ConnectionOptions &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1a559aad8ffc196726743a1290103e28eb" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1a559aad8ffc196726743a1290103e28eb" class="notranslate">credentials() const</h3>
+  <div class="markdown level1 summary"><p>The gRPC credentials used by clients configured with this object. </p>
+</div>
+  <div class="markdown level1 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <a class="xref" href="structgoogle_1_1cloud_1_1UnifiedCredentialsOption.html"><code>UnifiedCredentialsOption</code></a>. 
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">std::shared_ptr&lt; grpc::ChannelCredentials &gt;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1abb2ecfc7d50420c53ef4721ed70b33c6" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1abb2ecfc7d50420c53ef4721ed70b33c6" class="notranslate">set_endpoint(std::string)</h3>
+  <div class="markdown level1 summary"><p>Change the gRPC endpoint. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>In almost all cases the default is the correct endpoint to use. Applications may need to be changed to (1) test against a fake or simulator, or (2) to use a beta or EAP version of the service.</p>
+<p>The default value is set by <code>ConnectionTraits::default_endpoint()</code>.</p>
+<aside class="deprecated"><b>Deprecated:</b>
+
+
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <a class="xref" href="structgoogle_1_1cloud_1_1EndpointOption.html"><code>EndpointOption</code></a>. 
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>v</code></td>
+        <td>
+          <code>std::string</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">ConnectionOptions &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1a609f5dc4ceba1e2a98d585e95a13e792" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1a609f5dc4ceba1e2a98d585e95a13e792" class="notranslate">endpoint() const</h3>
+  <div class="markdown level1 summary"><p>The endpoint used by clients configured with this object. </p>
+</div>
+  <div class="markdown level1 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <a class="xref" href="structgoogle_1_1cloud_1_1EndpointOption.html"><code>EndpointOption</code></a>. 
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">std::string const &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1a3a6de10c915ca2129c825dc44818b996" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1a3a6de10c915ca2129c825dc44818b996" class="notranslate">num_channels() const</h3>
+  <div class="markdown level1 summary"><p>The number of transport channels to create. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>Some transports limit the number of simultaneous calls in progress on a channel (for gRPC the limit is 100). Increasing the number of channels thus increases the number of operations that can be in progress in parallel.</p>
+<p>The default value is set by <code>ConnectionTraits::default_num_channels()</code>.</p>
+<aside class="deprecated"><b>Deprecated:</b>
+
+
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <a class="xref" href="structgoogle_1_1cloud_1_1GrpcNumChannelsOption.html"><code>GrpcNumChannelsOption</code></a>
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">int</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1abcf2f6f68b967c20aecaeca56cca2814" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1abcf2f6f68b967c20aecaeca56cca2814" class="notranslate">set_num_channels(int)</h3>
+  <div class="markdown level1 summary"><p>Set the value for <a class="xref" href="classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a3a6de10c915ca2129c825dc44818b996"><code>num_channels()</code></a>. </p>
+</div>
+  <div class="markdown level1 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <a class="xref" href="structgoogle_1_1cloud_1_1GrpcNumChannelsOption.html"><code>GrpcNumChannelsOption</code></a>
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>num_channels</code></td>
+        <td>
+          <code>int</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">ConnectionOptions &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1a634acc56b4ba2236d8ba918662a6b859" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1a634acc56b4ba2236d8ba918662a6b859" class="notranslate">tracing_enabled(std::string const &amp;) const</h3>
+  <div class="markdown level1 summary"><p>Return whether tracing is enabled for the given <code>component</code>. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>The C++ clients can log interesting events to help library and application developers troubleshoot problems. This flag returns true if tracing should be enabled by clients configured with this option.</p>
+<aside class="deprecated"><b>Deprecated:</b>
+
+
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a>
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>component</code></td>
+        <td>
+          <code>std::string const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">bool</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1a33a14176b143f87becf17c1db408163b" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1a33a14176b143f87becf17c1db408163b" class="notranslate">enable_tracing(std::string const &amp;)</h3>
+  <div class="markdown level1 summary"><p>Enable tracing for <code>component</code> in clients configured with this object. </p>
+</div>
+  <div class="markdown level1 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a>
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>component</code></td>
+        <td>
+          <code>std::string const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">ConnectionOptions &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1a3143dce67dd3d5e652fd47df605e8faf" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1a3143dce67dd3d5e652fd47df605e8faf" class="notranslate">disable_tracing(std::string const &amp;)</h3>
+  <div class="markdown level1 summary"><p>Disable tracing for <code>component</code> in clients configured with this object. </p>
+</div>
+  <div class="markdown level1 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a>
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>component</code></td>
+        <td>
+          <code>std::string const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">ConnectionOptions &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1a67dbaf1d7000594cab3d7e2b9a46b660" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1a67dbaf1d7000594cab3d7e2b9a46b660" class="notranslate">components() const</h3>
+  <div class="markdown level1 summary"><p>Return the set of tracing components. </p>
+</div>
+  <div class="markdown level1 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a>
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">std::set&lt; std::string &gt; const &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1add38cfda2c0c8a541883cef94e0cede9" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1add38cfda2c0c8a541883cef94e0cede9" class="notranslate">tracing_options() const</h3>
+  <div class="markdown level1 summary"><p>Return the options for use when tracing RPCs. </p>
+</div>
+  <div class="markdown level1 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <code>GrpcTracingOption</code>
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">TracingOptions const &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1a071230426369b780e3ab13c29c71f32d" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1a071230426369b780e3ab13c29c71f32d" class="notranslate">channel_pool_domain() const</h3>
+  <div class="markdown level1 summary"><p>Define the gRPC channel domain for clients configured with this object. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>In some cases applications may want to use a separate gRPC connections for different clients. gRPC may share the connection used by separate channels created with the same configuration. The client objects created with this object will create gRPC channels configured with <code>grpc.channel_pooling_domain</code> set to the value returned by <a class="xref" href="classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a071230426369b780e3ab13c29c71f32d"><code>channel_pool_domain()</code></a>. gRPC channels with different values for <code>grpc.channel_pooling_domain</code> are guaranteed to use different connections. Note that there is no guarantee that channels with the same value will have the same connection though.</p>
+<p>This option might be useful for applications that want to segregate traffic for whatever reason.</p>
+<aside class="deprecated"><b>Deprecated:</b>
+
+
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <code>GrpcChannelsArgumentsOption</code>
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">std::string const &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1a0b03e828d2f2f1507102e468a65ea1cc" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1a0b03e828d2f2f1507102e468a65ea1cc" class="notranslate">set_channel_pool_domain(std::string)</h3>
+  <div class="markdown level1 summary"><p>Set the value for <a class="xref" href="classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1a071230426369b780e3ab13c29c71f32d"><code>channel_pool_domain()</code></a>. </p>
+</div>
+  <div class="markdown level1 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <code>GrpcChannelsArgumentsOption</code>
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>v</code></td>
+        <td>
+          <code>std::string</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">ConnectionOptions &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1ab21f86704d7d5df59664e4c33986715f" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1ab21f86704d7d5df59664e4c33986715f" class="notranslate">add_user_agent_prefix(std::string)</h3>
+  <div class="markdown level1 summary"><p>Prepend <code>prefix</code> to the user-agent string. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>Libraries or services that use Cloud C++ clients may want to set their own user-agent prefix. This can help them develop telemetry information about number of users running particular versions of their system or library.</p>
+<aside class="deprecated"><b>Deprecated:</b>
+
+
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <a class="xref" href="structgoogle_1_1cloud_1_1UserAgentProductsOption.html"><code>UserAgentProductsOption</code></a>
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>prefix</code></td>
+        <td>
+          <code>std::string</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">ConnectionOptions &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1a877ff9ed24fce99d2a64cb9a158a920d" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1a877ff9ed24fce99d2a64cb9a158a920d" class="notranslate">user_agent_prefix() const</h3>
+  <div class="markdown level1 summary"><p>Return the current value for the user agent string. </p>
+</div>
+  <div class="markdown level1 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <a class="xref" href="structgoogle_1_1cloud_1_1UserAgentProductsOption.html"><code>UserAgentProductsOption</code></a>. 
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">std::string const &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1a77ce8aa80fdcce81c72a0db6533db8b0" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1a77ce8aa80fdcce81c72a0db6533db8b0" class="notranslate">CreateChannelArguments() const</h3>
+  <div class="markdown level1 summary"><p>Create a new <code>grpc::ChannelArguments</code> configured with the options in this object. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>The caller would typically pass this argument to <code>grpc::CreateCustomChannel</code> and create one more more gRPC channels.</p>
+<aside class="deprecated"><b>Deprecated:</b>
+
+
+Not intended for use in application code. There is no alternative implemented or planned. 
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">grpc::ChannelArguments</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1a2111a32e661fadb78048bc77c4f94f54" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1a2111a32e661fadb78048bc77c4f94f54" class="notranslate">set_background_thread_pool_size(std::size_t)</h3>
+  <div class="markdown level1 summary"><p>Set the number of background threads. </p>
+</div>
+  <div class="markdown level1 conceptual"><aside class="note"><b>Note:</b>
+This value is not used if <a class="xref" href="classgoogle_1_1cloud_1_1ConnectionOptions.html#classgoogle_1_1cloud_1_1ConnectionOptions_1ae6065c5f7db873ad6ac3df86291a573d"><code>DisableBackgroundThreads()</code></a> is called.
+</aside><aside class="deprecated"><b>Deprecated:</b>
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <a class="xref" href="structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption.html"><code>GrpcBackgroundThreadPoolSizeOption</code></a>
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>s</code></td>
+        <td>
+          <code>std::size_t</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">ConnectionOptions &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1a1fcb13945aa3ae97f552892178ffe387" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1a1fcb13945aa3ae97f552892178ffe387" class="notranslate">background_thread_pool_size() const</h3>
+  <div class="markdown level1 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <a class="xref" href="structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption.html"><code>GrpcBackgroundThreadPoolSizeOption</code></a>. 
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">std::size_t</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1ae6065c5f7db873ad6ac3df86291a573d" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1ae6065c5f7db873ad6ac3df86291a573d" class="notranslate">DisableBackgroundThreads(google::cloud::CompletionQueue const &amp;)</h3>
+  <div class="markdown level1 summary"><p>Configure the connection to use <code>cq</code> for all background work. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>Connections need to perform background work on behalf of the application. Normally they just create a background thread and a <a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html"><code>CompletionQueue</code></a> for this work, but the application may need more fine-grained control of their threads. In this case the application can provide the <a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html"><code>CompletionQueue</code></a> and it assumes responsibility for creating one or more threads blocked on <a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html#classgoogle_1_1cloud_1_1CompletionQueue_1a9803235c77d3838d14b81f5200b204c4"><code>CompletionQueue::Run()</code></a>.</p>
+<aside class="deprecated"><b>Deprecated:</b>
+
+
+Use <a class="xref" href="classgoogle_1_1cloud_1_1Options.html"><code>Options</code></a> and <a class="xref" href="structgoogle_1_1cloud_1_1GrpcCompletionQueueOption.html"><code>GrpcCompletionQueueOption</code></a>
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>cq</code></td>
+        <td>
+          <code>google::cloud::CompletionQueue const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">ConnectionOptions &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1a31b16872029e8bb854bd59cf52ce1794" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1a31b16872029e8bb854bd59cf52ce1794" class="notranslate">background_threads_factory() const</h3>
+  <div class="markdown level1 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+Not intended for applications to use. There is no alternative implemented or planned. 
+</aside>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">BackgroundThreadsFactory</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="typealiases"></h2>
+  <h3 id="classgoogle_1_1cloud_1_1ConnectionOptions_1a041758d537570967fa7fcc73e314489f" data-uid="classgoogle_1_1cloud_1_1ConnectionOptions_1a041758d537570967fa7fcc73e314489f" class="notranslate">BackgroundThreadsFactory</h3>
+  <div class="level1 summary">
+    <strong>Alias Of</strong>: <code>::google::cloud::BackgroundThreadsFactory</code>
+
+  </div>
+  <div class="markdown level1 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+Prefer using <a class="xref" href="namespacegoogle_1_1cloud.html"><code>google::cloud::BackgroundThreadsFactory</code></a>. 
+</aside>
+</div>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

@@ -1,0 +1,52 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1DelegatesOption
+    name: "DelegatesOption"
+    id: structgoogle_1_1cloud_1_1DelegatesOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/credentials.h>
+        struct google::cloud::DelegatesOption { ... };
+      source:
+        id: google::cloud::DelegatesOption
+        path: google/cloud/credentials.h
+        startLine: 280
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/credentials.h
+    summary: |
+      Configure the delegates for [`MakeImpersonateServiceAccountCredentials()`](xref:group__guac_1ga5b10de8aaba7ac9cefcea94b3d195bc1)
+    children:
+      - structgoogle_1_1cloud_1_1DelegatesOption_1a6cc48715b5f857de1ab3c7d4a49918c6
+  - uid: structgoogle_1_1cloud_1_1DelegatesOption_1a6cc48715b5f857de1ab3c7d4a49918c6
+    name: "Type"
+    fullName: "google::cloud::DelegatesOption::Type"
+    id: structgoogle_1_1cloud_1_1DelegatesOption_1a6cc48715b5f857de1ab3c7d4a49918c6
+    parent: structgoogle_1_1cloud_1_1DelegatesOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::DelegatesOption::Type =
+          std::vector< std::string >;
+      aliasof: |
+        <code>std::vector&lt; std::string &gt;</code>
+      source:
+        id: Type
+        path: google/cloud/credentials.h
+        startLine: 281
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/credentials.h
+references:
+  - uid: structgoogle_1_1cloud_1_1DelegatesOption
+    name: google::cloud::DelegatesOption
+  - uid: structgoogle_1_1cloud_1_1DelegatesOption_1a6cc48715b5f857de1ab3c7d4a49918c6
+    name: google::cloud::DelegatesOption::Type

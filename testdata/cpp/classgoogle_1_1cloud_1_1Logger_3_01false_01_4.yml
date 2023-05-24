@@ -1,0 +1,160 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1Logger_3_01false_01_4
+    name: "Logger< false >"
+    id: classgoogle_1_1cloud_1_1Logger_3_01false_01_4
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/log.h>
+        template <>
+        class google::cloud::Logger< false > { ... };
+      source:
+        id: google::cloud::Logger< false >
+        path: google/cloud/log.h
+        startLine: 370
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Define the logger for a disabled log level. 
+    children:
+      - classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1a7c26a019649d2aae6f00e9937ca6bfb8
+      - classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ad6682042718b825eb2c9c9bc1dd7d026
+      - classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ad27ccd0a05917104e8704f6013091abc
+      - classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ab35c4b46d1271c2e285845d45ecd1321
+  - uid: classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1a7c26a019649d2aae6f00e9937ca6bfb8
+    name: "enabled() const"
+    fullName: |
+      google::cloud::Logger< false >::enabled
+    id: classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1a7c26a019649d2aae6f00e9937ca6bfb8
+    parent: classgoogle_1_1cloud_1_1Logger_3_01false_01_4
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        bool
+        google::cloud::Logger< false >::enabled ()
+      return:
+        type:
+          - "bool"
+      source:
+        id: enabled
+        path: google/cloud/log.h
+        startLine: 384
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Trivial implementations that meet the generic Logger<bool> interface.
+  - uid: classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ad6682042718b825eb2c9c9bc1dd7d026
+    name: "LogTo(LogSink &)"
+    fullName: |
+      google::cloud::Logger< false >::LogTo
+    id: classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ad6682042718b825eb2c9c9bc1dd7d026
+    parent: classgoogle_1_1cloud_1_1Logger_3_01false_01_4
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::Logger< false >::LogTo (
+            LogSink &
+          )
+      return:
+        type:
+          - "void"
+      parameters:
+        - id: ""
+          var_type: "LogSink &"
+      source:
+        id: LogTo
+        path: google/cloud/log.h
+        startLine: 385
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Trivial implementations that meet the generic Logger<bool> interface.
+  - uid: classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ad27ccd0a05917104e8704f6013091abc
+    name: "Stream()"
+    fullName: |
+      google::cloud::Logger< false >::Stream
+    id: classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ad27ccd0a05917104e8704f6013091abc
+    parent: classgoogle_1_1cloud_1_1Logger_3_01false_01_4
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        NullStream
+        google::cloud::Logger< false >::Stream ()
+      return:
+        type:
+          - "NullStream"
+      source:
+        id: Stream
+        path: google/cloud/log.h
+        startLine: 387
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      Trivial implementations that meet the generic Logger<bool> interface.
+  - uid: classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ab35c4b46d1271c2e285845d45ecd1321
+    name: "Logger(Severity, char const *, char const *, int, LogSink &)"
+    fullName: |
+      google::cloud::Logger< false >::Logger
+    id: classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ab35c4b46d1271c2e285845d45ecd1321
+    parent: classgoogle_1_1cloud_1_1Logger_3_01false_01_4
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::Logger< false >::Logger (
+            Severity severity,
+            char const *,
+            char const *,
+            int,
+            LogSink &
+          )
+      parameters:
+        - id: severity
+          var_type: "Severity"
+        - id: ""
+          var_type: "char const *"
+        - id: ""
+          var_type: "char const *"
+        - id: ""
+          var_type: "int"
+        - id: ""
+          var_type: "LogSink &"
+      source:
+        id: Logger
+        path: google/cloud/log.h
+        startLine: 372
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+references:
+  - uid: classgoogle_1_1cloud_1_1Logger_3_01false_01_4
+    name: google::cloud::Logger< false >
+  - uid: classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1a7c26a019649d2aae6f00e9937ca6bfb8
+    name: google::cloud::Logger< false >::enabled
+  - uid: classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ad6682042718b825eb2c9c9bc1dd7d026
+    name: google::cloud::Logger< false >::LogTo
+  - uid: classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ad27ccd0a05917104e8704f6013091abc
+    name: google::cloud::Logger< false >::Stream
+  - uid: classgoogle_1_1cloud_1_1Logger_3_01false_01_4_1ab35c4b46d1271c2e285845d45ecd1321
+    name: google::cloud::Logger< false >::Logger

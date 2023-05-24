@@ -1,0 +1,1179 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="namespacegoogle_1_1cloud">
+<h1 class="page-title">Namespace google::cloud (2.9.0)</h1>
+  
+  <div class="markdown level0 summary"><p>Contains all the Google Cloud C++ Library APIs. </p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h2 id="classes">Classes
+  
+  </h2>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1AsyncOperation.html">AsyncOperation</a></h3>
+        <section><p>Represents a pending asynchronous operation. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1AsyncStreamingReadWriteRpc.html">AsyncStreamingReadWriteRpc&lt;Request, Response&gt;</a></h3>
+        <section><p>A streaming read-write RPC. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1BackgroundThreads.html">BackgroundThreads</a></h3>
+        <section><p>A object representing the background threads available to a Client. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html">CompletionQueue</a></h3>
+        <section><p>Call the functor associated with asynchronous operations when they complete. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1ConnectionOptions.html">ConnectionOptions&lt;ConnectionTraits&gt;</a></h3>
+        <section><p>The configuration parameters for client connections. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1Credentials.html">Credentials</a></h3>
+        <section><p>An opaque representation of the authentication configuration. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1ErrorInfo.html">ErrorInfo</a></h3>
+        <section><p>Describes the cause of the error with structured details. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1future.html">future&lt;T&gt;</a></h3>
+        <section><p>Implement ISO/IEC TS 19571:2016 <code>future&lt;T&gt;</code>. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1future_3_01void_01_4.html">future&lt; void &gt;</a></h3>
+        <section><p>Implement ISO/IEC TS 19571:2016 future for void. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1GenericPollingPolicy.html">GenericPollingPolicy&lt;Retry, Backoff&gt;</a></h3>
+        <section><p>Construct a polling policy from existing Retry and Backoff policies. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1KmsKeyName.html">KmsKeyName</a></h3>
+        <section><p>This class identifies a Google Cloud KMS Key. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1LogBackend.html">LogBackend</a></h3>
+        <section><p>The logging backend interface. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1Logger.html">Logger&lt;bool&gt;</a></h3>
+        <section><p>Define the class to capture a log message. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1Logger_3_01false_01_4.html">Logger&lt; false &gt;</a></h3>
+        <section><p>Define the logger for a disabled log level. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1LogSink.html">LogSink</a></h3>
+        <section><p>A sink to receive log records. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1Options.html">Options</a></h3>
+        <section><p>A class that holds option structs indexed by their type. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1PollingPolicy.html">PollingPolicy</a></h3>
+        <section><p>Control the Cloud C++ client library behavior with respect to polling on long running operations. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1Project.html">Project</a></h3>
+        <section><p>This class identifies a Cloud <a class="xref" href="classgoogle_1_1cloud_1_1Project.html">Project</a>. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1promise.html">promise&lt;T&gt;</a></h3>
+        <section><p>Implement <code>promise&lt;T&gt;</code> as defined in ISO/IEC TS 19571:2016. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1promise_3_01void_01_4.html">promise&lt; void &gt;</a></h3>
+        <section><p>Specialize promise as defined in ISO/IEC TS 19571:2016 for void. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1RuntimeStatusError.html">RuntimeStatusError</a></h3>
+        <section><p>A runtime error that wraps a <a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>google::cloud::Status</code></a>. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1Status.html">Status</a></h3>
+        <section><p>Represents success or an error with info about the error. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html">StatusOr&lt;T&gt;</a></h3>
+        <section><p>Holds a value or a <a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>Status</code></a> indicating why there is no value. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1StreamRange.html">StreamRange&lt;T&gt;</a></h3>
+        <section><p>A <a class="xref" href="classgoogle_1_1cloud_1_1StreamRange.html"><code>StreamRange</code></a><code>&lt;T&gt;</code> is a range of <a class="xref" href="classgoogle_1_1cloud_1_1StatusOr.html"><code>StatusOr</code></a><code>&lt;T&gt;</code> where the end-of-stream is indicated by a non-OK <a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>Status</code></a>. </p>
+</section>
+        <h3><a class="xref" href="classgoogle_1_1cloud_1_1TracingOptions.html">TracingOptions</a></h3>
+        <section><p>The configuration parameters for RPC/protobuf tracing. </p>
+</section>
+    <h2 id="structs">Structs
+  
+  </h2>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1AccessTokenLifetimeOption.html">AccessTokenLifetimeOption</a></h3>
+        <section><p>Configure the access token lifetime. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1AsyncTimerResult.html">AsyncTimerResult</a></h3>
+        <section><p>The result of an async timer operation. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1AuthorityOption.html">AuthorityOption</a></h3>
+        <section><p>Configure the &quot;authority&quot; attribute. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1CARootsFilePathOption.html">CARootsFilePathOption</a></h3>
+        <section><p>Configures a custom CA (Certificates Authority) certificates file. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1DelegatesOption.html">DelegatesOption</a></h3>
+        <section><p>Configure the delegates for <a class="xref" href="namespacegoogle_1_1cloud.html"><code>MakeImpersonateServiceAccountCredentials()</code></a></p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1EndpointOption.html">EndpointOption</a></h3>
+        <section><p>Change the endpoint. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1ExperimentalTag.html">ExperimentalTag</a></h3>
+        <section><p>An argument type to indicate experimental functions. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1GrpcBackgroundThreadPoolSizeOption.html">GrpcBackgroundThreadPoolSizeOption</a></h3>
+        <section><p>The size of the background thread pool. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1GrpcBackgroundThreadsFactoryOption.html">GrpcBackgroundThreadsFactoryOption</a></h3>
+        <section><p>Changes the <code>BackgroundThreadsFactory</code>. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1GrpcChannelArgumentsNativeOption.html">GrpcChannelArgumentsNativeOption</a></h3>
+        <section><p>The native <code>grpc::ChannelArguments</code> object. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1GrpcChannelArgumentsOption.html">GrpcChannelArgumentsOption</a></h3>
+        <section><p>A string-string map of arguments for <code>grpc::ChannelArguments::SetString</code>. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1GrpcCompletionQueueOption.html">GrpcCompletionQueueOption</a></h3>
+        <section><p>The <a class="xref" href="classgoogle_1_1cloud_1_1CompletionQueue.html"><code>CompletionQueue</code></a> to use for background gRPC work. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1GrpcCredentialOption.html">GrpcCredentialOption</a></h3>
+        <section><p>The gRPC credentials used by clients configured with this object. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1GrpcNumChannelsOption.html">GrpcNumChannelsOption</a></h3>
+        <section><p>The number of transport channels to create. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1GrpcTracingOptionsOption.html">GrpcTracingOptionsOption</a></h3>
+        <section><p>The <a class="xref" href="classgoogle_1_1cloud_1_1TracingOptions.html"><code>TracingOptions</code></a> to use when printing grpc protocol buffer messages. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1LogRecord.html">LogRecord</a></h3>
+        <section><p>Represents a single log message. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1NullStream.html">NullStream</a></h3>
+        <section><p>Implements operator&lt;&lt; for all types, without any effect. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1QuotaUserOption.html">QuotaUserOption</a></h3>
+        <section><p>Configure the QuotaUser system parameter. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1RestTracingOptionsOption.html">RestTracingOptionsOption</a></h3>
+        <section><p>The <a class="xref" href="classgoogle_1_1cloud_1_1TracingOptions.html"><code>TracingOptions</code></a> to use when printing REST transport http messages. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1ScopesOption.html">ScopesOption</a></h3>
+        <section><p>Configure the scopes for <a class="xref" href="namespacegoogle_1_1cloud.html"><code>MakeImpersonateServiceAccountCredentials()</code></a></p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1ServerTimeoutOption.html">ServerTimeoutOption</a></h3>
+        <section><p>Timeout for the server to finish processing the request. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html">TracingComponentsOption</a></h3>
+        <section><p>Return whether tracing is enabled for the given <code>component</code>. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1UnifiedCredentialsOption.html">UnifiedCredentialsOption</a></h3>
+        <section><p>A wrapper to store credentials into an options. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1UserAgentProductsOption.html">UserAgentProductsOption</a></h3>
+        <section><p>User-agent products to include with each request. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1UserIpOption.html">UserIpOption</a></h3>
+        <section><p>Configure the UserIp query parameter. </p>
+</section>
+        <h3><a class="xref" href="structgoogle_1_1cloud_1_1UserProjectOption.html">UserProjectOption</a></h3>
+        <section><p>Specifies a project for quota and billing purposes. </p>
+</section>
+    <h2 id="enums">Enums
+  
+  </h2>
+        <h3><a class="xref" href="namespacegoogle_1_1cloud_1a7d65fd569564712b7cfe652613f30d9c.html">Idempotency</a></h3>
+        <section><p>Whether a request is <a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a>. </p>
+</section>
+        <h3><a class="xref" href="namespacegoogle_1_1cloud_1aeeb9b9a1eeb3fc7f6ff13bd078172922.html">Severity</a></h3>
+        <section><p>Define the severity levels for Google Cloud Platform C++ Libraries logging. </p>
+</section>
+        <h3><a class="xref" href="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html">StatusCode</a></h3>
+        <section><p>Well-known status codes with <code>grpc::StatusCode</code>-compatible values. </p>
+</section>
+    <h2 id="functions">Functions
+  
+  </h2>
+        <h3 id="group__guac_1ga5d87aa265cd139ab190d7490b8a85c09" data-uid="group__guac_1ga5d87aa265cd139ab190d7490b8a85c09" class="notranslate">MakeInsecureCredentials(Options)</h3>
+        <div class="markdown level1 summary"><p>Create insecure (aka anonymous, aka unauthenticated) credentials. </p>
+</div>
+        <div class="markdown level1 conceptual"><p>These credentials are mostly intended for testing. Integration tests running against an emulator do not need to authenticate. In fact, it may be impossible to connect to an emulator using SSL/TLS because the emulators typically run without secure communication.</p>
+<p>In addition, unit tests may benefit from using these credentials: loading the default credentials unnecessarily slows down the unit tests, and in some CI environments the credentials may fail to load, creating confusing warnings and sometimes even errors.</p>
+</div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameter</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>opts</code></td>
+              <td><code></code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
+
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">std::shared_ptr&lt; Credentials &gt;</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="group__guac_1gae42afce56cd78e04c6aca74337829b38" data-uid="group__guac_1gae42afce56cd78e04c6aca74337829b38" class="notranslate">MakeGoogleDefaultCredentials(Options)</h3>
+        <div class="markdown level1 summary"><p>Creates the default credentials. </p>
+</div>
+        <div class="markdown level1 conceptual"><p>These are the most commonly used credentials, and are expected to meet the needs of most applications. The Google Default <a class="xref" href="classgoogle_1_1cloud_1_1Credentials.html">Credentials</a> conform to <a href="https://google.aip.dev/auth/4110">aip/4110</a>. Consider using these credentials when:</p>
+<ul>
+<li>Your application is deployed to a GCP environment such as GCE, GKE, or Cloud Run. Each of these deployment environments provides a default service account to the application, and offers mechanisms to change the default credentials without any code changes to your application.</li>
+<li>You are testing or developing the application on a workstation (physical or virtual). These credentials will use your preferences as set with <a href="https://cloud.google.com/sdk/gcloud/reference/auth/application-default">gcloud auth application-default</a>. These preferences can be your own GCP user credentials, or some service account.</li>
+<li>Regardless of where your application is running, you can use the <code>GOOGLE_APPLICATION_CREDENTIALS</code> environment variable to override the defaults. This environment variable should point to a file containing a service account key file, or a JSON object describing your user credentials.</li>
+</ul>
+<h6 id="see-also">See Also</h6>
+<p><a href="https://cloud.google.com/docs/authentication">https://cloud.google.com/docs/authentication</a> for more information on authentication in GCP.</p>
+</div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameter</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>opts</code></td>
+              <td><code></code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
+
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">std::shared_ptr&lt; Credentials &gt;</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="group__guac_1ga51e8f3c130c4f0f8457c5f9e4bf5e013" data-uid="group__guac_1ga51e8f3c130c4f0f8457c5f9e4bf5e013" class="notranslate">MakeAccessTokenCredentials(std::string const &amp;, std::chrono::system_clock::time_point, Options)</h3>
+        <div class="markdown level1 summary"><p>Creates credentials with a fixed access token. </p>
+</div>
+        <div class="markdown level1 conceptual"><p>These credentials are useful when using an out-of-band mechanism to fetch access tokens. Note that access tokens are time limited, you will need to manually refresh the tokens created by the</p>
+<h6 id="see-also">See Also</h6>
+<p><a href="https://cloud.google.com/docs/authentication">https://cloud.google.com/docs/authentication</a> for more information on authentication in GCP.</p>
+</div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameters</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>access_token</code></td>
+              <td><code></code><br><p>the access token to be used by the client library. </p>
+
+  </td>
+            </tr>
+            <tr>
+              <td><code>expiration</code></td>
+              <td><code></code><br><p>the expiration time for the token. </p>
+
+  </td>
+            </tr>
+            <tr>
+              <td><code>opts</code></td>
+              <td><code></code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
+
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">std::shared_ptr&lt; Credentials &gt;</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="group__guac_1ga5b10de8aaba7ac9cefcea94b3d195bc1" data-uid="group__guac_1ga5b10de8aaba7ac9cefcea94b3d195bc1" class="notranslate">MakeImpersonateServiceAccountCredentials(std::shared_ptr&lt; Credentials &gt;, std::string, Options)</h3>
+        <div class="markdown level1 summary"><p>Creates credentials for service account impersonation. </p>
+</div>
+        <div class="markdown level1 conceptual"><p>Service account impersonation allows one account (user or service account) to <em>act as</em> a second account. This can be useful in multi-tenant services, where the service may perform some actions with an specific account associated with a tenant. The tenant can grant or restrict permissions to this tenant account.</p>
+<p>When using service account impersonation is important to distinguish between the credentials used to <em>obtain</em> the target account credentials (the <code>base_credentials</code>) parameter, and the credentials representing the <code>target_service_account</code>.</p>
+<p>Use <a class="xref" href="structgoogle_1_1cloud_1_1AccessTokenLifetimeOption.html"><code>AccessTokenLifetimeOption</code></a> to configure the maximum lifetime of the obtained credentials. The default is 1h (3600s), see <a href="https://cloud.google.com/iam/quotas">IAM quotas</a> for the limits set by the platform and how to override them.</p>
+<p>Use <a class="xref" href="structgoogle_1_1cloud_1_1DelegatesOption.html"><code>DelegatesOption</code></a> to configure a sequence of intermediate service account, each of which has permissions to impersonate the next and the last one has permissions to impersonate <code>target_service_account</code>.</p>
+<p>Use <a class="xref" href="structgoogle_1_1cloud_1_1ScopesOption.html"><code>ScopesOption</code></a> to restrict the authentication scope for the obtained credentials. See below for possible values.</p>
+<h6 id="see-also">See Also</h6>
+<p><a href="https://cloud.google.com/docs/authentication">https://cloud.google.com/docs/authentication</a> for more information on authentication in GCP. </p>
+<h6 id="see-also-1">See Also</h6>
+<p><a href="https://cloud.google.com/iam/docs/impersonating-service-accounts">https://cloud.google.com/iam/docs/impersonating-service-accounts</a> for information on managing service account impersonation. </p>
+<h6 id="see-also-2">See Also</h6>
+<p><a href="https://developers.google.com/identity/protocols/oauth2/scopes">https://developers.google.com/identity/protocols/oauth2/scopes</a> for authentication scopes in Google Cloud Platform.</p>
+</div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameters</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>base_credentials</code></td>
+              <td><code></code><br><p>the credentials used to contact the IAM <a class="xref" href="classgoogle_1_1cloud_1_1Credentials.html">Credentials</a> services. </p>
+
+  </td>
+            </tr>
+            <tr>
+              <td><code>target_service_account</code></td>
+              <td><code></code><br><p>the email address of the service account to impersonate. </p>
+
+  </td>
+            </tr>
+            <tr>
+              <td><code>opts</code></td>
+              <td><code></code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
+
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">std::shared_ptr&lt; Credentials &gt;</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="group__guac_1ga0f2d23032efe73d17745a5f53112b918" data-uid="group__guac_1ga0f2d23032efe73d17745a5f53112b918" class="notranslate">MakeServiceAccountCredentials(std::string, Options)</h3>
+        <div class="markdown level1 summary"><p>Creates service account credentials from a service account key. </p>
+</div>
+        <div class="markdown level1 conceptual"><p>A <a href="https://cloud.google.com/iam/docs/overview#service_account">service account</a> is an account for an application or compute workload instead of an individual end user. The recommended practice is to use Google Default <a class="xref" href="classgoogle_1_1cloud_1_1Credentials.html">Credentials</a>, which relies on the configuration of the Google Cloud system hosting your application (GCE, GKE, Cloud Run) to authenticate your workload or application. But sometimes you may need to create and download a <a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys#iam-service-account-keys-create-cpp">service account key</a>, for example, to use a service account when running your application on a system that is not part of Google Cloud.</p>
+<p>Service account credentials are used in this latter case.</p>
+<p>You can create multiple service account keys for a single service account. When you create a service account key, the key is returned as string, in the format described by <a href="https://google.aip.dev/auth/4112">aip/4112</a>. This string contains an id for the service account, as well as the cryptographical materials (a RSA private key) required to authenticate the caller.</p>
+<p>Therefore, services account keys should be treated as any other secret with security implications. Think of them as unencrypted passwords. Do not store them where unauthorized persons or programs may read them.</p>
+<p>As stated above, most applications should probably use default credentials, maybe pointing them to a file with these contents. Using this function may be useful when the service account key is obtained from Cloud Secret Manager or a similar service.</p>
+</div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameters</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>json_object</code></td>
+              <td><code></code><br><p>the service account configuration as a JSON string. Typically applications read this from a file, or download the contents from something like Google&#39;s secret manager service. </p>
+
+  </td>
+            </tr>
+            <tr>
+              <td><code>opts</code></td>
+              <td><code></code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
+
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">std::shared_ptr&lt; Credentials &gt;</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="group__guac_1ga75e5dbea7079dbb177fe6f7e8bd6edb5" data-uid="group__guac_1ga75e5dbea7079dbb177fe6f7e8bd6edb5" class="notranslate">MakeExternalAccountCredentials(std::string, Options)</h3>
+        <div class="markdown level1 summary"><p>Creates credentials based on external accounts. </p>
+</div>
+        <div class="markdown level1 conceptual"><p><a href="https://cloud.google.com/iam/docs/workload-identity-federation">Workload Identity Federation</a> can grant on-premises or multi-cloud workloads access to Google Cloud resources, without using a service account key. You can use identity federation with Amazon Web Services (AWS), or with any identity provider that supports OpenID Connect (OIDC), such as Microsoft Azure, or SAML 2.0.</p>
+<h6 id="see-also">See Also</h6>
+<p><a href="https://cloud.google.com/docs/authentication">https://cloud.google.com/docs/authentication</a> for more information on authentication in GCP.</p>
+</div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameters</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>json_object</code></td>
+              <td><code></code><br><p>the external account configuration as a JSON string. Typically applications read this from a file, or download the contents from something like Google&#39;s secret manager service. The configuration file can be created using the <a href="https://cloud.google.com/sdk/gcloud/reference/iam/workload-identity-pools/create-cred-config">create-cred-config</a><code>gcloud</code> subcommand. </p>
+
+  </td>
+            </tr>
+            <tr>
+              <td><code>opts</code></td>
+              <td><code></code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
+
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">std::shared_ptr&lt; Credentials &gt;</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="namespacegoogle_1_1cloud_1a98fd06a132f38a5222e640aa33260aa0" data-uid="namespacegoogle_1_1cloud_1a98fd06a132f38a5222e640aa33260aa0" class="notranslate">make_ready_future(T &amp;&amp;)</h3>
+        <div class="markdown level1 summary"><p>Create a <a class="xref" href="classgoogle_1_1cloud_1_1future_3_01void_01_4.html">future<void></void></a> that is immediately ready. </p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameters</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>t</code></td>
+              <td><code></code><br>
+  </td>
+            </tr>
+            <tr>
+              <td><code>typename T</code></td>
+              <td><code></code><br>
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">future&lt; typename internal::make_ready_return&lt; T &gt;::type &gt;</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="namespacegoogle_1_1cloud_1a9b99a7ce2d0d1335c39885d71003767b" data-uid="namespacegoogle_1_1cloud_1a9b99a7ce2d0d1335c39885d71003767b" class="notranslate">make_ready_future()</h3>
+        <div class="markdown level1 summary"><p>Create a <a class="xref" href="classgoogle_1_1cloud_1_1future_3_01void_01_4.html">future<void></void></a> that is immediately ready. </p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">future&lt; void &gt;</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="namespacegoogle_1_1cloud_1a0c2b787f31888303e995bc8b390c68b8" data-uid="namespacegoogle_1_1cloud_1a0c2b787f31888303e995bc8b390c68b8" class="notranslate">MakeStatusFromRpcError(grpc::Status const &amp;)</h3>
+        <div class="markdown level1 summary"><p>Creates a <a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>google::cloud::Status</code></a> from a grpc::Status. </p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameter</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>status</code></td>
+              <td><code></code><br>
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">google::cloud::Status</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="namespacegoogle_1_1cloud_1a9eff450b1f08be2562b45a46ba05f880" data-uid="namespacegoogle_1_1cloud_1a9eff450b1f08be2562b45a46ba05f880" class="notranslate">MakeStatusFromRpcError(grpc::StatusCode, std::string)</h3>
+        <div class="markdown level1 summary"><p>Creates a <a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>google::cloud::Status</code></a> from a grpc::StatusCode and description. </p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameters</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>code</code></td>
+              <td><code></code><br>
+  </td>
+            </tr>
+            <tr>
+              <td><code>what</code></td>
+              <td><code></code><br>
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">google::cloud::Status</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="namespacegoogle_1_1cloud_1ae4dd1dd89c2240c629763690e65a04aa" data-uid="namespacegoogle_1_1cloud_1ae4dd1dd89c2240c629763690e65a04aa" class="notranslate">MakeStatusFromRpcError(google::rpc::Status const &amp;)</h3>
+        <div class="markdown level1 summary"><p>Creates a <a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>google::cloud::Status</code></a> from a <code>google:rpc::</code><a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>Status</code></a> proto. </p>
+</div>
+        <div class="markdown level1 conceptual"><p>Some gRPC services return the <code>google::rpc::Status</code> proto for errors. The libraries in <code>google-cloud-cpp</code> represent these errors using a <a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>google::cloud::Status</code></a>. </p>
+</div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameter</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>proto</code></td>
+              <td><code></code><br>
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">google::cloud::Status</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="namespacegoogle_1_1cloud_1a2487299690c92afa651d0498f107d0d5" data-uid="namespacegoogle_1_1cloud_1a2487299690c92afa651d0498f107d0d5" class="notranslate">MakeKmsKeyName(std::string const &amp;)</h3>
+        <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="classgoogle_1_1cloud_1_1KmsKeyName.html"><code>KmsKeyName</code></a> from the given <code>full_name</code>. </p>
+</div>
+        <div class="markdown level1 conceptual"><p>Returns a non-OK <a class="xref" href="classgoogle_1_1cloud_1_1Status.html">Status</a> if <code>full_name</code> is improperly formed. </p>
+</div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameter</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>full_name</code></td>
+              <td><code></code><br>
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">StatusOr&lt; KmsKeyName &gt;</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="namespacegoogle_1_1cloud_1a950623d6404701c8d363cae839348a3b" data-uid="namespacegoogle_1_1cloud_1a950623d6404701c8d363cae839348a3b" class="notranslate">ParseSeverity(std::string const &amp;)</h3>
+        <div class="markdown level1 summary"><p>Convert a human-readable representation to a Severity. </p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameter</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>name</code></td>
+              <td><code></code><br>
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">absl::optional&lt; Severity &gt;</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="namespacegoogle_1_1cloud_1a5353f90b939473fdd0371d5c5bda6642" data-uid="namespacegoogle_1_1cloud_1a5353f90b939473fdd0371d5c5bda6642" class="notranslate">MakeProject(std::string const &amp;)</h3>
+        <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="classgoogle_1_1cloud_1_1Project.html"><code>Project</code></a> from the given <code>full_name</code>. </p>
+</div>
+        <div class="markdown level1 conceptual"><p>Returns a non-OK <a class="xref" href="classgoogle_1_1cloud_1_1Status.html">Status</a> if <code>full_name</code> is improperly formed. </p>
+</div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameter</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>full_name</code></td>
+              <td><code></code><br>
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">StatusOr&lt; Project &gt;</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="namespacegoogle_1_1cloud_1af2ca2ec19803a761502aed8b36edcdc0" data-uid="namespacegoogle_1_1cloud_1af2ca2ec19803a761502aed8b36edcdc0" class="notranslate">StatusCodeToString(StatusCode)</h3>
+        <div class="markdown level1 summary"><p>Convert <code>code</code> to a human readable string. </p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameter</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>code</code></td>
+              <td><code></code><br>
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">std::string</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="namespacegoogle_1_1cloud_1a4bc7c2b44d9aa5ba461c00f7c33f42e9" data-uid="namespacegoogle_1_1cloud_1a4bc7c2b44d9aa5ba461c00f7c33f42e9" class="notranslate">make_status_or(T)</h3>
+        <div class="markdown level1 summary"></div>
+        <div class="markdown level1 conceptual"></div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameters</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>rhs</code></td>
+              <td><code></code><br>
+  </td>
+            </tr>
+            <tr>
+              <td><code>typename T</code></td>
+              <td><code></code><br>
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">StatusOr&lt; T &gt;</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="group__terminate_1ga6182a1baf32421d3572a904044d6089d" data-uid="group__terminate_1ga6182a1baf32421d3572a904044d6089d" class="notranslate">SetTerminateHandler(TerminateHandler)</h3>
+        <div class="markdown level1 summary"><p>Install terminate handler and get the old one atomically. </p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameter</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>f</code></td>
+              <td><code></code><br><p>the handler. It should never return, behaviour is undefined otherwise.</p>
+
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">TerminateHandler</span></code></td>
+              <td><p>Previously set handler. </p>
+</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="group__terminate_1ga121c4576dd45c93c46ab8fa56bafab38" data-uid="group__terminate_1ga121c4576dd45c93c46ab8fa56bafab38" class="notranslate">GetTerminateHandler()</h3>
+        <div class="markdown level1 summary"><p>Get the currently installed handler. </p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">TerminateHandler</span></code></td>
+              <td><p>The currently installed handler. </p>
+</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="group__terminate_1gac5d2d48b27f2cd1de9075a1c9522f0cf" data-uid="group__terminate_1gac5d2d48b27f2cd1de9075a1c9522f0cf" class="notranslate">Terminate(char const *)</h3>
+        <div class="markdown level1 summary"><p>Invoke the currently installed handler. </p>
+</div>
+        <div class="markdown level1 conceptual"><p>This function should never return. </p>
+</div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Parameter</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Name</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code>msg</code></td>
+              <td><code></code><br><p>Details about the error.</p>
+
+  </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">void</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="namespacegoogle_1_1cloud_1ab83d0a4176eca49778cec5fa16e184bc" data-uid="namespacegoogle_1_1cloud_1ab83d0a4176eca49778cec5fa16e184bc" class="notranslate">version_major()</h3>
+        <div class="markdown level1 summary"><p>The Google Cloud C++ Client major version. </p>
+</div>
+        <div class="markdown level1 conceptual"><h6 id="see-also">See Also</h6>
+<p><a href="https://semver.org/spec/v2.0.0.html">https://semver.org/spec/v2.0.0.html</a> for details. </p>
+</div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">int constexpr</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="namespacegoogle_1_1cloud_1ab694f454e155d3743c02fe50961cd550" data-uid="namespacegoogle_1_1cloud_1ab694f454e155d3743c02fe50961cd550" class="notranslate">version_minor()</h3>
+        <div class="markdown level1 summary"><p>The Google Cloud C++ Client minor version. </p>
+</div>
+        <div class="markdown level1 conceptual"><h6 id="see-also">See Also</h6>
+<p><a href="https://semver.org/spec/v2.0.0.html">https://semver.org/spec/v2.0.0.html</a> for details. </p>
+</div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">int constexpr</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="namespacegoogle_1_1cloud_1afbb9c2c634ef86b85383206010a3167c" data-uid="namespacegoogle_1_1cloud_1afbb9c2c634ef86b85383206010a3167c" class="notranslate">version_patch()</h3>
+        <div class="markdown level1 summary"><p>The Google Cloud C++ Client patch version. </p>
+</div>
+        <div class="markdown level1 conceptual"><h6 id="see-also">See Also</h6>
+<p><a href="https://semver.org/spec/v2.0.0.html">https://semver.org/spec/v2.0.0.html</a> for details. </p>
+</div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">int constexpr</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="namespacegoogle_1_1cloud_1abf812707db77df6745a7e15613c91f7c" data-uid="namespacegoogle_1_1cloud_1abf812707db77df6745a7e15613c91f7c" class="notranslate">version_pre_release()</h3>
+        <div class="markdown level1 summary"><p>The Google Cloud C++ Client pre-release version. </p>
+</div>
+        <div class="markdown level1 conceptual"><h6 id="see-also">See Also</h6>
+<p><a href="https://semver.org/spec/v2.0.0.html">https://semver.org/spec/v2.0.0.html</a> for details. </p>
+</div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">constexpr char const *</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="namespacegoogle_1_1cloud_1a6f3dc1ead401ac30b1c87c46c031d778" data-uid="namespacegoogle_1_1cloud_1a6f3dc1ead401ac30b1c87c46c031d778" class="notranslate">version()</h3>
+        <div class="markdown level1 summary"><p>A single integer representing the Major/Minor/Patch version. </p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">int constexpr</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="namespacegoogle_1_1cloud_1a34af5fbaaafe784cb177bc8a78c552b0" data-uid="namespacegoogle_1_1cloud_1a34af5fbaaafe784cb177bc8a78c552b0" class="notranslate">version_string()</h3>
+        <div class="markdown level1 summary"><p>The version as a string, in MAJOR.MINOR.PATCH[-PRE][+gitrev] format. </p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        <table class="responsive">
+          <tbody>
+            <tr>
+              <th colspan="2"><strong>Returns</strong></th>
+            </tr>
+            <tr>
+              <td><strong>Type</strong></td>
+              <td><strong>Description</strong></td>
+            </tr>
+            <tr>
+              <td><code><span class="xref">std::string</span></code></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        
+    <h2 id="typealiases">Type Aliases
+  
+  </h2>
+        <h3 id="namespacegoogle_1_1cloud_1a7a08fee311943ff399218e534ee86287" data-uid="namespacegoogle_1_1cloud_1a7a08fee311943ff399218e534ee86287" class="notranslate">BackoffPolicy</h3>
+        <div class="level1 summary">
+          <strong>Alias Of</strong>: <code>::google::cloud::internal::BackoffPolicy</code>
+
+        </div>
+        <div class="markdown level1 summary"><p>The base class for backoff policies. </p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+        <h3 id="namespacegoogle_1_1cloud_1af59c1ad2a1697f9e27b25731b1164a07" data-uid="namespacegoogle_1_1cloud_1af59c1ad2a1697f9e27b25731b1164a07" class="notranslate">ExponentialBackoffPolicy</h3>
+        <div class="level1 summary">
+          <strong>Alias Of</strong>: <code>google::cloud::internal::ExponentialBackoffPolicy</code>
+
+        </div>
+        <div class="markdown level1 summary"><p>A truncated exponential backoff policy with randomized periods. </p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+        <h3 id="namespacegoogle_1_1cloud_1a5ba713297ba807c3d561765217339aa1" data-uid="namespacegoogle_1_1cloud_1a5ba713297ba807c3d561765217339aa1" class="notranslate">CommonOptionList</h3>
+        <div class="level1 summary">
+          <strong>Alias Of</strong>: <code>OptionList&lt; EndpointOption, UserAgentProductsOption, TracingComponentsOption, UserProjectOption, AuthorityOption &gt;</code>
+
+        </div>
+        <div class="markdown level1 summary"><p>A list of all the common options. </p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+        <h3 id="namespacegoogle_1_1cloud_1aacce74695aba795178e975a5f791105d" data-uid="namespacegoogle_1_1cloud_1aacce74695aba795178e975a5f791105d" class="notranslate">UnifiedCredentialsOptionList</h3>
+        <div class="level1 summary">
+          <strong>Alias Of</strong>: <code>OptionList&lt; AccessTokenLifetimeOption, CARootsFilePathOption, DelegatesOption, ScopesOption, TracingComponentsOption, UnifiedCredentialsOption &gt;</code>
+
+        </div>
+        <div class="markdown level1 summary"><p>A list of options related to authentication. </p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+        <h3 id="namespacegoogle_1_1cloud_1a1498c1ea55d81842f37bbc42d003df1f" data-uid="namespacegoogle_1_1cloud_1a1498c1ea55d81842f37bbc42d003df1f" class="notranslate">BackgroundThreadsFactory</h3>
+        <div class="level1 summary">
+          <strong>Alias Of</strong>: <code>std::function&lt; std::unique_ptr&lt; BackgroundThreads &gt;()&gt;</code>
+
+        </div>
+        <div class="markdown level1 summary"></div>
+        <div class="markdown level1 conceptual"></div>
+        
+        <h3 id="namespacegoogle_1_1cloud_1ae520379fd5a69cc8a4314a36e024c8df" data-uid="namespacegoogle_1_1cloud_1ae520379fd5a69cc8a4314a36e024c8df" class="notranslate">GrpcOptionList</h3>
+        <div class="level1 summary">
+          <strong>Alias Of</strong>: <code>OptionList&lt; GrpcCredentialOption, GrpcNumChannelsOption, GrpcChannelArgumentsOption, GrpcChannelArgumentsNativeOption, GrpcTracingOptionsOption, GrpcBackgroundThreadPoolSizeOption, GrpcCompletionQueueOption, GrpcBackgroundThreadsFactoryOption &gt;</code>
+
+        </div>
+        <div class="markdown level1 summary"><p>A list of all the gRPC options. </p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+        <h3 id="namespacegoogle_1_1cloud_1a7af1ec26a232eb1d9aa1ab6af7485c8b" data-uid="namespacegoogle_1_1cloud_1a7af1ec26a232eb1d9aa1ab6af7485c8b" class="notranslate">IamUpdater</h3>
+        <div class="level1 summary">
+          <strong>Alias Of</strong>: <code>std::function&lt; absl::optional&lt; google::iam::v1::Policy &gt;(google::iam::v1::Policy)&gt;</code>
+
+        </div>
+        <div class="markdown level1 summary"><p>Used in the <code>SetIamPolicy()</code> read-modify-write cycles where an <code>etag</code> helps prevent simultaneous updates of a policy from overwriting each other. </p>
+</div>
+        <div class="markdown level1 conceptual"><p>The updater is called with a recently fetched policy, and should either return an empty optional if no changes are required, or return a new policy to be set. In the latter case the updater should either (1) set the <code>etag</code> of the returned policy to that of the recently fetched policy (strongly suggested), or (2) not set the <code>etag</code> at all.</p>
+<p>In case (1) if the <code>etag</code> does not match the existing policy (i.e., there has been an intermediate update), this update is dropped and a new cycle is initiated. In case (2) the existing policy is overwritten blindly. </p>
+</div>
+        
+        <h3 id="namespacegoogle_1_1cloud_1aade1afeeffeda6aea3bb2fbdfc2d0d70" data-uid="namespacegoogle_1_1cloud_1aade1afeeffeda6aea3bb2fbdfc2d0d70" class="notranslate">optional</h3>
+        <div class="level1 summary">
+          <strong>Alias Of</strong>: <code>absl::optional&lt; T &gt;</code>
+
+        </div>
+        <div class="markdown level1 summary"><p>Alias template for <a class="xref" href="namespacegoogle_1_1cloud.html"><code>google::cloud::optional</code></a>. </p>
+</div>
+        <div class="markdown level1 conceptual"><aside class="deprecated"><b>Deprecated:</b>
+this alias is deprecated; use <code>absl::optional&lt;T&gt;</code> directly. 
+</aside>
+</div>
+        
+        <h3 id="namespacegoogle_1_1cloud_1ae5bbe5d72f99eb8cb569d932e51f536d" data-uid="namespacegoogle_1_1cloud_1ae5bbe5d72f99eb8cb569d932e51f536d" class="notranslate">OptionList</h3>
+        <div class="level1 summary">
+          <strong>Alias Of</strong>: <code>internal::TypeList&lt; T... &gt;</code>
+
+        </div>
+        <div class="markdown level1 summary"><p>A template to hold a list of &quot;option&quot; types. </p>
+</div>
+        <div class="markdown level1 conceptual"><p>This can be a useful way to create meaningful lists of options. For example, there could be a list containing all the gRPC options. Or a list of all ProductX options. This gives us a way to link to lists of options with doxygen, and to do some checking about what options a function may expect. </p>
+</div>
+        
+        <h3 id="namespacegoogle_1_1cloud_1a79b9f84df668a22278130dafe40762e9" data-uid="namespacegoogle_1_1cloud_1a79b9f84df668a22278130dafe40762e9" class="notranslate">RestOptionList</h3>
+        <div class="level1 summary">
+          <strong>Alias Of</strong>: <code>::google::cloud::OptionList&lt; QuotaUserOption, RestTracingOptionsOption, ServerTimeoutOption, UserIpOption &gt;</code>
+
+        </div>
+        <div class="markdown level1 summary"><p>The complete list of options accepted by <code>CurlRestClient</code></p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+        <h3 id="group__terminate_1gacc215b41a0bf17a7ea762fd5bb205348" data-uid="group__terminate_1gacc215b41a0bf17a7ea762fd5bb205348" class="notranslate">TerminateHandler</h3>
+        <div class="level1 summary">
+          <strong>Alias Of</strong>: <code>std::function&lt; void(char const  *msg)&gt;</code>
+
+        </div>
+        <div class="markdown level1 summary"><p>Terminate handler. </p>
+</div>
+        <div class="markdown level1 conceptual"><p>It should handle the error, whose description are given in <em>msg</em> and should never return. </p>
+</div>
+        
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

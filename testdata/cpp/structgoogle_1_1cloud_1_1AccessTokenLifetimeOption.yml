@@ -1,0 +1,52 @@
+### YamlMime:UniversalReference
+items:
+  - uid: structgoogle_1_1cloud_1_1AccessTokenLifetimeOption
+    name: "AccessTokenLifetimeOption"
+    id: structgoogle_1_1cloud_1_1AccessTokenLifetimeOption
+    parent: ""
+    type: struct
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/credentials.h>
+        struct google::cloud::AccessTokenLifetimeOption { ... };
+      source:
+        id: google::cloud::AccessTokenLifetimeOption
+        path: google/cloud/credentials.h
+        startLine: 300
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/credentials.h
+    summary: |
+      Configure the access token lifetime. 
+    children:
+      - structgoogle_1_1cloud_1_1AccessTokenLifetimeOption_1ad6b8a4672f1c196926849229f62d0de2
+  - uid: structgoogle_1_1cloud_1_1AccessTokenLifetimeOption_1ad6b8a4672f1c196926849229f62d0de2
+    name: "Type"
+    fullName: "google::cloud::AccessTokenLifetimeOption::Type"
+    id: structgoogle_1_1cloud_1_1AccessTokenLifetimeOption_1ad6b8a4672f1c196926849229f62d0de2
+    parent: structgoogle_1_1cloud_1_1AccessTokenLifetimeOption
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::AccessTokenLifetimeOption::Type =
+          std::chrono::seconds;
+      aliasof: |
+        <code>std::chrono::seconds</code>
+      source:
+        id: Type
+        path: google/cloud/credentials.h
+        startLine: 301
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/credentials.h
+references:
+  - uid: structgoogle_1_1cloud_1_1AccessTokenLifetimeOption
+    name: google::cloud::AccessTokenLifetimeOption
+  - uid: structgoogle_1_1cloud_1_1AccessTokenLifetimeOption_1ad6b8a4672f1c196926849229f62d0de2
+    name: google::cloud::AccessTokenLifetimeOption::Type

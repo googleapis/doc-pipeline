@@ -1,0 +1,444 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1StreamRange
+    name: "StreamRange<T>"
+    id: classgoogle_1_1cloud_1_1StreamRange
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/stream_range.h>
+        template <
+            typename T>
+        class google::cloud::StreamRange { ... };
+      source:
+        id: google::cloud::StreamRange
+        path: google/cloud/stream_range.h
+        startLine: 96
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/stream_range.h
+    summary: |
+      A [`StreamRange`](xref:classgoogle_1_1cloud_1_1StreamRange)`<T>` is a range of [`StatusOr`](xref:classgoogle_1_1cloud_1_1StatusOr)`<T>` where the end-of-stream is indicated by a non-OK [`Status`](xref:classgoogle_1_1cloud_1_1Status). 
+    conceptual: |
+      Callers can iterate the range using its [`begin()`](xref:classgoogle_1_1cloud_1_1StreamRange_1a0e71520c598a1649ddd54cca5a0336f8) and [`end()`](xref:classgoogle_1_1cloud_1_1StreamRange_1aab2620724dbe9f681e66544cbe6d37d1) members to access iterators that will work with any normal C++ constructs and algorithms that accept [Input Iterators](https://en.cppreference.com/w/cpp/named_req/InputIterator).
+
+      Callers should only consume/iterate this range.
+
+
+
+      ###### Example: Iterating a range of 10 integers
+
+
+
+      ```cpp
+      // Some function that returns a StreamRange<int>
+      StreamRange<int> MakeRangeFromOneTo(int n);
+
+      StreamRange<int> sr = MakeRangeFromOneTo(10);
+      for (StatusOr<int> const& x : sr) {
+        if (!x) {
+          std::cerr << "Fail: " << x.status() << "\n";
+        } else {
+          std::cout << *x << "\n";
+        }
+      }
+      ```
+
+
+
+      <aside class="note"><b>Note:</b>
+      To construct a [`StreamRange`](xref:classgoogle_1_1cloud_1_1StreamRange)`<T>` for testing (e.g. to mock a `Connection::ListFoo` call), see [`google::cloud::mocks::MakeStreamRange`](xref:namespacegoogle_1_1cloud_1_1mocks_1a1563fd92115349d2e454922c764b991e). 
+      </aside>
+    children:
+      - classgoogle_1_1cloud_1_1StreamRange_1a712af3969dccfcb7ffd005015a8286f9
+      - classgoogle_1_1cloud_1_1StreamRange_1aac8c266c68bdbaa3e6c9a86b2e36b534
+      - classgoogle_1_1cloud_1_1StreamRange_1a925240881f4cb2afaf4b3f6806422eac
+      - classgoogle_1_1cloud_1_1StreamRange_1a09724d141e9e41018f98eebe81e7e87e
+      - classgoogle_1_1cloud_1_1StreamRange_1a717e032ce46abfa423f908143d608c71
+      - classgoogle_1_1cloud_1_1StreamRange_1a546db8a63da273c117ce2cefac0ef3be
+      - classgoogle_1_1cloud_1_1StreamRange_1ae57d3c2448e7e9f8d4e0f9439a0b3d5e
+      - classgoogle_1_1cloud_1_1StreamRange_1a0a6da9738af7a7b84a2eaab8b7b5b575
+      - classgoogle_1_1cloud_1_1StreamRange_1aa943ef32ee6ca8096d91e9f8d00a0b68
+      - classgoogle_1_1cloud_1_1StreamRange_1a46c27d4893b2ff0435cd99364d83c33b
+      - classgoogle_1_1cloud_1_1StreamRange_1affda63a549b55279c6a1768526a4648b
+      - classgoogle_1_1cloud_1_1StreamRange_1a12769e19a893ba3ddd9b87c6b160b7c4
+      - classgoogle_1_1cloud_1_1StreamRange_1a0e71520c598a1649ddd54cca5a0336f8
+      - classgoogle_1_1cloud_1_1StreamRange_1aab2620724dbe9f681e66544cbe6d37d1
+      - classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a712af3969dccfcb7ffd005015a8286f9
+    name: "StreamRange(StreamRange const &)"
+    fullName: |
+      google::cloud::StreamRange::StreamRange
+    id: classgoogle_1_1cloud_1_1StreamRange_1a712af3969dccfcb7ffd005015a8286f9
+    parent: classgoogle_1_1cloud_1_1StreamRange
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::StreamRange::StreamRange (
+            StreamRange const &
+          )
+      parameters:
+        - id: ""
+          var_type: "StreamRange const &"
+      source:
+        id: StreamRange
+        path: google/cloud/stream_range.h
+        startLine: 170
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/stream_range.h
+    summary: |
+      Move-only
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1aac8c266c68bdbaa3e6c9a86b2e36b534
+    name: "operator=(StreamRange const &)"
+    fullName: |
+      google::cloud::StreamRange::operator=
+    id: classgoogle_1_1cloud_1_1StreamRange_1aac8c266c68bdbaa3e6c9a86b2e36b534
+    parent: classgoogle_1_1cloud_1_1StreamRange
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        StreamRange &
+        google::cloud::StreamRange::operator= (
+            StreamRange const &
+          )
+      return:
+        type:
+          - "StreamRange &"
+      parameters:
+        - id: ""
+          var_type: "StreamRange const &"
+      source:
+        id: operator=
+        path: google/cloud/stream_range.h
+        startLine: 171
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/stream_range.h
+    summary: |
+      Move-only
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a925240881f4cb2afaf4b3f6806422eac
+    name: "StreamRange(StreamRange &&)"
+    fullName: |
+      google::cloud::StreamRange::StreamRange
+    id: classgoogle_1_1cloud_1_1StreamRange_1a925240881f4cb2afaf4b3f6806422eac
+    parent: classgoogle_1_1cloud_1_1StreamRange
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::StreamRange::StreamRange (
+            StreamRange &&
+          )
+      parameters:
+        - id: ""
+          var_type: "StreamRange &&"
+      source:
+        id: StreamRange
+        path: google/cloud/stream_range.h
+        startLine: 173
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/stream_range.h
+    summary: |
+      Move-only
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a09724d141e9e41018f98eebe81e7e87e
+    name: "operator=(StreamRange &&)"
+    fullName: |
+      google::cloud::StreamRange::operator=
+    id: classgoogle_1_1cloud_1_1StreamRange_1a09724d141e9e41018f98eebe81e7e87e
+    parent: classgoogle_1_1cloud_1_1StreamRange
+    type: operator
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        StreamRange &
+        google::cloud::StreamRange::operator= (
+            StreamRange &&
+          )
+      return:
+        type:
+          - "StreamRange &"
+      parameters:
+        - id: ""
+          var_type: "StreamRange &&"
+      source:
+        id: operator=
+        path: google/cloud/stream_range.h
+        startLine: 175
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/stream_range.h
+    summary: |
+      Move-only
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a717e032ce46abfa423f908143d608c71
+    name: "value_type"
+    fullName: "google::cloud::StreamRange::value_type"
+    id: classgoogle_1_1cloud_1_1StreamRange_1a717e032ce46abfa423f908143d608c71
+    parent: classgoogle_1_1cloud_1_1StreamRange
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::StreamRange::value_type =
+          StatusOr< T >;
+      aliasof: |
+        <code>StatusOr&lt; T &gt;</code>
+      source:
+        id: value_type
+        path: google/cloud/stream_range.h
+        startLine: 150
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/stream_range.h
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a546db8a63da273c117ce2cefac0ef3be
+    name: "iterator"
+    fullName: "google::cloud::StreamRange::iterator"
+    id: classgoogle_1_1cloud_1_1StreamRange_1a546db8a63da273c117ce2cefac0ef3be
+    parent: classgoogle_1_1cloud_1_1StreamRange
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::StreamRange::iterator =
+          IteratorImpl< value_type >;
+      aliasof: |
+        <code>IteratorImpl&lt; value_type &gt;</code>
+      source:
+        id: iterator
+        path: google/cloud/stream_range.h
+        startLine: 151
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/stream_range.h
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1ae57d3c2448e7e9f8d4e0f9439a0b3d5e
+    name: "difference_type"
+    fullName: "google::cloud::StreamRange::difference_type"
+    id: classgoogle_1_1cloud_1_1StreamRange_1ae57d3c2448e7e9f8d4e0f9439a0b3d5e
+    parent: classgoogle_1_1cloud_1_1StreamRange
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::StreamRange::difference_type =
+          typename iterator::difference_type;
+      aliasof: |
+        <code>typename iterator::difference_type</code>
+      source:
+        id: difference_type
+        path: google/cloud/stream_range.h
+        startLine: 152
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/stream_range.h
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a0a6da9738af7a7b84a2eaab8b7b5b575
+    name: "reference"
+    fullName: "google::cloud::StreamRange::reference"
+    id: classgoogle_1_1cloud_1_1StreamRange_1a0a6da9738af7a7b84a2eaab8b7b5b575
+    parent: classgoogle_1_1cloud_1_1StreamRange
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::StreamRange::reference =
+          typename iterator::reference;
+      aliasof: |
+        <code>typename iterator::reference</code>
+      source:
+        id: reference
+        path: google/cloud/stream_range.h
+        startLine: 153
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/stream_range.h
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1aa943ef32ee6ca8096d91e9f8d00a0b68
+    name: "pointer"
+    fullName: "google::cloud::StreamRange::pointer"
+    id: classgoogle_1_1cloud_1_1StreamRange_1aa943ef32ee6ca8096d91e9f8d00a0b68
+    parent: classgoogle_1_1cloud_1_1StreamRange
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::StreamRange::pointer =
+          typename iterator::pointer;
+      aliasof: |
+        <code>typename iterator::pointer</code>
+      source:
+        id: pointer
+        path: google/cloud/stream_range.h
+        startLine: 154
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/stream_range.h
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a46c27d4893b2ff0435cd99364d83c33b
+    name: "const_reference"
+    fullName: "google::cloud::StreamRange::const_reference"
+    id: classgoogle_1_1cloud_1_1StreamRange_1a46c27d4893b2ff0435cd99364d83c33b
+    parent: classgoogle_1_1cloud_1_1StreamRange
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::StreamRange::const_reference =
+          typename iterator::const_reference;
+      aliasof: |
+        <code>typename iterator::const_reference</code>
+      source:
+        id: const_reference
+        path: google/cloud/stream_range.h
+        startLine: 155
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/stream_range.h
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1affda63a549b55279c6a1768526a4648b
+    name: "const_pointer"
+    fullName: "google::cloud::StreamRange::const_pointer"
+    id: classgoogle_1_1cloud_1_1StreamRange_1affda63a549b55279c6a1768526a4648b
+    parent: classgoogle_1_1cloud_1_1StreamRange
+    type: typealias
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        using google::cloud::StreamRange::const_pointer =
+          typename iterator::const_pointer;
+      aliasof: |
+        <code>typename iterator::const_pointer</code>
+      source:
+        id: const_pointer
+        path: google/cloud/stream_range.h
+        startLine: 156
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/stream_range.h
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a12769e19a893ba3ddd9b87c6b160b7c4
+    name: "StreamRange()"
+    fullName: |
+      google::cloud::StreamRange::StreamRange
+    id: classgoogle_1_1cloud_1_1StreamRange_1a12769e19a893ba3ddd9b87c6b160b7c4
+    parent: classgoogle_1_1cloud_1_1StreamRange
+    type: constructor
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        google::cloud::StreamRange::StreamRange ()
+      source:
+        id: StreamRange
+        path: google/cloud/stream_range.h
+        startLine: 161
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/stream_range.h
+    summary: |
+      Default-constructs an empty range. 
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a0e71520c598a1649ddd54cca5a0336f8
+    name: "begin()"
+    fullName: |
+      google::cloud::StreamRange::begin
+    id: classgoogle_1_1cloud_1_1StreamRange_1a0e71520c598a1649ddd54cca5a0336f8
+    parent: classgoogle_1_1cloud_1_1StreamRange
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        iterator
+        google::cloud::StreamRange::begin ()
+      return:
+        type:
+          - "iterator"
+      source:
+        id: begin
+        path: google/cloud/stream_range.h
+        startLine: 178
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/stream_range.h
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1aab2620724dbe9f681e66544cbe6d37d1
+    name: "end()"
+    fullName: |
+      google::cloud::StreamRange::end
+    id: classgoogle_1_1cloud_1_1StreamRange_1aab2620724dbe9f681e66544cbe6d37d1
+    parent: classgoogle_1_1cloud_1_1StreamRange
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        iterator
+        google::cloud::StreamRange::end ()
+      return:
+        type:
+          - "iterator"
+      source:
+        id: end
+        path: google/cloud/stream_range.h
+        startLine: 179
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/stream_range.h
+references:
+  - uid: classgoogle_1_1cloud_1_1StreamRange
+    name: google::cloud::StreamRange
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1_1IteratorImpl
+    name: google::cloud::StreamRange::IteratorImpl
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a712af3969dccfcb7ffd005015a8286f9
+    name: google::cloud::StreamRange::StreamRange
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1aac8c266c68bdbaa3e6c9a86b2e36b534
+    name: google::cloud::StreamRange::operator=
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a925240881f4cb2afaf4b3f6806422eac
+    name: google::cloud::StreamRange::StreamRange
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a09724d141e9e41018f98eebe81e7e87e
+    name: google::cloud::StreamRange::operator=
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a717e032ce46abfa423f908143d608c71
+    name: google::cloud::StreamRange::value_type
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a546db8a63da273c117ce2cefac0ef3be
+    name: google::cloud::StreamRange::iterator
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1ae57d3c2448e7e9f8d4e0f9439a0b3d5e
+    name: google::cloud::StreamRange::difference_type
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a0a6da9738af7a7b84a2eaab8b7b5b575
+    name: google::cloud::StreamRange::reference
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1aa943ef32ee6ca8096d91e9f8d00a0b68
+    name: google::cloud::StreamRange::pointer
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a46c27d4893b2ff0435cd99364d83c33b
+    name: google::cloud::StreamRange::const_reference
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1affda63a549b55279c6a1768526a4648b
+    name: google::cloud::StreamRange::const_pointer
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a12769e19a893ba3ddd9b87c6b160b7c4
+    name: google::cloud::StreamRange::StreamRange
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1a0e71520c598a1649ddd54cca5a0336f8
+    name: google::cloud::StreamRange::begin
+  - uid: classgoogle_1_1cloud_1_1StreamRange_1aab2620724dbe9f681e66544cbe6d37d1
+    name: google::cloud::StreamRange::end

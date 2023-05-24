@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="classgoogle_1_1cloud_1_1Status">
+<h1 class="page-title">Class Status (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>Represents success or an error with info about the error. </p>
+</div>
+  <div class="markdown level0 conceptual"><p>This class is typically used to indicate whether or not a function or other operation completed successfully. Success is indicated by an &quot;OK&quot; status. OK statuses will have <code>.</code><a class="xref" href="classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1ac18337d2ceb00ca007725d21f2c63f9f"><code>code()</code></a><code>==</code><a class="xref" href="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a"><code>StatusCode::kOk</code></a> and <code>.</code><a class="xref" href="classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1a18952043ffe5a4f74911c8146e8bb504"><code>ok()</code></a><code>== true</code>, with all other properties having empty values. All OK statuses are equal. Any non-OK <a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>Status</code></a> is considered an error. Users can inspect the error using the member functions, or they can simply stream the <a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>Status</code></a> object, and it will print itself in some human readable way (the streamed format may change over time and you should <em>not</em> depend on the specific format of a streamed <a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>Status</code></a> object remaining unchanged).</p>
+<p>This is a regular value type that can be copied, moved, compared for equality, and streamed. </p>
+</div>
+  <h2 id="constructors">Constructors
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1Status_1aa3656155ad44d8bd75d92cd797123f4d" data-uid="classgoogle_1_1cloud_1_1Status_1aa3656155ad44d8bd75d92cd797123f4d" class="notranslate">Status(Status const &amp;)</h3>
+  <div class="markdown level1 summary"><p>Copy construction and assignment.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>Status const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Status_1afd186465a07fa176c10d437c1240f2de" data-uid="classgoogle_1_1cloud_1_1Status_1afd186465a07fa176c10d437c1240f2de" class="notranslate">Status(Status &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Move construction and assignment.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>Status &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Status_1af3de0fb0dee8fb557e693195a812987f" data-uid="classgoogle_1_1cloud_1_1Status_1af3de0fb0dee8fb557e693195a812987f" class="notranslate">Status()</h3>
+  <div class="markdown level1 summary"><p>Default constructor, initializes to <a class="xref" href="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a"><code>StatusCode::kOk</code></a>. </p>
+</div>
+  <h3 id="classgoogle_1_1cloud_1_1Status_1af927a89141bbcf10f0e02d789ebade94" data-uid="classgoogle_1_1cloud_1_1Status_1af927a89141bbcf10f0e02d789ebade94" class="notranslate">Status(StatusCode, std::string, ErrorInfo)</h3>
+  <div class="markdown level1 summary"><p>Construct from a status code, message and (optional) error info. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameters</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>code</code></td>
+        <td>
+          <code>StatusCode</code>
+          <br>
+          <p>the status code for the new <a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>Status</code></a>. </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>message</code></td>
+        <td>
+          <code>std::string</code>
+          <br>
+          <p>the message for the new <a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>Status</code></a>, ignored if <code>code</code> is <a class="xref" href="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a"><code>StatusCode::kOk</code></a>. </p>
+
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>info</code></td>
+        <td>
+          <code>ErrorInfo</code>
+          <br>
+          <p>the <a class="xref" href="classgoogle_1_1cloud_1_1ErrorInfo.html"><code>ErrorInfo</code></a> for the new <a class="xref" href="classgoogle_1_1cloud_1_1Status.html"><code>Status</code></a>, ignored if <code>code</code> is <code>SStatusCode::kOk</code>. </p>
+
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="operators">Operators
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1Status_1a675be7e53ab9b27d69ba776a3c1ca7bf" data-uid="classgoogle_1_1cloud_1_1Status_1a675be7e53ab9b27d69ba776a3c1ca7bf" class="notranslate">operator=(Status const &amp;)</h3>
+  <div class="markdown level1 summary"><p>Copy construction and assignment.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>Status const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">Status &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Status_1a23aaae701351564b3a17f47d5cb4e7cb" data-uid="classgoogle_1_1cloud_1_1Status_1a23aaae701351564b3a17f47d5cb4e7cb" class="notranslate">operator=(Status &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Move construction and assignment.</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>Status &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">Status &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="functions">Functions
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1Status_1a18952043ffe5a4f74911c8146e8bb504" data-uid="classgoogle_1_1cloud_1_1Status_1a18952043ffe5a4f74911c8146e8bb504" class="notranslate">ok() const</h3>
+  <div class="markdown level1 summary"><p>Returns true if the status code is <a class="xref" href="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a"><code>StatusCode::kOk</code></a>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">bool</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Status_1ac18337d2ceb00ca007725d21f2c63f9f" data-uid="classgoogle_1_1cloud_1_1Status_1ac18337d2ceb00ca007725d21f2c63f9f" class="notranslate">code() const</h3>
+  <div class="markdown level1 summary"><p>Returns the status code. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">StatusCode</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Status_1aaa8dea39008758d8494f29b12b92be02" data-uid="classgoogle_1_1cloud_1_1Status_1aaa8dea39008758d8494f29b12b92be02" class="notranslate">message() const</h3>
+  <div class="markdown level1 summary"><p>Returns the message associated with the status. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>This is always empty if <a class="xref" href="classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1ac18337d2ceb00ca007725d21f2c63f9f"><code>code()</code></a> is <a class="xref" href="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a"><code>StatusCode::kOk</code></a>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">std::string const &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1Status_1a172e846ab5623d78d49e2ed128f49583" data-uid="classgoogle_1_1cloud_1_1Status_1a172e846ab5623d78d49e2ed128f49583" class="notranslate">error_info() const</h3>
+  <div class="markdown level1 summary"><p>Returns the additional error info associated with the status. </p>
+</div>
+  <div class="markdown level1 conceptual"><p>This is always a default-constructed error info if <a class="xref" href="classgoogle_1_1cloud_1_1Status.html#classgoogle_1_1cloud_1_1Status_1ac18337d2ceb00ca007725d21f2c63f9f"><code>code()</code></a> is <a class="xref" href="namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847.html#namespacegoogle_1_1cloud_1a90e17f75452470f0f3ee1a06ffe58847ae69fa9a656f76dd8a4d89f21992b2d3a"><code>StatusCode::kOk</code></a>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">ErrorInfo const &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

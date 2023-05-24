@@ -1,0 +1,56 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1BackgroundThreads
+    name: "BackgroundThreads"
+    id: classgoogle_1_1cloud_1_1BackgroundThreads
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/background_threads.h>
+        class google::cloud::BackgroundThreads { ... };
+      source:
+        id: google::cloud::BackgroundThreads
+        path: google/cloud/background_threads.h
+        startLine: 27
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/background_threads.h
+    summary: |
+      A object representing the background threads available to a Client. 
+    children:
+      - classgoogle_1_1cloud_1_1BackgroundThreads_1a3ffeaa87e9965917e86ca40d81ae41d9
+  - uid: classgoogle_1_1cloud_1_1BackgroundThreads_1a3ffeaa87e9965917e86ca40d81ae41d9
+    name: "cq() const"
+    fullName: |
+      google::cloud::BackgroundThreads::cq
+    id: classgoogle_1_1cloud_1_1BackgroundThreads_1a3ffeaa87e9965917e86ca40d81ae41d9
+    parent: classgoogle_1_1cloud_1_1BackgroundThreads
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        CompletionQueue
+        google::cloud::BackgroundThreads::cq ()
+      return:
+        type:
+          - "CompletionQueue"
+      source:
+        id: cq
+        path: google/cloud/background_threads.h
+        startLine: 32
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/background_threads.h
+    summary: |
+      The completion queue used for the background operations. 
+references:
+  - uid: classgoogle_1_1cloud_1_1BackgroundThreads
+    name: google::cloud::BackgroundThreads
+  - uid: classgoogle_1_1cloud_1_1BackgroundThreads_1a3ffeaa87e9965917e86ca40d81ae41d9
+    name: google::cloud::BackgroundThreads::cq

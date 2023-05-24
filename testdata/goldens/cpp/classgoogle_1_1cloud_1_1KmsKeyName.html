@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/cpp/docs/reference/_project.yaml">
+    <meta name="book_path" value="/cpp/docs/reference/common/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="classgoogle_1_1cloud_1_1KmsKeyName">
+<h1 class="page-title">Class KmsKeyName (2.9.0)</h1>
+  
+  
+  <div class="markdown level0 summary"><p>This class identifies a Google Cloud KMS Key. </p>
+</div>
+  <div class="markdown level0 conceptual"><p>A KMS key is identified by its <code>project_id</code>, <code>location</code>, <code>key_ring</code>, and <code>kms_key_name</code>.</p>
+<p><aside class="note"><b>Note:</b>
+This class makes no effort to validate the components of the key, It is the application&#39;s responsibility to provide a valid project id, location, key ring, and KMS key name. Passing invalid values will not be checked until the key is used in a RPC.
+</aside>
+See <a href="https://cloud.google.com/kms/docs">https://cloud.google.com/kms/docs</a> for more information on KMS. </p>
+</div>
+  <h2 id="constructors">Constructors
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1KmsKeyName_1aee71728b4970eb59d9404c5999b86df6" data-uid="classgoogle_1_1cloud_1_1KmsKeyName_1aee71728b4970eb59d9404c5999b86df6" class="notranslate">KmsKeyName(KmsKeyName const &amp;)</h3>
+  <div class="markdown level1 summary"><p>Copy and move</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>KmsKeyName const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1KmsKeyName_1a75db59489341625dd2f9ccf4aa575904" data-uid="classgoogle_1_1cloud_1_1KmsKeyName_1a75db59489341625dd2f9ccf4aa575904" class="notranslate">KmsKeyName(KmsKeyName &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Copy and move</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>KmsKeyName &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1KmsKeyName_1a48947fe0f19b7af3b2d6aee0680ef4ef" data-uid="classgoogle_1_1cloud_1_1KmsKeyName_1a48947fe0f19b7af3b2d6aee0680ef4ef" class="notranslate">KmsKeyName(std::string const &amp;, std::string const &amp;, std::string const &amp;, std::string const &amp;)</h3>
+  <div class="markdown level1 summary"><p>Constructs a <a class="xref" href="classgoogle_1_1cloud_1_1KmsKeyName.html">KmsKeyName</a> object identified by the given <code>project_id</code>, <code>location</code>, <code>key_ring</code>, and <code>kms_key_name</code>. </p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameters</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code>project_id</code></td>
+        <td>
+          <code>std::string const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>location</code></td>
+        <td>
+          <code>std::string const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>key_ring</code></td>
+        <td>
+          <code>std::string const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+      <tr>
+        <td><code>kms_key_name</code></td>
+        <td>
+          <code>std::string const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="operators">Operators
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1KmsKeyName_1adbdf3b52f9377b17ddad60943fd939a4" data-uid="classgoogle_1_1cloud_1_1KmsKeyName_1adbdf3b52f9377b17ddad60943fd939a4" class="notranslate">operator=(KmsKeyName const &amp;)</h3>
+  <div class="markdown level1 summary"><p>Copy and move</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>KmsKeyName const &</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">KmsKeyName &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="classgoogle_1_1cloud_1_1KmsKeyName_1afdac51645369610b64b57618c943c709" data-uid="classgoogle_1_1cloud_1_1KmsKeyName_1afdac51645369610b64b57618c943c709" class="notranslate">operator=(KmsKeyName &amp;&amp;)</h3>
+  <div class="markdown level1 summary"><p>Copy and move</p>
+</div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Parameter</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code></code></td>
+        <td>
+          <code>KmsKeyName &&</code>
+          <br>
+          
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">KmsKeyName &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 id="functions">Functions
+  </h2>
+  <h3 id="classgoogle_1_1cloud_1_1KmsKeyName_1a263411554266dd511036a0ac8242b3ee" data-uid="classgoogle_1_1cloud_1_1KmsKeyName_1a263411554266dd511036a0ac8242b3ee" class="notranslate">FullName() const</h3>
+  <div class="markdown level1 summary"><p>Returns the fully qualified KMS Key name as a string of the form: &quot;projects/<project>/locations/<location>/keyRings/&lt;key_ring&gt;/cryptoKeys\
+/&lt;kms_key_name&gt;&quot;. <p>
+</location></project></div>
+  <table class="responsive">
+    <tbody>
+      <tr>
+        <th colspan="2"><strong>Returns</strong></th>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><strong>Description</strong></td>
+      </tr>
+      <tr>
+        <td><code><span class="xref">std::string const &amp;</span></code></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

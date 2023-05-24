@@ -1,0 +1,118 @@
+### YamlMime:UniversalReference
+items:
+  - uid: classgoogle_1_1cloud_1_1LogBackend
+    name: "LogBackend"
+    id: classgoogle_1_1cloud_1_1LogBackend
+    parent: ""
+    type: class
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        // Found in #include <google/cloud/log.h>
+        class google::cloud::LogBackend { ... };
+      source:
+        id: google::cloud::LogBackend
+        path: google/cloud/log.h
+        startLine: 170
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+    summary: |
+      The logging backend interface. 
+    children:
+      - classgoogle_1_1cloud_1_1LogBackend_1a3bfeb9aaf88c7ffa2bb440e21bf42ffc
+      - classgoogle_1_1cloud_1_1LogBackend_1a10e4aa5b5c547a7d3d79689144d5165f
+      - classgoogle_1_1cloud_1_1LogBackend_1a461afc85f066f490ee01505413998dff
+  - uid: classgoogle_1_1cloud_1_1LogBackend_1a3bfeb9aaf88c7ffa2bb440e21bf42ffc
+    name: "Process(LogRecord const &)"
+    fullName: |
+      google::cloud::LogBackend::Process
+    id: classgoogle_1_1cloud_1_1LogBackend_1a3bfeb9aaf88c7ffa2bb440e21bf42ffc
+    parent: classgoogle_1_1cloud_1_1LogBackend
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::LogBackend::Process (
+            LogRecord const & log_record
+          )
+      return:
+        type:
+          - "void"
+      parameters:
+        - id: log_record
+          var_type: "LogRecord const &"
+      source:
+        id: Process
+        path: google/cloud/log.h
+        startLine: 174
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: classgoogle_1_1cloud_1_1LogBackend_1a10e4aa5b5c547a7d3d79689144d5165f
+    name: "ProcessWithOwnership(LogRecord)"
+    fullName: |
+      google::cloud::LogBackend::ProcessWithOwnership
+    id: classgoogle_1_1cloud_1_1LogBackend_1a10e4aa5b5c547a7d3d79689144d5165f
+    parent: classgoogle_1_1cloud_1_1LogBackend
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::LogBackend::ProcessWithOwnership (
+            LogRecord log_record
+          )
+      return:
+        type:
+          - "void"
+      parameters:
+        - id: log_record
+          var_type: "LogRecord"
+      source:
+        id: ProcessWithOwnership
+        path: google/cloud/log.h
+        startLine: 175
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+  - uid: classgoogle_1_1cloud_1_1LogBackend_1a461afc85f066f490ee01505413998dff
+    name: "virtual Flush()"
+    fullName: |
+      google::cloud::LogBackend::Flush
+    id: classgoogle_1_1cloud_1_1LogBackend_1a461afc85f066f490ee01505413998dff
+    parent: classgoogle_1_1cloud_1_1LogBackend
+    type: function
+    langs:
+      - cpp
+    syntax:
+      contents: |
+        void
+        google::cloud::LogBackend::Flush ()
+      return:
+        type:
+          - "void"
+      source:
+        id: Flush
+        path: google/cloud/log.h
+        startLine: 176
+        remote:
+          repo: https://github.com/googleapis/google-cloud-cpp/
+          branch: main
+          path: google/cloud/log.h
+references:
+  - uid: classgoogle_1_1cloud_1_1LogBackend
+    name: google::cloud::LogBackend
+  - uid: classgoogle_1_1cloud_1_1LogBackend_1a3bfeb9aaf88c7ffa2bb440e21bf42ffc
+    name: google::cloud::LogBackend::Process
+  - uid: classgoogle_1_1cloud_1_1LogBackend_1a10e4aa5b5c547a7d3d79689144d5165f
+    name: google::cloud::LogBackend::ProcessWithOwnership
+  - uid: classgoogle_1_1cloud_1_1LogBackend_1a461afc85f066f490ee01505413998dff
+    name: google::cloud::LogBackend::Flush
