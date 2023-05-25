@@ -47,3 +47,6 @@
 {{#inConst}}
 {{__global.constsInSubtitle}}
 {{/inConst}}
+{{#inTypeAlias}}
+{{__global.typeAliasesInSubtitle}}
+{{/inTypeAlias}}
