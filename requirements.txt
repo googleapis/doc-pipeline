@@ -176,9 +176,9 @@ pytest-cov==4.1.0 \
     --hash=sha256:3904b13dfbfec47f003b8e77fd5b589cd11904a21ddf1ab38a64f204d6a10ef6 \
     --hash=sha256:6ba70b9e97e69fcc3fb45bfeab2d0a138fb65c4d0d6a41ef33983ad114be8c3a
     # via -r requirements.in
-types-protobuf==4.24.0.0 \
-    --hash=sha256:108e1ac19b7828f66c0fb7fdf3591c452d365ec8ff47f6383b5a00b72d9d5c87 \
-    --hash=sha256:79899b6acc39f7b73c68401dba13d2a0d2c15ec6117d46bd290e85a2e52ed838
+types-protobuf==4.24.0.1 \
+    --hash=sha256:90adea3b693d6a40d8ef075c58fe6b5cc6e01fe1496301a7e6fc70398dcff92e \
+    --hash=sha256:df203a204e4ae97d4cca4c9cf725262579dd7857a19f9e7fc74871ccfa073c01
     # via -r requirements.in
 typing-extensions==4.7.1 \
     --hash=sha256:440d5dd3af93b060174bf433bccd69b0babc3b15b1a8dca43789fd7f61514b36 \
