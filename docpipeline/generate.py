@@ -134,9 +134,9 @@ def setup_bucket_docfx(
     # If so, only decompress things into obj/*
     tar_file = tarfile.open(tar_filename)
     for tarinfo in tar_file:
-        if (
-            tarinfo.isdir() and tarinfo.name == "./api"
-        ) or tarinfo.name.startswith("api/"):
+        if (tarinfo.isdir() and tarinfo.name == "./api") or tarinfo.name.startswith(
+            "api/"
+        ):
             decompress_path = tmp_path.joinpath("obj")
             break
     tar.decompress(tar_filename, decompress_path)
