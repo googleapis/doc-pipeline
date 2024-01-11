@@ -788,37 +788,7 @@ This controls who can list, create or overwrite the objects in a bucket.
 This call does not perform any network operations.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
-    <h5 class="notranslate">exists</h5>
-  <div class="codewrapper">
-  <pre class="prettyprint"><code>package main
-
-import (
-	&quot;cloud.google.com/go/storage&quot;
-	&quot;context&quot;
-	&quot;fmt&quot;
-)
-
-func main() {
-	ctx := context.Background()
-	client, err := storage.NewClient(ctx)
-	if err != nil {
-		// TODO: handle error.
-	}
-
-	attrs, err := client.Bucket(&quot;my-bucket&quot;).Attrs(ctx)
-	if err == storage.ErrBucketNotExist {
-		fmt.Println(&quot;The bucket does not exist&quot;)
-		return
-	}
-	if err != nil {
-		// TODO: handle error.
-	}
-	fmt.Printf(&quot;The bucket exists and has attributes: %#v\n&quot;, attrs)
-}
-</code></pre>
-  </div>
-            <h3 id="cloud_google_com_go_storage_BucketHandle_AddNotification" data-uid="cloud.google.com/go/storage.BucketHandle.AddNotification" class="notranslate">func (*BucketHandle) AddNotification
+                      <h3 id="cloud_google_com_go_storage_BucketHandle_AddNotification" data-uid="cloud.google.com/go/storage.BucketHandle.AddNotification" class="notranslate">func (*BucketHandle) AddNotification
 </h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (b *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a>) AddNotification(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, n *<a href="#cloud_google_com_go_storage_Notification">Notification</a>) (ret *<a href="#cloud_google_com_go_storage_Notification">Notification</a>, err <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
@@ -929,37 +899,7 @@ These ACLs are applied to newly created objects in this bucket that do not have 
 This call does not perform any network operations.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
-    <h5 class="notranslate">exists</h5>
-  <div class="codewrapper">
-  <pre class="prettyprint"><code>package main
-
-import (
-	&quot;cloud.google.com/go/storage&quot;
-	&quot;context&quot;
-	&quot;fmt&quot;
-)
-
-func main() {
-	ctx := context.Background()
-	client, err := storage.NewClient(ctx)
-	if err != nil {
-		// TODO: handle error.
-	}
-
-	attrs, err := client.Bucket(&quot;my-bucket&quot;).Attrs(ctx)
-	if err == storage.ErrBucketNotExist {
-		fmt.Println(&quot;The bucket does not exist&quot;)
-		return
-	}
-	if err != nil {
-		// TODO: handle error.
-	}
-	fmt.Printf(&quot;The bucket exists and has attributes: %#v\n&quot;, attrs)
-}
-</code></pre>
-  </div>
-            <h3 id="cloud_google_com_go_storage_BucketHandle_Delete" data-uid="cloud.google.com/go/storage.BucketHandle.Delete" class="notranslate">func (*BucketHandle) Delete
+                      <h3 id="cloud_google_com_go_storage_BucketHandle_Delete" data-uid="cloud.google.com/go/storage.BucketHandle.Delete" class="notranslate">func (*BucketHandle) Delete
 </h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (b *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a>) Delete(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>) (err <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
@@ -1031,37 +971,7 @@ func main() {
             <div class="markdown level1 summary"><p>IAM provides access to IAM access control for the bucket.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
-    <h5 class="notranslate">exists</h5>
-  <div class="codewrapper">
-  <pre class="prettyprint"><code>package main
-
-import (
-	&quot;cloud.google.com/go/storage&quot;
-	&quot;context&quot;
-	&quot;fmt&quot;
-)
-
-func main() {
-	ctx := context.Background()
-	client, err := storage.NewClient(ctx)
-	if err != nil {
-		// TODO: handle error.
-	}
-
-	attrs, err := client.Bucket(&quot;my-bucket&quot;).Attrs(ctx)
-	if err == storage.ErrBucketNotExist {
-		fmt.Println(&quot;The bucket does not exist&quot;)
-		return
-	}
-	if err != nil {
-		// TODO: handle error.
-	}
-	fmt.Printf(&quot;The bucket exists and has attributes: %#v\n&quot;, attrs)
-}
-</code></pre>
-  </div>
-            <h3 id="cloud_google_com_go_storage_BucketHandle_If" data-uid="cloud.google.com/go/storage.BucketHandle.If" class="notranslate">func (*BucketHandle) If
+                      <h3 id="cloud_google_com_go_storage_BucketHandle_If" data-uid="cloud.google.com/go/storage.BucketHandle.If" class="notranslate">func (*BucketHandle) If
 </h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (b *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a>) If(conds <a href="#cloud_google_com_go_storage_BucketConditions">BucketConditions</a>) *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a></code></pre>
@@ -1073,37 +983,7 @@ satisfied. The only valid preconditions for buckets are MetagenerationMatch
 and MetagenerationNotMatch.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
-    <h5 class="notranslate">exists</h5>
-  <div class="codewrapper">
-  <pre class="prettyprint"><code>package main
-
-import (
-	&quot;cloud.google.com/go/storage&quot;
-	&quot;context&quot;
-	&quot;fmt&quot;
-)
-
-func main() {
-	ctx := context.Background()
-	client, err := storage.NewClient(ctx)
-	if err != nil {
-		// TODO: handle error.
-	}
-
-	attrs, err := client.Bucket(&quot;my-bucket&quot;).Attrs(ctx)
-	if err == storage.ErrBucketNotExist {
-		fmt.Println(&quot;The bucket does not exist&quot;)
-		return
-	}
-	if err != nil {
-		// TODO: handle error.
-	}
-	fmt.Printf(&quot;The bucket exists and has attributes: %#v\n&quot;, attrs)
-}
-</code></pre>
-  </div>
-            <h3 id="cloud_google_com_go_storage_BucketHandle_LockRetentionPolicy" data-uid="cloud.google.com/go/storage.BucketHandle.LockRetentionPolicy" class="notranslate">func (*BucketHandle) LockRetentionPolicy
+                      <h3 id="cloud_google_com_go_storage_BucketHandle_LockRetentionPolicy" data-uid="cloud.google.com/go/storage.BucketHandle.LockRetentionPolicy" class="notranslate">func (*BucketHandle) LockRetentionPolicy
 </h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (b *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a>) LockRetentionPolicy(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code></pre>
@@ -1195,37 +1075,7 @@ for valid object names can be found at:
   <a href="https://cloud.google.com/storage/docs/naming-objects">https://cloud.google.com/storage/docs/naming-objects</a></p>
 </div>
             <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
-    <h5 class="notranslate">exists</h5>
-  <div class="codewrapper">
-  <pre class="prettyprint"><code>package main
-
-import (
-	&quot;cloud.google.com/go/storage&quot;
-	&quot;context&quot;
-	&quot;fmt&quot;
-)
-
-func main() {
-	ctx := context.Background()
-	client, err := storage.NewClient(ctx)
-	if err != nil {
-		// TODO: handle error.
-	}
-
-	attrs, err := client.Bucket(&quot;my-bucket&quot;).Attrs(ctx)
-	if err == storage.ErrBucketNotExist {
-		fmt.Println(&quot;The bucket does not exist&quot;)
-		return
-	}
-	if err != nil {
-		// TODO: handle error.
-	}
-	fmt.Printf(&quot;The bucket exists and has attributes: %#v\n&quot;, attrs)
-}
-</code></pre>
-  </div>
-            <h3 id="cloud_google_com_go_storage_BucketHandle_Objects" data-uid="cloud.google.com/go/storage.BucketHandle.Objects" class="notranslate">func (*BucketHandle) Objects
+                      <h3 id="cloud_google_com_go_storage_BucketHandle_Objects" data-uid="cloud.google.com/go/storage.BucketHandle.Objects" class="notranslate">func (*BucketHandle) Objects
 </h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (b *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a>) Objects(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, q *<a href="#cloud_google_com_go_storage_Query">Query</a>) *<a href="#cloud_google_com_go_storage_ObjectIterator">ObjectIterator</a></code></pre>
@@ -1337,37 +1187,7 @@ project rather than to the bucket&#39;s owning project.</p>
 <p>A user project is required for all operations on Requester Pays buckets.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
-    <h5 class="notranslate">exists</h5>
-  <div class="codewrapper">
-  <pre class="prettyprint"><code>package main
-
-import (
-	&quot;cloud.google.com/go/storage&quot;
-	&quot;context&quot;
-	&quot;fmt&quot;
-)
-
-func main() {
-	ctx := context.Background()
-	client, err := storage.NewClient(ctx)
-	if err != nil {
-		// TODO: handle error.
-	}
-
-	attrs, err := client.Bucket(&quot;my-bucket&quot;).Attrs(ctx)
-	if err == storage.ErrBucketNotExist {
-		fmt.Println(&quot;The bucket does not exist&quot;)
-		return
-	}
-	if err != nil {
-		// TODO: handle error.
-	}
-	fmt.Printf(&quot;The bucket exists and has attributes: %#v\n&quot;, attrs)
-}
-</code></pre>
-  </div>
-        <h2 id="cloud_google_com_go_storage_BucketIterator" data-uid="cloud.google.com/go/storage.BucketIterator" class="notranslate">BucketIterator</h2>
+                  <h2 id="cloud_google_com_go_storage_BucketIterator" data-uid="cloud.google.com/go/storage.BucketIterator" class="notranslate">BucketIterator</h2>
         <div class="codewrapper">
           <pre class="prettyprint"><code>type BucketIterator struct {
 	// Prefix restricts the iterator to buckets whose names begin with it.
@@ -2703,37 +2523,7 @@ This controls who can read and write this object.
 This call does not perform any network operations.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
-    <h5 class="notranslate">exists</h5>
-  <div class="codewrapper">
-  <pre class="prettyprint"><code>package main
-
-import (
-	&quot;cloud.google.com/go/storage&quot;
-	&quot;context&quot;
-	&quot;fmt&quot;
-)
-
-func main() {
-	ctx := context.Background()
-	client, err := storage.NewClient(ctx)
-	if err != nil {
-		// TODO: handle error.
-	}
-
-	attrs, err := client.Bucket(&quot;my-bucket&quot;).Object(&quot;my-object&quot;).Attrs(ctx)
-	if err == storage.ErrObjectNotExist {
-		fmt.Println(&quot;The object does not exist&quot;)
-		return
-	}
-	if err != nil {
-		// TODO: handle error.
-	}
-	fmt.Printf(&quot;The object exists and has attributes: %#v\n&quot;, attrs)
-}
-</code></pre>
-  </div>
-            <h3 id="cloud_google_com_go_storage_ObjectHandle_Attrs" data-uid="cloud.google.com/go/storage.ObjectHandle.Attrs" class="notranslate">func (*ObjectHandle) Attrs
+                      <h3 id="cloud_google_com_go_storage_ObjectHandle_Attrs" data-uid="cloud.google.com/go/storage.ObjectHandle.Attrs" class="notranslate">func (*ObjectHandle) Attrs
 </h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (o *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) Attrs(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>) (attrs *<a href="#cloud_google_com_go_storage_ObjectAttrs">ObjectAttrs</a>, err <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
@@ -2808,37 +2598,7 @@ func main() {
             <div class="markdown level1 summary"><p>BucketName returns the name of the bucket.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
-    <h5 class="notranslate">exists</h5>
-  <div class="codewrapper">
-  <pre class="prettyprint"><code>package main
-
-import (
-	&quot;cloud.google.com/go/storage&quot;
-	&quot;context&quot;
-	&quot;fmt&quot;
-)
-
-func main() {
-	ctx := context.Background()
-	client, err := storage.NewClient(ctx)
-	if err != nil {
-		// TODO: handle error.
-	}
-
-	attrs, err := client.Bucket(&quot;my-bucket&quot;).Object(&quot;my-object&quot;).Attrs(ctx)
-	if err == storage.ErrObjectNotExist {
-		fmt.Println(&quot;The object does not exist&quot;)
-		return
-	}
-	if err != nil {
-		// TODO: handle error.
-	}
-	fmt.Printf(&quot;The object exists and has attributes: %#v\n&quot;, attrs)
-}
-</code></pre>
-  </div>
-            <h3 id="cloud_google_com_go_storage_ObjectHandle_ComposerFrom" data-uid="cloud.google.com/go/storage.ObjectHandle.ComposerFrom" class="notranslate">func (*ObjectHandle) ComposerFrom
+                      <h3 id="cloud_google_com_go_storage_ObjectHandle_ComposerFrom" data-uid="cloud.google.com/go/storage.ObjectHandle.ComposerFrom" class="notranslate">func (*ObjectHandle) ComposerFrom
 </h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (dst *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) ComposerFrom(srcs ...*<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) *<a href="#cloud_google_com_go_storage_Composer">Composer</a></code></pre>
@@ -2851,37 +2611,7 @@ source objects and encrypt the destination object. It is an error
 to specify an encryption key for any of the source objects.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
-    <h5 class="notranslate">exists</h5>
-  <div class="codewrapper">
-  <pre class="prettyprint"><code>package main
-
-import (
-	&quot;cloud.google.com/go/storage&quot;
-	&quot;context&quot;
-	&quot;fmt&quot;
-)
-
-func main() {
-	ctx := context.Background()
-	client, err := storage.NewClient(ctx)
-	if err != nil {
-		// TODO: handle error.
-	}
-
-	attrs, err := client.Bucket(&quot;my-bucket&quot;).Object(&quot;my-object&quot;).Attrs(ctx)
-	if err == storage.ErrObjectNotExist {
-		fmt.Println(&quot;The object does not exist&quot;)
-		return
-	}
-	if err != nil {
-		// TODO: handle error.
-	}
-	fmt.Printf(&quot;The object exists and has attributes: %#v\n&quot;, attrs)
-}
-</code></pre>
-  </div>
-            <h3 id="cloud_google_com_go_storage_ObjectHandle_CopierFrom" data-uid="cloud.google.com/go/storage.ObjectHandle.CopierFrom" class="notranslate">func (*ObjectHandle) CopierFrom
+                      <h3 id="cloud_google_com_go_storage_ObjectHandle_CopierFrom" data-uid="cloud.google.com/go/storage.ObjectHandle.CopierFrom" class="notranslate">func (*ObjectHandle) CopierFrom
 </h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (dst *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) CopierFrom(src *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) *<a href="#cloud_google_com_go_storage_Copier">Copier</a></code></pre>
@@ -3315,37 +3045,7 @@ func main() {
             <div class="markdown level1 summary"><p>ObjectName returns the name of the object.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
-    <h5 class="notranslate">exists</h5>
-  <div class="codewrapper">
-  <pre class="prettyprint"><code>package main
-
-import (
-	&quot;cloud.google.com/go/storage&quot;
-	&quot;context&quot;
-	&quot;fmt&quot;
-)
-
-func main() {
-	ctx := context.Background()
-	client, err := storage.NewClient(ctx)
-	if err != nil {
-		// TODO: handle error.
-	}
-
-	attrs, err := client.Bucket(&quot;my-bucket&quot;).Object(&quot;my-object&quot;).Attrs(ctx)
-	if err == storage.ErrObjectNotExist {
-		fmt.Println(&quot;The object does not exist&quot;)
-		return
-	}
-	if err != nil {
-		// TODO: handle error.
-	}
-	fmt.Printf(&quot;The object exists and has attributes: %#v\n&quot;, attrs)
-}
-</code></pre>
-  </div>
-            <h3 id="cloud_google_com_go_storage_ObjectHandle_ReadCompressed" data-uid="cloud.google.com/go/storage.ObjectHandle.ReadCompressed" class="notranslate">func (*ObjectHandle) ReadCompressed
+                      <h3 id="cloud_google_com_go_storage_ObjectHandle_ReadCompressed" data-uid="cloud.google.com/go/storage.ObjectHandle.ReadCompressed" class="notranslate">func (*ObjectHandle) ReadCompressed
 </h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (o *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) ReadCompressed(compressed <a href="https://pkg.go.dev/builtin#bool">bool</a>) *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a></code></pre>
@@ -3353,37 +3053,7 @@ func main() {
             <div class="markdown level1 summary"><p>ReadCompressed when true causes the read to happen without decompressing.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
-    <h5 class="notranslate">exists</h5>
-  <div class="codewrapper">
-  <pre class="prettyprint"><code>package main
-
-import (
-	&quot;cloud.google.com/go/storage&quot;
-	&quot;context&quot;
-	&quot;fmt&quot;
-)
-
-func main() {
-	ctx := context.Background()
-	client, err := storage.NewClient(ctx)
-	if err != nil {
-		// TODO: handle error.
-	}
-
-	attrs, err := client.Bucket(&quot;my-bucket&quot;).Object(&quot;my-object&quot;).Attrs(ctx)
-	if err == storage.ErrObjectNotExist {
-		fmt.Println(&quot;The object does not exist&quot;)
-		return
-	}
-	if err != nil {
-		// TODO: handle error.
-	}
-	fmt.Printf(&quot;The object exists and has attributes: %#v\n&quot;, attrs)
-}
-</code></pre>
-  </div>
-            <h3 id="cloud_google_com_go_storage_ObjectHandle_Update" data-uid="cloud.google.com/go/storage.ObjectHandle.Update" class="notranslate">func (*ObjectHandle) Update
+                      <h3 id="cloud_google_com_go_storage_ObjectHandle_Update" data-uid="cloud.google.com/go/storage.ObjectHandle.Update" class="notranslate">func (*ObjectHandle) Update
 </h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (o *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) Update(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, uattrs <a href="#cloud_google_com_go_storage_ObjectAttrsToUpdate">ObjectAttrsToUpdate</a>) (oa *<a href="#cloud_google_com_go_storage_ObjectAttrs">ObjectAttrs</a>, err <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
