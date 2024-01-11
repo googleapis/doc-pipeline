@@ -27,6 +27,7 @@ pass_down_envvars+=(
     "INPUT"              # For specifying local input source.
     "BLOB_TO_DELETE"     # For delete-blob.
     "KOKORO_BUILD_ARTIFACTS_SUBDIR" # For job type detection.
+    "UPDATE_GOLDENS"     # Update golden test files.
 )
 
 # Prevent unintentional override on the default image.
