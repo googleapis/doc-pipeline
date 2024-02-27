@@ -445,6 +445,13 @@ def build_all_docs(
 
 def build_one_doc(bucket_name: str, object_name: str, storage_client: storage.Client):
     """Builds a single blob."""
+    if object_name.startswith("gs://"):
+        prefix = f"gs://{bucket_name}/"
+        if not object_name.startswith(prefix):
+            raise ValueError(
+                f"Source bucket {bucket_name} conflicts with blob name {object_name}"
+            )
+        object_name = object_name[len(prefix) :]
     blob = storage_client.bucket(bucket_name).get_blob(object_name)
     if blob is None:
         raise Exception(f"Could not find gs://{bucket_name}/{object_name}!")

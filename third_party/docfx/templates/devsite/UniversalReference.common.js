@@ -113,6 +113,7 @@ function handleItem(vm, gitContribute, gitUrlPattern) {
   vm.syntax = vm.syntax || null;
   vm.implements = vm.implements || null;
   vm.example = vm.example || null;
+  vm.codeexamples = vm.codeexamples || null;
   vm.inheritance = vm.inheritance || null;
   vm.children = vm.children || null;
   vm.status = vm.status || null;
