@@ -34,6 +34,9 @@ references:
 - uid: cloud.google.com/go/storage.AllUsers,AllAuthenticatedUsers
   name: AllUsers, AllAuthenticatedUsers
   href: index.html#cloud_google_com_go_storage_AllUsers_AllAuthenticatedUsers
+- uid: cloud.google.com/go/storage.Autoclass
+  name: Autoclass
+  href: index.html#cloud_google_com_go_storage_Autoclass
 - uid: cloud.google.com/go/storage.BucketAttrs
   name: BucketAttrs
   href: index.html#cloud_google_com_go_storage_BucketAttrs
@@ -85,6 +88,10 @@ references:
   name: >
     func (*BucketHandle) DeleteNotification
   href: index.html#cloud_google_com_go_storage_BucketHandle_DeleteNotification
+- uid: cloud.google.com/go/storage.BucketHandle.GenerateSignedPostPolicyV4
+  name: >
+    func (*BucketHandle) GenerateSignedPostPolicyV4
+  href: index.html#cloud_google_com_go_storage_BucketHandle_GenerateSignedPostPolicyV4
 - uid: cloud.google.com/go/storage.BucketHandle.IAM
   name: >
     func (*BucketHandle) IAM
@@ -109,6 +116,18 @@ references:
   name: >
     func (*BucketHandle) Objects
   href: index.html#cloud_google_com_go_storage_BucketHandle_Objects
+- uid: cloud.google.com/go/storage.BucketHandle.Retryer
+  name: >
+    func (*BucketHandle) Retryer
+  href: index.html#cloud_google_com_go_storage_BucketHandle_Retryer
+- uid: cloud.google.com/go/storage.BucketHandle.SetObjectRetention
+  name: >
+    func (*BucketHandle) SetObjectRetention
+  href: index.html#cloud_google_com_go_storage_BucketHandle_SetObjectRetention
+- uid: cloud.google.com/go/storage.BucketHandle.SignedURL
+  name: >
+    func (*BucketHandle) SignedURL
+  href: index.html#cloud_google_com_go_storage_BucketHandle_SignedURL
 - uid: cloud.google.com/go/storage.BucketHandle.Update
   name: >
     func (*BucketHandle) Update
@@ -168,10 +187,18 @@ references:
   name: >
     func NewClient
   href: index.html#cloud_google_com_go_storage_Client_NewClient
+- uid: cloud.google.com/go/storage.Client.NewGRPCClient
+  name: >
+    func NewGRPCClient
+  href: index.html#cloud_google_com_go_storage_Client_NewGRPCClient
 - uid: cloud.google.com/go/storage.Client.ServiceAccount
   name: >
     func (*Client) ServiceAccount
   href: index.html#cloud_google_com_go_storage_Client_ServiceAccount
+- uid: cloud.google.com/go/storage.Client.SetRetry
+  name: >
+    func (*Client) SetRetry
+  href: index.html#cloud_google_com_go_storage_Client_SetRetry
 - uid: cloud.google.com/go/storage.Composer
   name: Composer
   href: index.html#cloud_google_com_go_storage_Composer
@@ -192,9 +219,12 @@ references:
 - uid: cloud.google.com/go/storage.CORS
   name: CORS
   href: index.html#cloud_google_com_go_storage_CORS
-- uid: cloud.google.com/go/storage.DeleteAction,SetStorageClassAction
-  name: DeleteAction, SetStorageClassAction
-  href: index.html#cloud_google_com_go_storage_DeleteAction_SetStorageClassAction
+- uid: cloud.google.com/go/storage.CustomPlacementConfig
+  name: CustomPlacementConfig
+  href: index.html#cloud_google_com_go_storage_CustomPlacementConfig
+- uid: cloud.google.com/go/storage.DeleteAction,SetStorageClassAction,AbortIncompleteMPUAction
+  name: DeleteAction, SetStorageClassAction, AbortIncompleteMPUAction
+  href: index.html#cloud_google_com_go_storage_DeleteAction_SetStorageClassAction_AbortIncompleteMPUAction
 - uid: cloud.google.com/go/storage.ErrBucketNotExist,ErrObjectNotExist
   name: ErrBucketNotExist, ErrObjectNotExist
   href: index.html#cloud_google_com_go_storage_ErrBucketNotExist_ErrObjectNotExist
@@ -336,10 +366,18 @@ references:
   name: >
     func (*ObjectHandle) ObjectName
   href: index.html#cloud_google_com_go_storage_ObjectHandle_ObjectName
+- uid: cloud.google.com/go/storage.ObjectHandle.OverrideUnlockedRetention
+  name: >
+    func (*ObjectHandle) OverrideUnlockedRetention
+  href: index.html#cloud_google_com_go_storage_ObjectHandle_OverrideUnlockedRetention
 - uid: cloud.google.com/go/storage.ObjectHandle.ReadCompressed
   name: >
     func (*ObjectHandle) ReadCompressed
   href: index.html#cloud_google_com_go_storage_ObjectHandle_ReadCompressed
+- uid: cloud.google.com/go/storage.ObjectHandle.Retryer
+  name: >
+    func (*ObjectHandle) Retryer
+  href: index.html#cloud_google_com_go_storage_ObjectHandle_Retryer
 - uid: cloud.google.com/go/storage.ObjectHandle.Update
   name: >
     func (*ObjectHandle) Update
@@ -355,6 +393,9 @@ references:
   name: >
     func (*ObjectIterator) PageInfo
   href: index.html#cloud_google_com_go_storage_ObjectIterator_PageInfo
+- uid: cloud.google.com/go/storage.ObjectRetention
+  name: ObjectRetention
+  href: index.html#cloud_google_com_go_storage_ObjectRetention
 - uid: cloud.google.com/go/storage.PolicyV4Fields
   name: PolicyV4Fields
   href: index.html#cloud_google_com_go_storage_PolicyV4Fields
@@ -399,9 +440,9 @@ references:
   name: >
     func (PublicAccessPrevention) String
   href: index.html#cloud_google_com_go_storage_PublicAccessPrevention_String
-- uid: cloud.google.com/go/storage.PublicAccessPreventionUnknown,PublicAccessPreventionUnspecified,PublicAccessPreventionEnforced
-  name: PublicAccessPreventionUnknown, PublicAccessPreventionUnspecified, PublicAccessPreventionEnforced
-  href: index.html#cloud_google_com_go_storage_PublicAccessPreventionUnknown_PublicAccessPreventionUnspecified_PublicAccessPreventionEnforced
+- uid: cloud.google.com/go/storage.PublicAccessPreventionUnknown,PublicAccessPreventionUnspecified,PublicAccessPreventionEnforced,PublicAccessPreventionInherited
+  name: PublicAccessPreventionUnknown, PublicAccessPreventionUnspecified, PublicAccessPreventionEnforced, PublicAccessPreventionInherited
+  href: index.html#cloud_google_com_go_storage_PublicAccessPreventionUnknown_PublicAccessPreventionUnspecified_PublicAccessPreventionEnforced_PublicAccessPreventionInherited
 - uid: cloud.google.com/go/storage.Query
   name: Query
   href: index.html#cloud_google_com_go_storage_Query
@@ -444,18 +485,61 @@ references:
   name: >
     func (*Reader) Size
   href: index.html#cloud_google_com_go_storage_Reader_Size
+- uid: cloud.google.com/go/storage.Reader.WriteTo
+  name: >
+    func (*Reader) WriteTo
+  href: index.html#cloud_google_com_go_storage_Reader_WriteTo
 - uid: cloud.google.com/go/storage.ReaderObjectAttrs
   name: ReaderObjectAttrs
   href: index.html#cloud_google_com_go_storage_ReaderObjectAttrs
 - uid: cloud.google.com/go/storage.RetentionPolicy
   name: RetentionPolicy
   href: index.html#cloud_google_com_go_storage_RetentionPolicy
+- uid: cloud.google.com/go/storage.RetryIdempotent,RetryAlways,RetryNever
+  name: RetryIdempotent, RetryAlways, RetryNever
+  href: index.html#cloud_google_com_go_storage_RetryIdempotent_RetryAlways_RetryNever
+- uid: cloud.google.com/go/storage.RetryOption
+  name: RetryOption
+  href: index.html#cloud_google_com_go_storage_RetryOption
+- uid: cloud.google.com/go/storage.RetryOption.WithBackoff
+  name: >
+    func WithBackoff
+  href: index.html#cloud_google_com_go_storage_RetryOption_WithBackoff
+- uid: cloud.google.com/go/storage.RetryOption.WithErrorFunc
+  name: >
+    func WithErrorFunc
+  href: index.html#cloud_google_com_go_storage_RetryOption_WithErrorFunc
+- uid: cloud.google.com/go/storage.RetryOption.WithMaxAttempts
+  name: >
+    func WithMaxAttempts
+  href: index.html#cloud_google_com_go_storage_RetryOption_WithMaxAttempts
+- uid: cloud.google.com/go/storage.RetryOption.WithPolicy
+  name: >
+    func WithPolicy
+  href: index.html#cloud_google_com_go_storage_RetryOption_WithPolicy
+- uid: cloud.google.com/go/storage.RetryPolicy
+  name: RetryPolicy
+  href: index.html#cloud_google_com_go_storage_RetryPolicy
 - uid: cloud.google.com/go/storage.RoleOwner,RoleReader,RoleWriter
   name: RoleOwner, RoleReader, RoleWriter
   href: index.html#cloud_google_com_go_storage_RoleOwner_RoleReader_RoleWriter
+- uid: cloud.google.com/go/storage.RPO
+  name: RPO
+  href: index.html#cloud_google_com_go_storage_RPO
+- uid: cloud.google.com/go/storage.RPO.String
+  name: >
+    func (RPO) String
+  href: index.html#cloud_google_com_go_storage_RPO_String
+- uid: cloud.google.com/go/storage.RPOUnknown,RPODefault,RPOAsyncTurbo
+  name: RPOUnknown, RPODefault, RPOAsyncTurbo
+  href: index.html#cloud_google_com_go_storage_RPOUnknown_RPODefault_RPOAsyncTurbo
 - uid: cloud.google.com/go/storage.ScopeFullControl,ScopeReadOnly,ScopeReadWrite
   name: ScopeFullControl, ScopeReadOnly, ScopeReadWrite
   href: index.html#cloud_google_com_go_storage_ScopeFullControl_ScopeReadOnly_ScopeReadWrite
+- uid: cloud.google.com/go/storage.ShouldRetry
+  name: >
+    func ShouldRetry
+  href: index.html#cloud_google_com_go_storage_ShouldRetry
 - uid: cloud.google.com/go/storage.SignedURL
   name: >
     func SignedURL
@@ -487,6 +571,14 @@ references:
   name: >
     func VirtualHostedStyle
   href: index.html#cloud_google_com_go_storage_URLStyle_VirtualHostedStyle
+- uid: cloud.google.com/go/storage.WithJSONReads
+  name: >
+    func WithJSONReads
+  href: index.html#cloud_google_com_go_storage_WithJSONReads
+- uid: cloud.google.com/go/storage.WithXMLReads
+  name: >
+    func WithXMLReads
+  href: index.html#cloud_google_com_go_storage_WithXMLReads
 - uid: cloud.google.com/go/storage.Writer
   name: Writer
   href: index.html#cloud_google_com_go_storage_Writer
@@ -506,3 +598,671 @@ references:
   name: >
     func (*Writer) Write
   href: index.html#cloud_google_com_go_storage_Writer_Write
+- uid: cloud.google.com/go/storage/control/apiv2
+  name: cloud.google.com/go/storage/control/apiv2
+  href: control/apiv2.html
+- uid: cloud.google.com/go/storage/control/apiv2.DefaultAuthScopes
+  name: >
+    func DefaultAuthScopes
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_DefaultAuthScopes
+- uid: cloud.google.com/go/storage/control/apiv2.FolderIterator
+  name: FolderIterator
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_FolderIterator
+- uid: cloud.google.com/go/storage/control/apiv2.FolderIterator.Next
+  name: >
+    func (*FolderIterator) Next
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_FolderIterator_Next
+- uid: cloud.google.com/go/storage/control/apiv2.FolderIterator.PageInfo
+  name: >
+    func (*FolderIterator) PageInfo
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_FolderIterator_PageInfo
+- uid: cloud.google.com/go/storage/control/apiv2.RenameFolderOperation
+  name: RenameFolderOperation
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_RenameFolderOperation
+- uid: cloud.google.com/go/storage/control/apiv2.RenameFolderOperation.Done
+  name: >
+    func (*RenameFolderOperation) Done
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_RenameFolderOperation_Done
+- uid: cloud.google.com/go/storage/control/apiv2.RenameFolderOperation.Metadata
+  name: >
+    func (*RenameFolderOperation) Metadata
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_RenameFolderOperation_Metadata
+- uid: cloud.google.com/go/storage/control/apiv2.RenameFolderOperation.Name
+  name: >
+    func (*RenameFolderOperation) Name
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_RenameFolderOperation_Name
+- uid: cloud.google.com/go/storage/control/apiv2.RenameFolderOperation.Poll
+  name: >
+    func (*RenameFolderOperation) Poll
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_RenameFolderOperation_Poll
+- uid: cloud.google.com/go/storage/control/apiv2.RenameFolderOperation.Wait
+  name: >
+    func (*RenameFolderOperation) Wait
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_RenameFolderOperation_Wait
+- uid: cloud.google.com/go/storage/control/apiv2.StorageControlCallOptions
+  name: StorageControlCallOptions
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_StorageControlCallOptions
+- uid: cloud.google.com/go/storage/control/apiv2.StorageControlClient
+  name: StorageControlClient
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_StorageControlClient
+- uid: cloud.google.com/go/storage/control/apiv2.StorageControlClient.Close
+  name: >
+    func (*StorageControlClient) Close
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_StorageControlClient_Close
+- uid: cloud.google.com/go/storage/control/apiv2.StorageControlClient.Connection
+  name: >
+    func (*StorageControlClient) Connection
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_StorageControlClient_Connection
+- uid: cloud.google.com/go/storage/control/apiv2.StorageControlClient.CreateFolder
+  name: >
+    func (*StorageControlClient) CreateFolder
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_StorageControlClient_CreateFolder
+- uid: cloud.google.com/go/storage/control/apiv2.StorageControlClient.DeleteFolder
+  name: >
+    func (*StorageControlClient) DeleteFolder
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_StorageControlClient_DeleteFolder
+- uid: cloud.google.com/go/storage/control/apiv2.StorageControlClient.GetFolder
+  name: >
+    func (*StorageControlClient) GetFolder
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_StorageControlClient_GetFolder
+- uid: cloud.google.com/go/storage/control/apiv2.StorageControlClient.GetStorageLayout
+  name: >
+    func (*StorageControlClient) GetStorageLayout
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_StorageControlClient_GetStorageLayout
+- uid: cloud.google.com/go/storage/control/apiv2.StorageControlClient.ListFolders
+  name: >
+    func (*StorageControlClient) ListFolders
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_StorageControlClient_ListFolders
+- uid: cloud.google.com/go/storage/control/apiv2.StorageControlClient.NewStorageControlClient
+  name: >
+    func NewStorageControlClient
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_StorageControlClient_NewStorageControlClient
+- uid: cloud.google.com/go/storage/control/apiv2.StorageControlClient.RenameFolder
+  name: >
+    func (*StorageControlClient) RenameFolder
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolder
+- uid: cloud.google.com/go/storage/control/apiv2.StorageControlClient.RenameFolderOperation
+  name: >
+    func (*StorageControlClient) RenameFolderOperation
+  href: control/apiv2.html#cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb
+  name: cloud.google.com/go/storage/control/apiv2/controlpb
+  href: control/apiv2/controlpb.html
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CommonLongRunningOperationMetadata
+  name: CommonLongRunningOperationMetadata
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CommonLongRunningOperationMetadata
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CommonLongRunningOperationMetadata.Descriptor
+  name: >
+    func (*CommonLongRunningOperationMetadata) Descriptor
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CommonLongRunningOperationMetadata_Descriptor
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CommonLongRunningOperationMetadata.GetCreateTime
+  name: >
+    func (*CommonLongRunningOperationMetadata) GetCreateTime
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CommonLongRunningOperationMetadata_GetCreateTime
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CommonLongRunningOperationMetadata.GetEndTime
+  name: >
+    func (*CommonLongRunningOperationMetadata) GetEndTime
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CommonLongRunningOperationMetadata_GetEndTime
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CommonLongRunningOperationMetadata.GetProgressPercent
+  name: >
+    func (*CommonLongRunningOperationMetadata) GetProgressPercent
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CommonLongRunningOperationMetadata_GetProgressPercent
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CommonLongRunningOperationMetadata.GetRequestedCancellation
+  name: >
+    func (*CommonLongRunningOperationMetadata) GetRequestedCancellation
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CommonLongRunningOperationMetadata_GetRequestedCancellation
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CommonLongRunningOperationMetadata.GetType
+  name: >
+    func (*CommonLongRunningOperationMetadata) GetType
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CommonLongRunningOperationMetadata_GetType
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CommonLongRunningOperationMetadata.GetUpdateTime
+  name: >
+    func (*CommonLongRunningOperationMetadata) GetUpdateTime
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CommonLongRunningOperationMetadata_GetUpdateTime
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CommonLongRunningOperationMetadata.ProtoMessage
+  name: >
+    func (*CommonLongRunningOperationMetadata) ProtoMessage
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CommonLongRunningOperationMetadata_ProtoMessage
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CommonLongRunningOperationMetadata.ProtoReflect
+  name: >
+    func (*CommonLongRunningOperationMetadata) ProtoReflect
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CommonLongRunningOperationMetadata_ProtoReflect
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CommonLongRunningOperationMetadata.Reset
+  name: >
+    func (*CommonLongRunningOperationMetadata) Reset
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CommonLongRunningOperationMetadata_Reset
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CommonLongRunningOperationMetadata.String
+  name: >
+    func (*CommonLongRunningOperationMetadata) String
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CommonLongRunningOperationMetadata_String
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateFolderRequest
+  name: CreateFolderRequest
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateFolderRequest.Descriptor
+  name: >
+    func (*CreateFolderRequest) Descriptor
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest_Descriptor
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateFolderRequest.GetFolder
+  name: >
+    func (*CreateFolderRequest) GetFolder
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest_GetFolder
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateFolderRequest.GetFolderId
+  name: >
+    func (*CreateFolderRequest) GetFolderId
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest_GetFolderId
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateFolderRequest.GetParent
+  name: >
+    func (*CreateFolderRequest) GetParent
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest_GetParent
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateFolderRequest.GetRecursive
+  name: >
+    func (*CreateFolderRequest) GetRecursive
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest_GetRecursive
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateFolderRequest.GetRequestId
+  name: >
+    func (*CreateFolderRequest) GetRequestId
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest_GetRequestId
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateFolderRequest.ProtoMessage
+  name: >
+    func (*CreateFolderRequest) ProtoMessage
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest_ProtoMessage
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateFolderRequest.ProtoReflect
+  name: >
+    func (*CreateFolderRequest) ProtoReflect
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest_ProtoReflect
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateFolderRequest.Reset
+  name: >
+    func (*CreateFolderRequest) Reset
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest_Reset
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateFolderRequest.String
+  name: >
+    func (*CreateFolderRequest) String
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest_String
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteFolderRequest
+  name: DeleteFolderRequest
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteFolderRequest
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteFolderRequest.Descriptor
+  name: >
+    func (*DeleteFolderRequest) Descriptor
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteFolderRequest_Descriptor
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteFolderRequest.GetIfMetagenerationMatch
+  name: >
+    func (*DeleteFolderRequest) GetIfMetagenerationMatch
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteFolderRequest_GetIfMetagenerationMatch
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteFolderRequest.GetIfMetagenerationNotMatch
+  name: >
+    func (*DeleteFolderRequest) GetIfMetagenerationNotMatch
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteFolderRequest_GetIfMetagenerationNotMatch
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteFolderRequest.GetName
+  name: >
+    func (*DeleteFolderRequest) GetName
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteFolderRequest_GetName
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteFolderRequest.GetRequestId
+  name: >
+    func (*DeleteFolderRequest) GetRequestId
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteFolderRequest_GetRequestId
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteFolderRequest.ProtoMessage
+  name: >
+    func (*DeleteFolderRequest) ProtoMessage
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteFolderRequest_ProtoMessage
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteFolderRequest.ProtoReflect
+  name: >
+    func (*DeleteFolderRequest) ProtoReflect
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteFolderRequest_ProtoReflect
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteFolderRequest.Reset
+  name: >
+    func (*DeleteFolderRequest) Reset
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteFolderRequest_Reset
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteFolderRequest.String
+  name: >
+    func (*DeleteFolderRequest) String
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteFolderRequest_String
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.File_google_storage_control_v2_storage_control_proto
+  name: File_google_storage_control_v2_storage_control_proto
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_File_google_storage_control_v2_storage_control_proto
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.Folder
+  name: Folder
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_Folder
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.Folder.Descriptor
+  name: >
+    func (*Folder) Descriptor
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_Folder_Descriptor
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.Folder.GetCreateTime
+  name: >
+    func (*Folder) GetCreateTime
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_Folder_GetCreateTime
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.Folder.GetMetageneration
+  name: >
+    func (*Folder) GetMetageneration
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_Folder_GetMetageneration
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.Folder.GetName
+  name: >
+    func (*Folder) GetName
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_Folder_GetName
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.Folder.GetPendingRenameInfo
+  name: >
+    func (*Folder) GetPendingRenameInfo
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_Folder_GetPendingRenameInfo
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.Folder.GetUpdateTime
+  name: >
+    func (*Folder) GetUpdateTime
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_Folder_GetUpdateTime
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.Folder.ProtoMessage
+  name: >
+    func (*Folder) ProtoMessage
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_Folder_ProtoMessage
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.Folder.ProtoReflect
+  name: >
+    func (*Folder) ProtoReflect
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_Folder_ProtoReflect
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.Folder.Reset
+  name: >
+    func (*Folder) Reset
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_Folder_Reset
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.Folder.String
+  name: >
+    func (*Folder) String
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_Folder_String
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetFolderRequest
+  name: GetFolderRequest
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetFolderRequest
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetFolderRequest.Descriptor
+  name: >
+    func (*GetFolderRequest) Descriptor
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetFolderRequest_Descriptor
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetFolderRequest.GetIfMetagenerationMatch
+  name: >
+    func (*GetFolderRequest) GetIfMetagenerationMatch
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetFolderRequest_GetIfMetagenerationMatch
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetFolderRequest.GetIfMetagenerationNotMatch
+  name: >
+    func (*GetFolderRequest) GetIfMetagenerationNotMatch
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetFolderRequest_GetIfMetagenerationNotMatch
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetFolderRequest.GetName
+  name: >
+    func (*GetFolderRequest) GetName
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetFolderRequest_GetName
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetFolderRequest.GetRequestId
+  name: >
+    func (*GetFolderRequest) GetRequestId
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetFolderRequest_GetRequestId
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetFolderRequest.ProtoMessage
+  name: >
+    func (*GetFolderRequest) ProtoMessage
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetFolderRequest_ProtoMessage
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetFolderRequest.ProtoReflect
+  name: >
+    func (*GetFolderRequest) ProtoReflect
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetFolderRequest_ProtoReflect
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetFolderRequest.Reset
+  name: >
+    func (*GetFolderRequest) Reset
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetFolderRequest_Reset
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetFolderRequest.String
+  name: >
+    func (*GetFolderRequest) String
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetFolderRequest_String
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetStorageLayoutRequest
+  name: GetStorageLayoutRequest
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetStorageLayoutRequest
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetStorageLayoutRequest.Descriptor
+  name: >
+    func (*GetStorageLayoutRequest) Descriptor
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetStorageLayoutRequest_Descriptor
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetStorageLayoutRequest.GetName
+  name: >
+    func (*GetStorageLayoutRequest) GetName
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetStorageLayoutRequest_GetName
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetStorageLayoutRequest.GetPrefix
+  name: >
+    func (*GetStorageLayoutRequest) GetPrefix
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetStorageLayoutRequest_GetPrefix
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetStorageLayoutRequest.GetRequestId
+  name: >
+    func (*GetStorageLayoutRequest) GetRequestId
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetStorageLayoutRequest_GetRequestId
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetStorageLayoutRequest.ProtoMessage
+  name: >
+    func (*GetStorageLayoutRequest) ProtoMessage
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetStorageLayoutRequest_ProtoMessage
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetStorageLayoutRequest.ProtoReflect
+  name: >
+    func (*GetStorageLayoutRequest) ProtoReflect
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetStorageLayoutRequest_ProtoReflect
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetStorageLayoutRequest.Reset
+  name: >
+    func (*GetStorageLayoutRequest) Reset
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetStorageLayoutRequest_Reset
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetStorageLayoutRequest.String
+  name: >
+    func (*GetStorageLayoutRequest) String
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_GetStorageLayoutRequest_String
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersRequest
+  name: ListFoldersRequest
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersRequest.Descriptor
+  name: >
+    func (*ListFoldersRequest) Descriptor
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest_Descriptor
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersRequest.GetDelimiter
+  name: >
+    func (*ListFoldersRequest) GetDelimiter
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest_GetDelimiter
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersRequest.GetLexicographicEnd
+  name: >
+    func (*ListFoldersRequest) GetLexicographicEnd
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest_GetLexicographicEnd
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersRequest.GetLexicographicStart
+  name: >
+    func (*ListFoldersRequest) GetLexicographicStart
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest_GetLexicographicStart
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersRequest.GetPageSize
+  name: >
+    func (*ListFoldersRequest) GetPageSize
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest_GetPageSize
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersRequest.GetPageToken
+  name: >
+    func (*ListFoldersRequest) GetPageToken
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest_GetPageToken
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersRequest.GetParent
+  name: >
+    func (*ListFoldersRequest) GetParent
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest_GetParent
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersRequest.GetPrefix
+  name: >
+    func (*ListFoldersRequest) GetPrefix
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest_GetPrefix
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersRequest.GetRequestId
+  name: >
+    func (*ListFoldersRequest) GetRequestId
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest_GetRequestId
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersRequest.ProtoMessage
+  name: >
+    func (*ListFoldersRequest) ProtoMessage
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest_ProtoMessage
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersRequest.ProtoReflect
+  name: >
+    func (*ListFoldersRequest) ProtoReflect
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest_ProtoReflect
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersRequest.Reset
+  name: >
+    func (*ListFoldersRequest) Reset
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest_Reset
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersRequest.String
+  name: >
+    func (*ListFoldersRequest) String
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest_String
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersResponse
+  name: ListFoldersResponse
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersResponse
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersResponse.Descriptor
+  name: >
+    func (*ListFoldersResponse) Descriptor
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersResponse_Descriptor
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersResponse.GetFolders
+  name: >
+    func (*ListFoldersResponse) GetFolders
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersResponse_GetFolders
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersResponse.GetNextPageToken
+  name: >
+    func (*ListFoldersResponse) GetNextPageToken
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersResponse_GetNextPageToken
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersResponse.ProtoMessage
+  name: >
+    func (*ListFoldersResponse) ProtoMessage
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersResponse_ProtoMessage
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersResponse.ProtoReflect
+  name: >
+    func (*ListFoldersResponse) ProtoReflect
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersResponse_ProtoReflect
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersResponse.Reset
+  name: >
+    func (*ListFoldersResponse) Reset
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersResponse_Reset
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersResponse.String
+  name: >
+    func (*ListFoldersResponse) String
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersResponse_String
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.PendingRenameInfo
+  name: PendingRenameInfo
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_PendingRenameInfo
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.PendingRenameInfo.Descriptor
+  name: >
+    func (*PendingRenameInfo) Descriptor
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_PendingRenameInfo_Descriptor
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.PendingRenameInfo.GetOperation
+  name: >
+    func (*PendingRenameInfo) GetOperation
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_PendingRenameInfo_GetOperation
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.PendingRenameInfo.ProtoMessage
+  name: >
+    func (*PendingRenameInfo) ProtoMessage
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_PendingRenameInfo_ProtoMessage
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.PendingRenameInfo.ProtoReflect
+  name: >
+    func (*PendingRenameInfo) ProtoReflect
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_PendingRenameInfo_ProtoReflect
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.PendingRenameInfo.Reset
+  name: >
+    func (*PendingRenameInfo) Reset
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_PendingRenameInfo_Reset
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.PendingRenameInfo.String
+  name: >
+    func (*PendingRenameInfo) String
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_PendingRenameInfo_String
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RegisterStorageControlServer
+  name: >
+    func RegisterStorageControlServer
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RegisterStorageControlServer
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderMetadata
+  name: RenameFolderMetadata
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderMetadata
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderMetadata.Descriptor
+  name: >
+    func (*RenameFolderMetadata) Descriptor
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderMetadata_Descriptor
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderMetadata.GetCommonMetadata
+  name: >
+    func (*RenameFolderMetadata) GetCommonMetadata
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderMetadata_GetCommonMetadata
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderMetadata.GetDestinationFolderId
+  name: >
+    func (*RenameFolderMetadata) GetDestinationFolderId
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderMetadata_GetDestinationFolderId
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderMetadata.GetSourceFolderId
+  name: >
+    func (*RenameFolderMetadata) GetSourceFolderId
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderMetadata_GetSourceFolderId
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderMetadata.ProtoMessage
+  name: >
+    func (*RenameFolderMetadata) ProtoMessage
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderMetadata_ProtoMessage
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderMetadata.ProtoReflect
+  name: >
+    func (*RenameFolderMetadata) ProtoReflect
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderMetadata_ProtoReflect
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderMetadata.Reset
+  name: >
+    func (*RenameFolderMetadata) Reset
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderMetadata_Reset
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderMetadata.String
+  name: >
+    func (*RenameFolderMetadata) String
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderMetadata_String
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderRequest
+  name: RenameFolderRequest
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderRequest.Descriptor
+  name: >
+    func (*RenameFolderRequest) Descriptor
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest_Descriptor
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderRequest.GetDestinationFolderId
+  name: >
+    func (*RenameFolderRequest) GetDestinationFolderId
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest_GetDestinationFolderId
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderRequest.GetIfMetagenerationMatch
+  name: >
+    func (*RenameFolderRequest) GetIfMetagenerationMatch
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest_GetIfMetagenerationMatch
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderRequest.GetIfMetagenerationNotMatch
+  name: >
+    func (*RenameFolderRequest) GetIfMetagenerationNotMatch
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest_GetIfMetagenerationNotMatch
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderRequest.GetName
+  name: >
+    func (*RenameFolderRequest) GetName
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest_GetName
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderRequest.GetRequestId
+  name: >
+    func (*RenameFolderRequest) GetRequestId
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest_GetRequestId
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderRequest.ProtoMessage
+  name: >
+    func (*RenameFolderRequest) ProtoMessage
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest_ProtoMessage
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderRequest.ProtoReflect
+  name: >
+    func (*RenameFolderRequest) ProtoReflect
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest_ProtoReflect
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderRequest.Reset
+  name: >
+    func (*RenameFolderRequest) Reset
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest_Reset
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.RenameFolderRequest.String
+  name: >
+    func (*RenameFolderRequest) String
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest_String
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageControlClient
+  name: StorageControlClient
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageControlClient
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageControlClient.NewStorageControlClient
+  name: >
+    func NewStorageControlClient
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageControlClient_NewStorageControlClient
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageControlServer
+  name: StorageControlServer
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageControlServer
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout
+  name: StorageLayout
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout.Descriptor
+  name: >
+    func (*StorageLayout) Descriptor
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_Descriptor
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout.GetCustomPlacementConfig
+  name: >
+    func (*StorageLayout) GetCustomPlacementConfig
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_GetCustomPlacementConfig
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout.GetHierarchicalNamespace
+  name: >
+    func (*StorageLayout) GetHierarchicalNamespace
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_GetHierarchicalNamespace
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout.GetLocation
+  name: >
+    func (*StorageLayout) GetLocation
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_GetLocation
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout.GetLocationType
+  name: >
+    func (*StorageLayout) GetLocationType
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_GetLocationType
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout.GetName
+  name: >
+    func (*StorageLayout) GetName
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_GetName
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout.ProtoMessage
+  name: >
+    func (*StorageLayout) ProtoMessage
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_ProtoMessage
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout.ProtoReflect
+  name: >
+    func (*StorageLayout) ProtoReflect
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_ProtoReflect
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout.Reset
+  name: >
+    func (*StorageLayout) Reset
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_Reset
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout.String
+  name: >
+    func (*StorageLayout) String
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_String
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout_CustomPlacementConfig
+  name: StorageLayout_CustomPlacementConfig
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_CustomPlacementConfig
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout_CustomPlacementConfig.Descriptor
+  name: >
+    func (*StorageLayout_CustomPlacementConfig) Descriptor
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_CustomPlacementConfig_Descriptor
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout_CustomPlacementConfig.GetDataLocations
+  name: >
+    func (*StorageLayout_CustomPlacementConfig) GetDataLocations
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_CustomPlacementConfig_GetDataLocations
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout_CustomPlacementConfig.ProtoMessage
+  name: >
+    func (*StorageLayout_CustomPlacementConfig) ProtoMessage
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_CustomPlacementConfig_ProtoMessage
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout_CustomPlacementConfig.ProtoReflect
+  name: >
+    func (*StorageLayout_CustomPlacementConfig) ProtoReflect
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_CustomPlacementConfig_ProtoReflect
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout_CustomPlacementConfig.Reset
+  name: >
+    func (*StorageLayout_CustomPlacementConfig) Reset
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_CustomPlacementConfig_Reset
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout_CustomPlacementConfig.String
+  name: >
+    func (*StorageLayout_CustomPlacementConfig) String
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_CustomPlacementConfig_String
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout_HierarchicalNamespace
+  name: StorageLayout_HierarchicalNamespace
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_HierarchicalNamespace
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout_HierarchicalNamespace.Descriptor
+  name: >
+    func (*StorageLayout_HierarchicalNamespace) Descriptor
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_HierarchicalNamespace_Descriptor
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout_HierarchicalNamespace.GetEnabled
+  name: >
+    func (*StorageLayout_HierarchicalNamespace) GetEnabled
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_HierarchicalNamespace_GetEnabled
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout_HierarchicalNamespace.ProtoMessage
+  name: >
+    func (*StorageLayout_HierarchicalNamespace) ProtoMessage
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_HierarchicalNamespace_ProtoMessage
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout_HierarchicalNamespace.ProtoReflect
+  name: >
+    func (*StorageLayout_HierarchicalNamespace) ProtoReflect
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_HierarchicalNamespace_ProtoReflect
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout_HierarchicalNamespace.Reset
+  name: >
+    func (*StorageLayout_HierarchicalNamespace) Reset
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_HierarchicalNamespace_Reset
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout_HierarchicalNamespace.String
+  name: >
+    func (*StorageLayout_HierarchicalNamespace) String
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout_HierarchicalNamespace_String
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer
+  name: UnimplementedStorageControlServer
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_UnimplementedStorageControlServer
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.CreateFolder
+  name: >
+    func (*UnimplementedStorageControlServer) CreateFolder
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_UnimplementedStorageControlServer_CreateFolder
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.DeleteFolder
+  name: >
+    func (*UnimplementedStorageControlServer) DeleteFolder
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_UnimplementedStorageControlServer_DeleteFolder
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.GetFolder
+  name: >
+    func (*UnimplementedStorageControlServer) GetFolder
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_UnimplementedStorageControlServer_GetFolder
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.GetStorageLayout
+  name: >
+    func (*UnimplementedStorageControlServer) GetStorageLayout
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_UnimplementedStorageControlServer_GetStorageLayout
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.ListFolders
+  name: >
+    func (*UnimplementedStorageControlServer) ListFolders
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_UnimplementedStorageControlServer_ListFolders
+- uid: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.RenameFolder
+  name: >
+    func (*UnimplementedStorageControlServer) RenameFolder
+  href: control/apiv2/controlpb.html#cloud_google_com_go_storage_control_apiv2_controlpb_UnimplementedStorageControlServer_RenameFolder
