@@ -8,74 +8,89 @@
     {% verbatim %}
     <div>
       <article data-uid="cloud.google.com/go/storage">
-<h1 class="page-title">Package cloud.google.com/go/storage (v1.16.0)</h1>
+<h1 class="page-title">Cloud Storage (GCS) - Package cloud.google.com/go/storage (v1.40.0)</h1>
   
-  <aside class="beta">
-    <p><strong>Beta</strong></p>
-    <p>
-    This library is covered by the <a href="/terms/service-terms#1">Pre-GA Offerings Terms</a>
-    of the  Terms of Service. Pre-GA libraries might have limited support,
-    and changes to pre-GA libraries might not be compatible with other pre-GA versions.
-    For more information, see the
-    <a href="/products/#product-launch-stages">launch stage descriptions</a>.
-    </p>
-  </aside>
   <aside class="note">
     <strong>Note:</strong> To get more information about this package, such as access to older versions, view <a href="https://pkg.go.dev/cloud.google.com/go/storage" class="external">this package on pkg.go.dev</a>.
   </aside>
   <div class="markdown level0 summary"><p><p>Package storage provides an easy way to work with Google Cloud Storage.
-Google Cloud Storage stores data in named objects, which are grouped into buckets.</p>
+Google Cloud Storage stores data in named objects, which are grouped into buckets.
 <p>More information about Google Cloud Storage is available at
-<a href="https://cloud.google.com/storage/docs">https://cloud.google.com/storage/docs</a>.</p>
-<p>See <a href="https://godoc.org/cloud.google.com/go">https://godoc.org/cloud.google.com/go</a> for authentication, timeouts,
-connection pooling and similar aspects of this package.</p>
-<p>All of the methods of this package use exponential backoff to retry calls that fail
-with certain errors, as described in
-<a href="https://cloud.google.com/storage/docs/exponential-backoff">https://cloud.google.com/storage/docs/exponential-backoff</a>. Retrying continues
-indefinitely unless the controlling context is canceled or the client is closed. See
-context.WithTimeout and context.WithCancel.</p>
-<h3>Creating a Client</h3>
-<p>To start working with this package, create a client:</p></p>
-<pre><code class="prettyprint">ctx := context.Background()
+<a href="https://cloud.google.com/storage/docs">https://cloud.google.com/storage/docs</a>.
+<p>See <a href="https://pkg.go.dev/cloud.google.com/go">https://pkg.go.dev/cloud.google.com/go</a> for authentication, timeouts,
+connection pooling and similar aspects of this package.
+<h2 id="hdr-Creating_a_Client">Creating a Client</h2>
+<p>To start working with this package, create a <a href="#Client">Client</a>:</p>
+<pre class="prettyprint">ctx := context.Background()
 client, err := storage.NewClient(ctx)
 if err != nil {
     // TODO: Handle error.
 }
-</code></pre><p>The client will use your default application credentials. Clients should be
-<p>reused instead of created as needed. The methods of Client are safe for
-concurrent use by multiple goroutines.</p>
+</pre>
+<p><p>The client will use your default application credentials. Clients should be
+reused instead of created as needed. The methods of <a href="#Client">Client</a> are safe for
+concurrent use by multiple goroutines.
+<p>You may configure the client by passing in options from the <a href="https://pkg.go.dev/google.golang.org/api/option">google.golang.org/api/option</a>
+package. You may also use options defined in this package, such as <a href="#WithJSONReads">WithJSONReads</a>.
 <p>If you only wish to access public data, you can create
-an unauthenticated client with</p></p>
-<pre><code class="prettyprint">client, err := storage.NewClient(ctx, option.WithoutAuthentication())
-</code></pre><h3>Buckets</h3>
-<p><p>A Google Cloud Storage bucket is a collection of objects. To work with a
-bucket, make a bucket handle:</p></p>
-<pre><code class="prettyprint">bkt := client.Bucket(bucketName)
-</code></pre><p>A handle is a reference to a bucket. You can have a handle even if the
-<p>bucket doesn&#39;t exist yet. To create a bucket in Google Cloud Storage,
-call Create on the handle:</p></p>
-<pre><code class="prettyprint">if err := bkt.Create(ctx, projectID, nil); err != nil {
+an unauthenticated client with</p>
+<pre class="prettyprint">client, err := storage.NewClient(ctx, option.WithoutAuthentication())
+</pre>
+<p><p>To use an emulator with this library, you can set the STORAGE_EMULATOR_HOST
+environment variable to the address at which your emulator is running. This will
+send requests to that address instead of to Cloud Storage. You can then create
+and use a client as usual:</p>
+<pre class="prettyprint">// Set STORAGE_EMULATOR_HOST environment variable.
+err := os.Setenv(&quot;STORAGE_EMULATOR_HOST&quot;, &quot;localhost:9000&quot;)
+if err != nil {
     // TODO: Handle error.
 }
-</code></pre><p>Note that although buckets are associated with projects, bucket names are
-<p>global across all projects.</p>
+
+// Create client as usual.
+client, err := storage.NewClient(ctx)
+if err != nil {
+    // TODO: Handle error.
+}
+
+// This request is now directed to http://localhost:9000/storage/v1/b
+// instead of https://storage.googleapis.com/storage/v1/b
+if err := client.Bucket(&quot;my-bucket&quot;).Create(ctx, projectID, nil); err != nil {
+    // TODO: Handle error.
+}
+</pre>
+<p><p>Please note that there is no official emulator for Cloud Storage.
+<h2 id="hdr-Buckets">Buckets</h2>
+<p>A Google Cloud Storage bucket is a collection of objects. To work with a
+bucket, make a bucket handle:</p>
+<pre class="prettyprint">bkt := client.Bucket(bucketName)
+</pre>
+<p><p>A handle is a reference to a bucket. You can have a handle even if the
+bucket doesn&apos;t exist yet. To create a bucket in Google Cloud Storage,
+call <a href="#BucketHandle.Create">BucketHandle.Create</a>:</p>
+<pre class="prettyprint">if err := bkt.Create(ctx, projectID, nil); err != nil {
+    // TODO: Handle error.
+}
+</pre>
+<p><p>Note that although buckets are associated with projects, bucket names are
+global across all projects.
 <p>Each bucket has associated metadata, represented in this package by
-BucketAttrs. The third argument to BucketHandle.Create allows you to set
-the initial BucketAttrs of a bucket. To retrieve a bucket&#39;s attributes, use
-Attrs:</p></p>
-<pre><code class="prettyprint">attrs, err := bkt.Attrs(ctx)
+<a href="#BucketAttrs">BucketAttrs</a>. The third argument to <a href="#BucketHandle.Create">BucketHandle.Create</a> allows you to set
+the initial <a href="#BucketAttrs">BucketAttrs</a> of a bucket. To retrieve a bucket&apos;s attributes, use
+<a href="#BucketHandle.Attrs">BucketHandle.Attrs</a>:</p>
+<pre class="prettyprint">attrs, err := bkt.Attrs(ctx)
 if err != nil {
     // TODO: Handle error.
 }
 fmt.Printf(&quot;bucket %s, created at %s, is located in %s with storage class %s\n&quot;,
     attrs.Name, attrs.Created, attrs.Location, attrs.StorageClass)
-</code></pre><h3>Objects</h3>
-<p><p>An object holds arbitrary data as a sequence of bytes, like a file. You
+</pre>
+<p><h2 id="hdr-Objects">Objects</h2>
+<p>An object holds arbitrary data as a sequence of bytes, like a file. You
 refer to objects using a handle, just as with buckets, but unlike buckets
-you don&#39;t explicitly create an object. Instead, the first time you write
-to an object it will be created. You can use the standard Go io.Reader
-and io.Writer interfaces to read and write object data:</p></p>
-<pre><code class="prettyprint">obj := bkt.Object(&quot;data&quot;)
+you don&apos;t explicitly create an object. Instead, the first time you write
+to an object it will be created. You can use the standard Go <a href="https://pkg.go.dev/io#Reader">io.Reader</a>
+and <a href="https://pkg.go.dev/io#Writer">io.Writer</a> interfaces to read and write object data:</p>
+<pre class="prettyprint">obj := bkt.Object(&quot;data&quot;)
 // Write something to obj.
 // w implements io.Writer.
 w := obj.NewWriter(ctx)
@@ -98,16 +113,18 @@ if _, err := io.Copy(os.Stdout, r); err != nil {
     // TODO: Handle error.
 }
 // Prints &quot;This object contains text.&quot;
-</code></pre><p>Objects also have attributes, which you can fetch with Attrs:</p>
-<pre><code class="prettyprint">objAttrs, err := obj.Attrs(ctx)
+</pre>
+<p><p>Objects also have attributes, which you can fetch with <a href="#ObjectHandle.Attrs">ObjectHandle.Attrs</a>:</p>
+<pre class="prettyprint">objAttrs, err := obj.Attrs(ctx)
 if err != nil {
     // TODO: Handle error.
 }
 fmt.Printf(&quot;object %s has size %d and can be read using %s\n&quot;,
     objAttrs.Name, objAttrs.Size, objAttrs.MediaLink)
-</code></pre><h3>Listing objects</h3>
-<p><p>Listing objects in a bucket is done with the Bucket.Objects method:</p></p>
-<pre><code class="prettyprint">query := &amp;storage.Query{Prefix: &quot;&quot;}
+</pre>
+<p><h2 id="hdr-Listing_objects">Listing objects</h2>
+<p>Listing objects in a bucket is done with the <a href="#BucketHandle.Objects">BucketHandle.Objects</a> method:</p>
+<pre class="prettyprint">query := &amp;storage.Query{Prefix: &quot;&quot;}
 
 var names []string
 it := bkt.Objects(ctx, query)
@@ -121,80 +138,187 @@ for {
     }
     names = append(names, attrs.Name)
 }
-</code></pre><p>Objects are listed lexicographically by name. To filter objects
-<p>lexicographically, Query.StartOffset and/or Query.EndOffset can be used:</p></p>
-<pre><code class="prettyprint">query := &amp;storage.Query{
+</pre>
+<p><p>Objects are listed lexicographically by name. To filter objects
+lexicographically, [Query.StartOffset] and/or [Query.EndOffset] can be used:</p>
+<pre class="prettyprint">query := &amp;storage.Query{
     Prefix: &quot;&quot;,
     StartOffset: &quot;bar/&quot;,  // Only list objects lexicographically &gt;= &quot;bar/&quot;
     EndOffset: &quot;foo/&quot;,    // Only list objects lexicographically &lt; &quot;foo/&quot;
 }
 
 // ... as before
-</code></pre><p>If only a subset of object attributes is needed when listing, specifying this
-<p>subset using Query.SetAttrSelection may speed up the listing process:</p></p>
-<pre><code class="prettyprint">query := &amp;storage.Query{Prefix: &quot;&quot;}
+</pre>
+<p><p>If only a subset of object attributes is needed when listing, specifying this
+subset using <a href="#Query.SetAttrSelection">Query.SetAttrSelection</a> may speed up the listing process:</p>
+<pre class="prettyprint">query := &amp;storage.Query{Prefix: &quot;&quot;}
 query.SetAttrSelection([]string{&quot;Name&quot;})
 
 // ... as before
-</code></pre><h3>ACLs</h3>
-<p><p>Both objects and buckets have ACLs (Access Control Lists). An ACL is a list of
+</pre>
+<p><h2 id="hdr-ACLs">ACLs</h2>
+<p>Both objects and buckets have ACLs (Access Control Lists). An ACL is a list of
 ACLRules, each of which specifies the role of a user, group or project. ACLs
 are suitable for fine-grained control, but you may prefer using IAM to control
-access at the project level (see
-<a href="https://cloud.google.com/storage/docs/access-control/iam">https://cloud.google.com/storage/docs/access-control/iam</a>).</p>
-<p>To list the ACLs of a bucket or object, obtain an ACLHandle and call its List method:</p></p>
-<pre><code class="prettyprint">acls, err := obj.ACL().List(ctx)
+access at the project level (see <a href="https://cloud.google.com/storage/docs/access-control/iam">Cloud Storage IAM docs</a>.
+<p>To list the ACLs of a bucket or object, obtain an <a href="#ACLHandle">ACLHandle</a> and call <a href="#ACLHandle.List">ACLHandle.List</a>:</p>
+<pre class="prettyprint">acls, err := obj.ACL().List(ctx)
 if err != nil {
     // TODO: Handle error.
 }
 for _, rule := range acls {
     fmt.Printf(&quot;%s has role %s\n&quot;, rule.Entity, rule.Role)
 }
-</code></pre><p>You can also set and delete ACLs.</p>
-<p><h3>Conditions</h3>
+</pre>
+<p><p>You can also set and delete ACLs.
+<h2 id="hdr-Conditions">Conditions</h2>
 <p>Every object has a generation and a metageneration. The generation changes
 whenever the content changes, and the metageneration changes whenever the
-metadata changes. Conditions let you check these values before an operation;
+metadata changes. <a href="#Conditions">Conditions</a> let you check these values before an operation;
 the operation only executes if the conditions match. You can use conditions to
-prevent race conditions in read-modify-write operations.</p>
-<p>For example, say you&#39;ve read an object&#39;s metadata into objAttrs. Now
-you want to write to that object, but only if its contents haven&#39;t changed
-since you read it. Here is how to express that:</p></p>
-<pre><code class="prettyprint">w = obj.If(storage.Conditions{GenerationMatch: objAttrs.Generation}).NewWriter(ctx)
+prevent race conditions in read-modify-write operations.
+<p>For example, say you&apos;ve read an object&apos;s metadata into objAttrs. Now
+you want to write to that object, but only if its contents haven&apos;t changed
+since you read it. Here is how to express that:</p>
+<pre class="prettyprint">w = obj.If(storage.Conditions{GenerationMatch: objAttrs.Generation}).NewWriter(ctx)
 // Proceed with writing as above.
-</code></pre><h3>Signed URLs</h3>
-<p><p>You can obtain a URL that lets anyone read or write an object for a limited time.
-You don&#39;t need to create a client to do this. See the documentation of
-SignedURL for details.</p></p>
-<pre><code class="prettyprint">url, err := storage.SignedURL(bucketName, &quot;shared-object&quot;, opts)
+</pre>
+<p><h2 id="hdr-Signed_URLs">Signed URLs</h2>
+<p>You can obtain a URL that lets anyone read or write an object for a limited time.
+Signing a URL requires credentials authorized to sign a URL. To use the same
+authentication that was used when instantiating the Storage client, use
+<a href="#BucketHandle.SignedURL">BucketHandle.SignedURL</a>.</p>
+<pre class="prettyprint">url, err := client.Bucket(bucketName).SignedURL(objectName, opts)
 if err != nil {
     // TODO: Handle error.
 }
 fmt.Println(url)
-</code></pre><h3>Post Policy V4 Signed Request</h3>
-<p><p>A type of signed request that allows uploads through HTML forms directly to Cloud Storage with
+</pre>
+<p><p>You can also sign a URL without creating a client. See the documentation of
+<a href="#SignedURL">SignedURL</a> for details.</p>
+<pre class="prettyprint">url, err := storage.SignedURL(bucketName, &quot;shared-object&quot;, opts)
+if err != nil {
+    // TODO: Handle error.
+}
+fmt.Println(url)
+</pre>
+<p><h2 id="hdr-Post_Policy_V4_Signed_Request">Post Policy V4 Signed Request</h2>
+<p>A type of signed request that allows uploads through HTML forms directly to Cloud Storage with
 temporary permission. Conditions can be applied to restrict how the HTML form is used and exercised
-by a user.</p>
-<p>For more information, please see <a href="https://cloud.google.com/storage/docs/xml-api/post-object">https://cloud.google.com/storage/docs/xml-api/post-object</a> as well
-as the documentation of GenerateSignedPostPolicyV4.</p></p>
-<pre><code class="prettyprint">pv4, err := storage.GenerateSignedPostPolicyV4(bucketName, objectName, opts)
+by a user.
+<p>For more information, please see the <a href="https://cloud.google.com/storage/docs/xml-api/post-object">XML POST Object docs</a> as well
+as the documentation of <a href="#BucketHandle.GenerateSignedPostPolicyV4">BucketHandle.GenerateSignedPostPolicyV4</a>.</p>
+<pre class="prettyprint">pv4, err := client.Bucket(bucketName).GenerateSignedPostPolicyV4(objectName, opts)
 if err != nil {
     // TODO: Handle error.
 }
 fmt.Printf(&quot;URL: %s\nFields; %v\n&quot;, pv4.URL, pv4.Fields)
-</code></pre><h3>Errors</h3>
-<p><p>Errors returned by this client are often of the type <a href="https://godoc.org/google.golang.org/api/googleapi#Error"><code>googleapi.Error</code></a>.
-These errors can be introspected for more information by type asserting to the richer <code>googleapi.Error</code> type. For example:</p></p>
-<pre><code class="prettyprint">if e, ok := err.(*googleapi.Error); ok {
+</pre>
+<p><h2 id="hdr-Credential_requirements_for_signing">Credential requirements for signing</h2>
+<p>If the GoogleAccessID and PrivateKey option fields are not provided, they will
+be automatically detected by <a href="#BucketHandle.SignedURL">BucketHandle.SignedURL</a> and
+<a href="#BucketHandle.GenerateSignedPostPolicyV4">BucketHandle.GenerateSignedPostPolicyV4</a> if any of the following are true:
+<ul>
+<li>you are authenticated to the Storage Client with a service account&apos;s
+downloaded private key, either directly in code or by setting the
+GOOGLE_APPLICATION_CREDENTIALS environment variable (see <a href="https://cloud.google.com/storage/docs/authentication#libauth">Other Environments</a>),
+<li>your application is running on Google Compute Engine (GCE), or
+<li>you are logged into <a href="https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login">gcloud using application default credentials</a>
+with <a href="https://cloud.google.com/sdk/gcloud/reference#--impersonate-service-account">impersonation enabled</a>.
+</li></li></li></ul>
+<p>Detecting GoogleAccessID may not be possible if you are authenticated using a
+token source or using <a href="https://pkg.go.dev/google.golang.org/api/option#WithHTTPClient">option.WithHTTPClient</a>. In this case, you can provide a
+service account email for GoogleAccessID and the client will attempt to sign
+the URL or Post Policy using that service account.
+<p>To generate the signature, you must have:
+<ul>
+<li>iam.serviceAccounts.signBlob permissions on the GoogleAccessID service
+account, and
+<li>the <a href="https://console.developers.google.com/apis/api/iamcredentials.googleapis.com/overview">IAM Service Account Credentials API</a> enabled (unless authenticating
+with a downloaded private key).
+</li></li></ul>
+<h2 id="hdr-Errors">Errors</h2>
+<p>Errors returned by this client are often of the type <a href="https://pkg.go.dev/google.golang.org/api/googleapi#Error">googleapi.Error</a>.
+These errors can be introspected for more information by using <a href="https://pkg.go.dev/errors#As">errors.As</a>
+with the richer <a href="https://pkg.go.dev/google.golang.org/api/googleapi#Error">googleapi.Error</a> type. For example:</p>
+<pre class="prettyprint">var e &#42;googleapi.Error
+if ok := errors.As(err, &amp;e); ok {
       if e.Code == 409 { ... }
 }
-</code></pre></div>
+</pre>
+<p><h2 id="hdr-Retrying_failed_requests">Retrying failed requests</h2>
+<p>Methods in this package may retry calls that fail with transient errors.
+Retrying continues indefinitely unless the controlling context is canceled, the
+client is closed, or a non-transient error is received. To stop retries from
+continuing, use context timeouts or cancellation.
+<p>The retry strategy in this library follows best practices for Cloud Storage. By
+default, operations are retried only if they are idempotent, and exponential
+backoff with jitter is employed. In addition, errors are only retried if they
+are defined as transient by the service. See the <a href="https://cloud.google.com/storage/docs/retry-strategy">Cloud Storage retry docs</a>
+for more information.
+<p>Users can configure non-default retry behavior for a single library call (using
+<a href="#BucketHandle.Retryer">BucketHandle.Retryer</a> and <a href="#ObjectHandle.Retryer">ObjectHandle.Retryer</a>) or for all calls made by a
+client (using <a href="#Client.SetRetry">Client.SetRetry</a>). For example:</p>
+<pre class="prettyprint">o := client.Bucket(bucket).Object(object).Retryer(
+    // Use WithBackoff to change the timing of the exponential backoff.
+    storage.WithBackoff(gax.Backoff{
+        Initial:    2 &#42; time.Second,
+    }),
+    // Use WithPolicy to configure the idempotency policy. RetryAlways will
+    // retry the operation even if it is non-idempotent.
+    storage.WithPolicy(storage.RetryAlways),
+)
+
+// Use a context timeout to set an overall deadline on the call, including all
+// potential retries.
+ctx, cancel := context.WithTimeout(ctx, 5&#42;time.Second)
+defer cancel()
+
+// Delete an object using the specified strategy and timeout.
+if err := o.Delete(ctx); err != nil {
+    // Handle err.
+}
+</pre>
+<p><h2 id="hdr-Sending_Custom_Headers">Sending Custom Headers</h2>
+<p>You can add custom headers to any API call made by this package by using
+<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2/callctx#SetHeaders">callctx.SetHeaders</a> on the context which is passed to the method. For example,
+to add a <a href="https://cloud.google.com/storage/docs/audit-logging#add-custom-metadata">custom audit logging</a> header:</p>
+<pre class="prettyprint">ctx := context.Background()
+ctx = callctx.SetHeaders(ctx, &quot;x-goog-custom-audit-&lt;key&gt;&quot;, &quot;&lt;value&gt;&quot;)
+// Use client as usual with the context and the additional headers will be sent.
+client.Bucket(&quot;my-bucket&quot;).Attrs(ctx)
+</pre>
+<p><h2 id="hdr-Experimental_gRPC_API">Experimental gRPC API</h2>
+<p>This package includes support for the Cloud Storage gRPC API, which is currently
+in preview. This implementation uses gRPC rather than the current JSON &amp; XML
+APIs to make requests to Cloud Storage. Kindly contact the Google Cloud Storage gRPC
+team at gcs-grpc-contact@google.com with a list of GCS buckets you would like to
+allowlist to access this API. The Go Storage gRPC library is not yet generally
+available, so it may be subject to breaking changes.
+<p>To create a client which will use gRPC, use the alternate constructor:</p>
+<pre class="prettyprint">ctx := context.Background()
+client, err := storage.NewGRPCClient(ctx)
+if err != nil {
+    // TODO: Handle error.
+}
+// Use client as usual.
+</pre>
+<p><p>If the application is running within GCP, users may get better performance by
+enabling Google Direct Access (enabling requests to skip some proxy steps). To enable,
+set the environment variable <code>GOOGLE_CLOUD_ENABLE_DIRECT_PATH_XDS=true</code> and add
+the following side-effect imports to your application:</p>
+<pre class="prettyprint">import (
+    _ &quot;google.golang.org/grpc/balancer/rls&quot;
+    _ &quot;google.golang.org/grpc/xds/googledirectpath&quot;
+)
+</pre>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="markdown level0 remarks"></div>
     <h2 id="consts">
   Constants
   </h2>
-        <h3 id="cloud_google_com_go_storage_DeleteAction_SetStorageClassAction" data-uid="cloud.google.com/go/storage.DeleteAction,SetStorageClassAction" class="notranslate">DeleteAction, SetStorageClassAction</h3>
+        <h3 id="cloud_google_com_go_storage_DeleteAction_SetStorageClassAction_AbortIncompleteMPUAction" data-uid="cloud.google.com/go/storage.DeleteAction,SetStorageClassAction,AbortIncompleteMPUAction" class="notranslate">DeleteAction, SetStorageClassAction, AbortIncompleteMPUAction</h3>
         <div class="codewrapper">
           <pre class="prettyprint"><code>const (
 
@@ -205,6 +329,13 @@ These errors can be introspected for more information by type asserting to the r
 	// SetStorageClassAction changes the storage class of live and/or archived
 	// objects.
 	SetStorageClassAction = "SetStorageClass"
+
+	// AbortIncompleteMPUAction is a lifecycle action that aborts an incomplete
+	// multipart upload when the multipart upload meets the conditions specified
+	// in the lifecycle rule. The AgeInDays condition is the only allowed
+	// condition for this action. AgeInDays is measured from the time the
+	// multipart upload was created.
+	AbortIncompleteMPUAction = "AbortIncompleteMultipartUpload"
 )</code></pre>
         </div>
         <div class="markdown level1 summary"></div>
@@ -282,15 +413,33 @@ These errors can be introspected for more information by type asserting to the r
     <h2 id="functions">Functions
   
   </h2>
+        <h3 id="cloud_google_com_go_storage_ShouldRetry" data-uid="cloud.google.com/go/storage.ShouldRetry" class="notranslate">func ShouldRetry
+</h3>
+        <div class="codewrapper">
+          <pre class="prettyprint"><code>func ShouldRetry(err <a href="https://pkg.go.dev/builtin#error">error</a>) <a href="https://pkg.go.dev/builtin#bool">bool</a></code></pre>
+        </div>
+        <div class="markdown level1 summary"><p>ShouldRetry returns true if an error is retryable, based on best practice
+guidance from GCS. See
+<a href="https://cloud.google.com/storage/docs/retry-strategy#go">https://cloud.google.com/storage/docs/retry-strategy#go</a> for more information
+on what errors are considered retryable.</p>
+<p>If you would like to customize retryable errors, use the WithErrorFunc to
+supply a RetryOption to your library calls. For example, to retry additional
+errors, you can write a custom func that wraps ShouldRetry and also specifies
+additional errors that should return true.</p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
         <h3 id="cloud_google_com_go_storage_SignedURL" data-uid="cloud.google.com/go/storage.SignedURL" class="notranslate">func SignedURL
 </h3>
         <div class="codewrapper">
-          <pre class="prettyprint"><code>func SignedURL(bucket, name <a href="https://pkg.go.dev/builtin#string">string</a>, opts *<a href="#cloud_google_com_go_storage_SignedURLOptions">SignedURLOptions</a>) (<a href="https://pkg.go.dev/builtin#string">string</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+          <pre class="prettyprint"><code>func SignedURL(bucket, object <a href="https://pkg.go.dev/builtin#string">string</a>, opts *<a href="#cloud_google_com_go_storage_SignedURLOptions">SignedURLOptions</a>) (<a href="https://pkg.go.dev/builtin#string">string</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
         </div>
-        <div class="markdown level1 summary"><p>SignedURL returns a URL for the specified object. Signed URLs allow
-the users access to a restricted resource for a limited time without having a
-Google account or signing in. For more information about the signed
-URLs, see <a href="https://cloud.google.com/storage/docs/accesscontrol#Signed-URLs">https://cloud.google.com/storage/docs/accesscontrol#Signed-URLs</a>.</p>
+        <div class="markdown level1 summary"><p>SignedURL returns a URL for the specified object. Signed URLs allow anyone
+access to a restricted resource for a limited time without needing a
+Google account or signing in. For more information about signed URLs, see
+<a href="https://cloud.google.com/storage/docs/accesscontrol#signed_urls_query_string_authentication">https://cloud.google.com/storage/docs/accesscontrol#signed_urls_query_string_authentication</a>
+If initializing a Storage Client, instead use the Bucket.SignedURL method
+which uses the Client&#39;s credentials to handle authentication.</p>
 </div>
         <div class="markdown level1 conceptual"></div>
           <h4>Example</h4>
@@ -298,10 +447,11 @@ URLs, see <a href="https://cloud.google.com/storage/docs/accesscontrol#Signed-UR
         <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;fmt&quot;
 	&quot;io/ioutil&quot;
 	&quot;time&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -323,6 +473,32 @@ func main() {
 </code></pre>
         </div>
   
+        <h3 id="cloud_google_com_go_storage_WithJSONReads" data-uid="cloud.google.com/go/storage.WithJSONReads" class="notranslate">func WithJSONReads
+</h3>
+        <div class="codewrapper">
+          <pre class="prettyprint"><code>func WithJSONReads() <a href="https://pkg.go.dev/google.golang.org/api/option">option</a>.<a href="https://pkg.go.dev/google.golang.org/api/option#ClientOption">ClientOption</a></code></pre>
+        </div>
+        <div class="markdown level1 summary"><p>WithJSONReads is an option that may be passed to a Storage Client on creation.
+It sets the client to use the JSON API for object reads. Currently, the
+default API used for reads is XML.
+Setting this option is required to use the GenerationNotMatch condition.</p>
+<p>Note that when this option is set, reads will return a zero date for
+[ReaderObjectAttrs].LastModified and may return a different value for
+[ReaderObjectAttrs].CacheControl.</p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+        <h3 id="cloud_google_com_go_storage_WithXMLReads" data-uid="cloud.google.com/go/storage.WithXMLReads" class="notranslate">func WithXMLReads
+</h3>
+        <div class="codewrapper">
+          <pre class="prettyprint"><code>func WithXMLReads() <a href="https://pkg.go.dev/google.golang.org/api/option">option</a>.<a href="https://pkg.go.dev/google.golang.org/api/option#ClientOption">ClientOption</a></code></pre>
+        </div>
+        <div class="markdown level1 summary"><p>WithXMLReads is an option that may be passed to a Storage Client on creation.
+It sets the client to use the XML API for object reads.</p>
+<p>This is the current default.</p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
         <h2 id="cloud_google_com_go_storage_ACLEntity" data-uid="cloud.google.com/go/storage.ACLEntity" class="notranslate">ACLEntity</h2>
         <div class="codewrapper">
           <pre class="prettyprint"><code>type ACLEntity <a href="https://pkg.go.dev/builtin#string">string</a></code></pre>
@@ -351,7 +527,9 @@ They are sometimes referred to as grantees.</p>
 	// contains filtered or unexported fields
 }</code></pre>
         </div>
-        <div class="markdown level1 summary"><p>ACLHandle provides operations on an access control list for a Google Cloud Storage bucket or object.</p>
+        <div class="markdown level1 summary"><p>ACLHandle provides operations on an access control list for a Google Cloud Storage bucket or object.
+ACLHandle on an object operates on the latest generation of that object by default.
+Selecting a specific generation of an object is not currently supported by the client.</p>
 </div>
         <div class="markdown level1 conceptual"></div>
         
@@ -368,8 +546,9 @@ They are sometimes referred to as grantees.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -398,9 +577,10 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -431,8 +611,9 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -480,6 +661,32 @@ func main() {
         </div>
         <div class="markdown level1 summary"><p>ACLRule represents a grant for a role to an entity (user, group or team) for a
 Google Cloud Storage object or bucket.</p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+        <h2 id="cloud_google_com_go_storage_Autoclass" data-uid="cloud.google.com/go/storage.Autoclass" class="notranslate">Autoclass</h2>
+        <div class="codewrapper">
+          <pre class="prettyprint"><code>type Autoclass struct {
+	// Enabled specifies whether the autoclass feature is enabled
+	// on the bucket.
+	Enabled <a href="https://pkg.go.dev/builtin#bool">bool</a>
+	// ToggleTime is the time from which Autoclass was last toggled.
+	// If Autoclass is enabled when the bucket is created, the ToggleTime
+	// is set to the bucket creation time. This field is read-only.
+	ToggleTime <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Time">Time</a>
+	// TerminalStorageClass: The storage class that objects in the bucket
+	// eventually transition to if they are not read for a certain length of
+	// time. Valid values are NEARLINE and ARCHIVE.
+	TerminalStorageClass <a href="https://pkg.go.dev/builtin#string">string</a>
+	// TerminalStorageClassUpdateTime represents the time of the most recent
+	// update to "TerminalStorageClass".
+	TerminalStorageClassUpdateTime <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Time">Time</a>
+}</code></pre>
+        </div>
+        <div class="markdown level1 summary"><p>Autoclass holds the bucket&#39;s autoclass configuration. If enabled,
+allows for the automatic selection of the best storage class
+based on object access patterns. See
+<a href="https://cloud.google.com/storage/docs/using-autoclass">https://cloud.google.com/storage/docs/using-autoclass</a> for more information.</p>
 </div>
         <div class="markdown level1 conceptual"></div>
         
@@ -535,7 +742,12 @@ Google Cloud Storage object or bucket.</p>
 	PredefinedDefaultObjectACL <a href="https://pkg.go.dev/builtin#string">string</a>
 
 	// Location is the location of the bucket. It defaults to "US".
+	// If specifying a dual-region, CustomPlacementConfig should be set in conjunction.
 	Location <a href="https://pkg.go.dev/builtin#string">string</a>
+
+	// The bucket's custom placement configuration that holds a list of
+	// regional locations for custom dual regions.
+	CustomPlacementConfig *<a href="#cloud_google_com_go_storage_CustomPlacementConfig">CustomPlacementConfig</a>
 
 	// MetaGeneration is the metadata generation of the bucket.
 	// This field is read-only.
@@ -597,6 +809,30 @@ Google Cloud Storage object or bucket.</p>
 	// Typical values are "multi-region", "region" and "dual-region".
 	// This field is read-only.
 	LocationType <a href="https://pkg.go.dev/builtin#string">string</a>
+
+	// The project number of the project the bucket belongs to.
+	// This field is read-only.
+	ProjectNumber <a href="https://pkg.go.dev/builtin#uint64">uint64</a>
+
+	// RPO configures the Recovery Point Objective (RPO) policy of the bucket.
+	// Set to RPOAsyncTurbo to turn on Turbo Replication for a bucket.
+	// See https://cloud.google.com/storage/docs/managing-turbo-replication for
+	// more information.
+	RPO <a href="#cloud_google_com_go_storage_RPO">RPO</a>
+
+	// Autoclass holds the bucket's autoclass configuration. If enabled,
+	// allows for the automatic selection of the best storage class
+	// based on object access patterns.
+	Autoclass *<a href="#cloud_google_com_go_storage_Autoclass">Autoclass</a>
+
+	// ObjectRetentionMode reports whether individual objects in the bucket can
+	// be configured with a retention policy. An empty value means that object
+	// retention is disabled.
+	// This field is read-only. Object retention can be enabled only by creating
+	// a bucket with SetObjectRetention set to true on the BucketHandle. It
+	// cannot be modified once the bucket is created.
+	// ObjectRetention cannot be configured or reported through the gRPC API.
+	ObjectRetentionMode <a href="https://pkg.go.dev/builtin#string">string</a>
 }</code></pre>
         </div>
         <div class="markdown level1 summary"><p>BucketAttrs represents the metadata for a Google Cloud Storage bucket.
@@ -679,6 +915,16 @@ Read-only fields are ignored by BucketHandle.Create.</p>
 	// If not empty, applies a predefined set of default object access controls.
 	// See https://cloud.google.com/storage/docs/json_api/v1/buckets/patch.
 	PredefinedDefaultObjectACL <a href="https://pkg.go.dev/builtin#string">string</a>
+
+	// RPO configures the Recovery Point Objective (RPO) policy of the bucket.
+	// Set to RPOAsyncTurbo to turn on Turbo Replication for a bucket.
+	// See https://cloud.google.com/storage/docs/managing-turbo-replication for
+	// more information.
+	RPO <a href="#cloud_google_com_go_storage_RPO">RPO</a>
+
+	// If set, updates the autoclass configuration of the bucket.
+	// See https://cloud.google.com/storage/docs/using-autoclass for more information.
+	Autoclass *<a href="#cloud_google_com_go_storage_Autoclass">Autoclass</a>
 	// contains filtered or unexported fields
 }</code></pre>
         </div>
@@ -753,9 +999,10 @@ Use Client.Bucket to get a handle.</p>
         <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -803,9 +1050,10 @@ returned Notification&#39;s ID can be used to refer to it.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -840,9 +1088,10 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -873,8 +1122,9 @@ If attrs is nil the API defaults will be used.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -912,8 +1162,9 @@ This call does not perform any network operations.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -941,8 +1192,9 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 var notificationID string
@@ -963,10 +1215,22 @@ func main() {
 }
 </code></pre>
   </div>
-            <h3 id="cloud_google_com_go_storage_BucketHandle_IAM" data-uid="cloud.google.com/go/storage.BucketHandle.IAM" class="notranslate">func (*BucketHandle) IAM
+            <h3 id="cloud_google_com_go_storage_BucketHandle_GenerateSignedPostPolicyV4" data-uid="cloud.google.com/go/storage.BucketHandle.GenerateSignedPostPolicyV4" class="notranslate">func (*BucketHandle) GenerateSignedPostPolicyV4
 </h3>
             <div class="codewrapper">
-              <pre class="prettyprint"><code>func (b *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a>) IAM() *<a href="/go/docs/reference/cloud.google.com/go/latest/iam">iam</a>.<a href="/go/docs/reference/cloud.google.com/go/latest/iam#cloud_google_com_go_iam_Handle">Handle</a></code></pre>
+              <pre class="prettyprint"><code>func (b *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a>) GenerateSignedPostPolicyV4(object <a href="https://pkg.go.dev/builtin#string">string</a>, opts *<a href="#cloud_google_com_go_storage_PostPolicyV4Options">PostPolicyV4Options</a>) (*<a href="#cloud_google_com_go_storage_PostPolicyV4">PostPolicyV4</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>GenerateSignedPostPolicyV4 generates a PostPolicyV4 value from bucket, object and opts.
+The generated URL and fields will then allow an unauthenticated client to perform multipart uploads.</p>
+<p>This method requires the Expires field in the specified PostPolicyV4Options
+to be non-nil. You may need to set the GoogleAccessID and PrivateKey fields
+in some cases. Read more on the <a href="https://pkg.go.dev/cloud.google.com/go/storage#hdr-Credential_requirements_for_signing">automatic detection of credentials</a> for this method.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_BucketHandle_IAM" data-uid="cloud.google.com/go/storage.BucketHandle.IAM" class="notranslate">func (*BucketHandle) IAM
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (b *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a>) IAM() *<a href="/go/docs/reference/cloud.google.com/go/iam/latest/">iam</a>.<a href="/go/docs/reference/cloud.google.com/go/iam/latest/#cloud_google_com_go_iam_Handle">Handle</a></code></pre>
             </div>
             <div class="markdown level1 summary"><p>IAM provides access to IAM access control for the bucket.</p>
 </div>
@@ -977,7 +1241,9 @@ func main() {
               <pre class="prettyprint"><code>func (b *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a>) If(conds <a href="#cloud_google_com_go_storage_BucketConditions">BucketConditions</a>) *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a></code></pre>
             </div>
             <div class="markdown level1 summary"><p>If returns a new BucketHandle that applies a set of preconditions.
-Preconditions already set on the BucketHandle are ignored.
+Preconditions already set on the BucketHandle are ignored. The supplied
+BucketConditions must have exactly one field set to a non-zero value;
+otherwise an error will be returned from any operation on the BucketHandle.
 Operations on the new handle will return an error if the preconditions are not
 satisfied. The only valid preconditions for buckets are MetagenerationMatch
 and MetagenerationNotMatch.</p>
@@ -1003,8 +1269,9 @@ subject to any SLA or deprecation policy.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -1041,9 +1308,10 @@ indexed by notification ID.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -1069,11 +1337,12 @@ func main() {
               <pre class="prettyprint"><code>func (b *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a>) Object(name <a href="https://pkg.go.dev/builtin#string">string</a>) *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a></code></pre>
             </div>
             <div class="markdown level1 summary"><p>Object returns an ObjectHandle, which provides operations on the named object.
-This call does not perform any network operations.</p>
+This call does not perform any network operations such as fetching the object or verifying its existence.
+Use methods on ObjectHandle to perform network operations.</p>
 <p>name must consist entirely of valid UTF-8-encoded runes. The full specification
-for valid object names can be found at:
-  <a href="https://cloud.google.com/storage/docs/naming-objects">https://cloud.google.com/storage/docs/naming-objects</a></p>
-</div>
+for valid object names can be found at:</p>
+<pre><code>https://cloud.google.com/storage/docs/naming-objects
+</code></pre></div>
             <div class="markdown level1 conceptual"></div>
                       <h3 id="cloud_google_com_go_storage_BucketHandle_Objects" data-uid="cloud.google.com/go/storage.BucketHandle.Objects" class="notranslate">func (*BucketHandle) Objects
 </h3>
@@ -1091,8 +1360,9 @@ lexicographically by name.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -1106,7 +1376,50 @@ func main() {
 }
 </code></pre>
   </div>
-            <h3 id="cloud_google_com_go_storage_BucketHandle_Update" data-uid="cloud.google.com/go/storage.BucketHandle.Update" class="notranslate">func (*BucketHandle) Update
+            <h3 id="cloud_google_com_go_storage_BucketHandle_Retryer" data-uid="cloud.google.com/go/storage.BucketHandle.Retryer" class="notranslate">func (*BucketHandle) Retryer
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (b *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a>) Retryer(opts ...<a href="#cloud_google_com_go_storage_RetryOption">RetryOption</a>) *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>Retryer returns a bucket handle that is configured with custom retry
+behavior as specified by the options that are passed to it. All operations
+on the new handle will use the customized retry configuration.
+Retry options set on a object handle will take precedence over options set on
+the bucket handle.
+These retry options will merge with the client&#39;s retry configuration (if set)
+for the returned handle. Options passed into this method will take precedence
+over retry options on the client. Note that you must explicitly pass in each
+option you want to override.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_BucketHandle_SetObjectRetention" data-uid="cloud.google.com/go/storage.BucketHandle.SetObjectRetention" class="notranslate">func (*BucketHandle) SetObjectRetention
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (b *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a>) SetObjectRetention(enable <a href="https://pkg.go.dev/builtin#bool">bool</a>) *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>SetObjectRetention returns a new BucketHandle that will enable object retention
+on bucket creation. To enable object retention, you must use the returned
+handle to create the bucket. This has no effect on an already existing bucket.
+ObjectRetention is not enabled by default.
+ObjectRetention cannot be configured through the gRPC API.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_BucketHandle_SignedURL" data-uid="cloud.google.com/go/storage.BucketHandle.SignedURL" class="notranslate">func (*BucketHandle) SignedURL
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (b *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a>) SignedURL(object <a href="https://pkg.go.dev/builtin#string">string</a>, opts *<a href="#cloud_google_com_go_storage_SignedURLOptions">SignedURLOptions</a>) (<a href="https://pkg.go.dev/builtin#string">string</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>SignedURL returns a URL for the specified object. Signed URLs allow anyone
+access to a restricted resource for a limited time without needing a Google
+account or signing in.
+For more information about signed URLs, see &quot;<a href="https://cloud.google.com/storage/docs/accesscontrol#signed_urls_query_string_authentication">Overview of access control</a>.&quot;</p>
+<p>This method requires the Method and Expires fields in the specified
+SignedURLOptions to be non-nil. You may need to set the GoogleAccessID and
+PrivateKey fields in some cases. Read more on the <a href="https://pkg.go.dev/cloud.google.com/go/storage#hdr-Credential_requirements_for_signing">automatic detection of credentials</a>
+for this method.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_BucketHandle_Update" data-uid="cloud.google.com/go/storage.BucketHandle.Update" class="notranslate">func (*BucketHandle) Update
 </h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (b *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a>) Update(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, uattrs <a href="#cloud_google_com_go_storage_BucketAttrsToUpdate">BucketAttrsToUpdate</a>) (attrs *<a href="#cloud_google_com_go_storage_BucketAttrs">BucketAttrs</a>, err <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
@@ -1119,9 +1432,10 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -1145,9 +1459,10 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -1216,9 +1531,10 @@ calls will return iterator.Done.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 	&quot;google.golang.org/api/iterator&quot;
 )
 
@@ -1349,11 +1665,13 @@ The methods of Client are safe for concurrent use by multiple goroutines.</p>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func NewClient(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, opts ...<a href="https://pkg.go.dev/google.golang.org/api/option">option</a>.<a href="https://pkg.go.dev/google.golang.org/api/option#ClientOption">ClientOption</a>) (*<a href="#cloud_google_com_go_storage_Client">Client</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
             </div>
-            <div class="markdown level1 summary"><p>NewClient creates a new Google Cloud Storage client.
+            <div class="markdown level1 summary"><p>NewClient creates a new Google Cloud Storage client using the HTTP transport.
 The default scope is ScopeFullControl. To use a different scope, like
 ScopeReadOnly, use option.WithScopes.</p>
 <p>Clients should be reused instead of created as needed. The methods of Client
 are safe for concurrent use by multiple goroutines.</p>
+<p>You may configure the client by passing in options from the [google.golang.org/api/option]
+package. You may also use options defined in this package, such as [WithJSONReads].</p>
 </div>
             <div class="markdown level1 conceptual"></div>
               <h4>Examples</h4>
@@ -1361,8 +1679,9 @@ are safe for concurrent use by multiple goroutines.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -1388,8 +1707,9 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 	&quot;google.golang.org/api/option&quot;
 )
 
@@ -1408,7 +1728,26 @@ func main() {
 }
 </code></pre>
   </div>
-            <h3 id="cloud_google_com_go_storage_Client_Bucket" data-uid="cloud.google.com/go/storage.Client.Bucket" class="notranslate">func (*Client) Bucket
+            <h3 id="cloud_google_com_go_storage_Client_NewGRPCClient" data-uid="cloud.google.com/go/storage.Client.NewGRPCClient" class="notranslate">func NewGRPCClient
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func NewGRPCClient(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, opts ...<a href="https://pkg.go.dev/google.golang.org/api/option">option</a>.<a href="https://pkg.go.dev/google.golang.org/api/option#ClientOption">ClientOption</a>) (*<a href="#cloud_google_com_go_storage_Client">Client</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>NewGRPCClient creates a new Storage client using the gRPC transport and API.
+Client methods which have not been implemented in gRPC will return an error.
+In particular, methods for Cloud Pub/Sub notifications are not supported.
+Using a non-default universe domain is also not supported with the Storage
+gRPC client.</p>
+<p>The storage gRPC API is still in preview and not yet publicly available.
+If you would like to use the API, please first contact your GCP account rep to
+request access. The API may be subject to breaking changes.</p>
+<p>Clients should be reused instead of created as needed. The methods of Client
+are safe for concurrent use by multiple goroutines.</p>
+<p>You may configure the client by passing in options from the [google.golang.org/api/option]
+package.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_Client_Bucket" data-uid="cloud.google.com/go/storage.Client.Bucket" class="notranslate">func (*Client) Bucket
 </h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_Client">Client</a>) Bucket(name <a href="https://pkg.go.dev/builtin#string">string</a>) *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a></code></pre>
@@ -1417,9 +1756,9 @@ func main() {
 This call does not perform any network operations.</p>
 <p>The supplied name must contain only lowercase letters, numbers, dashes,
 underscores, and dots. The full specification for valid bucket names can be
-found at:
-  <a href="https://cloud.google.com/storage/docs/bucket-naming">https://cloud.google.com/storage/docs/bucket-naming</a></p>
-</div>
+found at:</p>
+<pre><code>https://cloud.google.com/storage/docs/bucket-naming
+</code></pre></div>
             <div class="markdown level1 conceptual"></div>
                       <h3 id="cloud_google_com_go_storage_Client_Buckets" data-uid="cloud.google.com/go/storage.Client.Buckets" class="notranslate">func (*Client) Buckets
 </h3>
@@ -1438,8 +1777,9 @@ are returned.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -1448,7 +1788,7 @@ func main() {
 	if err != nil {
 		// TODO: handle error.
 	}
-	it := client.Buckets(ctx, &quot;my-bucket&quot;)
+	it := client.Buckets(ctx, &quot;my-project&quot;)
 	_ = it // TODO: iterate using Next or iterator.Pager.
 }
 </code></pre>
@@ -1468,7 +1808,6 @@ func main() {
               <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_Client">Client</a>) CreateHMACKey(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, projectID, serviceAccountEmail <a href="https://pkg.go.dev/builtin#string">string</a>, opts ...<a href="#cloud_google_com_go_storage_HMACKeyOption">HMACKeyOption</a>) (*<a href="#cloud_google_com_go_storage_HMACKey">HMACKey</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
             </div>
             <div class="markdown level1 summary"><p>CreateHMACKey invokes an RPC for Google Cloud Storage to create a new HMACKey.</p>
-<p>This method is EXPERIMENTAL and subject to change or removal without notice.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
               <h4>Example</h4>
@@ -1476,8 +1815,9 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -1501,7 +1841,6 @@ func main() {
               <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_Client">Client</a>) HMACKeyHandle(projectID, accessID <a href="https://pkg.go.dev/builtin#string">string</a>) *<a href="#cloud_google_com_go_storage_HMACKeyHandle">HMACKeyHandle</a></code></pre>
             </div>
             <div class="markdown level1 summary"><p>HMACKeyHandle creates a handle that will be used for HMACKey operations.</p>
-<p>This method is EXPERIMENTAL and subject to change or removal without notice.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
                       <h3 id="cloud_google_com_go_storage_Client_ListHMACKeys" data-uid="cloud.google.com/go/storage.Client.ListHMACKeys" class="notranslate">func (*Client) ListHMACKeys
@@ -1511,7 +1850,6 @@ func main() {
             </div>
             <div class="markdown level1 summary"><p>ListHMACKeys returns an iterator for listing HMACKeys.</p>
 <p>Note: This iterator is not safe for concurrent operations without explicit synchronization.</p>
-<p>This method is EXPERIMENTAL and subject to change or removal without notice.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
               <h4>Examples</h4>
@@ -1519,8 +1857,9 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 	&quot;google.golang.org/api/iterator&quot;
 )
 
@@ -1550,8 +1889,9 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 	&quot;google.golang.org/api/iterator&quot;
 )
 
@@ -1581,8 +1921,9 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 	&quot;google.golang.org/api/iterator&quot;
 )
 
@@ -1613,6 +1954,20 @@ func main() {
               <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_Client">Client</a>) ServiceAccount(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, projectID <a href="https://pkg.go.dev/builtin#string">string</a>) (<a href="https://pkg.go.dev/builtin#string">string</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
             </div>
             <div class="markdown level1 summary"><p>ServiceAccount fetches the email address of the given project&#39;s Google Cloud Storage service account.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_Client_SetRetry" data-uid="cloud.google.com/go/storage.Client.SetRetry" class="notranslate">func (*Client) SetRetry
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_Client">Client</a>) SetRetry(opts ...<a href="#cloud_google_com_go_storage_RetryOption">RetryOption</a>)</code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>SetRetry configures the client with custom retry behavior as specified by the
+options that are passed to it. All operations using this client will use the
+customized retry configuration.
+This should be called once before using the client for network operations, as
+there could be indeterminate behaviour with operations in progress.
+Retry options set on a bucket or object handle will take precedence over
+these options.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
                   <h2 id="cloud_google_com_go_storage_Composer" data-uid="cloud.google.com/go/storage.Composer" class="notranslate">Composer</h2>
@@ -1650,9 +2005,10 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -1702,6 +2058,8 @@ func main() {
 	// GenerationNotMatch specifies that the object must not have the given
 	// generation for the operation to occur.
 	// If GenerationNotMatch is zero, it has no effect.
+	// This condition only works for object reads if the WithJSONReads client
+	// option is set.
 	GenerationNotMatch <a href="https://pkg.go.dev/builtin#int64">int64</a>
 
 	// DoesNotExist specifies that the object must not exist in the bucket for
@@ -1717,6 +2075,8 @@ func main() {
 	// MetagenerationNotMatch specifies that the object must not have the given
 	// metageneration for the operation to occur.
 	// If MetagenerationNotMatch is zero, it has no effect.
+	// This condition only works for object reads if the WithJSONReads client
+	// option is set.
 	MetagenerationNotMatch <a href="https://pkg.go.dev/builtin#int64">int64</a>
 }</code></pre>
         </div>
@@ -1785,9 +2145,10 @@ for details on how these operate.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -1822,9 +2183,10 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;log&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -1847,6 +2209,20 @@ func main() {
 }
 </code></pre>
   </div>
+        <h2 id="cloud_google_com_go_storage_CustomPlacementConfig" data-uid="cloud.google.com/go/storage.CustomPlacementConfig" class="notranslate">CustomPlacementConfig</h2>
+        <div class="codewrapper">
+          <pre class="prettyprint"><code>type CustomPlacementConfig struct {
+	// The list of regional locations in which data is placed.
+	// Custom Dual Regions require exactly 2 regional locations.
+	DataLocations []<a href="https://pkg.go.dev/builtin#string">string</a>
+}</code></pre>
+        </div>
+        <div class="markdown level1 summary"><p>CustomPlacementConfig holds the bucket&#39;s custom placement
+configuration for Custom Dual Regions. See
+<a href="https://cloud.google.com/storage/docs/locations#location-dr">https://cloud.google.com/storage/docs/locations#location-dr</a> for more information.</p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
         <h2 id="cloud_google_com_go_storage_HMACKey" data-uid="cloud.google.com/go/storage.HMACKey" class="notranslate">HMACKey</h2>
         <div class="codewrapper">
           <pre class="prettyprint"><code>type HMACKey struct {
@@ -1884,7 +2260,6 @@ func main() {
         <div class="markdown level1 summary"><p>HMACKey is the representation of a Google Cloud Storage HMAC key.</p>
 <p>HMAC keys are used to authenticate signed access to objects. To enable HMAC key
 authentication, please visit <a href="https://cloud.google.com/storage/docs/migrating">https://cloud.google.com/storage/docs/migrating</a>.</p>
-<p>This type is EXPERIMENTAL and subject to change or removal without notice.</p>
 </div>
         <div class="markdown level1 conceptual"></div>
         
@@ -1899,7 +2274,6 @@ authentication, please visit <a href="https://cloud.google.com/storage/docs/migr
 }</code></pre>
         </div>
         <div class="markdown level1 summary"><p>HMACKeyAttrsToUpdate defines the attributes of an HMACKey that will be updated.</p>
-<p>This type is EXPERIMENTAL and subject to change or removal without notice.</p>
 </div>
         <div class="markdown level1 conceptual"></div>
         
@@ -1910,7 +2284,6 @@ authentication, please visit <a href="https://cloud.google.com/storage/docs/migr
 }</code></pre>
         </div>
         <div class="markdown level1 summary"><p>HMACKeyHandle helps provide access and management for HMAC keys.</p>
-<p>This type is EXPERIMENTAL and subject to change or removal without notice.</p>
 </div>
         <div class="markdown level1 conceptual"></div>
         
@@ -1922,7 +2295,6 @@ authentication, please visit <a href="https://cloud.google.com/storage/docs/migr
             <div class="markdown level1 summary"><p>Delete invokes an RPC to delete the key referenced by accessID, on Google Cloud Storage.
 Only inactive HMAC keys can be deleted.
 After deletion, a key cannot be used to authenticate requests.</p>
-<p>This method is EXPERIMENTAL and subject to change or removal without notice.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
               <h4>Example</h4>
@@ -1930,8 +2302,9 @@ After deletion, a key cannot be used to authenticate requests.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -1958,7 +2331,6 @@ func main() {
 HMACKeyHandle&#39;s accessID.</p>
 <p>Options such as UserProjectForHMACKeys can be used to set the
 userProject to be billed against for operations.</p>
-<p>This method is EXPERIMENTAL and subject to change or removal without notice.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
               <h4>Example</h4>
@@ -1966,8 +2338,9 @@ userProject to be billed against for operations.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -1992,7 +2365,6 @@ func main() {
               <pre class="prettyprint"><code>func (h *<a href="#cloud_google_com_go_storage_HMACKeyHandle">HMACKeyHandle</a>) Update(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, au <a href="#cloud_google_com_go_storage_HMACKeyAttrsToUpdate">HMACKeyAttrsToUpdate</a>, opts ...<a href="#cloud_google_com_go_storage_HMACKeyOption">HMACKeyOption</a>) (*<a href="#cloud_google_com_go_storage_HMACKey">HMACKey</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
             </div>
             <div class="markdown level1 summary"><p>Update mutates the HMACKey referred to by accessID.</p>
-<p>This method is EXPERIMENTAL and subject to change or removal without notice.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
               <h4>Example</h4>
@@ -2000,8 +2372,9 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -2029,7 +2402,6 @@ func main() {
 }</code></pre>
         </div>
         <div class="markdown level1 summary"><p>HMACKeyOption configures the behavior of HMACKey related methods and actions.</p>
-<p>This interface is EXPERIMENTAL and subject to change or removal without notice.</p>
 </div>
         <div class="markdown level1 conceptual"></div>
         
@@ -2042,7 +2414,6 @@ func main() {
 associated with the email address of a service account in the project.</p>
 <p>Only one service account email can be used as a filter, so if multiple
 of these options are applied, the last email to be set will be used.</p>
-<p>This option is EXPERIMENTAL and subject to change or removal without notice.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
                       <h3 id="cloud_google_com_go_storage_HMACKeyOption_ShowDeletedHMACKeys" data-uid="cloud.google.com/go/storage.HMACKeyOption.ShowDeletedHMACKeys" class="notranslate">func ShowDeletedHMACKeys
@@ -2051,7 +2422,6 @@ of these options are applied, the last email to be set will be used.</p>
               <pre class="prettyprint"><code>func ShowDeletedHMACKeys() <a href="#cloud_google_com_go_storage_HMACKeyOption">HMACKeyOption</a></code></pre>
             </div>
             <div class="markdown level1 summary"><p>ShowDeletedHMACKeys will also list keys whose state is &quot;DELETED&quot;.</p>
-<p>This option is EXPERIMENTAL and subject to change or removal without notice.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
                       <h3 id="cloud_google_com_go_storage_HMACKeyOption_UserProjectForHMACKeys" data-uid="cloud.google.com/go/storage.HMACKeyOption.UserProjectForHMACKeys" class="notranslate">func UserProjectForHMACKeys
@@ -2062,7 +2432,6 @@ of these options are applied, the last email to be set will be used.</p>
             <div class="markdown level1 summary"><p>UserProjectForHMACKeys will bill the request against userProjectID
 if userProjectID is non-empty.</p>
 <p>Note: This is a noop right now and only provided for API compatibility.</p>
-<p>This option is EXPERIMENTAL and subject to change or removal without notice.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
                   <h2 id="cloud_google_com_go_storage_HMACKeysIterator" data-uid="cloud.google.com/go/storage.HMACKeysIterator" class="notranslate">HMACKeysIterator</h2>
@@ -2073,7 +2442,6 @@ if userProjectID is non-empty.</p>
         </div>
         <div class="markdown level1 summary"><p>An HMACKeysIterator is an iterator over HMACKeys.</p>
 <p>Note: This iterator is not safe for concurrent operations without explicit synchronization.</p>
-<p>This type is EXPERIMENTAL and subject to change or removal without notice.</p>
 </div>
         <div class="markdown level1 conceptual"></div>
         
@@ -2086,7 +2454,6 @@ if userProjectID is non-empty.</p>
 there are no more results. Once Next returns iterator.Done, all subsequent
 calls will return iterator.Done.</p>
 <p>Note: This iterator is not safe for concurrent operations without explicit synchronization.</p>
-<p>This method is EXPERIMENTAL and subject to change or removal without notice.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
                       <h3 id="cloud_google_com_go_storage_HMACKeysIterator_PageInfo" data-uid="cloud.google.com/go/storage.HMACKeysIterator.PageInfo" class="notranslate">func (*HMACKeysIterator) PageInfo
@@ -2096,7 +2463,6 @@ calls will return iterator.Done.</p>
             </div>
             <div class="markdown level1 summary"><p>PageInfo supports pagination. See the google.golang.org/api/iterator package for details.</p>
 <p>Note: This iterator is not safe for concurrent operations without explicit synchronization.</p>
-<p>This method is EXPERIMENTAL and subject to change or removal without notice.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
                   <h2 id="cloud_google_com_go_storage_HMACState" data-uid="cloud.google.com/go/storage.HMACState" class="notranslate">HMACState</h2>
@@ -2104,7 +2470,6 @@ calls will return iterator.Done.</p>
           <pre class="prettyprint"><code>type HMACState <a href="https://pkg.go.dev/builtin#string">string</a></code></pre>
         </div>
         <div class="markdown level1 summary"><p>HMACState is the state of the HMAC key.</p>
-<p>This type is EXPERIMENTAL and subject to change or removal without notice.</p>
 </div>
         <div class="markdown level1 conceptual"></div>
         
@@ -2143,9 +2508,8 @@ calls will return iterator.Done.</p>
           <pre class="prettyprint"><code>type LifecycleAction struct {
 	// Type is the type of action to take on matching objects.
 	//
-	// Acceptable values are "Delete" to delete matching objects and
-	// "SetStorageClass" to set the storage class defined in StorageClass on
-	// matching objects.
+	// Acceptable values are storage.DeleteAction, storage.SetStorageClassAction,
+	// and storage.AbortIncompleteMPUAction.
 	Type <a href="https://pkg.go.dev/builtin#string">string</a>
 
 	// StorageClass is the storage class to set on matching objects if the Action
@@ -2160,7 +2524,12 @@ calls will return iterator.Done.</p>
         <h2 id="cloud_google_com_go_storage_LifecycleCondition" data-uid="cloud.google.com/go/storage.LifecycleCondition" class="notranslate">LifecycleCondition</h2>
         <div class="codewrapper">
           <pre class="prettyprint"><code>type LifecycleCondition struct {
+	// AllObjects is used to select all objects in a bucket by
+	// setting AgeInDays to 0.
+	AllObjects <a href="https://pkg.go.dev/builtin#bool">bool</a>
+
 	// AgeInDays is the age of the object in days.
+	// If you want to set AgeInDays to `0` use AllObjects set to `true`.
 	AgeInDays <a href="https://pkg.go.dev/builtin#int64">int64</a>
 
 	// CreatedBefore is the time the object was created.
@@ -2178,20 +2547,30 @@ calls will return iterator.Done.</p>
 
 	// DaysSinceCustomTime is the days elapsed since the CustomTime date of the
 	// object. This condition can only be satisfied if CustomTime has been set.
+	// Note: Using `0` as the value will be ignored by the library and not sent to the API.
 	DaysSinceCustomTime <a href="https://pkg.go.dev/builtin#int64">int64</a>
 
 	// DaysSinceNoncurrentTime is the days elapsed since the noncurrent timestamp
 	// of the object. This condition is relevant only for versioned objects.
+	// Note: Using `0` as the value will be ignored by the library and not sent to the API.
 	DaysSinceNoncurrentTime <a href="https://pkg.go.dev/builtin#int64">int64</a>
 
 	// Liveness specifies the object's liveness. Relevant only for versioned objects
 	Liveness <a href="#cloud_google_com_go_storage_Liveness">Liveness</a>
+
+	// MatchesPrefix is the condition matching an object if any of the
+	// matches_prefix strings are an exact prefix of the object's name.
+	MatchesPrefix []<a href="https://pkg.go.dev/builtin#string">string</a>
 
 	// MatchesStorageClasses is the condition matching the object's storage
 	// class.
 	//
 	// Values include "STANDARD", "NEARLINE", "COLDLINE" and "ARCHIVE".
 	MatchesStorageClasses []<a href="https://pkg.go.dev/builtin#string">string</a>
+
+	// MatchesSuffix is the condition matching an object if any of the
+	// matches_suffix strings are an exact suffix of the object's name.
+	MatchesSuffix []<a href="https://pkg.go.dev/builtin#string">string</a>
 
 	// NoncurrentTimeBefore is the noncurrent timestamp of the object. This
 	// condition is satisfied when an object's noncurrent timestamp is before
@@ -2205,6 +2584,7 @@ calls will return iterator.Done.</p>
 	// If the value is N, this condition is satisfied when there are at least N
 	// versions (including the live version) newer than this version of the
 	// object.
+	// Note: Using `0` as the value will be ignored by the library and not sent to the API.
 	NumNewerVersions <a href="https://pkg.go.dev/builtin#int64">int64</a>
 }</code></pre>
         </div>
@@ -2360,6 +2740,9 @@ events occur in a bucket.</p>
 	// Composer. In those cases, if the SendCRC32C field in the Writer or Composer
 	// is set to is true, the uploaded data is rejected if its CRC32C hash does
 	// not match this field.
+	//
+	// Note: For a Writer, SendCRC32C must be set to true BEFORE the first call to
+	// Writer.Write() in order to send the checksum.
 	CRC32C <a href="https://pkg.go.dev/builtin#uint32">uint32</a>
 
 	// MediaLink is an URL to the object's content. This field is read-only.
@@ -2367,6 +2750,10 @@ events occur in a bucket.</p>
 
 	// Metadata represents user-provided metadata, in key/value pairs.
 	// It can be nil if no metadata is provided.
+	//
+	// For object downloads using Reader, metadata keys are sent as headers.
+	// Therefore, avoid setting metadata keys using characters that are not valid
+	// for headers. See https://www.rfc-editor.org/rfc/rfc7230#section-3.2.6.
 	Metadata map[<a href="https://pkg.go.dev/builtin#string">string</a>]<a href="https://pkg.go.dev/builtin#string">string</a>
 
 	// Generation is the generation number of the object's content.
@@ -2433,6 +2820,15 @@ events occur in a bucket.</p>
 	// later value but not to an earlier one. For more information see
 	// https://cloud.google.com/storage/docs/metadata#custom-time .
 	CustomTime <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Time">Time</a>
+
+	// ComponentCount is the number of objects contained within a composite object.
+	// For non-composite objects, the value will be zero.
+	// This field is read-only.
+	ComponentCount <a href="https://pkg.go.dev/builtin#int64">int64</a>
+
+	// Retention contains the retention configuration for this object.
+	// ObjectRetention cannot be configured or reported through the gRPC API.
+	Retention *<a href="#cloud_google_com_go_storage_ObjectRetention">ObjectRetention</a>
 }</userid></code></pre>
         </div>
         <div class="markdown level1 summary"><p>ObjectAttrs represents the metadata for a Google Cloud Storage (GCS) object.</p>
@@ -2456,20 +2852,29 @@ events occur in a bucket.</p>
 	// If not empty, applies a predefined set of access controls. ACL must be nil.
 	// See https://cloud.google.com/storage/docs/json_api/v1/objects/patch.
 	PredefinedACL <a href="https://pkg.go.dev/builtin#string">string</a>
+
+	// Retention contains the retention configuration for this object.
+	// Operations other than setting the retention for the first time or
+	// extending the RetainUntil time on the object retention must be done
+	// on an ObjectHandle with OverrideUnlockedRetention set to true.
+	Retention *<a href="#cloud_google_com_go_storage_ObjectRetention">ObjectRetention</a>
 }</code></pre>
         </div>
         <div class="markdown level1 summary"><p>ObjectAttrsToUpdate is used to update the attributes of an object.
 Only fields set to non-nil values will be updated.
-For all fields except CustomTime, set the field to its zero value to delete
-it. CustomTime cannot be deleted or changed to an earlier time once set.</p>
-<p>For example, to change ContentType and delete ContentEncoding and
-Metadata, use
-   ObjectAttrsToUpdate{
-       ContentType: &quot;text/html&quot;,
-       ContentEncoding: &quot;&quot;,
-       Metadata: map[string]string{},
-   }</p>
-</div>
+For all fields except CustomTime and Retention, set the field to its zero
+value to delete it. CustomTime cannot be deleted or changed to an earlier
+time once set. Retention can be deleted (only if the Mode is Unlocked) by
+setting it to an empty value (not nil).</p>
+<p>For example, to change ContentType and delete ContentEncoding, Metadata and
+Retention, use:</p>
+<pre><code>ObjectAttrsToUpdate{
+    ContentType: &quot;text/html&quot;,
+    ContentEncoding: &quot;&quot;,
+    Metadata: map[string]string{},
+    Retention: &amp;ObjectRetention{},
+}
+</code></pre></div>
         <div class="markdown level1 conceptual"></div>
         
         <h2 id="cloud_google_com_go_storage_ObjectHandle" data-uid="cloud.google.com/go/storage.ObjectHandle" class="notranslate">ObjectHandle</h2>
@@ -2488,9 +2893,10 @@ Use BucketHandle.Object to get a handle.</p>
         <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -2537,9 +2943,10 @@ ErrObjectNotExist will be returned if the object is not found.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -2561,10 +2968,11 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
 	&quot;time&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -2629,8 +3037,9 @@ in which case the user project of src is billed.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 var key1, key2 []byte
@@ -2664,9 +3073,10 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 	&quot;google.golang.org/api/iterator&quot;
 )
 
@@ -2717,10 +3127,11 @@ endpoints at <a href="https://cloud.google.com/storage/docs/json_api/">https://c
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;io&quot;
 	&quot;os&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 var gen int64
@@ -2751,7 +3162,9 @@ func main() {
               <pre class="prettyprint"><code>func (o *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) If(conds <a href="#cloud_google_com_go_storage_Conditions">Conditions</a>) *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a></code></pre>
             </div>
             <div class="markdown level1 summary"><p>If returns a new ObjectHandle that applies a set of preconditions.
-Preconditions already set on the ObjectHandle are ignored.
+Preconditions already set on the ObjectHandle are ignored. The supplied
+Conditions must have at least one field set to a non-default value;
+otherwise an error will be returned from any operation on the ObjectHandle.
 Operations on the new handle will return an error if the preconditions are not
 satisfied. See <a href="https://cloud.google.com/storage/docs/generations-preconditions">https://cloud.google.com/storage/docs/generations-preconditions</a>
 for more details.</p>
@@ -2762,12 +3175,13 @@ for more details.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
-	&quot;google.golang.org/api/googleapi&quot;
 	&quot;io&quot;
 	&quot;net/http&quot;
 	&quot;os&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
+	&quot;google.golang.org/api/googleapi&quot;
 )
 
 var gen int64
@@ -2821,8 +3235,9 @@ See <a href="https://cloud.google.com/storage/docs/encryption">https://cloud.goo
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 var secretKey []byte
@@ -2866,10 +3281,11 @@ Google Cloud Storage dictates.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
 	&quot;io/ioutil&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -2898,10 +3314,11 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
 	&quot;io/ioutil&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -2930,10 +3347,11 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
 	&quot;io/ioutil&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -2973,10 +3391,11 @@ ErrObjectNotExist will be returned if the object is not found.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
 	&quot;io/ioutil&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -3013,6 +3432,8 @@ until Close has been called.</p>
 ObjectAttrs field before the first call to Write. If no ContentType
 attribute is specified, the content type will be automatically sniffed
 using net/http.DetectContentType.</p>
+<p>Note that each Writer allocates an internal buffer of size Writer.ChunkSize.
+See the ChunkSize docs for more information.</p>
 <p>It is the caller&#39;s responsibility to call Close when writing is done. To
 stop writing without saving the data, cancel the context.</p>
 </div>
@@ -3022,8 +3443,9 @@ stop writing without saving the data, cancel the context.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -3045,12 +3467,38 @@ func main() {
             <div class="markdown level1 summary"><p>ObjectName returns the name of the object.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_ObjectHandle_OverrideUnlockedRetention" data-uid="cloud.google.com/go/storage.ObjectHandle.OverrideUnlockedRetention" class="notranslate">func (*ObjectHandle) OverrideUnlockedRetention
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (o *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) OverrideUnlockedRetention(override <a href="https://pkg.go.dev/builtin#bool">bool</a>) *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>OverrideUnlockedRetention provides an option for overriding an Unlocked
+Retention policy. This must be set to true in order to change a policy
+from Unlocked to Locked, to set it to null, or to reduce its
+RetainUntil attribute. It is not required for setting the ObjectRetention for
+the first time nor for extending the RetainUntil time.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
                       <h3 id="cloud_google_com_go_storage_ObjectHandle_ReadCompressed" data-uid="cloud.google.com/go/storage.ObjectHandle.ReadCompressed" class="notranslate">func (*ObjectHandle) ReadCompressed
 </h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (o *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) ReadCompressed(compressed <a href="https://pkg.go.dev/builtin#bool">bool</a>) *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a></code></pre>
             </div>
             <div class="markdown level1 summary"><p>ReadCompressed when true causes the read to happen without decompressing.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_ObjectHandle_Retryer" data-uid="cloud.google.com/go/storage.ObjectHandle.Retryer" class="notranslate">func (*ObjectHandle) Retryer
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (o *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) Retryer(opts ...<a href="#cloud_google_com_go_storage_RetryOption">RetryOption</a>) *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>Retryer returns an object handle that is configured with custom retry
+behavior as specified by the options that are passed to it. All operations
+on the new handle will use the customized retry configuration.
+These retry options will merge with the bucket&#39;s retryer (if set) for the
+returned handle. Options passed into this method will take precedence over
+retry options on the bucket and client. Note that you must explicitly pass in
+each option you want to override.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
                       <h3 id="cloud_google_com_go_storage_ObjectHandle_Update" data-uid="cloud.google.com/go/storage.ObjectHandle.Update" class="notranslate">func (*ObjectHandle) Update
@@ -3068,9 +3516,10 @@ ErrObjectNotExist will be returned if the object is not found.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -3127,9 +3576,10 @@ represent prefixes.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 	&quot;google.golang.org/api/iterator&quot;
 )
 
@@ -3162,7 +3612,24 @@ func main() {
 <p>Note: This method is not safe for concurrent operations without explicit synchronization.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
-                  <h2 id="cloud_google_com_go_storage_PolicyV4Fields" data-uid="cloud.google.com/go/storage.PolicyV4Fields" class="notranslate">PolicyV4Fields</h2>
+                  <h2 id="cloud_google_com_go_storage_ObjectRetention" data-uid="cloud.google.com/go/storage.ObjectRetention" class="notranslate">ObjectRetention</h2>
+        <div class="codewrapper">
+          <pre class="prettyprint"><code>type ObjectRetention struct {
+	// Mode is the retention policy's mode on this object. Valid values are
+	// "Locked" and "Unlocked".
+	// Locked retention policies cannot be changed. Unlocked policies require an
+	// override to change.
+	Mode <a href="https://pkg.go.dev/builtin#string">string</a>
+
+	// RetainUntil is the time this object will be retained until.
+	RetainUntil <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Time">Time</a>
+}</code></pre>
+        </div>
+        <div class="markdown level1 summary"><p>ObjectRetention contains the retention configuration for this object.</p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+        <h2 id="cloud_google_com_go_storage_PolicyV4Fields" data-uid="cloud.google.com/go/storage.PolicyV4Fields" class="notranslate">PolicyV4Fields</h2>
         <div class="codewrapper">
           <pre class="prettyprint"><code>type PolicyV4Fields struct {
 	// ACL specifies the access control permissions for the object.
@@ -3220,7 +3687,9 @@ func main() {
               <pre class="prettyprint"><code>func GenerateSignedPostPolicyV4(bucket, object <a href="https://pkg.go.dev/builtin#string">string</a>, opts *<a href="#cloud_google_com_go_storage_PostPolicyV4Options">PostPolicyV4Options</a>) (*<a href="#cloud_google_com_go_storage_PostPolicyV4">PostPolicyV4</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
             </div>
             <div class="markdown level1 summary"><p>GenerateSignedPostPolicyV4 generates a PostPolicyV4 value from bucket, object and opts.
-The generated URL and fields will then allow an unauthenticated client to perform multipart uploads.</p>
+The generated URL and fields will then allow an unauthenticated client to perform multipart uploads.
+If initializing a Storage Client, instead use the Bucket.GenerateSignedPostPolicyV4
+method which uses the Client&#39;s credentials to handle authentication.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
               <h4>Example</h4>
@@ -3229,11 +3698,12 @@ The generated URL and fields will then allow an unauthenticated client to perfor
 
 import (
 	&quot;bytes&quot;
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;io&quot;
 	&quot;mime/multipart&quot;
 	&quot;net/http&quot;
 	&quot;time&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -3331,7 +3801,7 @@ An empty value will cause this condition to be ignored.</p>
                   <h2 id="cloud_google_com_go_storage_PostPolicyV4Options" data-uid="cloud.google.com/go/storage.PostPolicyV4Options" class="notranslate">PostPolicyV4Options</h2>
         <div class="codewrapper">
           <pre class="prettyprint"><code>type PostPolicyV4Options struct {
-	// GoogleAccessID represents the authorizer of the signed URL generation.
+	// GoogleAccessID represents the authorizer of the signed post policy generation.
 	// It is typically the Google service account client email address from
 	// the Google Developers Console in the form of "xxx@developer.gserviceaccount.com".
 	// Required.
@@ -3351,24 +3821,40 @@ An empty value will cause this condition to be ignored.</p>
 	// Exactly one of PrivateKey or SignBytes must be non-nil.
 	PrivateKey []<a href="https://pkg.go.dev/builtin#byte">byte</a>
 
-	// SignBytes is a function for implementing custom signing. For example, if
-	// your application is running on Google App Engine, you can use
-	// appengine's internal signing function:
-	//     ctx := appengine.NewContext(request)
-	//     acc, _ := appengine.ServiceAccount(ctx)
-	//     url, err := SignedURL("bucket", "object", &SignedURLOptions{
-	//     	GoogleAccessID: acc,
-	//     	SignBytes: func(b []byte) ([]byte, error) {
-	//     		_, signedBytes, err := appengine.SignBytes(ctx, b)
-	//     		return signedBytes, err
-	//     	},
-	//     	// etc.
-	//     })
+	// SignBytes is a function for implementing custom signing.
 	//
-	// Exactly one of PrivateKey or SignBytes must be non-nil.
+	// Deprecated: Use SignRawBytes. If both SignBytes and SignRawBytes are defined,
+	// SignBytes will be ignored.
+	// This SignBytes function expects the bytes it receives to be hashed, while
+	// SignRawBytes accepts the raw bytes without hashing, allowing more flexibility.
+	// Add the following to the top of your signing function to hash the bytes
+	// to use SignRawBytes instead:
+	//		shaSum := sha256.Sum256(bytes)
+	//		bytes = shaSum[:]
+	//
 	SignBytes func(hashBytes []<a href="https://pkg.go.dev/builtin#byte">byte</a>) (signature []<a href="https://pkg.go.dev/builtin#byte">byte</a>, err <a href="https://pkg.go.dev/builtin#error">error</a>)
 
-	// Expires is the expiration time on the signed URL.
+	// SignRawBytes is a function for implementing custom signing. For example, if
+	// your application is running on Google App Engine, you can use
+	// appengine's internal signing function:
+	//		ctx := appengine.NewContext(request)
+	//     	acc, _ := appengine.ServiceAccount(ctx)
+	//     	&PostPolicyV4Options{
+	//     		GoogleAccessID: acc,
+	//     		SignRawBytes: func(b []byte) ([]byte, error) {
+	//     			_, signedBytes, err := appengine.SignBytes(ctx, b)
+	//     			return signedBytes, err
+	//     		},
+	//     		// etc.
+	//     	})
+	//
+	// SignRawBytes is equivalent to the SignBytes field on SignedURLOptions;
+	// that is, you may use the same signing function for the two.
+	//
+	// Exactly one of PrivateKey or SignRawBytes must be non-nil.
+	SignRawBytes func(bytes []<a href="https://pkg.go.dev/builtin#byte">byte</a>) (signature []<a href="https://pkg.go.dev/builtin#byte">byte</a>, err <a href="https://pkg.go.dev/builtin#error">error</a>)
+
+	// Expires is the expiration time on the signed post policy.
 	// It must be a time in the future.
 	// Required.
 	Expires <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Time">Time</a>
@@ -3395,6 +3881,13 @@ An empty value will cause this condition to be ignored.</p>
 	// a 4XX status code, back with the message describing the problem.
 	// Optional.
 	Conditions []<a href="#cloud_google_com_go_storage_PostPolicyV4Condition">PostPolicyV4Condition</a>
+
+	// Hostname sets the host of the signed post policy. This field overrides
+	// any endpoint set on a storage Client or through STORAGE_EMULATOR_HOST.
+	// Only compatible with PathStyle URLStyle.
+	// Optional.
+	Hostname <a href="https://pkg.go.dev/builtin#string">string</a>
+	// contains filtered or unexported fields
 }</your-project-id></code></pre>
         </div>
         <div class="markdown level1 summary"><p>PostPolicyV4Options are used to construct a signed post policy.
@@ -3455,20 +3948,24 @@ information.</p>
 </div>
         <div class="markdown level1 conceptual"></div>
         
-            <h3 id="cloud_google_com_go_storage_PublicAccessPreventionUnknown_PublicAccessPreventionUnspecified_PublicAccessPreventionEnforced" data-uid="cloud.google.com/go/storage.PublicAccessPreventionUnknown,PublicAccessPreventionUnspecified,PublicAccessPreventionEnforced" class="notranslate">PublicAccessPreventionUnknown, PublicAccessPreventionUnspecified, PublicAccessPreventionEnforced</h3>
+            <h3 id="cloud_google_com_go_storage_PublicAccessPreventionUnknown_PublicAccessPreventionUnspecified_PublicAccessPreventionEnforced_PublicAccessPreventionInherited" data-uid="cloud.google.com/go/storage.PublicAccessPreventionUnknown,PublicAccessPreventionUnspecified,PublicAccessPreventionEnforced,PublicAccessPreventionInherited" class="notranslate">PublicAccessPreventionUnknown, PublicAccessPreventionUnspecified, PublicAccessPreventionEnforced, PublicAccessPreventionInherited</h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>const (
 	// PublicAccessPreventionUnknown is a zero value, used only if this field is
 	// not set in a call to GCS.
 	PublicAccessPreventionUnknown <a href="#cloud_google_com_go_storage_PublicAccessPrevention">PublicAccessPrevention</a> = <a href="https://pkg.go.dev/builtin#iota">iota</a>
 
-	// PublicAccessPreventionUnspecified corresponds to a value of "unspecified"
-	// and is the default for buckets.
+	// PublicAccessPreventionUnspecified corresponds to a value of "unspecified".
+	// Deprecated: use PublicAccessPreventionInherited
 	PublicAccessPreventionUnspecified
 
 	// PublicAccessPreventionEnforced corresponds to a value of "enforced". This
 	// enforces Public Access Prevention on the bucket.
 	PublicAccessPreventionEnforced
+
+	// PublicAccessPreventionInherited corresponds to a value of "inherited"
+	// and is the default for buckets.
+	PublicAccessPreventionInherited
 )</code></pre>
             </div>
             <div class="markdown level1 summary"></div>
@@ -3489,6 +3986,8 @@ information.</p>
 	// aside from the prefix, contain delimiter will have their name,
 	// truncated after the delimiter, returned in prefixes.
 	// Duplicate prefixes are omitted.
+	// Must be set to / when used with the MatchGlob parameter to filter results
+	// in a directory-like mode.
 	// Optional.
 	Delimiter <a href="https://pkg.go.dev/builtin#string">string</a>
 
@@ -3516,6 +4015,25 @@ information.</p>
 	// which returns all properties. Passing ProjectionNoACL will omit Owner and ACL,
 	// which may improve performance when listing many objects.
 	Projection <a href="#cloud_google_com_go_storage_Projection">Projection</a>
+
+	// IncludeTrailingDelimiter controls how objects which end in a single
+	// instance of Delimiter (for example, if Query.Delimiter = "/" and the
+	// object name is "foo/bar/") are included in the results. By default, these
+	// objects only show up as prefixes. If IncludeTrailingDelimiter is set to
+	// true, they will also be included as objects and their metadata will be
+	// populated in the returned ObjectAttrs.
+	IncludeTrailingDelimiter <a href="https://pkg.go.dev/builtin#bool">bool</a>
+
+	// MatchGlob is a glob pattern used to filter results (for example, foo*bar). See
+	// https://cloud.google.com/storage/docs/json_api/v1/objects/list#list-object-glob
+	// for syntax details. When Delimiter is set in conjunction with MatchGlob,
+	// it must be set to /.
+	MatchGlob <a href="https://pkg.go.dev/builtin#string">string</a>
+
+	// IncludeFoldersAsPrefixes includes Folders and Managed Folders in the set of
+	// prefixes returned by the query. Only applicable if Delimiter is set to /.
+	// IncludeFoldersAsPrefixes is not yet implemented in the gRPC API.
+	IncludeFoldersAsPrefixes <a href="https://pkg.go.dev/builtin#bool">bool</a>
 	// contains filtered or unexported fields
 }</code></pre>
         </div>
@@ -3536,6 +4054,43 @@ ObjectAttr will remain at their default values. This is a performance
 optimization; for more information, see
 <a href="https://cloud.google.com/storage/docs/json_api/v1/how-tos/performance">https://cloud.google.com/storage/docs/json_api/v1/how-tos/performance</a></p>
 </div>
+            <div class="markdown level1 conceptual"></div>
+                  <h2 id="cloud_google_com_go_storage_RPO" data-uid="cloud.google.com/go/storage.RPO" class="notranslate">RPO</h2>
+        <div class="codewrapper">
+          <pre class="prettyprint"><code>type RPO <a href="https://pkg.go.dev/builtin#int">int</a></code></pre>
+        </div>
+        <div class="markdown level1 summary"><p>RPO (Recovery Point Objective) configures the turbo replication feature. See
+<a href="https://cloud.google.com/storage/docs/managing-turbo-replication">https://cloud.google.com/storage/docs/managing-turbo-replication</a> for more information.</p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+            <h3 id="cloud_google_com_go_storage_RPOUnknown_RPODefault_RPOAsyncTurbo" data-uid="cloud.google.com/go/storage.RPOUnknown,RPODefault,RPOAsyncTurbo" class="notranslate">RPOUnknown, RPODefault, RPOAsyncTurbo</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>const (
+	// RPOUnknown is a zero value. It may be returned from bucket.Attrs() if RPO
+	// is not present in the bucket metadata, that is, the bucket is not dual-region.
+	// This value is also used if the RPO field is not set in a call to GCS.
+	RPOUnknown <a href="#cloud_google_com_go_storage_RPO">RPO</a> = <a href="https://pkg.go.dev/builtin#iota">iota</a>
+
+	// RPODefault represents default replication. It is used to reset RPO on an
+	// existing bucket  that has this field set to RPOAsyncTurbo. Otherwise it
+	// is equivalent to RPOUnknown, and is always ignored. This value is valid
+	// for dual- or multi-region buckets.
+	RPODefault
+
+	// RPOAsyncTurbo represents turbo replication and is used to enable Turbo
+	// Replication on a bucket. This value is only valid for dual-region buckets.
+	RPOAsyncTurbo
+)</code></pre>
+            </div>
+            <div class="markdown level1 summary"></div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_RPO_String" data-uid="cloud.google.com/go/storage.RPO.String" class="notranslate">func (RPO) String
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (rpo <a href="#cloud_google_com_go_storage_RPO">RPO</a>) String() <a href="https://pkg.go.dev/builtin#string">string</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"></div>
             <div class="markdown level1 conceptual"></div>
                   <h2 id="cloud_google_com_go_storage_Reader" data-uid="cloud.google.com/go/storage.Reader" class="notranslate">Reader</h2>
         <div class="codewrapper">
@@ -3622,6 +4177,15 @@ calls to Read or Close.</p>
 <p>Deprecated: use Reader.Attrs.Size.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_Reader_WriteTo" data-uid="cloud.google.com/go/storage.Reader.WriteTo" class="notranslate">func (*Reader) WriteTo
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (r *<a href="#cloud_google_com_go_storage_Reader">Reader</a>) WriteTo(w <a href="https://pkg.go.dev/io">io</a>.<a href="https://pkg.go.dev/io#Writer">Writer</a>) (<a href="https://pkg.go.dev/builtin#int64">int64</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>WriteTo writes all the data from the Reader to w. Fulfills the io.WriterTo interface.
+This is called implicitly when calling io.Copy on a Reader.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
                   <h2 id="cloud_google_com_go_storage_ReaderObjectAttrs" data-uid="cloud.google.com/go/storage.ReaderObjectAttrs" class="notranslate">ReaderObjectAttrs</h2>
         <div class="codewrapper">
           <pre class="prettyprint"><code>type ReaderObjectAttrs struct {
@@ -3697,7 +4261,106 @@ subject to any SLA or deprecation policy.</p>
 </div>
         <div class="markdown level1 conceptual"></div>
         
-        <h2 id="cloud_google_com_go_storage_SignedURLOptions" data-uid="cloud.google.com/go/storage.SignedURLOptions" class="notranslate">SignedURLOptions</h2>
+        <h2 id="cloud_google_com_go_storage_RetryOption" data-uid="cloud.google.com/go/storage.RetryOption" class="notranslate">RetryOption</h2>
+        <div class="codewrapper">
+          <pre class="prettyprint"><code>type RetryOption interface {
+	// contains filtered or unexported methods
+}</code></pre>
+        </div>
+        <div class="markdown level1 summary"><p>RetryOption allows users to configure non-default retry behavior for API
+calls made to GCS.</p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+            <h3 id="cloud_google_com_go_storage_RetryOption_WithBackoff" data-uid="cloud.google.com/go/storage.RetryOption.WithBackoff" class="notranslate">func WithBackoff
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func WithBackoff(backoff <a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#Backoff">Backoff</a>) <a href="#cloud_google_com_go_storage_RetryOption">RetryOption</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>WithBackoff allows configuration of the backoff timing used for retries.
+Available configuration options (Initial, Max and Multiplier) are described
+at <a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#Backoff">https://pkg.go.dev/github.com/googleapis/gax-go/v2#Backoff</a>. If any fields
+are not supplied by the user, gax default values will be used.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_RetryOption_WithErrorFunc" data-uid="cloud.google.com/go/storage.RetryOption.WithErrorFunc" class="notranslate">func WithErrorFunc
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func WithErrorFunc(shouldRetry func(err <a href="https://pkg.go.dev/builtin#error">error</a>) <a href="https://pkg.go.dev/builtin#bool">bool</a>) <a href="#cloud_google_com_go_storage_RetryOption">RetryOption</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>WithErrorFunc allows users to pass a custom function to the retryer. Errors
+will be retried if and only if <code>shouldRetry(err)</code> returns true.
+By default, the following errors are retried (see ShouldRetry for the default
+function):</p>
+<ul>
+<li><p>HTTP responses with codes 408, 429, 502, 503, and 504.</p>
+</li>
+<li><p>Transient network errors such as connection reset and io.ErrUnexpectedEOF.</p>
+</li>
+<li><p>Errors which are considered transient using the Temporary() interface.</p>
+</li>
+<li><p>Wrapped versions of these errors.</p>
+</li>
+</ul>
+<p>This option can be used to retry on a different set of errors than the
+default. Users can use the default ShouldRetry function inside their custom
+function if they only want to make minor modifications to default behavior.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_RetryOption_WithMaxAttempts" data-uid="cloud.google.com/go/storage.RetryOption.WithMaxAttempts" class="notranslate">func WithMaxAttempts
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func WithMaxAttempts(maxAttempts <a href="https://pkg.go.dev/builtin#int">int</a>) <a href="#cloud_google_com_go_storage_RetryOption">RetryOption</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>WithMaxAttempts configures the maximum number of times an API call can be made
+in the case of retryable errors.
+For example, if you set WithMaxAttempts(5), the operation will be attempted up to 5
+times total (initial call plus 4 retries).
+Without this setting, operations will continue retrying indefinitely
+until either the context is canceled or a deadline is reached.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_RetryOption_WithPolicy" data-uid="cloud.google.com/go/storage.RetryOption.WithPolicy" class="notranslate">func WithPolicy
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func WithPolicy(policy <a href="#cloud_google_com_go_storage_RetryPolicy">RetryPolicy</a>) <a href="#cloud_google_com_go_storage_RetryOption">RetryOption</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>WithPolicy allows the configuration of which operations should be performed
+with retries for transient errors.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                  <h2 id="cloud_google_com_go_storage_RetryPolicy" data-uid="cloud.google.com/go/storage.RetryPolicy" class="notranslate">RetryPolicy</h2>
+        <div class="codewrapper">
+          <pre class="prettyprint"><code>type RetryPolicy <a href="https://pkg.go.dev/builtin#int">int</a></code></pre>
+        </div>
+        <div class="markdown level1 summary"><p>RetryPolicy describes the available policies for which operations should be
+retried. The default is <code>RetryIdempotent</code>.</p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+            <h3 id="cloud_google_com_go_storage_RetryIdempotent_RetryAlways_RetryNever" data-uid="cloud.google.com/go/storage.RetryIdempotent,RetryAlways,RetryNever" class="notranslate">RetryIdempotent, RetryAlways, RetryNever</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>const (
+	// RetryIdempotent causes only idempotent operations to be retried when the
+	// service returns a transient error. Using this policy, fully idempotent
+	// operations (such as `ObjectHandle.Attrs()`) will always be retried.
+	// Conditionally idempotent operations (for example `ObjectHandle.Update()`)
+	// will be retried only if the necessary conditions have been supplied (in
+	// the case of `ObjectHandle.Update()` this would mean supplying a
+	// `Conditions.MetagenerationMatch` condition is required).
+	RetryIdempotent <a href="#cloud_google_com_go_storage_RetryPolicy">RetryPolicy</a> = <a href="https://pkg.go.dev/builtin#iota">iota</a>
+
+	// RetryAlways causes all operations to be retried when the service returns a
+	// transient error, regardless of idempotency considerations.
+	RetryAlways
+
+	// RetryNever causes the client to not perform retries on failed operations.
+	RetryNever
+)</code></pre>
+            </div>
+            <div class="markdown level1 summary"></div>
+            <div class="markdown level1 conceptual"></div>
+                  <h2 id="cloud_google_com_go_storage_SignedURLOptions" data-uid="cloud.google.com/go/storage.SignedURLOptions" class="notranslate">SignedURLOptions</h2>
         <div class="codewrapper">
           <pre class="prettyprint"><code>type SignedURLOptions struct {
 	// GoogleAccessID represents the authorizer of the signed URL generation.
@@ -3788,6 +4451,12 @@ subject to any SLA or deprecation policy.</p>
 	// Scheme determines the version of URL signing to use. Default is
 	// SigningSchemeV2.
 	Scheme <a href="#cloud_google_com_go_storage_SigningScheme">SigningScheme</a>
+
+	// Hostname sets the host of the signed URL. This field overrides any
+	// endpoint set on a storage Client or through STORAGE_EMULATOR_HOST.
+	// Only compatible with PathStyle and VirtualHostedStyle URLStyles.
+	// Optional.
+	Hostname <a href="https://pkg.go.dev/builtin#string">string</a>
 }</your-project-id></code></pre>
         </div>
         <div class="markdown level1 summary"><p>SignedURLOptions allows you to restrict the access to the signed URL.</p>
@@ -3823,7 +4492,7 @@ subject to any SLA or deprecation policy.</p>
 	// contains filtered or unexported methods
 }</code></pre>
         </div>
-        <div class="markdown level1 summary"><p>URLStyle determines the style to use for the signed URL. pathStyle is the
+        <div class="markdown level1 summary"><p>URLStyle determines the style to use for the signed URL. PathStyle is the
 default. All non-default options work with V4 scheme only. See
 <a href="https://cloud.google.com/storage/docs/request-endpoints">https://cloud.google.com/storage/docs/request-endpoints</a> for details.</p>
 </div>
@@ -3850,8 +4519,11 @@ be set to true.<p>
               <pre class="prettyprint"><code>func PathStyle() <a href="#cloud_google_com_go_storage_URLStyle">URLStyle</a></code></pre>
             </div>
             <div class="markdown level1 summary"><p>PathStyle is the default style, and will generate a URL of the form
-&quot;storage.googleapis.com/<bucket-name>/<object-name>&quot;.<p>
-</object-name></bucket-name></div>
+&quot;<host-name>/<bucket-name>/<object-name>&quot;. By default, <host-name> is
+storage.googleapis.com, but setting an endpoint on the storage Client or
+through STORAGE_EMULATOR_HOST overrides this. Setting Hostname on
+SignedURLOptions or PostPolicyV4Options overrides everything else.<p>
+</host-name></object-name></bucket-name></host-name></div>
             <div class="markdown level1 conceptual"></div>
                       <h3 id="cloud_google_com_go_storage_URLStyle_VirtualHostedStyle" data-uid="cloud.google.com/go/storage.URLStyle.VirtualHostedStyle" class="notranslate">func VirtualHostedStyle
 </h3>
@@ -3886,36 +4558,52 @@ policies.</p>
 	// attributes are ignored.
 	<a href="#cloud_google_com_go_storage_ObjectAttrs">ObjectAttrs</a>
 
-	// SendCRC specifies whether to transmit a CRC32C field. It should be set
+	// SendCRC32C specifies whether to transmit a CRC32C field. It should be set
 	// to true in addition to setting the Writer's CRC32C field, because zero
 	// is a valid CRC and normally a zero would not be transmitted.
 	// If a CRC32C is sent, and the data written does not match the checksum,
 	// the write will be rejected.
+	//
+	// Note: SendCRC32C must be set to true BEFORE the first call to
+	// Writer.Write() in order to send the checksum. If it is set after that
+	// point, the checksum will be ignored.
 	SendCRC32C <a href="https://pkg.go.dev/builtin#bool">bool</a>
 
 	// ChunkSize controls the maximum number of bytes of the object that the
 	// Writer will attempt to send to the server in a single request. Objects
 	// smaller than the size will be sent in a single request, while larger
-	// objects will be split over multiple requests. The size will be rounded up
-	// to the nearest multiple of 256K.
+	// objects will be split over multiple requests. The value will be rounded up
+	// to the nearest multiple of 256K. The default ChunkSize is 16MiB.
 	//
-	// ChunkSize will default to a reasonable value. If you perform many
-	// concurrent writes of small objects (under ~8MB), you may wish set ChunkSize
-	// to a value that matches your objects' sizes to avoid consuming large
-	// amounts of memory. See
-	// https://cloud.google.com/storage/docs/json_api/v1/how-tos/upload#size
-	// for more information about performance trade-offs related to ChunkSize.
+	// Each Writer will internally allocate a buffer of size ChunkSize. This is
+	// used to buffer input data and allow for the input to be sent again if a
+	// request must be retried.
 	//
-	// If ChunkSize is set to zero, chunking will be disabled and the object will
-	// be uploaded in a single request without the use of a buffer. This will
-	// further reduce memory used during uploads, but will also prevent the writer
-	// from retrying in case of a transient error from the server, since a buffer
-	// is required in order to retry the failed request.
-	//
-	// ChunkSize must be set before the first Write call.
-	ChunkSize <a href="https://pkg.go.dev/builtin#int">int</a>
+	// If you upload small objects (< 16mib),="" you="" should="" set="" chunksize="" to="" a="" value="" slightly="" larger="" than="" the="" objects'="" sizes="" to="" avoid="" memory="" bloat.="" this="" is="" especially="" important="" if="" you="" are="" uploading="" many="" small="" objects="" concurrently.="" see="" https://cloud.google.com/storage/docs/json_api/v1/how-tos/upload#size="" for="" more="" information="" about="" performance="" trade-offs="" related="" to="" chunksize.="" if="" chunksize="" is="" set="" to="" zero,="" chunking="" will="" be="" disabled="" and="" the="" object="" will="" be="" uploaded="" in="" a="" single="" request="" without="" the="" use="" of="" a="" buffer.="" this="" will="" further="" reduce="" memory="" used="" during="" uploads,="" but="" will="" also="" prevent="" the="" writer="" from="" retrying="" in="" case="" of="" a="" transient="" error="" from="" the="" server="" or="" resuming="" an="" upload="" that="" fails="" midway="" through,="" since="" the="" buffer="" is="" required="" in="" order="" to="" retry="" the="" failed="" request.="" chunksize="" must="" be="" set="" before="" the="" first="" write="" call.="" chunksize=""><a href="https://pkg.go.dev/builtin#int">int</a>
 
-	// ProgressFunc can be used to monitor the progress of a large write.
+	// ChunkRetryDeadline sets a per-chunk retry deadline for multi-chunk
+	// resumable uploads.
+	//
+	// For uploads of larger files, the Writer will attempt to retry if the
+	// request to upload a particular chunk fails with a transient error.
+	// If a single chunk has been attempting to upload for longer than this
+	// deadline and the request fails, it will no longer be retried, and the error
+	// will be returned to the caller. This is only applicable for files which are
+	// large enough to require a multi-chunk resumable upload. The default value
+	// is 32s. Users may want to pick a longer deadline if they are using larger
+	// values for ChunkSize or if they expect to have a slow or unreliable
+	// internet connection.
+	//
+	// To set a deadline on the entire upload, use context timeout or
+	// cancellation.
+	ChunkRetryDeadline <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Duration">Duration</a>
+
+	// ForceEmptyContentType is an optional parameter that is used to disable
+	// auto-detection of Content-Type. By default, if a blank Content-Type
+	// is provided, then gax.DetermineContentType is called to sniff the type.
+	ForceEmptyContentType <a href="https://pkg.go.dev/builtin#bool">bool</a>
+
+	// ProgressFunc can be used to monitor the progress of a large write
 	// operation. If ProgressFunc is not nil and writing requires multiple
 	// calls to the underlying service (see
 	// https://cloud.google.com/storage/docs/json_api/v1/how-tos/resumable-upload),
@@ -3979,9 +4667,10 @@ Writer.ChunkSize has been set to zero.</p>
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -4010,10 +4699,11 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
 	&quot;hash/crc32&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
@@ -4043,10 +4733,11 @@ func main() {
   <pre class="prettyprint"><code>package main
 
 import (
-	&quot;cloud.google.com/go/storage&quot;
 	&quot;context&quot;
 	&quot;fmt&quot;
 	&quot;time&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
 )
 
 func main() {
