@@ -6,6 +6,45 @@
   </head>
   <body>
     {% verbatim %}
+    <style>
+      body[layout=docs][concierge] .devsite-main-content {
+        grid-template-columns: 1fr minmax(365px, 100%) 1fr;
+      }
+      body[layout=docs][concierge] .devsite-main-content[has-book-nav], body[layout=docs][concierge] .devsite-main-content[has-book-nav][has-sidebar] {
+        grid-template-columns: minmax(269px, 1fr) minmax(365px, 100%) 1fr;
+      }
+      body[layout=docs][concierge] devsite-content {
+        max-width: 100%;
+      }
+      .gc-c {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: min(3rem, 5vw);
+        row-gap: 2.5vw;
+        display: grid;
+        align-items: start;
+      }
+
+      .gc-a {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+      }
+
+      .gc-s {
+        position: sticky;
+        top: calc(var(--devsite-js-header-height, 0) + 16px);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .gc-b {
+        display: flex;
+        flex-direction: column;
+        align-items: initial;
+        justify-content: initial;
+        overflow: hidden;
+      }
+    </style>
     <div>
       <article data-uid="cloud.google.com/go/storage/control/apiv2">
 <h1 class="page-title">Cloud Storage API v2 - Package cloud.google.com/go/storage/control/apiv2 (v1.40.0)</h1>
@@ -92,18 +131,26 @@ Individual methods on the client use the ctx given to them.
     <h2 id="functions">Functions
   
   </h2>
-        <h3 id="cloud_google_com_go_storage_control_apiv2_DefaultAuthScopes" data-uid="cloud.google.com/go/storage/control/apiv2.DefaultAuthScopes" class="notranslate">func DefaultAuthScopes
+        <hr>
+        <div class="gc-c">
+          <div class="gc-s">
+            <h3 id="cloud_google_com_go_storage_control_apiv2_DefaultAuthScopes" data-uid="cloud.google.com/go/storage/control/apiv2.DefaultAuthScopes" class="notranslate">func DefaultAuthScopes
 </h3>
-        <div class="codewrapper">
-          <pre class="prettyprint"><code>func DefaultAuthScopes() []<a href="https://pkg.go.dev/builtin#string">string</a></code></pre>
-        </div>
-        <div class="markdown level1 summary"><p>DefaultAuthScopes reports the default set of authentication scopes to use with this package.</p>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func DefaultAuthScopes() []<a href="https://pkg.go.dev/builtin#string">string</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>DefaultAuthScopes reports the default set of authentication scopes to use with this package.</p>
 </div>
-        <div class="markdown level1 conceptual"></div>
-        
-        <h2 id="cloud_google_com_go_storage_control_apiv2_FolderIterator" data-uid="cloud.google.com/go/storage/control/apiv2.FolderIterator" class="notranslate">FolderIterator</h2>
-        <div class="codewrapper">
-          <pre class="prettyprint"><code>type FolderIterator struct {
+            <div class="markdown level1 conceptual"></div>
+          </div>
+                </div>
+  
+        <hr>
+        <div class="gc-c">
+          <div class="gc-s">
+            <h2 id="cloud_google_com_go_storage_control_apiv2_FolderIterator" data-uid="cloud.google.com/go/storage/control/apiv2.FolderIterator" class="notranslate">FolderIterator</h2>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>type FolderIterator struct {
 
 	// Response is the raw response for the current page.
 	// It must be cast to the RPC response type.
@@ -119,72 +166,101 @@ Individual methods on the client use the ctx given to them.
 	InternalFetch func(pageSize <a href="https://pkg.go.dev/builtin#int">int</a>, pageToken <a href="https://pkg.go.dev/builtin#string">string</a>) (results []*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, nextPageToken <a href="https://pkg.go.dev/builtin#string">string</a>, err <a href="https://pkg.go.dev/builtin#error">error</a>)
 	// contains filtered or unexported fields
 }</code></pre>
-        </div>
-        <div class="markdown level1 summary"><p>FolderIterator manages a stream of *controlpb.Folder.</p>
-</div>
-        <div class="markdown level1 conceptual"></div>
-        
-            <h3 id="cloud_google_com_go_storage_control_apiv2_FolderIterator_Next" data-uid="cloud.google.com/go/storage/control/apiv2.FolderIterator.Next" class="notranslate">func (*FolderIterator) Next
-</h3>
-            <div class="codewrapper">
-              <pre class="prettyprint"><code>func (it *<a href="#cloud_google_com_go_storage_control_apiv2_FolderIterator">FolderIterator</a>) Next() (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
             </div>
-            <div class="markdown level1 summary"><p>Next returns the next result. Its second return value is iterator.Done if there are no more
+            <div class="markdown level1 summary"><p>FolderIterator manages a stream of *controlpb.Folder.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+          </div>
+                </div>
+  
+            <div class="gc-c">
+              <div class="gc-s">
+                <h3 id="cloud_google_com_go_storage_control_apiv2_FolderIterator_Next" data-uid="cloud.google.com/go/storage/control/apiv2.FolderIterator.Next" class="notranslate">func (*FolderIterator) Next
+</h3>
+                <div class="codewrapper">
+                  <pre class="prettyprint"><code>func (it *<a href="#cloud_google_com_go_storage_control_apiv2_FolderIterator">FolderIterator</a>) Next() (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+                </div>
+                <div class="markdown level1 summary"><p>Next returns the next result. Its second return value is iterator.Done if there are no more
 results. Once Next returns Done, all subsequent calls will return Done.</p>
 </div>
-            <div class="markdown level1 conceptual"></div>
-                      <h3 id="cloud_google_com_go_storage_control_apiv2_FolderIterator_PageInfo" data-uid="cloud.google.com/go/storage/control/apiv2.FolderIterator.PageInfo" class="notranslate">func (*FolderIterator) PageInfo
+                <div class="markdown level1 conceptual"></div>
+              </div>
+                        </div>
+            <div class="gc-c">
+              <div class="gc-s">
+                <h3 id="cloud_google_com_go_storage_control_apiv2_FolderIterator_PageInfo" data-uid="cloud.google.com/go/storage/control/apiv2.FolderIterator.PageInfo" class="notranslate">func (*FolderIterator) PageInfo
 </h3>
-            <div class="codewrapper">
-              <pre class="prettyprint"><code>func (it *<a href="#cloud_google_com_go_storage_control_apiv2_FolderIterator">FolderIterator</a>) PageInfo() *<a href="https://pkg.go.dev/google.golang.org/api/iterator">iterator</a>.<a href="https://pkg.go.dev/google.golang.org/api/iterator#PageInfo">PageInfo</a></code></pre>
-            </div>
-            <div class="markdown level1 summary"><p>PageInfo supports pagination. See the google.golang.org/api/iterator package for details.</p>
+                <div class="codewrapper">
+                  <pre class="prettyprint"><code>func (it *<a href="#cloud_google_com_go_storage_control_apiv2_FolderIterator">FolderIterator</a>) PageInfo() *<a href="https://pkg.go.dev/google.golang.org/api/iterator">iterator</a>.<a href="https://pkg.go.dev/google.golang.org/api/iterator#PageInfo">PageInfo</a></code></pre>
+                </div>
+                <div class="markdown level1 summary"><p>PageInfo supports pagination. See the google.golang.org/api/iterator package for details.</p>
 </div>
-            <div class="markdown level1 conceptual"></div>
-                  <h2 id="cloud_google_com_go_storage_control_apiv2_RenameFolderOperation" data-uid="cloud.google.com/go/storage/control/apiv2.RenameFolderOperation" class="notranslate">RenameFolderOperation</h2>
-        <div class="codewrapper">
-          <pre class="prettyprint"><code>type RenameFolderOperation struct {
+                <div class="markdown level1 conceptual"></div>
+              </div>
+                        </div>
+        <hr>
+        <div class="gc-c">
+          <div class="gc-s">
+            <h2 id="cloud_google_com_go_storage_control_apiv2_RenameFolderOperation" data-uid="cloud.google.com/go/storage/control/apiv2.RenameFolderOperation" class="notranslate">RenameFolderOperation</h2>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>type RenameFolderOperation struct {
 	// contains filtered or unexported fields
 }</code></pre>
-        </div>
-        <div class="markdown level1 summary"><p>RenameFolderOperation manages a long-running operation from RenameFolder.</p>
-</div>
-        <div class="markdown level1 conceptual"></div>
-        
-            <h3 id="cloud_google_com_go_storage_control_apiv2_RenameFolderOperation_Done" data-uid="cloud.google.com/go/storage/control/apiv2.RenameFolderOperation.Done" class="notranslate">func (*RenameFolderOperation) Done
-</h3>
-            <div class="codewrapper">
-              <pre class="prettyprint"><code>func (op *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation">RenameFolderOperation</a>) Done() <a href="https://pkg.go.dev/builtin#bool">bool</a></code></pre>
             </div>
-            <div class="markdown level1 summary"><p>Done reports whether the long-running operation has completed.</p>
+            <div class="markdown level1 summary"><p>RenameFolderOperation manages a long-running operation from RenameFolder.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
-                      <h3 id="cloud_google_com_go_storage_control_apiv2_RenameFolderOperation_Metadata" data-uid="cloud.google.com/go/storage/control/apiv2.RenameFolderOperation.Metadata" class="notranslate">func (*RenameFolderOperation) Metadata
+          </div>
+                </div>
+  
+            <div class="gc-c">
+              <div class="gc-s">
+                <h3 id="cloud_google_com_go_storage_control_apiv2_RenameFolderOperation_Done" data-uid="cloud.google.com/go/storage/control/apiv2.RenameFolderOperation.Done" class="notranslate">func (*RenameFolderOperation) Done
 </h3>
-            <div class="codewrapper">
-              <pre class="prettyprint"><code>func (op *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation">RenameFolderOperation</a>) Metadata() (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderMetadata">RenameFolderMetadata</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
-            </div>
-            <div class="markdown level1 summary"><p>Metadata returns metadata associated with the long-running operation.
+                <div class="codewrapper">
+                  <pre class="prettyprint"><code>func (op *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation">RenameFolderOperation</a>) Done() <a href="https://pkg.go.dev/builtin#bool">bool</a></code></pre>
+                </div>
+                <div class="markdown level1 summary"><p>Done reports whether the long-running operation has completed.</p>
+</div>
+                <div class="markdown level1 conceptual"></div>
+              </div>
+                        </div>
+            <div class="gc-c">
+              <div class="gc-s">
+                <h3 id="cloud_google_com_go_storage_control_apiv2_RenameFolderOperation_Metadata" data-uid="cloud.google.com/go/storage/control/apiv2.RenameFolderOperation.Metadata" class="notranslate">func (*RenameFolderOperation) Metadata
+</h3>
+                <div class="codewrapper">
+                  <pre class="prettyprint"><code>func (op *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation">RenameFolderOperation</a>) Metadata() (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderMetadata">RenameFolderMetadata</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+                </div>
+                <div class="markdown level1 summary"><p>Metadata returns metadata associated with the long-running operation.
 Metadata itself does not contact the server, but Poll does.
 To get the latest metadata, call this method after a successful call to Poll.
 If the metadata is not available, the returned metadata and error are both nil.</p>
 </div>
-            <div class="markdown level1 conceptual"></div>
-                      <h3 id="cloud_google_com_go_storage_control_apiv2_RenameFolderOperation_Name" data-uid="cloud.google.com/go/storage/control/apiv2.RenameFolderOperation.Name" class="notranslate">func (*RenameFolderOperation) Name
+                <div class="markdown level1 conceptual"></div>
+              </div>
+                        </div>
+            <div class="gc-c">
+              <div class="gc-s">
+                <h3 id="cloud_google_com_go_storage_control_apiv2_RenameFolderOperation_Name" data-uid="cloud.google.com/go/storage/control/apiv2.RenameFolderOperation.Name" class="notranslate">func (*RenameFolderOperation) Name
 </h3>
-            <div class="codewrapper">
-              <pre class="prettyprint"><code>func (op *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation">RenameFolderOperation</a>) Name() <a href="https://pkg.go.dev/builtin#string">string</a></code></pre>
-            </div>
-            <div class="markdown level1 summary"><p>Name returns the name of the long-running operation.
+                <div class="codewrapper">
+                  <pre class="prettyprint"><code>func (op *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation">RenameFolderOperation</a>) Name() <a href="https://pkg.go.dev/builtin#string">string</a></code></pre>
+                </div>
+                <div class="markdown level1 summary"><p>Name returns the name of the long-running operation.
 The name is assigned by the server and is unique within the service from which the operation is created.</p>
 </div>
-            <div class="markdown level1 conceptual"></div>
-                      <h3 id="cloud_google_com_go_storage_control_apiv2_RenameFolderOperation_Poll" data-uid="cloud.google.com/go/storage/control/apiv2.RenameFolderOperation.Poll" class="notranslate">func (*RenameFolderOperation) Poll
+                <div class="markdown level1 conceptual"></div>
+              </div>
+                        </div>
+            <div class="gc-c">
+              <div class="gc-s">
+                <h3 id="cloud_google_com_go_storage_control_apiv2_RenameFolderOperation_Poll" data-uid="cloud.google.com/go/storage/control/apiv2.RenameFolderOperation.Poll" class="notranslate">func (*RenameFolderOperation) Poll
 </h3>
-            <div class="codewrapper">
-              <pre class="prettyprint"><code>func (op *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation">RenameFolderOperation</a>) Poll(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
-            </div>
-            <div class="markdown level1 summary"><p>Poll fetches the latest state of the long-running operation.</p>
+                <div class="codewrapper">
+                  <pre class="prettyprint"><code>func (op *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation">RenameFolderOperation</a>) Poll(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+                </div>
+                <div class="markdown level1 summary"><p>Poll fetches the latest state of the long-running operation.</p>
 <p>Poll also fetches the latest metadata, which can be retrieved by Metadata.</p>
 <p>If Poll fails, the error is returned and op is unmodified. If Poll succeeds and
 the operation has completed with failure, the error is returned and op.Done will return true.
@@ -192,19 +268,28 @@ If Poll succeeds and the operation has completed successfully,
 op.Done will return true, and the response of the operation is returned.
 If Poll succeeds and the operation has not completed, the returned response and error are both nil.</p>
 </div>
-            <div class="markdown level1 conceptual"></div>
-                      <h3 id="cloud_google_com_go_storage_control_apiv2_RenameFolderOperation_Wait" data-uid="cloud.google.com/go/storage/control/apiv2.RenameFolderOperation.Wait" class="notranslate">func (*RenameFolderOperation) Wait
+                <div class="markdown level1 conceptual"></div>
+              </div>
+                        </div>
+            <div class="gc-c">
+              <div class="gc-s">
+                <h3 id="cloud_google_com_go_storage_control_apiv2_RenameFolderOperation_Wait" data-uid="cloud.google.com/go/storage/control/apiv2.RenameFolderOperation.Wait" class="notranslate">func (*RenameFolderOperation) Wait
 </h3>
-            <div class="codewrapper">
-              <pre class="prettyprint"><code>func (op *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation">RenameFolderOperation</a>) Wait(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
-            </div>
-            <div class="markdown level1 summary"><p>Wait blocks until the long-running operation is completed, returning the response and any errors encountered.</p>
+                <div class="codewrapper">
+                  <pre class="prettyprint"><code>func (op *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation">RenameFolderOperation</a>) Wait(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+                </div>
+                <div class="markdown level1 summary"><p>Wait blocks until the long-running operation is completed, returning the response and any errors encountered.</p>
 <p>See documentation of Poll for error-handling information.</p>
 </div>
-            <div class="markdown level1 conceptual"></div>
-                  <h2 id="cloud_google_com_go_storage_control_apiv2_StorageControlCallOptions" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlCallOptions" class="notranslate">StorageControlCallOptions</h2>
-        <div class="codewrapper">
-          <pre class="prettyprint"><code>type StorageControlCallOptions struct {
+                <div class="markdown level1 conceptual"></div>
+              </div>
+                        </div>
+        <hr>
+        <div class="gc-c">
+          <div class="gc-s">
+            <h2 id="cloud_google_com_go_storage_control_apiv2_StorageControlCallOptions" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlCallOptions" class="notranslate">StorageControlCallOptions</h2>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>type StorageControlCallOptions struct {
 	CreateFolder     []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
 	DeleteFolder     []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
 	GetFolder        []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
@@ -212,14 +297,19 @@ If Poll succeeds and the operation has not completed, the returned response and 
 	RenameFolder     []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
 	GetStorageLayout []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
 }</code></pre>
-        </div>
-        <div class="markdown level1 summary"><p>StorageControlCallOptions contains the retry settings for each method of StorageControlClient.</p>
+            </div>
+            <div class="markdown level1 summary"><p>StorageControlCallOptions contains the retry settings for each method of StorageControlClient.</p>
 </div>
-        <div class="markdown level1 conceptual"></div>
-        
-        <h2 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient" class="notranslate">StorageControlClient</h2>
-        <div class="codewrapper">
-          <pre class="prettyprint"><code>type StorageControlClient struct {
+            <div class="markdown level1 conceptual"></div>
+          </div>
+                </div>
+  
+        <hr>
+        <div class="gc-c">
+          <div class="gc-s">
+            <h2 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient" class="notranslate">StorageControlClient</h2>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>type StorageControlClient struct {
 
 	// The call options for this service.
 	CallOptions *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlCallOptions">StorageControlCallOptions</a>
@@ -230,24 +320,31 @@ If Poll succeeds and the operation has not completed, the returned response and 
 	LROClient *<a href="https://pkg.go.dev/cloud.google.com/go/longrunning/autogen">lroauto</a>.<a href="https://pkg.go.dev/cloud.google.com/go/longrunning/autogen#OperationsClient">OperationsClient</a>
 	// contains filtered or unexported fields
 }</code></pre>
-        </div>
-        <div class="markdown level1 summary"><p>StorageControlClient is a client for interacting with Cloud Storage API.
+            </div>
+            <div class="markdown level1 summary"><p>StorageControlClient is a client for interacting with Cloud Storage API.
 Methods, except Close, may be called concurrently. However, fields must not be modified concurrently with method calls.</p>
 <p>StorageControl service includes selected control plane operations.</p>
 </div>
-        <div class="markdown level1 conceptual"></div>
-        
-            <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_NewStorageControlClient" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.NewStorageControlClient" class="notranslate">func NewStorageControlClient
+            <div class="markdown level1 conceptual"></div>
+          </div>
+                </div>
+  
+            <div class="gc-c">
+              <div class="gc-s">
+                <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_NewStorageControlClient" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.NewStorageControlClient" class="notranslate">func NewStorageControlClient
 </h3>
-            <div class="codewrapper">
-              <pre class="prettyprint"><code>func NewStorageControlClient(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, opts ...<a href="https://pkg.go.dev/google.golang.org/api/option">option</a>.<a href="https://pkg.go.dev/google.golang.org/api/option#ClientOption">ClientOption</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
-            </div>
-            <div class="markdown level1 summary"><p>NewStorageControlClient creates a new storage control client based on gRPC.
+                <div class="codewrapper">
+                  <pre class="prettyprint"><code>func NewStorageControlClient(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, opts ...<a href="https://pkg.go.dev/google.golang.org/api/option">option</a>.<a href="https://pkg.go.dev/google.golang.org/api/option#ClientOption">ClientOption</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+                </div>
+                <div class="markdown level1 summary"><p>NewStorageControlClient creates a new storage control client based on gRPC.
 The returned client must be Closed when it is done being used to clean up its underlying connections.</p>
 <p>StorageControl service includes selected control plane operations.</p>
 </div>
-            <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
+                <div class="markdown level1 conceptual"></div>
+              </div>
+                <div class="gc-a">
+      <div class="gc-s">
+        <h4>Example</h4>
   <div class="codewrapper">
   <pre class="prettyprint"><code>package main
 
@@ -275,34 +372,50 @@ func main() {
 }
 </code></pre>
   </div>
-            <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_Close" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.Close" class="notranslate">func (*StorageControlClient) Close
-</h3>
-            <div class="codewrapper">
-              <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) Close() <a href="https://pkg.go.dev/builtin#error">error</a></code></pre>
+      </div>
+    </div>
             </div>
-            <div class="markdown level1 summary"><p>Close closes the connection to the API service. The user should invoke this when
+            <div class="gc-c">
+              <div class="gc-s">
+                <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_Close" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.Close" class="notranslate">func (*StorageControlClient) Close
+</h3>
+                <div class="codewrapper">
+                  <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) Close() <a href="https://pkg.go.dev/builtin#error">error</a></code></pre>
+                </div>
+                <div class="markdown level1 summary"><p>Close closes the connection to the API service. The user should invoke this when
 the client is no longer required.</p>
 </div>
-            <div class="markdown level1 conceptual"></div>
-                      <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_Connection" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.Connection" class="notranslate">func (*StorageControlClient) Connection
+                <div class="markdown level1 conceptual"></div>
+              </div>
+                        </div>
+            <div class="gc-c">
+              <div class="gc-s">
+                <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_Connection" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.Connection" class="notranslate">func (*StorageControlClient) Connection
  (deprecated)</h3>
-            <div class="codewrapper">
-              <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) Connection() *<a href="https://pkg.go.dev/google.golang.org/grpc">grpc</a>.<a href="https://pkg.go.dev/google.golang.org/grpc#ClientConn">ClientConn</a></code></pre>
-            </div>
-            <div class="markdown level1 summary"><p>Connection returns a connection to the API service.</p>
+                <div class="codewrapper">
+                  <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) Connection() *<a href="https://pkg.go.dev/google.golang.org/grpc">grpc</a>.<a href="https://pkg.go.dev/google.golang.org/grpc#ClientConn">ClientConn</a></code></pre>
+                </div>
+                <div class="markdown level1 summary"><p>Connection returns a connection to the API service.</p>
 <p>Deprecated: Connections are now pooled so this method does not always
 return the same resource.</p>
 </div>
-            <div class="markdown level1 conceptual"></div>
-                      <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_CreateFolder" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.CreateFolder" class="notranslate">func (*StorageControlClient) CreateFolder
+                <div class="markdown level1 conceptual"></div>
+              </div>
+                        </div>
+            <div class="gc-c">
+              <div class="gc-s">
+                <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_CreateFolder" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.CreateFolder" class="notranslate">func (*StorageControlClient) CreateFolder
 </h3>
-            <div class="codewrapper">
-              <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) CreateFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest">CreateFolderRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
-            </div>
-            <div class="markdown level1 summary"><p>CreateFolder creates a new folder.</p>
+                <div class="codewrapper">
+                  <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) CreateFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest">CreateFolderRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+                </div>
+                <div class="markdown level1 summary"><p>CreateFolder creates a new folder.</p>
 </div>
-            <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
+                <div class="markdown level1 conceptual"></div>
+              </div>
+                <div class="gc-a">
+      <div class="gc-s">
+        <h4>Example</h4>
   <div class="codewrapper">
   <pre class="prettyprint"><code>package main
 
@@ -339,15 +452,23 @@ func main() {
 }
 </code></pre>
   </div>
-            <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_DeleteFolder" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.DeleteFolder" class="notranslate">func (*StorageControlClient) DeleteFolder
-</h3>
-            <div class="codewrapper">
-              <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) DeleteFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteFolderRequest">DeleteFolderRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code></pre>
+      </div>
+    </div>
             </div>
-            <div class="markdown level1 summary"><p>DeleteFolder permanently deletes an empty folder.</p>
+            <div class="gc-c">
+              <div class="gc-s">
+                <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_DeleteFolder" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.DeleteFolder" class="notranslate">func (*StorageControlClient) DeleteFolder
+</h3>
+                <div class="codewrapper">
+                  <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) DeleteFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteFolderRequest">DeleteFolderRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code></pre>
+                </div>
+                <div class="markdown level1 summary"><p>DeleteFolder permanently deletes an empty folder.</p>
 </div>
-            <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
+                <div class="markdown level1 conceptual"></div>
+              </div>
+                <div class="gc-a">
+      <div class="gc-s">
+        <h4>Example</h4>
   <div class="codewrapper">
   <pre class="prettyprint"><code>package main
 
@@ -382,15 +503,23 @@ func main() {
 }
 </code></pre>
   </div>
-            <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_GetFolder" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.GetFolder" class="notranslate">func (*StorageControlClient) GetFolder
-</h3>
-            <div class="codewrapper">
-              <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) GetFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_GetFolderRequest">GetFolderRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+      </div>
+    </div>
             </div>
-            <div class="markdown level1 summary"><p>GetFolder returns metadata for the specified folder.</p>
+            <div class="gc-c">
+              <div class="gc-s">
+                <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_GetFolder" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.GetFolder" class="notranslate">func (*StorageControlClient) GetFolder
+</h3>
+                <div class="codewrapper">
+                  <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) GetFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_GetFolderRequest">GetFolderRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+                </div>
+                <div class="markdown level1 summary"><p>GetFolder returns metadata for the specified folder.</p>
 </div>
-            <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
+                <div class="markdown level1 conceptual"></div>
+              </div>
+                <div class="gc-a">
+      <div class="gc-s">
+        <h4>Example</h4>
   <div class="codewrapper">
   <pre class="prettyprint"><code>package main
 
@@ -427,15 +556,23 @@ func main() {
 }
 </code></pre>
   </div>
-            <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_GetStorageLayout" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.GetStorageLayout" class="notranslate">func (*StorageControlClient) GetStorageLayout
-</h3>
-            <div class="codewrapper">
-              <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) GetStorageLayout(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_GetStorageLayoutRequest">GetStorageLayoutRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout">StorageLayout</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+      </div>
+    </div>
             </div>
-            <div class="markdown level1 summary"><p>GetStorageLayout returns the storage layout configuration for a given bucket.</p>
+            <div class="gc-c">
+              <div class="gc-s">
+                <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_GetStorageLayout" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.GetStorageLayout" class="notranslate">func (*StorageControlClient) GetStorageLayout
+</h3>
+                <div class="codewrapper">
+                  <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) GetStorageLayout(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_GetStorageLayoutRequest">GetStorageLayoutRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout">StorageLayout</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+                </div>
+                <div class="markdown level1 summary"><p>GetStorageLayout returns the storage layout configuration for a given bucket.</p>
 </div>
-            <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
+                <div class="markdown level1 conceptual"></div>
+              </div>
+                <div class="gc-a">
+      <div class="gc-s">
+        <h4>Example</h4>
   <div class="codewrapper">
   <pre class="prettyprint"><code>package main
 
@@ -472,15 +609,23 @@ func main() {
 }
 </code></pre>
   </div>
-            <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_ListFolders" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.ListFolders" class="notranslate">func (*StorageControlClient) ListFolders
-</h3>
-            <div class="codewrapper">
-              <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) ListFolders(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest">ListFoldersRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) *<a href="#cloud_google_com_go_storage_control_apiv2_FolderIterator">FolderIterator</a></code></pre>
+      </div>
+    </div>
             </div>
-            <div class="markdown level1 summary"><p>ListFolders retrieves a list of folders for a given bucket.</p>
+            <div class="gc-c">
+              <div class="gc-s">
+                <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_ListFolders" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.ListFolders" class="notranslate">func (*StorageControlClient) ListFolders
+</h3>
+                <div class="codewrapper">
+                  <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) ListFolders(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest">ListFoldersRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) *<a href="#cloud_google_com_go_storage_control_apiv2_FolderIterator">FolderIterator</a></code></pre>
+                </div>
+                <div class="markdown level1 summary"><p>ListFolders retrieves a list of folders for a given bucket.</p>
 </div>
-            <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
+                <div class="markdown level1 conceptual"></div>
+              </div>
+                <div class="gc-a">
+      <div class="gc-s">
+        <h4>Example</h4>
   <div class="codewrapper">
   <pre class="prettyprint"><code>package main
 
@@ -530,17 +675,25 @@ func main() {
 }
 </code></pre>
   </div>
-            <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolder" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.RenameFolder" class="notranslate">func (*StorageControlClient) RenameFolder
-</h3>
-            <div class="codewrapper">
-              <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) RenameFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest">RenameFolderRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation">RenameFolderOperation</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+      </div>
+    </div>
             </div>
-            <div class="markdown level1 summary"><p>RenameFolder renames a source folder to a destination folder. During a rename, the
+            <div class="gc-c">
+              <div class="gc-s">
+                <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolder" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.RenameFolder" class="notranslate">func (*StorageControlClient) RenameFolder
+</h3>
+                <div class="codewrapper">
+                  <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) RenameFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest">RenameFolderRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation">RenameFolderOperation</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+                </div>
+                <div class="markdown level1 summary"><p>RenameFolder renames a source folder to a destination folder. During a rename, the
 source and destination folders are locked until the long running operation
 completes.</p>
 </div>
-            <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
+                <div class="markdown level1 conceptual"></div>
+              </div>
+                <div class="gc-a">
+      <div class="gc-s">
+        <h4>Example</h4>
   <div class="codewrapper">
   <pre class="prettyprint"><code>package main
 
@@ -582,16 +735,23 @@ func main() {
 }
 </code></pre>
   </div>
-            <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.RenameFolderOperation" class="notranslate">func (*StorageControlClient) RenameFolderOperation
-</h3>
-            <div class="codewrapper">
-              <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) RenameFolderOperation(name <a href="https://pkg.go.dev/builtin#string">string</a>) *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation">RenameFolderOperation</a></code></pre>
+      </div>
+    </div>
             </div>
-            <div class="markdown level1 summary"><p>RenameFolderOperation returns a new RenameFolderOperation from a given name.
+            <div class="gc-c">
+              <div class="gc-s">
+                <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.RenameFolderOperation" class="notranslate">func (*StorageControlClient) RenameFolderOperation
+</h3>
+                <div class="codewrapper">
+                  <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) RenameFolderOperation(name <a href="https://pkg.go.dev/builtin#string">string</a>) *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation">RenameFolderOperation</a></code></pre>
+                </div>
+                <div class="markdown level1 summary"><p>RenameFolderOperation returns a new RenameFolderOperation from a given name.
 The name must be that of a previously created RenameFolderOperation, possibly from a different process.</p>
 </div>
-            <div class="markdown level1 conceptual"></div>
-            </article>
+                <div class="markdown level1 conceptual"></div>
+              </div>
+                        </div>
+</article>
     </div>
     {% endverbatim %}
   </body>

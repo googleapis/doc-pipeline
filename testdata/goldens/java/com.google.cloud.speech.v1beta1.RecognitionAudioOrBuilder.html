@@ -6,6 +6,45 @@
   </head>
   <body>
     {% verbatim %}
+    <style>
+      body[layout=docs][concierge] .devsite-main-content {
+        grid-template-columns: 1fr minmax(365px, 100%) 1fr;
+      }
+      body[layout=docs][concierge] .devsite-main-content[has-book-nav], body[layout=docs][concierge] .devsite-main-content[has-book-nav][has-sidebar] {
+        grid-template-columns: minmax(269px, 1fr) minmax(365px, 100%) 1fr;
+      }
+      body[layout=docs][concierge] devsite-content {
+        max-width: 100%;
+      }
+      .gc-c {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: min(3rem, 5vw);
+        row-gap: 2.5vw;
+        display: grid;
+        align-items: start;
+      }
+
+      .gc-a {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+      }
+
+      .gc-s {
+        position: sticky;
+        top: calc(var(--devsite-js-header-height, 0) + 16px);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .gc-b {
+        display: flex;
+        flex-direction: column;
+        align-items: initial;
+        justify-content: initial;
+        overflow: hidden;
+      }
+    </style>
     <div>
       <article data-uid="com.google.cloud.speech.v1beta1.RecognitionAudioOrBuilder">
 <h1 class="page-title">Interface RecognitionAudioOrBuilder (2.0.0)</h1>
