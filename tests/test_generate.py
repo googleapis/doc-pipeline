@@ -80,8 +80,8 @@ def upload_yaml(cwd, test_bucket):
 
 # Fetches and uploads the blobs used for testing.
 def setup_testdata(cwd, storage_client, test_bucket):
-    latest_yaml_blob_name = "docfx-go-cloud.google.com/go/storage-v1.16.1.tar.gz"
-    latest_html_blob_name = "go-cloud.google.com/go/storage-v1.16.1.tar.gz"
+    latest_yaml_blob_name = "docfx-go-cloud.google.com/go/storage-v1.40.0.tar.gz"
+    latest_html_blob_name = "go-cloud.google.com/go/storage-v1.40.0.tar.gz"
     yaml_blob_name = "docfx-go-cloud.google.com/go/storage-v1.16.0.tar.gz"
     html_blob_name = "go-cloud.google.com/go/storage-v1.16.0.tar.gz"
     bucket = storage_client.get_bucket(test_bucket)
@@ -308,7 +308,7 @@ def test_generate(yaml_dir, tmpdir):
 
     # Upload new blob, build only latest, and verify only latest is updated.
     new_metadata = "docs.metadata.newer"
-    latest_html_blob_name = "go-cloud.google.com/go/storage-v1.16.1.tar.gz"
+    latest_html_blob_name = "go-cloud.google.com/go/storage-v1.40.0.tar.gz"
 
     # Swap to newer metadata to upload newer version of tarball.
     swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)
