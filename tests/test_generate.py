@@ -80,10 +80,10 @@ def upload_yaml(cwd, test_bucket):
 
 # Fetches and uploads the blobs used for testing.
 def setup_testdata(cwd, storage_client, test_bucket):
-    latest_yaml_blob_name = "docfx-go-cloud.google.com/go/storage-v1.40.0.tar.gz"
-    latest_html_blob_name = "go-cloud.google.com/go/storage-v1.40.0.tar.gz"
-    yaml_blob_name = "docfx-go-cloud.google.com/go/storage-v1.16.0.tar.gz"
-    html_blob_name = "go-cloud.google.com/go/storage-v1.16.0.tar.gz"
+    latest_yaml_blob_name = "docfx-go-cloud.google.com/go/storage-v1.41.0.tar.gz"
+    latest_html_blob_name = "go-cloud.google.com/go/storage-v1.41.0.tar.gz"
+    yaml_blob_name = "docfx-go-cloud.google.com/go/storage-v1.40.0.tar.gz"
+    html_blob_name = "go-cloud.google.com/go/storage-v1.40.0.tar.gz"
     bucket = storage_client.get_bucket(test_bucket)
     latest_yaml_blob = bucket.blob(latest_yaml_blob_name)
     latest_html_blob = bucket.blob(latest_html_blob_name)
@@ -308,7 +308,7 @@ def test_generate(yaml_dir, tmpdir):
 
     # Upload new blob, build only latest, and verify only latest is updated.
     new_metadata = "docs.metadata.newer"
-    latest_html_blob_name = "go-cloud.google.com/go/storage-v1.40.0.tar.gz"
+    latest_html_blob_name = "go-cloud.google.com/go/storage-v1.40.1.tar.gz"
 
     # Swap to newer metadata to upload newer version of tarball.
     swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)
@@ -321,7 +321,7 @@ def test_generate(yaml_dir, tmpdir):
     # Verify old version HTML is not updated.
     html_blob = bucket.get_blob(html_blob.name)
     t8 = html_blob.updated
-    assert t7 == t8, "old version not updated"
+    assert t7 == t8, "old version was updated after build_all_docs"
 
     # Verify latest version HTML is updated.
     latest_html_blob = bucket.get_blob(latest_html_blob_name)
@@ -337,7 +337,7 @@ def test_generate(yaml_dir, tmpdir):
     # Verify old version HTML is not updated.
     html_blob = bucket.get_blob(html_blob.name)
     t9 = html_blob.updated
-    assert t8 == t9, "old version not updated"
+    assert t8 == t9, "old version was updated after build_language_docs"
 
     # Verify latest version HTML is updated.
     latest_html_blob = bucket.get_blob(latest_html_blob_name)
@@ -349,7 +349,7 @@ def test_generate(yaml_dir, tmpdir):
     generate.build_new_docs(test_bucket, storage_client)
     html_blob = bucket.get_blob(html_blob.name)
     t10 = html_blob.updated
-    assert t9 != t10, "old version is updated"
+    assert t9 != t10, "old version was not updated after build_new_docs"
 
 
 def test_local_generate(yaml_dir, tmpdir):
