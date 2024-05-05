@@ -25,6 +25,7 @@ import docuploader.credentials
 from docuploader import shell, tar
 from docuploader.protos import metadata_pb2
 from google.cloud import storage
+from google.protobuf import text_format
 from parameterized import parameterized
 import pytest
 
@@ -32,21 +33,37 @@ from docpipeline import generate, local_generate
 
 
 # Unique identifiers for runnig parallel tests.
-_UNIQUE_YAML_BLOB_TEMPLATE = "docfx-go-cloud.google.com/go/storage-v1.40.0-{}.tar.gz"
-_UNIQUE_HTML_BLOB_TEMPLATE = "go-cloud.google.com/go/storage-v1.40.0-{}.tar.gz"
+_UUID = uuid.uuid4()
+_UNIQUE_YAML_BLOB_TEMPLATE = (
+    f"docfx-go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz"
+)
+_UNIQUE_HTML_BLOB_TEMPLATE = f"go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz"
+
+
+def _add_uuid_to_metadata(cwd, metadata_name) -> None:
+    metadata_path = cwd.joinpath(metadata_name)
+    metadata = metadata_pb2.Metadata()
+    text_format.Merge(metadata_path.read_text(), metadata)
+    metadata.version += f"-{_UUID}"
+    with open(metadata_path, "w") as f:
+        f.write(str(metadata))
 
 
 @pytest.fixture
 def yaml_dir(tmpdir) -> pathlib.Path:
     shutil.copytree("testdata/go", tmpdir, dirs_exist_ok=True)
-    return pathlib.Path(tmpdir)
+    tmpdir_path = pathlib.Path(tmpdir)
+    _add_uuid_to_metadata(tmpdir_path, "docs.metadata")
+    return tmpdir_path
 
 
 @pytest.fixture
 def api_dir(tmpdir) -> pathlib.Path:
     shutil.copytree("testdata/go", tmpdir / "api", dirs_exist_ok=True)
     shutil.copy("testdata/go/docs.metadata", tmpdir)
-    return pathlib.Path(tmpdir)
+    tmpdir_path = pathlib.Path(tmpdir)
+    _add_uuid_to_metadata(tmpdir_path, "docs.metadata")
+    return tmpdir_path
 
 
 def swap_file(parent_dir, file1, file2):
@@ -221,15 +238,12 @@ def verify_content(html_blob, tmpdir):
 
 
 def test_apidir(api_dir, tmpdir):
-    apidir_uuid = uuid.uuid4()
     test_bucket, storage_client = init_test()
 
-    bucket, yaml_blob, html_blob = setup_testdata(
-        api_dir, storage_client, test_bucket, apidir_uuid
-    )
+    bucket, yaml_blob, html_blob = setup_testdata(api_dir, storage_client, test_bucket)
 
     # Test for api directory content
-    run_generate(storage_client, test_bucket, apidir_uuid)
+    run_generate(storage_client, test_bucket)
 
     verify_content(html_blob, pathlib.Path(tmpdir))
 
@@ -273,16 +287,17 @@ def test_setup_docfx_not_found():
 
 
 def test_generate(yaml_dir, tmpdir):
-    generate_uuid = uuid.uuid4()
     tmpdir = pathlib.Path(tmpdir)
     test_bucket, storage_client = init_test()
 
     bucket, yaml_blob, html_blob = setup_testdata(
-        yaml_dir, storage_client, test_bucket, generate_uuid
+        yaml_dir,
+        storage_client,
+        test_bucket,
     )
 
     # Test for non-api directory content
-    run_generate(storage_client, test_bucket, generate_uuid)
+    run_generate(storage_client, test_bucket)
 
     verify_content(html_blob, tmpdir)
 
@@ -336,9 +351,8 @@ def test_generate(yaml_dir, tmpdir):
 
     # Upload new blob, build only latest, and verify only latest is updated.
     new_metadata = "docs.metadata.newer"
-    latest_html_blob_name = (
-        f"go-cloud.google.com/go/storage-v1.40.1-{generate_uuid}.tar.gz"
-    )
+    _add_uuid_to_metadata(yaml_dir, new_metadata)
+    latest_html_blob_name = f"go-cloud.google.com/go/storage-v1.40.1-{_UUID}.tar.gz"
 
     # Swap to newer metadata to upload newer version of tarball.
     swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)
