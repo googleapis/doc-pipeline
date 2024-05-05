@@ -35,18 +35,9 @@ from docpipeline import generate, local_generate
 _UUID = uuid.uuid4()
 
 
-def _add_uuid_to_files_with_extension(cwd, extension) -> None:
-    files_to_rename = [file for file in os.listdir(cwd) if file.endswith(extension)]
-    for file_to_rename in files_to_rename:
-        rename_to = f"{file_to_rename.split(extension)[0]}-{_UUID}{extension}"
-        os.rename(cwd / file_to_rename, cwd / rename_to)
-
-
 @pytest.fixture
 def yaml_dir(tmpdir) -> pathlib.Path:
     shutil.copytree("testdata/go", tmpdir, dirs_exist_ok=True)
-    _add_uuid_to_files_with_extension(tmpdir, ".tar.gz")
-    _add_uuid_to_files_with_extension(tmpdir, ".yml")
     return pathlib.Path(tmpdir)
 
 
@@ -55,8 +46,6 @@ def api_dir(tmpdir) -> pathlib.Path:
     output_dir = tmpdir / "api"
     shutil.copytree("testdata/go", output_dir, dirs_exist_ok=True)
     shutil.copy("testdata/go/docs.metadata", tmpdir)
-    _add_uuid_to_files_with_extension(output_dir, ".tar.gz")
-    _add_uuid_to_files_with_extension(output_dir, ".yml")
     return pathlib.Path(tmpdir)
 
 
