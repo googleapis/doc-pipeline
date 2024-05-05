@@ -131,7 +131,10 @@ def setup_testdata(cwd, storage_client, test_bucket):
         > 0
     ]
     for blob_to_remove in blobs_to_remove:
-        blob_to_remove.delete()
+        try:
+            blob_to_remove.delete()
+        except Exception:
+            continue
 
     upload_yaml(cwd, test_bucket)
 
