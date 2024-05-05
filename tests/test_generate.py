@@ -32,9 +32,7 @@ from docpipeline import generate, local_generate
 
 
 # Unique identifiers for runnig parallel tests.
-_UNIQUE_YAML_BLOB_TEMAPLTE = (
-    "docfx-go-cloud.google.com/go/storage-v1.40.0-{}.tar.gz"
-)
+_UNIQUE_YAML_BLOB_TEMAPLTE = "docfx-go-cloud.google.com/go/storage-v1.40.0-{}.tar.gz"
 _UNIQUE_HTML_BLOB_TEMAPLTE = "go-cloud.google.com/go/storage-v1.40.0-{}.tar.gz"
 
 
@@ -78,7 +76,7 @@ def cleanup_bucket(storage_client, test_bucket, unique_id):
     blobs_to_delete = [
         f"docfx-go-cloud.google.com/go/storage-v1.41.0-{unique_id}.tar.gz",
         f"go-cloud.google.com/go/storage-v1.41.0-{unique_id}.tar.gz",
-        f"go-cloud.google.com/go/storage-v1.40.1-{unique_id}.tar.gz"
+        f"go-cloud.google.com/go/storage-v1.40.1-{unique_id}.tar.gz",
         _UNIQUE_YAML_BLOB_TEMPLATE.format(unique_id),
         html_blob_name,
         f"{generate.XREFS_DIR_NAME}/{html_blob_name}.yml",
@@ -226,7 +224,9 @@ def test_apidir(api_dir, tmpdir):
     apidir_uuid = uuid.uuid4()
     test_bucket, storage_client = init_test()
 
-    bucket, yaml_blob, html_blob = setup_testdata(api_dir, storage_client, test_bucket, apidir_uuid)
+    bucket, yaml_blob, html_blob = setup_testdata(
+        api_dir, storage_client, test_bucket, apidir_uuid
+    )
 
     # Test for api directory content
     run_generate(storage_client, test_bucket, apidir_uuid)
@@ -277,7 +277,9 @@ def test_generate(yaml_dir, tmpdir):
     tmpdir = pathlib.Path(tmpdir)
     test_bucket, storage_client = init_test()
 
-    bucket, yaml_blob, html_blob = setup_testdata(yaml_dir, storage_client, test_bucket, generate_uuid)
+    bucket, yaml_blob, html_blob = setup_testdata(
+        yaml_dir, storage_client, test_bucket, generate_uuid
+    )
 
     # Test for non-api directory content
     run_generate(storage_client, test_bucket, generate_uuid)
@@ -334,7 +336,9 @@ def test_generate(yaml_dir, tmpdir):
 
     # Upload new blob, build only latest, and verify only latest is updated.
     new_metadata = "docs.metadata.newer"
-    latest_html_blob_name = f"go-cloud.google.com/go/storage-v1.40.1-{generate_uuid}.tar.gz"
+    latest_html_blob_name = (
+        f"go-cloud.google.com/go/storage-v1.40.1-{generate_uuid}.tar.gz"
+    )
 
     # Swap to newer metadata to upload newer version of tarball.
     swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)
