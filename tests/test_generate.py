@@ -99,7 +99,7 @@ def cleanup_bucket(storage_client, test_bucket):
     for blob_to_delete in blobs_to_delete:
         try:
             blob = bucket.blob(blob_to_delete)
-            if blob.exists:
+            if blob.exists():
                 blob.delete()
         except Exception:
             continue
