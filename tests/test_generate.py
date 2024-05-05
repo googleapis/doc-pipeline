@@ -34,10 +34,8 @@ from docpipeline import generate, local_generate
 
 # Unique identifiers for runnig parallel tests.
 _UUID = uuid.uuid4()
-_UNIQUE_YAML_BLOB_TEMPLATE = (
-    f"docfx-go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz"
-)
-_UNIQUE_HTML_BLOB_TEMPLATE = f"go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz"
+_UNIQUE_YAML_BLOB_NAME = f"docfx-go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz"
+_UNIQUE_HTML_BLOB_NAME = f"go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz"
 
 
 def _add_uuid_to_metadata(cwd, metadata_name) -> None:
@@ -87,16 +85,15 @@ def init_test():
     return test_bucket, storage_client
 
 
-def cleanup_bucket(storage_client, test_bucket, unique_id):
+def cleanup_bucket(storage_client, test_bucket):
     bucket = storage_client.get_bucket(test_bucket)
-    html_blob_name = _UNIQUE_HTML_BLOB_TEMPLATE.format(unique_id)
     blobs_to_delete = [
-        f"docfx-go-cloud.google.com/go/storage-v1.41.0-{unique_id}.tar.gz",
-        f"go-cloud.google.com/go/storage-v1.41.0-{unique_id}.tar.gz",
-        f"go-cloud.google.com/go/storage-v1.40.1-{unique_id}.tar.gz",
-        _UNIQUE_YAML_BLOB_TEMPLATE.format(unique_id),
-        html_blob_name,
-        f"{generate.XREFS_DIR_NAME}/{html_blob_name}.yml",
+        f"docfx-go-cloud.google.com/go/storage-v1.41.0-{_UUID}.tar.gz",
+        f"go-cloud.google.com/go/storage-v1.41.0-{_UUID}.tar.gz",
+        f"go-cloud.google.com/go/storage-v1.40.1-{_UUID}.tar.gz",
+        _UNIQUE_YAML_BLOB_NAME,
+        _UNIQUE_HTML_BLOB_NAME,
+        f"{generate.XREFS_DIR_NAME}/{_UNIQUE_HTML_BLOB_NAME}.yml",
     ]
 
     for blob_to_delete in blobs_to_delete:
@@ -121,12 +118,7 @@ def upload_yaml(cwd, test_bucket):
 
 
 # Fetches and uploads the blobs used for testing.
-def setup_testdata(cwd, storage_client, test_bucket, unique_id):
-    bucket = storage_client.get_bucket(test_bucket)
-    yaml_blob = bucket.blob("docfx-go-cloud.google.com/go/storage-v1.40.0.tar.gz")
-    unique_yaml_blob_name = _UNIQUE_YAML_BLOB_TEMPLATE.format(unique_id)
-    unique_html_blob_name = _UNIQUE_HTML_BLOB_TEMPLATE.format(unique_id)
-
+def setup_testdata(cwd, storage_client, test_bucket):
     # Clean up any previous test data that is more than 24 hours old.
     blobs = list(storage_client.list_blobs(test_bucket))
     blobs_to_remove = [
@@ -141,21 +133,15 @@ def setup_testdata(cwd, storage_client, test_bucket, unique_id):
     upload_yaml(cwd, test_bucket)
 
     # Make sure docuploader succeeded.
+    bucket = storage_client.get_bucket(test_bucket)
+    yaml_blob = bucket.blob(_UNIQUE_YAML_BLOB_NAME)
+    html_blob = bucket.blob(_UNIQUE_HTML_BLOB_NAME)
     assert yaml_blob.exists(), "should create the YAML blob"
-    bucket.rename_blob(yaml_blob, unique_yaml_blob_name)
-
-    unique_yaml_blob = bucket.blob(unique_yaml_blob_name)
-    unique_html_blob = bucket.blob(unique_html_blob_name)
-    return bucket, unique_yaml_blob, unique_html_blob
+    return bucket, yaml_blob, html_blob
 
 
 # Call generate.build_new_docs and assert a new tarball is uploaded.
-def run_generate(storage_client, test_bucket, unique_id):
-    bucket = storage_client.get_bucket(test_bucket)
-    html_blob = bucket.blob("go-cloud.google.com/go/storage-v1.40.0.tar.gz")
-    unique_html_blob_name = _UNIQUE_HTML_BLOB_TEMPLATE.format(unique_id)
-    start_blobs = list(storage_client.list_blobs(test_bucket))
-
+def run_generate(storage_client, test_bucket):
     # Generate!
     try:
         generate.build_new_docs(test_bucket, storage_client)
@@ -164,10 +150,11 @@ def run_generate(storage_client, test_bucket, unique_id):
 
     # Verify the results.
     # Expect 2 more files: an output blob and an output xref file.
+    bucket = storage_client.get_bucket(test_bucket)
+    html_blob = bucket.blob(_UNIQUE_HTML_BLOB_NAME)
+    xref_blob = bucket.blob(f"{generate.XREFS_DIR_NAME}/{_UNIQUE_HTML_BLOB_NAME}.yml")
     assert html_blob.exists(), "should create HTML blob"
-    bucket.rename_blob(html_blob, unique_html_blob_name)
-    blobs = list(storage_client.list_blobs(test_bucket))
-    assert len(blobs) >= len(start_blobs)
+    assert xref_blob.exists(), "should create the xref blob"
 
 
 def run_local_generate(local_path):
