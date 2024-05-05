@@ -32,8 +32,8 @@ from docpipeline import generate, local_generate
 
 
 # Unique identifiers for runnig parallel tests.
-_UNIQUE_YAML_BLOB_TEMAPLTE = "docfx-go-cloud.google.com/go/storage-v1.40.0-{}.tar.gz"
-_UNIQUE_HTML_BLOB_TEMAPLTE = "go-cloud.google.com/go/storage-v1.40.0-{}.tar.gz"
+_UNIQUE_YAML_BLOB_TEMPLATE = "docfx-go-cloud.google.com/go/storage-v1.40.0-{}.tar.gz"
+_UNIQUE_HTML_BLOB_TEMPLATE = "go-cloud.google.com/go/storage-v1.40.0-{}.tar.gz"
 
 
 @pytest.fixture
