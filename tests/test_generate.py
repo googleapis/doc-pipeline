@@ -39,7 +39,7 @@ def _add_uuid_to_files_with_extension(cwd, extension) -> None:
     files_to_rename = [file for file in os.listdir(cwd) if file.endswith(extension)]
     for file_to_rename in files_to_rename:
         rename_to = f"{file_to_rename.split(extension)[0]}-{_UUID}{extension}"
-        os.rename(file_to_rename, rename_to)
+        os.rename(cwd / file_to_rename, cwd / rename_to)
 
 
 @pytest.fixture
