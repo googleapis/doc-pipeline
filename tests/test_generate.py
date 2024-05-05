@@ -43,8 +43,7 @@ def yaml_dir(tmpdir) -> pathlib.Path:
 
 @pytest.fixture
 def api_dir(tmpdir) -> pathlib.Path:
-    output_dir = tmpdir / "api"
-    shutil.copytree("testdata/go", output_dir, dirs_exist_ok=True)
+    shutil.copytree("testdata/go", tmpdir / "api", dirs_exist_ok=True)
     shutil.copy("testdata/go/docs.metadata", tmpdir)
     return pathlib.Path(tmpdir)
 
