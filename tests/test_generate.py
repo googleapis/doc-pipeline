@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import datetime.datetime
+from datetime import datetime
 import io
 import os
 import pathlib
