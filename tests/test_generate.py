@@ -32,8 +32,8 @@ import pytest
 from docpipeline import generate, local_generate
 
 
-# Unique identifiers for runnig parallel tests.
-_UUID = uuid.uuid4()
+# Unique identifier for runnig parallel tests.
+_UUID = str(uuid.uuid4()).replace("-", "")
 _UNIQUE_YAML_BLOB_NAME = f"docfx-go-cloud.google.com/go/storage-v1.40.0_{_UUID}.tar.gz"
 _UNIQUE_HTML_BLOB_NAME = f"go-cloud.google.com/go/storage-v1.40.0_{_UUID}.tar.gz"
 
