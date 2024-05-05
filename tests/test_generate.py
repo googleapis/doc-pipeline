@@ -69,6 +69,22 @@ def init_test():
     return test_bucket, storage_client
 
 
+def cleanup_bucket(storage_client, test_bucket):
+    bucket = storage_client.get_bucket(test_bucket)
+    html_blob_name = f"go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz"
+    blobs_to_delete = [
+        f"docfx-go-cloud.google.com/go/storage-v1.41.0-{_UUID}.tar.gz",
+        f"go-cloud.google.com/go/storage-v1.41.0-{_UUID}.tar.gz",
+        f"docfx-go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz",
+        html_blob_name,
+        f"{generate.XREFS_DIR_NAME}/{html_blob_name}.yml",
+    ]
+    for blob_to_delete in blobs_to_delete:
+        blob = bucket.blob(blob_to_delete)
+        if blob.exists:
+            blob.delete()
+
+
 def upload_yaml(cwd, test_bucket):
     # Upload DocFX YAML to test with.
     shell.run(
@@ -351,6 +367,9 @@ def test_generate(yaml_dir, tmpdir):
     html_blob = bucket.get_blob(html_blob.name)
     t10 = html_blob.updated
     assert t9 != t10, "old version was not updated after build_new_docs"
+
+    # Perform cleanup on used blobs.
+    cleanup_bucket(storage_client, test_bucket)
 
 
 def test_local_generate(yaml_dir, tmpdir):
