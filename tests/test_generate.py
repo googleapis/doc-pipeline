@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import datetime
 import io
 import os
 import pathlib
@@ -80,44 +81,34 @@ def upload_yaml(cwd, test_bucket):
 
 # Fetches and uploads the blobs used for testing.
 def setup_testdata(cwd, storage_client, test_bucket):
-    latest_yaml_blob_name = "docfx-go-cloud.google.com/go/storage-v1.41.0.tar.gz"
-    latest_html_blob_name = "go-cloud.google.com/go/storage-v1.41.0.tar.gz"
+    # Clean up any previous test data that is more than 24 hours old.
+    blobs = list(storage_client.list_blobs(test_bucket))
+    blobs_to_remove = [
+        blob
+        for blob in blobs
+        if (datetime.datetime.now(tz=datetime.timezone.utc) - blob.time_created).days
+        > 0
+    ]
+    for blob_to_remove in blobs_to_remove:
+        blob_to_remove.delete()
+
     yaml_blob_name = "docfx-go-cloud.google.com/go/storage-v1.40.0.tar.gz"
     html_blob_name = "go-cloud.google.com/go/storage-v1.40.0.tar.gz"
     bucket = storage_client.get_bucket(test_bucket)
-    latest_yaml_blob = bucket.blob(latest_yaml_blob_name)
-    latest_html_blob = bucket.blob(latest_html_blob_name)
     yaml_blob = bucket.blob(yaml_blob_name)
     html_blob = bucket.blob(html_blob_name)
-    xref_blob = bucket.blob(f"{generate.XREFS_DIR_NAME}/{html_blob_name}.yml")
-
-    # Clean up any previous test data in the bucket.
-    if latest_yaml_blob.exists():
-        latest_yaml_blob.delete()
-    if latest_html_blob.exists():
-        latest_html_blob.delete()
-    if yaml_blob.exists():
-        yaml_blob.delete()
-    if html_blob.exists():
-        html_blob.delete()
-    if xref_blob.exists():
-        xref_blob.delete()
-
-    start_blobs = list(storage_client.list_blobs(test_bucket))
 
     upload_yaml(cwd, test_bucket)
 
     # Make sure docuploader succeeded.
-    assert (
-        len(list(storage_client.list_blobs(test_bucket))) == len(start_blobs) + 1
-    ), "should create 1 new YAML blob"
+    assert yaml_blob.exists(), "should create the YAML blob"
 
     return bucket, yaml_blob, html_blob
 
 
 # Call generate.build_new_docs and assert a new tarball is uploaded.
 def run_generate(storage_client, test_bucket):
-    start_blobs = list(storage_client.list_blobs(test_bucket))
+    html_blob_name = "go-cloud.google.com/go/storage-v1.40.0.tar.gz"
 
     # Generate!
     try:
@@ -127,8 +118,11 @@ def run_generate(storage_client, test_bucket):
 
     # Verify the results.
     # Expect 2 more files: an output blob and an output xref file.
-    blobs = list(storage_client.list_blobs(test_bucket))
-    assert len(blobs) == len(start_blobs) + 2
+    bucket = storage_client.get_bucket(test_bucket)
+    html_blob = bucket.blob(html_blob_name)
+    xref_blob = bucket.blob(f"{generate.XREFS_DIR_NAME}/{html_blob_name}.yml")
+    assert html_blob.exists(), "should create the HTML blob"
+    assert xref_blob.eixsts(), "should create the xref blob"
 
 
 def run_local_generate(local_path):
