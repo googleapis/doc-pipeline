@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from datetime import datetime
+import datetime
 import io
 import os
 import pathlib
@@ -103,7 +103,8 @@ def setup_testdata(cwd, storage_client, test_bucket):
     blobs_to_remove = [
         blob
         for blob in blobs
-        if (datetime.now(tz=datetime.timezone.utc) - blob.time_created).days > 0
+        if (datetime.datetime.now(tz=datetime.timezone.utc) - blob.time_created).days
+        > 0
     ]
     for blob_to_remove in blobs_to_remove:
         blob_to_remove.delete()
