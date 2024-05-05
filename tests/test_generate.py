@@ -122,7 +122,7 @@ def run_generate(storage_client, test_bucket):
     html_blob = bucket.blob(html_blob_name)
     xref_blob = bucket.blob(f"{generate.XREFS_DIR_NAME}/{html_blob_name}.yml")
     assert html_blob.exists(), "should create the HTML blob"
-    assert xref_blob.eixsts(), "should create the xref blob"
+    assert xref_blob.exists(), "should create the xref blob"
 
 
 def run_local_generate(local_path):
