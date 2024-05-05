@@ -12,12 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import datetime.datetime
 import io
 import os
 import pathlib
 import shutil
 import tempfile
 import unittest
+import uuid
 
 import docuploader.credentials
 from docuploader import shell, tar
@@ -29,16 +31,35 @@ import pytest
 from docpipeline import generate, local_generate
 
 
+# Unique identifier for runnig parallel tests.
+_UUID = uuid.uuid4()
+
+
+def _add_uuid_to_files_with_extension(cwd, extension) -> None:
+    files_to_rename = [
+        file for file in os.listdir(cwd)
+        if file.endswith(extension)
+    ]
+    for file_to_rename in files_to_rename:
+        rename_to = f"{file_to_rename.split(extension)[0]}-{_UUID}{extension}"
+        os.rename(file_to_rename, rename_to)
+
+
 @pytest.fixture
 def yaml_dir(tmpdir) -> pathlib.Path:
     shutil.copytree("testdata/go", tmpdir, dirs_exist_ok=True)
+    _add_uuid_to_files_with_extension(tmpdir, '.tar.gz')
+    _add_uuid_to_files_with_extension(tmpdir, '.yml')
     return pathlib.Path(tmpdir)
 
 
 @pytest.fixture
 def api_dir(tmpdir) -> pathlib.Path:
-    shutil.copytree("testdata/go", tmpdir / "api", dirs_exist_ok=True)
+    output_dir = tmpdir / "api"
+    shutil.copytree("testdata/go", output_dir, dirs_exist_ok=True)
     shutil.copy("testdata/go/docs.metadata", tmpdir)
+    _add_uuid_to_files_with_extension(output_dir, '.tar.gz')
+    _add_uuid_to_files_with_extension(output_dir, '.yml')
     return pathlib.Path(tmpdir)
 
 
@@ -80,28 +101,16 @@ def upload_yaml(cwd, test_bucket):
 
 # Fetches and uploads the blobs used for testing.
 def setup_testdata(cwd, storage_client, test_bucket):
-    latest_yaml_blob_name = "docfx-go-cloud.google.com/go/storage-v1.41.0.tar.gz"
-    latest_html_blob_name = "go-cloud.google.com/go/storage-v1.41.0.tar.gz"
-    yaml_blob_name = "docfx-go-cloud.google.com/go/storage-v1.40.0.tar.gz"
-    html_blob_name = "go-cloud.google.com/go/storage-v1.40.0.tar.gz"
-    bucket = storage_client.get_bucket(test_bucket)
-    latest_yaml_blob = bucket.blob(latest_yaml_blob_name)
-    latest_html_blob = bucket.blob(latest_html_blob_name)
-    yaml_blob = bucket.blob(yaml_blob_name)
-    html_blob = bucket.blob(html_blob_name)
-    xref_blob = bucket.blob(f"{generate.XREFS_DIR_NAME}/{html_blob_name}.yml")
-
-    # Clean up any previous test data in the bucket.
-    if latest_yaml_blob.exists():
-        latest_yaml_blob.delete()
-    if latest_html_blob.exists():
-        latest_html_blob.delete()
-    if yaml_blob.exists():
-        yaml_blob.delete()
-    if html_blob.exists():
-        html_blob.delete()
-    if xref_blob.exists():
-        xref_blob.delete()
+    # Clean up any previous test data that is more than 24 hours old.
+    blobs = list(storage_client.list_blobs(test_bucket))
+    blobs_to_remove = [
+        blob for blob in blobs
+        if (
+            datetime.now(tz=datetime.timezone.utc) - blob.time_created
+        ).days > 0
+    ]
+    for blob_to_remove in blobs_to_remove:
+        blob_to_remove.delete()
 
     start_blobs = list(storage_client.list_blobs(test_bucket))
 
@@ -109,9 +118,14 @@ def setup_testdata(cwd, storage_client, test_bucket):
 
     # Make sure docuploader succeeded.
     assert (
-        len(list(storage_client.list_blobs(test_bucket))) == len(start_blobs) + 1
+        len(list(storage_client.list_blobs(test_bucket))) >= len(start_blobs) + 1
     ), "should create 1 new YAML blob"
 
+    bucket = storage_client.get_bucket(test_bucket)
+    yaml_blob = bucket.blob(
+        f"docfx-go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz"
+    )
+    html_blob = bucket.blob(f"go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz")
     return bucket, yaml_blob, html_blob
 
 
@@ -128,7 +142,7 @@ def run_generate(storage_client, test_bucket):
     # Verify the results.
     # Expect 2 more files: an output blob and an output xref file.
     blobs = list(storage_client.list_blobs(test_bucket))
-    assert len(blobs) == len(start_blobs) + 2
+    assert len(blobs) >= len(start_blobs) + 2
 
 
 def run_local_generate(local_path):
@@ -308,7 +322,9 @@ def test_generate(yaml_dir, tmpdir):
 
     # Upload new blob, build only latest, and verify only latest is updated.
     new_metadata = "docs.metadata.newer"
-    latest_html_blob_name = "go-cloud.google.com/go/storage-v1.40.1.tar.gz"
+    latest_html_blob_name = (
+        f"go-cloud.google.com/go/storage-v1.40.1-{_UUID}.tar.gz"
+    )
 
     # Swap to newer metadata to upload newer version of tarball.
     swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)
