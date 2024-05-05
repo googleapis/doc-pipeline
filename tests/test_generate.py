@@ -98,6 +98,14 @@ def upload_yaml(cwd, test_bucket):
 
 # Fetches and uploads the blobs used for testing.
 def setup_testdata(cwd, storage_client, test_bucket):
+    yaml_blob_name = "docfx-go-cloud.google.com/go/storage-v1.40.0.tar.gz"
+    unique_yaml_blob_name = (
+        f"docfx-go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz"
+    )
+    unique_html_blob_name = f"go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz"
+    bucket = storage_client.get_bucket(test_bucket)
+    yaml_blob = bucket.blob(yaml_blob_name)
+
     # Clean up any previous test data that is more than 24 hours old.
     blobs = list(storage_client.list_blobs(test_bucket))
     blobs_to_remove = [
@@ -109,21 +117,15 @@ def setup_testdata(cwd, storage_client, test_bucket):
     for blob_to_remove in blobs_to_remove:
         blob_to_remove.delete()
 
-    start_blobs = list(storage_client.list_blobs(test_bucket))
-
     upload_yaml(cwd, test_bucket)
 
     # Make sure docuploader succeeded.
-    assert (
-        len(list(storage_client.list_blobs(test_bucket))) >= len(start_blobs) + 1
-    ), "should create 1 new YAML blob"
+    assert yaml_blob.exists(), "should create the YAML blob"
+    bucket.rename_blob(yaml_blob, unique_yaml_blob_name)
 
-    bucket = storage_client.get_bucket(test_bucket)
-    yaml_blob = bucket.blob(
-        f"docfx-go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz"
-    )
-    html_blob = bucket.blob(f"go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz")
-    return bucket, yaml_blob, html_blob
+    unique_yaml_blob = bucket.blob(unique_yaml_blob_name)
+    unique_html_blob = bucket.blob(unique_html_blob_name)
+    return bucket, unique_yaml_blob, unique_html_blob
 
 
 # Call generate.build_new_docs and assert a new tarball is uploaded.
