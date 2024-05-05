@@ -19,7 +19,6 @@ import pathlib
 import shutil
 import tempfile
 import unittest
-import uuid
 
 import docuploader.credentials
 from docuploader import shell, tar
@@ -33,7 +32,7 @@ from docpipeline import generate, local_generate
 
 
 # Unique identifier for runnig parallel tests.
-_UUID = str(uuid.uuid4()).replace("-", "")
+_UUID = str(datetime.datetime.now(tz=datetime.timezone.utc)).replace(".", "")
 _UNIQUE_YAML_BLOB_NAME = f"docfx-go-cloud.google.com/go/storage-v1.40.0+{_UUID}.tar.gz"
 _UNIQUE_HTML_BLOB_NAME = f"go-cloud.google.com/go/storage-v1.40.0+{_UUID}.tar.gz"
 
