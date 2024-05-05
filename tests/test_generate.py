@@ -91,6 +91,7 @@ def cleanup_bucket(storage_client, test_bucket):
     blobs_to_delete = [
         f"docfx-go-cloud.google.com/go/storage-v1.41.0+{_UUID}.tar.gz",
         f"go-cloud.google.com/go/storage-v1.41.0+{_UUID}.tar.gz",
+        f"docfx-go-cloud.google.com/go/storage-v1.40.1+{_UUID}.tar.gz",
         f"go-cloud.google.com/go/storage-v1.40.1+{_UUID}.tar.gz",
         _UNIQUE_YAML_BLOB_NAME,
         _UNIQUE_HTML_BLOB_NAME,
