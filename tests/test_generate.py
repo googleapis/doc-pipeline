@@ -31,8 +31,11 @@ import pytest
 from docpipeline import generate, local_generate
 
 
-# Unique identifier for runnig parallel tests.
-_UUID = uuid.uuid4()
+# Unique identifiers for runnig parallel tests.
+_UNIQUE_YAML_BLOB_TEMAPLTE = (
+    "docfx-go-cloud.google.com/go/storage-v1.40.0-{}.tar.gz"
+)
+_UNIQUE_HTML_BLOB_TEMAPLTE = "go-cloud.google.com/go/storage-v1.40.0-{}.tar.gz"
 
 
 @pytest.fixture
@@ -69,16 +72,18 @@ def init_test():
     return test_bucket, storage_client
 
 
-def cleanup_bucket(storage_client, test_bucket):
+def cleanup_bucket(storage_client, test_bucket, unique_id):
     bucket = storage_client.get_bucket(test_bucket)
-    html_blob_name = f"go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz"
+    html_blob_name = _UNIQUE_HTML_BLOB_TEMPLATE.format(unique_id)
     blobs_to_delete = [
-        f"docfx-go-cloud.google.com/go/storage-v1.41.0-{_UUID}.tar.gz",
-        f"go-cloud.google.com/go/storage-v1.41.0-{_UUID}.tar.gz",
-        f"docfx-go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz",
+        f"docfx-go-cloud.google.com/go/storage-v1.41.0-{unique_id}.tar.gz",
+        f"go-cloud.google.com/go/storage-v1.41.0-{unique_id}.tar.gz",
+        f"go-cloud.google.com/go/storage-v1.40.1-{unique_id}.tar.gz"
+        _UNIQUE_YAML_BLOB_TEMPLATE.format(unique_id),
         html_blob_name,
         f"{generate.XREFS_DIR_NAME}/{html_blob_name}.yml",
     ]
+
     for blob_to_delete in blobs_to_delete:
         blob = bucket.blob(blob_to_delete)
         if blob.exists:
@@ -101,14 +106,11 @@ def upload_yaml(cwd, test_bucket):
 
 
 # Fetches and uploads the blobs used for testing.
-def setup_testdata(cwd, storage_client, test_bucket):
-    yaml_blob_name = "docfx-go-cloud.google.com/go/storage-v1.40.0.tar.gz"
-    unique_yaml_blob_name = (
-        f"docfx-go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz"
-    )
-    unique_html_blob_name = f"go-cloud.google.com/go/storage-v1.40.0-{_UUID}.tar.gz"
+def setup_testdata(cwd, storage_client, test_bucket, unique_id):
     bucket = storage_client.get_bucket(test_bucket)
-    yaml_blob = bucket.blob(yaml_blob_name)
+    yaml_blob = bucket.blob("docfx-go-cloud.google.com/go/storage-v1.40.0.tar.gz")
+    unique_yaml_blob_name = _UNIQUE_YAML_BLOB_TEMPLATE.format(unique_id)
+    unique_html_blob_name = _UNIQUE_HTML_BLOB_TEMPLATE.format(unique_id)
 
     # Clean up any previous test data that is more than 24 hours old.
     blobs = list(storage_client.list_blobs(test_bucket))
@@ -133,7 +135,10 @@ def setup_testdata(cwd, storage_client, test_bucket):
 
 
 # Call generate.build_new_docs and assert a new tarball is uploaded.
-def run_generate(storage_client, test_bucket):
+def run_generate(storage_client, test_bucket, unique_id):
+    bucket = storage_client.get_bucket(test_bucket)
+    html_blob = bucket.blob("go-cloud.google.com/go/storage-v1.40.0.tar.gz")
+    unique_html_blob_name = _UNIQUE_HTML_BLOB_TEMPLATE.format(unique_id)
     start_blobs = list(storage_client.list_blobs(test_bucket))
 
     # Generate!
@@ -144,8 +149,10 @@ def run_generate(storage_client, test_bucket):
 
     # Verify the results.
     # Expect 2 more files: an output blob and an output xref file.
+    assert html_blob.exists(), "should create HTML blob"
+    bucket.rename_blob(html_blob, unique_html_blob_name)
     blobs = list(storage_client.list_blobs(test_bucket))
-    assert len(blobs) >= len(start_blobs) + 2
+    assert len(blobs) >= len(start_blobs)
 
 
 def run_local_generate(local_path):
@@ -216,12 +223,13 @@ def verify_content(html_blob, tmpdir):
 
 
 def test_apidir(api_dir, tmpdir):
+    apidir_uuid = uuid.uuid4()
     test_bucket, storage_client = init_test()
 
-    bucket, yaml_blob, html_blob = setup_testdata(api_dir, storage_client, test_bucket)
+    bucket, yaml_blob, html_blob = setup_testdata(api_dir, storage_client, test_bucket, apidir_uuid)
 
     # Test for api directory content
-    run_generate(storage_client, test_bucket)
+    run_generate(storage_client, test_bucket, apidir_uuid)
 
     verify_content(html_blob, pathlib.Path(tmpdir))
 
@@ -265,13 +273,14 @@ def test_setup_docfx_not_found():
 
 
 def test_generate(yaml_dir, tmpdir):
+    generate_uuid = uuid.uuid4()
     tmpdir = pathlib.Path(tmpdir)
     test_bucket, storage_client = init_test()
 
-    bucket, yaml_blob, html_blob = setup_testdata(yaml_dir, storage_client, test_bucket)
+    bucket, yaml_blob, html_blob = setup_testdata(yaml_dir, storage_client, test_bucket, generate_uuid)
 
     # Test for non-api directory content
-    run_generate(storage_client, test_bucket)
+    run_generate(storage_client, test_bucket, generate_uuid)
 
     verify_content(html_blob, tmpdir)
 
@@ -325,7 +334,7 @@ def test_generate(yaml_dir, tmpdir):
 
     # Upload new blob, build only latest, and verify only latest is updated.
     new_metadata = "docs.metadata.newer"
-    latest_html_blob_name = f"go-cloud.google.com/go/storage-v1.40.1-{_UUID}.tar.gz"
+    latest_html_blob_name = f"go-cloud.google.com/go/storage-v1.40.1-{generate_uuid}.tar.gz"
 
     # Swap to newer metadata to upload newer version of tarball.
     swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)
