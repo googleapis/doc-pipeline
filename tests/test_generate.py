@@ -36,10 +36,7 @@ _UUID = uuid.uuid4()
 
 
 def _add_uuid_to_files_with_extension(cwd, extension) -> None:
-    files_to_rename = [
-        file for file in os.listdir(cwd)
-        if file.endswith(extension)
-    ]
+    files_to_rename = [file for file in os.listdir(cwd) if file.endswith(extension)]
     for file_to_rename in files_to_rename:
         rename_to = f"{file_to_rename.split(extension)[0]}-{_UUID}{extension}"
         os.rename(file_to_rename, rename_to)
@@ -48,8 +45,8 @@ def _add_uuid_to_files_with_extension(cwd, extension) -> None:
 @pytest.fixture
 def yaml_dir(tmpdir) -> pathlib.Path:
     shutil.copytree("testdata/go", tmpdir, dirs_exist_ok=True)
-    _add_uuid_to_files_with_extension(tmpdir, '.tar.gz')
-    _add_uuid_to_files_with_extension(tmpdir, '.yml')
+    _add_uuid_to_files_with_extension(tmpdir, ".tar.gz")
+    _add_uuid_to_files_with_extension(tmpdir, ".yml")
     return pathlib.Path(tmpdir)
 
 
@@ -58,8 +55,8 @@ def api_dir(tmpdir) -> pathlib.Path:
     output_dir = tmpdir / "api"
     shutil.copytree("testdata/go", output_dir, dirs_exist_ok=True)
     shutil.copy("testdata/go/docs.metadata", tmpdir)
-    _add_uuid_to_files_with_extension(output_dir, '.tar.gz')
-    _add_uuid_to_files_with_extension(output_dir, '.yml')
+    _add_uuid_to_files_with_extension(output_dir, ".tar.gz")
+    _add_uuid_to_files_with_extension(output_dir, ".yml")
     return pathlib.Path(tmpdir)
 
 
@@ -104,10 +101,9 @@ def setup_testdata(cwd, storage_client, test_bucket):
     # Clean up any previous test data that is more than 24 hours old.
     blobs = list(storage_client.list_blobs(test_bucket))
     blobs_to_remove = [
-        blob for blob in blobs
-        if (
-            datetime.now(tz=datetime.timezone.utc) - blob.time_created
-        ).days > 0
+        blob
+        for blob in blobs
+        if (datetime.now(tz=datetime.timezone.utc) - blob.time_created).days > 0
     ]
     for blob_to_remove in blobs_to_remove:
         blob_to_remove.delete()
@@ -322,9 +318,7 @@ def test_generate(yaml_dir, tmpdir):
 
     # Upload new blob, build only latest, and verify only latest is updated.
     new_metadata = "docs.metadata.newer"
-    latest_html_blob_name = (
-        f"go-cloud.google.com/go/storage-v1.40.1-{_UUID}.tar.gz"
-    )
+    latest_html_blob_name = f"go-cloud.google.com/go/storage-v1.40.1-{_UUID}.tar.gz"
 
     # Swap to newer metadata to upload newer version of tarball.
     swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)
