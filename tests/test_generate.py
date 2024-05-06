@@ -31,7 +31,7 @@ import pytest
 from docpipeline import generate, local_generate
 
 
-# Unique identifier for runnig parallel tests.
+# Unique identifier for running tests in parallel.
 _UUID = str(datetime.datetime.now(tz=datetime.timezone.utc).timestamp()).replace(
     ".", ""
 )
@@ -97,7 +97,7 @@ def init_test():
     return test_bucket, storage_client
 
 
-def cleanup_bucket(storage_client, test_bucket):
+def clean_up_bucket(storage_client, test_bucket):
     bucket = storage_client.get_bucket(test_bucket)
     blobs_to_delete = [
         f"docfx-go-cloud.google.com/go/storage-v1.41.0+{_UUID}.tar.gz",
