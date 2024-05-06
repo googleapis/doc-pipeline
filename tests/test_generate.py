@@ -35,8 +35,31 @@ from docpipeline import generate, local_generate
 _UUID = str(datetime.datetime.now(tz=datetime.timezone.utc).timestamp()).replace(
     ".", ""
 )
+
+# Prefixes to check to delete test blobs if found.
+_HTML_BLOB_PREFIX = "go-cloud.google.com/go/storage-v1.40.0"
+_TEST_BLOB_PREFIXES = (
+    "docfx-go-cloud.google.com/go/storage-v1.41.0",
+    "go-cloud.google.com/go/storage-v1.41.0",
+    "docfx-go-cloud.google.com/go/storage-v1.40.1",
+    "go-cloud.google.com/go/storage-v1.40.1",
+    "docfx-go-cloud.google.com/go/storage-v1.40.0",
+    "go-cloud.google.com/go/storage-v1.40.0",
+    f"{generate.XREFS_DIR_NAME}/{_HTML_BLOB_PREFIX}",
+)
+
+# Blob names with UUID for testing.
 _UNIQUE_YAML_BLOB_NAME = f"docfx-go-cloud.google.com/go/storage-v1.40.0+{_UUID}.tar.gz"
 _UNIQUE_HTML_BLOB_NAME = f"go-cloud.google.com/go/storage-v1.40.0+{_UUID}.tar.gz"
+_UNIQUE_BLOBS_WITH_UUID = (
+    f"docfx-go-cloud.google.com/go/storage-v1.41.0+{_UUID}.tar.gz",
+    f"go-cloud.google.com/go/storage-v1.41.0+{_UUID}.tar.gz",
+    f"docfx-go-cloud.google.com/go/storage-v1.40.1+{_UUID}.tar.gz",
+    f"go-cloud.google.com/go/storage-v1.40.1+{_UUID}.tar.gz",
+    _UNIQUE_YAML_BLOB_NAME,
+    _UNIQUE_HTML_BLOB_NAME,
+    f"{generate.XREFS_DIR_NAME}/{_UNIQUE_HTML_BLOB_NAME}.yml",
+)
 
 _XREF_BLOBS = (
     "xrefs/go-unused-v0.0.1.tar.gz.yml",
@@ -64,6 +87,7 @@ def yaml_dir(tmpdir) -> pathlib.Path:
     shutil.copytree("testdata/go", tmpdir, dirs_exist_ok=True)
     tmpdir_path = pathlib.Path(tmpdir)
     _add_uuid_to_metadata(tmpdir_path, "docs.metadata")
+    _add_uuid_to_metadata(tmpdir_path, "docs.metadata.newer")
     return tmpdir_path
 
 
@@ -98,22 +122,16 @@ def init_test():
 
 
 def clean_up_bucket(storage_client, test_bucket):
-    bucket = storage_client.get_bucket(test_bucket)
-    blobs_to_delete = [
-        f"docfx-go-cloud.google.com/go/storage-v1.41.0+{_UUID}.tar.gz",
-        f"go-cloud.google.com/go/storage-v1.41.0+{_UUID}.tar.gz",
-        f"docfx-go-cloud.google.com/go/storage-v1.40.1+{_UUID}.tar.gz",
-        f"go-cloud.google.com/go/storage-v1.40.1+{_UUID}.tar.gz",
-        _UNIQUE_YAML_BLOB_NAME,
-        _UNIQUE_HTML_BLOB_NAME,
-        f"{generate.XREFS_DIR_NAME}/{_UNIQUE_HTML_BLOB_NAME}.yml",
-    ]
-
-    for blob_to_delete in blobs_to_delete:
+    blobs = list(storage_client.list_blobs(test_bucket))
+    for blob in blobs:
+        # If blob starts with any of the prefixes to delete, mark for deletion.
+        if not all(blob.name.startswith(prefix) for prefix in _TEST_BLOB_PREFIXES):
+            continue
+        # If blob was used in this current testing session, mark for deletion.
+        if blob.name not in _UNIQUE_BLOBS_WITH_UUID:
+            continue
         try:
-            blob = bucket.blob(blob_to_delete)
-            if blob.exists():
-                blob.delete()
+            blob.delete()
         except Exception:
             continue
 
@@ -136,19 +154,7 @@ def upload_yaml(cwd, test_bucket):
 # Fetches and uploads the blobs used for testing.
 def setup_testdata(cwd, storage_client, test_bucket):
     # Clean up any previous test data that is more than 24 hours old.
-    blobs = list(storage_client.list_blobs(test_bucket))
-    blobs_to_remove = [
-        blob
-        for blob in blobs
-        if (datetime.datetime.now(tz=datetime.timezone.utc) - blob.time_created).days
-        > 0
-        and blob.name not in _XREF_BLOBS
-    ]
-    for blob_to_remove in blobs_to_remove:
-        try:
-            blob_to_remove.delete()
-        except Exception:
-            continue
+    clean_up_bucket(storage_client, test_bucket)
 
     upload_yaml(cwd, test_bucket)
 
@@ -169,7 +175,7 @@ def run_generate(storage_client, test_bucket):
         pytest.fail(f"build_new_docs raised an exception: {e}")
 
     # Verify the results.
-    # Expect 2 more files: an output blob and an output xref file.
+    # Expect an output blob and an output xref file.
     bucket = storage_client.get_bucket(test_bucket)
     html_blob = bucket.blob(_UNIQUE_HTML_BLOB_NAME)
     xref_blob = bucket.blob(f"{generate.XREFS_DIR_NAME}/{_UNIQUE_HTML_BLOB_NAME}.yml")
@@ -354,7 +360,6 @@ def test_generate(yaml_dir, tmpdir):
 
     # Upload new blob, build only latest, and verify only latest is updated.
     new_metadata = "docs.metadata.newer"
-    _add_uuid_to_metadata(yaml_dir, new_metadata)
     latest_html_blob_name = f"go-cloud.google.com/go/storage-v1.40.1+{_UUID}.tar.gz"
 
     # Swap to newer metadata to upload newer version of tarball.
@@ -399,7 +404,7 @@ def test_generate(yaml_dir, tmpdir):
     assert t9 != t10, "old version was not updated after build_new_docs"
 
     # Perform cleanup on used blobs.
-    cleanup_bucket(storage_client, test_bucket)
+    clean_up_bucket(storage_client, test_bucket)
 
 
 def test_local_generate(yaml_dir, tmpdir):
