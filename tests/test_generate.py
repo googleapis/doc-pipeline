@@ -127,13 +127,11 @@ def clean_up_bucket(storage_client, test_bucket):
         # If blob starts with any of the prefixes to delete, mark for deletion.
         if (
             datetime.datetime.now(tz=datetime.timezone.utc) - blob.time_created
-        ).days > 0 and not all(
+        ).days == 0 or not all(
             blob.name.startswith(prefix) for prefix in _TEST_BLOB_PREFIXES
         ):
             continue
-        # If blob was used in this current testing session, mark for deletion.
-        if blob.name not in _UNIQUE_BLOBS_WITH_UUID:
-            continue
+
         try:
             blob.delete()
         except Exception:
