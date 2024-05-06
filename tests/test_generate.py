@@ -407,9 +407,6 @@ def test_generate(yaml_dir, tmpdir):
     t10 = html_blob.updated
     assert t9 != t10, "old version was not updated after build_new_docs"
 
-    # Perform cleanup on used blobs.
-    clean_up_bucket(storage_client, test_bucket)
-
 
 def test_local_generate(yaml_dir, tmpdir):
     # Test for local generation content
