@@ -402,11 +402,6 @@ def xref_test_blobs():
     test_bucket, storage_client = init_test()
     bucket = storage_client.get_bucket(test_bucket)
 
-    # Remove all existing test xref blobs.
-    blobs_to_delete = bucket.list_blobs(prefix="xrefs/")
-    for blob in blobs_to_delete:
-        blob.delete()
-
     blobs_to_create = [
         "xrefs/go-unused-v0.0.1.tar.gz.yml",
         "xrefs/dotnet-my-pkg-1.0.0.tar.gz.yml",
