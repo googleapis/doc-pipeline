@@ -38,6 +38,17 @@ _UUID = str(datetime.datetime.now(tz=datetime.timezone.utc).timestamp()).replace
 _UNIQUE_YAML_BLOB_NAME = f"docfx-go-cloud.google.com/go/storage-v1.40.0+{_UUID}.tar.gz"
 _UNIQUE_HTML_BLOB_NAME = f"go-cloud.google.com/go/storage-v1.40.0+{_UUID}.tar.gz"
 
+_XREF_BLOBS = (
+    "xrefs/go-unused-v0.0.1.tar.gz.yml",
+    "xrefs/dotnet-my-pkg-1.0.0.tar.gz.yml",
+    "xrefs/dotnet-my-pkg-v1.1.0.tar.gz.yml",
+    "xrefs/dotnet-my-pkg-2.0.0-SNAPSHOT.tar.gz.yml",
+    "xrefs/dotnet-my-pkg-2.0.0.tar.gz.yml",
+    "xrefs/dotnet-my-pkg-unused-3.0.0.tar.gz.yml",
+    "xrefs/dotnet-v-pkg-v3.0.0.tar.gz.yml",
+    "xrefs/dotnet-v-pkg-v4.0.0.tar.gz.yml",
+)
+
 
 def _add_uuid_to_metadata(cwd, metadata_name) -> None:
     metadata_path = cwd.joinpath(metadata_name)
@@ -131,6 +142,7 @@ def setup_testdata(cwd, storage_client, test_bucket):
         for blob in blobs
         if (datetime.datetime.now(tz=datetime.timezone.utc) - blob.time_created).days
         > 0
+        and blob.name not in _XREF_BLOBS
     ]
     for blob_to_remove in blobs_to_remove:
         try:
@@ -402,17 +414,7 @@ def xref_test_blobs():
     test_bucket, storage_client = init_test()
     bucket = storage_client.get_bucket(test_bucket)
 
-    blobs_to_create = [
-        "xrefs/go-unused-v0.0.1.tar.gz.yml",
-        "xrefs/dotnet-my-pkg-1.0.0.tar.gz.yml",
-        "xrefs/dotnet-my-pkg-v1.1.0.tar.gz.yml",
-        "xrefs/dotnet-my-pkg-2.0.0-SNAPSHOT.tar.gz.yml",
-        "xrefs/dotnet-my-pkg-2.0.0.tar.gz.yml",
-        "xrefs/dotnet-my-pkg-unused-3.0.0.tar.gz.yml",
-        "xrefs/dotnet-v-pkg-v3.0.0.tar.gz.yml",
-        "xrefs/dotnet-v-pkg-v4.0.0.tar.gz.yml",
-    ]
-    for b in blobs_to_create:
+    for b in _XREF_BLOBS:
         blob = bucket.blob(b)
         if not blob.exists():
             blob.upload_from_string("unused")
