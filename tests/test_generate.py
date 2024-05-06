@@ -127,13 +127,11 @@ def clean_up_bucket(storage_client, test_bucket):
         # If blob starts with any of the prefixes to delete, mark for deletion.
         if (
             datetime.datetime.now(tz=datetime.timezone.utc) - blob.time_created
-        ).days > 0 and not all(
+        ).days == 0 or not all(
             blob.name.startswith(prefix) for prefix in _TEST_BLOB_PREFIXES
         ):
             continue
-        # If blob was used in this current testing session, mark for deletion.
-        if blob.name not in _UNIQUE_BLOBS_WITH_UUID:
-            continue
+
         try:
             blob.delete()
         except Exception:
@@ -406,9 +404,6 @@ def test_generate(yaml_dir, tmpdir):
     html_blob = bucket.get_blob(html_blob.name)
     t10 = html_blob.updated
     assert t9 != t10, "old version was not updated after build_new_docs"
-
-    # Perform cleanup on used blobs.
-    clean_up_bucket(storage_client, test_bucket)
 
 
 def test_local_generate(yaml_dir, tmpdir):
