@@ -377,9 +377,9 @@ def group_blobs_by_language_and_pkg(
     blobs: List[storage.Blob],
 ) -> DefaultDict[str, DefaultDict[str, List[storage.Blob]]]:
     """Gets a map from language to package name to a list of blobs."""
-    packages: DefaultDict[
-        str, DefaultDict[str, List[storage.Blob]]
-    ] = collections.defaultdict(lambda: collections.defaultdict(list))
+    packages: DefaultDict[str, DefaultDict[str, List[storage.Blob]]] = (
+        collections.defaultdict(lambda: collections.defaultdict(list))
+    )
     for blob in blobs:
         language, pkg = parse_blob_name(blob.name)
         packages[language][pkg].append(blob)
