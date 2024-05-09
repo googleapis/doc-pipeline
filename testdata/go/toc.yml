@@ -2,6 +2,10 @@
 - uid: cloud.google.com/go/storage
   name: cloud.google.com/go/storage
   items:
-  - uid: cloud.google.com/go/storage
-    name: cloud.google.com/go/storage
-    status: deprecated
+    - uid: cloud.google.com/go/storage
+      name: cloud.google.com/go/storage
+    - uid: cloud.google.com/go/storage/control/apiv2
+      name: control/apiv2
+      status: beta
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb
+      name: control/apiv2/controlpb
