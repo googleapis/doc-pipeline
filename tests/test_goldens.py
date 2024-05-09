@@ -40,8 +40,16 @@ def test_goldens(update_goldens, tmpdir, test_dir):
             "Updated goldens! Re-run the test without the --update-goldens flag."
         )
 
-    output_files = [os.path.relpath(f, output_dir) for f in output_dir.glob("**/*")]
-    golden_files = [os.path.relpath(f, golden_dir) for f in golden_dir.glob("**/*")]
+    output_files = [
+        os.path.relpath(f, output_dir)
+        for f in output_dir.glob("**/*")
+        if not f.is_dir()
+    ]
+    golden_files = [
+        os.path.relpath(f, golden_dir)
+        for f in golden_dir.glob("**/*")
+        if not f.is_dir()
+    ]
 
     extra = "Extra:\n" + "\n+ ".join([f for f in output_files if f not in golden_files])
     missing = "Missing:\n" + "\n- ".join(
