@@ -31,6 +31,15 @@ items:
   - google.cloud.bigquery_storage_v1.services.big_query_read.BigQueryReadClient.transport
   class: google.cloud.bigquery_storage_v1.services.big_query_read.BigQueryReadClient
   fullName: google.cloud.bigquery_storage_v1.services.big_query_read.BigQueryReadClient
+  enum:
+  - description: The default value if the employment type isn't specified.
+    var_name: EMPLOYMENT_TYPE_UNSPECIFIED
+  - description: The job requires working a number of hours that constitute full time
+      employment, typically 40 or more hours per week.
+    var_name: FULL_TIME
+  - description: The job entails working fewer hours than a full time job, typically
+      less than 40 hours aweek.
+    var_name: PART_TIME
   inheritance:
   - type: builtins.object
   langs:

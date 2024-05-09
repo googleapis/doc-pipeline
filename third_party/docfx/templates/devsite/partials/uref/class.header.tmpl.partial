@@ -186,3 +186,24 @@
 {{#example}}
 {{{.}}}
 {{/example}}
+{{#enum.0}}
+<table class="responsive">
+  <tbody>
+    <tr>
+      <th colspan=2><h2>{{__global.enum}}{{#enum.1}}s{{/enum.1}}</h2></th>
+    </tr>
+    <tr>
+      <td><strong>{{__global.name}}</strong></td>
+      <td><strong>{{__global.description}}</strong></td>
+    </tr>
+{{/enum.0}}
+{{#enum}}
+    <tr>
+      <td><code>{{{id}}}</code></td>
+      <td>{{{description}}}</td>
+    </tr>
+{{/enum}}
+{{#enum.0}}
+  </tbody>
+</table>
+{{/enum.0}}
