@@ -75,8 +75,7 @@ _XREF_BLOBS = (
 
 def _add_uuid_to_metadata(cwd, metadata_name) -> None:
     metadata_path = cwd.joinpath(metadata_name)
-    metadata = metadata_pb2.Metadata()
-    text_format.Merge(metadata_path.read_text(), metadata)
+    metadata = text_format.ParseLines(metadata_path, metadata_pb2.Metadata())
     metadata.version += f"+{_UUID}"
     with open(metadata_path, "w") as f:
         f.write(str(metadata))
