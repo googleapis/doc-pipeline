@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import datetime
 import io
 import os
 import pathlib
@@ -23,23 +24,80 @@ import docuploader.credentials
 from docuploader import shell, tar
 from docuploader.protos import metadata_pb2
 from google.cloud import storage
+from google.protobuf import text_format
 from parameterized import parameterized
 import pytest
 
 from docpipeline import generate, local_generate
 
 
+# Unique identifier for running tests in parallel.
+_UUID = str(datetime.datetime.now(tz=datetime.timezone.utc).timestamp()).replace(
+    ".", ""
+)
+
+# Prefixes to check to delete test blobs if found.
+_HTML_BLOB_PREFIX = "go-cloud.google.com/go/storage-v1.40.0"
+_TEST_BLOB_PREFIXES = (
+    "docfx-go-cloud.google.com/go/storage-v1.41.0",
+    "go-cloud.google.com/go/storage-v1.41.0",
+    "docfx-go-cloud.google.com/go/storage-v1.40.1",
+    "go-cloud.google.com/go/storage-v1.40.1",
+    "docfx-go-cloud.google.com/go/storage-v1.40.0",
+    "go-cloud.google.com/go/storage-v1.40.0",
+    f"{generate.XREFS_DIR_NAME}/{_HTML_BLOB_PREFIX}",
+)
+
+# Blob names with UUID for testing.
+_UNIQUE_YAML_BLOB_NAME = f"docfx-go-cloud.google.com/go/storage-v1.40.0+{_UUID}.tar.gz"
+_UNIQUE_HTML_BLOB_NAME = f"go-cloud.google.com/go/storage-v1.40.0+{_UUID}.tar.gz"
+_UNIQUE_BLOBS_WITH_UUID = (
+    f"docfx-go-cloud.google.com/go/storage-v1.41.0+{_UUID}.tar.gz",
+    f"go-cloud.google.com/go/storage-v1.41.0+{_UUID}.tar.gz",
+    f"docfx-go-cloud.google.com/go/storage-v1.40.1+{_UUID}.tar.gz",
+    f"go-cloud.google.com/go/storage-v1.40.1+{_UUID}.tar.gz",
+    _UNIQUE_YAML_BLOB_NAME,
+    _UNIQUE_HTML_BLOB_NAME,
+    f"{generate.XREFS_DIR_NAME}/{_UNIQUE_HTML_BLOB_NAME}.yml",
+)
+
+_XREF_BLOBS = (
+    "xrefs/go-unused-v0.0.1.tar.gz.yml",
+    "xrefs/dotnet-my-pkg-1.0.0.tar.gz.yml",
+    "xrefs/dotnet-my-pkg-v1.1.0.tar.gz.yml",
+    "xrefs/dotnet-my-pkg-2.0.0-SNAPSHOT.tar.gz.yml",
+    "xrefs/dotnet-my-pkg-2.0.0.tar.gz.yml",
+    "xrefs/dotnet-my-pkg-unused-3.0.0.tar.gz.yml",
+    "xrefs/dotnet-v-pkg-v3.0.0.tar.gz.yml",
+    "xrefs/dotnet-v-pkg-v4.0.0.tar.gz.yml",
+)
+
+
+def _add_uuid_to_metadata(cwd, metadata_name) -> None:
+    metadata_path = cwd.joinpath(metadata_name)
+    metadata = metadata_pb2.Metadata()
+    text_format.Merge(metadata_path.read_text(), metadata)
+    metadata.version += f"+{_UUID}"
+    with open(metadata_path, "w") as f:
+        f.write(str(metadata))
+
+
 @pytest.fixture
 def yaml_dir(tmpdir) -> pathlib.Path:
     shutil.copytree("testdata/go", tmpdir, dirs_exist_ok=True)
-    return pathlib.Path(tmpdir)
+    tmpdir_path = pathlib.Path(tmpdir)
+    _add_uuid_to_metadata(tmpdir_path, "docs.metadata")
+    _add_uuid_to_metadata(tmpdir_path, "docs.metadata.newer")
+    return tmpdir_path
 
 
 @pytest.fixture
 def api_dir(tmpdir) -> pathlib.Path:
     shutil.copytree("testdata/go", tmpdir / "api", dirs_exist_ok=True)
     shutil.copy("testdata/go/docs.metadata", tmpdir)
-    return pathlib.Path(tmpdir)
+    tmpdir_path = pathlib.Path(tmpdir)
+    _add_uuid_to_metadata(tmpdir_path, "docs.metadata")
+    return tmpdir_path
 
 
 def swap_file(parent_dir, file1, file2):
@@ -63,6 +121,23 @@ def init_test():
     return test_bucket, storage_client
 
 
+def clean_up_bucket(storage_client, test_bucket):
+    blobs = list(storage_client.list_blobs(test_bucket))
+    for blob in blobs:
+        # If blob starts with any of the prefixes to delete, mark for deletion.
+        if (
+            datetime.datetime.now(tz=datetime.timezone.utc) - blob.time_created
+        ).days == 0 or not all(
+            blob.name.startswith(prefix) for prefix in _TEST_BLOB_PREFIXES
+        ):
+            continue
+
+        try:
+            blob.delete()
+        except Exception:
+            continue
+
+
 def upload_yaml(cwd, test_bucket):
     # Upload DocFX YAML to test with.
     shell.run(
@@ -80,45 +155,21 @@ def upload_yaml(cwd, test_bucket):
 
 # Fetches and uploads the blobs used for testing.
 def setup_testdata(cwd, storage_client, test_bucket):
-    latest_yaml_blob_name = "docfx-go-cloud.google.com/go/storage-v1.41.0.tar.gz"
-    latest_html_blob_name = "go-cloud.google.com/go/storage-v1.41.0.tar.gz"
-    yaml_blob_name = "docfx-go-cloud.google.com/go/storage-v1.40.0.tar.gz"
-    html_blob_name = "go-cloud.google.com/go/storage-v1.40.0.tar.gz"
-    bucket = storage_client.get_bucket(test_bucket)
-    latest_yaml_blob = bucket.blob(latest_yaml_blob_name)
-    latest_html_blob = bucket.blob(latest_html_blob_name)
-    yaml_blob = bucket.blob(yaml_blob_name)
-    html_blob = bucket.blob(html_blob_name)
-    xref_blob = bucket.blob(f"{generate.XREFS_DIR_NAME}/{html_blob_name}.yml")
-
-    # Clean up any previous test data in the bucket.
-    if latest_yaml_blob.exists():
-        latest_yaml_blob.delete()
-    if latest_html_blob.exists():
-        latest_html_blob.delete()
-    if yaml_blob.exists():
-        yaml_blob.delete()
-    if html_blob.exists():
-        html_blob.delete()
-    if xref_blob.exists():
-        xref_blob.delete()
-
-    start_blobs = list(storage_client.list_blobs(test_bucket))
+    # Clean up any previous test data that is more than 24 hours old.
+    clean_up_bucket(storage_client, test_bucket)
 
     upload_yaml(cwd, test_bucket)
 
     # Make sure docuploader succeeded.
-    assert (
-        len(list(storage_client.list_blobs(test_bucket))) == len(start_blobs) + 1
-    ), "should create 1 new YAML blob"
-
+    bucket = storage_client.get_bucket(test_bucket)
+    yaml_blob = bucket.blob(_UNIQUE_YAML_BLOB_NAME)
+    html_blob = bucket.blob(_UNIQUE_HTML_BLOB_NAME)
+    assert yaml_blob.exists(), "should create the YAML blob"
     return bucket, yaml_blob, html_blob
 
 
 # Call generate.build_new_docs and assert a new tarball is uploaded.
 def run_generate(storage_client, test_bucket):
-    start_blobs = list(storage_client.list_blobs(test_bucket))
-
     # Generate!
     try:
         generate.build_new_docs(test_bucket, storage_client)
@@ -126,9 +177,12 @@ def run_generate(storage_client, test_bucket):
         pytest.fail(f"build_new_docs raised an exception: {e}")
 
     # Verify the results.
-    # Expect 2 more files: an output blob and an output xref file.
-    blobs = list(storage_client.list_blobs(test_bucket))
-    assert len(blobs) == len(start_blobs) + 2
+    # Expect an output blob and an output xref file.
+    bucket = storage_client.get_bucket(test_bucket)
+    html_blob = bucket.blob(_UNIQUE_HTML_BLOB_NAME)
+    xref_blob = bucket.blob(f"{generate.XREFS_DIR_NAME}/{_UNIQUE_HTML_BLOB_NAME}.yml")
+    assert html_blob.exists(), "should create HTML blob"
+    assert xref_blob.exists(), "should create the xref blob"
 
 
 def run_local_generate(local_path):
@@ -308,7 +362,7 @@ def test_generate(yaml_dir, tmpdir):
 
     # Upload new blob, build only latest, and verify only latest is updated.
     new_metadata = "docs.metadata.newer"
-    latest_html_blob_name = "go-cloud.google.com/go/storage-v1.40.1.tar.gz"
+    latest_html_blob_name = f"go-cloud.google.com/go/storage-v1.40.1+{_UUID}.tar.gz"
 
     # Swap to newer metadata to upload newer version of tarball.
     swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)
@@ -364,22 +418,7 @@ def xref_test_blobs():
     test_bucket, storage_client = init_test()
     bucket = storage_client.get_bucket(test_bucket)
 
-    # Remove all existing test xref blobs.
-    blobs_to_delete = bucket.list_blobs(prefix="xrefs/")
-    for blob in blobs_to_delete:
-        blob.delete()
-
-    blobs_to_create = [
-        "xrefs/go-unused-v0.0.1.tar.gz.yml",
-        "xrefs/dotnet-my-pkg-1.0.0.tar.gz.yml",
-        "xrefs/dotnet-my-pkg-v1.1.0.tar.gz.yml",
-        "xrefs/dotnet-my-pkg-2.0.0-SNAPSHOT.tar.gz.yml",
-        "xrefs/dotnet-my-pkg-2.0.0.tar.gz.yml",
-        "xrefs/dotnet-my-pkg-unused-3.0.0.tar.gz.yml",
-        "xrefs/dotnet-v-pkg-v3.0.0.tar.gz.yml",
-        "xrefs/dotnet-v-pkg-v4.0.0.tar.gz.yml",
-    ]
-    for b in blobs_to_create:
+    for b in _XREF_BLOBS:
         blob = bucket.blob(b)
         if not blob.exists():
             blob.upload_from_string("unused")
