@@ -554,10 +554,6 @@ class TestGenerate(unittest.TestCase):
             "cloud-devrel/client-libraries/doc-pipeline/generate/generate-dev",
             "generate-dev",
         ],
-        [
-            "cloud-devrel/client-libraries/doc-pipeline/generate/generate-staging",
-            "generate-staging",
-        ],
     ]
 
     @parameterized.expand(test_jobs)
