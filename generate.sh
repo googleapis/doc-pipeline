@@ -59,8 +59,7 @@ else
     exit_code=$?
 fi
 
-if [[ $KOKORO_BUILD_ARTIFACTS_SUBDIR = *"generate-prod"* ]] || \
-   [[ $KOKORO_BUILD_ARTIFACTS_SUBDIR = *"generate-staging"* ]]; then
+if [[ $KOKORO_BUILD_ARTIFACTS_SUBDIR = *"generate-prod"* ]]; then
   chmod +x $KOKORO_GFILE_DIR/linux_amd64/flakybot
   $KOKORO_GFILE_DIR/linux_amd64/flakybot
 fi
