@@ -1,7 +1,7 @@
 # Google Cloud Platform document pipeline
 
 `doc-pipeline` converts DocFX YAML to HTML. You can run it locally, but it is set
-up to run periodically to generate new docs in production/staging/dev.
+up to run periodically to generate new docs in production or dev.
 
 `doc-pipeline` uses
 [docker-ci-helper](https://github.com/GoogleCloudPlatform/docker-ci-helper) to
@@ -53,11 +53,11 @@ should be automated/scripted as part of the release process.
    [`docuploader`](https://pypi.org/project/gcp-docuploader).
 1. Upload the YAML with the `docfx` prefix:
    ```
-   docuploader upload --staging-bucket docs-staging-v2-staging --destination-prefix docfx .
+   docuploader upload --staging-bucket docs-staging-v2-dev --destination-prefix docfx .
    ```
 
-   There is also `docs-staging-v2` (production) and `docs-staging-v2-dev`
-   (development). Use `-staging` until your HTML format is confirmed to be
+   The buckets are `docs-staging-v2` (production) and `docs-staging-v2-dev`
+   (development). Use `-dev` until your HTML format is confirmed to be
    correct.
 1. That's it! `doc-pipeline` periodically runs, generates the HTML for new
    `docfx-*` tarballs, and uploads the resulting HTML to the same bucket. The
@@ -188,7 +188,7 @@ black docpipeline tests
 
 1. Create a Cloud Storage bucket and add a `docfx-*.tgz` file. For example:
    ```
-   gsutil cp gs://docs-staging-v2-staging/docfx-nodejs-scheduler-2.1.1.tar.gz gs://my-bucket
+   gsutil cp gs://docs-staging-v2-dev/docfx-nodejs-scheduler-2.1.1.tar.gz gs://my-bucket
    ```
 1. Copy a service account with permission to access `my-bucket` to
    `/dev/shm/73713_docuploader_service_account`.
