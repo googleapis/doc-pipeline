@@ -12,7 +12,7 @@
   
   
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>BigQueryWriteClient(*, credentials: typing.Optional[google.auth.credentials.Credentials] = None, transport: typing.Optional[typing.Union[str, google.cloud.bigquery_storage_v1.services.big_query_write.transports.base.BigQueryWriteTransport]] = None, client_options: typing.Optional[google.api_core.client_options.ClientOptions] = None, client_info: google.api_core.gapic_v1.client_info.ClientInfo = &lt;google.api_core.gapic_v1.client_info.ClientInfo object&gt;)</code></pre>
+    <pre class="prettyprint"><code>BigQueryWriteClient(*, credentials: typing.Optional[google.auth.credentials.Credentials] = None, transport: typing.Optional[typing.Union[str, google.cloud.bigquery_storage_v1.services.big_query_write.transports.base.BigQueryWriteTransport]] = None, client_options: typing.Optional[google.api_core.client_options.ClientOptions] = None, client_info: google.api_core.gapic_v1.client_info.ClientInfo = &lt;google.api_core.gapic_v1.client_info.ClientInfo object&gt;)</code></pre>
   </div>
   <div class="markdown level0 summary"><p>BigQuery Write API.
 The Write API can be used to write data to BigQuery.
@@ -49,7 +49,7 @@ For supplementary information about the Write API, see:
   </h2>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient" class="notranslate">BigQueryWriteClient</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>BigQueryWriteClient(*, credentials: typing.Optional[google.auth.credentials.Credentials] = None, transport: typing.Optional[typing.Union[str, google.cloud.bigquery_storage_v1.services.big_query_write.transports.base.BigQueryWriteTransport]] = None, client_options: typing.Optional[google.api_core.client_options.ClientOptions] = None, client_info: google.api_core.gapic_v1.client_info.ClientInfo = &lt;google.api_core.gapic_v1.client_info.ClientInfo object&gt;)</code></pre>
+    <pre class="prettyprint"><code>BigQueryWriteClient(*, credentials: typing.Optional[google.auth.credentials.Credentials] = None, transport: typing.Optional[typing.Union[str, google.cloud.bigquery_storage_v1.services.big_query_write.transports.base.BigQueryWriteTransport]] = None, client_options: typing.Optional[google.api_core.client_options.ClientOptions] = None, client_info: google.api_core.gapic_v1.client_info.ClientInfo = &lt;google.api_core.gapic_v1.client_info.ClientInfo object&gt;)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Instantiates the big query write client.</p>
 </div>
@@ -121,7 +121,7 @@ For supplementary information about the Write API, see:
   </table>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient___exit__" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.__exit__" class="notranslate">__exit__</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>__exit__(type, value, traceback)</code></pre>
+    <pre class="prettyprint"><code>__exit__(type, value, traceback)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Releases underlying transport&#39;s resources.</p>
 <p>.. warning::
@@ -131,7 +131,7 @@ For supplementary information about the Write API, see:
 </div>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_append_rows" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.append_rows" class="notranslate">append_rows</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>append_rows(
+    <pre class="prettyprint"><code>append_rows(
     requests: typing.Optional[
         typing.Iterator[
             google.cloud.bigquery_storage_v1.types.storage.AppendRowsRequest
@@ -246,7 +246,7 @@ rpc), and the stream is explicitly committed via the
   </table>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_batch_commit_write_streams" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.batch_commit_write_streams" class="notranslate">batch_commit_write_streams</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>batch_commit_write_streams(
+    <pre class="prettyprint"><code>batch_commit_write_streams(
     request: typing.Optional[
         typing.Union[
             google.cloud.bigquery_storage_v1.types.storage.BatchCommitWriteStreamsRequest,
@@ -346,37 +346,37 @@ becomes available for read operations.</p>
   </table>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_common_billing_account_path" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.common_billing_account_path" class="notranslate">common_billing_account_path</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>common_billing_account_path(billing_account: str)</code></pre>
+    <pre class="prettyprint"><code>common_billing_account_path(billing_account: str)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Returns a fully-qualified billing_account string.</p>
 </div>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_common_folder_path" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.common_folder_path" class="notranslate">common_folder_path</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>common_folder_path(folder: str)</code></pre>
+    <pre class="prettyprint"><code>common_folder_path(folder: str)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Returns a fully-qualified folder string.</p>
 </div>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_common_location_path" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.common_location_path" class="notranslate">common_location_path</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>common_location_path(project: str, location: str)</code></pre>
+    <pre class="prettyprint"><code>common_location_path(project: str, location: str)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Returns a fully-qualified location string.</p>
 </div>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_common_organization_path" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.common_organization_path" class="notranslate">common_organization_path</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>common_organization_path(organization: str)</code></pre>
+    <pre class="prettyprint"><code>common_organization_path(organization: str)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Returns a fully-qualified organization string.</p>
 </div>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_common_project_path" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.common_project_path" class="notranslate">common_project_path</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>common_project_path(project: str)</code></pre>
+    <pre class="prettyprint"><code>common_project_path(project: str)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Returns a fully-qualified project string.</p>
 </div>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_create_write_stream" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.create_write_stream" class="notranslate">create_write_stream</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>create_write_stream(
+    <pre class="prettyprint"><code>create_write_stream(
     request: typing.Optional[
         typing.Union[
             google.cloud.bigquery_storage_v1.types.storage.CreateWriteStreamRequest,
@@ -491,7 +491,7 @@ received.</p>
   </table>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_finalize_write_stream" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.finalize_write_stream" class="notranslate">finalize_write_stream</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>finalize_write_stream(
+    <pre class="prettyprint"><code>finalize_write_stream(
     request: typing.Optional[
         typing.Union[
             google.cloud.bigquery_storage_v1.types.storage.FinalizeWriteStreamRequest,
@@ -588,7 +588,7 @@ the stream. Finalize is not supported on the &#39;_default&#39; stream.</p>
   </table>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_flush_rows" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.flush_rows" class="notranslate">flush_rows</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>flush_rows(
+    <pre class="prettyprint"><code>flush_rows(
     request: typing.Optional[
         typing.Union[
             google.cloud.bigquery_storage_v1.types.storage.FlushRowsRequest, dict
@@ -690,7 +690,7 @@ BUFFERED.</p>
   </table>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_from_service_account_file" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.from_service_account_file" class="notranslate">from_service_account_file</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>from_service_account_file(filename: str, *args, **kwargs)</code></pre>
+    <pre class="prettyprint"><code>from_service_account_file(filename: str, *args, **kwargs)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Creates an instance of this client using the provided credentials
     file.</p>
@@ -733,7 +733,7 @@ BUFFERED.</p>
   </table>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_from_service_account_info" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.from_service_account_info" class="notranslate">from_service_account_info</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>from_service_account_info(info: dict, *args, **kwargs)</code></pre>
+    <pre class="prettyprint"><code>from_service_account_info(info: dict, *args, **kwargs)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Creates an instance of this client using the provided credentials
     info.</p>
@@ -776,7 +776,7 @@ BUFFERED.</p>
   </table>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_from_service_account_json" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.from_service_account_json" class="notranslate">from_service_account_json</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>from_service_account_json(filename: str, *args, **kwargs)</code></pre>
+    <pre class="prettyprint"><code>from_service_account_json(filename: str, *args, **kwargs)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Creates an instance of this client using the provided credentials
     file.</p>
@@ -819,7 +819,7 @@ BUFFERED.</p>
   </table>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_get_mtls_endpoint_and_cert_source" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.get_mtls_endpoint_and_cert_source" class="notranslate">get_mtls_endpoint_and_cert_source</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>get_mtls_endpoint_and_cert_source(
+    <pre class="prettyprint"><code>get_mtls_endpoint_and_cert_source(
     client_options: typing.Optional[
         google.api_core.client_options.ClientOptions
     ] = None,
@@ -893,7 +893,7 @@ use the default API endpoint.</p>
   </table>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_get_write_stream" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.get_write_stream" class="notranslate">get_write_stream</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>get_write_stream(
+    <pre class="prettyprint"><code>get_write_stream(
     request: typing.Optional[
         typing.Union[
             google.cloud.bigquery_storage_v1.types.storage.GetWriteStreamRequest, dict
@@ -988,55 +988,55 @@ use the default API endpoint.</p>
   </table>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_parse_common_billing_account_path" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.parse_common_billing_account_path" class="notranslate">parse_common_billing_account_path</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>parse_common_billing_account_path(path: str)</code></pre>
+    <pre class="prettyprint"><code>parse_common_billing_account_path(path: str)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Parse a billing_account path into its component segments.</p>
 </div>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_parse_common_folder_path" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.parse_common_folder_path" class="notranslate">parse_common_folder_path</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>parse_common_folder_path(path: str)</code></pre>
+    <pre class="prettyprint"><code>parse_common_folder_path(path: str)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Parse a folder path into its component segments.</p>
 </div>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_parse_common_location_path" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.parse_common_location_path" class="notranslate">parse_common_location_path</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>parse_common_location_path(path: str)</code></pre>
+    <pre class="prettyprint"><code>parse_common_location_path(path: str)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Parse a location path into its component segments.</p>
 </div>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_parse_common_organization_path" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.parse_common_organization_path" class="notranslate">parse_common_organization_path</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>parse_common_organization_path(path: str)</code></pre>
+    <pre class="prettyprint"><code>parse_common_organization_path(path: str)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Parse a organization path into its component segments.</p>
 </div>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_parse_common_project_path" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.parse_common_project_path" class="notranslate">parse_common_project_path</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>parse_common_project_path(path: str)</code></pre>
+    <pre class="prettyprint"><code>parse_common_project_path(path: str)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Parse a project path into its component segments.</p>
 </div>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_parse_table_path" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.parse_table_path" class="notranslate">parse_table_path</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>parse_table_path(path: str)</code></pre>
+    <pre class="prettyprint"><code>parse_table_path(path: str)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Parses a table path into its component segments.</p>
 </div>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_parse_write_stream_path" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.parse_write_stream_path" class="notranslate">parse_write_stream_path</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>parse_write_stream_path(path: str)</code></pre>
+    <pre class="prettyprint"><code>parse_write_stream_path(path: str)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Parses a write_stream path into its component segments.</p>
 </div>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_table_path" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.table_path" class="notranslate">table_path</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>table_path(project: str, dataset: str, table: str)</code></pre>
+    <pre class="prettyprint"><code>table_path(project: str, dataset: str, table: str)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Returns a fully-qualified table string.</p>
 </div>
   <h3 id="google_cloud_bigquery_storage_v1_services_big_query_write_BigQueryWriteClient_write_stream_path" data-uid="google.cloud.bigquery_storage_v1.services.big_query_write.BigQueryWriteClient.write_stream_path" class="notranslate">write_stream_path</h3>
   <div class="codewrapper">
-    <pre class="prettyprint wrap-code"><code>write_stream_path(project: str, dataset: str, table: str, stream: str)</code></pre>
+    <pre class="prettyprint"><code>write_stream_path(project: str, dataset: str, table: str, stream: str)</code></pre>
   </div>
   <div class="markdown level1 summary"><p>Returns a fully-qualified write_stream string.</p>
 </div>
