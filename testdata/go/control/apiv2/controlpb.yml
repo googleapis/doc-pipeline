@@ -31,6 +31,16 @@ items:
         - cloud.google.com/go/storage/control/apiv2/controlpb.CreateFolderRequest.ProtoReflect
         - cloud.google.com/go/storage/control/apiv2/controlpb.CreateFolderRequest.Reset
         - cloud.google.com/go/storage/control/apiv2/controlpb.CreateFolderRequest.String
+        - cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest
+        - cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.Descriptor
+        - cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.GetManagedFolder
+        - cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.GetManagedFolderId
+        - cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.GetParent
+        - cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.GetRequestId
+        - cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.ProtoMessage
+        - cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.ProtoReflect
+        - cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.Reset
+        - cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.String
         - cloud.google.com/go/storage/control/apiv2/controlpb.DeleteFolderRequest
         - cloud.google.com/go/storage/control/apiv2/controlpb.DeleteFolderRequest.Descriptor
         - cloud.google.com/go/storage/control/apiv2/controlpb.DeleteFolderRequest.GetIfMetagenerationMatch
@@ -41,6 +51,17 @@ items:
         - cloud.google.com/go/storage/control/apiv2/controlpb.DeleteFolderRequest.ProtoReflect
         - cloud.google.com/go/storage/control/apiv2/controlpb.DeleteFolderRequest.Reset
         - cloud.google.com/go/storage/control/apiv2/controlpb.DeleteFolderRequest.String
+        - cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest
+        - cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.Descriptor
+        - cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.GetAllowNonEmpty
+        - cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.GetIfMetagenerationMatch
+        - cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.GetIfMetagenerationNotMatch
+        - cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.GetName
+        - cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.GetRequestId
+        - cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.ProtoMessage
+        - cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.ProtoReflect
+        - cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.Reset
+        - cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.String
         - cloud.google.com/go/storage/control/apiv2/controlpb.Folder
         - cloud.google.com/go/storage/control/apiv2/controlpb.Folder.Descriptor
         - cloud.google.com/go/storage/control/apiv2/controlpb.Folder.GetCreateTime
@@ -62,6 +83,16 @@ items:
         - cloud.google.com/go/storage/control/apiv2/controlpb.GetFolderRequest.ProtoReflect
         - cloud.google.com/go/storage/control/apiv2/controlpb.GetFolderRequest.Reset
         - cloud.google.com/go/storage/control/apiv2/controlpb.GetFolderRequest.String
+        - cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest
+        - cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.Descriptor
+        - cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.GetIfMetagenerationMatch
+        - cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.GetIfMetagenerationNotMatch
+        - cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.GetName
+        - cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.GetRequestId
+        - cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.ProtoMessage
+        - cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.ProtoReflect
+        - cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.Reset
+        - cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.String
         - cloud.google.com/go/storage/control/apiv2/controlpb.GetStorageLayoutRequest
         - cloud.google.com/go/storage/control/apiv2/controlpb.GetStorageLayoutRequest.Descriptor
         - cloud.google.com/go/storage/control/apiv2/controlpb.GetStorageLayoutRequest.GetName
@@ -93,6 +124,35 @@ items:
         - cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersResponse.ProtoReflect
         - cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersResponse.Reset
         - cloud.google.com/go/storage/control/apiv2/controlpb.ListFoldersResponse.String
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.Descriptor
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.GetPageSize
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.GetPageToken
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.GetParent
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.GetPrefix
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.GetRequestId
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.ProtoMessage
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.ProtoReflect
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.Reset
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.String
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse.Descriptor
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse.GetManagedFolders
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse.GetNextPageToken
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse.ProtoMessage
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse.ProtoReflect
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse.Reset
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse.String
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.Descriptor
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.GetCreateTime
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.GetMetageneration
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.GetName
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.GetUpdateTime
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.ProtoMessage
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.ProtoReflect
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.Reset
+        - cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.String
         - cloud.google.com/go/storage/control/apiv2/controlpb.PendingRenameInfo
         - cloud.google.com/go/storage/control/apiv2/controlpb.PendingRenameInfo.Descriptor
         - cloud.google.com/go/storage/control/apiv2/controlpb.PendingRenameInfo.GetOperation
@@ -150,10 +210,14 @@ items:
         - cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout_HierarchicalNamespace.String
         - cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer
         - cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.CreateFolder
+        - cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.CreateManagedFolder
         - cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.DeleteFolder
+        - cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.DeleteManagedFolder
         - cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.GetFolder
+        - cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.GetManagedFolder
         - cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.GetStorageLayout
         - cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.ListFolders
+        - cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.ListManagedFolders
         - cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.RenameFolder
         - cloud.google.com/go/storage/control/apiv2/controlpb.RegisterStorageControlServer
       alt_link: https://pkg.go.dev/cloud.google.com/go/storage/control/apiv2/controlpb
@@ -312,7 +376,8 @@ items:
       name: CreateFolderRequest
       id: CreateFolderRequest
       summary: |
-        Request message for CreateFolder.
+        Request message for CreateFolder. This operation is only applicable to a
+        hierarchical namespace enabled bucket.
       parent: cloud.google.com/go/storage/control/apiv2/controlpb
       type: type
       langs:
@@ -321,21 +386,25 @@ items:
         content: |-
             type CreateFolderRequest struct {
 
-            	// Required. Name of the bucket in which the folder will reside.
+            	// Required. Name of the bucket in which the folder will reside. The bucket
+            	// must be a hierarchical namespace enabled bucket.
             	Parent <a href="https://pkg.go.dev/builtin#string">string</a> `protobuf:"bytes,1,opt,name=parent,proto3" json:"parent,omitempty"`
             	// Required. Properties of the new folder being created.
             	// The bucket and name of the folder are specified in the parent and folder_id
             	// fields, respectively. Populating those fields in `folder` will result in an
             	// error.
             	Folder *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a> `protobuf:"bytes,2,opt,name=folder,proto3" json:"folder,omitempty"`
-            	// Required. The absolute path of the folder, using a single `/` as delimiter.
+            	// Required. The full name of a folder, including all its parent folders.
+            	// Folders use single '/' characters as a delimiter.
+            	// The folder_id must end with a slash.
+            	// For example, the folder_id of "books/biographies/" would create a new
+            	// "biographies/" folder under the "books/" folder.
             	FolderId <a href="https://pkg.go.dev/builtin#string">string</a> `protobuf:"bytes,3,opt,name=folder_id,json=folderId,proto3" json:"folder_id,omitempty"`
             	// Optional. If true, parent folder doesn't have to be present and all missing
             	// ancestor folders will be created atomically.
             	Recursive <a href="https://pkg.go.dev/builtin#bool">bool</a> `protobuf:"varint,4,opt,name=recursive,proto3" json:"recursive,omitempty"`
             	// Optional. A unique identifier for this request. UUID is the recommended
-            	// format, but other formats are still accepted. This request is only
-            	// idempotent if a `request_id` is provided.
+            	// format, but other formats are still accepted.
             	RequestId <a href="https://pkg.go.dev/builtin#string">string</a> `protobuf:"bytes,5,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
             	// contains filtered or unexported fields
             }
@@ -441,11 +510,132 @@ items:
         - go
       syntax:
         content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest">CreateFolderRequest</a>) String() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest
+      name: CreateManagedFolderRequest
+      id: CreateManagedFolderRequest
+      summary: |
+        Request message for CreateManagedFolder.
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb
+      type: type
+      langs:
+        - go
+      syntax:
+        content: |-
+            type CreateManagedFolderRequest struct {
+
+            	// Required. Name of the bucket this managed folder belongs to.
+            	Parent <a href="https://pkg.go.dev/builtin#string">string</a> `protobuf:"bytes,1,opt,name=parent,proto3" json:"parent,omitempty"`
+            	// Required. Properties of the managed folder being created.
+            	// The bucket and managed folder names are specified in the `parent` and
+            	// `managed_folder_id` fields. Populating these fields in `managed_folder`
+            	// will result in an error.
+            	ManagedFolder *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a> `protobuf:"bytes,2,opt,name=managed_folder,json=managedFolder,proto3" json:"managed_folder,omitempty"`
+            	// Required. The name of the managed folder. It uses a single `/` as delimiter
+            	// and leading and trailing `/` are allowed.
+            	ManagedFolderId <a href="https://pkg.go.dev/builtin#string">string</a> `protobuf:"bytes,3,opt,name=managed_folder_id,json=managedFolderId,proto3" json:"managed_folder_id,omitempty"`
+            	// Optional. A unique identifier for this request. UUID is the recommended
+            	// format, but other formats are still accepted.
+            	RequestId <a href="https://pkg.go.dev/builtin#string">string</a> `protobuf:"bytes,4,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+            	// contains filtered or unexported fields
+            }
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.Descriptor
+      name: |
+        func (*CreateManagedFolderRequest) Descriptor
+      id: Descriptor
+      summary: |
+        Deprecated: Use CreateManagedFolderRequest.ProtoReflect.Descriptor instead.
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_CreateManagedFolderRequest">CreateManagedFolderRequest</a>) Descriptor() ([]<a href="https://pkg.go.dev/builtin#byte">byte</a>, []<a href="https://pkg.go.dev/builtin#int">int</a>)
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.GetManagedFolder
+      name: |
+        func (*CreateManagedFolderRequest) GetManagedFolder
+      id: GetManagedFolder
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_CreateManagedFolderRequest">CreateManagedFolderRequest</a>) GetManagedFolder() *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.GetManagedFolderId
+      name: |
+        func (*CreateManagedFolderRequest) GetManagedFolderId
+      id: GetManagedFolderId
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_CreateManagedFolderRequest">CreateManagedFolderRequest</a>) GetManagedFolderId() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.GetParent
+      name: |
+        func (*CreateManagedFolderRequest) GetParent
+      id: GetParent
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_CreateManagedFolderRequest">CreateManagedFolderRequest</a>) GetParent() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.GetRequestId
+      name: |
+        func (*CreateManagedFolderRequest) GetRequestId
+      id: GetRequestId
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_CreateManagedFolderRequest">CreateManagedFolderRequest</a>) GetRequestId() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.ProtoMessage
+      name: |
+        func (*CreateManagedFolderRequest) ProtoMessage
+      id: ProtoMessage
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_CreateManagedFolderRequest">CreateManagedFolderRequest</a>) ProtoMessage()
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.ProtoReflect
+      name: |
+        func (*CreateManagedFolderRequest) ProtoReflect
+      id: ProtoReflect
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_CreateManagedFolderRequest">CreateManagedFolderRequest</a>) ProtoReflect() <a href="https://pkg.go.dev/google.golang.org/protobuf/reflect/protoreflect">protoreflect</a>.<a href="https://pkg.go.dev/google.golang.org/protobuf/reflect/protoreflect#Message">Message</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.Reset
+      name: |
+        func (*CreateManagedFolderRequest) Reset
+      id: Reset
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_CreateManagedFolderRequest">CreateManagedFolderRequest</a>) Reset()
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest.String
+      name: |
+        func (*CreateManagedFolderRequest) String
+      id: String
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.CreateManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_CreateManagedFolderRequest">CreateManagedFolderRequest</a>) String() <a href="https://pkg.go.dev/builtin#string">string</a>
     - uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteFolderRequest
       name: DeleteFolderRequest
       id: DeleteFolderRequest
       summary: |
-        Request message for DeleteFolder.
+        Request message for DeleteFolder. This operation is only applicable to a
+        hierarchical namespace enabled bucket.
       parent: cloud.google.com/go/storage/control/apiv2/controlpb
       type: type
       langs:
@@ -554,11 +744,137 @@ items:
         - go
       syntax:
         content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteFolderRequest">DeleteFolderRequest</a>) String() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest
+      name: DeleteManagedFolderRequest
+      id: DeleteManagedFolderRequest
+      summary: |
+        DeleteManagedFolder RPC request message.
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb
+      type: type
+      langs:
+        - go
+      syntax:
+        content: |-
+            type DeleteManagedFolderRequest struct {
+            	Name <a href="https://pkg.go.dev/builtin#string">string</a> `protobuf:"bytes,7,opt,name=name,proto3" json:"name,omitempty"`
+
+            	IfMetagenerationMatch *<a href="https://pkg.go.dev/builtin#int64">int64</a> "" /* 133 byte string literal not displayed */
+
+            	IfMetagenerationNotMatch *<a href="https://pkg.go.dev/builtin#int64">int64</a> "" /* 144 byte string literal not displayed */
+
+            	AllowNonEmpty <a href="https://pkg.go.dev/builtin#bool">bool</a> `protobuf:"varint,5,opt,name=allow_non_empty,json=allowNonEmpty,proto3" json:"allow_non_empty,omitempty"`
+
+            	RequestId <a href="https://pkg.go.dev/builtin#string">string</a> `protobuf:"bytes,6,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+
+            }
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.Descriptor
+      name: |
+        func (*DeleteManagedFolderRequest) Descriptor
+      id: Descriptor
+      summary: |
+        Deprecated: Use DeleteManagedFolderRequest.ProtoReflect.Descriptor instead.
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteManagedFolderRequest">DeleteManagedFolderRequest</a>) Descriptor() ([]<a href="https://pkg.go.dev/builtin#byte">byte</a>, []<a href="https://pkg.go.dev/builtin#int">int</a>)
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.GetAllowNonEmpty
+      name: |
+        func (*DeleteManagedFolderRequest) GetAllowNonEmpty
+      id: GetAllowNonEmpty
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteManagedFolderRequest">DeleteManagedFolderRequest</a>) GetAllowNonEmpty() <a href="https://pkg.go.dev/builtin#bool">bool</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.GetIfMetagenerationMatch
+      name: |
+        func (*DeleteManagedFolderRequest) GetIfMetagenerationMatch
+      id: GetIfMetagenerationMatch
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteManagedFolderRequest">DeleteManagedFolderRequest</a>) GetIfMetagenerationMatch() <a href="https://pkg.go.dev/builtin#int64">int64</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.GetIfMetagenerationNotMatch
+      name: |
+        func (*DeleteManagedFolderRequest) GetIfMetagenerationNotMatch
+      id: GetIfMetagenerationNotMatch
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteManagedFolderRequest">DeleteManagedFolderRequest</a>) GetIfMetagenerationNotMatch() <a href="https://pkg.go.dev/builtin#int64">int64</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.GetName
+      name: |
+        func (*DeleteManagedFolderRequest) GetName
+      id: GetName
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteManagedFolderRequest">DeleteManagedFolderRequest</a>) GetName() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.GetRequestId
+      name: |
+        func (*DeleteManagedFolderRequest) GetRequestId
+      id: GetRequestId
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteManagedFolderRequest">DeleteManagedFolderRequest</a>) GetRequestId() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.ProtoMessage
+      name: |
+        func (*DeleteManagedFolderRequest) ProtoMessage
+      id: ProtoMessage
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteManagedFolderRequest">DeleteManagedFolderRequest</a>) ProtoMessage()
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.ProtoReflect
+      name: |
+        func (*DeleteManagedFolderRequest) ProtoReflect
+      id: ProtoReflect
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteManagedFolderRequest">DeleteManagedFolderRequest</a>) ProtoReflect() <a href="https://pkg.go.dev/google.golang.org/protobuf/reflect/protoreflect">protoreflect</a>.<a href="https://pkg.go.dev/google.golang.org/protobuf/reflect/protoreflect#Message">Message</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.Reset
+      name: |
+        func (*DeleteManagedFolderRequest) Reset
+      id: Reset
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteManagedFolderRequest">DeleteManagedFolderRequest</a>) Reset()
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest.String
+      name: |
+        func (*DeleteManagedFolderRequest) String
+      id: String
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.DeleteManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteManagedFolderRequest">DeleteManagedFolderRequest</a>) String() <a href="https://pkg.go.dev/builtin#string">string</a>
     - uid: cloud.google.com/go/storage/control/apiv2/controlpb.Folder
       name: Folder
       id: Folder
       summary: |
-        A folder.
+        A folder resource. This resource can only exist in a hierarchical namespace
+        enabled bucket.
       parent: cloud.google.com/go/storage/control/apiv2/controlpb
       type: type
       langs:
@@ -691,7 +1007,8 @@ items:
       name: GetFolderRequest
       id: GetFolderRequest
       summary: |
-        Request message for GetFolder.
+        Request message for GetFolder. This operation is only applicable to a
+        hierarchical namespace enabled bucket.
       parent: cloud.google.com/go/storage/control/apiv2/controlpb
       type: type
       langs:
@@ -800,6 +1117,119 @@ items:
         - go
       syntax:
         content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetFolderRequest">GetFolderRequest</a>) String() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest
+      name: GetManagedFolderRequest
+      id: GetManagedFolderRequest
+      summary: |
+        Request message for GetManagedFolder.
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb
+      type: type
+      langs:
+        - go
+      syntax:
+        content: |-
+            type GetManagedFolderRequest struct {
+            	Name <a href="https://pkg.go.dev/builtin#string">string</a> `protobuf:"bytes,6,opt,name=name,proto3" json:"name,omitempty"`
+
+            	IfMetagenerationMatch *<a href="https://pkg.go.dev/builtin#int64">int64</a> "" /* 133 byte string literal not displayed */
+
+            	IfMetagenerationNotMatch *<a href="https://pkg.go.dev/builtin#int64">int64</a> "" /* 144 byte string literal not displayed */
+
+            	RequestId <a href="https://pkg.go.dev/builtin#string">string</a> `protobuf:"bytes,5,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+
+            }
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.Descriptor
+      name: |
+        func (*GetManagedFolderRequest) Descriptor
+      id: Descriptor
+      summary: |
+        Deprecated: Use GetManagedFolderRequest.ProtoReflect.Descriptor instead.
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetManagedFolderRequest">GetManagedFolderRequest</a>) Descriptor() ([]<a href="https://pkg.go.dev/builtin#byte">byte</a>, []<a href="https://pkg.go.dev/builtin#int">int</a>)
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.GetIfMetagenerationMatch
+      name: |
+        func (*GetManagedFolderRequest) GetIfMetagenerationMatch
+      id: GetIfMetagenerationMatch
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetManagedFolderRequest">GetManagedFolderRequest</a>) GetIfMetagenerationMatch() <a href="https://pkg.go.dev/builtin#int64">int64</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.GetIfMetagenerationNotMatch
+      name: |
+        func (*GetManagedFolderRequest) GetIfMetagenerationNotMatch
+      id: GetIfMetagenerationNotMatch
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetManagedFolderRequest">GetManagedFolderRequest</a>) GetIfMetagenerationNotMatch() <a href="https://pkg.go.dev/builtin#int64">int64</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.GetName
+      name: |
+        func (*GetManagedFolderRequest) GetName
+      id: GetName
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetManagedFolderRequest">GetManagedFolderRequest</a>) GetName() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.GetRequestId
+      name: |
+        func (*GetManagedFolderRequest) GetRequestId
+      id: GetRequestId
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetManagedFolderRequest">GetManagedFolderRequest</a>) GetRequestId() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.ProtoMessage
+      name: |
+        func (*GetManagedFolderRequest) ProtoMessage
+      id: ProtoMessage
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetManagedFolderRequest">GetManagedFolderRequest</a>) ProtoMessage()
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.ProtoReflect
+      name: |
+        func (*GetManagedFolderRequest) ProtoReflect
+      id: ProtoReflect
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetManagedFolderRequest">GetManagedFolderRequest</a>) ProtoReflect() <a href="https://pkg.go.dev/google.golang.org/protobuf/reflect/protoreflect">protoreflect</a>.<a href="https://pkg.go.dev/google.golang.org/protobuf/reflect/protoreflect#Message">Message</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.Reset
+      name: |
+        func (*GetManagedFolderRequest) Reset
+      id: Reset
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetManagedFolderRequest">GetManagedFolderRequest</a>) Reset()
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest.String
+      name: |
+        func (*GetManagedFolderRequest) String
+      id: String
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.GetManagedFolderRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetManagedFolderRequest">GetManagedFolderRequest</a>) String() <a href="https://pkg.go.dev/builtin#string">string</a>
     - uid: cloud.google.com/go/storage/control/apiv2/controlpb.GetStorageLayoutRequest
       name: GetStorageLayoutRequest
       id: GetStorageLayoutRequest
@@ -910,7 +1340,8 @@ items:
       name: ListFoldersRequest
       id: ListFoldersRequest
       summary: |
-        Request message for ListFolders.
+        Request message for ListFolders. This operation is only applicable to a
+        hierarchical namespace enabled bucket.
       parent: cloud.google.com/go/storage/control/apiv2/controlpb
       type: type
       langs:
@@ -919,7 +1350,8 @@ items:
         content: |-
             type ListFoldersRequest struct {
 
-            	// Required. Name of the bucket in which to look for folders.
+            	// Required. Name of the bucket in which to look for folders. The bucket must
+            	// be a hierarchical namespace enabled bucket.
             	Parent <a href="https://pkg.go.dev/builtin#string">string</a> `protobuf:"bytes,1,opt,name=parent,proto3" json:"parent,omitempty"`
             	// Optional. Maximum number of folders to return in a single response. The
             	// service will use this parameter or 1,000 items, whichever is smaller.
@@ -1173,6 +1605,348 @@ items:
         - go
       syntax:
         content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersResponse">ListFoldersResponse</a>) String() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest
+      name: ListManagedFoldersRequest
+      id: ListManagedFoldersRequest
+      summary: |
+        Request message for ListManagedFolders.
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb
+      type: type
+      langs:
+        - go
+      syntax:
+        content: |-
+            type ListManagedFoldersRequest struct {
+
+            	// Required. Name of the bucket this managed folder belongs to.
+            	Parent <a href="https://pkg.go.dev/builtin#string">string</a> `protobuf:"bytes,1,opt,name=parent,proto3" json:"parent,omitempty"`
+            	// Optional. Maximum number of managed folders to return in a single response.
+            	// The service will use this parameter or 1,000 items, whichever is smaller.
+            	PageSize <a href="https://pkg.go.dev/builtin#int32">int32</a> `protobuf:"varint,2,opt,name=page_size,json=pageSize,proto3" json:"page_size,omitempty"`
+            	// Optional. A previously-returned page token representing part of the larger
+            	// set of results to view.
+            	PageToken <a href="https://pkg.go.dev/builtin#string">string</a> `protobuf:"bytes,3,opt,name=page_token,json=pageToken,proto3" json:"page_token,omitempty"`
+            	// Optional. Filter results to match managed folders with name starting with
+            	// this prefix.
+            	Prefix <a href="https://pkg.go.dev/builtin#string">string</a> `protobuf:"bytes,4,opt,name=prefix,proto3" json:"prefix,omitempty"`
+            	// Optional. A unique identifier for this request. UUID is the recommended
+            	// format, but other formats are still accepted.
+            	RequestId <a href="https://pkg.go.dev/builtin#string">string</a> `protobuf:"bytes,5,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
+            	// contains filtered or unexported fields
+            }
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.Descriptor
+      name: |
+        func (*ListManagedFoldersRequest) Descriptor
+      id: Descriptor
+      summary: |
+        Deprecated: Use ListManagedFoldersRequest.ProtoReflect.Descriptor instead.
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersRequest">ListManagedFoldersRequest</a>) Descriptor() ([]<a href="https://pkg.go.dev/builtin#byte">byte</a>, []<a href="https://pkg.go.dev/builtin#int">int</a>)
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.GetPageSize
+      name: |
+        func (*ListManagedFoldersRequest) GetPageSize
+      id: GetPageSize
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersRequest">ListManagedFoldersRequest</a>) GetPageSize() <a href="https://pkg.go.dev/builtin#int32">int32</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.GetPageToken
+      name: |
+        func (*ListManagedFoldersRequest) GetPageToken
+      id: GetPageToken
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersRequest">ListManagedFoldersRequest</a>) GetPageToken() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.GetParent
+      name: |
+        func (*ListManagedFoldersRequest) GetParent
+      id: GetParent
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersRequest">ListManagedFoldersRequest</a>) GetParent() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.GetPrefix
+      name: |
+        func (*ListManagedFoldersRequest) GetPrefix
+      id: GetPrefix
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersRequest">ListManagedFoldersRequest</a>) GetPrefix() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.GetRequestId
+      name: |
+        func (*ListManagedFoldersRequest) GetRequestId
+      id: GetRequestId
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersRequest">ListManagedFoldersRequest</a>) GetRequestId() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.ProtoMessage
+      name: |
+        func (*ListManagedFoldersRequest) ProtoMessage
+      id: ProtoMessage
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersRequest">ListManagedFoldersRequest</a>) ProtoMessage()
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.ProtoReflect
+      name: |
+        func (*ListManagedFoldersRequest) ProtoReflect
+      id: ProtoReflect
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersRequest">ListManagedFoldersRequest</a>) ProtoReflect() <a href="https://pkg.go.dev/google.golang.org/protobuf/reflect/protoreflect">protoreflect</a>.<a href="https://pkg.go.dev/google.golang.org/protobuf/reflect/protoreflect#Message">Message</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.Reset
+      name: |
+        func (*ListManagedFoldersRequest) Reset
+      id: Reset
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersRequest">ListManagedFoldersRequest</a>) Reset()
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest.String
+      name: |
+        func (*ListManagedFoldersRequest) String
+      id: String
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersRequest
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersRequest">ListManagedFoldersRequest</a>) String() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse
+      name: ListManagedFoldersResponse
+      id: ListManagedFoldersResponse
+      summary: |
+        Response message for ListManagedFolders.
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb
+      type: type
+      langs:
+        - go
+      syntax:
+        content: |-
+            type ListManagedFoldersResponse struct {
+
+            	// The list of matching managed folders
+            	ManagedFolders []*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a> `protobuf:"bytes,1,rep,name=managed_folders,json=managedFolders,proto3" json:"managed_folders,omitempty"`
+            	// The continuation token, used to page through large result sets. Provide
+            	// this value in a subsequent request to return the next page of results.
+            	NextPageToken <a href="https://pkg.go.dev/builtin#string">string</a> `protobuf:"bytes,2,opt,name=next_page_token,json=nextPageToken,proto3" json:"next_page_token,omitempty"`
+            	// contains filtered or unexported fields
+            }
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse.Descriptor
+      name: |
+        func (*ListManagedFoldersResponse) Descriptor
+      id: Descriptor
+      summary: |
+        Deprecated: Use ListManagedFoldersResponse.ProtoReflect.Descriptor instead.
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersResponse">ListManagedFoldersResponse</a>) Descriptor() ([]<a href="https://pkg.go.dev/builtin#byte">byte</a>, []<a href="https://pkg.go.dev/builtin#int">int</a>)
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse.GetManagedFolders
+      name: |
+        func (*ListManagedFoldersResponse) GetManagedFolders
+      id: GetManagedFolders
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersResponse">ListManagedFoldersResponse</a>) GetManagedFolders() []*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse.GetNextPageToken
+      name: |
+        func (*ListManagedFoldersResponse) GetNextPageToken
+      id: GetNextPageToken
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersResponse">ListManagedFoldersResponse</a>) GetNextPageToken() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse.ProtoMessage
+      name: |
+        func (*ListManagedFoldersResponse) ProtoMessage
+      id: ProtoMessage
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersResponse">ListManagedFoldersResponse</a>) ProtoMessage()
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse.ProtoReflect
+      name: |
+        func (*ListManagedFoldersResponse) ProtoReflect
+      id: ProtoReflect
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersResponse">ListManagedFoldersResponse</a>) ProtoReflect() <a href="https://pkg.go.dev/google.golang.org/protobuf/reflect/protoreflect">protoreflect</a>.<a href="https://pkg.go.dev/google.golang.org/protobuf/reflect/protoreflect#Message">Message</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse.Reset
+      name: |
+        func (*ListManagedFoldersResponse) Reset
+      id: Reset
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersResponse">ListManagedFoldersResponse</a>) Reset()
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse.String
+      name: |
+        func (*ListManagedFoldersResponse) String
+      id: String
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ListManagedFoldersResponse
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersResponse">ListManagedFoldersResponse</a>) String() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder
+      name: ManagedFolder
+      id: ManagedFolder
+      summary: |
+        A managed folder.
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb
+      type: type
+      langs:
+        - go
+      syntax:
+        content: |-
+            type ManagedFolder struct {
+
+            	// Identifier. The name of this managed folder.
+            	// Format:
+            	// `projects/{project}/buckets/{bucket}/managedFolders/{managedFolder}`
+            	Name <a href="https://pkg.go.dev/builtin#string">string</a> `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+            	// Output only. The metadata version of this managed folder. It increases
+            	// whenever the metadata is updated. Used for preconditions and for detecting
+            	// changes in metadata. Managed folders don't have a generation number.
+            	Metageneration <a href="https://pkg.go.dev/builtin#int64">int64</a> `protobuf:"varint,3,opt,name=metageneration,proto3" json:"metageneration,omitempty"`
+            	// Output only. The creation time of the managed folder.
+            	CreateTime *<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb">timestamppb</a>.<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#Timestamp">Timestamp</a> `protobuf:"bytes,4,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+            	// Output only. The modification time of the managed folder.
+            	UpdateTime *<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb">timestamppb</a>.<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#Timestamp">Timestamp</a> `protobuf:"bytes,5,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
+            	// contains filtered or unexported fields
+            }
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.Descriptor
+      name: |
+        func (*ManagedFolder) Descriptor
+      id: Descriptor
+      summary: |
+        Deprecated: Use ManagedFolder.ProtoReflect.Descriptor instead.
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>) Descriptor() ([]<a href="https://pkg.go.dev/builtin#byte">byte</a>, []<a href="https://pkg.go.dev/builtin#int">int</a>)
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.GetCreateTime
+      name: |
+        func (*ManagedFolder) GetCreateTime
+      id: GetCreateTime
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>) GetCreateTime() *<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb">timestamppb</a>.<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#Timestamp">Timestamp</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.GetMetageneration
+      name: |
+        func (*ManagedFolder) GetMetageneration
+      id: GetMetageneration
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>) GetMetageneration() <a href="https://pkg.go.dev/builtin#int64">int64</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.GetName
+      name: |
+        func (*ManagedFolder) GetName
+      id: GetName
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>) GetName() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.GetUpdateTime
+      name: |
+        func (*ManagedFolder) GetUpdateTime
+      id: GetUpdateTime
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>) GetUpdateTime() *<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb">timestamppb</a>.<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/timestamppb#Timestamp">Timestamp</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.ProtoMessage
+      name: |
+        func (*ManagedFolder) ProtoMessage
+      id: ProtoMessage
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>) ProtoMessage()
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.ProtoReflect
+      name: |
+        func (*ManagedFolder) ProtoReflect
+      id: ProtoReflect
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>) ProtoReflect() <a href="https://pkg.go.dev/google.golang.org/protobuf/reflect/protoreflect">protoreflect</a>.<a href="https://pkg.go.dev/google.golang.org/protobuf/reflect/protoreflect#Message">Message</a>
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.Reset
+      name: |
+        func (*ManagedFolder) Reset
+      id: Reset
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>) Reset()
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder.String
+      name: |
+        func (*ManagedFolder) String
+      id: String
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.ManagedFolder
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (x *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>) String() <a href="https://pkg.go.dev/builtin#string">string</a>
     - uid: cloud.google.com/go/storage/control/apiv2/controlpb.PendingRenameInfo
       name: PendingRenameInfo
       id: PendingRenameInfo
@@ -1360,7 +2134,8 @@ items:
       name: RenameFolderRequest
       id: RenameFolderRequest
       summary: |
-        Request message for RenameFolder.
+        Request message for RenameFolder. This operation is only applicable to a
+        hierarchical namespace enabled bucket.
       parent: cloud.google.com/go/storage/control/apiv2/controlpb
       type: type
       langs:
@@ -1495,20 +2270,33 @@ items:
       syntax:
         content: |-
             type StorageControlClient interface {
-            	// Creates a new folder.
+            	// Creates a new folder. This operation is only applicable to a hierarchical
+            	// namespace enabled bucket.
             	CreateFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, in *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest">CreateFolderRequest</a>, opts ...<a href="https://pkg.go.dev/google.golang.org/grpc">grpc</a>.<a href="https://pkg.go.dev/google.golang.org/grpc#CallOption">CallOption</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
-            	// Permanently deletes an empty folder.
+            	// Permanently deletes an empty folder. This operation is only applicable to a
+            	// hierarchical namespace enabled bucket.
             	DeleteFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, in *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteFolderRequest">DeleteFolderRequest</a>, opts ...<a href="https://pkg.go.dev/google.golang.org/grpc">grpc</a>.<a href="https://pkg.go.dev/google.golang.org/grpc#CallOption">CallOption</a>) (*<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/emptypb">emptypb</a>.<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/emptypb#Empty">Empty</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
-            	// Returns metadata for the specified folder.
+            	// Returns metadata for the specified folder. This operation is only
+            	// applicable to a hierarchical namespace enabled bucket.
             	GetFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, in *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetFolderRequest">GetFolderRequest</a>, opts ...<a href="https://pkg.go.dev/google.golang.org/grpc">grpc</a>.<a href="https://pkg.go.dev/google.golang.org/grpc#CallOption">CallOption</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
-            	// Retrieves a list of folders for a given bucket.
+            	// Retrieves a list of folders. This operation is only applicable to a
+            	// hierarchical namespace enabled bucket.
             	ListFolders(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, in *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest">ListFoldersRequest</a>, opts ...<a href="https://pkg.go.dev/google.golang.org/grpc">grpc</a>.<a href="https://pkg.go.dev/google.golang.org/grpc#CallOption">CallOption</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersResponse">ListFoldersResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
-            	// Renames a source folder to a destination folder. During a rename, the
+            	// Renames a source folder to a destination folder. This operation is only
+            	// applicable to a hierarchical namespace enabled bucket. During a rename, the
             	// source and destination folders are locked until the long running operation
             	// completes.
-            	RenameFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, in *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest">RenameFolderRequest</a>, opts ...<a href="https://pkg.go.dev/google.golang.org/grpc">grpc</a>.<a href="https://pkg.go.dev/google.golang.org/grpc#CallOption">CallOption</a>) (*<a href="https://pkg.go.dev/cloud.google.com/go/longrunning/autogen/longrunningpb">longrunningpb</a>.<a href="https://pkg.go.dev/cloud.google.com/go/longrunning/autogen/longrunningpb#Operation">Operation</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
+            	RenameFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, in *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest">RenameFolderRequest</a>, opts ...<a href="https://pkg.go.dev/google.golang.org/grpc">grpc</a>.<a href="https://pkg.go.dev/google.golang.org/grpc#CallOption">CallOption</a>) (*<a href="/go/docs/reference/cloud.google.com/go/longrunning/latest/autogen/longrunningpb">longrunningpb</a>.<a href="/go/docs/reference/cloud.google.com/go/longrunning/latest/autogen/longrunningpb#cloud_google_com_go_longrunning_autogen_longrunningpb_Operation">Operation</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
             	// Returns the storage layout configuration for a given bucket.
             	GetStorageLayout(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, in *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetStorageLayoutRequest">GetStorageLayoutRequest</a>, opts ...<a href="https://pkg.go.dev/google.golang.org/grpc">grpc</a>.<a href="https://pkg.go.dev/google.golang.org/grpc#CallOption">CallOption</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout">StorageLayout</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
+            	// Creates a new managed folder.
+            	CreateManagedFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, in *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_CreateManagedFolderRequest">CreateManagedFolderRequest</a>, opts ...<a href="https://pkg.go.dev/google.golang.org/grpc">grpc</a>.<a href="https://pkg.go.dev/google.golang.org/grpc#CallOption">CallOption</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
+            	// Permanently deletes an empty managed folder.
+            	DeleteManagedFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, in *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteManagedFolderRequest">DeleteManagedFolderRequest</a>, opts ...<a href="https://pkg.go.dev/google.golang.org/grpc">grpc</a>.<a href="https://pkg.go.dev/google.golang.org/grpc#CallOption">CallOption</a>) (*<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/emptypb">emptypb</a>.<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/emptypb#Empty">Empty</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
+            	// Returns metadata for the specified managed folder.
+            	GetManagedFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, in *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetManagedFolderRequest">GetManagedFolderRequest</a>, opts ...<a href="https://pkg.go.dev/google.golang.org/grpc">grpc</a>.<a href="https://pkg.go.dev/google.golang.org/grpc#CallOption">CallOption</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
+            	// Retrieves a list of managed folders for a given bucket.
+            	ListManagedFolders(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, in *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersRequest">ListManagedFoldersRequest</a>, opts ...<a href="https://pkg.go.dev/google.golang.org/grpc">grpc</a>.<a href="https://pkg.go.dev/google.golang.org/grpc#CallOption">CallOption</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersResponse">ListManagedFoldersResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
             }
     - uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageControlClient.NewStorageControlClient
       name: |
@@ -1532,20 +2320,33 @@ items:
       syntax:
         content: |-
             type StorageControlServer interface {
-            	// Creates a new folder.
+            	// Creates a new folder. This operation is only applicable to a hierarchical
+            	// namespace enabled bucket.
             	CreateFolder(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest">CreateFolderRequest</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
-            	// Permanently deletes an empty folder.
+            	// Permanently deletes an empty folder. This operation is only applicable to a
+            	// hierarchical namespace enabled bucket.
             	DeleteFolder(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteFolderRequest">DeleteFolderRequest</a>) (*<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/emptypb">emptypb</a>.<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/emptypb#Empty">Empty</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
-            	// Returns metadata for the specified folder.
+            	// Returns metadata for the specified folder. This operation is only
+            	// applicable to a hierarchical namespace enabled bucket.
             	GetFolder(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetFolderRequest">GetFolderRequest</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
-            	// Retrieves a list of folders for a given bucket.
+            	// Retrieves a list of folders. This operation is only applicable to a
+            	// hierarchical namespace enabled bucket.
             	ListFolders(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest">ListFoldersRequest</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersResponse">ListFoldersResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
-            	// Renames a source folder to a destination folder. During a rename, the
+            	// Renames a source folder to a destination folder. This operation is only
+            	// applicable to a hierarchical namespace enabled bucket. During a rename, the
             	// source and destination folders are locked until the long running operation
             	// completes.
-            	RenameFolder(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest">RenameFolderRequest</a>) (*<a href="https://pkg.go.dev/cloud.google.com/go/longrunning/autogen/longrunningpb">longrunningpb</a>.<a href="https://pkg.go.dev/cloud.google.com/go/longrunning/autogen/longrunningpb#Operation">Operation</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
+            	RenameFolder(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest">RenameFolderRequest</a>) (*<a href="/go/docs/reference/cloud.google.com/go/longrunning/latest/autogen/longrunningpb">longrunningpb</a>.<a href="/go/docs/reference/cloud.google.com/go/longrunning/latest/autogen/longrunningpb#cloud_google_com_go_longrunning_autogen_longrunningpb_Operation">Operation</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
             	// Returns the storage layout configuration for a given bucket.
             	GetStorageLayout(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetStorageLayoutRequest">GetStorageLayoutRequest</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_StorageLayout">StorageLayout</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
+            	// Creates a new managed folder.
+            	CreateManagedFolder(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_CreateManagedFolderRequest">CreateManagedFolderRequest</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
+            	// Permanently deletes an empty managed folder.
+            	DeleteManagedFolder(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteManagedFolderRequest">DeleteManagedFolderRequest</a>) (*<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/emptypb">emptypb</a>.<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/emptypb#Empty">Empty</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
+            	// Returns metadata for the specified managed folder.
+            	GetManagedFolder(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetManagedFolderRequest">GetManagedFolderRequest</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
+            	// Retrieves a list of managed folders for a given bucket.
+            	ListManagedFolders(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersRequest">ListManagedFoldersRequest</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersResponse">ListManagedFoldersResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
             }
     - uid: cloud.google.com/go/storage/control/apiv2/controlpb.StorageLayout
       name: StorageLayout
@@ -1861,6 +2662,16 @@ items:
         - go
       syntax:
         content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_UnimplementedStorageControlServer">UnimplementedStorageControlServer</a>) CreateFolder(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest">CreateFolderRequest</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.CreateManagedFolder
+      name: |
+        func (*UnimplementedStorageControlServer) CreateManagedFolder
+      id: CreateManagedFolder
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_UnimplementedStorageControlServer">UnimplementedStorageControlServer</a>) CreateManagedFolder(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_CreateManagedFolderRequest">CreateManagedFolderRequest</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
     - uid: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.DeleteFolder
       name: |
         func (*UnimplementedStorageControlServer) DeleteFolder
@@ -1871,6 +2682,16 @@ items:
         - go
       syntax:
         content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_UnimplementedStorageControlServer">UnimplementedStorageControlServer</a>) DeleteFolder(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteFolderRequest">DeleteFolderRequest</a>) (*<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/emptypb">emptypb</a>.<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/emptypb#Empty">Empty</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.DeleteManagedFolder
+      name: |
+        func (*UnimplementedStorageControlServer) DeleteManagedFolder
+      id: DeleteManagedFolder
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_UnimplementedStorageControlServer">UnimplementedStorageControlServer</a>) DeleteManagedFolder(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteManagedFolderRequest">DeleteManagedFolderRequest</a>) (*<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/emptypb">emptypb</a>.<a href="https://pkg.go.dev/google.golang.org/protobuf/types/known/emptypb#Empty">Empty</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
     - uid: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.GetFolder
       name: |
         func (*UnimplementedStorageControlServer) GetFolder
@@ -1881,6 +2702,16 @@ items:
         - go
       syntax:
         content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_UnimplementedStorageControlServer">UnimplementedStorageControlServer</a>) GetFolder(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetFolderRequest">GetFolderRequest</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.GetManagedFolder
+      name: |
+        func (*UnimplementedStorageControlServer) GetManagedFolder
+      id: GetManagedFolder
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_UnimplementedStorageControlServer">UnimplementedStorageControlServer</a>) GetManagedFolder(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_GetManagedFolderRequest">GetManagedFolderRequest</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
     - uid: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.GetStorageLayout
       name: |
         func (*UnimplementedStorageControlServer) GetStorageLayout
@@ -1901,6 +2732,16 @@ items:
         - go
       syntax:
         content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_UnimplementedStorageControlServer">UnimplementedStorageControlServer</a>) ListFolders(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest">ListFoldersRequest</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersResponse">ListFoldersResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
+    - uid: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.ListManagedFolders
+      name: |
+        func (*UnimplementedStorageControlServer) ListManagedFolders
+      id: ListManagedFolders
+      parent: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_UnimplementedStorageControlServer">UnimplementedStorageControlServer</a>) ListManagedFolders(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersRequest">ListManagedFoldersRequest</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersResponse">ListManagedFoldersResponse</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
     - uid: cloud.google.com/go/storage/control/apiv2/controlpb.UnimplementedStorageControlServer.RenameFolder
       name: |
         func (*UnimplementedStorageControlServer) RenameFolder
@@ -1910,7 +2751,7 @@ items:
       langs:
         - go
       syntax:
-        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_UnimplementedStorageControlServer">UnimplementedStorageControlServer</a>) RenameFolder(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest">RenameFolderRequest</a>) (*<a href="https://pkg.go.dev/cloud.google.com/go/longrunning/autogen/longrunningpb">longrunningpb</a>.<a href="https://pkg.go.dev/cloud.google.com/go/longrunning/autogen/longrunningpb#Operation">Operation</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
+        content: func (*<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_UnimplementedStorageControlServer">UnimplementedStorageControlServer</a>) RenameFolder(<a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, *<a href="#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest">RenameFolderRequest</a>) (*<a href="/go/docs/reference/cloud.google.com/go/longrunning/latest/autogen/longrunningpb">longrunningpb</a>.<a href="/go/docs/reference/cloud.google.com/go/longrunning/latest/autogen/longrunningpb#cloud_google_com_go_longrunning_autogen_longrunningpb_Operation">Operation</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
     - uid: cloud.google.com/go/storage/control/apiv2/controlpb.RegisterStorageControlServer
       name: |
         func RegisterStorageControlServer

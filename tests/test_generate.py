@@ -37,25 +37,25 @@ _UUID = str(datetime.datetime.now(tz=datetime.timezone.utc).timestamp()).replace
 )
 
 # Prefixes to check to delete test blobs if found.
-_HTML_BLOB_PREFIX = "go-cloud.google.com/go/storage-v1.40.0"
+_HTML_BLOB_PREFIX = "go-cloud.google.com/go/storage-v1.51.0"
 _TEST_BLOB_PREFIXES = (
-    "docfx-go-cloud.google.com/go/storage-v1.41.0",
-    "go-cloud.google.com/go/storage-v1.41.0",
-    "docfx-go-cloud.google.com/go/storage-v1.40.1",
-    "go-cloud.google.com/go/storage-v1.40.1",
-    "docfx-go-cloud.google.com/go/storage-v1.40.0",
-    "go-cloud.google.com/go/storage-v1.40.0",
+    "docfx-go-cloud.google.com/go/storage-v1.52.0",
+    "go-cloud.google.com/go/storage-v1.52.0",
+    "docfx-go-cloud.google.com/go/storage-v1.51.1",
+    "go-cloud.google.com/go/storage-v1.51.1",
+    "docfx-go-cloud.google.com/go/storage-v1.51.0",
+    "go-cloud.google.com/go/storage-v1.51.0",
     f"{generate.XREFS_DIR_NAME}/{_HTML_BLOB_PREFIX}",
 )
 
 # Blob names with UUID for testing.
-_UNIQUE_YAML_BLOB_NAME = f"docfx-go-cloud.google.com/go/storage-v1.40.0+{_UUID}.tar.gz"
-_UNIQUE_HTML_BLOB_NAME = f"go-cloud.google.com/go/storage-v1.40.0+{_UUID}.tar.gz"
+_UNIQUE_YAML_BLOB_NAME = f"docfx-go-cloud.google.com/go/storage-v1.51.0+{_UUID}.tar.gz"
+_UNIQUE_HTML_BLOB_NAME = f"go-cloud.google.com/go/storage-v1.51.0+{_UUID}.tar.gz"
 _UNIQUE_BLOBS_WITH_UUID = (
-    f"docfx-go-cloud.google.com/go/storage-v1.41.0+{_UUID}.tar.gz",
-    f"go-cloud.google.com/go/storage-v1.41.0+{_UUID}.tar.gz",
-    f"docfx-go-cloud.google.com/go/storage-v1.40.1+{_UUID}.tar.gz",
-    f"go-cloud.google.com/go/storage-v1.40.1+{_UUID}.tar.gz",
+    f"docfx-go-cloud.google.com/go/storage-v1.52.0+{_UUID}.tar.gz",
+    f"go-cloud.google.com/go/storage-v1.52.0+{_UUID}.tar.gz",
+    f"docfx-go-cloud.google.com/go/storage-v1.51.1+{_UUID}.tar.gz",
+    f"go-cloud.google.com/go/storage-v1.51.1+{_UUID}.tar.gz",
     _UNIQUE_YAML_BLOB_NAME,
     _UNIQUE_HTML_BLOB_NAME,
     f"{generate.XREFS_DIR_NAME}/{_UNIQUE_HTML_BLOB_NAME}.yml",
@@ -362,7 +362,7 @@ def test_generate(yaml_dir, tmpdir):
 
     # Upload new blob, build only latest, and verify only latest is updated.
     new_metadata = "docs.metadata.newer"
-    latest_html_blob_name = f"go-cloud.google.com/go/storage-v1.40.1+{_UUID}.tar.gz"
+    latest_html_blob_name = f"go-cloud.google.com/go/storage-v1.51.1+{_UUID}.tar.gz"
 
     # Swap to newer metadata to upload newer version of tarball.
     swap_file(yaml_dir, yaml_dir / "docs.metadata", yaml_dir / new_metadata)

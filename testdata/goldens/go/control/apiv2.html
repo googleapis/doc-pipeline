@@ -8,27 +8,19 @@
     {% verbatim %}
     <div>
       <article data-uid="cloud.google.com/go/storage/control/apiv2">
-<h1 class="page-title">Cloud Storage API v2 - Package cloud.google.com/go/storage/control/apiv2 (v1.40.0)</h1>
+<h1 class="page-title">Storage Control API v2 - Package cloud.google.com/go/storage/control/apiv2 (v1.51.0)</h1>
   
-  <aside class="beta">
-    <p><strong>Beta</strong></p>
-    <p>
-    This library is covered by the <a href="/terms/service-terms#1">Pre-GA Offerings Terms</a>
-    of the  Terms of Service. Pre-GA libraries might have limited support,
-    and changes to pre-GA libraries might not be compatible with other pre-GA versions.
-    For more information, see the
-    <a href="/products/#product-launch-stages">launch stage descriptions</a>.
-    </p>
-  </aside>
   <aside class="note">
     <strong>Note:</strong> To get more information about this package, such as access to older versions, view <a href="https://pkg.go.dev/cloud.google.com/go/storage/control/apiv2" class="external">this package on pkg.go.dev</a>.
   </aside>
   <div class="markdown level0 summary"><p><p>Package control is an auto-generated package for the
-Cloud Storage API.
-<p>Lets you store and retrieve potentially-large, immutable data objects.</p>
-<pre class="prettyprint">NOTE: This package is in beta. It is not stable, and may be subject to changes.
-</pre>
-<p><h2 id="hdr-General_documentation">General documentation</h2>
+Storage Control API.
+<p>The Storage Control API lets you perform metadata-specific, control plane,
+and long-running operations. The Storage Control API creates one space to
+perform metadata-specific, control plane, and long-running operations
+apart from the Storage API. Separating these operations from the Storage
+API improves API standardization and lets you run faster releases.
+<h2 id="hdr-General_documentation">General documentation</h2>
 <p>For information that is relevant for all client libraries please reference
 <a href="https://pkg.go.dev/cloud.google.com/go#pkg-overview">https://pkg.go.dev/cloud.google.com/go#pkg-overview</a>. Some information on this
 page includes:
@@ -41,7 +33,8 @@ page includes:
 </li></li></li></li></li></ul>
 <h2 id="hdr-Example_usage">Example usage</h2>
 <p>To get started with this package, create a client.</p>
-<pre class="prettyprint">ctx := context.Background()
+<pre class="prettyprint">// go get cloud.google.com/go/storage/control/apiv2@latest
+ctx := context.Background()
 // This snippet has been automatically generated and should be regarded as a code template only.
 // It will require modifications to work:
 // - It may require correct/in-range values for request initialization.
@@ -57,20 +50,8 @@ defer c.Close()
 The methods of Client are safe for concurrent use by multiple goroutines.
 The returned client must be Closed when it is done being used.
 <h2 id="hdr-Using_the_Client">Using the Client</h2>
-<p>The following is an example of making an API call with the newly created client.</p>
-<pre class="prettyprint">ctx := context.Background()
-// This snippet has been automatically generated and should be regarded as a code template only.
-// It will require modifications to work:
-// - It may require correct/in-range values for request initialization.
-// - It may require specifying regional endpoints when creating the service client as shown in:
-//   https://pkg.go.dev/cloud.google.com/go#hdr-Client_Options
-c, err := control.NewStorageControlClient(ctx)
-if err != nil {
-    // TODO: Handle error.
-}
-defer c.Close()
-
-req := &amp;controlpb.CreateFolderRequest{
+<p>The following is an example of making an API call with the newly created client, mentioned above.</p>
+<pre class="prettyprint">req := &amp;controlpb.CreateFolderRequest{
     // TODO: Fill request struct fields.
     // See https://pkg.go.dev/cloud.google.com/go/storage/control/apiv2/controlpb#CreateFolderRequest.
 }
@@ -124,7 +105,16 @@ Individual methods on the client use the ctx given to them.
 </div>
         <div class="markdown level1 conceptual"></div>
         
-            <h3 id="cloud_google_com_go_storage_control_apiv2_FolderIterator_Next" data-uid="cloud.google.com/go/storage/control/apiv2.FolderIterator.Next" class="notranslate">func (*FolderIterator) Next
+            <h3 id="cloud_google_com_go_storage_control_apiv2_FolderIterator_All" data-uid="cloud.google.com/go/storage/control/apiv2.FolderIterator.All" class="notranslate">func (*FolderIterator) All
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (it *<a href="#cloud_google_com_go_storage_control_apiv2_FolderIterator">FolderIterator</a>) All() iter.Seq2[*controlpb.Folder, error]</code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>All returns an iterator. If an error is returned by the iterator, the
+iterator will stop after that iteration.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_control_apiv2_FolderIterator_Next" data-uid="cloud.google.com/go/storage/control/apiv2.FolderIterator.Next" class="notranslate">func (*FolderIterator) Next
 </h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (it *<a href="#cloud_google_com_go_storage_control_apiv2_FolderIterator">FolderIterator</a>) Next() (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
@@ -136,9 +126,58 @@ results. Once Next returns Done, all subsequent calls will return Done.</p>
                       <h3 id="cloud_google_com_go_storage_control_apiv2_FolderIterator_PageInfo" data-uid="cloud.google.com/go/storage/control/apiv2.FolderIterator.PageInfo" class="notranslate">func (*FolderIterator) PageInfo
 </h3>
             <div class="codewrapper">
-              <pre class="prettyprint"><code>func (it *<a href="#cloud_google_com_go_storage_control_apiv2_FolderIterator">FolderIterator</a>) PageInfo() *<a href="https://pkg.go.dev/google.golang.org/api/iterator">iterator</a>.<a href="https://pkg.go.dev/google.golang.org/api/iterator#PageInfo">PageInfo</a></code></pre>
+              <pre class="prettyprint"><code>func (it *<a href="#cloud_google_com_go_storage_control_apiv2_FolderIterator">FolderIterator</a>) PageInfo() *<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2/iterator">iterator</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2/iterator#PageInfo">PageInfo</a></code></pre>
             </div>
-            <div class="markdown level1 summary"><p>PageInfo supports pagination. See the google.golang.org/api/iterator package for details.</p>
+            <div class="markdown level1 summary"><p>PageInfo supports pagination. See the [google.golang.org/api/iterator] package for details.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                  <h2 id="cloud_google_com_go_storage_control_apiv2_ManagedFolderIterator" data-uid="cloud.google.com/go/storage/control/apiv2.ManagedFolderIterator" class="notranslate">ManagedFolderIterator</h2>
+        <div class="codewrapper">
+          <pre class="prettyprint"><code>type ManagedFolderIterator struct {
+
+	// Response is the raw response for the current page.
+	// It must be cast to the RPC response type.
+	// Calling Next() or InternalFetch() updates this value.
+	Response interface{}
+
+	// InternalFetch is for use by the Google Cloud Libraries only.
+	// It is not part of the stable interface of this package.
+	//
+	// InternalFetch returns results from a single call to the underlying RPC.
+	// The number of results is no greater than pageSize.
+	// If there are no more results, nextPageToken is empty and err is nil.
+	InternalFetch func(pageSize <a href="https://pkg.go.dev/builtin#int">int</a>, pageToken <a href="https://pkg.go.dev/builtin#string">string</a>) (results []*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>, nextPageToken <a href="https://pkg.go.dev/builtin#string">string</a>, err <a href="https://pkg.go.dev/builtin#error">error</a>)
+	// contains filtered or unexported fields
+}</code></pre>
+        </div>
+        <div class="markdown level1 summary"><p>ManagedFolderIterator manages a stream of *controlpb.ManagedFolder.</p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+            <h3 id="cloud_google_com_go_storage_control_apiv2_ManagedFolderIterator_All" data-uid="cloud.google.com/go/storage/control/apiv2.ManagedFolderIterator.All" class="notranslate">func (*ManagedFolderIterator) All
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (it *<a href="#cloud_google_com_go_storage_control_apiv2_ManagedFolderIterator">ManagedFolderIterator</a>) All() iter.Seq2[*controlpb.ManagedFolder, error]</code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>All returns an iterator. If an error is returned by the iterator, the
+iterator will stop after that iteration.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_control_apiv2_ManagedFolderIterator_Next" data-uid="cloud.google.com/go/storage/control/apiv2.ManagedFolderIterator.Next" class="notranslate">func (*ManagedFolderIterator) Next
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (it *<a href="#cloud_google_com_go_storage_control_apiv2_ManagedFolderIterator">ManagedFolderIterator</a>) Next() (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>Next returns the next result. Its second return value is iterator.Done if there are no more
+results. Once Next returns Done, all subsequent calls will return Done.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_control_apiv2_ManagedFolderIterator_PageInfo" data-uid="cloud.google.com/go/storage/control/apiv2.ManagedFolderIterator.PageInfo" class="notranslate">func (*ManagedFolderIterator) PageInfo
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (it *<a href="#cloud_google_com_go_storage_control_apiv2_ManagedFolderIterator">ManagedFolderIterator</a>) PageInfo() *<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2/iterator">iterator</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2/iterator#PageInfo">PageInfo</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>PageInfo supports pagination. See the [google.golang.org/api/iterator] package for details.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
                   <h2 id="cloud_google_com_go_storage_control_apiv2_RenameFolderOperation" data-uid="cloud.google.com/go/storage/control/apiv2.RenameFolderOperation" class="notranslate">RenameFolderOperation</h2>
@@ -205,12 +244,16 @@ If Poll succeeds and the operation has not completed, the returned response and 
                   <h2 id="cloud_google_com_go_storage_control_apiv2_StorageControlCallOptions" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlCallOptions" class="notranslate">StorageControlCallOptions</h2>
         <div class="codewrapper">
           <pre class="prettyprint"><code>type StorageControlCallOptions struct {
-	CreateFolder     []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
-	DeleteFolder     []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
-	GetFolder        []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
-	ListFolders      []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
-	RenameFolder     []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
-	GetStorageLayout []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
+	CreateFolder        []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
+	DeleteFolder        []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
+	GetFolder           []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
+	ListFolders         []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
+	RenameFolder        []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
+	GetStorageLayout    []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
+	CreateManagedFolder []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
+	DeleteManagedFolder []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
+	GetManagedFolder    []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
+	ListManagedFolders  []<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>
 }</code></pre>
         </div>
         <div class="markdown level1 summary"><p>StorageControlCallOptions contains the retry settings for each method of StorageControlClient.</p>
@@ -227,11 +270,11 @@ If Poll succeeds and the operation has not completed, the returned response and 
 	// LROClient is used internally to handle long-running operations.
 	// It is exposed so that its CallOptions can be modified if required.
 	// Users should not Close this client.
-	LROClient *<a href="https://pkg.go.dev/cloud.google.com/go/longrunning/autogen">lroauto</a>.<a href="https://pkg.go.dev/cloud.google.com/go/longrunning/autogen#OperationsClient">OperationsClient</a>
+	LROClient *<a href="/go/docs/reference/cloud.google.com/go/longrunning/latest/autogen">lroauto</a>.<a href="/go/docs/reference/cloud.google.com/go/longrunning/latest/autogen#cloud_google_com_go_longrunning_autogen_OperationsClient">OperationsClient</a>
 	// contains filtered or unexported fields
 }</code></pre>
         </div>
-        <div class="markdown level1 summary"><p>StorageControlClient is a client for interacting with Cloud Storage API.
+        <div class="markdown level1 summary"><p>StorageControlClient is a client for interacting with Storage Control API.
 Methods, except Close, may be called concurrently. However, fields must not be modified concurrently with method calls.</p>
 <p>StorageControl service includes selected control plane operations.</p>
 </div>
@@ -299,7 +342,8 @@ return the same resource.</p>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) CreateFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_CreateFolderRequest">CreateFolderRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
             </div>
-            <div class="markdown level1 summary"><p>CreateFolder creates a new folder.</p>
+            <div class="markdown level1 summary"><p>CreateFolder creates a new folder. This operation is only applicable to a hierarchical
+namespace enabled bucket.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
               <h4>Example</h4>
@@ -339,12 +383,58 @@ func main() {
 }
 </code></pre>
   </div>
+            <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_CreateManagedFolder" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.CreateManagedFolder" class="notranslate">func (*StorageControlClient) CreateManagedFolder
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) CreateManagedFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_CreateManagedFolderRequest">CreateManagedFolderRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>CreateManagedFolder creates a new managed folder.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+              <h4>Example</h4>
+  <div class="codewrapper">
+  <pre class="prettyprint"><code>package main
+
+import (
+	&quot;context&quot;
+
+	control &quot;cloud.google.com/go/storage/control/apiv2&quot;
+	controlpb &quot;cloud.google.com/go/storage/control/apiv2/controlpb&quot;
+)
+
+func main() {
+	ctx := context.Background()
+	// This snippet has been automatically generated and should be regarded as a code template only.
+	// It will require modifications to work:
+	// - It may require correct/in-range values for request initialization.
+	// - It may require specifying regional endpoints when creating the service client as shown in:
+	//   https://pkg.go.dev/cloud.google.com/go#hdr-Client_Options
+	c, err := control.NewStorageControlClient(ctx)
+	if err != nil {
+		// TODO: Handle error.
+	}
+	defer c.Close()
+
+	req := &amp;controlpb.CreateManagedFolderRequest{
+		// TODO: Fill request struct fields.
+		// See https://pkg.go.dev/cloud.google.com/go/storage/control/apiv2/controlpb#CreateManagedFolderRequest.
+	}
+	resp, err := c.CreateManagedFolder(ctx, req)
+	if err != nil {
+		// TODO: Handle error.
+	}
+	// TODO: Use resp.
+	_ = resp
+}
+</code></pre>
+  </div>
             <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_DeleteFolder" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.DeleteFolder" class="notranslate">func (*StorageControlClient) DeleteFolder
 </h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) DeleteFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteFolderRequest">DeleteFolderRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code></pre>
             </div>
-            <div class="markdown level1 summary"><p>DeleteFolder permanently deletes an empty folder.</p>
+            <div class="markdown level1 summary"><p>DeleteFolder permanently deletes an empty folder. This operation is only applicable to a
+hierarchical namespace enabled bucket.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
               <h4>Example</h4>
@@ -382,12 +472,56 @@ func main() {
 }
 </code></pre>
   </div>
+            <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_DeleteManagedFolder" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.DeleteManagedFolder" class="notranslate">func (*StorageControlClient) DeleteManagedFolder
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) DeleteManagedFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_DeleteManagedFolderRequest">DeleteManagedFolderRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>DeleteManagedFolder permanently deletes an empty managed folder.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+              <h4>Example</h4>
+  <div class="codewrapper">
+  <pre class="prettyprint"><code>package main
+
+import (
+	&quot;context&quot;
+
+	control &quot;cloud.google.com/go/storage/control/apiv2&quot;
+	controlpb &quot;cloud.google.com/go/storage/control/apiv2/controlpb&quot;
+)
+
+func main() {
+	ctx := context.Background()
+	// This snippet has been automatically generated and should be regarded as a code template only.
+	// It will require modifications to work:
+	// - It may require correct/in-range values for request initialization.
+	// - It may require specifying regional endpoints when creating the service client as shown in:
+	//   https://pkg.go.dev/cloud.google.com/go#hdr-Client_Options
+	c, err := control.NewStorageControlClient(ctx)
+	if err != nil {
+		// TODO: Handle error.
+	}
+	defer c.Close()
+
+	req := &amp;controlpb.DeleteManagedFolderRequest{
+		// TODO: Fill request struct fields.
+		// See https://pkg.go.dev/cloud.google.com/go/storage/control/apiv2/controlpb#DeleteManagedFolderRequest.
+	}
+	err = c.DeleteManagedFolder(ctx, req)
+	if err != nil {
+		// TODO: Handle error.
+	}
+}
+</code></pre>
+  </div>
             <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_GetFolder" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.GetFolder" class="notranslate">func (*StorageControlClient) GetFolder
 </h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) GetFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_GetFolderRequest">GetFolderRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_Folder">Folder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
             </div>
-            <div class="markdown level1 summary"><p>GetFolder returns metadata for the specified folder.</p>
+            <div class="markdown level1 summary"><p>GetFolder returns metadata for the specified folder. This operation is only
+applicable to a hierarchical namespace enabled bucket.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
               <h4>Example</h4>
@@ -419,6 +553,51 @@ func main() {
 		// See https://pkg.go.dev/cloud.google.com/go/storage/control/apiv2/controlpb#GetFolderRequest.
 	}
 	resp, err := c.GetFolder(ctx, req)
+	if err != nil {
+		// TODO: Handle error.
+	}
+	// TODO: Use resp.
+	_ = resp
+}
+</code></pre>
+  </div>
+            <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_GetManagedFolder" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.GetManagedFolder" class="notranslate">func (*StorageControlClient) GetManagedFolder
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) GetManagedFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_GetManagedFolderRequest">GetManagedFolderRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) (*<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_ManagedFolder">ManagedFolder</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>GetManagedFolder returns metadata for the specified managed folder.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+              <h4>Example</h4>
+  <div class="codewrapper">
+  <pre class="prettyprint"><code>package main
+
+import (
+	&quot;context&quot;
+
+	control &quot;cloud.google.com/go/storage/control/apiv2&quot;
+	controlpb &quot;cloud.google.com/go/storage/control/apiv2/controlpb&quot;
+)
+
+func main() {
+	ctx := context.Background()
+	// This snippet has been automatically generated and should be regarded as a code template only.
+	// It will require modifications to work:
+	// - It may require correct/in-range values for request initialization.
+	// - It may require specifying regional endpoints when creating the service client as shown in:
+	//   https://pkg.go.dev/cloud.google.com/go#hdr-Client_Options
+	c, err := control.NewStorageControlClient(ctx)
+	if err != nil {
+		// TODO: Handle error.
+	}
+	defer c.Close()
+
+	req := &amp;controlpb.GetManagedFolderRequest{
+		// TODO: Fill request struct fields.
+		// See https://pkg.go.dev/cloud.google.com/go/storage/control/apiv2/controlpb#GetManagedFolderRequest.
+	}
+	resp, err := c.GetManagedFolder(ctx, req)
 	if err != nil {
 		// TODO: Handle error.
 	}
@@ -477,10 +656,11 @@ func main() {
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) ListFolders(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_ListFoldersRequest">ListFoldersRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) *<a href="#cloud_google_com_go_storage_control_apiv2_FolderIterator">FolderIterator</a></code></pre>
             </div>
-            <div class="markdown level1 summary"><p>ListFolders retrieves a list of folders for a given bucket.</p>
+            <div class="markdown level1 summary"><p>ListFolders retrieves a list of folders. This operation is only applicable to a
+hierarchical namespace enabled bucket.</p>
 </div>
             <div class="markdown level1 conceptual"></div>
-              <h4>Example</h4>
+              <h4>Examples</h4>
   <div class="codewrapper">
   <pre class="prettyprint"><code>package main
 
@@ -530,12 +710,147 @@ func main() {
 }
 </code></pre>
   </div>
+    <h5 class="notranslate">all</h5>
+  <div class="codewrapper">
+  <pre class="prettyprint"><code>package main
+
+import (
+	&quot;context&quot;
+
+	control &quot;cloud.google.com/go/storage/control/apiv2&quot;
+	controlpb &quot;cloud.google.com/go/storage/control/apiv2/controlpb&quot;
+)
+
+func main() {
+	ctx := context.Background()
+	// This snippet has been automatically generated and should be regarded as a code template only.
+	// It will require modifications to work:
+	// - It may require correct/in-range values for request initialization.
+	// - It may require specifying regional endpoints when creating the service client as shown in:
+	//   https://pkg.go.dev/cloud.google.com/go#hdr-Client_Options
+	c, err := control.NewStorageControlClient(ctx)
+	if err != nil {
+		// TODO: Handle error.
+	}
+	defer c.Close()
+
+	req := &amp;controlpb.ListFoldersRequest{
+		// TODO: Fill request struct fields.
+		// See https://pkg.go.dev/cloud.google.com/go/storage/control/apiv2/controlpb#ListFoldersRequest.
+	}
+	for resp, err := range c.ListFolders(ctx, req).All() {
+		if err != nil {
+			// TODO: Handle error and break/return/continue. Iteration will stop after any error.
+		}
+		// TODO: Use resp.
+		_ = resp
+	}
+}
+</code></pre>
+  </div>
+            <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_ListManagedFolders" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.ListManagedFolders" class="notranslate">func (*StorageControlClient) ListManagedFolders
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) ListManagedFolders(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_ListManagedFoldersRequest">ListManagedFoldersRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) *<a href="#cloud_google_com_go_storage_control_apiv2_ManagedFolderIterator">ManagedFolderIterator</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>ListManagedFolders retrieves a list of managed folders for a given bucket.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+              <h4>Examples</h4>
+  <div class="codewrapper">
+  <pre class="prettyprint"><code>package main
+
+import (
+	&quot;context&quot;
+
+	control &quot;cloud.google.com/go/storage/control/apiv2&quot;
+	controlpb &quot;cloud.google.com/go/storage/control/apiv2/controlpb&quot;
+	&quot;google.golang.org/api/iterator&quot;
+)
+
+func main() {
+	ctx := context.Background()
+	// This snippet has been automatically generated and should be regarded as a code template only.
+	// It will require modifications to work:
+	// - It may require correct/in-range values for request initialization.
+	// - It may require specifying regional endpoints when creating the service client as shown in:
+	//   https://pkg.go.dev/cloud.google.com/go#hdr-Client_Options
+	c, err := control.NewStorageControlClient(ctx)
+	if err != nil {
+		// TODO: Handle error.
+	}
+	defer c.Close()
+
+	req := &amp;controlpb.ListManagedFoldersRequest{
+		// TODO: Fill request struct fields.
+		// See https://pkg.go.dev/cloud.google.com/go/storage/control/apiv2/controlpb#ListManagedFoldersRequest.
+	}
+	it := c.ListManagedFolders(ctx, req)
+	for {
+		resp, err := it.Next()
+		if err == iterator.Done {
+			break
+		}
+		if err != nil {
+			// TODO: Handle error.
+		}
+		// TODO: Use resp.
+		_ = resp
+
+		// If you need to access the underlying RPC response,
+		// you can do so by casting the `Response` as below.
+		// Otherwise, remove this line. Only populated after
+		// first call to Next(). Not safe for concurrent access.
+		_ = it.Response.(*controlpb.ListManagedFoldersResponse)
+	}
+}
+</code></pre>
+  </div>
+    <h5 class="notranslate">all</h5>
+  <div class="codewrapper">
+  <pre class="prettyprint"><code>package main
+
+import (
+	&quot;context&quot;
+
+	control &quot;cloud.google.com/go/storage/control/apiv2&quot;
+	controlpb &quot;cloud.google.com/go/storage/control/apiv2/controlpb&quot;
+)
+
+func main() {
+	ctx := context.Background()
+	// This snippet has been automatically generated and should be regarded as a code template only.
+	// It will require modifications to work:
+	// - It may require correct/in-range values for request initialization.
+	// - It may require specifying regional endpoints when creating the service client as shown in:
+	//   https://pkg.go.dev/cloud.google.com/go#hdr-Client_Options
+	c, err := control.NewStorageControlClient(ctx)
+	if err != nil {
+		// TODO: Handle error.
+	}
+	defer c.Close()
+
+	req := &amp;controlpb.ListManagedFoldersRequest{
+		// TODO: Fill request struct fields.
+		// See https://pkg.go.dev/cloud.google.com/go/storage/control/apiv2/controlpb#ListManagedFoldersRequest.
+	}
+	for resp, err := range c.ListManagedFolders(ctx, req).All() {
+		if err != nil {
+			// TODO: Handle error and break/return/continue. Iteration will stop after any error.
+		}
+		// TODO: Use resp.
+		_ = resp
+	}
+}
+</code></pre>
+  </div>
             <h3 id="cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolder" data-uid="cloud.google.com/go/storage/control/apiv2.StorageControlClient.RenameFolder" class="notranslate">func (*StorageControlClient) RenameFolder
 </h3>
             <div class="codewrapper">
               <pre class="prettyprint"><code>func (c *<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient">StorageControlClient</a>) RenameFolder(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, req *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb">controlpb</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb#cloud_google_com_go_storage_control_apiv2_controlpb_RenameFolderRequest">RenameFolderRequest</a>, opts ...<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2">gax</a>.<a href="https://pkg.go.dev/github.com/googleapis/gax-go/v2#CallOption">CallOption</a>) (*<a href="#cloud_google_com_go_storage_control_apiv2_StorageControlClient_RenameFolderOperation">RenameFolderOperation</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
             </div>
-            <div class="markdown level1 summary"><p>RenameFolder renames a source folder to a destination folder. During a rename, the
+            <div class="markdown level1 summary"><p>RenameFolder renames a source folder to a destination folder. This operation is only
+applicable to a hierarchical namespace enabled bucket. During a rename, the
 source and destination folders are locked until the long running operation
 completes.</p>
 </div>

@@ -279,13 +279,13 @@ items:
         // Use client as usual with the context and the additional headers will be sent.
         client.Bucket(&quot;my-bucket&quot;).Attrs(ctx)
         </pre>
-        <h2 id="hdr-Experimental_gRPC_API">Experimental gRPC API</h2>
-        <p>This package includes support for the Cloud Storage gRPC API, which is currently
-        in preview. This implementation uses gRPC rather than the current JSON &amp; XML
-        APIs to make requests to Cloud Storage. Kindly contact the Google Cloud Storage gRPC
-        team at gcs-grpc-contact@google.com with a list of GCS buckets you would like to
-        allowlist to access this API. The Go Storage gRPC library is not yet generally
-        available, so it may be subject to breaking changes.
+        <h2 id="hdr-gRPC_API">gRPC API</h2>
+        <p>This package includes support for the Cloud Storage gRPC API. The
+        implementation uses gRPC rather than the Default
+        JSON &amp; XML APIs to make requests to Cloud Storage.
+        The Go Storage gRPC client is generally available.
+        The Notifications, Serivce Account HMAC
+        and GetServiceAccount RPCs are not supported through the gRPC client.
         <p>To create a client which will use gRPC, use the alternate constructor:
         <pre class="prettyprint">ctx := context.Background()
         client, err := storage.NewGRPCClient(ctx)
@@ -294,15 +294,41 @@ items:
         }
         // Use client as usual.
         </pre>
-        <p>If the application is running within GCP, users may get better performance by
-        enabling Google Direct Access (enabling requests to skip some proxy steps). To enable,
-        set the environment variable `GOOGLE_CLOUD_ENABLE_DIRECT_PATH_XDS=true` and add
-        the following side-effect imports to your application:
-        <pre class="prettyprint">import (
-        	_ &quot;google.golang.org/grpc/balancer/rls&quot;
-        	_ &quot;google.golang.org/grpc/xds/googledirectpath&quot;
-        )
-        </pre>
+        <p>Using the gRPC API inside GCP with a bucket in the same region can allow for
+        <a href="https://cloud.google.com/vpc-service-controls/docs/set-up-private-connectivity#direct-connectivity">Direct Connectivity</a> (enabling requests to skip some proxy steps and reducing
+        response latency). A warning is emmitted if gRPC is not used within GCP to
+        warn that Direct Connectivity could not be initialized. Direct Connectivity
+        is not required to access the gRPC API.
+        <p>Dependencies for the gRPC API may slightly increase the size of binaries for
+        applications depending on this package. If you are not using gRPC, you can use
+        the build tag `disable_grpc_modules` to opt out of these dependencies and
+        reduce the binary size.
+        <p>The gRPC client emits metrics by default and will export the
+        gRPC telemetry discussed in <a href="https://github.com/grpc/proposal/blob/master/A66-otel-stats.md">gRFC/66</a> and <a href="https://github.com/grpc/proposal/blob/master/A78-grpc-metrics-wrr-pf-xds.md">gRFC/78</a> to
+        <a href="https://cloud.google.com/monitoring/docs">Google Cloud Monitoring</a>. The metrics are accessible through Cloud Monitoring
+        API and you incur no additional cost for publishing the metrics. Google Cloud
+        Support can use this information to more quickly diagnose problems related to
+        GCS and gRPC.
+        Sending this data does not incur any billing charges, and requires minimal
+        CPU (a single RPC every minute) or memory (a few KiB to batch the
+        telemetry).
+        <p>To access the metrics you can view them through Cloud Monitoring
+        <a href="https://console.cloud.google.com/projectselector/monitoring/metrics-explorer">metric explorer</a> with the prefix `storage.googleapis.com/client`. Metrics are emitted
+        every minute.
+        <p>You can disable metrics using the following example when creating a new gRPC
+        client using <a href="#WithDisabledClientMetrics">WithDisabledClientMetrics</a>.
+        <p>The metrics exporter uses Cloud Monitoring API which determines
+        project ID and credentials doing the following:
+        <p>&#42; Project ID is determined using OTel Resource Detector for the environment
+        otherwise it falls back to the project provided by <a href="https://pkg.go.dev/golang.org/x/oauth2/google#FindDefaultCredentials">google.FindCredentials</a>.
+        <p>&#42; Credentials are determined using <a href="https://cloud.google.com/docs/authentication/application-default-credentials">Application Default Credentials</a>. The
+        principal must have `roles/monitoring.metricWriter` role granted. If not a
+        logged warning will be emitted. Subsequent are silenced to prevent noisy logs.
+        <h2 id="hdr-Storage_Control_API">Storage Control API</h2>
+        <p>Certain control plane and long-running operations for Cloud Storage (including Folder
+        and Managed Folder operations) are supported via the autogenerated Storage Control
+        client, which is available as a subpackage in this module. See package docs at
+        <a href="https://pkg.go.dev/cloud.google.com/go/storage/control/apiv2">cloud.google.com/go/storage/control/apiv2</a> or reference the <a href="https://cloud.google.com/storage/docs/reference/rpc/google.storage.control.v2">Storage Control API</a> docs.
       type: package
       langs:
         - go
@@ -332,6 +358,7 @@ items:
         - cloud.google.com/go/storage.BucketHandle.ACL
         - cloud.google.com/go/storage.BucketHandle.AddNotification
         - cloud.google.com/go/storage.BucketHandle.Attrs
+        - cloud.google.com/go/storage.BucketHandle.BucketName
         - cloud.google.com/go/storage.BucketHandle.Create
         - cloud.google.com/go/storage.BucketHandle.DefaultObjectACL
         - cloud.google.com/go/storage.BucketHandle.Delete
@@ -387,12 +414,19 @@ items:
         - cloud.google.com/go/storage.HMACKeysIterator.PageInfo
         - cloud.google.com/go/storage.HMACState
         - cloud.google.com/go/storage.Active,Inactive,Deleted
+        - cloud.google.com/go/storage.HierarchicalNamespace
         - cloud.google.com/go/storage.Lifecycle
         - cloud.google.com/go/storage.LifecycleAction
         - cloud.google.com/go/storage.LifecycleCondition
         - cloud.google.com/go/storage.LifecycleRule
         - cloud.google.com/go/storage.Liveness
         - cloud.google.com/go/storage.LiveAndArchived,Live,Archived
+        - cloud.google.com/go/storage.MoveObjectDestination
+        - cloud.google.com/go/storage.MultiRangeDownloader
+        - cloud.google.com/go/storage.MultiRangeDownloader.Add
+        - cloud.google.com/go/storage.MultiRangeDownloader.Close
+        - cloud.google.com/go/storage.MultiRangeDownloader.GetHandle
+        - cloud.google.com/go/storage.MultiRangeDownloader.Wait
         - cloud.google.com/go/storage.Notification
         - cloud.google.com/go/storage.ObjectAttrs
         - cloud.google.com/go/storage.ObjectAttrsToUpdate
@@ -406,13 +440,18 @@ items:
         - cloud.google.com/go/storage.ObjectHandle.Generation
         - cloud.google.com/go/storage.ObjectHandle.If
         - cloud.google.com/go/storage.ObjectHandle.Key
+        - cloud.google.com/go/storage.ObjectHandle.Move
+        - cloud.google.com/go/storage.ObjectHandle.NewMultiRangeDownloader
         - cloud.google.com/go/storage.ObjectHandle.NewRangeReader
         - cloud.google.com/go/storage.ObjectHandle.NewReader
         - cloud.google.com/go/storage.ObjectHandle.NewWriter
         - cloud.google.com/go/storage.ObjectHandle.ObjectName
         - cloud.google.com/go/storage.ObjectHandle.OverrideUnlockedRetention
         - cloud.google.com/go/storage.ObjectHandle.ReadCompressed
+        - cloud.google.com/go/storage.ObjectHandle.ReadHandle
+        - cloud.google.com/go/storage.ObjectHandle.Restore
         - cloud.google.com/go/storage.ObjectHandle.Retryer
+        - cloud.google.com/go/storage.ObjectHandle.SoftDeleted
         - cloud.google.com/go/storage.ObjectHandle.Update
         - cloud.google.com/go/storage.ObjectIterator
         - cloud.google.com/go/storage.ObjectIterator.Next
@@ -437,17 +476,21 @@ items:
         - cloud.google.com/go/storage.RPO
         - cloud.google.com/go/storage.RPOUnknown,RPODefault,RPOAsyncTurbo
         - cloud.google.com/go/storage.RPO.String
+        - cloud.google.com/go/storage.ReadHandle
         - cloud.google.com/go/storage.Reader
         - cloud.google.com/go/storage.Reader.CacheControl
         - cloud.google.com/go/storage.Reader.Close
         - cloud.google.com/go/storage.Reader.ContentEncoding
         - cloud.google.com/go/storage.Reader.ContentType
         - cloud.google.com/go/storage.Reader.LastModified
+        - cloud.google.com/go/storage.Reader.Metadata
         - cloud.google.com/go/storage.Reader.Read
+        - cloud.google.com/go/storage.Reader.ReadHandle
         - cloud.google.com/go/storage.Reader.Remain
         - cloud.google.com/go/storage.Reader.Size
         - cloud.google.com/go/storage.Reader.WriteTo
         - cloud.google.com/go/storage.ReaderObjectAttrs
+        - cloud.google.com/go/storage.RestoreOptions
         - cloud.google.com/go/storage.RetentionPolicy
         - cloud.google.com/go/storage.RetryOption
         - cloud.google.com/go/storage.RetryOption.WithBackoff
@@ -459,6 +502,7 @@ items:
         - cloud.google.com/go/storage.SignedURLOptions
         - cloud.google.com/go/storage.SigningScheme
         - cloud.google.com/go/storage.SigningSchemeDefault,SigningSchemeV2,SigningSchemeV4
+        - cloud.google.com/go/storage.SoftDeletePolicy
         - cloud.google.com/go/storage.URLStyle
         - cloud.google.com/go/storage.URLStyle.BucketBoundHostname
         - cloud.google.com/go/storage.URLStyle.PathStyle
@@ -468,9 +512,12 @@ items:
         - cloud.google.com/go/storage.Writer.Attrs
         - cloud.google.com/go/storage.Writer.Close
         - cloud.google.com/go/storage.Writer.CloseWithError
+        - cloud.google.com/go/storage.Writer.Flush
         - cloud.google.com/go/storage.Writer.Write
+        - cloud.google.com/go/storage.CheckDirectConnectivitySupported
         - cloud.google.com/go/storage.ShouldRetry
         - cloud.google.com/go/storage.SignedURL
+        - cloud.google.com/go/storage.WithDisabledClientMetrics
         - cloud.google.com/go/storage.WithJSONReads
         - cloud.google.com/go/storage.WithXMLReads
       alt_link: https://pkg.go.dev/cloud.google.com/go/storage
@@ -576,9 +623,11 @@ items:
       syntax:
         content: |-
             var (
-            	// ErrBucketNotExist indicates that the bucket does not exist.
+            	// ErrBucketNotExist indicates that the bucket does not exist. It should be
+            	// checked for using [errors.Is] instead of direct equality.
             	ErrBucketNotExist = <a href="https://pkg.go.dev/errors">errors</a>.<a href="https://pkg.go.dev/errors#New">New</a>("storage: bucket doesn't exist")
-            	// ErrObjectNotExist indicates that the object does not exist.
+            	// ErrObjectNotExist indicates that the object does not exist. It should be
+            	// checked for using [errors.Is] instead of direct equality.
             	ErrObjectNotExist = <a href="https://pkg.go.dev/errors">errors</a>.<a href="https://pkg.go.dev/errors#New">New</a>("storage: object doesn't exist")
             )
     - uid: cloud.google.com/go/storage.ACLEntity
@@ -801,6 +850,7 @@ items:
             	// TerminalStorageClass: The storage class that objects in the bucket
             	// eventually transition to if they are not read for a certain length of
             	// time. Valid values are NEARLINE and ARCHIVE.
+            	// To modify TerminalStorageClass, Enabled must be set to true.
             	TerminalStorageClass <a href="https://pkg.go.dev/builtin#string">string</a>
             	// TerminalStorageClassUpdateTime represents the time of the most recent
             	// update to "TerminalStorageClass".
@@ -891,6 +941,10 @@ items:
             	// This field is read-only.
             	Created <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Time">Time</a>
 
+            	// Updated is the time at which the bucket was last modified.
+            	// This field is read-only.
+            	Updated <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Time">Time</a>
+
             	// VersioningEnabled reports whether this bucket has versioning enabled.
             	VersioningEnabled <a href="https://pkg.go.dev/builtin#bool">bool</a>
 
@@ -959,6 +1013,20 @@ items:
             	// cannot be modified once the bucket is created.
             	// ObjectRetention cannot be configured or reported through the gRPC API.
             	ObjectRetentionMode <a href="https://pkg.go.dev/builtin#string">string</a>
+
+            	// SoftDeletePolicy contains the bucket's soft delete policy, which defines
+            	// the period of time that soft-deleted objects will be retained, and cannot
+            	// be permanently deleted. By default, new buckets will be created with a
+            	// 7 day retention duration. In order to fully disable soft delete, you need
+            	// to set a policy with a RetentionDuration of 0.
+            	SoftDeletePolicy *<a href="#cloud_google_com_go_storage_SoftDeletePolicy">SoftDeletePolicy</a>
+
+            	// HierarchicalNamespace contains the bucket's hierarchical namespace
+            	// configuration. Hierarchical namespace enabled buckets can contain
+            	// [cloud.google.com/go/storage/control/apiv2/controlpb.Folder] resources.
+            	// It cannot be modified after bucket creation time.
+            	// UniformBucketLevelAccess must also also be enabled on the bucket.
+            	HierarchicalNamespace *<a href="#cloud_google_com_go_storage_HierarchicalNamespace">HierarchicalNamespace</a>
             }
     - uid: cloud.google.com/go/storage.BucketAttrsToUpdate
       name: BucketAttrsToUpdate
@@ -1052,8 +1120,14 @@ items:
             	RPO <a href="#cloud_google_com_go_storage_RPO">RPO</a>
 
             	// If set, updates the autoclass configuration of the bucket.
+            	// To disable autoclass on the bucket, set to an empty &Autoclass{}.
+            	// To update the configuration for Autoclass.TerminalStorageClass,
+            	// Autoclass.Enabled must also be set to true.
             	// See https://cloud.google.com/storage/docs/using-autoclass for more information.
             	Autoclass *<a href="#cloud_google_com_go_storage_Autoclass">Autoclass</a>
+
+            	// If set, updates the soft delete policy of the bucket.
+            	SoftDeletePolicy *<a href="#cloud_google_com_go_storage_SoftDeletePolicy">SoftDeletePolicy</a>
             	// contains filtered or unexported fields
             }
     - uid: cloud.google.com/go/storage.BucketAttrsToUpdate.DeleteLabel
@@ -1145,6 +1219,7 @@ items:
 
             import (
             	"context"
+            	"errors"
             	"fmt"
 
             	"cloud.google.com/go/storage"
@@ -1158,7 +1233,7 @@ items:
             	}
 
             	attrs, err := client.Bucket("my-bucket").Attrs(ctx)
-            	if err == storage.ErrBucketNotExist {
+            	if errors.Is(err, storage.ErrBucketNotExist) {
             		fmt.Println("The bucket does not exist")
             		return
             	}
@@ -1190,6 +1265,7 @@ items:
         AddNotification adds a notification to b. You must set n's TopicProjectID, TopicID
         and PayloadFormat, and must not set its ID. The other fields are all optional. The
         returned Notification's ID can be used to refer to it.
+        Note: gRPC is not supported.
       parent: cloud.google.com/go/storage.BucketHandle
       type: method
       langs:
@@ -1259,6 +1335,18 @@ items:
             	}
             	fmt.Println(attrs)
             }
+    - uid: cloud.google.com/go/storage.BucketHandle.BucketName
+      name: |
+        func (*BucketHandle) BucketName
+      id: BucketName
+      summary: |
+        BucketName returns the name of the bucket.
+      parent: cloud.google.com/go/storage.BucketHandle
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (b *<a href="#cloud_google_com_go_storage_BucketHandle">BucketHandle</a>) BucketName() <a href="https://pkg.go.dev/builtin#string">string</a>
     - uid: cloud.google.com/go/storage.BucketHandle.Create
       name: |
         func (*BucketHandle) Create
@@ -1344,6 +1432,7 @@ items:
       id: DeleteNotification
       summary: |
         DeleteNotification deletes the notification with the given ID.
+        Note: gRPC is not supported.
       parent: cloud.google.com/go/storage.BucketHandle
       type: method
       langs:
@@ -1480,6 +1569,7 @@ items:
       summary: |
         Notifications returns all the Notifications configured for this bucket, as a map
         indexed by notification ID.
+        Note: gRPC is not supported.
       parent: cloud.google.com/go/storage.BucketHandle
       type: method
       langs:
@@ -1982,13 +2072,10 @@ items:
       summary: |
         NewGRPCClient creates a new Storage client using the gRPC transport and API.
         Client methods which have not been implemented in gRPC will return an error.
-        In particular, methods for Cloud Pub/Sub notifications are not supported.
+        In particular, methods for Cloud Pub/Sub notifications, Service Account HMAC
+        keys, and ServiceAccount are not supported.
         Using a non-default universe domain is also not supported with the Storage
         gRPC client.
-
-        The storage gRPC API is still in preview and not yet publicly available.
-        If you would like to use the API, please first contact your GCP account rep to
-        request access. The API may be subject to breaking changes.
 
         Clients should be reused instead of created as needed. The methods of Client
         are safe for concurrent use by multiple goroutines.
@@ -2076,6 +2163,7 @@ items:
       id: CreateHMACKey
       summary: |
         CreateHMACKey invokes an RPC for Google Cloud Storage to create a new HMACKey.
+        Note: gRPC is not supported.
       parent: cloud.google.com/go/storage.Client
       type: method
       langs:
@@ -2125,6 +2213,7 @@ items:
         ListHMACKeys returns an iterator for listing HMACKeys.
 
         Note: This iterator is not safe for concurrent operations without explicit synchronization.
+        Note: gRPC is not supported.
       parent: cloud.google.com/go/storage.Client
       type: method
       langs:
@@ -2227,6 +2316,7 @@ items:
       id: ServiceAccount
       summary: |
         ServiceAccount fetches the email address of the given project's Google Cloud Storage service account.
+        Note: gRPC is not supported.
       parent: cloud.google.com/go/storage.Client
       type: method
       langs:
@@ -2609,6 +2699,7 @@ items:
         Delete invokes an RPC to delete the key referenced by accessID, on Google Cloud Storage.
         Only inactive HMAC keys can be deleted.
         After deletion, a key cannot be used to authenticate requests.
+        Note: gRPC is not supported.
       parent: cloud.google.com/go/storage.HMACKeyHandle
       type: method
       langs:
@@ -2648,6 +2739,7 @@ items:
 
         Options such as UserProjectForHMACKeys can be used to set the
         userProject to be billed against for operations.
+        Note: gRPC is not supported.
       parent: cloud.google.com/go/storage.HMACKeyHandle
       type: method
       langs:
@@ -2684,6 +2776,7 @@ items:
       id: Update
       summary: |
         Update mutates the HMACKey referred to by accessID.
+        Note: gRPC is not supported.
       parent: cloud.google.com/go/storage.HMACKeyHandle
       type: method
       langs:
@@ -2854,6 +2947,24 @@ items:
             	// up later.
             	Deleted <a href="#cloud_google_com_go_storage_HMACState">HMACState</a> = "DELETED"
             )
+    - uid: cloud.google.com/go/storage.HierarchicalNamespace
+      name: HierarchicalNamespace
+      id: HierarchicalNamespace
+      summary: |
+        HierarchicalNamespace contains the bucket's hierarchical namespace
+        configuration. Hierarchical namespace enabled buckets can contain
+        [cloud.google.com/go/storage/control/apiv2/controlpb.Folder] resources.
+      parent: cloud.google.com/go/storage
+      type: type
+      langs:
+        - go
+      syntax:
+        content: |-
+            type HierarchicalNamespace struct {
+            	// Enabled indicates whether hierarchical namespace features are enabled on
+            	// the bucket. This can only be set at bucket creation time currently.
+            	Enabled <a href="https://pkg.go.dev/builtin#bool">bool</a>
+            }
     - uid: cloud.google.com/go/storage.Lifecycle
       name: Lifecycle
       id: Lifecycle
@@ -3019,6 +3130,117 @@ items:
             	// Archived specifies that the object is archived.
             	Archived
             )
+    - uid: cloud.google.com/go/storage.MoveObjectDestination
+      name: MoveObjectDestination
+      id: MoveObjectDestination
+      summary: |
+        MoveObjectDestination provides the destination object name and (optional) preconditions
+        for [ObjectHandle.Move].
+      parent: cloud.google.com/go/storage
+      type: type
+      langs:
+        - go
+      syntax:
+        content: |-
+            type MoveObjectDestination struct {
+            	Object     <a href="https://pkg.go.dev/builtin#string">string</a>
+            	Conditions *<a href="#cloud_google_com_go_storage_Conditions">Conditions</a>
+            }
+    - uid: cloud.google.com/go/storage.MultiRangeDownloader
+      name: MultiRangeDownloader
+      id: MultiRangeDownloader
+      summary: |
+        MultiRangeDownloader reads a Cloud Storage object.
+
+        Typically, a MultiRangeDownloader opens a stream to which we can add
+        different ranges to read from the object.
+
+        This API is currently in preview and is not yet available for general use.
+      parent: cloud.google.com/go/storage
+      type: type
+      langs:
+        - go
+      syntax:
+        content: |-
+            type MultiRangeDownloader struct {
+            	Attrs <a href="#cloud_google_com_go_storage_ReaderObjectAttrs">ReaderObjectAttrs</a>
+            	// contains filtered or unexported fields
+            }
+    - uid: cloud.google.com/go/storage.MultiRangeDownloader.Add
+      name: |
+        func (*MultiRangeDownloader) Add
+      id: Add
+      summary: |
+        Add adds a new range to MultiRangeDownloader.
+
+        The offset for the first byte to return in the read, relative to the start
+        of the object.
+
+        A negative offset value will be interpreted as the number of bytes from the
+        end of the object to be returned. Requesting a negative offset with magnitude
+        larger than the size of the object will return the entire object. An offset
+        larger than the size of the object will result in an OutOfRange error.
+
+        A limit of zero indicates that there is no limit, and a negative limit will
+        cause an error.
+
+        This will initiate the read range but is non-blocking; call callback to
+        process the result. Add is thread-safe and can be called simultaneously
+        from different goroutines.
+
+        Callback will be called with the offset, length of data read, and error
+        of the read. Note that the length of the data read may be less than the
+        requested length if the end of the object is reached.
+      parent: cloud.google.com/go/storage.MultiRangeDownloader
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (mrd *<a href="#cloud_google_com_go_storage_MultiRangeDownloader">MultiRangeDownloader</a>) Add(output <a href="https://pkg.go.dev/io">io</a>.<a href="https://pkg.go.dev/io#Writer">Writer</a>, offset, length <a href="https://pkg.go.dev/builtin#int64">int64</a>, callback func(<a href="https://pkg.go.dev/builtin#int64">int64</a>, <a href="https://pkg.go.dev/builtin#int64">int64</a>, <a href="https://pkg.go.dev/builtin#error">error</a>))
+    - uid: cloud.google.com/go/storage.MultiRangeDownloader.Close
+      name: |
+        func (*MultiRangeDownloader) Close
+      id: Close
+      summary: |
+        Close the MultiRangeDownloader. It must be called when done reading.
+        Adding new ranges after this has been called will cause an error.
+
+        This will immediately close the stream and can result in a
+        "stream closed early" error if a response for a range is still not processed.
+        Call [MultiRangeDownloader.Wait] to avoid this error.
+      parent: cloud.google.com/go/storage.MultiRangeDownloader
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (mrd *<a href="#cloud_google_com_go_storage_MultiRangeDownloader">MultiRangeDownloader</a>) Close() <a href="https://pkg.go.dev/builtin#error">error</a>
+    - uid: cloud.google.com/go/storage.MultiRangeDownloader.GetHandle
+      name: |
+        func (*MultiRangeDownloader) GetHandle
+      id: GetHandle
+      summary: |
+        GetHandle returns the read handle. This can be used to further speed up the
+        follow up read if the same object is read through a different stream.
+      parent: cloud.google.com/go/storage.MultiRangeDownloader
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (mrd *<a href="#cloud_google_com_go_storage_MultiRangeDownloader">MultiRangeDownloader</a>) GetHandle() []<a href="https://pkg.go.dev/builtin#byte">byte</a>
+    - uid: cloud.google.com/go/storage.MultiRangeDownloader.Wait
+      name: |
+        func (*MultiRangeDownloader) Wait
+      id: Wait
+      summary: |
+        Wait for all the responses to process on the stream.
+        Adding new ranges after this has been called will cause an error.
+        Wait will wait for all callbacks to finish.
+      parent: cloud.google.com/go/storage.MultiRangeDownloader
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (mrd *<a href="#cloud_google_com_go_storage_MultiRangeDownloader">MultiRangeDownloader</a>) Wait()
     - uid: cloud.google.com/go/storage.Notification
       name: Notification
       id: Notification
@@ -3177,6 +3399,10 @@ items:
             	// Created is the time the object was created. This field is read-only.
             	Created <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Time">Time</a>
 
+            	// Finalized is the time the object contents were finalized. This may differ
+            	// from Created for appendable objects. This field is read-only.
+            	Finalized <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Time">Time</a>
+
             	// Deleted is the time the object was deleted.
             	// If not deleted, it is the zero value. This field is read-only.
             	Deleted <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Time">Time</a>
@@ -3228,6 +3454,21 @@ items:
             	// Retention contains the retention configuration for this object.
             	// ObjectRetention cannot be configured or reported through the gRPC API.
             	Retention *<a href="#cloud_google_com_go_storage_ObjectRetention">ObjectRetention</a>
+
+            	// SoftDeleteTime is the time when the object became soft-deleted.
+            	// Soft-deleted objects are only accessible on an object handle returned by
+            	// ObjectHandle.SoftDeleted; if ObjectHandle.SoftDeleted has not been set,
+            	// ObjectHandle.Attrs will return ErrObjectNotExist if the object is soft-deleted.
+            	// This field is read-only.
+            	SoftDeleteTime <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Time">Time</a>
+
+            	// HardDeleteTime is the time when the object will be permanently deleted.
+            	// Only set when an object becomes soft-deleted with a soft delete policy.
+            	// Soft-deleted objects are only accessible on an object handle returned by
+            	// ObjectHandle.SoftDeleted; if ObjectHandle.SoftDeleted has not been set,
+            	// ObjectHandle.Attrs will return ErrObjectNotExist if the object is soft-deleted.
+            	// This field is read-only.
+            	HardDeleteTime <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Time">Time</a>
             }
     - uid: cloud.google.com/go/storage.ObjectAttrsToUpdate
       name: ObjectAttrsToUpdate
@@ -3298,6 +3539,7 @@ items:
 
             import (
             	"context"
+            	"errors"
             	"fmt"
 
             	"cloud.google.com/go/storage"
@@ -3311,7 +3553,7 @@ items:
             	}
 
             	attrs, err := client.Bucket("my-bucket").Object("my-object").Attrs(ctx)
-            	if err == storage.ErrObjectNotExist {
+            	if errors.Is(err, storage.ErrObjectNotExist) {
             		fmt.Println("The object does not exist")
             		return
             	}
@@ -3687,6 +3929,42 @@ items:
             		// TODO: handle error.
             	}
             }
+    - uid: cloud.google.com/go/storage.ObjectHandle.Move
+      name: |
+        func (*ObjectHandle) Move
+      id: Move
+      summary: |
+        Move changes the name of the object to the destination name.
+        It can only be used to rename an object within the same bucket. The
+        bucket must have [HierarchicalNamespace] enabled to use this method.
+
+        Any preconditions set on the ObjectHandle will be applied for the source
+        object. Set preconditions on the destination object using
+        [MoveObjectDestination.Conditions].
+
+        This API is in preview and is not yet publicly available.
+      parent: cloud.google.com/go/storage.ObjectHandle
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (o *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) Move(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, destination <a href="#cloud_google_com_go_storage_MoveObjectDestination">MoveObjectDestination</a>) (*<a href="#cloud_google_com_go_storage_ObjectAttrs">ObjectAttrs</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
+    - uid: cloud.google.com/go/storage.ObjectHandle.NewMultiRangeDownloader
+      name: |
+        func (*ObjectHandle) NewMultiRangeDownloader
+      id: NewMultiRangeDownloader
+      summary: |
+        NewMultiRangeDownloader creates a multi-range reader for an object.
+        Must be called on a gRPC client created using [NewGRPCClient].
+
+        This uses the gRPC-specific bi-directional read API, which is in private
+        preview; please contact your account manager if interested.
+      parent: cloud.google.com/go/storage.ObjectHandle
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (o *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) NewMultiRangeDownloader(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>) (mrd *<a href="#cloud_google_com_go_storage_MultiRangeDownloader">MultiRangeDownloader</a>, err <a href="https://pkg.go.dev/builtin#error">error</a>)
     - uid: cloud.google.com/go/storage.ObjectHandle.NewRangeReader
       name: |
         func (*ObjectHandle) NewRangeReader
@@ -3701,7 +3979,14 @@ items:
         If the object's metadata property "Content-Encoding" is set to "gzip" or satisfies
         decompressive transcoding per https://cloud.google.com/storage/docs/transcoding
         that file will be served back whole, regardless of the requested range as
-        Google Cloud Storage dictates.
+        Google Cloud Storage dictates. If decompressive transcoding occurs,
+        [Reader.Attrs.Decompressed] will be true.
+
+        By default, reads are made using the Cloud Storage XML API. We recommend
+        using the JSON API instead, which can be done by setting [WithJSONReads]
+        when calling [NewClient]. This ensures consistency with other client
+        operations, which all use JSON. JSON will become the default in a future
+        release.
       parent: cloud.google.com/go/storage.ObjectHandle
       type: method
       langs:
@@ -3811,6 +4096,12 @@ items:
         ErrObjectNotExist will be returned if the object is not found.
 
         The caller must call Close on the returned Reader when done reading.
+
+        By default, reads are made using the Cloud Storage XML API. We recommend
+        using the JSON API instead, which can be done by setting [WithJSONReads]
+        when calling [NewClient]. This ensures consistency with other client
+        operations, which all use JSON. JSON will become the default in a future
+        release.
       parent: cloud.google.com/go/storage.ObjectHandle
       type: method
       langs:
@@ -3922,6 +4213,36 @@ items:
         - go
       syntax:
         content: func (o *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) OverrideUnlockedRetention(override <a href="https://pkg.go.dev/builtin#bool">bool</a>) *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>
+      codeexamples:
+        - content: |
+            package main
+
+            import (
+            	"context"
+            	"time"
+
+            	"cloud.google.com/go/storage"
+            )
+
+            func main() {
+            	ctx := context.Background()
+            	client, err := storage.NewClient(ctx)
+            	if err != nil {
+            		// TODO: handle error.
+            	}
+            	// Overriding the retention policy is required to shorten the retention period
+            	// for an object.
+            	retainUntilDate := time.Now().Add(24 * time.Hour)
+            	uattrs := storage.ObjectAttrsToUpdate{
+            		Retention: &storage.ObjectRetention{
+            			Mode:        "Unlocked",
+            			RetainUntil: retainUntilDate,
+            		},
+            	}
+            	if _, err := client.Bucket("bucketname").Object("filename1").OverrideUnlockedRetention(true).Update(ctx, uattrs); err != nil {
+            		// TODO: handle error.
+            	}
+            }
     - uid: cloud.google.com/go/storage.ObjectHandle.ReadCompressed
       name: |
         func (*ObjectHandle) ReadCompressed
@@ -3934,6 +4255,40 @@ items:
         - go
       syntax:
         content: func (o *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) ReadCompressed(compressed <a href="https://pkg.go.dev/builtin#bool">bool</a>) *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>
+    - uid: cloud.google.com/go/storage.ObjectHandle.ReadHandle
+      name: |
+        func (*ObjectHandle) ReadHandle
+      id: ReadHandle
+      summary: |
+        ReadHandle returns a new ObjectHandle that uses the ReadHandle to open the objects.
+
+        Objects that have already been opened can be opened an additional time,
+        using a read handle returned in the response, at lower latency.
+        This produces the exact same object and generation and does not check if
+        the generation is still the newest one.
+        Note that this will be a noop unless it's set on a gRPC client on buckets with
+        bi-directional read API access.
+        Also note that you can get a ReadHandle only via calling reader.ReadHandle() on a
+        previous read of the same object.
+      parent: cloud.google.com/go/storage.ObjectHandle
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (o *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) ReadHandle(r <a href="#cloud_google_com_go_storage_Reader_ReadHandle">ReadHandle</a>) *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>
+    - uid: cloud.google.com/go/storage.ObjectHandle.Restore
+      name: |
+        func (*ObjectHandle) Restore
+      id: Restore
+      summary: |
+        Restore will restore a soft-deleted object to a live object.
+        Note that you must specify a generation to use this method.
+      parent: cloud.google.com/go/storage.ObjectHandle
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (o *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) Restore(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, opts *<a href="#cloud_google_com_go_storage_RestoreOptions">RestoreOptions</a>) (*<a href="#cloud_google_com_go_storage_ObjectAttrs">ObjectAttrs</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
     - uid: cloud.google.com/go/storage.ObjectHandle.Retryer
       name: |
         func (*ObjectHandle) Retryer
@@ -3952,6 +4307,21 @@ items:
         - go
       syntax:
         content: func (o *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) Retryer(opts ...<a href="#cloud_google_com_go_storage_RetryOption">RetryOption</a>) *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>
+    - uid: cloud.google.com/go/storage.ObjectHandle.SoftDeleted
+      name: |
+        func (*ObjectHandle) SoftDeleted
+      id: SoftDeleted
+      summary: |
+        SoftDeleted returns an object handle that can be used to get an object that
+        has been soft deleted. To get a soft deleted object, the generation must be
+        set on the object using ObjectHandle.Generation.
+        Note that an error will be returned if a live object is queried using this.
+      parent: cloud.google.com/go/storage.ObjectHandle
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (o *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>) SoftDeleted() *<a href="#cloud_google_com_go_storage_ObjectHandle">ObjectHandle</a>
     - uid: cloud.google.com/go/storage.ObjectHandle.Update
       name: |
         func (*ObjectHandle) Update
@@ -4563,8 +4933,12 @@ items:
 
             	// IncludeFoldersAsPrefixes includes Folders and Managed Folders in the set of
             	// prefixes returned by the query. Only applicable if Delimiter is set to /.
-            	// IncludeFoldersAsPrefixes is not yet implemented in the gRPC API.
             	IncludeFoldersAsPrefixes <a href="https://pkg.go.dev/builtin#bool">bool</a>
+
+            	// SoftDeleted indicates whether to list soft-deleted objects.
+            	// If true, only objects that have been soft-deleted will be listed.
+            	// By default, soft-deleted objects are not listed.
+            	SoftDeleted <a href="https://pkg.go.dev/builtin#bool">bool</a>
             	// contains filtered or unexported fields
             }
     - uid: cloud.google.com/go/storage.Query.SetAttrSelection
@@ -4632,6 +5006,17 @@ items:
         - go
       syntax:
         content: func (rpo <a href="#cloud_google_com_go_storage_RPO">RPO</a>) String() <a href="https://pkg.go.dev/builtin#string">string</a>
+    - uid: cloud.google.com/go/storage.ReadHandle
+      name: ReadHandle
+      id: ReadHandle
+      summary: |
+        ReadHandle associated with the object. This is periodically refreshed.
+      parent: cloud.google.com/go/storage
+      type: type
+      langs:
+        - go
+      syntax:
+        content: type ReadHandle []<a href="https://pkg.go.dev/builtin#byte">byte</a>
     - uid: cloud.google.com/go/storage.Reader
       name: Reader
       id: Reader
@@ -4724,6 +5109,23 @@ items:
       syntax:
         content: func (r *<a href="#cloud_google_com_go_storage_Reader">Reader</a>) LastModified() (<a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Time">Time</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
       status: deprecated
+    - uid: cloud.google.com/go/storage.Reader.Metadata
+      name: |
+        func (*Reader) Metadata
+      id: Metadata
+      summary: |
+        Metadata returns user-provided metadata, in key/value pairs.
+
+        It can be nil if no metadata is present, or if the client uses the JSON
+        API for downloads. Only the XML and gRPC APIs support getting
+        custom metadata via the Reader; for JSON make a separate call to
+        ObjectHandle.Attrs.
+      parent: cloud.google.com/go/storage.Reader
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (r *<a href="#cloud_google_com_go_storage_Reader">Reader</a>) Metadata() map[<a href="https://pkg.go.dev/builtin#string">string</a>]<a href="https://pkg.go.dev/builtin#string">string</a>
     - uid: cloud.google.com/go/storage.Reader.Read
       name: |
         func (*Reader) Read
@@ -4734,6 +5136,23 @@ items:
         - go
       syntax:
         content: func (r *<a href="#cloud_google_com_go_storage_Reader">Reader</a>) Read(p []<a href="https://pkg.go.dev/builtin#byte">byte</a>) (<a href="https://pkg.go.dev/builtin#int">int</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
+    - uid: cloud.google.com/go/storage.Reader.ReadHandle
+      name: |
+        func (*Reader) ReadHandle
+      id: ReadHandle
+      summary: |
+        ReadHandle returns the read handle associated with an object.
+        ReadHandle will be periodically refreshed.
+
+        ReadHandle requires the gRPC-specific bi-directional read API, which is in
+        private preview; please contact your account manager if interested.
+        Note that this only valid for gRPC and only with zonal buckets.
+      parent: cloud.google.com/go/storage.Reader
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (r *<a href="#cloud_google_com_go_storage_Reader">Reader</a>) ReadHandle() <a href="#cloud_google_com_go_storage_Reader_ReadHandle">ReadHandle</a>
     - uid: cloud.google.com/go/storage.Reader.Remain
       name: |
         func (*Reader) Remain
@@ -4822,6 +5241,37 @@ items:
             	// meaningful in the context of a particular generation of a
             	// particular object.
             	Metageneration <a href="https://pkg.go.dev/builtin#int64">int64</a>
+
+            	// CRC32C is the CRC32 checksum of the entire object's content using the
+            	// Castagnoli93 polynomial, if available.
+            	CRC32C <a href="https://pkg.go.dev/builtin#uint32">uint32</a>
+
+            	// Decompressed is true if the object is stored as a gzip file and was
+            	// decompressed when read.
+            	// Objects are automatically decompressed if the object's metadata property
+            	// "Content-Encoding" is set to "gzip" or satisfies decompressive
+            	// transcoding as per https://cloud.google.com/storage/docs/transcoding.
+            	//
+            	// To prevent decompression on reads, use [ObjectHandle.ReadCompressed].
+            	Decompressed <a href="https://pkg.go.dev/builtin#bool">bool</a>
+            }
+    - uid: cloud.google.com/go/storage.RestoreOptions
+      name: RestoreOptions
+      id: RestoreOptions
+      summary: |
+        RestoreOptions allows you to set options when restoring an object.
+      parent: cloud.google.com/go/storage
+      type: type
+      langs:
+        - go
+      syntax:
+        content: |-
+            type RestoreOptions struct {
+            	/// CopySourceACL indicates whether the restored object should copy the
+            	// access controls of the source object. Only valid for buckets with
+            	// fine-grained access. If uniform bucket-level access is enabled, setting
+            	// CopySourceACL will cause an error.
+            	CopySourceACL <a href="https://pkg.go.dev/builtin#bool">bool</a>
             }
     - uid: cloud.google.com/go/storage.RetentionPolicy
       name: RetentionPolicy
@@ -5124,6 +5574,28 @@ items:
             	// SigningSchemeV4 uses the V4 scheme to sign URLs.
             	SigningSchemeV4
             )
+    - uid: cloud.google.com/go/storage.SoftDeletePolicy
+      name: SoftDeletePolicy
+      id: SoftDeletePolicy
+      summary: |
+        SoftDeletePolicy contains the bucket's soft delete policy, which defines the
+        period of time that soft-deleted objects will be retained, and cannot be
+        permanently deleted.
+      parent: cloud.google.com/go/storage
+      type: type
+      langs:
+        - go
+      syntax:
+        content: |-
+            type SoftDeletePolicy struct {
+            	// EffectiveTime indicates the time from which the policy, or one with a
+            	// greater retention, was effective. This field is read-only.
+            	EffectiveTime <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Time">Time</a>
+
+            	// RetentionDuration is the amount of time that soft-deleted objects in the
+            	// bucket will be retained and cannot be permanently deleted.
+            	RetentionDuration <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Duration">Duration</a>
+            }
     - uid: cloud.google.com/go/storage.URLStyle
       name: URLStyle
       id: URLStyle
@@ -5269,21 +5741,41 @@ items:
             	// For uploads of larger files, the Writer will attempt to retry if the
             	// request to upload a particular chunk fails with a transient error.
             	// If a single chunk has been attempting to upload for longer than this
-            	// deadline and the request fails, it will no longer be retried, and the error
-            	// will be returned to the caller. This is only applicable for files which are
-            	// large enough to require a multi-chunk resumable upload. The default value
-            	// is 32s. Users may want to pick a longer deadline if they are using larger
-            	// values for ChunkSize or if they expect to have a slow or unreliable
-            	// internet connection.
+            	// deadline and the request fails, it will no longer be retried, and the
+            	// error will be returned to the caller. This is only applicable for files
+            	// which are large enough to require a multi-chunk resumable upload. The
+            	// default value is 32s. Users may want to pick a longer deadline if they
+            	// are using larger values for ChunkSize or if they expect to have a slow or
+            	// unreliable internet connection.
             	//
             	// To set a deadline on the entire upload, use context timeout or
             	// cancellation.
             	ChunkRetryDeadline <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Duration">Duration</a>
 
+            	// ChunkTransferTimeout sets a per-chunk request timeout for resumable uploads.
+            	//
+            	// For resumable uploads, the Writer will terminate the request and attempt
+            	// a retry if the request to upload a particular chunk stalls for longer than
+            	// this duration. Retries may continue until the ChunkRetryDeadline is reached.
+            	//
+            	// ChunkTransferTimeout is not applicable to uploads made using a gRPC client.
+            	//
+            	// The default value is no timeout.
+            	ChunkTransferTimeout <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Duration">Duration</a>
+
             	// ForceEmptyContentType is an optional parameter that is used to disable
             	// auto-detection of Content-Type. By default, if a blank Content-Type
             	// is provided, then gax.DetermineContentType is called to sniff the type.
             	ForceEmptyContentType <a href="https://pkg.go.dev/builtin#bool">bool</a>
+
+            	// Append is a parameter to indicate whether the writer should use appendable
+            	// object semantics for the new object generation. Appendable objects are
+            	// visible on the first Write() call, and can be appended to until they are
+            	// finalized. The object is finalized on a call to Close().
+            	//
+            	// Append is only supported for gRPC. This feature is in preview and is not
+            	// yet available for general use.
+            	Append <a href="https://pkg.go.dev/builtin#bool">bool</a>
 
             	// ProgressFunc can be used to monitor the progress of a large write
             	// operation. If ProgressFunc is not nil and writing requires multiple
@@ -5339,6 +5831,31 @@ items:
       syntax:
         content: func (w *<a href="#cloud_google_com_go_storage_Writer">Writer</a>) CloseWithError(err <a href="https://pkg.go.dev/builtin#error">error</a>) <a href="https://pkg.go.dev/builtin#error">error</a>
       status: deprecated
+    - uid: cloud.google.com/go/storage.Writer.Flush
+      name: |
+        func (*Writer) Flush
+      id: Flush
+      summary: |
+        Flush syncs all bytes currently in the Writer's buffer to Cloud Storage.
+        It returns the offset of bytes that have been currently synced to
+        Cloud Storage and an error.
+
+        If Flush is never called, Writer will sync data automatically every
+        [Writer.ChunkSize] bytes and on [Writer.Close].
+
+        [Writer.ProgressFunc] will be called on Flush if present.
+
+        Do not call Flush concurrently with Write or Close. A single Writer is not
+        safe for unsynchronized use across threads.
+
+        Flush is supported only on gRPC clients where [Writer.Append] is set
+        to true. This feature is in preview and is not yet available for general use.
+      parent: cloud.google.com/go/storage.Writer
+      type: method
+      langs:
+        - go
+      syntax:
+        content: func (w *<a href="#cloud_google_com_go_storage_Writer">Writer</a>) Flush() (<a href="https://pkg.go.dev/builtin#int64">int64</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)
     - uid: cloud.google.com/go/storage.Writer.Write
       name: |
         func (*Writer) Write
@@ -5454,6 +5971,26 @@ items:
             	fmt.Println("updated object:", wc.Attrs())
             }
           name: timeout
+    - uid: cloud.google.com/go/storage.CheckDirectConnectivitySupported
+      name: |
+        func CheckDirectConnectivitySupported
+      id: CheckDirectConnectivitySupported
+      summary: |
+        CheckDirectConnectivitySupported checks if gRPC direct connectivity
+        is available for a specific bucket from the environment where the client
+        is running. A `nil` error represents Direct Connectivity was detected.
+        Direct connectivity is expected to be available when running from inside
+        GCP and connecting to a bucket in the same region.
+
+        Experimental helper that's subject to change.
+
+        You can pass in [option.ClientOption] you plan on passing to [NewGRPCClient]
+      parent: cloud.google.com/go/storage
+      type: function
+      langs:
+        - go
+      syntax:
+        content: func CheckDirectConnectivitySupported(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, bucket <a href="https://pkg.go.dev/builtin#string">string</a>, opts ...<a href="https://pkg.go.dev/google.golang.org/api/option">option</a>.<a href="https://pkg.go.dev/google.golang.org/api/option#ClientOption">ClientOption</a>) <a href="https://pkg.go.dev/builtin#error">error</a>
     - uid: cloud.google.com/go/storage.ShouldRetry
       name: |
         func ShouldRetry
@@ -5519,15 +6056,46 @@ items:
             	}
             	fmt.Println(url)
             }
+    - uid: cloud.google.com/go/storage.WithDisabledClientMetrics
+      name: |
+        func WithDisabledClientMetrics
+      id: WithDisabledClientMetrics
+      summary: |
+        WithDisabledClientMetrics is an option that may be passed to [NewClient].
+        gRPC metrics are enabled by default in the GCS client and will export the
+        gRPC telemetry discussed in [gRFC/66] and [gRFC/78] to
+        [Google Cloud Monitoring]. The option is used to disable metrics.
+        Google Cloud Support can use this information to more quickly diagnose
+        problems related to GCS and gRPC.
+        Sending this data does not incur any billing charges, and requires minimal
+        CPU (a single RPC every few minutes) or memory (a few KiB to batch the
+        telemetry).
+
+        The default is to enable client metrics. To opt-out of metrics collected use
+        this option.
+
+        [gRFC/66]: https://github.com/grpc/proposal/blob/master/A66-otel-stats.md
+        [gRFC/78]: https://github.com/grpc/proposal/blob/master/A78-grpc-metrics-wrr-pf-xds.md
+        [Google Cloud Monitoring]: https://cloud.google.com/monitoring/docs
+      parent: cloud.google.com/go/storage
+      type: function
+      langs:
+        - go
+      syntax:
+        content: func WithDisabledClientMetrics() <a href="https://pkg.go.dev/google.golang.org/api/option">option</a>.<a href="https://pkg.go.dev/google.golang.org/api/option#ClientOption">ClientOption</a>
     - uid: cloud.google.com/go/storage.WithJSONReads
       name: |
         func WithJSONReads
       id: WithJSONReads
       summary: |
-        WithJSONReads is an option that may be passed to a Storage Client on creation.
-        It sets the client to use the JSON API for object reads. Currently, the
-        default API used for reads is XML.
-        Setting this option is required to use the GenerationNotMatch condition.
+        WithJSONReads is an option that may be passed to [NewClient].
+        It sets the client to use the Cloud Storage JSON API for object
+        reads. Currently, the default API used for reads is XML, but JSON will
+        become the default in a future release.
+
+        Setting this option is required to use the GenerationNotMatch condition. We
+        also recommend using JSON reads to ensure consistency with other client
+        operations (all of which use JSON by default).
 
         Note that when this option is set, reads will return a zero date for
         [ReaderObjectAttrs].LastModified and may return a different value for
@@ -5543,10 +6111,11 @@ items:
         func WithXMLReads
       id: WithXMLReads
       summary: |
-        WithXMLReads is an option that may be passed to a Storage Client on creation.
-        It sets the client to use the XML API for object reads.
+        WithXMLReads is an option that may be passed to [NewClient].
+        It sets the client to use the Cloud Storage XML API for object reads.
 
-        This is the current default.
+        This is the current default, but the default will switch to JSON in a future
+        release.
       parent: cloud.google.com/go/storage
       type: function
       langs:
