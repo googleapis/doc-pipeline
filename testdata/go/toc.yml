@@ -6,6 +6,11 @@
       name: cloud.google.com/go/storage
     - uid: cloud.google.com/go/storage/control/apiv2
       name: control/apiv2
-      status: beta
     - uid: cloud.google.com/go/storage/control/apiv2/controlpb
       name: control/apiv2/controlpb
+    - uid: cloud.google.com/go/storage/dataflux
+      name: dataflux
+    - uid: cloud.google.com/go/storage/experimental
+      name: experimental
+    - uid: cloud.google.com/go/storage/transfermanager
+      name: transfermanager

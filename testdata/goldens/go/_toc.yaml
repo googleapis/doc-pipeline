@@ -5,7 +5,12 @@ toc:
   - title: 'cloud.google.com/go/storage'
     path: /go/docs/reference/cloud.google.com/go/storage/latest/index.html
   - title: 'control/apiv2'
-    status: beta
     path: /go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2.html
   - title: 'control/apiv2/controlpb'
     path: /go/docs/reference/cloud.google.com/go/storage/latest/control/apiv2/controlpb.html
+  - title: 'dataflux'
+    path: /go/docs/reference/cloud.google.com/go/storage/latest/dataflux.html
+  - title: 'experimental'
+    path: /go/docs/reference/cloud.google.com/go/storage/latest/experimental.html
+  - title: 'transfermanager'
+    path: /go/docs/reference/cloud.google.com/go/storage/latest/transfermanager.html

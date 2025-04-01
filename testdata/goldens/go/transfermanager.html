@@ -1,0 +1,483 @@
+﻿<!DOCTYPE html>
+<html devsite="">
+  <head>
+    <meta name="project_path" value="/go/docs/reference/_project.yaml">
+    <meta name="book_path" value="/go/docs/reference/cloud.google.com/go/storage/latest/_book.yaml">
+  </head>
+  <body>
+    {% verbatim %}
+    <div>
+      <article data-uid="cloud.google.com/go/storage/transfermanager">
+<h1 class="page-title">Package cloud.google.com/go/storage/transfermanager (v1.51.0)</h1>
+  
+  <aside class="note">
+    <strong>Note:</strong> To get more information about this package, such as access to older versions, view <a href="https://pkg.go.dev/cloud.google.com/go/storage/transfermanager" class="external">this package on pkg.go.dev</a>.
+  </aside>
+  <div class="markdown level0 summary"><p><p>Package transfermanager provides an easy way to parallelize downloads in Google
+Cloud Storage.
+<p>More information about Google Cloud Storage is available at
+<a href="https://cloud.google.com/storage/docs">https://cloud.google.com/storage/docs</a>.
+<p>See <a href="https://pkg.go.dev/cloud.google.com/go">https://pkg.go.dev/cloud.google.com/go</a> for authentication, timeouts,
+connection pooling and similar aspects of this package.
+<p>NOTE: This package is in preview. It is not stable, and is likely to change.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+        <h2 id="cloud_google_com_go_storage_transfermanager_DownloadBuffer" data-uid="cloud.google.com/go/storage/transfermanager.DownloadBuffer" class="notranslate">DownloadBuffer</h2>
+        <div class="codewrapper">
+          <pre class="prettyprint"><code>type DownloadBuffer struct {
+	// contains filtered or unexported fields
+}</code></pre>
+        </div>
+        <div class="markdown level1 summary"><p>DownloadBuffer satisfies the io.WriterAt interface, allowing you to use it as
+a buffer to download to when using [Downloader]. DownloadBuffer is thread-safe
+as long as the ranges being written to do not overlap.</p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+            <h3 id="cloud_google_com_go_storage_transfermanager_DownloadBuffer_NewDownloadBuffer" data-uid="cloud.google.com/go/storage/transfermanager.DownloadBuffer.NewDownloadBuffer" class="notranslate">func NewDownloadBuffer
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func NewDownloadBuffer(buf []<a href="https://pkg.go.dev/builtin#byte">byte</a>) *<a href="#cloud_google_com_go_storage_transfermanager_DownloadBuffer">DownloadBuffer</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>NewDownloadBuffer initializes a DownloadBuffer using buf as the underlying
+buffer. Preferred way to create a DownloadBuffer as it does not need to grow
+the buffer if len(buf) is larger than or equal to the object length or range
+being downloaded to.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_transfermanager_DownloadBuffer_Bytes" data-uid="cloud.google.com/go/storage/transfermanager.DownloadBuffer.Bytes" class="notranslate">func (*DownloadBuffer) Bytes
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (db *<a href="#cloud_google_com_go_storage_transfermanager_DownloadBuffer">DownloadBuffer</a>) Bytes() []<a href="https://pkg.go.dev/builtin#byte">byte</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>Bytes returns the slice of bytes written to DownloadBuffer. The slice aliases
+the buffer content at least until the next buffer modification, so
+immediate changes to the slice will affect the result of future reads.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_transfermanager_DownloadBuffer_WriteAt" data-uid="cloud.google.com/go/storage/transfermanager.DownloadBuffer.WriteAt" class="notranslate">func (*DownloadBuffer) WriteAt
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (db *<a href="#cloud_google_com_go_storage_transfermanager_DownloadBuffer">DownloadBuffer</a>) WriteAt(p []<a href="https://pkg.go.dev/builtin#byte">byte</a>, off <a href="https://pkg.go.dev/builtin#int64">int64</a>) (n <a href="https://pkg.go.dev/builtin#int">int</a>, err <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>WriteAt writes len(p) bytes from p to the underlying buffer at offset off,
+growing the buffer if needed. It returns the number of bytes written from p
+and any error encountered that caused the write to stop early.
+WriteAt is thread-safe as long as the ranges being written to do not overlap.
+The supplied slice p is not retained.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                  <h2 id="cloud_google_com_go_storage_transfermanager_DownloadDirectoryInput" data-uid="cloud.google.com/go/storage/transfermanager.DownloadDirectoryInput" class="notranslate">DownloadDirectoryInput</h2>
+        <div class="codewrapper">
+          <pre class="prettyprint"><code>type DownloadDirectoryInput struct {
+	// Bucket is the bucket in GCS to download from. Required.
+	Bucket <a href="https://pkg.go.dev/builtin#string">string</a>
+
+	// LocalDirectory specifies the directory to download the matched objects
+	// to. Relative paths are allowed. The directory structure and contents
+	// must not be modified while the download is in progress.
+	// The directory will be created if it does not already exist. Required.
+	LocalDirectory <a href="https://pkg.go.dev/builtin#string">string</a>
+
+	// StripPrefix is a prefix to be removed from the path of the local file on
+	// download from GCS. For example, if you have an object in GCS called
+	// "mydirectory/a/file", and StripPrefix is set to "mydirectory/", the file
+	// will be downloaded to "{LocalDirectory}/a/file". Optional.
+	StripPrefix <a href="https://pkg.go.dev/builtin#string">string</a>
+
+	// Prefix is the prefix filter to download objects whose names begin with this.
+	// Optional.
+	Prefix <a href="https://pkg.go.dev/builtin#string">string</a>
+
+	// StartOffset is used to filter results to objects whose names are
+	// lexicographically equal to or after startOffset. If endOffset is also
+	// set, the objects listed will have names between startOffset (inclusive)
+	// and endOffset (exclusive). Optional.
+	StartOffset <a href="https://pkg.go.dev/builtin#string">string</a>
+
+	// EndOffset is used to filter results to objects whose names are
+	// lexicographically before endOffset. If startOffset is also set, the
+	// objects listed will have names between startOffset (inclusive) and
+	// endOffset (exclusive). Optional.
+	EndOffset <a href="https://pkg.go.dev/builtin#string">string</a>
+
+	// MatchGlob is a glob pattern used to filter results (for example, foo*bar). See
+	// https://cloud.google.com/storage/docs/json_api/v1/objects/list#list-object-glob
+	// for syntax details. Optional.
+	MatchGlob <a href="https://pkg.go.dev/builtin#string">string</a>
+
+	// Callback will run after all the objects in the directory as selected by
+	// the provided filters are finished downloading.
+	// It must be set if and only if the [WithCallbacks] option is set.
+	// WaitAndClose will wait for all callbacks to finish.
+	Callback func([]<a href="#cloud_google_com_go_storage_transfermanager_DownloadOutput">DownloadOutput</a>)
+
+	// OnObjectDownload will run after every finished object download. Optional.
+	OnObjectDownload func(*<a href="#cloud_google_com_go_storage_transfermanager_DownloadOutput">DownloadOutput</a>)
+}</code></pre>
+        </div>
+        <div class="markdown level1 summary"><p>DownloadDirectoryInput is the input for a directory to download.</p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+        <h2 id="cloud_google_com_go_storage_transfermanager_DownloadObjectInput" data-uid="cloud.google.com/go/storage/transfermanager.DownloadObjectInput" class="notranslate">DownloadObjectInput</h2>
+        <div class="codewrapper">
+          <pre class="prettyprint"><code>type DownloadObjectInput struct {
+	// Bucket is the bucket in GCS to download from. Required.
+	Bucket <a href="https://pkg.go.dev/builtin#string">string</a>
+
+	// Object is the object in GCS to download. Required.
+	Object <a href="https://pkg.go.dev/builtin#string">string</a>
+
+	// Destination is the WriterAt to which the Downloader will write the object
+	// data, such as an [os.File] file handle or a [DownloadBuffer]. Required.
+	Destination <a href="https://pkg.go.dev/io">io</a>.<a href="https://pkg.go.dev/io#WriterAt">WriterAt</a>
+
+	// Generation, if specified, will request a specific generation of the object.
+	// Optional. By default, the latest generation is downloaded.
+	Generation *<a href="https://pkg.go.dev/builtin#int64">int64</a>
+
+	// Conditions constrains the download to act on a specific
+	// generation/metageneration of the object.
+	// Optional.
+	Conditions *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/">storage</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/#cloud_google_com_go_storage_Conditions">Conditions</a>
+
+	// EncryptionKey will be used to decrypt the object's contents.
+	// The encryption key must be a 32-byte AES-256 key.
+	// See https://cloud.google.com/storage/docs/encryption for details.
+	// Optional.
+	EncryptionKey []<a href="https://pkg.go.dev/builtin#byte">byte</a>
+
+	// Range specifies the range to read of the object.
+	// Optional. If not specified, the entire object will be read.
+	Range *<a href="#cloud_google_com_go_storage_transfermanager_DownloadRange">DownloadRange</a>
+
+	// Callback will be run once the object is finished downloading. It must be
+	// set if and only if the [WithCallbacks] option is set; otherwise, it must
+	// not be set.
+	// A worker will be used to execute the callback; therefore, it should not
+	// be a long-running function. WaitAndClose will wait for all callbacks to
+	// finish.
+	Callback func(*<a href="#cloud_google_com_go_storage_transfermanager_DownloadOutput">DownloadOutput</a>)
+	// contains filtered or unexported fields
+}</code></pre>
+        </div>
+        <div class="markdown level1 summary"><p>DownloadObjectInput is the input for a single object to download.</p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+        <h2 id="cloud_google_com_go_storage_transfermanager_DownloadOutput" data-uid="cloud.google.com/go/storage/transfermanager.DownloadOutput" class="notranslate">DownloadOutput</h2>
+        <div class="codewrapper">
+          <pre class="prettyprint"><code>type DownloadOutput struct {
+	Bucket <a href="https://pkg.go.dev/builtin#string">string</a>
+	Object <a href="https://pkg.go.dev/builtin#string">string</a>
+	Range  *<a href="#cloud_google_com_go_storage_transfermanager_DownloadRange">DownloadRange</a>             // requested range, if it was specified
+	Err    <a href="https://pkg.go.dev/builtin#error">error</a>                      // error occurring during download
+	Attrs  *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/">storage</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/#cloud_google_com_go_storage_ReaderObjectAttrs">ReaderObjectAttrs</a> // attributes of downloaded object, if successful
+	// contains filtered or unexported fields
+}</code></pre>
+        </div>
+        <div class="markdown level1 summary"><p>DownloadOutput provides output for a single object download, including all
+errors received while downloading object parts. If the download was successful,
+Attrs will be populated.</p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+        <h2 id="cloud_google_com_go_storage_transfermanager_DownloadRange" data-uid="cloud.google.com/go/storage/transfermanager.DownloadRange" class="notranslate">DownloadRange</h2>
+        <div class="codewrapper">
+          <pre class="prettyprint"><code>type DownloadRange struct {
+	// Offset is the starting offset (inclusive) from with the object is read.
+	// If offset is negative, the object is not sharded and is read by a single
+	// worker abs(offset) bytes from the end, and length must also be negative
+	// to indicate all remaining bytes will be read.
+	Offset <a href="https://pkg.go.dev/builtin#int64">int64</a>
+	// Length is the number of bytes to read.
+	// If length is negative or larger than the object size, the object is read
+	// until the end.
+	Length <a href="https://pkg.go.dev/builtin#int64">int64</a>
+}</code></pre>
+        </div>
+        <div class="markdown level1 summary"><p>DownloadRange specifies the object range.
+If the object&#39;s metadata property &quot;Content-Encoding&quot; is set to &quot;gzip&quot; or
+satisfies decompressive transcoding per <a href="https://cloud.google.com/storage/docs/transcoding">https://cloud.google.com/storage/docs/transcoding</a>
+that file will be served back whole, regardless of the requested range as
+Google Cloud Storage dictates.</p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+        <h2 id="cloud_google_com_go_storage_transfermanager_Downloader" data-uid="cloud.google.com/go/storage/transfermanager.Downloader" class="notranslate">Downloader</h2>
+        <div class="codewrapper">
+          <pre class="prettyprint"><code>type Downloader struct {
+	// contains filtered or unexported fields
+}</code></pre>
+        </div>
+        <div class="markdown level1 summary"><p>Downloader manages a set of parallelized downloads.</p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+          <h3>Examples</h3>
+          <h3>Examples</h3>
+          <h4 class="notranslate">asynchronous</h4>
+          <h4 class="notranslate">asynchronous</h4>
+        <div class="codewrapper">
+        <pre class="prettyprint"><code>package main
+
+import (
+	&quot;context&quot;
+	&quot;log&quot;
+	&quot;os&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
+	&quot;cloud.google.com/go/storage/transfermanager&quot;
+)
+
+func main() {
+	ctx := context.Background()
+	// Pass in any client opts or set retry policy here.
+	client, err := storage.NewClient(ctx) // can also use NewGRPCClient
+	if err != nil {
+		// handle error
+	}
+
+	// Create Downloader with callbacks plus any desired options, including
+	// number of workers, part size, per operation timeout, etc.
+	d, err := transfermanager.NewDownloader(client, transfermanager.WithCallbacks())
+	if err != nil {
+		// handle error
+	}
+	defer func() {
+		if _, err := d.WaitAndClose(); err != nil {
+			// one or more of the downloads failed
+		}
+	}()
+
+	// Create local file writer for output.
+	f, err := os.Create(&quot;/path/to/localfile&quot;)
+	if err != nil {
+		// handle error
+	}
+
+	// Create callback function
+	callback := func(out *transfermanager.DownloadOutput) {
+		if out.Err != nil {
+			log.Printf(&quot;download of %v failed with error %v&quot;, out.Object, out.Err)
+		} else {
+			log.Printf(&quot;download of %v succeeded&quot;, out.Object)
+		}
+	}
+
+	// Create download input
+	in := &amp;transfermanager.DownloadObjectInput{
+		Bucket:      &quot;mybucket&quot;,
+		Object:      &quot;myblob&quot;,
+		Destination: f,
+		// Optionally specify params to apply to download.
+		EncryptionKey: []byte(&quot;mykey&quot;),
+		// Specify the callback
+		Callback: callback,
+	}
+
+	// Add to Downloader.
+	if err := d.DownloadObject(ctx, in); err != nil {
+		// handle error
+	}
+
+	// Repeat if desired.
+}
+</code></pre>
+        </div>
+          <h4 class="notranslate">synchronous</h4>
+          <h4 class="notranslate">synchronous</h4>
+        <div class="codewrapper">
+        <pre class="prettyprint"><code>package main
+
+import (
+	&quot;context&quot;
+	&quot;log&quot;
+	&quot;os&quot;
+
+	&quot;cloud.google.com/go/storage&quot;
+	&quot;cloud.google.com/go/storage/transfermanager&quot;
+)
+
+func main() {
+	ctx := context.Background()
+	// Pass in any client opts or set retry policy here.
+	client, err := storage.NewClient(ctx) // can also use NewGRPCClient
+	if err != nil {
+		// handle error
+	}
+
+	// Create Downloader with desired options, including number of workers,
+	// part size, per operation timeout, etc.
+	d, err := transfermanager.NewDownloader(client, transfermanager.WithWorkers(16))
+	if err != nil {
+		// handle error
+	}
+
+	// Create local file writer for output.
+	f, err := os.Create(&quot;/path/to/localfile&quot;)
+	if err != nil {
+		// handle error
+	}
+
+	// Create download input
+	in := &amp;transfermanager.DownloadObjectInput{
+		Bucket:      &quot;mybucket&quot;,
+		Object:      &quot;myblob&quot;,
+		Destination: f,
+		// Optionally specify params to apply to download.
+		EncryptionKey: []byte(&quot;mykey&quot;),
+	}
+
+	// Add to Downloader.
+	if err := d.DownloadObject(ctx, in); err != nil {
+		// handle error
+	}
+
+	// Repeat if desired.
+
+	// Wait for all downloads to complete.
+	results, err := d.WaitAndClose()
+	if err != nil {
+		// handle error
+	}
+
+	// Iterate through completed downloads and process results.
+	for _, out := range results {
+		if out.Err != nil {
+			log.Printf(&quot;download of %v failed with error %v&quot;, out.Object, out.Err)
+		} else {
+			log.Printf(&quot;download of %v succeeded&quot;, out.Object)
+		}
+	}
+}
+</code></pre>
+        </div>
+  
+            <h3 id="cloud_google_com_go_storage_transfermanager_Downloader_NewDownloader" data-uid="cloud.google.com/go/storage/transfermanager.Downloader.NewDownloader" class="notranslate">func NewDownloader
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func NewDownloader(c *<a href="/go/docs/reference/cloud.google.com/go/storage/latest/">storage</a>.<a href="/go/docs/reference/cloud.google.com/go/storage/latest/#cloud_google_com_go_storage_Client">Client</a>, opts ...<a href="#cloud_google_com_go_storage_transfermanager_Option">Option</a>) (*<a href="#cloud_google_com_go_storage_transfermanager_Downloader">Downloader</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>NewDownloader creates a new Downloader to add operations to.
+Choice of transport, etc is configured on the client that&#39;s passed in.
+The returned Downloader can be shared across goroutines to initiate downloads.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_transfermanager_Downloader_DownloadDirectory" data-uid="cloud.google.com/go/storage/transfermanager.Downloader.DownloadDirectory" class="notranslate">func (*Downloader) DownloadDirectory
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (d *<a href="#cloud_google_com_go_storage_transfermanager_Downloader">Downloader</a>) DownloadDirectory(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, input *<a href="#cloud_google_com_go_storage_transfermanager_DownloadDirectoryInput">DownloadDirectoryInput</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>DownloadDirectory queues the download of a set of objects to a local path.
+This will initiate the download but is non-blocking; call Downloader.Results
+or use the callback to process the result. DownloadDirectory is thread-safe
+and can be called simultaneously from different goroutines.
+DownloadDirectory will resolve any filters on the input and create the needed
+directory structure locally. Do not modify this struture until the download
+has completed.
+DownloadDirectory will fail if any of the files it attempts to download
+already exist in the local directory.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_transfermanager_Downloader_DownloadObject" data-uid="cloud.google.com/go/storage/transfermanager.Downloader.DownloadObject" class="notranslate">func (*Downloader) DownloadObject
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (d *<a href="#cloud_google_com_go_storage_transfermanager_Downloader">Downloader</a>) DownloadObject(ctx <a href="https://pkg.go.dev/context">context</a>.<a href="https://pkg.go.dev/context#Context">Context</a>, input *<a href="#cloud_google_com_go_storage_transfermanager_DownloadObjectInput">DownloadObjectInput</a>) <a href="https://pkg.go.dev/builtin#error">error</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>DownloadObject queues the download of a single object. This will initiate the
+download but is non-blocking; call Downloader.Results or use the callback to
+process the result. DownloadObject is thread-safe and can be called
+simultaneously from different goroutines.
+The download may not start immediately if all workers are busy, so a deadline
+set on the ctx may time out before the download even starts. To set a timeout
+that starts with the download, use the [WithPerOpTimeout()] option.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_transfermanager_Downloader_WaitAndClose" data-uid="cloud.google.com/go/storage/transfermanager.Downloader.WaitAndClose" class="notranslate">func (*Downloader) WaitAndClose
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func (d *<a href="#cloud_google_com_go_storage_transfermanager_Downloader">Downloader</a>) WaitAndClose() ([]<a href="#cloud_google_com_go_storage_transfermanager_DownloadOutput">DownloadOutput</a>, <a href="https://pkg.go.dev/builtin#error">error</a>)</code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>WaitAndClose waits for all outstanding downloads to complete and closes the
+Downloader. Adding new downloads after this has been called will cause an error.</p>
+<p>WaitAndClose returns all the results of the downloads and an error wrapping
+all errors that were encountered by the Downloader when downloading objects.
+These errors are also returned in the respective DownloadOutput for the
+failing download. The results are not guaranteed to be in any order.
+Results will be empty if using the [WithCallbacks] option. WaitAndClose will
+wait for all callbacks to finish.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                  <h2 id="cloud_google_com_go_storage_transfermanager_Option" data-uid="cloud.google.com/go/storage/transfermanager.Option" class="notranslate">Option</h2>
+        <div class="codewrapper">
+          <pre class="prettyprint"><code>type Option interface {
+	// contains filtered or unexported methods
+}</code></pre>
+        </div>
+        <div class="markdown level1 summary"><p>A Option is an option for a transfermanager Downloader or Uploader.</p>
+</div>
+        <div class="markdown level1 conceptual"></div>
+        
+            <h3 id="cloud_google_com_go_storage_transfermanager_Option_SkipIfExists" data-uid="cloud.google.com/go/storage/transfermanager.Option.SkipIfExists" class="notranslate">func SkipIfExists
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func SkipIfExists() <a href="#cloud_google_com_go_storage_transfermanager_Option">Option</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>SkipIfExists returns a TransferManagerOption that will not download files
+that already exist in the local directory.</p>
+<p>By default, if a file already exists the operation will abort and return an error.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_transfermanager_Option_WithCallbacks" data-uid="cloud.google.com/go/storage/transfermanager.Option.WithCallbacks" class="notranslate">func WithCallbacks
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func WithCallbacks() <a href="#cloud_google_com_go_storage_transfermanager_Option">Option</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>WithCallbacks returns a TransferManagerOption that allows the use of callbacks
+to process the results. If this option is set, then results will not be returned
+by [Downloader.WaitAndClose] and must be processed through the callback.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_transfermanager_Option_WithPartSize" data-uid="cloud.google.com/go/storage/transfermanager.Option.WithPartSize" class="notranslate">func WithPartSize
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func WithPartSize(partSize <a href="https://pkg.go.dev/builtin#int64">int64</a>) <a href="#cloud_google_com_go_storage_transfermanager_Option">Option</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>WithPartSize returns a TransferManagerOption that specifies the size in bytes
+of the shards to transfer; that is, if the object is larger than partSize,
+it will be uploaded or downloaded in concurrent pieces of size partSize.</p>
+<p>The default is 32 MiB for downloads.</p>
+<p>To turn off sharding, set partSize to 0.</p>
+<p>Note that files that support decompressive transcoding will be downloaded in
+a single piece regardless of the partSize set here.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_transfermanager_Option_WithPerOpTimeout" data-uid="cloud.google.com/go/storage/transfermanager.Option.WithPerOpTimeout" class="notranslate">func WithPerOpTimeout
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func WithPerOpTimeout(timeout <a href="https://pkg.go.dev/time">time</a>.<a href="https://pkg.go.dev/time#Duration">Duration</a>) <a href="#cloud_google_com_go_storage_transfermanager_Option">Option</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>WithPerOpTimeout returns a TransferManagerOption that sets a timeout on each
+operation that is performed to download or upload an object. The timeout is
+set when the operation begins processing, not when it is added.
+By default, no timeout is set other than an overall timeout as set on the
+provided context.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+                      <h3 id="cloud_google_com_go_storage_transfermanager_Option_WithWorkers" data-uid="cloud.google.com/go/storage/transfermanager.Option.WithWorkers" class="notranslate">func WithWorkers
+</h3>
+            <div class="codewrapper">
+              <pre class="prettyprint"><code>func WithWorkers(numWorkers <a href="https://pkg.go.dev/builtin#int">int</a>) <a href="#cloud_google_com_go_storage_transfermanager_Option">Option</a></code></pre>
+            </div>
+            <div class="markdown level1 summary"><p>WithWorkers returns a TransferManagerOption that specifies the maximum number
+of concurrent goroutines that will be used to download or upload objects.
+Defaults to runtime.NumCPU()/2.</p>
+</div>
+            <div class="markdown level1 conceptual"></div>
+            </article>
+    </div>
+    {% endverbatim %}
+  </body>
+</html>

@@ -3,5 +3,5 @@ update_time {
 	nanos: 707330012
 }
 name: "cloud.google.com/go/storage"
-version: "v1.40.0"
+version: "v1.51.0"
 language: "go"
