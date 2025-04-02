@@ -4,9 +4,9 @@
 {{/example.0}}
 {{^example.0}}
 {{#codeexamples.0}}
-{{#children}}
+{{#children.0}}
   <h3>{{__global.example}}{{#codeexamples.1}}s{{/codeexamples.1}}</h3>
-{{/children}}
+{{/children.0}}
 {{^children}}
   <h4>{{__global.example}}{{#codeexamples.1}}s{{/codeexamples.1}}</h4>
 {{/children}}
@@ -15,9 +15,9 @@
 {{#codeexamples}}
 {{#name}}
 {{^name.0}}
-{{#children}}
+{{#children.0}}
   <h4 class="notranslate">{{name}}</h4>
-{{/children}}
+{{/children.0}}
 {{^children}}
   <h5 class="notranslate">{{name}}</h5>
 {{/children}}
