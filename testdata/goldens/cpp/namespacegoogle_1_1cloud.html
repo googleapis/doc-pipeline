@@ -205,7 +205,7 @@
             </tr>
             <tr>
               <td><code>opts</code></td>
-              <td><code></code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
+              <td><code>Options</code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
 
   </td>
             </tr>
@@ -250,7 +250,7 @@
             </tr>
             <tr>
               <td><code>opts</code></td>
-              <td><code></code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
+              <td><code>Options</code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
 
   </td>
             </tr>
@@ -290,19 +290,19 @@
             </tr>
             <tr>
               <td><code>access_token</code></td>
-              <td><code></code><br><p>the access token to be used by the client library. </p>
+              <td><code>std::string const &</code><br><p>the access token to be used by the client library. </p>
 
   </td>
             </tr>
             <tr>
               <td><code>expiration</code></td>
-              <td><code></code><br><p>the expiration time for the token. </p>
+              <td><code>std::chrono::system_clock::time_point</code><br><p>the expiration time for the token. </p>
 
   </td>
             </tr>
             <tr>
               <td><code>opts</code></td>
-              <td><code></code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
+              <td><code>Options</code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
 
   </td>
             </tr>
@@ -350,19 +350,19 @@
             </tr>
             <tr>
               <td><code>base_credentials</code></td>
-              <td><code></code><br><p>the credentials used to contact the IAM <a class="xref" href="classgoogle_1_1cloud_1_1Credentials.html">Credentials</a> services. </p>
+              <td><code>std::shared_ptr&lt; Credentials &gt;</code><br><p>the credentials used to contact the IAM <a class="xref" href="classgoogle_1_1cloud_1_1Credentials.html">Credentials</a> services. </p>
 
   </td>
             </tr>
             <tr>
               <td><code>target_service_account</code></td>
-              <td><code></code><br><p>the email address of the service account to impersonate. </p>
+              <td><code>std::string</code><br><p>the email address of the service account to impersonate. </p>
 
   </td>
             </tr>
             <tr>
               <td><code>opts</code></td>
-              <td><code></code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
+              <td><code>Options</code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
 
   </td>
             </tr>
@@ -404,13 +404,13 @@
             </tr>
             <tr>
               <td><code>json_object</code></td>
-              <td><code></code><br><p>the service account configuration as a JSON string. Typically applications read this from a file, or download the contents from something like Google&#39;s secret manager service. </p>
+              <td><code>std::string</code><br><p>the service account configuration as a JSON string. Typically applications read this from a file, or download the contents from something like Google&#39;s secret manager service. </p>
 
   </td>
             </tr>
             <tr>
               <td><code>opts</code></td>
-              <td><code></code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
+              <td><code>Options</code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
 
   </td>
             </tr>
@@ -450,13 +450,13 @@
             </tr>
             <tr>
               <td><code>json_object</code></td>
-              <td><code></code><br><p>the external account configuration as a JSON string. Typically applications read this from a file, or download the contents from something like Google&#39;s secret manager service. The configuration file can be created using the <a href="https://cloud.google.com/sdk/gcloud/reference/iam/workload-identity-pools/create-cred-config">create-cred-config</a><code>gcloud</code> subcommand. </p>
+              <td><code>std::string</code><br><p>the external account configuration as a JSON string. Typically applications read this from a file, or download the contents from something like Google&#39;s secret manager service. The configuration file can be created using the <a href="https://cloud.google.com/sdk/gcloud/reference/iam/workload-identity-pools/create-cred-config">create-cred-config</a><code>gcloud</code> subcommand. </p>
 
   </td>
             </tr>
             <tr>
               <td><code>opts</code></td>
-              <td><code></code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
+              <td><code>Options</code><br><p>optional configuration values. Note that the effect of these parameters depends on the underlying transport. For example, <a class="xref" href="structgoogle_1_1cloud_1_1TracingComponentsOption.html"><code>TracingComponentsOption</code></a> is ignored by gRPC-based services. </p>
 
   </td>
             </tr>
@@ -493,7 +493,7 @@
             </tr>
             <tr>
               <td><code>t</code></td>
-              <td><code></code><br>
+              <td><code>T &&</code><br>
   </td>
             </tr>
             <tr>
@@ -554,7 +554,7 @@
             </tr>
             <tr>
               <td><code>status</code></td>
-              <td><code></code><br>
+              <td><code>grpc::Status const &</code><br>
   </td>
             </tr>
           </tbody>
@@ -590,12 +590,12 @@
             </tr>
             <tr>
               <td><code>code</code></td>
-              <td><code></code><br>
+              <td><code>grpc::StatusCode</code><br>
   </td>
             </tr>
             <tr>
               <td><code>what</code></td>
-              <td><code></code><br>
+              <td><code>std::string</code><br>
   </td>
             </tr>
           </tbody>
@@ -632,7 +632,7 @@
             </tr>
             <tr>
               <td><code>proto</code></td>
-              <td><code></code><br>
+              <td><code>google::rpc::Status const &</code><br>
   </td>
             </tr>
           </tbody>
@@ -669,7 +669,7 @@
             </tr>
             <tr>
               <td><code>full_name</code></td>
-              <td><code></code><br>
+              <td><code>std::string const &</code><br>
   </td>
             </tr>
           </tbody>
@@ -705,7 +705,7 @@
             </tr>
             <tr>
               <td><code>name</code></td>
-              <td><code></code><br>
+              <td><code>std::string const &</code><br>
   </td>
             </tr>
           </tbody>
@@ -742,7 +742,7 @@
             </tr>
             <tr>
               <td><code>full_name</code></td>
-              <td><code></code><br>
+              <td><code>std::string const &</code><br>
   </td>
             </tr>
           </tbody>
@@ -778,7 +778,7 @@
             </tr>
             <tr>
               <td><code>code</code></td>
-              <td><code></code><br>
+              <td><code>StatusCode</code><br>
   </td>
             </tr>
           </tbody>
@@ -813,7 +813,7 @@
             </tr>
             <tr>
               <td><code>rhs</code></td>
-              <td><code></code><br>
+              <td><code>T</code><br>
   </td>
             </tr>
             <tr>
@@ -854,7 +854,7 @@
             </tr>
             <tr>
               <td><code>f</code></td>
-              <td><code></code><br><p>the handler. It should never return, behaviour is undefined otherwise.</p>
+              <td><code>TerminateHandler</code><br><p>the handler. It should never return, behaviour is undefined otherwise.</p>
 
   </td>
             </tr>
@@ -914,7 +914,7 @@
             </tr>
             <tr>
               <td><code>msg</code></td>
-              <td><code></code><br><p>Details about the error.</p>
+              <td><code>char const *</code><br><p>Details about the error.</p>
 
   </td>
             </tr>
