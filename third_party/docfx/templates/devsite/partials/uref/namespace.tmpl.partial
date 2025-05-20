@@ -74,7 +74,7 @@
       {{#parameters}}
           <tr>
             <td><code>{{{id}}}</code></td>
-            <td><code>{{{type.specName.0.value}}}</code><br>{{{description}}}{{>partials/uref/parameters}}</td>
+            <td><code>{{#var_type}}{{{var_type}}}{{/var_type}}{{^var_type}}{{{type.specName.0.value}}}{{/var_type}}</code><br>{{{description}}}{{>partials/uref/parameters}}</td>
           </tr>
       {{/parameters}}
       {{#parameters.0}}
