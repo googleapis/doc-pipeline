@@ -21,7 +21,7 @@ dependencies = [
     "gcp-docuploader",
     "semver",
     "six",
-    "protobuf==3.20.3",  # DO NOT UPGRADE. Keep pinned to 3.20.3.
+    "protobuf==4.25.8",  # DO NOT UPGRADE. Keep pinned to 3.20.3.
 ]
 
 packages = setuptools.find_packages()
