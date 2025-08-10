@@ -20,6 +20,7 @@ exports.transform = function (model) {
       case 'package':
       case 'namespace':
       case 'subpackage':
+      case 'crate':
         model.isNamespace = true;
         if (model.children) groupChildren(model, namespaceCategory);
         model[getTypePropertyName(model.type)] = true;
@@ -44,6 +45,8 @@ exports.transform = function (model) {
           break;
         }
       case 'interface':
+      case 'typealias':
+      case 'trait':
       case 'struct':
       case 'delegate':
         model.isClass = true;
@@ -362,6 +365,8 @@ var namespaceItems = {
   "interface":    { inInterface: true,    typePropertyName: "inInterface",    id: "interfaces" },
   "enum":         { inEnum: true,         typePropertyName: "inEnum",         id: "enums" },
   "delegate":     { inDelegate: true,     typePropertyName: "inDelegate",     id: "delegates" },
+  "crate":        { inCrate: true,        typePropertyName: "inCrate",        id: "crate" },
+  "trait":        { inTrait: true,        typePropertyName: "inTrait",        id: "trait" },
   "const":        { inConst: true,        typePropertyName: "inConst",        id: "consts",       isEmbedded: true },
   "variable":     { inVariable: true,     typePropertyName: "inVariable",     id: "variables",    isEmbedded: true },
   "property":     { inProperty: true,     typePropertyName: "inProperty",     id: "properties",   isEmbedded: true },
@@ -371,19 +376,25 @@ var namespaceItems = {
   "typealias":    { inTypeAlias: true,    typePropertyName: "inTypeAlias",    id: "typealiases",  isEmbedded: true },
 };
 var classItems = {
-  "constructor":  { inConstructor: true,  typePropertyName: "inConstructor",  id: "constructors" },
-  "field":        { inField: true,        typePropertyName: "inField",        id: "fields" },
-  "property":     { inProperty: true,     typePropertyName: "inProperty",     id: "properties" },
-  "method":       { inMethod: true,       typePropertyName: "inMethod",       id: "methods" },
-  "event":        { inEvent: true,        typePropertyName: "inEvent",        id: "events" },
-  "operator":     { inOperator: true,     typePropertyName: "inOperator",     id: "operators" },
-  "eii":          { inEii: true,          typePropertyName: "inEii",          id: "eii" },
-  "member":       { inMember: true,       typePropertyName: "inMember",       id: "members"},
-  "function":     { inFunction: true,     typePropertyName: "inFunction",     id: "functions" },
-  "enum":         { inEnum: true,         typePropertyName: "inEnum",         id: "enums" },
-  "enumvalue":    { inConst: true,        typePropertyName: "inConst",        id: "consts",      isEmbedded: true },
-  "const":        { inConst: true,        typePropertyName: "inConst",        id: "consts",      isEmbedded: true },
-  "typealias":    { inTypeAlias: true,    typePropertyName: "inTypeAlias",    id: "typealiases", isEmbedded: true },
+  "constructor":              { inConstructor: true,                typePropertyName: "inConstructor",                id: "constructors" },
+  "field":                    { inField: true,                      typePropertyName: "inField",                      id: "fields" },
+  "property":                 { inProperty: true,                   typePropertyName: "inProperty",                   id: "properties" },
+  "method":                   { inMethod: true,                     typePropertyName: "inMethod",                     id: "methods" },
+  "event":                    { inEvent: true,                      typePropertyName: "inEvent",                      id: "events" },
+  "operator":                 { inOperator: true,                   typePropertyName: "inOperator",                   id: "operators" },
+  "eii":                      { inEii: true,                        typePropertyName: "inEii",                        id: "eii" },
+  "member":                   { inMember: true,                     typePropertyName: "inMember",                     id: "members"},
+  "function":                 { inFunction: true,                   typePropertyName: "inFunction",                   id: "functions" },
+  "enum":                     { inEnum: true,                       typePropertyName: "inEnum",                       id: "enums" },
+  "enumvalue":                { inConst: true,                      typePropertyName: "inConst",                      id: "consts",                   isEmbedded: true },
+  "const":                    { inConst: true,                      typePropertyName: "inConst",                      id: "consts",                   isEmbedded: true },
+  "typealias":                { inTypeAlias: true,                  typePropertyName: "inTypeAlias",                  id: "typealiases",              isEmbedded: true },
+  "enumvariant":              { inEnumVariant: true,                typePropertyName: "inEnumVariant",                id: "enumVariants",             isEmbedded: true },
+  "implementation":           { inImplementation: true,             typePropertyName: "inImplementation",             id: "implementations",          isEmbedded: true },
+  "traitimplementation":      { inTraitImplementation: true,        typePropertyName: "inTraitImplementation",        id: "traitimplementations",     isEmbedded: true },
+  "autotraitimplementation":  { inAutoTraitImplementation: true,    typePropertyName: "inAutoTraitImplementation",    id: "autotraitimplementations", isEmbedded: true },
+  "blanketimplementation":    { inBlanketImplementation: true,      typePropertyName: "inBlanketImplementation",      id: "blanketimplementations",   isEmbedded: true },
+  "providedmethod":           { inProvidedMethod: true,             typePropertyName: "inProvidedMethod",             id: "providedmethods",          isEmbedded: true },
 };
 // Used for Ruby modules. Currently identical to classItems, except isEmbedded is true for methods.
 var rubyModuleItems = {

@@ -87,7 +87,9 @@ var titlePrefixForTypeProperty = {
     "variable": "Variable",
     "typealias": "Type Alias",
     "annotationtype": "Annotation Type",
-    "exception": "Exception"
+    "exception": "Exception",
+    "crate": "Crate",
+    "trait": "Trait"
 }
 
 /**
