@@ -53,6 +53,9 @@
 {{#inEnumVariant}}
 {{__global.enumVariantsInSubtitle}}
 {{/inEnumVariant}}
+{{#inEnumVariantNonExhaustive}}
+{{__global.enumVariantsNonExhaustiveInSubtitle}}
+{{/inEnumVariantNonExhaustive}}
 {{#inImplementation}}
 {{__global.implementationsInSubtitle}}
 {{/inImplementation}}
