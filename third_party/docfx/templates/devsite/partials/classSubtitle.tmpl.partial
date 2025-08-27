@@ -23,6 +23,9 @@
 {{#inField}}
 {{__global.fieldsInSubtitle}}
 {{/inField}}
+{{#inFieldNonExhaustive}}
+{{__global.fieldsNonExhaustiveInSubtitle}}
+{{/inFieldNonExhaustive}}
 {{#inProperty}}
 {{__global.propertiesInSubtitle}}
 {{/inProperty}}

@@ -391,6 +391,7 @@ var classItems = {
   "typealias":                { inTypeAlias: true,                  typePropertyName: "inTypeAlias",                  id: "typealiases",                isEmbedded: true },
   "enumvariant":              { inEnumVariant: true,                typePropertyName: "inEnumVariant",                id: "enumvariants",               isEmbedded: true },
   "enumvariantnonexhaustive": { inEnumVariantNonExhaustive: true,   typePropertyName: "inEnumVariantNonExhaustive",   id: "enumvariantsnonexhaustive",  isEmbedded: true },
+  "fieldnonexhaustive":       { inFieldNonExhaustive: true,         typePropertyName: "inFieldNonExhaustive",         id: "fieldsnonexhaustive",        isEmbedded: true },
   "implementation":           { inImplementation: true,             typePropertyName: "inImplementation",             id: "implementations",            isEmbedded: true },
   "traitimplementation":      { inTraitImplementation: true,        typePropertyName: "inTraitImplementation",        id: "traitimplementations",       isEmbedded: true },
   "autotraitimplementation":  { inAutoTraitImplementation: true,    typePropertyName: "inAutoTraitImplementation",    id: "autotraitimplementations",   isEmbedded: true },
