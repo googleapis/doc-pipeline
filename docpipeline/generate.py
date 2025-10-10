@@ -403,7 +403,7 @@ def build_blobs(blobs: List[storage.Blob]):
     successes = []
     for i, blob in enumerate(blobs):
         try:
-            log.info(f"Processing {i+1} of {len(blobs)}: {blob.name}...")
+            log.info(f"Processing {i + 1} of {len(blobs)}: {blob.name}...")
             if not blob.name.startswith("docfx"):
                 raise ValueError(
                     (
