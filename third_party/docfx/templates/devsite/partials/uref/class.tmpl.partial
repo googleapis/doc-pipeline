@@ -129,7 +129,7 @@
 {{/overloads.0}}
 {{#overloads}}
   <div class="codewrapper">
-    <pre class="prettyprint"><code>{{content}}</code></pre>
+    <pre class="prettyprint" data-code-snippet="true"><code>{{content}}</code></pre>
   </div>
   <div class="level1 summary">
     {{{description}}}
