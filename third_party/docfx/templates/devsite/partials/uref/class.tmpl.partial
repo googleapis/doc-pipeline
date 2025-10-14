@@ -2,7 +2,7 @@
 
 {{>partials/uref/class.header}}
 {{#children}}
-<h2 id="{{id}}">{{>partials/classSubtitle}}</h2>
+<h2 id="{{id}}">{{#inEnum}}{{__global.enum}}{{/inEnum}}{{^inEnum}}{{>partials/classSubtitle}}{{/inEnum}}</h2>
 {{#children}}
 {{^_disableContribution}}
 {{#docurl}}
