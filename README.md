@@ -76,7 +76,7 @@ Here's how it works in `doc-pipeline`:
 1. When we convert the YAML to HTML, we upload two things:
    1. The resulting HTML content (in a tarball).
    1. The xref map file to the `xrefs` directory of the bucket. You can see them
-      all using `gsutil ls gs://docs-staging-v2/xrefs`.
+      all using `gcloud storage ls gs://docs-staging-v2/xrefs`.
 1. You can use the `xref-services` argument for `docuploader create-metadata`
    to refer to
    [cross reference services](https://dotnet.github.io/docfx/tutorial/links_and_cross_references.html#cross-reference-services).
@@ -188,7 +188,7 @@ black docpipeline tests
 
 1. Create a Cloud Storage bucket and add a `docfx-*.tgz` file. For example:
    ```
-   gsutil cp gs://docs-staging-v2-dev/docfx-nodejs-scheduler-2.1.1.tar.gz gs://my-bucket
+   gcloud storage cp gs://docs-staging-v2-dev/docfx-nodejs-scheduler-2.1.1.tar.gz gs://my-bucket
    ```
 1. Copy a service account with permission to access `my-bucket` to
    `/dev/shm/73713_docuploader_service_account`.
