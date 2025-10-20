@@ -22,7 +22,7 @@ fi
 
 gcloud auth activate-service-account --key-file $KOKORO_KEYSTORE_DIR/73713_docuploader_service_account
 
-MATCHING_BLOBS=$(gsutil ls "$BLOB_TO_DELETE")
+MATCHING_BLOBS=$(gcloud storage ls "$BLOB_TO_DELETE")
 NUM_BLOBS=$(echo "$MATCHING_BLOBS" | wc -l)
 
 if [ $NUM_BLOBS -gt 1 ]; then
@@ -30,4 +30,4 @@ if [ $NUM_BLOBS -gt 1 ]; then
   exit 2
 fi
 
-gsutil rm "$BLOB_TO_DELETE"
+gcloud storage rm "$BLOB_TO_DELETE"
