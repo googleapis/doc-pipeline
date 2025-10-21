@@ -192,9 +192,9 @@ tomli==2.0.1 \
     #   coverage
     #   mypy
     #   pytest
-types-protobuf==4.21.0.3 \
-    --hash=sha256:6c87c7f8df61d57a53de8221777e4fcc3c7ed24419fbf43b8e9f50887f3773fa \
-    --hash=sha256:824109e0fe87525a9d2da4cc4eec36ca004f1a0f3d1c0838cfd2873a484cffdd
+types-protobuf==6.32.1.20250918 \
+    --hash=sha256:22ba6133d142d11cc34d3788ad6dead2732368ebb0406eaa7790ea6ae46c8d0b \
+    --hash=sha256:44ce0ae98475909ca72379946ab61a4435eec2a41090821e713c17e8faf5b88f
     # via -r requirements.in
 typing-extensions==4.13.1 \
     --hash=sha256:4b6cf02909eb5495cfbc3f6e8fd49217e6cc7944e145cdda8caa3734777f9e69 \
