@@ -248,7 +248,7 @@ def verify_content(html_blob, tmpdir):
     assert xref_path.is_file()
     got_text = xref_path.read_text("utf-8")
     assert got_text.startswith(
-        "### YamlMime:XRefMap\nbaseUrl: https://cloud.google.com"
+        "### YamlMime:XRefMap\nbaseUrl: https://docs.cloud.google.com"
     )
 
 
