@@ -10,7 +10,7 @@ branchProtectionRules:
   requiresCodeOwnerReviews: true
   requiresStrictStatusChecks: true
 permissionRules:
-  - team: onramp
+  - team: dkp-team
     permission: admin
   - team: yoshi
     permission: push
