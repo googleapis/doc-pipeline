@@ -202,8 +202,13 @@ def build_and_format(
     site_path = tmp_path.joinpath("site")
 
     log.info(f"Running `docfx build` for {blob_name} in {tmp_path}...")
+    exec_options = ["docfx", "build", "-t", f"{TEMPLATE_DIR.absolute()}"]
+    if blob_name.removeprefix("docfx-").startswith("go-"):
+        # Go blobs don't need parallelism, removing it will speed up DocFX
+        # builds.
+        exec_options.extend(["--maxParallelism", "1"])
     shell.run(
-        ["docfx", "build", "--maxParallelism", "1", "-t", f"{TEMPLATE_DIR.absolute()}"],
+        exec_options,
         cwd=tmp_path,
         hide_output=False,
     )
