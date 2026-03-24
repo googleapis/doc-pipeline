@@ -203,7 +203,7 @@ def build_and_format(
 
     log.info(f"Running `docfx build` for {blob_name} in {tmp_path}...")
     shell.run(
-        ["docfx", "build", "-t", f"{TEMPLATE_DIR.absolute()}"],
+        ["docfx", "build", "--maxParallelism", "1", "-t", f"{TEMPLATE_DIR.absolute()}"],
         cwd=tmp_path,
         hide_output=False,
     )
