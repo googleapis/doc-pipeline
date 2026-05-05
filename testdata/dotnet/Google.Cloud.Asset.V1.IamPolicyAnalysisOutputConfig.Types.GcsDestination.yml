@@ -140,7 +140,7 @@ items:
   assemblies:
   - Google.Cloud.Asset.V1
   namespace: Google.Cloud.Asset.V1
-  summary: "\nRequired. The uri of the Cloud Storage object. It&apos;s the same uri that is used by\ngsutil. Example: &quot;gs://bucket_name/object_name&quot;. See [Viewing and\nEditing Object\nMetadata](https://cloud.google.com/storage/docs/viewing-editing-metadata)\nfor more information.\n\nIf the specified Cloud Storage object already exists and there is no\n[hold](https://cloud.google.com/storage/docs/object-holds), it will be\noverwritten with the analysis result.\n"
+  summary: "\nRequired. The uri of the Cloud Storage object. It&apos;s the same uri that is used by\ngcloud storage. Example: &quot;gs://bucket_name/object_name&quot;. See [Viewing and\nEditing Object\nMetadata](https://cloud.google.com/storage/docs/viewing-editing-metadata)\nfor more information.\n\nIf the specified Cloud Storage object already exists and there is no\n[hold](https://cloud.google.com/storage/docs/object-holds), it will be\noverwritten with the analysis result.\n"
   example: []
   syntax:
     content: public string Uri { get; set; }
