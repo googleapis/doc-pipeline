@@ -49,6 +49,8 @@ items:
     type: class
     langs:
       - php
+    implements:
+      - \Google\Cloud\Vision\V1\ImageContext
     children:
       - '\Google\Cloud\Vision\V1\ImageAnnotatorClient::createImageObject()'
       - '\Google\Cloud\Vision\V1\ImageAnnotatorClient::annotateImage()'
