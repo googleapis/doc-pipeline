@@ -23,9 +23,8 @@ fi
 # Disable buffering, so that the logs stream through.
 export PYTHONUNBUFFERED=1
 
-# If running locally, copy a service account file to
-# /dev/shm/73713_docuploader_service_account before calling ci/trampoline_v2.sh.
-export GOOGLE_APPLICATION_CREDENTIALS=$KOKORO_KEYSTORE_DIR/73713_docuploader_service_account
+# Setup service account credentials.
+export GOOGLE_APPLICATION_CREDENTIALS=${KOKORO_GFILE_DIR}/service-account.json
 
 # Add the path where pip installs commands to PATH.
 export PATH=$PATH:${HOME}/.local/bin
