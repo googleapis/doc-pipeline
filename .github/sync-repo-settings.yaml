@@ -4,7 +4,6 @@ mergeCommitAllowed: false
 branchProtectionRules:
 - pattern: master
   requiredStatusCheckContexts:
-    - 'Kokoro CI'
     - 'cla/google'
   requiredApprovingReviewCount: 1
   requiresCodeOwnerReviews: true
