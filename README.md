@@ -105,13 +105,9 @@ If you want to use a different bucket than the default, set `SOURCE_BUCKET`.
 
 ### Deleting old content
 
-You can delete old tarballs using the `delete-blob` job. Trigger the job with
-the `BLOB_TO_DELETE` environment variable set to the full name of the blob
-you want to delete, for example `gs://my-bucket/lang-library-1.0.0.tar.gz`.
-
-Be sure to delete the `docfx-` and non-`docfx-` tarballs! Also, after deleting
-the tarball, be sure to delete the content on the site; it is not automatically
-deleted.
+You can delete old tarballs using the `gcloud storage rm`. Be sure to delete the
+`docfx-` and non-`docfx-` tarballs! Also, after deleting the tarball, be sure to
+delete the content on the site; it is not automatically deleted.
 
 ## Development
 
