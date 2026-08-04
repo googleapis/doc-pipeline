@@ -30,9 +30,6 @@ export GOOGLE_APPLICATION_CREDENTIALS=$KOKORO_KEYSTORE_DIR/73713_docuploader_ser
 # Add the path where pip installs commands to PATH.
 export PATH=$PATH:${HOME}/.local/bin
 
-# Change the current directory to the repo directory.
-cd github/doc-pipeline
-
 python3 -m pip install -e .
 # Install lint dependencies. types-protobuf is needed for mypy.
 python3 -m pip install -r requirements.txt
