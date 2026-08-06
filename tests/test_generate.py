@@ -20,7 +20,6 @@ import shutil
 import tempfile
 import unittest
 
-import docuploader.credentials
 from docuploader import shell, tar
 from docuploader.protos import metadata_pb2
 from google.cloud import storage
@@ -114,9 +113,7 @@ def init_test():
     if not test_bucket:
         pytest.skip("must set TEST_BUCKET")
 
-    credentials, project_id = docuploader.credentials.find(credentials_file="")
-
-    storage_client = storage.Client(project=project_id, credentials=credentials)
+    storage_client = storage.Client()
 
     return test_bucket, storage_client
 
