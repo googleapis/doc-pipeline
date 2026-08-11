@@ -18,7 +18,6 @@ import shutil
 import sys
 
 import click
-import docuploader.credentials
 from docuploader import log
 from google.cloud import storage
 
@@ -50,8 +49,7 @@ def main():
 @click.argument("bucket_name")
 def build_new_docs(bucket_name: str) -> None:
     verify()
-    credentials, project_id = docuploader.credentials.find(credentials_file="")
-    storage_client = storage.Client(project=project_id, credentials=credentials)
+    storage_client = storage.Client()
 
     try:
         generate.build_new_docs(bucket_name, storage_client)
@@ -64,8 +62,7 @@ def build_new_docs(bucket_name: str) -> None:
 @click.argument("bucket_name")
 def build_all_docs(bucket_name: str) -> None:
     verify()
-    credentials, project_id = docuploader.credentials.find(credentials_file="")
-    storage_client = storage.Client(project=project_id, credentials=credentials)
+    storage_client = storage.Client()
 
     try:
         generate.build_all_docs(bucket_name, storage_client)
@@ -78,8 +75,7 @@ def build_all_docs(bucket_name: str) -> None:
 @click.argument("bucket_name")
 def build_latest_docs(bucket_name: str) -> None:
     verify()
-    credentials, project_id = docuploader.credentials.find(credentials_file="")
-    storage_client = storage.Client(project=project_id, credentials=credentials)
+    storage_client = storage.Client()
     only_latest = True
 
     try:
@@ -94,8 +90,7 @@ def build_latest_docs(bucket_name: str) -> None:
 @click.argument("object_name")
 def build_one_doc(bucket_name: str, object_name: str) -> None:
     verify()
-    credentials, project_id = docuploader.credentials.find(credentials_file="")
-    storage_client = storage.Client(project=project_id, credentials=credentials)
+    storage_client = storage.Client()
 
     try:
         generate.build_one_doc(bucket_name, object_name, storage_client)
@@ -109,8 +104,7 @@ def build_one_doc(bucket_name: str, object_name: str) -> None:
 @click.argument("language")
 def build_language_docs(bucket_name: str, language: str) -> None:
     verify()
-    credentials, project_id = docuploader.credentials.find(credentials_file="")
-    storage_client = storage.Client(project=project_id, credentials=credentials)
+    storage_client = storage.Client()
 
     try:
         generate.build_language_docs(bucket_name, language, storage_client)
@@ -124,8 +118,7 @@ def build_language_docs(bucket_name: str, language: str) -> None:
 @click.argument("language")
 def build_latest_language_docs(bucket_name: str, language: str) -> None:
     verify()
-    credentials, project_id = docuploader.credentials.find(credentials_file="")
-    storage_client = storage.Client(project=project_id, credentials=credentials)
+    storage_client = storage.Client()
     only_latest = True
 
     try:

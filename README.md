@@ -24,18 +24,6 @@ You can generate DocFX YAML using language-specific generators.
 Here is how to use doc-pipeline. All of the steps except the credential setup
 should be automated/scripted as part of the release process.
 
-1. Fetch the credentials to be able to upload to the bucket. Add the following
-   to your Kokoro build config:
-   ```
-   before_action {
-      fetch_keystore {
-         keystore_resource {
-            keystore_config_id: 73713
-            keyname: "docuploader_service_account"
-         }
-      }
-   }
-   ```
 1. Generate DocFX YAML. Usually, this is done as part of the library release
    process.
 
@@ -48,7 +36,7 @@ should be automated/scripted as part of the release process.
    ```
    docuploader create-metadata
    ```
-   
+
    Add flags to specify the language, package, version etc. See
    [`docuploader`](https://pypi.org/project/gcp-docuploader).
 1. Upload the YAML with the `docfx` prefix:
@@ -159,7 +147,7 @@ black docpipeline tests
       1. ```
          black --check tests
          flake8 tests
-         GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json TEST_BUCKET=my-bucket pytest tests
+         TEST_BUCKET=my-bucket pytest tests
          ```
       1. To update goldens add the `--update-goldens` flag:
          ```
