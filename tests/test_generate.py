@@ -642,3 +642,18 @@ def test_get_path(lang, name, stem, expected):
     metadata.stem = stem
     got = generate.get_path(metadata)
     assert got == expected
+
+
+@parameterized.expand(
+    [
+        ("docfx-go-cloud.google.com/go/automl-v1.14.0.tar.gz", True),
+        ("docfx-go-cloud.google.com/go/maintenance-v1.0.0.tar.gz", True),
+        ("docfx-go-cloud.google.com/go/compute-v1.20.0.tar.gz", True),
+        ("docfx-go-cloud.google.com/go/compute/metadata-v0.2.3.tar.gz", False),
+        ("docfx-go-cloud.google.com/go/compute-something-v1.0.0.tar.gz", False),
+        ("docfx-go-cloud.google.com/go/storage-v1.51.0.tar.gz", False),
+        ("docfx-python-storageinsights-0.1.12.tar.gz", False),
+    ]
+)
+def test_should_skip_blob(blob_name, expected):
+    assert generate.should_skip_blob(blob_name) == expected
