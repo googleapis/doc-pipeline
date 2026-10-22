@@ -71,20 +71,20 @@ def _add_uuid_to_metadata(cwd, metadata_name) -> None:
 
 @pytest.fixture
 def yaml_dir(tmpdir) -> pathlib.Path:
-    shutil.copytree("testdata/go", tmpdir, dirs_exist_ok=True)
-    tmpdir_path = pathlib.Path(tmpdir)
-    _add_uuid_to_metadata(tmpdir_path, "docs.metadata")
-    _add_uuid_to_metadata(tmpdir_path, "docs.metadata.newer")
-    return tmpdir_path
+    yaml_path = pathlib.Path(tmpdir) / "yaml_input"
+    shutil.copytree("testdata/go", yaml_path, dirs_exist_ok=True)
+    _add_uuid_to_metadata(yaml_path, "docs.metadata")
+    _add_uuid_to_metadata(yaml_path, "docs.metadata.newer")
+    return yaml_path
 
 
 @pytest.fixture
 def api_dir(tmpdir) -> pathlib.Path:
-    shutil.copytree("testdata/go", tmpdir / "api", dirs_exist_ok=True)
-    shutil.copy("testdata/go/docs.metadata", tmpdir)
-    tmpdir_path = pathlib.Path(tmpdir)
-    _add_uuid_to_metadata(tmpdir_path, "docs.metadata")
-    return tmpdir_path
+    api_input_path = pathlib.Path(tmpdir) / "api_input"
+    shutil.copytree("testdata/go", api_input_path / "api", dirs_exist_ok=True)
+    shutil.copy("testdata/go/docs.metadata", api_input_path)
+    _add_uuid_to_metadata(api_input_path, "docs.metadata")
+    return api_input_path
 
 
 def swap_file(parent_dir, file1, file2):
@@ -95,19 +95,39 @@ def swap_file(parent_dir, file1, file2):
     os.remove(temp_file)
 
 
+def _is_current_run_or_shared_blob(blob_name: str, uuid: str = _UUID) -> bool:
+    if not any(blob_name.startswith(prefix) for prefix in _TEST_BLOB_PREFIXES):
+        return True
+    return f"+{uuid}" in blob_name
+
+
+def _wrap_storage_client(storage_client, uuid: str = _UUID):
+    orig_list_blobs = storage_client.list_blobs
+    storage_client._unfiltered_list_blobs = orig_list_blobs
+    storage_client.list_blobs = lambda *args, **kwargs: [
+        blob
+        for blob in orig_list_blobs(*args, **kwargs)
+        if _is_current_run_or_shared_blob(blob.name, uuid)
+    ]
+    return storage_client
+
+
 # Initializes key variables needed for the test
 def init_test():
     test_bucket = os.environ.get("TEST_BUCKET")
     if not test_bucket:
         pytest.skip("must set TEST_BUCKET")
 
-    storage_client = storage.Client()
+    storage_client = _wrap_storage_client(storage.Client())
 
     return test_bucket, storage_client
 
 
 def clean_up_bucket(storage_client, test_bucket):
-    blobs = list(storage_client.list_blobs(test_bucket))
+    list_blobs_fn = storage_client.__dict__.get(
+        "_unfiltered_list_blobs", storage_client.list_blobs
+    )
+    blobs = list(list_blobs_fn(test_bucket))
     for blob in blobs:
         # If blob starts with any of the prefixes to delete, mark for deletion.
         if (
@@ -121,6 +141,31 @@ def clean_up_bucket(storage_client, test_bucket):
             blob.delete()
         except Exception:
             continue
+
+
+def clean_up_current_run(storage_client, test_bucket, uuid: str = _UUID):
+    list_blobs_fn = storage_client.__dict__.get(
+        "_unfiltered_list_blobs", storage_client.list_blobs
+    )
+    blobs = list(list_blobs_fn(test_bucket))
+    for blob in blobs:
+        if f"+{uuid}" not in blob.name or not any(
+            blob.name.startswith(prefix) for prefix in _TEST_BLOB_PREFIXES
+        ):
+            continue
+
+        try:
+            blob.delete()
+        except Exception:
+            continue
+
+
+@pytest.fixture(scope="module", autouse=True)
+def cleanup_test_run():
+    yield
+    test_bucket = os.environ.get("TEST_BUCKET")
+    if test_bucket:
+        clean_up_current_run(storage.Client(), test_bucket)
 
 
 def upload_yaml(cwd, test_bucket):
@@ -612,8 +657,66 @@ class TestGenerate(unittest.TestCase):
 
         storage_client = mock.MagicMock()
         storage_client.list_blobs.return_value = blobs_to_delete + blobs_to_keep
+        _wrap_storage_client(storage_client, uuid="456")
 
         clean_up_bucket(storage_client, "doc-pipeline-test")
+
+        for blob in blobs_to_delete:
+            blob.delete.assert_called_once_with()
+        for blob in blobs_to_keep:
+            blob.delete.assert_not_called()
+
+    def test_wrap_storage_client_filters_other_runs(self):
+        def make_blob(name):
+            blob = mock.MagicMock()
+            blob.name = name
+            return blob
+
+        current_run_blobs = [
+            make_blob("docfx-go-cloud.google.com/go/storage-v1.51.0+111.tar.gz"),
+            make_blob("go-cloud.google.com/go/storage-v1.51.0+111.tar.gz"),
+            make_blob("xrefs/go-cloud.google.com/go/storage-v1.51.0+111.tar.gz.yml"),
+            make_blob("xrefs/dotnet-my-pkg-1.0.0.tar.gz.yml"),
+        ]
+        other_run_blobs = [
+            make_blob("docfx-go-cloud.google.com/go/storage-v1.51.0+222.tar.gz"),
+            make_blob("docfx-go-cloud.google.com/go/storage-v1.51.1+222.tar.gz"),
+            make_blob("go-cloud.google.com/go/storage-v1.51.0+222.tar.gz"),
+            make_blob("xrefs/go-cloud.google.com/go/storage-v1.51.0+222.tar.gz.yml"),
+        ]
+
+        storage_client = mock.MagicMock()
+        storage_client.list_blobs.return_value = current_run_blobs + other_run_blobs
+        _wrap_storage_client(storage_client, uuid="111")
+
+        got = storage_client.list_blobs("doc-pipeline-test")
+        self.assertEqual(got, current_run_blobs)
+
+    def test_clean_up_current_run(self):
+        def make_blob(name):
+            blob = mock.MagicMock()
+            blob.name = name
+            return blob
+
+        blobs_to_delete = [
+            make_blob("docfx-go-cloud.google.com/go/storage-v1.51.0+111.tar.gz"),
+            make_blob("docfx-go-cloud.google.com/go/storage-v1.51.1+111.tar.gz"),
+            make_blob("go-cloud.google.com/go/storage-v1.51.0+111.tar.gz"),
+            make_blob("go-cloud.google.com/go/storage-v1.51.1+111.tar.gz"),
+            make_blob("xrefs/go-cloud.google.com/go/storage-v1.51.0+111.tar.gz.yml"),
+            make_blob("xrefs/go-cloud.google.com/go/storage-v1.51.1+111.tar.gz.yml"),
+        ]
+        blobs_to_keep = [
+            make_blob("docfx-go-cloud.google.com/go/storage-v1.51.0+222.tar.gz"),
+            make_blob("go-cloud.google.com/go/storage-v1.51.0+222.tar.gz"),
+            make_blob("xrefs/go-cloud.google.com/go/storage-v1.51.0+222.tar.gz.yml"),
+            make_blob("xrefs/dotnet-my-pkg-1.0.0.tar.gz.yml"),
+        ]
+
+        storage_client = mock.MagicMock()
+        storage_client.list_blobs.return_value = blobs_to_delete + blobs_to_keep
+
+        clean_up_current_run(storage_client, "doc-pipeline-test", uuid="111")
 
         for blob in blobs_to_delete:
             blob.delete.assert_called_once_with()
