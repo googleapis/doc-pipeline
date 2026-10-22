@@ -19,6 +19,7 @@ import pathlib
 import shutil
 import tempfile
 import unittest
+from unittest import mock
 
 from docuploader import shell, tar
 from docuploader.protos import metadata_pb2
@@ -36,29 +37,16 @@ _UUID = str(datetime.datetime.now(tz=datetime.timezone.utc).timestamp()).replace
 )
 
 # Prefixes to check to delete test blobs if found.
-_HTML_BLOB_PREFIX = "go-cloud.google.com/go/storage-v1.51.0"
+_HTML_BLOB_PREFIX = "go-cloud.google.com/go/storage"
 _TEST_BLOB_PREFIXES = (
-    "docfx-go-cloud.google.com/go/storage-v1.52.0",
-    "go-cloud.google.com/go/storage-v1.52.0",
-    "docfx-go-cloud.google.com/go/storage-v1.51.1",
-    "go-cloud.google.com/go/storage-v1.51.1",
-    "docfx-go-cloud.google.com/go/storage-v1.51.0",
-    "go-cloud.google.com/go/storage-v1.51.0",
+    f"docfx-{_HTML_BLOB_PREFIX}",
+    _HTML_BLOB_PREFIX,
     f"{generate.XREFS_DIR_NAME}/{_HTML_BLOB_PREFIX}",
 )
 
 # Blob names with UUID for testing.
 _UNIQUE_YAML_BLOB_NAME = f"docfx-go-cloud.google.com/go/storage-v1.51.0+{_UUID}.tar.gz"
 _UNIQUE_HTML_BLOB_NAME = f"go-cloud.google.com/go/storage-v1.51.0+{_UUID}.tar.gz"
-_UNIQUE_BLOBS_WITH_UUID = (
-    f"docfx-go-cloud.google.com/go/storage-v1.52.0+{_UUID}.tar.gz",
-    f"go-cloud.google.com/go/storage-v1.52.0+{_UUID}.tar.gz",
-    f"docfx-go-cloud.google.com/go/storage-v1.51.1+{_UUID}.tar.gz",
-    f"go-cloud.google.com/go/storage-v1.51.1+{_UUID}.tar.gz",
-    _UNIQUE_YAML_BLOB_NAME,
-    _UNIQUE_HTML_BLOB_NAME,
-    f"{generate.XREFS_DIR_NAME}/{_UNIQUE_HTML_BLOB_NAME}.yml",
-)
 
 _XREF_BLOBS = (
     "xrefs/go-unused-v0.0.1.tar.gz.yml",
@@ -124,7 +112,7 @@ def clean_up_bucket(storage_client, test_bucket):
         # If blob starts with any of the prefixes to delete, mark for deletion.
         if (
             datetime.datetime.now(tz=datetime.timezone.utc) - blob.time_created
-        ).days == 0 or not all(
+        ).days == 0 or not any(
             blob.name.startswith(prefix) for prefix in _TEST_BLOB_PREFIXES
         ):
             continue
@@ -578,6 +566,59 @@ class TestGenerate(unittest.TestCase):
         blob_name = "docfx-python-spanner-3.7.0.tar.gz"
         got = list(generate.parse_blob_name(blob_name))
         self.assertCountEqual(want, got)
+
+    def test_clean_up_bucket(self):
+        now = datetime.datetime.now(tz=datetime.timezone.utc)
+        old_time = now - datetime.timedelta(days=2)
+        recent_time = now - datetime.timedelta(hours=1)
+
+        def make_blob(name, time_created):
+            blob = mock.MagicMock()
+            blob.name = name
+            blob.time_created = time_created
+            return blob
+
+        blobs_to_delete = [
+            make_blob(
+                "docfx-go-cloud.google.com/go/storage-v1.51.0+123.tar.gz", old_time
+            ),
+            make_blob(
+                "docfx-go-cloud.google.com/go/storage-v1.51.1+123.tar.gz", old_time
+            ),
+            make_blob("go-cloud.google.com/go/storage-v1.51.0+123.tar.gz", old_time),
+            make_blob("go-cloud.google.com/go/storage-v1.51.1+123.tar.gz", old_time),
+            make_blob(
+                "xrefs/go-cloud.google.com/go/storage-v1.51.0+123.tar.gz.yml", old_time
+            ),
+            make_blob(
+                "xrefs/go-cloud.google.com/go/storage-v1.51.1+123.tar.gz.yml", old_time
+            ),
+            make_blob(
+                "xrefs/go-cloud.google.com/go/storage-v1.40.0+123.tar.gz.yml", old_time
+            ),
+        ]
+        blobs_to_keep = [
+            make_blob(
+                "docfx-go-cloud.google.com/go/storage-v1.51.0+456.tar.gz", recent_time
+            ),
+            make_blob("go-cloud.google.com/go/storage-v1.51.0+456.tar.gz", recent_time),
+            make_blob(
+                "xrefs/go-cloud.google.com/go/storage-v1.51.0+456.tar.gz.yml",
+                recent_time,
+            ),
+            make_blob("xrefs/dotnet-my-pkg-1.0.0.tar.gz.yml", old_time),
+            make_blob("xrefs/go-unused-v0.0.1.tar.gz.yml", old_time),
+        ]
+
+        storage_client = mock.MagicMock()
+        storage_client.list_blobs.return_value = blobs_to_delete + blobs_to_keep
+
+        clean_up_bucket(storage_client, "doc-pipeline-test")
+
+        for blob in blobs_to_delete:
+            blob.delete.assert_called_once_with()
+        for blob in blobs_to_keep:
+            blob.delete.assert_not_called()
 
 
 @pytest.mark.parametrize(
