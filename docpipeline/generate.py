@@ -75,8 +75,8 @@ DOCFX_JSON_TEMPLATE = """
 
 SKIPPED_BLOB_PREFIXES = (
     "docfx-go-cloud.google.com/go/automl-",
-    "docfx-go-cloud.google.com/go/maintenance-",
     "docfx-go-cloud.google.com/go/compute-",
+    "docfx-go-cloud.google.com/go/maintenance-",
 )
 
 
