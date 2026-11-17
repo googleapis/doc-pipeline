@@ -23,7 +23,6 @@ from google.cloud import storage
 
 from docpipeline import generate, local_generate
 
-
 # The docuploader logger is initialized as "docuploader"; change it to docpipeline.
 log.logger = logging.getLogger("docpipeline")
 
