@@ -30,7 +30,6 @@ import pytest
 
 from docpipeline import generate, local_generate
 
-
 # Unique identifier for running tests in parallel.
 _UUID = str(datetime.datetime.now(tz=datetime.timezone.utc).timestamp()).replace(
     ".", ""
@@ -595,9 +594,7 @@ class TestGenerate(unittest.TestCase):
       <failure message="Failed" />
     </testcase>
   </testsuite>
-</testsuites>""".format(
-            job_name
-        )
+</testsuites>""".format(job_name)
         f = io.StringIO()
         successes = ["hello"]
         failures = ["goodbye"]
