@@ -21,7 +21,7 @@ dependencies = [
     "gcp-docuploader>=0.8.0",
     "semver",
     "six",
-    "protobuf==5.29.6",
+    "protobuf==7.36.2",
 ]
 
 packages = setuptools.find_packages()
