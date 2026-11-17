@@ -60,7 +60,7 @@ def test_goldens(update_goldens, tmpdir, test_dir):
         golden_files
     ), f"got {len(output_files)} files, want {len(golden_files)}:\n{extra}\n{missing}"
 
-    (eq, neq, other) = filecmp.cmpfiles(
+    eq, neq, other = filecmp.cmpfiles(
         output_dir, golden_dir, output_files, shallow=False
     )
     other = [(output_dir / f).as_posix() for f in other]
