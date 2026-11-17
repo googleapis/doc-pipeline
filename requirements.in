@@ -1,7 +1,7 @@
 flake8==6.1.0
-black==24.3.0
+black==26.3.1
 parameterized==0.8.1
-pytest==7.2.1
+pytest==9.0.3
 pytest-cov==4.0.0
 mypy==0.991
 types-protobuf==4.21.0.3
