@@ -30,7 +30,6 @@ from docpipeline import prepare
 
 import semver
 
-
 DOCFX_PREFIX = "docfx-"
 
 XREFS_DIR_NAME = "xrefs"
