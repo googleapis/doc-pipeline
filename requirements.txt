@@ -4,8 +4,6 @@
 #
 #    pip-compile --allow-unsafe --generate-hashes requirements.in
 #
---index-url http://airlock-proxy.uplink.goog:999/python/artifact-foundry-prod/python-3p-limited-internal-use/simple/
---trusted-host airlock-proxy.uplink.goog
 
 black==26.10.1 \
     --hash=sha256:03c0ddd93bb392e71209903a691767eb366fe1a76deb9509ccbaae9e1f14bb52 \
