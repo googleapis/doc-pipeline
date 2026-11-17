@@ -18,10 +18,10 @@ import setuptools
 dependencies = [
     "click",
     "google-cloud-storage<2.19.1",
-    "gcp-docuploader",
+    "gcp-docuploader>=0.8.0",
     "semver",
     "six",
-    "protobuf==3.20.3",  # DO NOT UPGRADE. Keep pinned to 3.20.3.
+    "protobuf==5.29.6",
 ]
 
 packages = setuptools.find_packages()
